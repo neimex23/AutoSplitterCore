@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00816FD1-20D3-483C-8731-3F7195E8EE71}</ProjectGuid>
+    <ProjectGuid>{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutoSplitterCore</RootNamespace>
@@ -17,65 +17,58 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\DebugWin\AutoSplitterCore\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\ReleaseWin\AutoSplitterCore\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>AutoSplitterCoreSource\AutoSplitterSetupIcon.ico</ApplicationIcon>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <ApplicationIcon>Source\AutoSplitterSetupIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HitCounterManager">
-      <HintPath>AutoSplitterCoreSource\HitCounterManager.dll</HintPath>
+      <HintPath>Source\HitCounterManager.dll</HintPath>
     </Reference>
     <Reference Include="Irony">
-      <HintPath>AutoSplitterCoreSource\Irony.dll</HintPath>
+      <HintPath>Source\Irony.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Celeste, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>AutoSplitterCoreSource\LiveSplit.Celeste.dll</HintPath>
+    <Reference Include="LiveSplit.Celeste">
+      <HintPath>Source\LiveSplit.Celeste.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Core">
-      <HintPath>AutoSplitterCoreSource\LiveSplit.Core.dll</HintPath>
+      <HintPath>Source\LiveSplit.Core.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Cuphead, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>AutoSplitterCoreSource\LiveSplit.Cuphead.dll</HintPath>
+    <Reference Include="LiveSplit.Cuphead">
+      <HintPath>Source\LiveSplit.Cuphead.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.HollowKnight, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>AutoSplitterCoreSource\LiveSplit.HollowKnight.dll</HintPath>
+    <Reference Include="LiveSplit.HollowKnight">
+      <HintPath>Source\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.ScriptableAutoSplit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>AutoSplitterCoreSource\LiveSplit.ScriptableAutoSplit.dll</HintPath>
+    <Reference Include="LiveSplit.ScriptableAutoSplit">
+      <HintPath>Source\LiveSplit.ScriptableAutoSplit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>AutoSplitterCoreSource\Newtonsoft.Json.dll</HintPath>
+      <HintPath>Source\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SoulMemory">
-      <HintPath>AutoSplitterCoreSource\SoulMemory.dll</HintPath>
+      <HintPath>Source\SoulMemory.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,64 +79,61 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoSplitterCoreSource\AutoSplitter.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\AslConfigurator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoSplitterCoreSource\AutoSplitter.Designer.cs">
-      <DependentUpon>AutoSplitter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AutoSplitterCoreSource\AslSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\CelesteSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\CupheadSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\DataAutoSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\Ds1Splitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\Ds2Splitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\Ds3Splitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTCeleste.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTCuphead.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTDs1.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTDs2.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTDs3.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTElden.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTHollow.cs" />
-    <Compile Include="AutoSplitterCoreSource\DTSekiro.cs" />
-    <Compile Include="AutoSplitterCoreSource\EldenSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\AslConfigurator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AutoSplitterCoreSource\AslConfigurator.Designer.cs">
+    <Compile Include="Source\AslConfigurator.Designer.cs">
       <DependentUpon>AslConfigurator.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutoSplitterCoreSource\HollowSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\IGTModule.cs" />
-    <Compile Include="AutoSplitterCoreSource\AutoSplitterMainModule.cs" />
-    <Compile Include="AutoSplitterCoreSource\AssemblyInfo.cs" />
-    <Compile Include="AutoSplitterCoreSource\SaveModule.cs" />
-    <Compile Include="AutoSplitterCoreSource\SekiroSplitter.cs" />
-    <Compile Include="AutoSplitterCoreSource\Program.cs" />
-    <Compile Include="AutoSplitterCoreSource\Debug.cs">
+    <Compile Include="Source\AslSplitter.cs" />
+    <Compile Include="Source\AutoSplitter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoSplitterCoreSource\Debug.Designer.cs">
+    <Compile Include="Source\AutoSplitter.Designer.cs">
+      <DependentUpon>AutoSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\AutoSplitterMainModule.cs" />
+    <Compile Include="Source\CelesteSplitter.cs" />
+    <Compile Include="Source\CupheadSplitter.cs" />
+    <Compile Include="Source\DataAutoSplitter.cs" />
+    <Compile Include="Source\Debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Debug.Designer.cs">
       <DependentUpon>Debug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Ds1Splitter.cs" />
+    <Compile Include="Source\Ds2Splitter.cs" />
+    <Compile Include="Source\Ds3Splitter.cs" />
+    <Compile Include="Source\DTCeleste.cs" />
+    <Compile Include="Source\DTCuphead.cs" />
+    <Compile Include="Source\DTDs1.cs" />
+    <Compile Include="Source\DTDs2.cs" />
+    <Compile Include="Source\DTDs3.cs" />
+    <Compile Include="Source\DTElden.cs" />
+    <Compile Include="Source\DTHollow.cs" />
+    <Compile Include="Source\DTSekiro.cs" />
+    <Compile Include="Source\EldenSplitter.cs" />
+    <Compile Include="Source\HollowSplitter.cs" />
+    <Compile Include="Source\IGTModule.cs" />
+    <Compile Include="Source\Program.cs" />
+    <Compile Include="Source\SaveModule.cs" />
+    <Compile Include="Source\SekiroSplitter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AutoSplitterCoreSource\AslConfigurator.resx">
+    <EmbeddedResource Include="Source\AslConfigurator.resx">
       <DependentUpon>AslConfigurator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutoSplitterCoreSource\AutoSplitter.resx">
+    <EmbeddedResource Include="Source\AutoSplitter.resx">
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutoSplitterCoreSource\Debug.resx">
+    <EmbeddedResource Include="Source\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AutoSplitterCoreSource\AutoSplitterSetupIcon.ico" />
+    <Content Include="Source\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

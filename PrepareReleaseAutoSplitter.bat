@@ -2,7 +2,7 @@
 
 REM MIT License
 
-REM Copyright(c) 2022 Peter Kirmeier and Ezequiel Medina
+REM Copyright(c) 2022 Ezequiel Medina - Neimex23
 REM Based on "PrepareRelease.bat" by Peter Kirmeier
 
 REM Permission Is hereby granted, free Of charge, to any person obtaining a copy
@@ -33,7 +33,7 @@ set PR_FINAL=FinalFiles
 if not exist %PR_FINAL% mkdir %PR_FINAL%
 
 echo Packing Portable AutoSplitterCore Release:
-set PR_BASE=bin\ReleaseWin\AutoSplitterCore
+set PR_BASE=bin\Release
 set PR_TARGET=%PR_FINAL%\AutoSplitterCorePortable
 set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v1.x.0.zip
 rmdir /S /Q %PR_TARGET% 2>nul
