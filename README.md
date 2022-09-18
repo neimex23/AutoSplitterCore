@@ -1,4 +1,10 @@
 # **AutoSplitterCore Extension for HCM**
+[![Download latest version here](https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge)](../../releases/latest)
+
+[![Releases](https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases/latest)
+[![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
+[![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
+
 * This is a **Non-Oficial** Extension for HCM can give you the possibility to Automatically split when an event happen in a game
 * Posibility to AutoSplit for:
  Dark Souls 1, Dark Souls 2, Dark Souls 3, Sekiro Shadow Die Twice, Elden Ring, Hollow Knight, Celeste, Cuphead and Others 
