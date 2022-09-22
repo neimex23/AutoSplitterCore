@@ -37,6 +37,9 @@
   <PropertyGroup>
     <ApplicationIcon>Source\AutoSplitterSetupIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HitCounterManager">
       <HintPath>Source\HitCounterManager.dll</HintPath>

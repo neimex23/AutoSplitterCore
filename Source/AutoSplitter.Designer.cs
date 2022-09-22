@@ -46,6 +46,8 @@ namespace AutoSplitterCore
             this.btnSekiro = new System.Windows.Forms.Button();
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.TextBoxManual = new System.Windows.Forms.TextBox();
+            this.tabLicense = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
             this.btnDesactiveAllTiming = new System.Windows.Forms.Button();
             this.groupBoxTHK = new System.Windows.Forms.GroupBox();
@@ -441,12 +443,12 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new System.Windows.Forms.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
-            this.tabLicense = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxSplitters.SuspendLayout();
             this.tabInfo.SuspendLayout();
+            this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
             this.groupBoxTHK.SuspendLayout();
             this.groupBoxATHk.SuspendLayout();
@@ -530,7 +532,6 @@ namespace AutoSplitterCore
             this.tabCuphead.SuspendLayout();
             this.panelBossCuphead.SuspendLayout();
             this.panelLevelCuphead.SuspendLayout();
-            this.tabLicense.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl2
@@ -565,6 +566,7 @@ namespace AutoSplitterCore
             // 
             // groupBoxSplitters
             // 
+            this.groupBoxSplitters.Controls.Add(this.btnAbout);
             this.groupBoxSplitters.Controls.Add(this.btnTiming);
             this.groupBoxSplitters.Controls.Add(this.btnASL);
             this.groupBoxSplitters.Controls.Add(this.btnCuphead);
@@ -585,7 +587,7 @@ namespace AutoSplitterCore
             // 
             // btnTiming
             // 
-            this.btnTiming.Location = new System.Drawing.Point(291, 107);
+            this.btnTiming.Location = new System.Drawing.Point(291, 92);
             this.btnTiming.Name = "btnTiming";
             this.btnTiming.Size = new System.Drawing.Size(89, 28);
             this.btnTiming.TabIndex = 8;
@@ -595,7 +597,7 @@ namespace AutoSplitterCore
             // 
             // btnASL
             // 
-            this.btnASL.Location = new System.Drawing.Point(291, 75);
+            this.btnASL.Location = new System.Drawing.Point(291, 58);
             this.btnASL.Name = "btnASL";
             this.btnASL.Size = new System.Drawing.Size(89, 28);
             this.btnASL.TabIndex = 1;
@@ -708,6 +710,31 @@ namespace AutoSplitterCore
             this.TextBoxManual.TabIndex = 2;
             this.TextBoxManual.TabStop = false;
             this.TextBoxManual.Text = resources.GetString("TextBoxManual.Text");
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BackColor = System.Drawing.SystemColors.Control;
+            this.tabLicense.Controls.Add(this.textBox2);
+            this.tabLicense.Location = new System.Drawing.Point(4, 22);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(587, 351);
+            this.tabLicense.TabIndex = 12;
+            this.tabLicense.Text = "License";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(6, 6);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(575, 339);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = resources.GetString("textBox2.Text");
             // 
             // tabTiming
             // 
@@ -6877,30 +6904,15 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
-            // tabLicense
+            // btnAbout
             // 
-            this.tabLicense.BackColor = System.Drawing.SystemColors.Control;
-            this.tabLicense.Controls.Add(this.textBox2);
-            this.tabLicense.Location = new System.Drawing.Point(4, 22);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(587, 351);
-            this.tabLicense.TabIndex = 12;
-            this.tabLicense.Text = "License";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(6, 6);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(575, 339);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TabStop = false;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
+            this.btnAbout.Location = new System.Drawing.Point(291, 126);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(89, 28);
+            this.btnAbout.TabIndex = 9;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // AutoSplitter
             // 
@@ -6919,6 +6931,8 @@ namespace AutoSplitterCore
             this.groupBoxSplitters.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
             this.tabInfo.PerformLayout();
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
             this.groupBoxTHK.ResumeLayout(false);
@@ -7061,8 +7075,6 @@ namespace AutoSplitterCore
             this.tabCuphead.PerformLayout();
             this.panelBossCuphead.ResumeLayout(false);
             this.panelLevelCuphead.ResumeLayout(false);
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -7481,5 +7493,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxMortalJourneyRun;
         private System.Windows.Forms.TabPage tabLicense;
         internal System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnAbout;
     }
 }

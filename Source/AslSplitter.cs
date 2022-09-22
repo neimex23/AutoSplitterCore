@@ -108,8 +108,8 @@ namespace AutoSplitterCore
                  {
                      if (asl.Script.shouldSplit)
                      {
-                        if (!_PracticeMode) { SplitCheck(); }     
                         asl.Script.shouldSplit = false;
+                        if (!_PracticeMode) { SplitCheck(); }                           
                      }
                  }
              }

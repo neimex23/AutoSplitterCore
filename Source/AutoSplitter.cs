@@ -68,8 +68,6 @@ namespace AutoSplitterCore
             #region ControlTab
             TabControl2.TabPages.Clear();
             TabControl2.TabPages.Add(tabConfig);
-            TabControl2.TabPages.Add(tabInfo);
-            TabControl2.TabPages.Add(tabLicense);
             #endregion
             #region SekiroTab       
             panelPositionS.Hide();
@@ -884,6 +882,19 @@ namespace AutoSplitterCore
         private void radioIGTHollow_CheckedChanged(object sender, EventArgs e)
         {
             _ = radioIGTHollow.Checked == true ? hollowSplitter.dataHollow.gameTimer = true : hollowSplitter.dataHollow.gameTimer = false;
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            if (!TabControl2.TabPages.Contains(tabInfo))
+            {
+                TabControl2.TabPages.Add(tabInfo);
+            }
+            if (!TabControl2.TabPages.Contains(tabLicense))
+            {
+                TabControl2.TabPages.Add(tabLicense);
+            }
+            TabControl2.SelectTab(tabInfo);
         }
 
         private void btnSekiro_Click(object sender, EventArgs e)
@@ -3013,6 +3024,7 @@ namespace AutoSplitterCore
                 TabControl2.SelectTab(tabDs1);
             }
         }
+
 
 
         #endregion
