@@ -35,6 +35,7 @@ namespace AutoSplitterCore
         /// </summary>
         /// 
         public DataAutoSplitter dataAS = new DataAutoSplitter();
+        public bool _PracticeMode = false;
         private SekiroSplitter sekiroSplitter = null;
         private Ds1Splitter ds1Splitter = null;
         private Ds2Splitter ds2Splitter = null;
@@ -92,6 +93,7 @@ namespace AutoSplitterCore
             dataAS.DataCeleste = celesteSplitter.getDataCeleste();
             dataAS.DataCuphead = cupSplitter.getDataCuphead();
             dataAS.ASLMethod = aslSplitter.enableSplitting;
+            dataAS.PracticeMode = _PracticeMode;
             formatter.Serialize(myStream, dataAS);
             myStream.Close();
             XmlDocument Save = new XmlDocument();
@@ -131,6 +133,7 @@ namespace AutoSplitterCore
                 dataCeleste = dataAS.DataCeleste;
                 dataCuphead = dataAS.DataCuphead;
                 aslSplitter.enableSplitting = dataAS.ASLMethod;
+                _PracticeMode = dataAS.PracticeMode;
                 myStream.Close();
             }
             catch (Exception) { }

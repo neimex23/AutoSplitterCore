@@ -54,6 +54,7 @@
             this.textBoxZ = new System.Windows.Forms.TextBox();
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxX = new System.Windows.Forms.TextBox();
+            this.checkBoxPracticeMode = new System.Windows.Forms.CheckBox();
             this.groupBoxDebug.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -328,11 +329,24 @@
             this.textBoxX.Size = new System.Drawing.Size(52, 20);
             this.textBoxX.TabIndex = 11;
             // 
+            // checkBoxPracticeMode
+            // 
+            this.checkBoxPracticeMode.AutoSize = true;
+            this.checkBoxPracticeMode.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.checkBoxPracticeMode.Location = new System.Drawing.Point(117, 50);
+            this.checkBoxPracticeMode.Name = "checkBoxPracticeMode";
+            this.checkBoxPracticeMode.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxPracticeMode.TabIndex = 67;
+            this.checkBoxPracticeMode.Text = "Practice Mode";
+            this.checkBoxPracticeMode.UseVisualStyleBackColor = true;
+            this.checkBoxPracticeMode.CheckedChanged += new System.EventHandler(this.checkBoxPracticeMode_CheckedChanged);
+            // 
             // Debug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 304);
+            this.Controls.Add(this.checkBoxPracticeMode);
             this.Controls.Add(this.groupBoxDebug);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStatusSplitting);
@@ -347,6 +361,7 @@
             this.groupBoxDebug.ResumeLayout(false);
             this.groupBoxDebug.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -377,5 +392,6 @@
         private System.Windows.Forms.Button btnSplitCf;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCfID;
+        private System.Windows.Forms.CheckBox checkBoxPracticeMode;
     }
 }

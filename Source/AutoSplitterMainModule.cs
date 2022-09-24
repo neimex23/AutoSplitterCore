@@ -27,6 +27,9 @@ using System.Text;
 using System.Threading.Tasks;
 using HitCounterManager;
 using System.Windows.Forms;
+using SoulMemory.Sekiro;
+using static LiveSplit.ASL.ASLScript;
+using System.Net.NetworkInformation;
 
 namespace AutoSplitterCore
 {
@@ -48,6 +51,18 @@ namespace AutoSplitterCore
         private ProfilesControl profCtrl;
         private Form1 main;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
+        public List<string> GameList = new List<string>()
+        {
+            "Sekiro",
+            "Dark Souls 1",
+            "Dark Souls 2",
+            "Dark Souls 3",
+            "Elden Ring",
+            "Hollow Knight",
+            "Celeste",
+            "Cuphead",
+            "ASL Method"
+        };
 
         public void InitDebug()
         {
@@ -90,6 +105,11 @@ namespace AutoSplitterCore
             saveModule.SaveAutoSplitterSettings();
         }
 
+        public List<string> GetGames()
+        {
+            return this.GameList;
+        }
+
         public int GetSplitterEnable()
         {
             if (sekiroSplitter.dataSekiro.enableSplitting) { return 1; }
@@ -109,9 +129,15 @@ namespace AutoSplitterCore
             return igtModule.ReturnCurrentIGT();
         }
 
+        public bool GetPracticeMode()
+        {
+            return saveModule._PracticeMode;
+        }
+
         public void SetPracticeMode(bool status)
         {
             _PracticeMode = status;
+            saveModule._PracticeMode = status;
             sekiroSplitter._PracticeMode = status;
             ds1Splitter._PracticeMode = status;
             ds2Splitter._PracticeMode = status;

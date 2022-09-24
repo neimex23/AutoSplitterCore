@@ -102,7 +102,8 @@ Thanks to Beta Testers of AutoSplit(in alphabetical order):
 * Special Thanks to **Hauke Lasinger** and **[Mario Schulz](https://www.twitch.tv/D4rn4S)** for develop the IGT Track Timer :fire:
 * Thanks to [GeneralGunrider/Peter Kirmeier](https://www.twitch.tv/generalgunrider) for lend me HCM for this project.
 
-[-]..And All that participated in the Pre-Release version.
+[-].. All that participated in the Pre-Release version.
+[-] and of course to all **[Team Hitless](https://discord.gg/4E7cSK7) and [No Hit Hispano](https://discord.gg/ntygnch)**
 
 ##
 > Praise the sun!  :sunny: . . . :fire: . . .  :running: :dash: 

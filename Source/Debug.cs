@@ -46,6 +46,7 @@ namespace AutoSplitterCore
         private void Debug_Load(object sender, EventArgs e)
         {
             comboBoxIGTConversion.SelectedIndex = 1;
+            checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
             switch (mainModule.GetSplitterEnable())
             {
                 case 1: comboBoxGame.SelectedIndex = 1; break;
@@ -239,6 +240,11 @@ namespace AutoSplitterCore
                     MessageBox.Show("Check Flag", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void checkBoxPracticeMode_CheckedChanged(object sender, EventArgs e)
+        {
+            mainModule.SetPracticeMode(checkBoxPracticeMode.Checked);
         }
     }
 }

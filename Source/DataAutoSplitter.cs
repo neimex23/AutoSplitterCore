@@ -36,5 +36,6 @@ namespace AutoSplitterCore
         public DTCeleste DataCeleste;
         public DTCuphead DataCuphead;
         public bool ASLMethod = false;
+        public bool PracticeMode = false;
     }
 }
