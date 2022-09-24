@@ -1,11 +1,11 @@
-# **AutoSplitterCore Extension for HCM**
+# **AutoSplitterCore Extension for HitCounterManager**
 [![Download latest version here](https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge)](../../releases/latest)
 
 [![Releases](https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases/latest)
 [![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
-* This is a **Non-Oficial** Extension for HCM can give you the possibility to Automatically split when an event happen in a game
+* This is a Extension for HCM can give you the possibility to Automatically split when an event happen in a game
 * Posibility to AutoSplit for:
  Dark Souls 1, Dark Souls 2, Dark Souls 3, Sekiro Shadow Die Twice, Elden Ring, Hollow Knight, Celeste, Cuphead and Others 
 * Auto start Timer when game run is started
@@ -63,7 +63,7 @@
  - ASL || **[Inmediatly]**
    - Any ASL with Split (AutoSplitter Language for LiveSplit).
 	> Can give you the possibility to use AutoSplitting for any game that was development ASL file to LiveSplit
-	Include ASL Scripts: Hades, All Resident Evils Remakes and Classic
+	> **Include ASL Scripts**: Hades, All Resident Evils Remakes and Classic
 
 
 ## AutoMods Features
@@ -74,13 +74,20 @@
 - Elden Ring:
    - No Logos Intro
 
-## Systemrequirements
+## Requirements
 * Software: [.Net Framework 4.8 or newer](https://dotnet.microsoft.com/en-us/download/dotnet-framework).
-* OS: Windows 7 or newer (**64-bits only**).
+* OS: Windows (**64-bits only**).
 * Execute the program as Administrator.
 
+## Installation:
+- Portable:
+	- Decompress .zip File "AutoSplitterCore_Portable_v1.x.0" in a folder and copy content to Installation dir of HitCounterManager
+- Installator:
+	- Install "AutoSplitterCore_Installer_v1.X.0.msi" in same folder than HitCounterManager
+	> This uninstall previous version automatically and install the new version. **(You must have installed with the Msi before update)**
+
 ## Issues or Bugs
-* Issues Contact to <ezequielmedina23@gmail.com> or Twitch: [Neimex23](https://www.twitch.tv/neimex23).
+* Open a Issue Case or Contact to <ezequielmedina23@gmail.com> - Twitch: [Neimex23](https://www.twitch.tv/neimex23). 
 
 ## Special thanks
 
@@ -102,8 +109,7 @@ Thanks to Beta Testers of AutoSplit(in alphabetical order):
 * Special Thanks to **Hauke Lasinger** and **[Mario Schulz](https://www.twitch.tv/D4rn4S)** for develop the IGT Track Timer :fire:
 * Thanks to [GeneralGunrider/Peter Kirmeier](https://www.twitch.tv/generalgunrider) for lend me HCM for this project.
 
-[-].. All that participated in the Pre-Release version.
-[-] and of course to all **[Team Hitless](https://discord.gg/4E7cSK7) and [No Hit Hispano](https://discord.gg/ntygnch)**
+### All that participated in the Pre-Release version and of course to all **[Team Hitless](https://discord.gg/4E7cSK7) and [No Hit Hispano](https://discord.gg/ntygnch)** Community :blush:
 
 ##
 > Praise the sun!  :sunny: . . . :fire: . . .  :running: :dash: 
