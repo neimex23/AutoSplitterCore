@@ -27,8 +27,6 @@ using System.Text;
 using System.Threading.Tasks;
 using HitCounterManager;
 using System.Windows.Forms;
-using SoulMemory.Sekiro;
-using static LiveSplit.ASL.ASLScript;
 using System.Net.NetworkInformation;
 
 namespace AutoSplitterCore
@@ -124,9 +122,9 @@ namespace AutoSplitterCore
             return 0;
         }
 
-        public int ReturnCurrentIGTM()
+        public long ReturnCurrentIGTM()
         {
-            return igtModule.ReturnCurrentIGT();
+            return (long)igtModule.ReturnCurrentIGT();
         }
 
         public bool GetPracticeMode()
