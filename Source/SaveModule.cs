@@ -28,12 +28,34 @@ using HitCounterManager;
 
 namespace AutoSplitterCore
 {
+    #region DataAutoSplitter
+    /// <summary>
+    /// Class Contains All Settings of AutoSplitterCore
+    /// </summary>
+    [Serializable]
+    public class DataAutoSplitter
+    {
+        //Settings
+        public bool CheckUpdatesOnStartup = true;
+        public bool PracticeMode = false;
+        public bool ASLMethod = false;
+        //AutoSplitters Config
+        public DTSekiro DataSekiro;
+        public DTHollow DataHollow;
+        public DTElden DataElden;
+        public DTDs3 DataDs3;
+        public DTDs2 DataDs2;
+        public DTDs1 DataDs1;
+        public DTCeleste DataCeleste;
+        public DTCuphead DataCuphead;
+    }
+    #endregion
+    #region SaveModule
+    /// <summary>
+    /// Class Save and Load All Settings of AutoSplitterCore
+    /// </summary>
     public class SaveModule
     {
-        /// <summary>
-        /// Set Pointers
-        /// </summary>
-        /// 
         public DataAutoSplitter dataAS = new DataAutoSplitter();
         public bool _PracticeMode = false;
         private SekiroSplitter sekiroSplitter = null;
@@ -45,8 +67,9 @@ namespace AutoSplitterCore
         private CelesteSplitter celesteSplitter = null;
         private CupheadSplitter cupSplitter = null;
         private AslSplitter aslSplitter = null;
+        private UpdateModule updateModule = null;
 
-        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, AslSplitter aslSplitter)
+        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, AslSplitter aslSplitter, UpdateModule updateModule)
         {
             this.sekiroSplitter = sekiroSplitter;
             this.ds1Splitter = ds1Splitter;
@@ -57,14 +80,12 @@ namespace AutoSplitterCore
             this.celesteSplitter = celesteSplitter;
             this.cupSplitter = cupheadSplitter;
             this.aslSplitter = aslSplitter;
+            this.updateModule = updateModule;
         }
 
-        /// 
         /// <summary>
         /// Stores user data in new XML for AutoSplitter
         /// </summary>
-        /// 
-
         public void SaveAutoSplitterSettings()
         {
             bool newSave = false;
@@ -94,6 +115,7 @@ namespace AutoSplitterCore
             dataAS.DataCuphead = cupSplitter.getDataCuphead();
             dataAS.ASLMethod = aslSplitter.enableSplitting;
             dataAS.PracticeMode = _PracticeMode;
+            dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
             formatter.Serialize(myStream, dataAS);
             myStream.Close();
             XmlDocument Save = new XmlDocument();
@@ -133,7 +155,6 @@ namespace AutoSplitterCore
                 dataCeleste = dataAS.DataCeleste;
                 dataCuphead = dataAS.DataCuphead;
                 aslSplitter.enableSplitting = dataAS.ASLMethod;
-                _PracticeMode = dataAS.PracticeMode;
                 myStream.Close();
             }
             catch (Exception) { }
@@ -148,6 +169,8 @@ namespace AutoSplitterCore
             if (dataCeleste == null) { dataCeleste = new DTCeleste(); }
             if (dataCuphead == null) { dataCuphead = new DTCuphead(); }
 
+            _PracticeMode = dataAS.PracticeMode;
+            updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
             sekiroSplitter.setDataSekiro(dataSekiro, profiles);
             hollowSplitter.setDataHollow(dataHollow, profiles);
             eldenSplitter.setDataElden(dataElden, profiles);
@@ -173,6 +196,7 @@ namespace AutoSplitterCore
             catch (Exception) { aslSplitter.setData(null, profiles); }
         }
 
+        /*
         public SekiroSplitter getSekiroInstance()
         {
             return this.sekiroSplitter;
@@ -216,6 +240,7 @@ namespace AutoSplitterCore
         public AslSplitter getAslInstance()
         {
             return this.aslSplitter;
-        }
+        }*/
+        #endregion
     }
 }

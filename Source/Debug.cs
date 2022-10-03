@@ -21,6 +21,7 @@
 //SOFTWARE.
 
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 using SoulMemory;
 
@@ -61,6 +62,8 @@ namespace AutoSplitterCore
                 case 0:
                 default: comboBoxGame.SelectedIndex = 0; break;
             }
+            LabelVersion.Text = mainModule.updateModule.currentVer;
+            labelCloudVer.Text = mainModule.updateModule.cloudVer;
         }
         private void comboBoxGame_SelectedIndexChanged(object sender, EventArgs e)
         {

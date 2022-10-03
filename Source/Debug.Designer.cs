@@ -55,6 +55,10 @@
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.checkBoxPracticeMode = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LabelVersion = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelCloudVer = new System.Windows.Forms.Label();
             this.groupBoxDebug.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +147,10 @@
             // 
             // groupBoxDebug
             // 
+            this.groupBoxDebug.Controls.Add(this.labelCloudVer);
+            this.groupBoxDebug.Controls.Add(this.label8);
+            this.groupBoxDebug.Controls.Add(this.LabelVersion);
+            this.groupBoxDebug.Controls.Add(this.label7);
             this.groupBoxDebug.Controls.Add(this.label6);
             this.groupBoxDebug.Controls.Add(this.btnSplitCf);
             this.groupBoxDebug.Controls.Add(this.label5);
@@ -341,6 +349,42 @@
             this.checkBoxPracticeMode.UseVisualStyleBackColor = true;
             this.checkBoxPracticeMode.CheckedChanged += new System.EventHandler(this.checkBoxPracticeMode_CheckedChanged);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(485, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 13);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "Version AutoSplitterCore:";
+            // 
+            // LabelVersion
+            // 
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.Location = new System.Drawing.Point(528, 118);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(25, 13);
+            this.LabelVersion.TabIndex = 68;
+            this.LabelVersion.Text = "???";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(476, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.TabIndex = 69;
+            this.label8.Text = "Version AutoSplitterCore Git:";
+            // 
+            // labelCloudVer
+            // 
+            this.labelCloudVer.AutoSize = true;
+            this.labelCloudVer.Location = new System.Drawing.Point(528, 160);
+            this.labelCloudVer.Name = "labelCloudVer";
+            this.labelCloudVer.Size = new System.Drawing.Size(25, 13);
+            this.labelCloudVer.TabIndex = 70;
+            this.labelCloudVer.Text = "???";
+            // 
             // Debug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,5 +437,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCfID;
         private System.Windows.Forms.CheckBox checkBoxPracticeMode;
+        private System.Windows.Forms.Label labelCloudVer;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LabelVersion;
+        private System.Windows.Forms.Label label7;
     }
 }

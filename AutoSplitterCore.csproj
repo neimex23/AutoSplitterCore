@@ -99,7 +99,6 @@
     <Compile Include="Source\AutoSplitterMainModule.cs" />
     <Compile Include="Source\CelesteSplitter.cs" />
     <Compile Include="Source\CupheadSplitter.cs" />
-    <Compile Include="Source\DataAutoSplitter.cs" />
     <Compile Include="Source\Debug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +122,7 @@
     <Compile Include="Source\Program.cs" />
     <Compile Include="Source\SaveModule.cs" />
     <Compile Include="Source\SekiroSplitter.cs" />
+    <Compile Include="Source\UpdateModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Source\AslConfigurator.resx">

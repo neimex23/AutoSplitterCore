@@ -40,7 +40,8 @@ namespace AutoSplitterCore
         CelesteSplitter celesteSplitter;
         AslSplitter aslSplitter;
         CupheadSplitter cupSplitter;
-        public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, AslSplitter aslSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, bool darkMode)
+        UpdateModule updateModule;
+        public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, AslSplitter aslSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, UpdateModule updateModule, bool darkMode)
         {
             InitializeComponent();
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
@@ -53,6 +54,7 @@ namespace AutoSplitterCore
             this.celesteSplitter = celesteSplitter;
             this.aslSplitter = aslSplitter;
             this.cupSplitter = cupSplitter;
+            this.updateModule = updateModule;
             this.darkMode = darkMode;
             refreshForm();
         }
@@ -666,6 +668,9 @@ namespace AutoSplitterCore
             }
 
             #endregion
+            cbCheckUpdatesOnStartup.Checked = updateModule.CheckUpdatesOnStartup;
+            LabelVersion.Text = updateModule.currentVer;
+            labelCloudVer.Text = updateModule.cloudVer;
         }
 
         private void refresh_Btn(object sender, EventArgs e)
@@ -759,6 +764,20 @@ namespace AutoSplitterCore
 
         #region Config UI
 
+        private void cbCheckUpdatesOnStartup_CheckedChanged(object sender, EventArgs e)
+        {
+            updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
+        }
+        private void btnGoToDownloadPage_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
+        }
+        private void btnCheckVersion_Click(object sender, EventArgs e)
+        {
+            updateModule.CheckUpdates();
+            LabelVersion.Text = updateModule.currentVer;
+            labelCloudVer.Text = updateModule.cloudVer;
+        }
         private void checkBoxMortalJourneyRun_CheckedChanged(object sender, EventArgs e)
         {
             _ = checkBoxMortalJourneyRun.Checked ? sekiroSplitter.dataSekiro.mortalJourneyRun = true : sekiroSplitter.dataSekiro.mortalJourneyRun = false;
@@ -3024,6 +3043,8 @@ namespace AutoSplitterCore
                 TabControl2.SelectTab(tabDs1);
             }
         }
+
+
 
 
 

@@ -44,6 +44,7 @@ namespace AutoSplitterCore
         public AslSplitter aslSplitter = new AslSplitter();
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
+        public UpdateModule updateModule = new UpdateModule();
         public bool DebugMode = false;
         public bool _PracticeMode = false;
         private ProfilesControl profCtrl;
@@ -77,14 +78,14 @@ namespace AutoSplitterCore
 
         public void AutoSplitterForm(bool darkMode)
         {
-            Form form = new AutoSplitter(sekiroSplitter, hollowSplitter, eldenSplitter, ds3Splitter, celesteSplitter, ds2Splitter, aslSplitter, cupSplitter, ds1Splitter, darkMode);
+            Form form = new AutoSplitter(sekiroSplitter, hollowSplitter, eldenSplitter, ds3Splitter, celesteSplitter, ds2Splitter, aslSplitter, cupSplitter, ds1Splitter, updateModule, darkMode);
             form.ShowDialog();
         }
 
         public void SetPointers()
         {
             igtModule.setSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
-            saveModule.SetPointers(sekiroSplitter, ds1Splitter, ds2Splitter, ds3Splitter, eldenSplitter, hollowSplitter, celesteSplitter, cupSplitter, aslSplitter);
+            saveModule.SetPointers(sekiroSplitter, ds1Splitter, ds2Splitter, ds3Splitter, eldenSplitter, hollowSplitter, celesteSplitter, cupSplitter, aslSplitter,updateModule);
         }
         public void LoadAutoSplitterSettings(ProfilesControl profiles, Form1 main)
         {
@@ -95,7 +96,8 @@ namespace AutoSplitterCore
             {
                 _update_timer.Tick += (senderT, args) => CheckAutoTimers();
                 _update_timer.Enabled = true;
-            }         
+            }
+            updateModule.CheckUpdates();
         }
 
         public void SaveAutoSplitterSettings()
@@ -494,6 +496,5 @@ namespace AutoSplitterCore
                 default: break;
             }
         }
-
     }
 }
