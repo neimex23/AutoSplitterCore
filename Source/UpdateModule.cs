@@ -23,21 +23,24 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Net;
+using System.Reflection;
 using System.Windows.Forms;
 using TinyJson;
+using System.IO;
 
 namespace AutoSplitterCore
 {
     public class UpdateModule
     {
         WebClient client = new WebClient();
-        public string currentVer { get; set; }
-        public string cloudVer { get; set; }
-        public bool CheckUpdatesOnStartup { get; set; }
-
+        public string currentVer;
+        public string cloudVer;
+        public bool CheckUpdatesOnStartup;
         private static List<Version> Releases = new List<Version>();
+        private Assembly dll;
 
         public void CheckUpdates()
         {
@@ -58,23 +61,24 @@ namespace AutoSplitterCore
                 Version debugVer = Version.Parse("1.6.0");
                 Releases.Add(debugVer);
                 */
-                
+
                 foreach (var aux in auxReleases)
                 {
                     var ver = aux["tag_name"].ToString();
                     if (ver.StartsWith("ASC_"))
                     {
                         ver = ver.Remove(0, 5); //Remove "ASC_v"
+                        ver = ver + ".0"; //Add .0
                         Version version = Version.Parse(ver);
                         Releases.Add(version);
                     }
                 }
-
                 cloudVer = Releases[0].ToString();
-                currentVer = Application.ProductVersion;
+                dll = Assembly.LoadFrom("AutoSplitterCore.dll");
+                _ = dll == null ? currentVer = Application.ProductVersion.ToString() : currentVer = dll.GetName().Version.ToString();
             }
             catch (Exception) { };
-            if (CheckUpdatesOnStartup && Releases.Count > 0 && (Releases[0] > Version.Parse(Application.ProductVersion)))
+            if (CheckUpdatesOnStartup && Releases.Count > 0 && dll != null && (Releases[0] > dll.GetName().Version))
             {
                 Form aux = new Form();
                 if (NewVersionDialog(aux) == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest"); ;
@@ -102,12 +106,6 @@ namespace AutoSplitterCore
             label.Location = new Point(ClientPad, ClientPad);
             label.Text = "Latest available version:      " + Releases[0].ToString();
             frm.Controls.Add(label);
-
-            Label label1 = new Label();
-            label1.Size = new Size(frm.ClientSize.Width - ClientPad, 40);
-            label1.Location = new Point(ClientPad+30, ClientPad+30);
-            label1.Text = "Current Version:      " + Application.ProductVersion;
-            frm.Controls.Add(label1);
 
             Button okButton = new Button();
             okButton.DialogResult = DialogResult.OK;
