@@ -46,7 +46,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
-
+        #region Control Management
         public DTSekiro getDataSekiro()
         {
             return this.dataSekiro;
@@ -77,6 +77,68 @@ namespace AutoSplitterCore
             }
         }
 
+        public bool getSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
+        {
+            Thread.Sleep(delay);
+            return _StatusSekiro = sekiro.Refresh(out Exception exc);
+        }
+
+        public void setStatusSplitting(bool status)
+        {
+            dataSekiro.enableSplitting = status;
+            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+        }
+
+        public void setProcedure(bool procedure)
+        {
+            this._StatusProcedure = procedure;
+            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+        }
+        public void resetSplited()
+        {
+            listPendingB.Clear();
+            listPendingI.Clear();
+            listPendingP.Clear();
+            listPendingCf.Clear();
+
+            if (dataSekiro.getBossToSplit().Count > 0)
+            {
+                foreach (var b in dataSekiro.getBossToSplit())
+                {
+                    b.IsSplited = false;
+                }
+            }
+
+            if (dataSekiro.getidolsTosplit().Count > 0)
+            {
+                foreach (var b in dataSekiro.getidolsTosplit())
+                {
+                    b.IsSplited = false;
+                }
+            }
+
+            if (dataSekiro.getPositionsToSplit().Count > 0)
+            {
+                foreach (var p in dataSekiro.getPositionsToSplit())
+                {
+                    p.IsSplited = false;
+                }
+            }
+
+            if (dataSekiro.getFlagToSplit().Count > 0)
+            {
+                foreach (var cf in dataSekiro.getFlagToSplit())
+                {
+                    cf.IsSplited = false;
+                }
+            }
+            _runStarted = false;
+            index = 0;
+            notSplited(ref MortalJourneyData);
+            PendingMortal.Clear();
+        }
+        #endregion
+        #region Object Management
         public void AddIdol(string idol,string mode)
         {
             DefinitionsSekiro.Idol cIdol = defS.idolToEnum(idol);
@@ -123,7 +185,6 @@ namespace AutoSplitterCore
             
         }
 
-
         public void RemovePosition(int position)
         {
             listPendingP.RemoveAll(iposition => iposition.vector == dataSekiro.positionsToSplit[position].vector);
@@ -148,26 +209,14 @@ namespace AutoSplitterCore
             }
             else { return idolReturn.Mode; }         
         }
+
         public void setPositionMargin(int select)
         {
             dataSekiro.positionMargin = select;
         }
 
-        public void setStatusSplitting(bool status)
-        {
-            dataSekiro.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-
         public void clearData()
-        { 
+        {
             listPendingB.Clear();
             listPendingI.Clear();
             listPendingP.Clear();
@@ -178,22 +227,17 @@ namespace AutoSplitterCore
             dataSekiro.positionsToSplit.Clear();
             dataSekiro.flagToSplit.Clear();
             notSplited(ref MortalJourneyData);
-            dataSekiro.positionMargin = 3;           
+            dataSekiro.positionMargin = 3;
             dataSekiro.mortalJourneyRun = false;
             _runStarted = false;
-            index = 0;           
+            index = 0;
         }
-
+        #endregion
+        #region Checking
         public Vector3f getCurrentPosition()
         {
             getSekiroStatusProcess(0);
             return sekiro.GetPlayerPosition();
-        }
-        
-        public bool getSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusSekiro = sekiro.Refresh(out Exception exc);
         }
 
         public int getTimeInGame()
@@ -201,56 +245,17 @@ namespace AutoSplitterCore
             return sekiro.GetInGameTimeMilliseconds();
         }
 
-
         public bool CheckFlag(uint id)
         {
             return sekiro.ReadEventFlag(id);
         }
-        public void resetSplited()
+
+        public bool IsInGame()
         {
-            listPendingB.Clear();
-            listPendingI.Clear();
-            listPendingP.Clear();
-            listPendingCf.Clear();
-
-            if (dataSekiro.getBossToSplit().Count > 0)
-            {
-                foreach (var b in dataSekiro.getBossToSplit())
-                {
-                    b.IsSplited = false;
-                }  
-            }
-
-            if (dataSekiro.getidolsTosplit().Count > 0)
-            {
-                foreach (var b in dataSekiro.getidolsTosplit())
-                {
-                    b.IsSplited = false;
-                }
-            }
-
-            if (dataSekiro.getPositionsToSplit().Count > 0)
-            {
-                foreach (var p in dataSekiro.getPositionsToSplit())
-                {
-                    p.IsSplited = false;
-                }
-            }
-
-            if(dataSekiro.getFlagToSplit().Count > 0)
-            {
-                foreach (var cf in dataSekiro.getFlagToSplit())
-                {
-                    cf.IsSplited = false;
-                }
-            }
-            _runStarted = false;
-            index = 0;
-            notSplited(ref MortalJourneyData);
-            PendingMortal.Clear();
+            return _StatusSekiro && !sekiro.IsPlayerLoaded();
         }
-
-
+        #endregion
+        #region Procedure
         public void LoadAutoSplitterProcedure()
         {
             var taskRefresh = new Task(() =>
@@ -289,8 +294,8 @@ namespace AutoSplitterCore
             task4.Start();
             task5.Start();
         }
-
-        #region init()    
+        #endregion
+        #region CheckFlag Init()   
         private void RefreshSekiro()
         {
             int delay = 2000;
@@ -583,6 +588,5 @@ namespace AutoSplitterCore
             }
         }
         #endregion
-
     }        
 }

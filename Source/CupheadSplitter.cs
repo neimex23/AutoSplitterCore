@@ -43,6 +43,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
+        #region Control Management
         public DTCuphead getDataCuphead()
         {
             return this.dataCuphead;
@@ -90,24 +91,6 @@ namespace AutoSplitterCore
             if (status) {LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void LoadAutoSplitterProcedure()
-        {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshCuphead();
-            });
-            var task1 = new Task(() =>
-            {
-                elementToSplit();
-            });
-            taskRefresh.Start();
-            task1.Start();
-        }
-        
-        public int getTimeInGame()
-        {
-            return (int)cup.LevelTime() * 1000;
-        }
         public void resetSplited()
         {
             if (dataCuphead.getElementToSplit().Count > 0)
@@ -119,14 +102,8 @@ namespace AutoSplitterCore
             }
             _runStarted = false;
         }
-
-        public void clearData()
-        {
-            dataCuphead.elementToSplit.Clear();
-            _runStarted = false;
-        }
-
-
+        #endregion
+        #region Object Management
         public void AddElement(string element)
         {
             DefinitionCuphead.ElementsToSplitCup cElem = new DefinitionCuphead.ElementsToSplitCup()
@@ -141,12 +118,44 @@ namespace AutoSplitterCore
             dataCuphead.elementToSplit.RemoveAll(i => i.Title == element);
         }
 
+        public void clearData()
+        {
+            dataCuphead.elementToSplit.Clear();
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
+        public int getTimeInGame()
+        {
+            return (int)cup.LevelTime() * 1000;
+        }
+
         public string GetSceneName()
         {
             return (cup.SceneName() + (cup.InGame() ? " (In Game)" : ""));
         }
 
-        #region init()
+        public bool IsInGame()
+        {
+            return _StatusCuphead && (cup.SceneName().StartsWith("scene_level") || cup.SceneName().StartsWith("scene_map"));
+        }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {
+            var taskRefresh = new Task(() =>
+            {
+                RefreshCuphead();
+            });
+            var task1 = new Task(() =>
+            {
+                elementToSplit();
+            });
+            taskRefresh.Start();
+            task1.Start();
+        }
+        #endregion
+        #region CheckFlag Init()
         private void RefreshCuphead()
         {
             int delay = 2000;

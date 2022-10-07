@@ -44,7 +44,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer2 = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
-
+        #region Control Management
         public void setData(XmlNode node, ProfilesControl profile)
         {
             this._profile = profile;
@@ -58,16 +58,6 @@ namespace AutoSplitterCore
         {
             return asl.GetSettings(doc);
         }
-           
-        public void LoadAutoSplitterProcedure()
-        {
-            var task1 = new Task(() =>
-            {
-                Split();
-            });
-
-            task1.Start();
-        }
 
         public void setStatusSplitting(bool status)
         {
@@ -79,9 +69,19 @@ namespace AutoSplitterCore
         {
             asl.UpdateScript();
         }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {
+            var task1 = new Task(() =>
+            {
+                Split();
+            });
 
-        #region init()
-
+            task1.Start();
+        }
+        #endregion
+        #region SplitControl
         public void SplitGo()
         {
             if (_SplitGo)
@@ -100,7 +100,7 @@ namespace AutoSplitterCore
             }
         }
         private void Split()
-         {
+        {
              while (enableSplitting)
              {
                  Thread.Sleep(1000);
@@ -114,6 +114,6 @@ namespace AutoSplitterCore
                  }
              }
          }
-         #endregion
+        #endregion
     }
 }

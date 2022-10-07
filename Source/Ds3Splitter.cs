@@ -45,7 +45,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
-
+        #region Control Management
         public DTDs3 getDataDs3()
         {
             return this.dataDs3;
@@ -76,7 +76,11 @@ namespace AutoSplitterCore
             }
         }
 
-
+        public bool getDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
+        {
+            Thread.Sleep(delay);
+            return _StatusDs3 = Ds3.Refresh();
+        }
 
         public void setStatusSplitting(bool status)
         {
@@ -88,30 +92,6 @@ namespace AutoSplitterCore
         {
             this._StatusProcedure = procedure;
             if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public bool getDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusDs3 = Ds3.Refresh();
-        }
-
-        public int getTimeInGame()
-        {
-            return Ds3.GetInGameTimeMilliseconds();
-        }
-
-        public void clearData()
-        {
-            listPendingB.Clear();
-            listPendingBon.Clear();
-            listPendingLvl.Clear();
-            listPendingCf.Clear();
-            dataDs3.bossToSplit.Clear();
-            dataDs3.bonfireToSplit.Clear();
-            dataDs3.lvlToSplit.Clear();
-            dataDs3.flagToSplit.Clear();
-            _runStarted = false;
         }
 
         public void resetSplited()
@@ -153,44 +133,8 @@ namespace AutoSplitterCore
             }
             _runStarted = false;
         }
-
-        public void LoadAutoSplitterProcedure()
-        {         
-            var taskRefresh = new Task(() =>
-            {
-                RefreshDs3();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                checkLoad();
-            });
-            var task1 = new Task(() =>
-            {
-                bossToSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                bonfireToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                lvlToSplit();
-            });
-
-            var task4 = new Task(() =>
-            {
-                customFlagToSplit();
-            });
-
-            taskRefresh.Start();
-            taskCheckload.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task4.Start();
-        }
-
+        #endregion
+        #region Object Management
         public void AddBoss(string boss, string mode)
         {
             DefinitionsDs3.BossDs3 cBoss = defD3.stringToEnumBoss(boss);
@@ -247,12 +191,74 @@ namespace AutoSplitterCore
             dataDs3.flagToSplit.RemoveAt(position);
         }
 
+        public void clearData()
+        {
+            listPendingB.Clear();
+            listPendingBon.Clear();
+            listPendingLvl.Clear();
+            listPendingCf.Clear();
+            dataDs3.bossToSplit.Clear();
+            dataDs3.bonfireToSplit.Clear();
+            dataDs3.lvlToSplit.Clear();
+            dataDs3.flagToSplit.Clear();
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
         public bool CheckFlag(uint id)
         {
             return Ds3.ReadEventFlag(id);
         }
 
-        #region init()
+        public int getTimeInGame()
+        {
+            return Ds3.GetInGameTimeMilliseconds();
+        }
+
+        public bool IsInGame()
+        {
+            return _StatusDs3 && !Ds3.IsPlayerLoaded();
+        }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {         
+            var taskRefresh = new Task(() =>
+            {
+                RefreshDs3();
+            });
+            var taskCheckload = new Task(() =>
+            {
+                checkLoad();
+            });
+            var task1 = new Task(() =>
+            {
+                bossToSplit();
+            });
+            var task2 = new Task(() =>
+            {
+                bonfireToSplit();
+            });
+
+            var task3 = new Task(() =>
+            {
+                lvlToSplit();
+            });
+
+            var task4 = new Task(() =>
+            {
+                customFlagToSplit();
+            });
+
+            taskRefresh.Start();
+            taskCheckload.Start();
+            task1.Start();
+            task2.Start();
+            task3.Start();
+            task4.Start();
+        }
+        #endregion
+        #region CheckFlag Init()   
         private void RefreshDs3()
         {           
             int delay = 2000;

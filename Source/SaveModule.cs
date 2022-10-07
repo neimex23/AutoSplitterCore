@@ -154,7 +154,6 @@ namespace AutoSplitterCore
                 dataDs1 = dataAS.DataDs1;
                 dataCeleste = dataAS.DataCeleste;
                 dataCuphead = dataAS.DataCuphead;
-                aslSplitter.enableSplitting = dataAS.ASLMethod;
                 myStream.Close();
             }
             catch (Exception) { }
@@ -171,6 +170,7 @@ namespace AutoSplitterCore
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
+            aslSplitter.enableSplitting = dataAS.ASLMethod;
             sekiroSplitter.setDataSekiro(dataSekiro, profiles);
             hollowSplitter.setDataHollow(dataHollow, profiles);
             eldenSplitter.setDataElden(dataElden, profiles);
@@ -195,52 +195,6 @@ namespace AutoSplitterCore
             }
             catch (Exception) { aslSplitter.setData(null, profiles); }
         }
-
-        /*
-        public SekiroSplitter getSekiroInstance()
-        {
-            return this.sekiroSplitter;
-        }
-
-        public HollowSplitter getHollowInstance()
-        {
-            return this.hollowSplitter;
-        }
-
-        public EldenSplitter getEldenInstance()
-        {
-            return this.eldenSplitter;
-        }
-
-        public Ds3Splitter getDs3Instance()
-        {
-            return this.ds3Splitter;
-        }
-
-        public Ds2Splitter getDs2Instance()
-        {
-            return this.ds2Splitter;
-        }
-
-        public Ds1Splitter getDs1Instance()
-        {
-            return this.ds1Splitter;
-        }
-
-        public CelesteSplitter getCelesteInstance()
-        {
-            return this.celesteSplitter;
-        }
-
-        public CupheadSplitter getCupheadInstance()
-        {
-            return this.cupSplitter;
-        }
-
-        public AslSplitter getAslInstance()
-        {
-            return this.aslSplitter;
-        }*/
         #endregion
     }
 }

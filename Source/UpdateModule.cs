@@ -41,8 +41,9 @@ namespace AutoSplitterCore
         public bool CheckUpdatesOnStartup;
         private static List<Version> Releases = new List<Version>();
         private Assembly dll;
+        public bool DebugMode = false;
 
-        public void CheckUpdates()
+        public void CheckUpdates(bool ForceUpdate)
         {
             try
             {
@@ -58,7 +59,7 @@ namespace AutoSplitterCore
                 var auxReleases = response.FromJson<List<Dictionary<string, object>>>();
 
                 /* For Test New Version
-                Version debugVer = Version.Parse("1.6.0");
+                Version debugVer = Version.Parse("1.7.0");
                 Releases.Add(debugVer);
                 */
 
@@ -74,15 +75,15 @@ namespace AutoSplitterCore
                     }
                 }
                 cloudVer = Releases[0].ToString();
-                dll = Assembly.LoadFrom("AutoSplitterCore.dll");
-                _ = dll == null ? currentVer = Application.ProductVersion.ToString() : currentVer = dll.GetName().Version.ToString();
+                if (!DebugMode) dll = Assembly.LoadFrom("AutoSplitterCore.dll");
+                _ = DebugMode ? currentVer = Application.ProductVersion.ToString() + ".0" : currentVer = dll.GetName().Version.ToString();
             }
             catch (Exception) { };
             if (CheckUpdatesOnStartup && Releases.Count > 0 && dll != null && (Releases[0] > dll.GetName().Version))
             {
                 Form aux = new Form();
-                if (NewVersionDialog(aux) == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest"); ;
-            }
+                if (NewVersionDialog(aux) == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
+            } else if (ForceUpdate) { MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
 
         public static DialogResult NewVersionDialog(Form ParentWindow)

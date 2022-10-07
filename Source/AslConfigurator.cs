@@ -53,7 +53,9 @@ namespace AutoSplitterCore
 
         private void btnUpdateScript_Click(object sender, EventArgs e)
         {
-            aslSplitter.UpdateScript();
+            DialogResult error = MessageBox.Show("Warning", "Use This Option Only if Script Don't Load, Do you Want proceed?", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (error == DialogResult.Yes)
+                aslSplitter.UpdateScript();
         }
 
         public void DarkMode()

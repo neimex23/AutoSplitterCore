@@ -37,9 +37,8 @@ namespace AutoSplitterCore
         {
             InitializeComponent();
             this.mainModule = mainModule;
-            mainModule.SetPointers();
+            mainModule.InitDebug();
             mainModule.LoadAutoSplitterSettings(new HitCounterManager.ProfilesControl(),null);
-            mainModule.InitDebug();    
             _update_timer.Tick += (sender, args) => CheckInfo();
             _update_timer.Enabled = true;
         }
@@ -136,7 +135,8 @@ namespace AutoSplitterCore
                     debugSplit = mainModule.eldenSplitter._SplitGo;
                     break;
                 case 7: //Celeste
-                    this.textBoxSceneName.Paste(mainModule.celesteSplitter.infoPlayer.levelName.ToString());
+
+                    this.textBoxSceneName.Paste(mainModule.celesteSplitter.getLevelName());
                     status = mainModule.celesteSplitter._StatusCeleste;
                     debugSplit = mainModule.celesteSplitter._SplitGo;
                     break;

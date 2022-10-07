@@ -43,6 +43,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
+        #region Control Management
         public DTCeleste getDataCeleste()
         {
             return this.dataCeleste;
@@ -89,6 +90,81 @@ namespace AutoSplitterCore
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
+        public void resetSplited()
+        {
+            if (dataCeleste.getChapterToSplit().Count > 0)
+            {
+                foreach (var c in dataCeleste.getChapterToSplit())
+                {
+                    c.IsSplited = false;
+                }
+            }
+            _runStarted = false;
+        }
+        #endregion
+        #region Object Management
+        public void AddChapter(string chapter)
+        {
+            DefinitionsCeleste.ElementToSplitCeleste element = new DefinitionsCeleste.ElementToSplitCeleste()
+            {
+                Title = chapter
+            };
+            dataCeleste.chapterToSplit.Add(element);
+        }
+
+        public void RemoveChapter(string chapter)
+        {
+            dataCeleste.chapterToSplit.RemoveAll(ichapter => ichapter.Title == chapter);
+        }
+
+        public void clearData()
+        {
+            dataCeleste.chapterToSplit.Clear();
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
+        public int getTimeInGame()
+        {
+            return (int)celeste.GameTime()*1000;
+        }
+
+        public bool IsInGame()
+        {
+            return _StatusCeleste && infoPlayer.areaID != Area.Menu;
+        }
+
+        public string getLevelName()
+        {
+            getCelesteStatusProcess(0);
+            if (_StatusCeleste)
+            {
+                string AreaID;
+                string LevelName;
+                switch (infoPlayer.areaID)
+                {
+                    case Area.Prologue: AreaID = "Prologue"; break;
+                    case Area.ForsakenCity: AreaID = "Forsaken City"; break;
+                    case Area.OldSite: AreaID = "Old Site"; break;
+                    case Area.CelestialResort: AreaID = "Celestial Resort"; break;
+                    case Area.GoldenRidge: AreaID = "Golden Ridge"; break;
+                    case Area.MirrorTemple: AreaID = "Mirror Temple"; break;
+                    case Area.Reflection:  AreaID = "Reflection"; break;
+                    case Area.TheSummit: AreaID = "TheSummit"; break;
+                    case Area.Epilogue:  AreaID = "Epilogue"; break;
+                    case Area.Core: AreaID = "Core"; break;
+                    case Area.Farewell: AreaID = "Farewell"; break;
+                    case Area.Menu: AreaID = "Menu"; break;
+                    default: AreaID = string.Empty; break;
+                }
+                _ = infoPlayer.levelName == null ? LevelName = string.Empty : LevelName =  infoPlayer.levelName.ToString();
+                return LevelName + " - " + AreaID;
+            }
+            else
+                return string.Empty;
+        }
+        #endregion
+        #region Procedure
         public void LoadAutoSplitterProcedure()
         {
             var taskRefresh = new Task(() =>
@@ -107,46 +183,8 @@ namespace AutoSplitterCore
             taskRefreshInfo.Start();
             task1.Start();
         }
-
-        public void resetSplited()
-        {
-            if (dataCeleste.getChapterToSplit().Count > 0)
-            {
-                foreach (var c in dataCeleste.getChapterToSplit())
-                {
-                    c.IsSplited = false;
-                }
-            }
-            _runStarted = false;
-        }
-
-        public void clearData()
-        {
-            dataCeleste.chapterToSplit.Clear();
-            _runStarted = false;
-        }
-
-        public int getTimeInGame()
-        {
-            return (int)celeste.GameTime();
-        }
-
-        public void AddChapter(string chapter)
-        {
-            DefinitionsCeleste.ElementToSplitCeleste element = new DefinitionsCeleste.ElementToSplitCeleste()
-            {
-                Title = chapter
-            };
-            dataCeleste.chapterToSplit.Add(element);
-        }
-
-        public void RemoveChapter(string chapter)
-        {
-            dataCeleste.chapterToSplit.RemoveAll(ichapter => ichapter.Title == chapter);
-        }
-
-        #region init()
-
+        #endregion
+        #region CheckFlag Init()   
         private void RefreshCeleste()
         {
             int delay = 2000;
@@ -164,10 +202,17 @@ namespace AutoSplitterCore
             while (dataCeleste.enableSplitting)
             {
                 Thread.Sleep(10);
-                infoPlayer.elapsed = celeste.GameTime();
-                infoPlayer.completed = celeste.ChapterCompleted();
-                infoPlayer.areaID = celeste.AreaID();   
-                infoPlayer.levelName = celeste.LevelName();              
+                if (_StatusCeleste)
+                {
+                    try
+                    {
+                        infoPlayer.elapsed = celeste.GameTime();
+                        infoPlayer.completed = celeste.ChapterCompleted();
+                        infoPlayer.areaID = celeste.AreaID();
+                        infoPlayer.levelName = celeste.LevelName();
+                    }
+                    catch (Exception) { }
+                }
             }
         }
 

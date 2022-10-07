@@ -46,7 +46,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
-
+        #region Control Management
         public DTDs2 getDataDs2()
         {
             return this.dataDs2;
@@ -76,6 +76,11 @@ namespace AutoSplitterCore
                 _SplitGo = true;
             }
         }
+        public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
+        {
+            Thread.Sleep(delay);
+            return _StatusDs2 = Ds2.Refresh(out Exception exc);
+        }
 
         public void setStatusSplitting(bool status)
         {
@@ -86,24 +91,6 @@ namespace AutoSplitterCore
         {
             this._StatusProcedure = procedure;
             if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusDs2 = Ds2.Refresh(out Exception exc);
-        }
-
-        public void clearData()
-        {
-            listPendingB.Clear();
-            listPendingP.Clear();
-            listPendingLvl.Clear();
-            dataDs2.bossToSplit.Clear();
-            dataDs2.positionsToSplit.Clear();
-            dataDs2.lvlToSplit.Clear();
-            dataDs2.positionMargin = 3;
-            _runStarted = false;
         }
 
         public void resetSplited()
@@ -128,44 +115,8 @@ namespace AutoSplitterCore
             }
             _runStarted = false;
         }
-        
-        public void LoadAutoSplitterProcedure()
-        {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshDs2();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                checkLoad();
-            });
-            var taskCheckStart= new Task(() =>
-            {
-                checkStart();
-            });
-            
-            var task1 = new Task(() =>
-            {
-                bossToSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                positionToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                lvlToSplit();
-            });
-
-            taskRefresh.Start();
-            taskCheckload.Start();
-            taskCheckStart.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-        }
-
+        #endregion
+        #region Object Management
         public void AddBoss(string boss, string mode)
         {
             DefinitionsDs2.BossDs2 cBoss = defD2.stringToEnumBoss(boss);
@@ -209,7 +160,20 @@ namespace AutoSplitterCore
             listPendingLvl.RemoveAll(ilvl => ilvl.Attribute == dataDs2.lvlToSplit[position].Attribute && ilvl.Value == dataDs2.lvlToSplit[position].Value);
             dataDs2.lvlToSplit.RemoveAt(position);
         }
-        
+
+        public void clearData()
+        {
+            listPendingB.Clear();
+            listPendingP.Clear();
+            listPendingLvl.Clear();
+            dataDs2.bossToSplit.Clear();
+            dataDs2.positionsToSplit.Clear();
+            dataDs2.lvlToSplit.Clear();
+            dataDs2.positionMargin = 3;
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
         public Vector3f getCurrentPosition()
         {
             getDs2StatusProcess(0);
@@ -225,9 +189,46 @@ namespace AutoSplitterCore
         {
             return Ds2.ReadEventFlag(id);
         }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {
+            var taskRefresh = new Task(() =>
+            {
+                RefreshDs2();
+            });
+            var taskCheckload = new Task(() =>
+            {
+                checkLoad();
+            });
+            var taskCheckStart = new Task(() =>
+            {
+                checkStart();
+            });
 
+            var task1 = new Task(() =>
+            {
+                bossToSplit();
+            });
+            var task2 = new Task(() =>
+            {
+                positionToSplit();
+            });
 
-        #region Init()
+            var task3 = new Task(() =>
+            {
+                lvlToSplit();
+            });
+
+            taskRefresh.Start();
+            taskCheckload.Start();
+            taskCheckStart.Start();
+            task1.Start();
+            task2.Start();
+            task3.Start();
+        }
+        #endregion
+        #region CheckFlag Init()
         private void RefreshDs2()
         {
             int delay = 2000;

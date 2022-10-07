@@ -45,6 +45,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
+        #region Control Management
         public DTElden getDataElden()
         {
             return this.dataElden;
@@ -74,6 +75,12 @@ namespace AutoSplitterCore
             }
         }
 
+        public bool getEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
+        {
+            Thread.Sleep(delay);
+            return _StatusElden = elden.Refresh(out Exception exc);
+        }
+
         public void setStatusSplitting(bool status)
         {
             dataElden.enableSplitting = status;
@@ -86,43 +93,12 @@ namespace AutoSplitterCore
             if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-
-        public bool getEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusElden = elden.Refresh(out Exception exc);
-        }
-
         public void setPositionMargin(int select)
         {
             dataElden.positionMargin = select;
         }
 
-        public SoulMemory.EldenRing.Position getCurrentPosition()
-        {
-            getEldenStatusProcess(0);
-            return elden.GetPosition();
-        }
-
-        public int getTimeInGame()
-        {
-            return elden.GetInGameTimeMilliseconds();
-        }
-        public void clearData()
-        {
-            listPendingB.Clear();
-            listPendingG.Clear();
-            listPendingP.Clear();
-            listPendingCf.Clear();
-            dataElden.positionMargin = 3;
-            dataElden.bossToSplit.Clear();
-            dataElden.graceToSplit.Clear();
-            dataElden.positionToSplit.Clear();
-            dataElden.flagsToSplit.Clear();
-            _runStarted = false;
-        }
-
-        public void resetSplited() 
+        public void resetSplited()
         {
             listPendingB.Clear();
             listPendingG.Clear();
@@ -162,44 +138,8 @@ namespace AutoSplitterCore
             }
             _runStarted = false;
         }
-
-
-        public void LoadAutoSplitterProcedure()
-        {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshElden();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                checkLoad();
-            });
-            var task1 = new Task(() => 
-            {
-                bossToSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                graceToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                positionToSplit();
-            });
-            var task4 = new Task(() =>
-            {
-                flagsToSplit();
-            });
-            
-            taskRefresh.Start();
-            taskCheckload.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task4.Start();
-        }
-
+        #endregion
+        #region Object Management
         public void AddBoss(string boss, string mode)
         {
             DefinitionsElden.BossER cBoss = defE.stringToEnumBoss(boss);
@@ -250,13 +190,80 @@ namespace AutoSplitterCore
             listPendingCf.RemoveAll(iCf => iCf.Id == dataElden.flagsToSplit[position].Id);
             dataElden.flagsToSplit.RemoveAt(position);
         }
+        public void clearData()
+        {
+            listPendingB.Clear();
+            listPendingG.Clear();
+            listPendingP.Clear();
+            listPendingCf.Clear();
+            dataElden.positionMargin = 3;
+            dataElden.bossToSplit.Clear();
+            dataElden.graceToSplit.Clear();
+            dataElden.positionToSplit.Clear();
+            dataElden.flagsToSplit.Clear();
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
+        public SoulMemory.EldenRing.Position getCurrentPosition()
+        {
+            getEldenStatusProcess(0);
+            return elden.GetPosition();
+        }
+
+        public int getTimeInGame()
+        {
+            return elden.GetInGameTimeMilliseconds();
+        }
 
         public bool CheckFlag(uint id)
         {
             return elden.ReadEventFlag(id);
         }
 
-        #region init()
+        public bool IsInGame()
+        {
+            return _StatusElden && !elden.IsPlayerLoaded();
+        }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {
+            var taskRefresh = new Task(() =>
+            {
+                RefreshElden();
+            });
+            var taskCheckload = new Task(() =>
+            {
+                checkLoad();
+            });
+            var task1 = new Task(() =>
+            {
+                bossToSplit();
+            });
+            var task2 = new Task(() =>
+            {
+                graceToSplit();
+            });
+
+            var task3 = new Task(() =>
+            {
+                positionToSplit();
+            });
+            var task4 = new Task(() =>
+            {
+                flagsToSplit();
+            });
+
+            taskRefresh.Start();
+            taskCheckload.Start();
+            task1.Start();
+            task2.Start();
+            task3.Start();
+            task4.Start();
+        }
+        #endregion
+        #region CheckFlag Init()   
         private void RefreshElden()
         {
             int delay = 2000;

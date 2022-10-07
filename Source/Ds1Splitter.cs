@@ -46,6 +46,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
+        #region Control Management
         public DTDs1 getDataDs1()
         {
             return this.dataDs1;
@@ -76,6 +77,12 @@ namespace AutoSplitterCore
             }
         }
 
+        public bool getDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
+        {
+            Thread.Sleep(delay);
+            return _StatusDs1 = Ds1.Refresh(out Exception e);
+        }
+
         public void setStatusSplitting(bool status)
         {
             dataDs1.enableSplitting = status;
@@ -86,34 +93,6 @@ namespace AutoSplitterCore
         {
             this._StatusProcedure = procedure;
             if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public bool getDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusDs1 = Ds1.Refresh(out Exception e);
-        }
-
-        public int getTimeInGame()
-        {
-            return Ds1.GetInGameTimeMilliseconds();
-        }
-
-        public void clearData()
-        {
-            listPendingB.Clear();
-            listPendingBon.Clear();
-            listPendingLvl.Clear();
-            listPendingP.Clear();
-            listPendingItem.Clear();
-
-            dataDs1.bossToSplit.Clear();
-            dataDs1.bonfireToSplit.Clear();
-            dataDs1.lvlToSplit.Clear();
-            dataDs1.positionsToSplit.Clear();
-            dataDs1.itemToSplit.Clear();
-            dataDs1.positionMargin = 3;
-            _runStarted = false;           
         }
 
         public void resetSplited()
@@ -165,63 +144,8 @@ namespace AutoSplitterCore
             }
             _runStarted = false;
         }
-
-        public void LoadAutoSplitterProcedure()
-        {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshDs1();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                checkLoad();
-            });
-            var taskInventorySee = new Task(() =>
-            {
-                inventorySee();
-            });
-            var task1 = new Task(() =>
-            {
-                bossToSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                bonfireToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                lvlToSplit();
-            });
-
-            var task4 = new Task(() =>
-            {
-                positionToSplit();
-            });
-
-            var task5 = new Task(() =>
-            {
-                itemToSplit();
-            });
-
-
-            taskRefresh.Start();
-            taskCheckload.Start();
-            taskInventorySee.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task4.Start();
-            task5.Start();
-
-        }
-
-        public Vector3f getCurrentPosition()
-        {
-            getDs1StatusProcess(0);
-            return Ds1.GetPosition();
-        }
-
+        #endregion
+        #region Object Management
         public void AddBoss(string boss, string mode)
         {
             DefinitionsDs1.BossDs1 cBoss = defDs1.stringToEnumBoss(boss);
@@ -300,13 +224,97 @@ namespace AutoSplitterCore
             dataDs1.bossToSplit.RemoveAt(position);
         }
 
+        public void clearData()
+        {
+            listPendingB.Clear();
+            listPendingBon.Clear();
+            listPendingLvl.Clear();
+            listPendingP.Clear();
+            listPendingItem.Clear();
+
+            dataDs1.bossToSplit.Clear();
+            dataDs1.bonfireToSplit.Clear();
+            dataDs1.lvlToSplit.Clear();
+            dataDs1.positionsToSplit.Clear();
+            dataDs1.itemToSplit.Clear();
+            dataDs1.positionMargin = 3;
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
+        public int getTimeInGame()
+        {
+            return Ds1.GetInGameTimeMilliseconds();
+        }
+
+        public Vector3f getCurrentPosition()
+        {
+            getDs1StatusProcess(0);
+            return Ds1.GetPosition();
+        }
+
         public bool CheckFlag(uint id)
         {
             return Ds1.ReadEventFlag(id);
         }
 
+        public bool IsInGame()
+        {
+            return _StatusDs1 && !Ds1.IsPlayerLoaded();
+        }
+        #endregion
+        #region Procedure
+        public void LoadAutoSplitterProcedure()
+        {
+            var taskRefresh = new Task(() =>
+            {
+                RefreshDs1();
+            });
+            var taskCheckload = new Task(() =>
+            {
+                checkLoad();
+            });
+            var taskInventorySee = new Task(() =>
+            {
+                inventorySee();
+            });
+            var task1 = new Task(() =>
+            {
+                bossToSplit();
+            });
+            var task2 = new Task(() =>
+            {
+                bonfireToSplit();
+            });
 
-        #region init()
+            var task3 = new Task(() =>
+            {
+                lvlToSplit();
+            });
+
+            var task4 = new Task(() =>
+            {
+                positionToSplit();
+            });
+
+            var task5 = new Task(() =>
+            {
+                itemToSplit();
+            });
+
+
+            taskRefresh.Start();
+            taskCheckload.Start();
+            taskInventorySee.Start();
+            task1.Start();
+            task2.Start();
+            task3.Start();
+            task4.Start();
+            task5.Start();
+
+        }
+        #endregion
+        #region CheckFlag Init()
         private void RefreshDs1()
         {
             int delay = 2000;
@@ -340,7 +348,6 @@ namespace AutoSplitterCore
         List<DefinitionsDs1.LvlDs1> listPendingLvl = new List<DefinitionsDs1.LvlDs1>();
         List<DefinitionsDs1.PositionDs1> listPendingP = new List<DefinitionsDs1.PositionDs1>();
         List<DefinitionsDs1.ItemDs1> listPendingItem = new List<DefinitionsDs1.ItemDs1>();
-
 
         private void checkLoad()
         {

@@ -1038,15 +1038,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{4F78054D-1B40-4BEA-9C3D-A8265E3FB478}"
-        "PackageCode" = "8:{7A184007-43CF-4BD6-B40F-F641333FAFAE}"
+        "ProductCode" = "8:{1FE862BF-F6F9-4291-B3F3-98556E220CAD}"
+        "PackageCode" = "8:{C5783DC4-9184-4462-84D0-14BA1BC07F70}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.5.0"
+        "ProductVersion" = "8:1.6.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1570,7 +1570,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B9FD165A5B60478F92E7A09C7472265B"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:obj\\Debug\\AutoSplitterCore.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4D8FE2CE9E694CB7A8B64FD65FEC552B"

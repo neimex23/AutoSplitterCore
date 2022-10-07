@@ -45,6 +45,8 @@ namespace AutoSplitterCore
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
+
+        #region Control Management
         public DTHollow getDataHollow()
         {
             return this.dataHollow;
@@ -57,12 +59,6 @@ namespace AutoSplitterCore
             _update_timer.Tick += (sender, args) => SplitGo();
         }
 
-        public bool getHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
-        {
-            Thread.Sleep(delay);
-            return _StatusHollow = hollow.Memory.HookProcess();
-        }
-
         public void SplitGo()
         {
             if (_SplitGo)
@@ -72,7 +68,6 @@ namespace AutoSplitterCore
             }
         }
 
-
         private void SplitCheck()
         {
             lock (_object)
@@ -81,11 +76,10 @@ namespace AutoSplitterCore
                 _SplitGo = true;
             }
         }
-
-        public PointF getCurrentPosition()
+        public bool getHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
-            manualRefreshPosition();
-            return this.currentPosition.position;
+            Thread.Sleep(delay);
+            return _StatusHollow = hollow.Memory.HookProcess();
         }
 
         public void setProcedure(bool procedure)
@@ -100,6 +94,159 @@ namespace AutoSplitterCore
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
+        public void resetSplited()
+        {
+            if (dataHollow.getBosstoSplit().Count > 0)
+            {
+                foreach (var b in dataHollow.getBosstoSplit())
+                {
+                    b.IsSplited = false;
+                }
+            }
+
+            if (dataHollow.getMiniBossToSplit().Count > 0)
+            {
+                foreach (var mb in dataHollow.getMiniBossToSplit())
+                {
+                    mb.IsSplited = false;
+                }
+            }
+
+            if (dataHollow.getPhanteonToSplit().Count > 0)
+            {
+                foreach (var p in dataHollow.getPhanteonToSplit())
+                {
+                    p.IsSplited = false;
+                }
+            }
+
+            if (dataHollow.getCharmToSplit().Count > 0)
+            {
+                foreach (var c in dataHollow.getCharmToSplit())
+                {
+                    c.IsSplited = false;
+                }
+            }
+
+            if (dataHollow.getSkillsToSplit().Count > 0)
+            {
+                foreach (var s in dataHollow.getSkillsToSplit())
+                {
+                    s.IsSplited = false;
+                }
+            }
+
+            if (dataHollow.getPositionToSplit().Count > 0)
+            {
+                foreach (var p in dataHollow.getPositionToSplit())
+                {
+                    p.IsSplited = false;
+                }
+            }
+            _runStarted = false;
+        }
+        #endregion
+        #region Object Management
+        public void AddBoss(string boss)
+        {
+            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
+            dataHollow.bossToSplit.Add(element);
+
+        }
+        public void AddMiniBoss(string boss)
+        {
+            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
+            dataHollow.miniBossToSplit.Add(element);
+        }
+
+
+        public void AddPantheon(string Pantheon)
+        {
+            DefinitionHollow.Pantheon phan = new DefinitionHollow.Pantheon() { Title = Pantheon };
+            dataHollow.phanteonToSplit.Add(phan);
+        }
+
+        public void AddCharm(string charm)
+        {
+            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(charm);
+            dataHollow.charmToSplit.Add(element);
+
+        }
+
+        public void AddSkill(string skill)
+        {
+            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(skill);
+            dataHollow.skillsToSplit.Add(element);
+
+        }
+
+        public void AddPosition(PointF position, string scene)
+        {
+            DefinitionHollow.Vector3F vector = new DefinitionHollow.Vector3F()
+            { position = position, sceneName = scene, previousScene = null };
+            dataHollow.positionToSplit.Add(vector);
+
+        }
+
+        public void RemoveBoss(string boss)
+        {
+            dataHollow.bossToSplit.RemoveAll(i => i.Title == boss);
+        }
+
+        public void RemoveMiniBoss(string boss)
+        {
+            dataHollow.miniBossToSplit.RemoveAll(i => i.Title == boss);
+
+        }
+
+        public void RemovePantheon(string Pantheon)
+        {
+            dataHollow.phanteonToSplit.RemoveAll(i => i.Title == Pantheon);
+        }
+
+
+        public void RemoveCharm(string charm)
+        {
+            dataHollow.charmToSplit.RemoveAll(i => i.Title == charm);
+        }
+
+        public void RemoveSkill(string skill)
+        {
+            dataHollow.skillsToSplit.RemoveAll(i => i.Title == skill);
+
+        }
+
+        public void RemovePosition(int position)
+        {
+            dataHollow.positionToSplit.RemoveAt(position);
+        }
+
+        public void clearData()
+        {
+            dataHollow.bossToSplit.Clear();
+            dataHollow.miniBossToSplit.Clear();
+            dataHollow.phanteonToSplit.Clear();
+            dataHollow.charmToSplit.Clear();
+            dataHollow.skillsToSplit.Clear();
+            dataHollow.positionToSplit.Clear();
+            dataHollow.positionMargin = 3;
+            _runStarted = false;
+        }
+        #endregion
+        #region Checking
+        public PointF getCurrentPosition()
+        {
+            manualRefreshPosition();
+            return this.currentPosition.position;
+        }
+
+        public bool getIsLoading()
+        {
+            return hollow.Memory.GameState() == GameState.LOADING ? true : false;
+        }
+
+        #endregion
+        #region Procedure
         public void LoadAutoSplitterProcedure()
         {
             var taskRefresh = new Task(() =>
@@ -156,153 +303,8 @@ namespace AutoSplitterCore
             task5.Start();
             task6.Start();
         }
-
-
-        public void AddBoss(string boss)
-        {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
-            dataHollow.bossToSplit.Add(element);
-
-        }
-        public void AddMiniBoss(string boss)
-        {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
-            dataHollow.miniBossToSplit.Add(element);
-        }
-
-
-        public void AddPantheon(string Pantheon)
-        {
-            DefinitionHollow.Pantheon phan = new DefinitionHollow.Pantheon() { Title = Pantheon };
-            dataHollow.phanteonToSplit.Add(phan);
-        }
-
-        public void AddCharm(string charm)
-        {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(charm);
-            dataHollow.charmToSplit.Add(element);
-
-        }
-
-        public void AddSkill(string skill)
-        {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(skill);
-            dataHollow.skillsToSplit.Add(element);
-
-        }
-
-        public void AddPosition(PointF position, string scene) 
-        {
-            DefinitionHollow.Vector3F vector = new DefinitionHollow.Vector3F() 
-            {position = position, sceneName = scene,previousScene = null };
-            dataHollow.positionToSplit.Add(vector);
-        
-        }
-
-        public void RemoveBoss(string boss)
-        {
-            dataHollow.bossToSplit.RemoveAll(i=> i.Title == boss);
-        }
-
-        public void RemoveMiniBoss(string boss)
-        {
-            dataHollow.miniBossToSplit.RemoveAll(i => i.Title == boss);
-            
-        }
-
-        public void RemovePantheon(string Pantheon)
-        {
-            dataHollow.phanteonToSplit.RemoveAll(i => i.Title == Pantheon);
-        }
-        
-
-        public void RemoveCharm(string charm)
-        {
-            dataHollow.charmToSplit.RemoveAll(i => i.Title == charm);
-        }
-
-        public void RemoveSkill(string skill)
-        {
-            dataHollow.skillsToSplit.RemoveAll(i => i.Title == skill);
-            
-        }
-
-        public void RemovePosition(int position)
-        {
-            dataHollow.positionToSplit.RemoveAt(position);
-        }
-
-        public void resetSplited()
-        {
-            if (dataHollow.getBosstoSplit().Count > 0)
-            {
-                foreach (var b in dataHollow.getBosstoSplit())
-                {
-                    b.IsSplited = false;
-                }
-            }
-
-            if (dataHollow.getMiniBossToSplit().Count > 0)
-            {
-                foreach (var mb in dataHollow.getMiniBossToSplit())
-                {
-                    mb.IsSplited = false;
-                }
-            }
-
-            if (dataHollow.getPhanteonToSplit().Count > 0)
-            {
-                foreach (var p in dataHollow.getPhanteonToSplit())
-                {
-                    p.IsSplited = false;
-                }
-            }
-
-            if (dataHollow.getCharmToSplit().Count > 0)
-            {
-                foreach (var c in dataHollow.getCharmToSplit())
-                {
-                    c.IsSplited = false;
-                }
-            }
-
-            if (dataHollow.getSkillsToSplit().Count > 0)
-            {
-                foreach (var s in dataHollow.getSkillsToSplit())
-                {
-                    s.IsSplited = false;
-                }
-            }
-
-            if (dataHollow.getPositionToSplit().Count > 0)
-            {
-                foreach (var p in dataHollow.getPositionToSplit())
-                {
-                    p.IsSplited = false;
-                }
-            }
-            _runStarted = false;
-        }
-
-        public void clearData()
-        {
-            dataHollow.bossToSplit.Clear();
-            dataHollow.miniBossToSplit.Clear();
-            dataHollow.phanteonToSplit.Clear();
-            dataHollow.charmToSplit.Clear();
-            dataHollow.skillsToSplit.Clear();
-            dataHollow.positionToSplit.Clear();
-            dataHollow.positionMargin = 3;
-            _runStarted = false;
-        }
-
-        public bool getIsLoading()
-        {
-            return hollow.Memory.GameState() == GameState.LOADING ? true : false;
-        }
-
-        #region init()
-
+        #endregion
+        #region CheckFlag Init()   
         private void RefreshHollow()
         {
             int delay = 2000;
