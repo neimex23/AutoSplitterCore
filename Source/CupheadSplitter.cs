@@ -134,11 +134,6 @@ namespace AutoSplitterCore
         {
             return (cup.SceneName() + (cup.InGame() ? " (In Game)" : ""));
         }
-
-        public bool IsInGame()
-        {
-            return _StatusCuphead && (cup.SceneName().StartsWith("scene_level") || cup.SceneName().StartsWith("scene_map"));
-        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

@@ -220,11 +220,6 @@ namespace AutoSplitterCore
         {
             return elden.ReadEventFlag(id);
         }
-
-        public bool IsInGame()
-        {
-            return _StatusElden && !elden.IsPlayerLoaded();
-        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

@@ -214,11 +214,6 @@ namespace AutoSplitterCore
         {
             return Ds3.GetInGameTimeMilliseconds();
         }
-
-        public bool IsInGame()
-        {
-            return _StatusDs3 && !Ds3.IsPlayerLoaded();
-        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

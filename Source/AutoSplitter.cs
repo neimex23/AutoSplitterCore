@@ -887,7 +887,7 @@ namespace AutoSplitterCore
 
         private void radioIGTCeleste_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTEr.Checked == true ? celesteSplitter.dataCeleste.gameTimer = true : celesteSplitter.dataCeleste.gameTimer = false;
+            _ = radioIGTCeleste.Checked == true ? celesteSplitter.dataCeleste.gameTimer = true : celesteSplitter.dataCeleste.gameTimer = false;
         }
 
         private void checkBoxATCuphead_CheckedChanged_1(object sender, EventArgs e)
@@ -899,7 +899,7 @@ namespace AutoSplitterCore
 
         private void radioIGTCuphead_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTEr.Checked ? cupSplitter.dataCuphead.gameTimer = true : cupSplitter.dataCuphead.gameTimer = false;
+            _ = radioIGTCuphead.Checked ? cupSplitter.dataCuphead.gameTimer = true : cupSplitter.dataCuphead.gameTimer = false;
         }
 
         private void checkBoxATHollow_CheckedChanged(object sender, EventArgs e)

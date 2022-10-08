@@ -193,18 +193,19 @@ namespace AutoSplitterCore
             return (long)igtModule.ReturnCurrentIGT();
         }
 
-        private int gameActive = 0;
-        private long? _lastInGameTime;
-        private bool anyGameTime = false;
-
         public bool GetIsIGTActive()
         {
             return this.anyGameTime;
         }
 
+        private int gameActive = 0;
+        private bool anyGameTime = false;
+        private bool specialCaseTime = false;
+        private long _lastCelesteTime;
         public void CheckAutoTimers()
         {
-            if (_PracticeMode) { anyGameTime = false; }
+            if (_PracticeMode) { anyGameTime = false;}
+            specialCaseTime = false;
             switch (gameActive)
             {
                 case 1: //Sekiro
@@ -300,26 +301,30 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 7: //Celeste
+                case 7: //Celeste - Special Case IGT & Timer
                     if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.dataCeleste.gameTimer)
                         {
                             anyGameTime = false;
-                            if (celesteSplitter.dataCeleste.autoTimer && !celesteSplitter._runStarted && celesteSplitter.getTimeInGame() > 0)
+                            if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
                                 main.StartStopTimer(true);
                                 celesteSplitter._runStarted = true;
-                            }
-                            else if (celesteSplitter._runStarted && celesteSplitter.getTimeInGame() == 0)
-                            {
-                                main.StartStopTimer(false);
-                                celesteSplitter._runStarted = false;
                             }
                         }
                         else
                         {
                             anyGameTime = true;
+                            specialCaseTime = true;
+                            var currentCelesteTime = celesteSplitter.getTimeInGame();
+                            if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame())
+                                main.StartStopTimer(true);
+                            else
+                                main.StartStopTimer(false);
+
+                            if (currentCelesteTime > 0)
+                                _lastCelesteTime = currentCelesteTime;
                         }
                     }
                     break;
@@ -386,62 +391,18 @@ namespace AutoSplitterCore
 
                 case 0:
                 case 9:
-                default: anyGameTime = false; break;
+                default: anyGameTime = false;  break;
             }
 
-            if (anyGameTime && IsInGame(gameActive))
+            if (anyGameTime && !specialCaseTime)
             {
                 var inGameTime = igtModule.ReturnCurrentIGT();
                 if (inGameTime > 0 && !profCtrl.TimerRunning)
                     main.StartStopTimer(true);
-                else if (inGameTime == 0 && profCtrl.TimerRunning)
+                if (inGameTime <= 0 && profCtrl.TimerRunning)
                     main.StartStopTimer(false);
-                else if (inGameTime > 0 && _lastInGameTime == inGameTime && profCtrl.TimerRunning)
-                    main.StartStopTimer(false);
-                else if (inGameTime > 0 && _lastInGameTime != inGameTime && !profCtrl.TimerRunning)
-                    main.StartStopTimer(true);
-                if (inGameTime > 0)
-                    _lastInGameTime = inGameTime;
             }
-        }
-
-        public bool IsInGame(int game)
-        {
-            switch (game)
-            {
-                case 1: return sekiroSplitter.IsInGame();
-                case 2: return ds1Splitter.IsInGame();
-                case 4: return ds3Splitter.IsInGame();
-                case 5: return eldenSplitter.IsInGame();
-                case 7: return celesteSplitter.IsInGame();
-                case 8: return cupSplitter.IsInGame();
-
-                case 6:
-                case 3: 
-                case 9:
-                case 0:
-                default: return false;
-            }
-        }
-
-        public int GetIgtSplitterTimer(int game)
-        {
-            switch (game)
-            {
-                case 1: return sekiroSplitter.getTimeInGame();
-                case 2: return ds1Splitter.getTimeInGame();
-                case 4: return ds3Splitter.getTimeInGame();
-                case 5: return eldenSplitter.getTimeInGame();
-                case 7: return celesteSplitter.getTimeInGame();
-                case 8: return cupSplitter.getTimeInGame();
-
-                case 3:
-                case 6:
-                case 9:
-                case 0:
-                default: return -1;
-            }
-        }
+        } 
         #endregion
     }
 }

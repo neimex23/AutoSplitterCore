@@ -133,7 +133,9 @@ regardless of what is written on them
 - When a event of autosplit happen, an internal variable is set, for evit that event is repit. 
 Use "Reset Run" button or Shortcut, for reset this state.
 
-- If you have set "GameToSplit" and added a position trigger, be careful with autospliting.
+- If you have set "GameToSplit" and add a position trigger, be careful with autospliting.
+
+- AutoTimer with RealTime Method in Celeste only start timer when join into a level, dont stop after this.
 
 - If you want auto reset internal flags to split all Pantheon bosses in hollow autosplitter.
 If you want play P1+P2+P3+P4 to play P5 after, or P5 to play P1....P4 after 
@@ -150,7 +152,7 @@ Launching the game from "Steam\steamapps\common\ELDEN RING\Game\eldenring.exe" w
 
 - ASL Method can read whateaver ASL file (AutoSplit Language to Livesplit) and split with them. Dont use ASL that no have autospliting and 
 if the game is into this plugin Sekiro,ds1,ds2,etc.
-Browse the file with .asl extencion and clic on "Update Script" if this dont show configuration after 5 seconds.
+Browse the file with .asl extencion and clic on "Update Script" if this dont show configuration after 5-10 seconds.
 
 ===========================================
 Sekiro Features:
@@ -186,63 +188,63 @@ Licence: MIT
 
 DLL Used:
     - DLL SoulsMemory from:
-    [-]    Title: SoulSplitter
-           Author:  F.stam (FrankvdStam)
-           Source:  https://github.com/FrankvdStam/SoulSplitter.git
-           Licence: GNU
-	[=] Attributions:
-      [-]  Title: IGT Save File Dark Souls 1
-       	   Author: CapitaineToinon
-		   Source: https://github.com/CapitaineToinon/LiveSplit.DarkSoulsIGT
-           License: GNU	     
-	  [-]  Title: DarkSouls3RemoveIntroScreens
-	       Author: Blade (bladecoding)
-		   Source: https://github.com/bladecoding/DarkSouls3RemoveIntroScreens
-		   License: MIT            		   
+        Title: SoulSplitter
+        Author:  F.stam (FrankvdStam)
+        Source:  https://github.com/FrankvdStam/SoulSplitter.git
+        Licence: GNU
+    [=] Attributions:
+          [-] Title: IGT Save File Dark Souls 1
+			Author: CapitaineToinon
+			Source: https://github.com/CapitaineToinon/LiveSplit.DarkSoulsIGT
+             License: GNU	     
+          [-] Title: DarkSouls3RemoveIntroScreens
+			Author: Blade (bladecoding)
+			Source: https://github.com/bladecoding/DarkSouls3RemoveIntroScreens
+			License: MIT            		   
 
     - DLL LiveSplit.HollowKnight
-    [-]    Title: LiveSplit.HollowKnight
-           Author: DevilSquirrel
-           Source: https://github.com/ShootMe/LiveSplit.HollowKnight.git
-           Licence: MIT
+        Title: LiveSplit.HollowKnight
+        Author: DevilSquirrel
+        Source: https://github.com/ShootMe/LiveSplit.HollowKnight.git
+        Licence: MIT
 
     - DLL LiveSplit.Celeste
-           Title: LiveSplit.HollowKnight
-           Author: DevilSquirrel
-           Source: https://github.com/ShootMe/LiveSplit.Celeste.git
-           Licence: MIT
+        Title: LiveSplit.HollowKnight
+        Author: DevilSquirrel
+        Source: https://github.com/ShootMe/LiveSplit.Celeste.git
+        Licence: MIT
 	
-	- DLL LiveSplit.Cuphead
-           Title: LiveSplit.Cuphead
-           Author: DevilSquirrel
-           Source: https://github.com/ShootMe/LiveSplit.Cuphead.git
-           Licence: MIT			   
+     - DLL LiveSplit.Cuphead
+        Title: LiveSplit.Cuphead
+        Author: DevilSquirrel
+        Source: https://github.com/ShootMe/LiveSplit.Cuphead.git
+        Licence: MIT			   
 
     - DLL LiveSplit.Core
-    [-]    Title: LiveSplit
-           Author: LiveSplit
-           Source: https://github.com/LiveSplit/LiveSplit
-           Licence: MIT
+        Title: LiveSplit
+        Author: LiveSplit
+        Source: https://github.com/LiveSplit/LiveSplit
+        Licence: MIT
 
     - DLL LiveSplit.ScriptableAutoSplit (Modified)
-           Title: ScriptableAutoSplit
-           Author: LiveSplit
-           Source: https://github.com/LiveSplit/LiveSplit.ScriptableAutoSplit.git
-           Licence: MIT
-		   Source Modified: https://github.com/neimex23/LiveSplit.ScriptableAutoSplit.git
-		   Licence: MIT
+        Title: ScriptableAutoSplit
+        Author: LiveSplit
+        Source: https://github.com/LiveSplit/LiveSplit.ScriptableAutoSplit.git
+        Licence: MIT
+        Source Modified: https://github.com/neimex23/LiveSplit.ScriptableAutoSplit.git
+        Licence: MIT
 		   
-	- DLL Irony (Dependency of ScripteableAutoSplit)
-		   Title: Irony — .NET Language Implementation Kit
-		   Author: IronyProject 
-		   Source: https://github.com/IronyProject/Irony.git
-		   Licence: MIT
+    - DLL Irony (Dependency of ScripteableAutoSplit)
+		Title: Irony — .NET Language Implementation Kit
+		Author: IronyProject 
+		Source: https://github.com/IronyProject/Irony.git
+		Licence: MIT
 		   
     - DLL Newtonsoft.Json (Dependency of SoulsMemory)
-	       Title: Newtonsoft.Json
-		   Author: James Newton-King (JamesNK)
-		   Source: https://github.com/JamesNK/Newtonsoft.Json.git
-		   Licence: MIT
+		Title: Newtonsoft.Json
+		Author: James Newton-King (JamesNK)
+		Source: https://github.com/JamesNK/Newtonsoft.Json.git
+		Licence: MIT
 
 Addon Developed for HitCounterManager:
 	Title: HitCounterManager

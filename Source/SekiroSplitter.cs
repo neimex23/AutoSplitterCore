@@ -249,11 +249,6 @@ namespace AutoSplitterCore
         {
             return sekiro.ReadEventFlag(id);
         }
-
-        public bool IsInGame()
-        {
-            return _StatusSekiro && !sekiro.IsPlayerLoaded();
-        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

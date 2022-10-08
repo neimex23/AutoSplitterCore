@@ -150,7 +150,7 @@ namespace AutoSplitterCore
                 case 0:
                 default: break;
             }
-            this.textBoxIGT.Paste((mainModule.GetIgtSplitterTimer(GameActive) / conv).ToString());
+            this.textBoxIGT.Paste((mainModule.ReturnCurrentIGT() / conv).ToString());
             if (status) { Running.Show(); NotRunning.Hide(); } else { NotRunning.Show(); Running.Hide(); }
             if (debugSplit) { btnStatusSplitting.BackColor = System.Drawing.Color.Green; } else { btnStatusSplitting.BackColor = System.Drawing.Color.Red; }
 

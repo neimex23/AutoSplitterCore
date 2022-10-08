@@ -63,6 +63,7 @@ namespace AutoSplitterCore
                 Releases.Add(debugVer);
                 */
 
+                Releases.Clear();
                 foreach (var aux in auxReleases)
                 {
                     var ver = aux["tag_name"].ToString();

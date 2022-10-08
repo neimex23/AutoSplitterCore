@@ -257,11 +257,6 @@ namespace AutoSplitterCore
         {
             return Ds1.ReadEventFlag(id);
         }
-
-        public bool IsInGame()
-        {
-            return _StatusDs1 && !Ds1.IsPlayerLoaded();
-        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

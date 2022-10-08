@@ -13,7 +13,9 @@ regardless of what is written on them
 - When a event of autosplit happen, an internal variable is set, for evit that event is repit. 
 Use "Reset Run" button or Shortcut, for reset this state.
 
-- If you have set "GameToSplit" and added a position trigger, be careful with autospliting.
+- If you have set "GameToSplit" and add a position trigger, be careful with autospliting.
+
+- AutoTimer with RealTime Method in Celeste only start timer when join into a level, dont stop after this.
 
 - If you want auto reset internal flags to split all Pantheon bosses in hollow autosplitter.
 If you want play P1+P2+P3+P4 to play P5 after, or P5 to play P1....P4 after 
@@ -30,7 +32,7 @@ Launching the game from "Steam\steamapps\common\ELDEN RING\Game\eldenring.exe" w
 
 - ASL Method can read whateaver ASL file (AutoSplit Language to Livesplit) and split with them. Dont use ASL that no have autospliting and 
 if the game is into this plugin Sekiro,ds1,ds2,etc.
-Browse the file with .asl extencion and clic on "Update Script" if this dont show configuration after 5 seconds.
+Browse the file with .asl extencion and clic on "Update Script" if this dont show configuration after 5-10 seconds.
 
 ===========================================
 Sekiro Features:
