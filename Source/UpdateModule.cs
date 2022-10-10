@@ -58,11 +58,6 @@ namespace AutoSplitterCore
 
                 var auxReleases = response.FromJson<List<Dictionary<string, object>>>();
 
-                /* For Test New Version
-                Version debugVer = Version.Parse("1.7.0");
-                Releases.Add(debugVer);
-                */
-
                 Releases.Clear();
                 foreach (var aux in auxReleases)
                 {
@@ -80,55 +75,11 @@ namespace AutoSplitterCore
                 _ = DebugMode ? currentVer = Application.ProductVersion.ToString() + ".0" : currentVer = dll.GetName().Version.ToString();
             }
             catch (Exception) { };
-            if (CheckUpdatesOnStartup && Releases.Count > 0 && dll != null && (Releases[0] > dll.GetName().Version))
+            if ((CheckUpdatesOnStartup && Releases.Count > 0 && dll != null && (Releases[0] > dll.GetName().Version))) //|| (DebugMode))
             {
-                Form aux = new Form();
-                if (NewVersionDialog(aux) == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
+                Form aux = new UpdateShowDialog(this);
+                aux.ShowDialog();
             } else if (ForceUpdate) { MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-        }
-
-        public static DialogResult NewVersionDialog(Form ParentWindow)
-        {
-            const int ClientPad = 15;
-            Form frm = new Form();
-
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.FormBorderStyle = FormBorderStyle.FixedDialog;
-            frm.Icon = ParentWindow.Icon;
-            frm.ShowInTaskbar = false;
-            frm.FormBorderStyle = FormBorderStyle.Sizable;
-            frm.MaximizeBox = true;
-            frm.MinimizeBox = false;
-            frm.ClientSize = new Size(345, 190);
-            frm.MinimumSize = frm.ClientSize;
-            frm.Text = "New version available";
-
-            Label label = new Label();
-            label.Size = new Size(frm.ClientSize.Width - ClientPad, 20);
-            label.Location = new Point(ClientPad, ClientPad);
-            label.Text = "Latest available version:      " + Releases[0].ToString();
-            frm.Controls.Add(label);
-
-            Button okButton = new Button();
-            okButton.DialogResult = DialogResult.OK;
-            okButton.Name = "okButton";
-            okButton.Location = new Point(frm.ClientSize.Width - okButton.Size.Width - ClientPad, frm.ClientSize.Height - okButton.Size.Height - ClientPad);
-            okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            okButton.Text = "&OK";
-            frm.Controls.Add(okButton);
-
-            Button wwwButton = new Button();
-            wwwButton.DialogResult = DialogResult.Yes;
-            wwwButton.Name = "wwwButton";
-            wwwButton.Location = new Point(frm.ClientSize.Width - wwwButton.Size.Width - ClientPad - okButton.Size.Width - ClientPad, frm.ClientSize.Height - wwwButton.Size.Height - ClientPad);
-            wwwButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            wwwButton.Text = "&Go to download page";
-            wwwButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            wwwButton.AutoSize = true;
-            frm.Controls.Add(wwwButton);
-
-            frm.AcceptButton = okButton;
-            return frm.ShowDialog(ParentWindow);
         }
     }
 }

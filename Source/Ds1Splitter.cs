@@ -35,7 +35,6 @@ namespace AutoSplitterCore
         public static DarkSouls1 Ds1 = new DarkSouls1();
         public bool _StatusProcedure = true;
         public bool _StatusDs1 = false;
-        public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
         public DTDs1 dataDs1;
@@ -142,7 +141,6 @@ namespace AutoSplitterCore
                     i.IsSplited = false;
                 }
             }
-            _runStarted = false;
         }
         #endregion
         #region Object Management
@@ -238,7 +236,6 @@ namespace AutoSplitterCore
             dataDs1.positionsToSplit.Clear();
             dataDs1.itemToSplit.Clear();
             dataDs1.positionMargin = 3;
-            _runStarted = false;
         }
         #endregion
         #region Checking

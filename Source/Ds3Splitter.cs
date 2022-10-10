@@ -34,7 +34,6 @@ namespace AutoSplitterCore
         public static DarkSouls3 Ds3 = new DarkSouls3();
         public bool _StatusProcedure = true;
         public bool _StatusDs3 = false;
-        public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
         public DTDs3 dataDs3;
@@ -131,7 +130,6 @@ namespace AutoSplitterCore
                     cf.IsSplited = false;
                 }
             }
-            _runStarted = false;
         }
         #endregion
         #region Object Management
@@ -201,7 +199,6 @@ namespace AutoSplitterCore
             dataDs3.bonfireToSplit.Clear();
             dataDs3.lvlToSplit.Clear();
             dataDs3.flagToSplit.Clear();
-            _runStarted = false;
         }
         #endregion
         #region Checking

@@ -25,20 +25,22 @@ using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Cuphead;
 using HitCounterManager;
+using System.Reflection;
+using LiveSplit.Updates;
+using System.Windows.Forms;
 
 
 namespace AutoSplitterCore
 {
     public class CupheadSplitter
     {
-        public static SplitterMemory cup = new SplitterMemory();
+        private static MemoryManager cup = new MemoryManager();
         public DTCuphead dataCuphead;
         public bool _StatusProcedure = true;
         public bool _StatusCuphead = false;
-        public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
-        public ProfilesControl _profile;       
+        public ProfilesControl _profile;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
@@ -58,7 +60,9 @@ namespace AutoSplitterCore
         public bool getCupheadStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusCuphead = cup.HookProcess();
+            cup.HookProcess();
+            cup.GamePointers();              
+            return _StatusCuphead = cup.IsHooked;
         }
 
         public void SplitGo()
@@ -91,6 +95,7 @@ namespace AutoSplitterCore
             if (status) {LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
+
         public void resetSplited()
         {
             if (dataCuphead.getElementToSplit().Count > 0)
@@ -100,17 +105,19 @@ namespace AutoSplitterCore
                     b.IsSplited = false;
                 }
             }
-            _runStarted = false;
         }
         #endregion
         #region Object Management
         public void AddElement(string element)
         {
-            DefinitionCuphead.ElementsToSplitCup cElem = new DefinitionCuphead.ElementsToSplitCup()
+            if (element != "-------DLC--------")
             {
-                Title = element
-            };
-            dataCuphead.elementToSplit.Add(cElem);
+                DefinitionCuphead.ElementsToSplitCup cElem = new DefinitionCuphead.ElementsToSplitCup()
+                {
+                    Title = element
+                };
+                dataCuphead.elementToSplit.Add(cElem);
+            }
         }
 
         public void RemoveElement(string element)
@@ -121,18 +128,24 @@ namespace AutoSplitterCore
         public void clearData()
         {
             dataCuphead.elementToSplit.Clear();
-            _runStarted = false;
         }
         #endregion
         #region Checking
         public int getTimeInGame()
         {
-            return (int)cup.LevelTime() * 1000;
+            //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
+            //Warning Return Time per Level and is seted to 0 after finish.
+            return (int)cup.LevelTime()*1000+1;
         }
 
         public string GetSceneName()
         {
-            return (cup.SceneName() + (cup.InGame() ? " (In Game)" : ""));
+            return cup.SceneName();
+        }
+
+        public bool levelCompleted()
+        {
+            return _StatusCuphead && cup.LevelEnding();
         }
         #endregion
         #region Procedure
@@ -170,31 +183,23 @@ namespace AutoSplitterCore
             {
                 //Levels
                 case "Forest Follies":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_1_1F" && cup.LevelComplete(Levels.Platforming_Level_1_1); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_1_1F" && cup.LevelEnding(); break;
                 case "Treetop Trouble":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_1_2F" && cup.LevelComplete(Levels.Platforming_Level_1_2); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_1_2F" && cup.LevelEnding(); break;
                 case "Funfair Fever":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_2_1F" && cup.LevelComplete(Levels.Platforming_Level_2_1); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_2_1F" && cup.LevelEnding(); break;
                 case "Funhouse Frazzle":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_2_2F" && cup.LevelComplete(Levels.Platforming_Level_2_2); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_2_2F" && cup.LevelEnding(); break;
                 case "Perilous Piers":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_3_1F" && cup.LevelComplete(Levels.Platforming_Level_3_1); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_3_1F" && cup.LevelEnding(); break;
                 case "Rugged Ridge":
-                    shouldSplit = cup.SceneName() == "scene_level_platforming_3_2F" && cup.LevelComplete(Levels.Platforming_Level_3_2); break;
+                    shouldSplit = cup.SceneName() == "scene_level_platforming_3_2F" && cup.LevelEnding(); break;
                 case "Mausoleum I":
                     shouldSplit = cup.SceneName() == "scene_level_mausoleum" && cup.LevelMode() == Mode.Easy && (cup.LevelEnding() && cup.LevelWon()); break;
                 case "Mausoleum II":
                     shouldSplit = cup.SceneName() == "scene_level_mausoleum" && cup.LevelMode() == Mode.Normal && (cup.LevelEnding() && cup.LevelWon()); break;
                 case "Mausoleum III":
                     shouldSplit = cup.SceneName()== "scene_level_mausoleum" && cup.LevelMode() == Mode.Hard && (cup.LevelEnding() && cup.LevelWon()); break;
-                case "Inkwell Isle 1":
-                    shouldSplit = cup.SceneName() == "scene_map_world_1" && ((cup.SceneName() + (cup.InGame() ? " (In Game)" : ""))!= "scene_level_house_elder_kettle"); break;
-                case "Inkwell Isle 2":
-                    shouldSplit = cup.SceneName() == "scene_map_world_2" && ((cup.SceneName() + (cup.InGame() ? " (In Game)" : "")) != "scene_map_world_1"); break;
-                case "Inkwell Isle 3":
-                    shouldSplit = cup.SceneName() == "scene_map_world_3" && ((cup.SceneName() + (cup.InGame() ? " (In Game)" : "")) != "scene_map_world_2"); break;
-                case "Inkwell Hell":
-                    shouldSplit = cup.SceneName() == "scene_map_world_4" && ((cup.SceneName() + (cup.InGame() ? " (In Game)" : "")) != "scene_map_world_3"); break;
 
                 //Bosses
                 case "The Root Pack":
@@ -235,6 +240,32 @@ namespace AutoSplitterCore
                     shouldSplit = cup.SceneName() == "scene_level_dice_palace_main" && cup.LevelComplete(Levels.DicePalaceMain); break;
                 case "Devil":
                     shouldSplit = cup.SceneName() == "scene_level_devil" && cup.LevelComplete(Levels.Devil); break;
+
+                //DLC Bosses
+                case "Glumstone The Giant":
+                    shouldSplit = cup.SceneName() == "scene_level_old_man" && cup.LevelComplete(Levels.OldMan); break;
+                case "Mortimer Freeze":
+                    shouldSplit = cup.SceneName() == "scene_level_snow_cult" && cup.LevelComplete(Levels.SnowCult); break;
+                case "The Howling Aces":
+                    shouldSplit = cup.SceneName() == "scene_level_airplane" && cup.LevelComplete(Levels.Airplane); break;
+                case "Esther Winchester":
+                    shouldSplit = cup.SceneName() == "scene_level_flying_cowboy" && cup.LevelComplete(Levels.FlyingCowboy); break;
+                case "Moonshine Mob":
+                    shouldSplit = cup.SceneName() == "scene_level_rum_runners" && cup.LevelComplete(Levels.RumRunners); break;
+                case "Chef Saltbaker":
+                    shouldSplit = cup.SceneName() == "scene_level_saltbaker" && cup.LevelComplete(Levels.Saltbaker); break;
+                case "Demon and Angel":
+                    shouldSplit = cup.SceneName() == "scene_level_graveyard" && cup.LevelComplete(Levels.Graveyard); break;
+                case "Chess Pawns":
+                    shouldSplit = cup.SceneName() == "scene_level_chess_pawn" && cup.LevelComplete(Levels.ChessPawn); break;
+                case "Chess Knight":
+                    shouldSplit = cup.SceneName() == "scene_level_chess_knight" && cup.LevelComplete(Levels.ChessKnight); break;
+                case "Chess Bishop":
+                    shouldSplit = cup.SceneName() == "scene_level_chessbishop" && cup.LevelComplete(Levels.ChessBishop); break;
+                case "Chess Rook":
+                    shouldSplit = cup.SceneName() == "scene_level_chess_rook" && cup.LevelComplete(Levels.ChessRook); break;
+                case "Chess Queen":
+                    shouldSplit = cup.SceneName() == "scene_level_chess_queen" && cup.LevelComplete(Levels.ChessQueen); break;
                 default: shouldSplit = false; break;       
             }
             return shouldSplit;

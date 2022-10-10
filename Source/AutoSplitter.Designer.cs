@@ -441,7 +441,6 @@ namespace AutoSplitterCore
             this.CelesteRunning = new System.Windows.Forms.Label();
             this.CelesteNotRunning = new System.Windows.Forms.Label();
             this.tabCuphead = new System.Windows.Forms.TabPage();
-            this.label60 = new System.Windows.Forms.Label();
             this.panelBossCuphead = new System.Windows.Forms.Panel();
             this.checkedListBoxBossCuphead = new System.Windows.Forms.CheckedListBox();
             this.panelLevelCuphead = new System.Windows.Forms.Panel();
@@ -452,6 +451,8 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new System.Windows.Forms.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -846,10 +847,10 @@ namespace AutoSplitterCore
             // tabTiming
             // 
             this.tabTiming.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTiming.Controls.Add(this.groupBoxTCuphead);
             this.tabTiming.Controls.Add(this.groupBoxTCeleste);
             this.tabTiming.Controls.Add(this.btnDesactiveAllTiming);
             this.tabTiming.Controls.Add(this.groupBoxTHK);
-            this.tabTiming.Controls.Add(this.groupBoxTCuphead);
             this.tabTiming.Controls.Add(this.groupBoxTEr);
             this.tabTiming.Controls.Add(this.groupBoxTDs3);
             this.tabTiming.Controls.Add(this.groupBoxTDs2);
@@ -1007,6 +1008,7 @@ namespace AutoSplitterCore
             // 
             // groupBoxTCuphead
             // 
+            this.groupBoxTCuphead.Controls.Add(this.label77);
             this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
             this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
             this.groupBoxTCuphead.Location = new System.Drawing.Point(126, 62);
@@ -1039,6 +1041,7 @@ namespace AutoSplitterCore
             // 
             // groupBoxTMCuphead
             // 
+            this.groupBoxTMCuphead.Controls.Add(this.label60);
             this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
             this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
             this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 30);
@@ -6852,7 +6855,6 @@ namespace AutoSplitterCore
             // tabCuphead
             // 
             this.tabCuphead.BackColor = System.Drawing.SystemColors.Control;
-            this.tabCuphead.Controls.Add(this.label60);
             this.tabCuphead.Controls.Add(this.panelBossCuphead);
             this.tabCuphead.Controls.Add(this.panelLevelCuphead);
             this.tabCuphead.Controls.Add(this.comboBoxToSplitCuphead);
@@ -6866,16 +6868,6 @@ namespace AutoSplitterCore
             this.tabCuphead.Size = new System.Drawing.Size(587, 351);
             this.tabCuphead.TabIndex = 8;
             this.tabCuphead.Text = "Cuphead";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.ForeColor = System.Drawing.Color.Firebrick;
-            this.label60.Location = new System.Drawing.Point(204, 336);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(188, 13);
-            this.label60.TabIndex = 33;
-            this.label60.Text = "Warning: Only Works on 1.2.4 or older";
             // 
             // panelBossCuphead
             // 
@@ -6909,7 +6901,20 @@ namespace AutoSplitterCore
             "Cala Maria",
             "Phantom Express",
             "King Dice",
-            "Devil"});
+            "Devil",
+            "-------DLC--------",
+            "Glumstone The Giant",
+            "Mortimer Freeze",
+            "The Howling Aces",
+            "Esther Winchester",
+            "Moonshine Mob",
+            "Chef Saltbaker",
+            "Demon and Angel",
+            "Chess Pawns",
+            "Chess Knight",
+            "Chess Bishop",
+            "Chess Rook",
+            "Chess Queen"});
             this.checkedListBoxBossCuphead.Location = new System.Drawing.Point(25, 14);
             this.checkedListBoxBossCuphead.Name = "checkedListBoxBossCuphead";
             this.checkedListBoxBossCuphead.Size = new System.Drawing.Size(515, 229);
@@ -6938,11 +6943,7 @@ namespace AutoSplitterCore
             "Rugged Ridge",
             "Mausoleum I",
             "Mausoleum II",
-            "Mausoleum III",
-            "Inkwell Isle 1",
-            "Inkwell Isle 2",
-            "Inkwell Isle 3",
-            "Inkwell Hell"});
+            "Mausoleum III"});
             this.checkedListLevelCuphead.Location = new System.Drawing.Point(25, 14);
             this.checkedListLevelCuphead.Name = "checkedListLevelCuphead";
             this.checkedListLevelCuphead.Size = new System.Drawing.Size(515, 229);
@@ -7011,6 +7012,26 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label60.Location = new System.Drawing.Point(51, 78);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(65, 13);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "(Level Time)";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label77.Location = new System.Drawing.Point(58, 140);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(231, 13);
+            this.label77.TabIndex = 3;
+            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7045,6 +7066,7 @@ namespace AutoSplitterCore
             this.groupBoxTMHollow.ResumeLayout(false);
             this.groupBoxTMHollow.PerformLayout();
             this.groupBoxTCuphead.ResumeLayout(false);
+            this.groupBoxTCuphead.PerformLayout();
             this.groupBoxATCuphead.ResumeLayout(false);
             this.groupBoxATCuphead.PerformLayout();
             this.groupBoxTMCuphead.ResumeLayout(false);
@@ -7481,7 +7503,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckedListBox checkedListBoxBossCuphead;
         private System.Windows.Forms.Panel panelLevelCuphead;
         private System.Windows.Forms.CheckedListBox checkedListLevelCuphead;
-        private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button btnRefreshDs1;
         private System.Windows.Forms.Button btnDesactiveAllDs1;
         private System.Windows.Forms.Label Ds1Running;
@@ -7601,5 +7622,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Button btnCheckVersion;
         private System.Windows.Forms.Button btnGoToDownloadPage;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label60;
     }
 }

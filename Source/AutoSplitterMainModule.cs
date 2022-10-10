@@ -195,38 +195,24 @@ namespace AutoSplitterCore
 
         public bool GetIsIGTActive()
         {
-            return this.anyGameTime;
+            return this.anyGameTime && ReturnCurrentIGT() > 0;
         }
 
         private int gameActive = 0;
         private bool anyGameTime = false;
-        private bool specialCaseTime = false;
+        private bool autoTimer = false;
         private long _lastCelesteTime;
         public void CheckAutoTimers()
         {
-            if (_PracticeMode) { anyGameTime = false;}
-            specialCaseTime = false;
+            anyGameTime = false;
+            autoTimer = false;
             switch (gameActive)
             {
                 case 1: //Sekiro
                     if (sekiroSplitter.dataSekiro.autoTimer && !_PracticeMode)
                     {
-                        anyGameTime = false;
-                        if (!sekiroSplitter.dataSekiro.gameTimer)
-                        {
-                            if (!sekiroSplitter._runStarted && sekiroSplitter.getTimeInGame() > 0)
-                            {
-                                main.StartStopTimer(true);
-                                sekiroSplitter._runStarted = true;
-                            }
-                            else
-                            if (sekiroSplitter._runStarted && sekiroSplitter.getTimeInGame() == 0)
-                            {
-                                main.StartStopTimer(false);
-                                sekiroSplitter._runStarted = false;
-                            }
-                        }
-                        else
+                        autoTimer = true;
+                        if (sekiroSplitter.dataSekiro.gameTimer)
                         {
                             anyGameTime = true;
                         }
@@ -235,21 +221,8 @@ namespace AutoSplitterCore
                 case 2: //DS1
                     if (ds1Splitter.dataDs1.autoTimer && !_PracticeMode)
                     {
-                        if (!ds1Splitter.dataDs1.gameTimer)
-                        {
-                            anyGameTime = false;
-                            if (!ds1Splitter._runStarted && ds1Splitter.getTimeInGame() > 0)
-                            {
-                                main.StartStopTimer(true);
-                                ds1Splitter._runStarted = true;
-                            }
-                            else if (ds1Splitter._runStarted && ds1Splitter.getTimeInGame() == 0)
-                            {
-                                main.StartStopTimer(false);
-                                ds1Splitter._runStarted = false;
-                            }
-                        }
-                        else
+                        autoTimer = true;
+                        if (ds1Splitter.dataDs1.gameTimer)
                         {
                             anyGameTime = true;
                         }
@@ -258,21 +231,8 @@ namespace AutoSplitterCore
                 case 4: //Ds3
                     if (ds3Splitter.dataDs3.autoTimer && !_PracticeMode)
                     {
+                        autoTimer = true;
                         if (!ds3Splitter.dataDs3.gameTimer)
-                        {
-                            anyGameTime = false;
-                            if (!ds3Splitter._runStarted && ds3Splitter.getTimeInGame() > 0)
-                            {
-                                main.StartStopTimer(true);
-                                ds3Splitter._runStarted = true;
-                            }
-                            else if (ds3Splitter.dataDs3.autoTimer && ds3Splitter._runStarted && ds3Splitter.getTimeInGame() == 0)
-                            {
-                                main.StartStopTimer(false);
-                                ds3Splitter._runStarted = false;
-                            }
-                        }
-                        else
                         {
                             anyGameTime = true;
                         }
@@ -281,32 +241,18 @@ namespace AutoSplitterCore
                 case 5: //Elden
                     if (eldenSplitter.dataElden.autoTimer && !_PracticeMode)
                     {
-                        if (!eldenSplitter.dataElden.gameTimer)
-                        {
-                            anyGameTime = false;
-                            if (!eldenSplitter._runStarted && eldenSplitter.getTimeInGame() > 0)
-                            {
-                                main.StartStopTimer(true);
-                                eldenSplitter._runStarted = true;
-                            }
-                            else if (eldenSplitter._runStarted && eldenSplitter.getTimeInGame() == 0)
-                            {
-                                main.StartStopTimer(false);
-                                eldenSplitter._runStarted = false;
-                            }
-                        }
-                        else
+                        autoTimer = true;
+                        if (eldenSplitter.dataElden.gameTimer)
                         {
                             anyGameTime = true;
                         }
                     }
                     break;
-                case 7: //Celeste - Special Case IGT & Timer
+                case 7: //Celeste
                     if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.dataCeleste.gameTimer)
-                        {
-                            anyGameTime = false;
+                        {                           
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
                                 main.StartStopTimer(true);
@@ -316,7 +262,6 @@ namespace AutoSplitterCore
                         else
                         {
                             anyGameTime = true;
-                            specialCaseTime = true;
                             var currentCelesteTime = celesteSplitter.getTimeInGame();
                             if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame())
                                 main.StartStopTimer(true);
@@ -333,22 +278,27 @@ namespace AutoSplitterCore
                     {
                         if (!cupSplitter.dataCuphead.gameTimer)
                         {
-                            anyGameTime = false;
-                            if (!cupSplitter._runStarted && cupSplitter.getTimeInGame() > 0)
-                            {
-                                main.StartStopTimer(true);
-                                cupSplitter._runStarted = true;
-                            }
-                            else if (cupSplitter._runStarted && cupSplitter.getTimeInGame() == 0)
+                            if (cupSplitter.GetSceneName() == string.Empty || cupSplitter.GetSceneName() == "scene_title")
                             {
                                 main.StartStopTimer(false);
-                                cupSplitter._runStarted = false;
+                            }
+                            else
+                            {
+                                main.StartStopTimer(true);
                             }
                         }
                         else
                         {
                             anyGameTime = true;
-                        }
+                            if (cupSplitter.GetSceneName() == string.Empty || cupSplitter.GetSceneName() == "scene_title" || cupSplitter.levelCompleted())
+                            {
+                                main.StartStopTimer(false);
+                            }
+                            else
+                            {
+                                main.StartStopTimer(true);
+                            }
+                        }                     
                     }
                     break;
 
@@ -356,7 +306,6 @@ namespace AutoSplitterCore
                 case 3: //DS2
                     if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
                     {
-                        anyGameTime = false;
                         if (ds2Splitter._runStarted)
                         {
                             main.StartStopTimer(true);
@@ -373,7 +322,6 @@ namespace AutoSplitterCore
                 case 6: //Hollow
                     if (hollowSplitter.dataHollow.autoTimer && !_PracticeMode)
                     {
-                        anyGameTime = false;
                         if (hollowSplitter._runStarted)
                         {
                             main.StartStopTimer(true);
@@ -391,10 +339,10 @@ namespace AutoSplitterCore
 
                 case 0:
                 case 9:
-                default: anyGameTime = false;  break;
+                default: anyGameTime = false; autoTimer = false; break;
             }
 
-            if (anyGameTime && !specialCaseTime)
+            if (autoTimer)
             {
                 var inGameTime = igtModule.ReturnCurrentIGT();
                 if (inGameTime > 0 && !profCtrl.TimerRunning)

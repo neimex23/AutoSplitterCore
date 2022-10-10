@@ -54,11 +54,9 @@
    - Chapter
    - Checkpoints
 
- - Cuphead *v1.2.4* || **[Inmediatly]**
+ - Cuphead || **[Inmediatly]**
    - Kill a Boss
    - Complete a Level
-> Unfortunately the creator of the dll has it out of date, and in LiveSplit there is only one TempFix that is not applicable here. If one day he updates it, I will be happy to do it.
-
 
  - ASL || **[Inmediatly]**
    - Any ASL with Split (AutoSplitter Language for LiveSplit).

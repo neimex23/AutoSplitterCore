@@ -20,13 +20,13 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using HitCounterManager;
+using SoulMemory;
+using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using SoulMemory.Sekiro;
-using SoulMemory;
-using HitCounterManager;
 
 namespace AutoSplitterCore
 {
@@ -35,7 +35,6 @@ namespace AutoSplitterCore
         public static Sekiro sekiro = new Sekiro();
         public bool _StatusProcedure = true;
         public bool _StatusSekiro = false;
-        public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
         public DTSekiro dataSekiro;
@@ -132,7 +131,6 @@ namespace AutoSplitterCore
                     cf.IsSplited = false;
                 }
             }
-            _runStarted = false;
             index = 0;
             notSplited(ref MortalJourneyData);
             PendingMortal.Clear();
@@ -229,7 +227,6 @@ namespace AutoSplitterCore
             notSplited(ref MortalJourneyData);
             dataSekiro.positionMargin = 3;
             dataSekiro.mortalJourneyRun = false;
-            _runStarted = false;
             index = 0;
         }
         #endregion

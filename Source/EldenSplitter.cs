@@ -39,7 +39,6 @@ namespace AutoSplitterCore
         public DTElden dataElden;
         public DefinitionsElden defE = new DefinitionsElden();
         public ProfilesControl _profile;
-        public bool _runStarted = false;
         private bool _writeMemory = false;      
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -136,7 +135,6 @@ namespace AutoSplitterCore
                     cf.IsSplited = false;
                 }
             }
-            _runStarted = false;
         }
         #endregion
         #region Object Management
@@ -201,7 +199,6 @@ namespace AutoSplitterCore
             dataElden.graceToSplit.Clear();
             dataElden.positionToSplit.Clear();
             dataElden.flagsToSplit.Clear();
-            _runStarted = false;
         }
         #endregion
         #region Checking

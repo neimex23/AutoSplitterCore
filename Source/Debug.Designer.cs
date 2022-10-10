@@ -36,6 +36,10 @@
             this.btnStatusSplitting = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxDebug = new System.Windows.Forms.GroupBox();
+            this.labelCloudVer = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LabelVersion = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSplitCf = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,10 +59,6 @@
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.checkBoxPracticeMode = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.LabelVersion = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.labelCloudVer = new System.Windows.Forms.Label();
             this.groupBoxDebug.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,6 +176,42 @@
             this.groupBoxDebug.TabStop = false;
             this.groupBoxDebug.Text = "Debug Information";
             // 
+            // labelCloudVer
+            // 
+            this.labelCloudVer.AutoSize = true;
+            this.labelCloudVer.Location = new System.Drawing.Point(528, 160);
+            this.labelCloudVer.Name = "labelCloudVer";
+            this.labelCloudVer.Size = new System.Drawing.Size(25, 13);
+            this.labelCloudVer.TabIndex = 70;
+            this.labelCloudVer.Text = "???";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(476, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.TabIndex = 69;
+            this.label8.Text = "Version AutoSplitterCore Git:";
+            // 
+            // LabelVersion
+            // 
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.Location = new System.Drawing.Point(528, 118);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(25, 13);
+            this.LabelVersion.TabIndex = 68;
+            this.LabelVersion.Text = "???";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(485, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 13);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "Version AutoSplitterCore:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -265,7 +301,7 @@
             // 
             this.textBoxSceneName.Location = new System.Drawing.Point(81, 99);
             this.textBoxSceneName.Name = "textBoxSceneName";
-            this.textBoxSceneName.Size = new System.Drawing.Size(93, 20);
+            this.textBoxSceneName.Size = new System.Drawing.Size(123, 20);
             this.textBoxSceneName.TabIndex = 58;
             // 
             // comboBoxIGTConversion
@@ -348,42 +384,6 @@
             this.checkBoxPracticeMode.Text = "Practice Mode";
             this.checkBoxPracticeMode.UseVisualStyleBackColor = true;
             this.checkBoxPracticeMode.CheckedChanged += new System.EventHandler(this.checkBoxPracticeMode_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(485, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 13);
-            this.label7.TabIndex = 67;
-            this.label7.Text = "Version AutoSplitterCore:";
-            // 
-            // LabelVersion
-            // 
-            this.LabelVersion.AutoSize = true;
-            this.LabelVersion.Location = new System.Drawing.Point(528, 118);
-            this.LabelVersion.Name = "LabelVersion";
-            this.LabelVersion.Size = new System.Drawing.Size(25, 13);
-            this.LabelVersion.TabIndex = 68;
-            this.LabelVersion.Text = "???";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(476, 142);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
-            this.label8.TabIndex = 69;
-            this.label8.Text = "Version AutoSplitterCore Git:";
-            // 
-            // labelCloudVer
-            // 
-            this.labelCloudVer.AutoSize = true;
-            this.labelCloudVer.Location = new System.Drawing.Point(528, 160);
-            this.labelCloudVer.Name = "labelCloudVer";
-            this.labelCloudVer.Size = new System.Drawing.Size(25, 13);
-            this.labelCloudVer.TabIndex = 70;
-            this.labelCloudVer.Text = "???";
             // 
             // Debug
             // 
