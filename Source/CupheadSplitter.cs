@@ -261,7 +261,7 @@ namespace AutoSplitterCore
                 case "Chess Knight":
                     shouldSplit = cup.SceneName() == "scene_level_chess_knight" && cup.LevelComplete(Levels.ChessKnight); break;
                 case "Chess Bishop":
-                    shouldSplit = cup.SceneName() == "scene_level_chessbishop" && cup.LevelComplete(Levels.ChessBishop); break;
+                    shouldSplit = cup.SceneName() == "scene_level_chess_bishop" && cup.LevelComplete(Levels.ChessBishop); break;
                 case "Chess Rook":
                     shouldSplit = cup.SceneName() == "scene_level_chess_rook" && cup.LevelComplete(Levels.ChessRook); break;
                 case "Chess Queen":

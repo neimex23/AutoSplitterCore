@@ -21,6 +21,7 @@
 //SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
 using SoulMemory;
@@ -47,6 +48,8 @@ namespace AutoSplitterCore
         {
             comboBoxIGTConversion.SelectedIndex = 1;
             checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
+            List<string> GameList = mainModule.GetGames();
+            foreach (string i in GameList) comboBoxGame.Items.Add(i);
             switch (mainModule.GetSplitterEnable())
             {
                 case 1: comboBoxGame.SelectedIndex = 1; break;
