@@ -124,16 +124,17 @@
             this.btnStatusSplitting.Size = new System.Drawing.Size(48, 45);
             this.btnStatusSplitting.TabIndex = 54;
             this.btnStatusSplitting.UseVisualStyleBackColor = false;
+            this.btnStatusSplitting.Click += new System.EventHandler(this.btnStatusSplitting_Click);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(272, 21);
+            this.label1.Location = new System.Drawing.Point(270, 17);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.label1.Size = new System.Drawing.Size(67, 25);
+            this.label1.Size = new System.Drawing.Size(67, 32);
             this.label1.TabIndex = 55;
-            this.label1.Text = "Split Flag:";
+            this.label1.Text = "Split Flag:\r\n (Toggle)\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBoxDebug
@@ -170,7 +171,7 @@
             // labelCloudVer
             // 
             this.labelCloudVer.AutoSize = true;
-            this.labelCloudVer.Location = new System.Drawing.Point(528, 160);
+            this.labelCloudVer.Location = new System.Drawing.Point(529, 185);
             this.labelCloudVer.Name = "labelCloudVer";
             this.labelCloudVer.Size = new System.Drawing.Size(25, 13);
             this.labelCloudVer.TabIndex = 70;
@@ -179,7 +180,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(476, 142);
+            this.label8.Location = new System.Drawing.Point(477, 167);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 13);
             this.label8.TabIndex = 69;
@@ -188,7 +189,7 @@
             // LabelVersion
             // 
             this.LabelVersion.AutoSize = true;
-            this.LabelVersion.Location = new System.Drawing.Point(528, 118);
+            this.LabelVersion.Location = new System.Drawing.Point(529, 143);
             this.LabelVersion.Name = "LabelVersion";
             this.LabelVersion.Size = new System.Drawing.Size(25, 13);
             this.LabelVersion.TabIndex = 68;
@@ -197,7 +198,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(485, 99);
+            this.label7.Location = new System.Drawing.Point(486, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 13);
             this.label7.TabIndex = 67;

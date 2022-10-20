@@ -29,6 +29,8 @@ using System.Threading;
 using HitCounterManager;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using LiveSplit.Cuphead;
+using System.Reflection;
 
 namespace AutoSplitterCore
 {
@@ -51,19 +53,9 @@ namespace AutoSplitterCore
         private ProfilesControl profCtrl;
         private Form1 main;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1500 };
-        public List<string> GameList = new List<string>()
-        {
-            "Sekiro",
-            "Dark Souls 1",
-            "Dark Souls 2",
-            "Dark Souls 3",
-            "Elden Ring",
-            "Hollow Knight",
-            "Celeste",
-            "Cuphead",
-            "ASL Method"
-        };
-        public List<string> GetGames() { return this.GameList; }
+
+        public List<string> GetGames() { return GameConstruction.GameList; }
+
 
         #region Settings
         public void InitDebug()
@@ -130,23 +122,23 @@ namespace AutoSplitterCore
         }
         public int GetSplitterEnable()
         {
-            if (sekiroSplitter.dataSekiro.enableSplitting) { return 1; }
-            if (ds1Splitter.dataDs1.enableSplitting) { return 2; }
-            if (ds2Splitter.dataDs2.enableSplitting) { return 3; }
-            if (ds3Splitter.dataDs3.enableSplitting) { return 4; }
-            if (eldenSplitter.dataElden.enableSplitting) { return 5; }
-            if (hollowSplitter.dataHollow.enableSplitting) { return 6; }
-            if (celesteSplitter.dataCeleste.enableSplitting) { return 7; }
-            if (cupSplitter.dataCuphead.enableSplitting) { return 8; }
-            if (aslSplitter.enableSplitting) { return 9; }
-            return 0;
+            if (sekiroSplitter.dataSekiro.enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
+            if (ds1Splitter.dataDs1.enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
+            if (ds2Splitter.dataDs2.enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
+            if (ds3Splitter.dataDs3.enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
+            if (eldenSplitter.dataElden.enableSplitting) { return GameConstruction.EldenSplitterIndex; }
+            if (hollowSplitter.dataHollow.enableSplitting) { return GameConstruction.HollowSplitterIndex; }
+            if (celesteSplitter.dataCeleste.enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
+            if (cupSplitter.dataCuphead.enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
+            if (aslSplitter.enableSplitting) { return GameConstruction.ASLSplitterIndex; }
+            return GameConstruction.NoneSplitterIndex;
         }
         public void EnableSplitting(int splitter)
         {
             gameActive = splitter;
             igtModule.gameSelect = splitter;
             anyGameTime = false;
-            if (splitter == 0)
+            if (splitter == GameConstruction.NoneSplitterIndex)
             {
                 sekiroSplitter.setStatusSplitting(false);
                 ds1Splitter.setStatusSplitting(false);
@@ -162,15 +154,15 @@ namespace AutoSplitterCore
             {
                 switch (splitter)
                 {
-                    case 1: sekiroSplitter.setStatusSplitting(true); break;
-                    case 2: ds1Splitter.setStatusSplitting(true); break;
-                    case 3: ds2Splitter.setStatusSplitting(true); break;
-                    case 4: ds3Splitter.setStatusSplitting(true); break;
-                    case 5: eldenSplitter.setStatusSplitting(true); break;
-                    case 6: hollowSplitter.setStatusSplitting(true); break;
-                    case 7: celesteSplitter.setStatusSplitting(true); break;
-                    case 8: cupSplitter.setStatusSplitting(true); break;
-                    case 9: aslSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.SekiroSplitterIndex: sekiroSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.Ds1SplitterIndex: ds1Splitter.setStatusSplitting(true); break;
+                    case GameConstruction.Ds2SplitterIndex: ds2Splitter.setStatusSplitting(true); break;
+                    case GameConstruction.Ds3SplitterIndex: ds3Splitter.setStatusSplitting(true); break;
+                    case GameConstruction.EldenSplitterIndex: eldenSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.HollowSplitterIndex: hollowSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.CelesteSplitterIndex: celesteSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.CupheadSplitterIndex: cupSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.ASLSplitterIndex: aslSplitter.setStatusSplitting(true); break;
                 }
             }
         }
@@ -185,6 +177,7 @@ namespace AutoSplitterCore
             hollowSplitter.resetSplited();
             celesteSplitter.resetSplited();
             cupSplitter.resetSplited();
+            aslSplitter.resetSplited();
         }
         #endregion
         #region IGT & Timmer 
@@ -208,7 +201,7 @@ namespace AutoSplitterCore
             autoTimer = false;
             switch (gameActive)
             {
-                case 1: //Sekiro
+                case GameConstruction.SekiroSplitterIndex: //Sekiro
                     if (sekiroSplitter.dataSekiro.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -218,7 +211,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 2: //DS1
+                case GameConstruction.Ds1SplitterIndex: //DS1
                     if (ds1Splitter.dataDs1.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -228,7 +221,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 4: //Ds3
+                case GameConstruction.Ds3SplitterIndex: //Ds3
                     if (ds3Splitter.dataDs3.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -238,7 +231,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 5: //Elden
+                case GameConstruction.EldenSplitterIndex: //Elden
                     if (eldenSplitter.dataElden.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -248,7 +241,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 7: //Celeste
+                case GameConstruction.CelesteSplitterIndex: //Celeste
                     if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.dataCeleste.gameTimer)
@@ -273,7 +266,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 8: //Cuphead
+                case GameConstruction.CupheadSplitterIndex: //Cuphead
                     if (cupSplitter.dataCuphead.autoTimer && !_PracticeMode)
                     {
                         if (!cupSplitter.dataCuphead.gameTimer)
@@ -303,7 +296,7 @@ namespace AutoSplitterCore
                     break;
 
                 //Manual Controller with Loading Events
-                case 3: //DS2
+                case GameConstruction.Ds2SplitterIndex: //DS2
                     if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
                     {
                         if (ds2Splitter._runStarted)
@@ -319,7 +312,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case 6: //Hollow
+                case GameConstruction.HollowSplitterIndex: //Hollow
                     if (hollowSplitter.dataHollow.autoTimer && !_PracticeMode)
                     {
                         if (hollowSplitter._runStarted)
@@ -335,10 +328,8 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-
-
-                case 0:
-                case 9:
+                case GameConstruction.ASLSplitterIndex:
+                case GameConstruction.NoneSplitterIndex:               
                 default: anyGameTime = false; autoTimer = false; break;
             }
 

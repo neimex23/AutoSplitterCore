@@ -53,7 +53,7 @@ namespace AutoSplitterCore
 
         private void btnUpdateScript_Click(object sender, EventArgs e)
         {
-            DialogResult error = MessageBox.Show("Warning", "Use This Option Only if Script Don't Load, Do you Want proceed?", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult error = MessageBox.Show("Use This Option Only if Script Don't Load, Do you Want proceed?", "Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             if (error == DialogResult.Yes)
                 aslSplitter.UpdateScript();
         }

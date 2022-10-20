@@ -69,6 +69,15 @@ namespace AutoSplitterCore
         {
             asl.UpdateScript();
         }
+
+        public void resetSplited()
+        {
+            if (asl.Script != null)
+            {
+                asl.Script.shouldSplit = false;
+            }
+        }
+
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()
@@ -84,9 +93,9 @@ namespace AutoSplitterCore
         #region SplitControl
         public void SplitGo()
         {
-            if (_SplitGo)
+            if (_SplitGo && !DebugMode)
             {
-                if (!DebugMode) { try { _profile.ProfileSplitGo(+1); } catch (Exception) { } } else { Thread.Sleep(15000); }
+                try { _profile.ProfileSplitGo(+1); } catch (Exception) { } 
                 _SplitGo = false;
             }
         }

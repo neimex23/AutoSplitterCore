@@ -58,6 +58,14 @@ namespace AutoSplitterCore
             this.tabLicense = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
+            this.groupBoxTCuphead = new System.Windows.Forms.GroupBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBoxATCuphead = new System.Windows.Forms.GroupBox();
+            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCuphead = new System.Windows.Forms.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
             this.groupBoxTCeleste = new System.Windows.Forms.GroupBox();
             this.groupBoxATCeleste = new System.Windows.Forms.GroupBox();
             this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
@@ -71,12 +79,6 @@ namespace AutoSplitterCore
             this.groupBoxTMHollow = new System.Windows.Forms.GroupBox();
             this.radioIGTHollow = new System.Windows.Forms.RadioButton();
             this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCuphead = new System.Windows.Forms.GroupBox();
-            this.groupBoxATCuphead = new System.Windows.Forms.GroupBox();
-            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCuphead = new System.Windows.Forms.GroupBox();
-            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
             this.groupBoxTEr = new System.Windows.Forms.GroupBox();
             this.groupBoxATEr = new System.Windows.Forms.GroupBox();
             this.checkBoxATEr = new System.Windows.Forms.CheckBox();
@@ -451,8 +453,6 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new System.Windows.Forms.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -460,15 +460,15 @@ namespace AutoSplitterCore
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
+            this.groupBoxTCuphead.SuspendLayout();
+            this.groupBoxATCuphead.SuspendLayout();
+            this.groupBoxTMCuphead.SuspendLayout();
             this.groupBoxTCeleste.SuspendLayout();
             this.groupBoxATCeleste.SuspendLayout();
             this.groupBoxTMCeleste.SuspendLayout();
             this.groupBoxTHK.SuspendLayout();
             this.groupBoxATHk.SuspendLayout();
             this.groupBoxTMHollow.SuspendLayout();
-            this.groupBoxTCuphead.SuspendLayout();
-            this.groupBoxATCuphead.SuspendLayout();
-            this.groupBoxTMCuphead.SuspendLayout();
             this.groupBoxTEr.SuspendLayout();
             this.groupBoxATEr.SuspendLayout();
             this.groupBoxTMEr.SuspendLayout();
@@ -864,6 +864,94 @@ namespace AutoSplitterCore
             this.tabTiming.TabIndex = 11;
             this.tabTiming.Text = "Timing";
             // 
+            // groupBoxTCuphead
+            // 
+            this.groupBoxTCuphead.Controls.Add(this.label77);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
+            this.groupBoxTCuphead.Location = new System.Drawing.Point(126, 62);
+            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
+            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCuphead.TabIndex = 13;
+            this.groupBoxTCuphead.TabStop = false;
+            this.groupBoxTCuphead.Text = "Cuphead Timing";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label77.Location = new System.Drawing.Point(58, 140);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(231, 13);
+            this.label77.TabIndex = 3;
+            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
+            // 
+            // groupBoxATCuphead
+            // 
+            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
+            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 30);
+            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
+            this.groupBoxATCuphead.Size = new System.Drawing.Size(153, 108);
+            this.groupBoxATCuphead.TabIndex = 4;
+            this.groupBoxATCuphead.TabStop = false;
+            this.groupBoxATCuphead.Text = "AutoTimer";
+            // 
+            // checkBoxATCuphead
+            // 
+            this.checkBoxATCuphead.AutoSize = true;
+            this.checkBoxATCuphead.Location = new System.Drawing.Point(46, 49);
+            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
+            this.checkBoxATCuphead.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxATCuphead.TabIndex = 1;
+            this.checkBoxATCuphead.Text = "Enable";
+            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
+            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
+            // 
+            // groupBoxTMCuphead
+            // 
+            this.groupBoxTMCuphead.Controls.Add(this.label60);
+            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
+            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
+            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 30);
+            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
+            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 108);
+            this.groupBoxTMCuphead.TabIndex = 3;
+            this.groupBoxTMCuphead.TabStop = false;
+            this.groupBoxTMCuphead.Text = "Timing Method";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label60.Location = new System.Drawing.Point(51, 78);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(65, 13);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "(Level Time)";
+            // 
+            // radioIGTCuphead
+            // 
+            this.radioIGTCuphead.AutoSize = true;
+            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCuphead.Name = "radioIGTCuphead";
+            this.radioIGTCuphead.Size = new System.Drawing.Size(79, 17);
+            this.radioIGTCuphead.TabIndex = 1;
+            this.radioIGTCuphead.Text = "Game Time";
+            this.radioIGTCuphead.UseVisualStyleBackColor = true;
+            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
+            // 
+            // radioRealTimerCuphead
+            // 
+            this.radioRealTimerCuphead.AutoSize = true;
+            this.radioRealTimerCuphead.Checked = true;
+            this.radioRealTimerCuphead.Location = new System.Drawing.Point(40, 34);
+            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
+            this.radioRealTimerCuphead.Size = new System.Drawing.Size(73, 17);
+            this.radioRealTimerCuphead.TabIndex = 0;
+            this.radioRealTimerCuphead.TabStop = true;
+            this.radioRealTimerCuphead.Text = "Real Time";
+            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
+            // 
             // groupBoxTCeleste
             // 
             this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
@@ -1005,74 +1093,6 @@ namespace AutoSplitterCore
             this.radioRealTimerHollow.TabStop = true;
             this.radioRealTimerHollow.Text = "Real Time";
             this.radioRealTimerHollow.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCuphead
-            // 
-            this.groupBoxTCuphead.Controls.Add(this.label77);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
-            this.groupBoxTCuphead.Location = new System.Drawing.Point(126, 62);
-            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
-            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCuphead.TabIndex = 13;
-            this.groupBoxTCuphead.TabStop = false;
-            this.groupBoxTCuphead.Text = "Cuphead Timing";
-            // 
-            // groupBoxATCuphead
-            // 
-            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
-            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 30);
-            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
-            this.groupBoxATCuphead.Size = new System.Drawing.Size(153, 108);
-            this.groupBoxATCuphead.TabIndex = 4;
-            this.groupBoxATCuphead.TabStop = false;
-            this.groupBoxATCuphead.Text = "AutoTimer";
-            // 
-            // checkBoxATCuphead
-            // 
-            this.checkBoxATCuphead.AutoSize = true;
-            this.checkBoxATCuphead.Location = new System.Drawing.Point(46, 49);
-            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
-            this.checkBoxATCuphead.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxATCuphead.TabIndex = 1;
-            this.checkBoxATCuphead.Text = "Enable";
-            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
-            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
-            // 
-            // groupBoxTMCuphead
-            // 
-            this.groupBoxTMCuphead.Controls.Add(this.label60);
-            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
-            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
-            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 30);
-            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
-            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 108);
-            this.groupBoxTMCuphead.TabIndex = 3;
-            this.groupBoxTMCuphead.TabStop = false;
-            this.groupBoxTMCuphead.Text = "Timing Method";
-            // 
-            // radioIGTCuphead
-            // 
-            this.radioIGTCuphead.AutoSize = true;
-            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCuphead.Name = "radioIGTCuphead";
-            this.radioIGTCuphead.Size = new System.Drawing.Size(79, 17);
-            this.radioIGTCuphead.TabIndex = 1;
-            this.radioIGTCuphead.Text = "Game Time";
-            this.radioIGTCuphead.UseVisualStyleBackColor = true;
-            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
-            // 
-            // radioRealTimerCuphead
-            // 
-            this.radioRealTimerCuphead.AutoSize = true;
-            this.radioRealTimerCuphead.Checked = true;
-            this.radioRealTimerCuphead.Location = new System.Drawing.Point(40, 34);
-            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
-            this.radioRealTimerCuphead.Size = new System.Drawing.Size(73, 17);
-            this.radioRealTimerCuphead.TabIndex = 0;
-            this.radioRealTimerCuphead.TabStop = true;
-            this.radioRealTimerCuphead.Text = "Real Time";
-            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
             // 
             // groupBoxTEr
             // 
@@ -7012,26 +7032,6 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label60.Location = new System.Drawing.Point(51, 78);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(65, 13);
-            this.label60.TabIndex = 2;
-            this.label60.Text = "(Level Time)";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label77.Location = new System.Drawing.Point(58, 140);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(231, 13);
-            this.label77.TabIndex = 3;
-            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
-            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7055,6 +7055,12 @@ namespace AutoSplitterCore
             this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
+            this.groupBoxTCuphead.ResumeLayout(false);
+            this.groupBoxTCuphead.PerformLayout();
+            this.groupBoxATCuphead.ResumeLayout(false);
+            this.groupBoxATCuphead.PerformLayout();
+            this.groupBoxTMCuphead.ResumeLayout(false);
+            this.groupBoxTMCuphead.PerformLayout();
             this.groupBoxTCeleste.ResumeLayout(false);
             this.groupBoxATCeleste.ResumeLayout(false);
             this.groupBoxATCeleste.PerformLayout();
@@ -7065,12 +7071,6 @@ namespace AutoSplitterCore
             this.groupBoxATHk.PerformLayout();
             this.groupBoxTMHollow.ResumeLayout(false);
             this.groupBoxTMHollow.PerformLayout();
-            this.groupBoxTCuphead.ResumeLayout(false);
-            this.groupBoxTCuphead.PerformLayout();
-            this.groupBoxATCuphead.ResumeLayout(false);
-            this.groupBoxATCuphead.PerformLayout();
-            this.groupBoxTMCuphead.ResumeLayout(false);
-            this.groupBoxTMCuphead.PerformLayout();
             this.groupBoxTEr.ResumeLayout(false);
             this.groupBoxATEr.ResumeLayout(false);
             this.groupBoxATEr.PerformLayout();

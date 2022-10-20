@@ -67,9 +67,9 @@ namespace AutoSplitterCore
 
         public void SplitGo()
         {
-            if (_SplitGo)
+            if (_SplitGo && !DebugMode)
             {
-                if (!DebugMode) { try { _profile.ProfileSplitGo(+1); } catch (Exception) { } } else { Thread.Sleep(15000); }
+                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
                 _SplitGo = false;
             }
         }
@@ -94,7 +94,6 @@ namespace AutoSplitterCore
             dataCuphead.enableSplitting = status;
             if (status) {LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
-
 
         public void resetSplited()
         {

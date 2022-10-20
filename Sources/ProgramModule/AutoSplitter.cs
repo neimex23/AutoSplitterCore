@@ -672,7 +672,6 @@ namespace AutoSplitterCore
                 radioIGTCuphead.Checked = false;
                 radioRealTimerCuphead.Checked = true;
             }
-
             #endregion
             #region Update
             cbCheckUpdatesOnStartup.Checked = updateModule.CheckUpdatesOnStartup;
@@ -3041,6 +3040,6 @@ namespace AutoSplitterCore
                 TabControl2.SelectTab(tabCuphead);
             }
         }
-        #endregion      
+        #endregion
     }
 }

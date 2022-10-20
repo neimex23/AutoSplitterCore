@@ -195,6 +195,6 @@ namespace AutoSplitterCore
             }
             catch (Exception) { aslSplitter.setData(null, profiles); }
         }
-        #endregion
     }
+    #endregion
 }

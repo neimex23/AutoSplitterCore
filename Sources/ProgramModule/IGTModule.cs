@@ -35,23 +35,23 @@ namespace AutoSplitterCore
         {
             switch (gameSelect)
             {
-                case 1:
+                case GameConstruction.SekiroSplitterIndex:
                     return sekiroSplitter.getTimeInGame();
-                case 2:
+                case GameConstruction.Ds1SplitterIndex:
                     return ds1Splitter.getTimeInGame();
-                case 4:
+                case GameConstruction.Ds3SplitterIndex:
                     return ds3Splitter.getTimeInGame();
-                case 5:
+                case GameConstruction.EldenSplitterIndex:
                     return eldenSplitter.getTimeInGame();
-                case 7:
+                case GameConstruction.CelesteSplitterIndex:
                     return celesteSplitter.getTimeInGame();
-                case 8:
+                case GameConstruction.CupheadSplitterIndex:
                     return cupSplitter.getTimeInGame();
 
-                case 3:
-                case 6:
-                case 0:
-                case 9:
+                case GameConstruction.Ds2SplitterIndex:
+                case GameConstruction.HollowSplitterIndex:
+                case GameConstruction.NoneSplitterIndex:
+                case GameConstruction.ASLSplitterIndex:
                 default:
                     return -1;
             }
