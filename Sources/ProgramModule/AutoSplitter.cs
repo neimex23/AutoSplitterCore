@@ -913,6 +913,11 @@ namespace AutoSplitterCore
             _ = radioIGTHollow.Checked == true ? hollowSplitter.dataHollow.gameTimer = true : hollowSplitter.dataHollow.gameTimer = false;
         }
 
+        private void btnHowSetup_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/wiki");
+        }
+
         private void btnAbout_Click(object sender, EventArgs e)
         {
             if (!TabControl2.TabPages.Contains(tabInfo))

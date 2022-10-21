@@ -208,12 +208,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7DD6BFDFFCBD85AF4CB1C84122C37BA8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -275,6 +269,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_CD9F75FE6A4AF76113EB6283915D396A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7DD6BFDFFCBD85AF4CB1C84122C37BA8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1038,15 +1038,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{E435473B-94C8-4608-A6E6-52CA63A0520E}"
-        "PackageCode" = "8:{9147DC3A-727D-4600-9130-16A8BD31D51B}"
+        "ProductCode" = "8:{2A31470A-4BF0-464F-97E9-55054759904B}"
+        "PackageCode" = "8:{CBE9CE0F-C65F-477E-8213-4ACA176A7459}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.9.0"
+        "ProductVersion" = "8:1.10.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

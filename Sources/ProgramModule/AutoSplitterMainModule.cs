@@ -177,7 +177,6 @@ namespace AutoSplitterCore
             hollowSplitter.resetSplited();
             celesteSplitter.resetSplited();
             cupSplitter.resetSplited();
-            aslSplitter.resetSplited();
         }
         #endregion
         #region IGT & Timmer 

@@ -69,15 +69,6 @@ namespace AutoSplitterCore
         {
             asl.UpdateScript();
         }
-
-        public void resetSplited()
-        {
-            if (asl.Script != null)
-            {
-                asl.Script.shouldSplit = false;
-            }
-        }
-
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

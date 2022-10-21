@@ -121,6 +121,8 @@
     <value>Notes:
 ===========================================
 AutoSplitting:
+- If You have problems to setup Extencion visit: https://github.com/neimex23/HitCounterManager/wiki
+
 - To activate any autosplitting you should select in main program "Game to Split".
 
 - To Auto initialize Timer should select in main program "Game to Split" and check the game in Configuration AutoSplitter AutoTimer

@@ -453,6 +453,7 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new System.Windows.Forms.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
+            this.btnHowSetup = new System.Windows.Forms.Button();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -664,6 +665,7 @@ namespace AutoSplitterCore
             // 
             // groupBoxSplitters
             // 
+            this.groupBoxSplitters.Controls.Add(this.btnHowSetup);
             this.groupBoxSplitters.Controls.Add(this.btnAbout);
             this.groupBoxSplitters.Controls.Add(this.btnTiming);
             this.groupBoxSplitters.Controls.Add(this.btnASL);
@@ -685,7 +687,7 @@ namespace AutoSplitterCore
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(291, 126);
+            this.btnAbout.Location = new System.Drawing.Point(291, 107);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(89, 28);
             this.btnAbout.TabIndex = 9;
@@ -695,7 +697,7 @@ namespace AutoSplitterCore
             // 
             // btnTiming
             // 
-            this.btnTiming.Location = new System.Drawing.Point(291, 92);
+            this.btnTiming.Location = new System.Drawing.Point(291, 72);
             this.btnTiming.Name = "btnTiming";
             this.btnTiming.Size = new System.Drawing.Size(89, 28);
             this.btnTiming.TabIndex = 8;
@@ -705,7 +707,7 @@ namespace AutoSplitterCore
             // 
             // btnASL
             // 
-            this.btnASL.Location = new System.Drawing.Point(291, 58);
+            this.btnASL.Location = new System.Drawing.Point(291, 37);
             this.btnASL.Name = "btnASL";
             this.btnASL.Size = new System.Drawing.Size(89, 28);
             this.btnASL.TabIndex = 1;
@@ -7032,6 +7034,16 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
+            // btnHowSetup
+            // 
+            this.btnHowSetup.Location = new System.Drawing.Point(291, 144);
+            this.btnHowSetup.Name = "btnHowSetup";
+            this.btnHowSetup.Size = new System.Drawing.Size(89, 25);
+            this.btnHowSetup.TabIndex = 10;
+            this.btnHowSetup.Text = "How Setup";
+            this.btnHowSetup.UseVisualStyleBackColor = true;
+            this.btnHowSetup.Click += new System.EventHandler(this.btnHowSetup_Click);
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7624,5 +7636,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Button btnGoToDownloadPage;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button btnHowSetup;
     }
 }
