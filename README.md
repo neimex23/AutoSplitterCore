@@ -6,6 +6,8 @@
 [![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
+![AutoSplitterCore](https://github.com/neimex23/HitCounterManager/blob/master/Images/Wiki/AutoSplitterCore.png)
+
 * This is a Extension for HitCounterManager can give you the possibility to Automatically split when an event happen in a game
 
 * **Posibility to AutoSplit** for:
