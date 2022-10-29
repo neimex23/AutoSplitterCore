@@ -33,7 +33,11 @@ namespace AutoSplitterCore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControl2 = new HitCounterManager.ProfileTabControl();
             this.tabConfig = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxMProfile = new System.Windows.Forms.GroupBox();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHowSetup = new System.Windows.Forms.Button();
+            this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
             this.btnCheckVersion = new System.Windows.Forms.Button();
             this.btnGoToDownloadPage = new System.Windows.Forms.Button();
             this.label76 = new System.Windows.Forms.Label();
@@ -42,6 +46,7 @@ namespace AutoSplitterCore
             this.LabelVersion = new System.Windows.Forms.Label();
             this.cbCheckUpdatesOnStartup = new System.Windows.Forms.CheckBox();
             this.groupBoxSplitters = new System.Windows.Forms.GroupBox();
+            this.btnDishonored = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnTiming = new System.Windows.Forms.Button();
             this.btnASL = new System.Windows.Forms.Button();
@@ -56,8 +61,14 @@ namespace AutoSplitterCore
             this.tabInfo = new System.Windows.Forms.TabPage();
             this.TextBoxManual = new System.Windows.Forms.TextBox();
             this.tabLicense = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
+            this.groupBoxTDishonored = new System.Windows.Forms.GroupBox();
+            this.groupBoxATDishonored = new System.Windows.Forms.GroupBox();
+            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDishonored = new System.Windows.Forms.GroupBox();
+            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
             this.groupBoxTCuphead = new System.Windows.Forms.GroupBox();
             this.label77 = new System.Windows.Forms.Label();
             this.groupBoxATCuphead = new System.Windows.Forms.GroupBox();
@@ -112,9 +123,24 @@ namespace AutoSplitterCore
             this.comboBoxTGame = new System.Windows.Forms.ComboBox();
             this.label75 = new System.Windows.Forms.Label();
             this.tabSekiro = new System.Windows.Forms.TabPage();
+            this.panelMiniBossSekiro = new System.Windows.Forms.Panel();
+            this.textBoxDescriptionMiniBoss = new System.Windows.Forms.TextBox();
+            this.btnAddMiniBossSekiro = new System.Windows.Forms.Button();
+            this.label79 = new System.Windows.Forms.Label();
+            this.comboBoxMiniBossSekiro = new System.Windows.Forms.ComboBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.comboBoxHowMiniBoss = new System.Windows.Forms.ComboBox();
+            this.listBoxMiniBossesS = new System.Windows.Forms.ListBox();
+            this.panelBossS = new System.Windows.Forms.Panel();
+            this.btn_AddBoss = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBoxBoss = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxHowBoss = new System.Windows.Forms.ComboBox();
+            this.listBoxBosses = new System.Windows.Forms.ListBox();
             this.panelMortalJourney = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxMJS = new System.Windows.Forms.GroupBox();
             this.checkBoxMortalJourneyRun = new System.Windows.Forms.CheckBox();
             this.panelPositionS = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -137,13 +163,6 @@ namespace AutoSplitterCore
             this.btnGetListFlagsSekiro = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
             this.textBoxCfIdS = new System.Windows.Forms.TextBox();
-            this.panelBossS = new System.Windows.Forms.Panel();
-            this.btn_AddBoss = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBoxBoss = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxHowBoss = new System.Windows.Forms.ComboBox();
-            this.listBoxBosses = new System.Windows.Forms.ListBox();
             this.panelIdolsS = new System.Windows.Forms.Panel();
             this.groupBoxAshinaCastle = new System.Windows.Forms.GroupBox();
             this.listBoxAshinaCastle = new System.Windows.Forms.ListBox();
@@ -352,14 +371,6 @@ namespace AutoSplitterCore
             this.comboBoxToSplitSelectDs3 = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.tabElden = new System.Windows.Forms.TabPage();
-            this.panelCfER = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.comboBoxHowCfER = new System.Windows.Forms.ComboBox();
-            this.listBoxCfER = new System.Windows.Forms.ListBox();
-            this.btnAddCfER = new System.Windows.Forms.Button();
-            this.btnGetListER = new System.Windows.Forms.Button();
-            this.label41 = new System.Windows.Forms.Label();
-            this.textBoxIdER = new System.Windows.Forms.TextBox();
             this.panelPositionsER = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -380,6 +391,14 @@ namespace AutoSplitterCore
             this.comboBoxHowGraceER = new System.Windows.Forms.ComboBox();
             this.comboBoxZoneSelectER = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.panelCfER = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.comboBoxHowCfER = new System.Windows.Forms.ComboBox();
+            this.listBoxCfER = new System.Windows.Forms.ListBox();
+            this.btnAddCfER = new System.Windows.Forms.Button();
+            this.btnGetListER = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textBoxIdER = new System.Windows.Forms.TextBox();
             this.panelBossER = new System.Windows.Forms.Panel();
             this.btnAddBossER = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -394,6 +413,26 @@ namespace AutoSplitterCore
             this.comboBoxToSplitEldenRing = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.tabHollow = new System.Windows.Forms.TabPage();
+            this.panelBossH = new System.Windows.Forms.Panel();
+            this.groupBoxPantheon = new System.Windows.Forms.GroupBox();
+            this.lbl_warning = new System.Windows.Forms.Label();
+            this.checkedListBoxPp = new System.Windows.Forms.CheckedListBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBoxHowP = new System.Windows.Forms.ComboBox();
+            this.checkedListBoxPantheon = new System.Windows.Forms.CheckedListBox();
+            this.groupBoxMBH = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxHMB = new System.Windows.Forms.CheckedListBox();
+            this.groupBossH = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxBossH = new System.Windows.Forms.CheckedListBox();
+            this.comboBoxSelectKindBoss = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelItemH = new System.Windows.Forms.Panel();
+            this.groupBoxCharms = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxCharms = new System.Windows.Forms.CheckedListBox();
+            this.groupBoxSkillsH = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxSkillsH = new System.Windows.Forms.CheckedListBox();
+            this.comboBoxItemSelectH = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.panelPositionH = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -405,26 +444,6 @@ namespace AutoSplitterCore
             this.textBoxXh = new System.Windows.Forms.TextBox();
             this.textBoxYh = new System.Windows.Forms.TextBox();
             this.textBoxSh = new System.Windows.Forms.TextBox();
-            this.panelBossH = new System.Windows.Forms.Panel();
-            this.groupBoxMBH = new System.Windows.Forms.GroupBox();
-            this.checkedListBoxHMB = new System.Windows.Forms.CheckedListBox();
-            this.groupBoxPantheon = new System.Windows.Forms.GroupBox();
-            this.lbl_warning = new System.Windows.Forms.Label();
-            this.checkedListBoxPp = new System.Windows.Forms.CheckedListBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBoxHowP = new System.Windows.Forms.ComboBox();
-            this.checkedListBoxPantheon = new System.Windows.Forms.CheckedListBox();
-            this.groupBossH = new System.Windows.Forms.GroupBox();
-            this.checkedListBoxBossH = new System.Windows.Forms.CheckedListBox();
-            this.comboBoxSelectKindBoss = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panelItemH = new System.Windows.Forms.Panel();
-            this.groupBoxSkillsH = new System.Windows.Forms.GroupBox();
-            this.checkedListBoxSkillsH = new System.Windows.Forms.CheckedListBox();
-            this.groupBoxCharms = new System.Windows.Forms.GroupBox();
-            this.checkedListBoxCharms = new System.Windows.Forms.CheckedListBox();
-            this.comboBoxItemSelectH = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.refreshHollow = new System.Windows.Forms.Button();
             this.btn_DesactiveAllH = new System.Windows.Forms.Button();
             this.HollowRunning = new System.Windows.Forms.Label();
@@ -453,14 +472,25 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new System.Windows.Forms.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
-            this.btnHowSetup = new System.Windows.Forms.Button();
+            this.tabDishonored = new System.Windows.Forms.TabPage();
+            this.groupBoxEventsDishonored = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxDishonored = new System.Windows.Forms.CheckedListBox();
+            this.btnRefreshDish = new System.Windows.Forms.Button();
+            this.btnDesactiveAllDishonored = new System.Windows.Forms.Button();
+            this.DishonoredRunning = new System.Windows.Forms.Label();
+            this.DishonoredNotRunning = new System.Windows.Forms.Label();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxMProfile.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxUpdate.SuspendLayout();
             this.groupBoxSplitters.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
+            this.groupBoxTDishonored.SuspendLayout();
+            this.groupBoxATDishonored.SuspendLayout();
+            this.groupBoxTMDishonored.SuspendLayout();
             this.groupBoxTCuphead.SuspendLayout();
             this.groupBoxATCuphead.SuspendLayout();
             this.groupBoxTMCuphead.SuspendLayout();
@@ -486,11 +516,12 @@ namespace AutoSplitterCore
             this.groupBoxATS.SuspendLayout();
             this.groupBoxTMS.SuspendLayout();
             this.tabSekiro.SuspendLayout();
+            this.panelMiniBossSekiro.SuspendLayout();
+            this.panelBossS.SuspendLayout();
             this.panelMortalJourney.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxMJS.SuspendLayout();
             this.panelPositionS.SuspendLayout();
             this.panelCfSekiro.SuspendLayout();
-            this.panelBossS.SuspendLayout();
             this.panelIdolsS.SuspendLayout();
             this.groupBoxAshinaCastle.SuspendLayout();
             this.groupBoxRadioAshinaCastle.SuspendLayout();
@@ -524,25 +555,27 @@ namespace AutoSplitterCore
             this.panelBonfireDs3.SuspendLayout();
             this.panelBossDs3.SuspendLayout();
             this.tabElden.SuspendLayout();
-            this.panelCfER.SuspendLayout();
             this.panelPositionsER.SuspendLayout();
             this.panelGraceER.SuspendLayout();
+            this.panelCfER.SuspendLayout();
             this.panelBossER.SuspendLayout();
             this.tabHollow.SuspendLayout();
-            this.panelPositionH.SuspendLayout();
             this.panelBossH.SuspendLayout();
-            this.groupBoxMBH.SuspendLayout();
             this.groupBoxPantheon.SuspendLayout();
+            this.groupBoxMBH.SuspendLayout();
             this.groupBossH.SuspendLayout();
             this.panelItemH.SuspendLayout();
-            this.groupBoxSkillsH.SuspendLayout();
             this.groupBoxCharms.SuspendLayout();
+            this.groupBoxSkillsH.SuspendLayout();
+            this.panelPositionH.SuspendLayout();
             this.tabCeleste.SuspendLayout();
             this.panelCheckpointsCeleste.SuspendLayout();
             this.panelChapterCeleste.SuspendLayout();
             this.tabCuphead.SuspendLayout();
             this.panelBossCuphead.SuspendLayout();
             this.panelLevelCuphead.SuspendLayout();
+            this.tabDishonored.SuspendLayout();
+            this.groupBoxEventsDishonored.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl2
@@ -559,6 +592,7 @@ namespace AutoSplitterCore
             this.TabControl2.Controls.Add(this.tabHollow);
             this.TabControl2.Controls.Add(this.tabCeleste);
             this.TabControl2.Controls.Add(this.tabCuphead);
+            this.TabControl2.Controls.Add(this.tabDishonored);
             this.TabControl2.Location = new System.Drawing.Point(13, 13);
             this.TabControl2.Name = "TabControl2";
             this.TabControl2.SelectedIndex = 0;
@@ -568,7 +602,9 @@ namespace AutoSplitterCore
             // tabConfig
             // 
             this.tabConfig.BackColor = System.Drawing.SystemColors.Control;
-            this.tabConfig.Controls.Add(this.groupBox2);
+            this.tabConfig.Controls.Add(this.groupBoxMProfile);
+            this.tabConfig.Controls.Add(this.groupBox1);
+            this.tabConfig.Controls.Add(this.groupBoxUpdate);
             this.tabConfig.Controls.Add(this.groupBoxSplitters);
             this.tabConfig.Location = new System.Drawing.Point(4, 22);
             this.tabConfig.Name = "tabConfig";
@@ -576,21 +612,61 @@ namespace AutoSplitterCore
             this.tabConfig.TabIndex = 10;
             this.tabConfig.Text = "Configuration";
             // 
-            // groupBox2
+            // groupBoxMProfile
             // 
-            this.groupBox2.Controls.Add(this.btnCheckVersion);
-            this.groupBox2.Controls.Add(this.btnGoToDownloadPage);
-            this.groupBox2.Controls.Add(this.label76);
-            this.groupBox2.Controls.Add(this.label78);
-            this.groupBox2.Controls.Add(this.labelCloudVer);
-            this.groupBox2.Controls.Add(this.LabelVersion);
-            this.groupBox2.Controls.Add(this.cbCheckUpdatesOnStartup);
-            this.groupBox2.Location = new System.Drawing.Point(14, 207);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(408, 126);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ASC Update";
+            this.groupBoxMProfile.Controls.Add(this.btnProfile);
+            this.groupBoxMProfile.Location = new System.Drawing.Point(432, 85);
+            this.groupBoxMProfile.Name = "groupBoxMProfile";
+            this.groupBoxMProfile.Size = new System.Drawing.Size(142, 87);
+            this.groupBoxMProfile.TabIndex = 6;
+            this.groupBoxMProfile.TabStop = false;
+            this.groupBoxMProfile.Text = "Manager";
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(27, 37);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(89, 24);
+            this.btnProfile.TabIndex = 0;
+            this.btnProfile.Text = "Profiles";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnHowSetup);
+            this.groupBox1.Location = new System.Drawing.Point(432, 239);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(142, 78);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Do You Need Help?";
+            // 
+            // btnHowSetup
+            // 
+            this.btnHowSetup.Location = new System.Drawing.Point(27, 31);
+            this.btnHowSetup.Name = "btnHowSetup";
+            this.btnHowSetup.Size = new System.Drawing.Size(89, 25);
+            this.btnHowSetup.TabIndex = 10;
+            this.btnHowSetup.Text = "How Setup";
+            this.btnHowSetup.UseVisualStyleBackColor = true;
+            this.btnHowSetup.Click += new System.EventHandler(this.btnHowSetup_Click);
+            // 
+            // groupBoxUpdate
+            // 
+            this.groupBoxUpdate.Controls.Add(this.btnCheckVersion);
+            this.groupBoxUpdate.Controls.Add(this.btnGoToDownloadPage);
+            this.groupBoxUpdate.Controls.Add(this.label76);
+            this.groupBoxUpdate.Controls.Add(this.label78);
+            this.groupBoxUpdate.Controls.Add(this.labelCloudVer);
+            this.groupBoxUpdate.Controls.Add(this.LabelVersion);
+            this.groupBoxUpdate.Controls.Add(this.cbCheckUpdatesOnStartup);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(14, 207);
+            this.groupBoxUpdate.Name = "groupBoxUpdate";
+            this.groupBoxUpdate.Size = new System.Drawing.Size(408, 126);
+            this.groupBoxUpdate.TabIndex = 4;
+            this.groupBoxUpdate.TabStop = false;
+            this.groupBoxUpdate.Text = "ASC Update";
             // 
             // btnCheckVersion
             // 
@@ -665,7 +741,7 @@ namespace AutoSplitterCore
             // 
             // groupBoxSplitters
             // 
-            this.groupBoxSplitters.Controls.Add(this.btnHowSetup);
+            this.groupBoxSplitters.Controls.Add(this.btnDishonored);
             this.groupBoxSplitters.Controls.Add(this.btnAbout);
             this.groupBoxSplitters.Controls.Add(this.btnTiming);
             this.groupBoxSplitters.Controls.Add(this.btnASL);
@@ -685,9 +761,19 @@ namespace AutoSplitterCore
             this.groupBoxSplitters.TabStop = false;
             this.groupBoxSplitters.Text = "Splitters";
             // 
+            // btnDishonored
+            // 
+            this.btnDishonored.Location = new System.Drawing.Point(291, 38);
+            this.btnDishonored.Name = "btnDishonored";
+            this.btnDishonored.Size = new System.Drawing.Size(89, 28);
+            this.btnDishonored.TabIndex = 10;
+            this.btnDishonored.Text = "Dishonored";
+            this.btnDishonored.UseVisualStyleBackColor = true;
+            this.btnDishonored.Click += new System.EventHandler(this.btnDishonored_Click);
+            // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(291, 107);
+            this.btnAbout.Location = new System.Drawing.Point(291, 141);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(89, 28);
             this.btnAbout.TabIndex = 9;
@@ -697,7 +783,7 @@ namespace AutoSplitterCore
             // 
             // btnTiming
             // 
-            this.btnTiming.Location = new System.Drawing.Point(291, 72);
+            this.btnTiming.Location = new System.Drawing.Point(291, 107);
             this.btnTiming.Name = "btnTiming";
             this.btnTiming.Size = new System.Drawing.Size(89, 28);
             this.btnTiming.TabIndex = 8;
@@ -707,7 +793,7 @@ namespace AutoSplitterCore
             // 
             // btnASL
             // 
-            this.btnASL.Location = new System.Drawing.Point(291, 37);
+            this.btnASL.Location = new System.Drawing.Point(291, 72);
             this.btnASL.Name = "btnASL";
             this.btnASL.Size = new System.Drawing.Size(89, 28);
             this.btnASL.TabIndex = 1;
@@ -824,31 +910,32 @@ namespace AutoSplitterCore
             // tabLicense
             // 
             this.tabLicense.BackColor = System.Drawing.SystemColors.Control;
-            this.tabLicense.Controls.Add(this.textBox2);
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
             this.tabLicense.Location = new System.Drawing.Point(4, 22);
             this.tabLicense.Name = "tabLicense";
             this.tabLicense.Size = new System.Drawing.Size(587, 351);
             this.tabLicense.TabIndex = 12;
             this.tabLicense.Text = "License";
             // 
-            // textBox2
+            // textBoxLicenses
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(6, 6);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(575, 339);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TabStop = false;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(575, 339);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
             // 
             // tabTiming
             // 
             this.tabTiming.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTiming.Controls.Add(this.groupBoxTDishonored);
             this.tabTiming.Controls.Add(this.groupBoxTCuphead);
             this.tabTiming.Controls.Add(this.groupBoxTCeleste);
             this.tabTiming.Controls.Add(this.btnDesactiveAllTiming);
@@ -865,6 +952,72 @@ namespace AutoSplitterCore
             this.tabTiming.Size = new System.Drawing.Size(587, 351);
             this.tabTiming.TabIndex = 11;
             this.tabTiming.Text = "Timing";
+            // 
+            // groupBoxTDishonored
+            // 
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxATDishonored);
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxTMDishonored);
+            this.groupBoxTDishonored.Location = new System.Drawing.Point(126, 62);
+            this.groupBoxTDishonored.Name = "groupBoxTDishonored";
+            this.groupBoxTDishonored.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDishonored.TabIndex = 16;
+            this.groupBoxTDishonored.TabStop = false;
+            this.groupBoxTDishonored.Text = "Dishonored Timing";
+            // 
+            // groupBoxATDishonored
+            // 
+            this.groupBoxATDishonored.Controls.Add(this.checkBoxATDishonored);
+            this.groupBoxATDishonored.Location = new System.Drawing.Point(15, 30);
+            this.groupBoxATDishonored.Name = "groupBoxATDishonored";
+            this.groupBoxATDishonored.Size = new System.Drawing.Size(153, 108);
+            this.groupBoxATDishonored.TabIndex = 4;
+            this.groupBoxATDishonored.TabStop = false;
+            this.groupBoxATDishonored.Text = "AutoTimer";
+            // 
+            // checkBoxATDishonored
+            // 
+            this.checkBoxATDishonored.AutoSize = true;
+            this.checkBoxATDishonored.Location = new System.Drawing.Point(46, 49);
+            this.checkBoxATDishonored.Name = "checkBoxATDishonored";
+            this.checkBoxATDishonored.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxATDishonored.TabIndex = 1;
+            this.checkBoxATDishonored.Text = "Enable";
+            this.checkBoxATDishonored.UseVisualStyleBackColor = true;
+            this.checkBoxATDishonored.CheckedChanged += new System.EventHandler(this.checkBoxATDishonored_CheckedChanged);
+            // 
+            // groupBoxTMDishonored
+            // 
+            this.groupBoxTMDishonored.Controls.Add(this.radioIGTDishonored);
+            this.groupBoxTMDishonored.Controls.Add(this.radioRealTimerDishonored);
+            this.groupBoxTMDishonored.Location = new System.Drawing.Point(185, 30);
+            this.groupBoxTMDishonored.Name = "groupBoxTMDishonored";
+            this.groupBoxTMDishonored.Size = new System.Drawing.Size(157, 108);
+            this.groupBoxTMDishonored.TabIndex = 3;
+            this.groupBoxTMDishonored.TabStop = false;
+            this.groupBoxTMDishonored.Text = "Timing Method";
+            // 
+            // radioIGTDishonored
+            // 
+            this.radioIGTDishonored.AutoSize = true;
+            this.radioIGTDishonored.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDishonored.Name = "radioIGTDishonored";
+            this.radioIGTDishonored.Size = new System.Drawing.Size(79, 17);
+            this.radioIGTDishonored.TabIndex = 1;
+            this.radioIGTDishonored.Text = "Game Time";
+            this.radioIGTDishonored.UseVisualStyleBackColor = true;
+            this.radioIGTDishonored.CheckedChanged += new System.EventHandler(this.radioIGTDishonored_CheckedChanged);
+            // 
+            // radioRealTimerDishonored
+            // 
+            this.radioRealTimerDishonored.AutoSize = true;
+            this.radioRealTimerDishonored.Checked = true;
+            this.radioRealTimerDishonored.Location = new System.Drawing.Point(40, 34);
+            this.radioRealTimerDishonored.Name = "radioRealTimerDishonored";
+            this.radioRealTimerDishonored.Size = new System.Drawing.Size(73, 17);
+            this.radioRealTimerDishonored.TabIndex = 0;
+            this.radioRealTimerDishonored.TabStop = true;
+            this.radioRealTimerDishonored.Text = "Real Time";
+            this.radioRealTimerDishonored.UseVisualStyleBackColor = true;
             // 
             // groupBoxTCuphead
             // 
@@ -1438,7 +1591,8 @@ namespace AutoSplitterCore
             "Elden Ring",
             "Hollow Knight",
             "Celeste",
-            "Cuphead"});
+            "Cuphead",
+            "Dishonored"});
             this.comboBoxTGame.Location = new System.Drawing.Point(89, 25);
             this.comboBoxTGame.Name = "comboBoxTGame";
             this.comboBoxTGame.Size = new System.Drawing.Size(379, 21);
@@ -1458,10 +1612,11 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSekiro.Controls.Add(this.panelMiniBossSekiro);
+            this.tabSekiro.Controls.Add(this.panelBossS);
             this.tabSekiro.Controls.Add(this.panelMortalJourney);
             this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelCfSekiro);
-            this.tabSekiro.Controls.Add(this.panelBossS);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
             this.tabSekiro.Controls.Add(this.btnRefreshSekiro);
             this.tabSekiro.Controls.Add(this.btnDesactiveSekiro);
@@ -1476,10 +1631,225 @@ namespace AutoSplitterCore
             this.tabSekiro.TabIndex = 2;
             this.tabSekiro.Text = "Sekiro";
             // 
+            // panelMiniBossSekiro
+            // 
+            this.panelMiniBossSekiro.Controls.Add(this.textBoxDescriptionMiniBoss);
+            this.panelMiniBossSekiro.Controls.Add(this.btnAddMiniBossSekiro);
+            this.panelMiniBossSekiro.Controls.Add(this.label79);
+            this.panelMiniBossSekiro.Controls.Add(this.comboBoxMiniBossSekiro);
+            this.panelMiniBossSekiro.Controls.Add(this.label80);
+            this.panelMiniBossSekiro.Controls.Add(this.comboBoxHowMiniBoss);
+            this.panelMiniBossSekiro.Controls.Add(this.listBoxMiniBossesS);
+            this.panelMiniBossSekiro.Location = new System.Drawing.Point(16, 81);
+            this.panelMiniBossSekiro.Name = "panelMiniBossSekiro";
+            this.panelMiniBossSekiro.Size = new System.Drawing.Size(565, 264);
+            this.panelMiniBossSekiro.TabIndex = 4;
+            // 
+            // textBoxDescriptionMiniBoss
+            // 
+            this.textBoxDescriptionMiniBoss.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDescriptionMiniBoss.Location = new System.Drawing.Point(183, 57);
+            this.textBoxDescriptionMiniBoss.Multiline = true;
+            this.textBoxDescriptionMiniBoss.Name = "textBoxDescriptionMiniBoss";
+            this.textBoxDescriptionMiniBoss.ReadOnly = true;
+            this.textBoxDescriptionMiniBoss.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDescriptionMiniBoss.Size = new System.Drawing.Size(339, 54);
+            this.textBoxDescriptionMiniBoss.TabIndex = 21;
+            this.textBoxDescriptionMiniBoss.TabStop = false;
+            // 
+            // btnAddMiniBossSekiro
+            // 
+            this.btnAddMiniBossSekiro.Location = new System.Drawing.Point(64, 83);
+            this.btnAddMiniBossSekiro.Name = "btnAddMiniBossSekiro";
+            this.btnAddMiniBossSekiro.Size = new System.Drawing.Size(100, 21);
+            this.btnAddMiniBossSekiro.TabIndex = 20;
+            this.btnAddMiniBossSekiro.Text = "Add";
+            this.btnAddMiniBossSekiro.UseVisualStyleBackColor = true;
+            this.btnAddMiniBossSekiro.Click += new System.EventHandler(this.btnAddMiniBossSekiro_Click);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(319, 14);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(52, 13);
+            this.label79.TabIndex = 19;
+            this.label79.Text = "MiniBoss:";
+            // 
+            // comboBoxMiniBossSekiro
+            // 
+            this.comboBoxMiniBossSekiro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxMiniBossSekiro.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxMiniBossSekiro.FormattingEnabled = true;
+            this.comboBoxMiniBossSekiro.Items.AddRange(new object[] {
+            "Leader Shigenori Yamauchi",
+            "General Naomori Kawarada",
+            "Ogre - Ashina Outskirts",
+            "General Tenzen Yamauchi",
+            "Headless Ako",
+            "Blazing Bull",
+            "Shigekichi of the Red Guard",
+            "Shinobi Hunter Enshin of Misen",
+            "Juzou the Drunkard",
+            "Lone Shadow Masanaga the Spear-Bearer",
+            "Juzou the Drunkard 2",
+            "General Kuranosuke Matsumoto",
+            "Seven Achina Spears – Shikibu Toshikatsu Yamauchi",
+            "Lone Shadow Longswordsman",
+            "Headless Ungo",
+            "Ashina Elite – Jinsuke Saze",
+            "Ogre - Ashina Castle",
+            "Lone Shadow Vilehand",
+            "Seven Ashina Spears - Shume Masaji Oniwa",
+            "Ashina Elite - Ujinari Mizuo",
+            "Shichimen Warrior - Abandoned Dungeon",
+            "Armored Warrior",
+            "Long-arm Centipede Sen’un",
+            "Headless Gokan",
+            "Long-arm Centipede Giraffe",
+            "Snake Eyes Shirahagi",
+            "Shichimen Warrior - Ashina Depths",
+            "Headless Gacchin",
+            "Tokujiro the Glutton",
+            "Mist Noble",
+            "O\'rin of the Water",
+            "Sakura Bull of the Palace",
+            "Leader Okami",
+            "Headless Yashariku",
+            "Shichimen Warrior - Fountainhead Palace"});
+            this.comboBoxMiniBossSekiro.Location = new System.Drawing.Point(208, 29);
+            this.comboBoxMiniBossSekiro.Name = "comboBoxMiniBossSekiro";
+            this.comboBoxMiniBossSekiro.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxMiniBossSekiro.TabIndex = 18;
+            this.comboBoxMiniBossSekiro.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiniBossSekiro_SelectedIndexChanged);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(105, 28);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(32, 13);
+            this.label80.TabIndex = 17;
+            this.label80.Text = "How:";
+            // 
+            // comboBoxHowMiniBoss
+            // 
+            this.comboBoxHowMiniBoss.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxHowMiniBoss.FormattingEnabled = true;
+            this.comboBoxHowMiniBoss.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowMiniBoss.Location = new System.Drawing.Point(61, 46);
+            this.comboBoxHowMiniBoss.Name = "comboBoxHowMiniBoss";
+            this.comboBoxHowMiniBoss.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowMiniBoss.TabIndex = 16;
+            // 
+            // listBoxMiniBossesS
+            // 
+            this.listBoxMiniBossesS.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxMiniBossesS.FormattingEnabled = true;
+            this.listBoxMiniBossesS.Location = new System.Drawing.Point(11, 115);
+            this.listBoxMiniBossesS.Name = "listBoxMiniBossesS";
+            this.listBoxMiniBossesS.Size = new System.Drawing.Size(539, 134);
+            this.listBoxMiniBossesS.TabIndex = 15;
+            this.listBoxMiniBossesS.DoubleClick += new System.EventHandler(this.listBoxMiniBossSekiro_DoubleClick);
+            // 
+            // panelBossS
+            // 
+            this.panelBossS.Controls.Add(this.btn_AddBoss);
+            this.panelBossS.Controls.Add(this.label13);
+            this.panelBossS.Controls.Add(this.comboBoxBoss);
+            this.panelBossS.Controls.Add(this.label12);
+            this.panelBossS.Controls.Add(this.comboBoxHowBoss);
+            this.panelBossS.Controls.Add(this.listBoxBosses);
+            this.panelBossS.Location = new System.Drawing.Point(44, 83);
+            this.panelBossS.Name = "panelBossS";
+            this.panelBossS.Size = new System.Drawing.Size(505, 240);
+            this.panelBossS.TabIndex = 14;
+            // 
+            // btn_AddBoss
+            // 
+            this.btn_AddBoss.Location = new System.Drawing.Point(204, 48);
+            this.btn_AddBoss.Name = "btn_AddBoss";
+            this.btn_AddBoss.Size = new System.Drawing.Size(100, 21);
+            this.btn_AddBoss.TabIndex = 14;
+            this.btn_AddBoss.Text = "Add";
+            this.btn_AddBoss.UseVisualStyleBackColor = true;
+            this.btn_AddBoss.Click += new System.EventHandler(this.btn_AddBoss_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(295, 3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Boss:";
+            // 
+            // comboBoxBoss
+            // 
+            this.comboBoxBoss.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBoss.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxBoss.FormattingEnabled = true;
+            this.comboBoxBoss.Items.AddRange(new object[] {
+            "Genichiro Ashina - Tutorial",
+            "Gyoubu Masataka Oniwa",
+            "Lady Butterfly",
+            "Genichiro Ashina",
+            "Folding Screen Monkeys",
+            "Guardian Ape",
+            "Headless Ape",
+            "Corrupted Monk (ghost)",
+            "Emma, the Gentle Blade",
+            "Isshin Ashina",
+            "Great Shinobi Owl",
+            "True Corrupted Monk",
+            "Divine Dragon",
+            "Owl (Father)",
+            "Demon of Hatred",
+            "Isshin, the Sword Saint"});
+            this.comboBoxBoss.Location = new System.Drawing.Point(184, 18);
+            this.comboBoxBoss.Name = "comboBoxBoss";
+            this.comboBoxBoss.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBoss.TabIndex = 12;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(87, 3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(32, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "How:";
+            // 
+            // comboBoxHowBoss
+            // 
+            this.comboBoxHowBoss.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxHowBoss.FormattingEnabled = true;
+            this.comboBoxHowBoss.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowBoss.Location = new System.Drawing.Point(46, 18);
+            this.comboBoxHowBoss.Name = "comboBoxHowBoss";
+            this.comboBoxHowBoss.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowBoss.TabIndex = 10;
+            // 
+            // listBoxBosses
+            // 
+            this.listBoxBosses.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxBosses.FormattingEnabled = true;
+            this.listBoxBosses.Location = new System.Drawing.Point(9, 82);
+            this.listBoxBosses.Name = "listBoxBosses";
+            this.listBoxBosses.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBosses.TabIndex = 7;
+            this.listBoxBosses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
+            // 
             // panelMortalJourney
             // 
             this.panelMortalJourney.Controls.Add(this.textBox1);
-            this.panelMortalJourney.Controls.Add(this.groupBox1);
+            this.panelMortalJourney.Controls.Add(this.groupBoxMJS);
             this.panelMortalJourney.Location = new System.Drawing.Point(46, 81);
             this.panelMortalJourney.Name = "panelMortalJourney";
             this.panelMortalJourney.Size = new System.Drawing.Size(504, 245);
@@ -1500,14 +1870,14 @@ namespace AutoSplitterCore
             this.textBox1.TabStop = false;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // groupBox1
+            // groupBoxMJS
             // 
-            this.groupBox1.Controls.Add(this.checkBoxMortalJourneyRun);
-            this.groupBox1.Location = new System.Drawing.Point(147, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.groupBoxMJS.Controls.Add(this.checkBoxMortalJourneyRun);
+            this.groupBoxMJS.Location = new System.Drawing.Point(147, 11);
+            this.groupBoxMJS.Name = "groupBoxMJS";
+            this.groupBoxMJS.Size = new System.Drawing.Size(200, 100);
+            this.groupBoxMJS.TabIndex = 0;
+            this.groupBoxMJS.TabStop = false;
             // 
             // checkBoxMortalJourneyRun
             // 
@@ -1740,96 +2110,6 @@ namespace AutoSplitterCore
             this.textBoxCfIdS.Name = "textBoxCfIdS";
             this.textBoxCfIdS.Size = new System.Drawing.Size(100, 20);
             this.textBoxCfIdS.TabIndex = 0;
-            // 
-            // panelBossS
-            // 
-            this.panelBossS.Controls.Add(this.btn_AddBoss);
-            this.panelBossS.Controls.Add(this.label13);
-            this.panelBossS.Controls.Add(this.comboBoxBoss);
-            this.panelBossS.Controls.Add(this.label12);
-            this.panelBossS.Controls.Add(this.comboBoxHowBoss);
-            this.panelBossS.Controls.Add(this.listBoxBosses);
-            this.panelBossS.Location = new System.Drawing.Point(44, 83);
-            this.panelBossS.Name = "panelBossS";
-            this.panelBossS.Size = new System.Drawing.Size(505, 240);
-            this.panelBossS.TabIndex = 14;
-            // 
-            // btn_AddBoss
-            // 
-            this.btn_AddBoss.Location = new System.Drawing.Point(204, 48);
-            this.btn_AddBoss.Name = "btn_AddBoss";
-            this.btn_AddBoss.Size = new System.Drawing.Size(100, 21);
-            this.btn_AddBoss.TabIndex = 14;
-            this.btn_AddBoss.Text = "Add";
-            this.btn_AddBoss.UseVisualStyleBackColor = true;
-            this.btn_AddBoss.Click += new System.EventHandler(this.btn_AddBoss_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(295, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Boss:";
-            // 
-            // comboBoxBoss
-            // 
-            this.comboBoxBoss.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxBoss.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.comboBoxBoss.FormattingEnabled = true;
-            this.comboBoxBoss.Items.AddRange(new object[] {
-            "Genichiro Ashina - Tutorial",
-            "Gyoubu Masataka Oniwa",
-            "Lady Butterfly",
-            "Genichiro Ashina",
-            "Folding Screen Monkeys",
-            "Guardian Ape",
-            "Headless Ape",
-            "Corrupted Monk (ghost)",
-            "Emma, the Gentle Blade",
-            "Isshin Ashina",
-            "Great Shinobi Owl",
-            "True Corrupted Monk",
-            "Divine Dragon",
-            "Owl (Father)",
-            "Demon of Hatred",
-            "Isshin, the Sword Saint"});
-            this.comboBoxBoss.Location = new System.Drawing.Point(184, 18);
-            this.comboBoxBoss.Name = "comboBoxBoss";
-            this.comboBoxBoss.Size = new System.Drawing.Size(292, 21);
-            this.comboBoxBoss.TabIndex = 12;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(87, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 13);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "How:";
-            // 
-            // comboBoxHowBoss
-            // 
-            this.comboBoxHowBoss.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.comboBoxHowBoss.FormattingEnabled = true;
-            this.comboBoxHowBoss.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowBoss.Location = new System.Drawing.Point(46, 18);
-            this.comboBoxHowBoss.Name = "comboBoxHowBoss";
-            this.comboBoxHowBoss.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowBoss.TabIndex = 10;
-            // 
-            // listBoxBosses
-            // 
-            this.listBoxBosses.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxBosses.FormattingEnabled = true;
-            this.listBoxBosses.Location = new System.Drawing.Point(9, 82);
-            this.listBoxBosses.Name = "listBoxBosses";
-            this.listBoxBosses.Size = new System.Drawing.Size(489, 147);
-            this.listBoxBosses.TabIndex = 7;
-            this.listBoxBosses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
             // 
             // panelIdolsS
             // 
@@ -2833,6 +3113,7 @@ namespace AutoSplitterCore
             this.toSplitSelectSekiro.FormattingEnabled = true;
             this.toSplitSelectSekiro.Items.AddRange(new object[] {
             "Kill a Boss",
+            "Kill a MiniBoss",
             "Is Activated a Idol",
             "Trigger a Position",
             "Mortal Journey",
@@ -5155,9 +5436,9 @@ namespace AutoSplitterCore
             // tabElden
             // 
             this.tabElden.BackColor = System.Drawing.SystemColors.Control;
-            this.tabElden.Controls.Add(this.panelCfER);
-            this.tabElden.Controls.Add(this.panelPositionsER);
             this.tabElden.Controls.Add(this.panelGraceER);
+            this.tabElden.Controls.Add(this.panelPositionsER);
+            this.tabElden.Controls.Add(this.panelCfER);
             this.tabElden.Controls.Add(this.panelBossER);
             this.tabElden.Controls.Add(this.EldenRingRunning);
             this.tabElden.Controls.Add(this.EldenRingNotRunning);
@@ -5171,88 +5452,6 @@ namespace AutoSplitterCore
             this.tabElden.Size = new System.Drawing.Size(587, 351);
             this.tabElden.TabIndex = 3;
             this.tabElden.Text = "Elden Ring";
-            // 
-            // panelCfER
-            // 
-            this.panelCfER.Controls.Add(this.label42);
-            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
-            this.panelCfER.Controls.Add(this.listBoxCfER);
-            this.panelCfER.Controls.Add(this.btnAddCfER);
-            this.panelCfER.Controls.Add(this.btnGetListER);
-            this.panelCfER.Controls.Add(this.label41);
-            this.panelCfER.Controls.Add(this.textBoxIdER);
-            this.panelCfER.Location = new System.Drawing.Point(40, 84);
-            this.panelCfER.Name = "panelCfER";
-            this.panelCfER.Size = new System.Drawing.Size(504, 242);
-            this.panelCfER.TabIndex = 23;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(392, 53);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(32, 13);
-            this.label42.TabIndex = 21;
-            this.label42.Text = "How:";
-            // 
-            // comboBoxHowCfER
-            // 
-            this.comboBoxHowCfER.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBoxHowCfER.FormattingEnabled = true;
-            this.comboBoxHowCfER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfER.Location = new System.Drawing.Point(276, 50);
-            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
-            this.comboBoxHowCfER.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowCfER.TabIndex = 20;
-            // 
-            // listBoxCfER
-            // 
-            this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxCfER.FormattingEnabled = true;
-            this.listBoxCfER.Location = new System.Drawing.Point(9, 116);
-            this.listBoxCfER.Name = "listBoxCfER";
-            this.listBoxCfER.Size = new System.Drawing.Size(488, 121);
-            this.listBoxCfER.TabIndex = 19;
-            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
-            // 
-            // btnAddCfER
-            // 
-            this.btnAddCfER.Location = new System.Drawing.Point(211, 82);
-            this.btnAddCfER.Name = "btnAddCfER";
-            this.btnAddCfER.Size = new System.Drawing.Size(100, 21);
-            this.btnAddCfER.TabIndex = 18;
-            this.btnAddCfER.Text = "Add";
-            this.btnAddCfER.UseVisualStyleBackColor = true;
-            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
-            // 
-            // btnGetListER
-            // 
-            this.btnGetListER.Location = new System.Drawing.Point(201, 9);
-            this.btnGetListER.Name = "btnGetListER";
-            this.btnGetListER.Size = new System.Drawing.Size(127, 23);
-            this.btnGetListER.TabIndex = 2;
-            this.btnGetListER.Text = "Get List Flags";
-            this.btnGetListER.UseVisualStyleBackColor = true;
-            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(120, 53);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(21, 13);
-            this.label41.TabIndex = 1;
-            this.label41.Text = "ID:";
-            // 
-            // textBoxIdER
-            // 
-            this.textBoxIdER.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxIdER.Location = new System.Drawing.Point(151, 50);
-            this.textBoxIdER.Name = "textBoxIdER";
-            this.textBoxIdER.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIdER.TabIndex = 0;
             // 
             // panelPositionsER
             // 
@@ -5787,6 +5986,88 @@ namespace AutoSplitterCore
             this.label33.TabIndex = 8;
             this.label33.Text = "grace";
             // 
+            // panelCfER
+            // 
+            this.panelCfER.Controls.Add(this.label42);
+            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
+            this.panelCfER.Controls.Add(this.listBoxCfER);
+            this.panelCfER.Controls.Add(this.btnAddCfER);
+            this.panelCfER.Controls.Add(this.btnGetListER);
+            this.panelCfER.Controls.Add(this.label41);
+            this.panelCfER.Controls.Add(this.textBoxIdER);
+            this.panelCfER.Location = new System.Drawing.Point(40, 84);
+            this.panelCfER.Name = "panelCfER";
+            this.panelCfER.Size = new System.Drawing.Size(504, 242);
+            this.panelCfER.TabIndex = 23;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(392, 53);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(32, 13);
+            this.label42.TabIndex = 21;
+            this.label42.Text = "How:";
+            // 
+            // comboBoxHowCfER
+            // 
+            this.comboBoxHowCfER.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBoxHowCfER.FormattingEnabled = true;
+            this.comboBoxHowCfER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfER.Location = new System.Drawing.Point(276, 50);
+            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
+            this.comboBoxHowCfER.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowCfER.TabIndex = 20;
+            // 
+            // listBoxCfER
+            // 
+            this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxCfER.FormattingEnabled = true;
+            this.listBoxCfER.Location = new System.Drawing.Point(9, 116);
+            this.listBoxCfER.Name = "listBoxCfER";
+            this.listBoxCfER.Size = new System.Drawing.Size(488, 121);
+            this.listBoxCfER.TabIndex = 19;
+            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
+            // 
+            // btnAddCfER
+            // 
+            this.btnAddCfER.Location = new System.Drawing.Point(211, 82);
+            this.btnAddCfER.Name = "btnAddCfER";
+            this.btnAddCfER.Size = new System.Drawing.Size(100, 21);
+            this.btnAddCfER.TabIndex = 18;
+            this.btnAddCfER.Text = "Add";
+            this.btnAddCfER.UseVisualStyleBackColor = true;
+            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
+            // 
+            // btnGetListER
+            // 
+            this.btnGetListER.Location = new System.Drawing.Point(201, 9);
+            this.btnGetListER.Name = "btnGetListER";
+            this.btnGetListER.Size = new System.Drawing.Size(127, 23);
+            this.btnGetListER.TabIndex = 2;
+            this.btnGetListER.Text = "Get List Flags";
+            this.btnGetListER.UseVisualStyleBackColor = true;
+            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(120, 53);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(21, 13);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "ID:";
+            // 
+            // textBoxIdER
+            // 
+            this.textBoxIdER.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxIdER.Location = new System.Drawing.Point(151, 50);
+            this.textBoxIdER.Name = "textBoxIdER";
+            this.textBoxIdER.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIdER.TabIndex = 0;
+            // 
             // panelBossER
             // 
             this.panelBossER.Controls.Add(this.btnAddBossER);
@@ -6098,9 +6379,9 @@ namespace AutoSplitterCore
             // tabHollow
             // 
             this.tabHollow.BackColor = System.Drawing.SystemColors.Control;
-            this.tabHollow.Controls.Add(this.panelPositionH);
             this.tabHollow.Controls.Add(this.panelBossH);
             this.tabHollow.Controls.Add(this.panelItemH);
+            this.tabHollow.Controls.Add(this.panelPositionH);
             this.tabHollow.Controls.Add(this.refreshHollow);
             this.tabHollow.Controls.Add(this.btn_DesactiveAllH);
             this.tabHollow.Controls.Add(this.HollowRunning);
@@ -6112,6 +6393,419 @@ namespace AutoSplitterCore
             this.tabHollow.Size = new System.Drawing.Size(587, 351);
             this.tabHollow.TabIndex = 5;
             this.tabHollow.Text = "Hollow Knight";
+            // 
+            // panelBossH
+            // 
+            this.panelBossH.Controls.Add(this.groupBoxPantheon);
+            this.panelBossH.Controls.Add(this.groupBoxMBH);
+            this.panelBossH.Controls.Add(this.groupBossH);
+            this.panelBossH.Controls.Add(this.comboBoxSelectKindBoss);
+            this.panelBossH.Controls.Add(this.label6);
+            this.panelBossH.Location = new System.Drawing.Point(44, 81);
+            this.panelBossH.Name = "panelBossH";
+            this.panelBossH.Size = new System.Drawing.Size(505, 256);
+            this.panelBossH.TabIndex = 18;
+            // 
+            // groupBoxPantheon
+            // 
+            this.groupBoxPantheon.Controls.Add(this.lbl_warning);
+            this.groupBoxPantheon.Controls.Add(this.checkedListBoxPp);
+            this.groupBoxPantheon.Controls.Add(this.label16);
+            this.groupBoxPantheon.Controls.Add(this.comboBoxHowP);
+            this.groupBoxPantheon.Controls.Add(this.checkedListBoxPantheon);
+            this.groupBoxPantheon.Location = new System.Drawing.Point(6, 30);
+            this.groupBoxPantheon.Name = "groupBoxPantheon";
+            this.groupBoxPantheon.Size = new System.Drawing.Size(499, 224);
+            this.groupBoxPantheon.TabIndex = 10;
+            this.groupBoxPantheon.TabStop = false;
+            this.groupBoxPantheon.Text = "Pantheon";
+            // 
+            // lbl_warning
+            // 
+            this.lbl_warning.AutoSize = true;
+            this.lbl_warning.ForeColor = System.Drawing.Color.Red;
+            this.lbl_warning.Location = new System.Drawing.Point(69, 170);
+            this.lbl_warning.Name = "lbl_warning";
+            this.lbl_warning.Size = new System.Drawing.Size(0, 13);
+            this.lbl_warning.TabIndex = 14;
+            this.lbl_warning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkedListBoxPp
+            // 
+            this.checkedListBoxPp.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxPp.CheckOnClick = true;
+            this.checkedListBoxPp.FormattingEnabled = true;
+            this.checkedListBoxPp.Items.AddRange(new object[] {
+            "Pantheon of the Master",
+            "Pantheon of the Artist",
+            "Pantheon of the Sage",
+            "Pantheon of the Knight",
+            "Pantheon of Hallownest"});
+            this.checkedListBoxPp.Location = new System.Drawing.Point(19, 44);
+            this.checkedListBoxPp.Name = "checkedListBoxPp";
+            this.checkedListBoxPp.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxPp.TabIndex = 13;
+            this.checkedListBoxPp.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPp_ItemCheck);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(45, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 13);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "how";
+            // 
+            // comboBoxHowP
+            // 
+            this.comboBoxHowP.BackColor = System.Drawing.SystemColors.GrayText;
+            this.comboBoxHowP.FormattingEnabled = true;
+            this.comboBoxHowP.Items.AddRange(new object[] {
+            "Split on all selected bosses",
+            "Split one per Pantheon"});
+            this.comboBoxHowP.Location = new System.Drawing.Point(82, 15);
+            this.comboBoxHowP.Name = "comboBoxHowP";
+            this.comboBoxHowP.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxHowP.TabIndex = 11;
+            this.comboBoxHowP.SelectedIndexChanged += new System.EventHandler(this.comboBoxHowP_SelectedIndexChanged);
+            // 
+            // checkedListBoxPantheon
+            // 
+            this.checkedListBoxPantheon.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxPantheon.CheckOnClick = true;
+            this.checkedListBoxPantheon.FormattingEnabled = true;
+            this.checkedListBoxPantheon.Items.AddRange(new object[] {
+            "Grey Prince Zote",
+            "Vengefly King",
+            "Gruz Mother",
+            "False Knight",
+            "Massive Moss Charger",
+            "Hornet (Protector)",
+            "Gorb",
+            "Dung Defender",
+            "Soul Warrior",
+            "Brooding Mawlek",
+            "Oro & Mato Nail Bros",
+            "Xero",
+            "Crystal Guardian",
+            "Soul Master",
+            "Oblobbles",
+            "Sisters of Battle",
+            "Marmu",
+            "Flukemarm",
+            "Broken Vessel",
+            "Galien",
+            "Paintmaster Sheo",
+            "Hive Knight",
+            "Elder Hu",
+            "The Collector",
+            "God Tamer",
+            "Troupe Master Grim",
+            "Watcher Knights",
+            "Uumuu",
+            "Nosk",
+            "Winged Nosk",
+            "Great Nailsage Slay",
+            "Hornet (Sentinel)",
+            "Enraged Guardian",
+            "Lost Kin",
+            "No Eyes",
+            "Traitor Lord",
+            "White Defender",
+            "Soul Tyrant",
+            "Markoth",
+            "Failed Champion",
+            "Nightmare King Grimm",
+            "Pure Vessel",
+            "Absolute Radiance"});
+            this.checkedListBoxPantheon.Location = new System.Drawing.Point(19, 43);
+            this.checkedListBoxPantheon.Name = "checkedListBoxPantheon";
+            this.checkedListBoxPantheon.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxPantheon.TabIndex = 0;
+            this.checkedListBoxPantheon.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPantheon_ItemCheck);
+            // 
+            // groupBoxMBH
+            // 
+            this.groupBoxMBH.Controls.Add(this.checkedListBoxHMB);
+            this.groupBoxMBH.Location = new System.Drawing.Point(4, 30);
+            this.groupBoxMBH.Name = "groupBoxMBH";
+            this.groupBoxMBH.Size = new System.Drawing.Size(499, 212);
+            this.groupBoxMBH.TabIndex = 9;
+            this.groupBoxMBH.TabStop = false;
+            this.groupBoxMBH.Text = "Mini Boss - Colosseum - Dreamers - Others";
+            // 
+            // checkedListBoxHMB
+            // 
+            this.checkedListBoxHMB.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxHMB.CheckOnClick = true;
+            this.checkedListBoxHMB.FormattingEnabled = true;
+            this.checkedListBoxHMB.Items.AddRange(new object[] {
+            "Enraged Guardian",
+            "Oblobbles",
+            "Soul Warrior",
+            "Soul Twister",
+            "Aspid Hunter",
+            "Moss Knight",
+            "Shrumal Ogres",
+            "Zote Rescued - Vengefly King",
+            "Zote Rescued - Deepnest",
+            "Zote Defeated - Colosseum",
+            "First Dreamer",
+            "Second Dreamer",
+            "Third Dreamer",
+            "Colosseum Warrior Completed",
+            "Colosseum Conqueror Completed",
+            "Colosseum Fool Completed",
+            "Aluba",
+            "Great Hopper",
+            "Gorgeous Husk",
+            "Menderbug",
+            "Mimic 1",
+            "Mimic 2",
+            "Mimic 3",
+            "Mimic 4",
+            "Mimic 5",
+            "Path of Pain - Completed",
+            "Flower Quest - Completed"});
+            this.checkedListBoxHMB.Location = new System.Drawing.Point(19, 28);
+            this.checkedListBoxHMB.Name = "checkedListBoxHMB";
+            this.checkedListBoxHMB.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxHMB.TabIndex = 0;
+            this.checkedListBoxHMB.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxMBH_ItemCheck_1);
+            // 
+            // groupBossH
+            // 
+            this.groupBossH.Controls.Add(this.checkedListBoxBossH);
+            this.groupBossH.Location = new System.Drawing.Point(3, 30);
+            this.groupBossH.Name = "groupBossH";
+            this.groupBossH.Size = new System.Drawing.Size(499, 212);
+            this.groupBossH.TabIndex = 8;
+            this.groupBossH.TabStop = false;
+            this.groupBossH.Text = "Bosses";
+            // 
+            // checkedListBoxBossH
+            // 
+            this.checkedListBoxBossH.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxBossH.CheckOnClick = true;
+            this.checkedListBoxBossH.FormattingEnabled = true;
+            this.checkedListBoxBossH.Items.AddRange(new object[] {
+            "Broken Vessel",
+            "Brooding Mawlek",
+            "Collector",
+            "Crystal Guardian",
+            "Dung Defender",
+            "Elder Hu",
+            "False Knight",
+            "Failed Champion",
+            "Flukemarm",
+            "Galien",
+            "God Tamer",
+            "Gorb",
+            "Grey Prince Zote",
+            "Gruz Mother",
+            "Hive Knight",
+            "Hornet (Greenpath)",
+            "Hornet (Kingdom\'s Edge)",
+            "Lost Kin",
+            "Mantis Lords",
+            "Markoth",
+            "Marmu",
+            "Massive Moss Charger",
+            "Nightmare King Grimm",
+            "No Eyes",
+            "Nosk",
+            "Oro & Mato Nail Bros",
+            "Pure Vessel",
+            "Radiance",
+            "The Hollow Knight",
+            "Paintmaster Sheo",
+            "Great Nailsage Sly",
+            "Soul Master",
+            "Soul Tyrant",
+            "Traitor Lord",
+            "Troupe Master Grimm",
+            "Uumuu",
+            "Watcher Knight",
+            "White Defender",
+            "Xero"});
+            this.checkedListBoxBossH.Location = new System.Drawing.Point(19, 28);
+            this.checkedListBoxBossH.Name = "checkedListBoxBossH";
+            this.checkedListBoxBossH.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxBossH.TabIndex = 0;
+            this.checkedListBoxBossH.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxBossH_ItemCheck);
+            // 
+            // comboBoxSelectKindBoss
+            // 
+            this.comboBoxSelectKindBoss.BackColor = System.Drawing.SystemColors.GrayText;
+            this.comboBoxSelectKindBoss.FormattingEnabled = true;
+            this.comboBoxSelectKindBoss.Items.AddRange(new object[] {
+            "Boss",
+            "Pantheon",
+            "Mini Boss - Coliseum -Dreamers - Others"});
+            this.comboBoxSelectKindBoss.Location = new System.Drawing.Point(78, 3);
+            this.comboBoxSelectKindBoss.Name = "comboBoxSelectKindBoss";
+            this.comboBoxSelectKindBoss.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxSelectKindBoss.TabIndex = 7;
+            this.comboBoxSelectKindBoss.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectKindBoss_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "select";
+            // 
+            // panelItemH
+            // 
+            this.panelItemH.Controls.Add(this.groupBoxCharms);
+            this.panelItemH.Controls.Add(this.groupBoxSkillsH);
+            this.panelItemH.Controls.Add(this.comboBoxItemSelectH);
+            this.panelItemH.Controls.Add(this.label25);
+            this.panelItemH.Location = new System.Drawing.Point(44, 82);
+            this.panelItemH.Name = "panelItemH";
+            this.panelItemH.Size = new System.Drawing.Size(505, 254);
+            this.panelItemH.TabIndex = 19;
+            // 
+            // groupBoxCharms
+            // 
+            this.groupBoxCharms.Controls.Add(this.checkedListBoxCharms);
+            this.groupBoxCharms.Location = new System.Drawing.Point(3, 35);
+            this.groupBoxCharms.Name = "groupBoxCharms";
+            this.groupBoxCharms.Size = new System.Drawing.Size(499, 212);
+            this.groupBoxCharms.TabIndex = 10;
+            this.groupBoxCharms.TabStop = false;
+            this.groupBoxCharms.Text = "Charms";
+            // 
+            // checkedListBoxCharms
+            // 
+            this.checkedListBoxCharms.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxCharms.CheckOnClick = true;
+            this.checkedListBoxCharms.FormattingEnabled = true;
+            this.checkedListBoxCharms.Items.AddRange(new object[] {
+            "Baldur Shell",
+            "Dashmaster",
+            "Deep Focus",
+            "Defenders Crest",
+            "Dreamshield",
+            "Dream Wielder",
+            "Flukenest",
+            "Fragile Greed",
+            "Fragile Heart",
+            "Fragile Strength",
+            "Fury of the Fallen",
+            "Gathering Swarm",
+            "Glowing Womb",
+            "Grimmchild",
+            "Grimmchild Lvl 2",
+            "Grimmchild Lvl 3",
+            "Grimmchild Lvl 4",
+            "Grubberfly\'s Elegy",
+            "Grubsong",
+            "Heavy Blow",
+            "Hiveblood",
+            "Joni\'s Blessing",
+            "White Fragment - Queen\'s",
+            "White Fragment - King\'s",
+            "Kingsoul",
+            "Lifeblood Core",
+            "Lifeblood Heart",
+            "Longnail",
+            "Mark of Pride",
+            "Nailmaster\'s Glory",
+            "Quick Focus",
+            "Quick Slash",
+            "Shaman Stone",
+            "Shape of Unn",
+            "Sharp Shadow",
+            "Soul Catcher",
+            "Soul Eater",
+            "Spell Twister",
+            "Spore Shroom",
+            "Sprintmaster",
+            "Stalwart Shell",
+            "Steady Body",
+            "Thorns of Agony",
+            "Unbreakable Greed",
+            "Unbreakable Heart",
+            "Unbreakable Strength",
+            "Void Heart",
+            "Wayward Compass",
+            "Weaversong",
+            "Shrumal Ogres (Charm)",
+            "Fog Canyon",
+            "Salubra 1",
+            "Salubra 2",
+            "Salubra 3",
+            "Salubra 4"});
+            this.checkedListBoxCharms.Location = new System.Drawing.Point(19, 28);
+            this.checkedListBoxCharms.Name = "checkedListBoxCharms";
+            this.checkedListBoxCharms.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxCharms.TabIndex = 0;
+            this.checkedListBoxCharms.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCharms_ItemCheck);
+            // 
+            // groupBoxSkillsH
+            // 
+            this.groupBoxSkillsH.Controls.Add(this.checkedListBoxSkillsH);
+            this.groupBoxSkillsH.Location = new System.Drawing.Point(3, 37);
+            this.groupBoxSkillsH.Name = "groupBoxSkillsH";
+            this.groupBoxSkillsH.Size = new System.Drawing.Size(499, 212);
+            this.groupBoxSkillsH.TabIndex = 11;
+            this.groupBoxSkillsH.TabStop = false;
+            this.groupBoxSkillsH.Text = "Skills";
+            // 
+            // checkedListBoxSkillsH
+            // 
+            this.checkedListBoxSkillsH.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxSkillsH.CheckOnClick = true;
+            this.checkedListBoxSkillsH.FormattingEnabled = true;
+            this.checkedListBoxSkillsH.Items.AddRange(new object[] {
+            "Abyss Shriek",
+            "Crystal Heart",
+            "Cyclone Slash",
+            "Dash Slash",
+            "Descending Dark",
+            "Desolate Dive",
+            "Dream Nail",
+            "Dream Nail - Awoken",
+            "Dream Gate",
+            "Great Slash",
+            "Howling Wraiths",
+            "Isma\'s Tear",
+            "Mantis Claw",
+            "Monarch Wings",
+            "Mothwing Cloak",
+            "Shade Cloak",
+            "Shade Soul",
+            "Vengeful Spirit"});
+            this.checkedListBoxSkillsH.Location = new System.Drawing.Point(19, 28);
+            this.checkedListBoxSkillsH.Name = "checkedListBoxSkillsH";
+            this.checkedListBoxSkillsH.Size = new System.Drawing.Size(470, 169);
+            this.checkedListBoxSkillsH.TabIndex = 0;
+            this.checkedListBoxSkillsH.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxSkillsH_ItemCheck);
+            // 
+            // comboBoxItemSelectH
+            // 
+            this.comboBoxItemSelectH.BackColor = System.Drawing.SystemColors.GrayText;
+            this.comboBoxItemSelectH.FormattingEnabled = true;
+            this.comboBoxItemSelectH.Items.AddRange(new object[] {
+            "Skills",
+            "Charms"});
+            this.comboBoxItemSelectH.Location = new System.Drawing.Point(78, 3);
+            this.comboBoxItemSelectH.Name = "comboBoxItemSelectH";
+            this.comboBoxItemSelectH.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxItemSelectH.TabIndex = 9;
+            this.comboBoxItemSelectH.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemSelectH_SelectedIndexChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(33, 6);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "select";
             // 
             // panelPositionH
             // 
@@ -6231,419 +6925,6 @@ namespace AutoSplitterCore
             this.textBoxSh.ReadOnly = true;
             this.textBoxSh.Size = new System.Drawing.Size(100, 20);
             this.textBoxSh.TabIndex = 13;
-            // 
-            // panelBossH
-            // 
-            this.panelBossH.Controls.Add(this.groupBoxMBH);
-            this.panelBossH.Controls.Add(this.groupBoxPantheon);
-            this.panelBossH.Controls.Add(this.groupBossH);
-            this.panelBossH.Controls.Add(this.comboBoxSelectKindBoss);
-            this.panelBossH.Controls.Add(this.label6);
-            this.panelBossH.Location = new System.Drawing.Point(44, 81);
-            this.panelBossH.Name = "panelBossH";
-            this.panelBossH.Size = new System.Drawing.Size(505, 256);
-            this.panelBossH.TabIndex = 18;
-            // 
-            // groupBoxMBH
-            // 
-            this.groupBoxMBH.Controls.Add(this.checkedListBoxHMB);
-            this.groupBoxMBH.Location = new System.Drawing.Point(4, 30);
-            this.groupBoxMBH.Name = "groupBoxMBH";
-            this.groupBoxMBH.Size = new System.Drawing.Size(499, 212);
-            this.groupBoxMBH.TabIndex = 9;
-            this.groupBoxMBH.TabStop = false;
-            this.groupBoxMBH.Text = "Mini Boss - Colosseum - Dreamers - Others";
-            // 
-            // checkedListBoxHMB
-            // 
-            this.checkedListBoxHMB.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxHMB.CheckOnClick = true;
-            this.checkedListBoxHMB.FormattingEnabled = true;
-            this.checkedListBoxHMB.Items.AddRange(new object[] {
-            "Enraged Guardian",
-            "Oblobbles",
-            "Soul Warrior",
-            "Soul Twister",
-            "Aspid Hunter",
-            "Moss Knight",
-            "Shrumal Ogres",
-            "Zote Rescued - Vengefly King",
-            "Zote Rescued - Deepnest",
-            "Zote Defeated - Colosseum",
-            "First Dreamer",
-            "Second Dreamer",
-            "Third Dreamer",
-            "Colosseum Warrior Completed",
-            "Colosseum Conqueror Completed",
-            "Colosseum Fool Completed",
-            "Aluba",
-            "Great Hopper",
-            "Gorgeous Husk",
-            "Menderbug",
-            "Mimic 1",
-            "Mimic 2",
-            "Mimic 3",
-            "Mimic 4",
-            "Mimic 5",
-            "Path of Pain - Completed",
-            "Flower Quest - Completed"});
-            this.checkedListBoxHMB.Location = new System.Drawing.Point(19, 28);
-            this.checkedListBoxHMB.Name = "checkedListBoxHMB";
-            this.checkedListBoxHMB.Size = new System.Drawing.Size(470, 169);
-            this.checkedListBoxHMB.TabIndex = 0;
-            this.checkedListBoxHMB.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxMBH_ItemCheck_1);
-            // 
-            // groupBoxPantheon
-            // 
-            this.groupBoxPantheon.Controls.Add(this.lbl_warning);
-            this.groupBoxPantheon.Controls.Add(this.checkedListBoxPp);
-            this.groupBoxPantheon.Controls.Add(this.label16);
-            this.groupBoxPantheon.Controls.Add(this.comboBoxHowP);
-            this.groupBoxPantheon.Controls.Add(this.checkedListBoxPantheon);
-            this.groupBoxPantheon.Location = new System.Drawing.Point(6, 30);
-            this.groupBoxPantheon.Name = "groupBoxPantheon";
-            this.groupBoxPantheon.Size = new System.Drawing.Size(499, 224);
-            this.groupBoxPantheon.TabIndex = 10;
-            this.groupBoxPantheon.TabStop = false;
-            this.groupBoxPantheon.Text = "Pantheon";
-            // 
-            // lbl_warning
-            // 
-            this.lbl_warning.AutoSize = true;
-            this.lbl_warning.ForeColor = System.Drawing.Color.Red;
-            this.lbl_warning.Location = new System.Drawing.Point(69, 170);
-            this.lbl_warning.Name = "lbl_warning";
-            this.lbl_warning.Size = new System.Drawing.Size(0, 13);
-            this.lbl_warning.TabIndex = 14;
-            this.lbl_warning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // checkedListBoxPp
-            // 
-            this.checkedListBoxPp.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxPp.CheckOnClick = true;
-            this.checkedListBoxPp.FormattingEnabled = true;
-            this.checkedListBoxPp.Items.AddRange(new object[] {
-            "Pantheon of the Master",
-            "Pantheon of the Artist",
-            "Pantheon of the Sage",
-            "Pantheon of the Knight",
-            "Pantheon of Hallownest"});
-            this.checkedListBoxPp.Location = new System.Drawing.Point(19, 44);
-            this.checkedListBoxPp.Name = "checkedListBoxPp";
-            this.checkedListBoxPp.Size = new System.Drawing.Size(470, 124);
-            this.checkedListBoxPp.TabIndex = 13;
-            this.checkedListBoxPp.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPp_ItemCheck);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(45, 20);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(27, 13);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "how";
-            // 
-            // comboBoxHowP
-            // 
-            this.comboBoxHowP.BackColor = System.Drawing.SystemColors.GrayText;
-            this.comboBoxHowP.FormattingEnabled = true;
-            this.comboBoxHowP.Items.AddRange(new object[] {
-            "Split on all selected bosses",
-            "Split one per Pantheon"});
-            this.comboBoxHowP.Location = new System.Drawing.Point(82, 15);
-            this.comboBoxHowP.Name = "comboBoxHowP";
-            this.comboBoxHowP.Size = new System.Drawing.Size(361, 21);
-            this.comboBoxHowP.TabIndex = 11;
-            this.comboBoxHowP.SelectedIndexChanged += new System.EventHandler(this.comboBoxHowP_SelectedIndexChanged);
-            // 
-            // checkedListBoxPantheon
-            // 
-            this.checkedListBoxPantheon.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxPantheon.CheckOnClick = true;
-            this.checkedListBoxPantheon.FormattingEnabled = true;
-            this.checkedListBoxPantheon.Items.AddRange(new object[] {
-            "Grey Prince Zote",
-            "Vengefly King",
-            "Gruz Mother",
-            "False Knight",
-            "Massive Moss Charger",
-            "Hornet (Protector)",
-            "Gorb",
-            "Dung Defender",
-            "Soul Warrior",
-            "Brooding Mawlek",
-            "Oro & Mato Nail Bros",
-            "Xero",
-            "Crystal Guardian",
-            "Soul Master",
-            "Oblobbles",
-            "Sisters of Battle",
-            "Marmu",
-            "Flukemarm",
-            "Broken Vessel",
-            "Galien",
-            "Paintmaster Sheo",
-            "Hive Knight",
-            "Elder Hu",
-            "The Collector",
-            "God Tamer",
-            "Troupe Master Grim",
-            "Watcher Knights",
-            "Uumuu",
-            "Nosk",
-            "Winged Nosk",
-            "Great Nailsage Slay",
-            "Hornet (Sentinel)",
-            "Enraged Guardian",
-            "Lost Kin",
-            "No Eyes",
-            "Traitor Lord",
-            "White Defender",
-            "Soul Tyrant",
-            "Markoth",
-            "Failed Champion",
-            "Nightmare King Grimm",
-            "Pure Vessel",
-            "Absolute Radiance"});
-            this.checkedListBoxPantheon.Location = new System.Drawing.Point(19, 43);
-            this.checkedListBoxPantheon.Name = "checkedListBoxPantheon";
-            this.checkedListBoxPantheon.Size = new System.Drawing.Size(470, 124);
-            this.checkedListBoxPantheon.TabIndex = 0;
-            this.checkedListBoxPantheon.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPantheon_ItemCheck);
-            // 
-            // groupBossH
-            // 
-            this.groupBossH.Controls.Add(this.checkedListBoxBossH);
-            this.groupBossH.Location = new System.Drawing.Point(3, 30);
-            this.groupBossH.Name = "groupBossH";
-            this.groupBossH.Size = new System.Drawing.Size(499, 212);
-            this.groupBossH.TabIndex = 8;
-            this.groupBossH.TabStop = false;
-            this.groupBossH.Text = "Bosses";
-            // 
-            // checkedListBoxBossH
-            // 
-            this.checkedListBoxBossH.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxBossH.CheckOnClick = true;
-            this.checkedListBoxBossH.FormattingEnabled = true;
-            this.checkedListBoxBossH.Items.AddRange(new object[] {
-            "Broken Vessel",
-            "Brooding Mawlek",
-            "Collector",
-            "Crystal Guardian",
-            "Dung Defender",
-            "Elder Hu",
-            "False Knight",
-            "Failed Champion",
-            "Flukemarm",
-            "Galien",
-            "God Tamer",
-            "Gorb",
-            "Grey Prince Zote",
-            "Gruz Mother",
-            "Hive Knight",
-            "Hornet (Greenpath)",
-            "Hornet (Kingdom\'s Edge)",
-            "Lost Kin",
-            "Mantis Lords",
-            "Markoth",
-            "Marmu",
-            "Massive Moss Charger",
-            "Nightmare King Grimm",
-            "No Eyes",
-            "Nosk",
-            "Oro & Mato Nail Bros",
-            "Pure Vessel",
-            "Radiance",
-            "The Hollow Knight",
-            "Paintmaster Sheo",
-            "Great Nailsage Sly",
-            "Soul Master",
-            "Soul Tyrant",
-            "Traitor Lord",
-            "Troupe Master Grimm",
-            "Uumuu",
-            "Watcher Knight",
-            "White Defender",
-            "Xero"});
-            this.checkedListBoxBossH.Location = new System.Drawing.Point(19, 28);
-            this.checkedListBoxBossH.Name = "checkedListBoxBossH";
-            this.checkedListBoxBossH.Size = new System.Drawing.Size(470, 169);
-            this.checkedListBoxBossH.TabIndex = 0;
-            this.checkedListBoxBossH.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxBossH_ItemCheck);
-            // 
-            // comboBoxSelectKindBoss
-            // 
-            this.comboBoxSelectKindBoss.BackColor = System.Drawing.SystemColors.GrayText;
-            this.comboBoxSelectKindBoss.FormattingEnabled = true;
-            this.comboBoxSelectKindBoss.Items.AddRange(new object[] {
-            "Boss",
-            "Pantheon",
-            "Mini Boss - Coliseum -Dreamers - Others"});
-            this.comboBoxSelectKindBoss.Location = new System.Drawing.Point(78, 3);
-            this.comboBoxSelectKindBoss.Name = "comboBoxSelectKindBoss";
-            this.comboBoxSelectKindBoss.Size = new System.Drawing.Size(361, 21);
-            this.comboBoxSelectKindBoss.TabIndex = 7;
-            this.comboBoxSelectKindBoss.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectKindBoss_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "select";
-            // 
-            // panelItemH
-            // 
-            this.panelItemH.Controls.Add(this.groupBoxSkillsH);
-            this.panelItemH.Controls.Add(this.groupBoxCharms);
-            this.panelItemH.Controls.Add(this.comboBoxItemSelectH);
-            this.panelItemH.Controls.Add(this.label25);
-            this.panelItemH.Location = new System.Drawing.Point(44, 82);
-            this.panelItemH.Name = "panelItemH";
-            this.panelItemH.Size = new System.Drawing.Size(505, 254);
-            this.panelItemH.TabIndex = 19;
-            // 
-            // groupBoxSkillsH
-            // 
-            this.groupBoxSkillsH.Controls.Add(this.checkedListBoxSkillsH);
-            this.groupBoxSkillsH.Location = new System.Drawing.Point(5, 36);
-            this.groupBoxSkillsH.Name = "groupBoxSkillsH";
-            this.groupBoxSkillsH.Size = new System.Drawing.Size(499, 212);
-            this.groupBoxSkillsH.TabIndex = 11;
-            this.groupBoxSkillsH.TabStop = false;
-            this.groupBoxSkillsH.Text = "Skills";
-            // 
-            // checkedListBoxSkillsH
-            // 
-            this.checkedListBoxSkillsH.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxSkillsH.CheckOnClick = true;
-            this.checkedListBoxSkillsH.FormattingEnabled = true;
-            this.checkedListBoxSkillsH.Items.AddRange(new object[] {
-            "Abyss Shriek",
-            "Crystal Heart",
-            "Cyclone Slash",
-            "Dash Slash",
-            "Descending Dark",
-            "Desolate Dive",
-            "Dream Nail",
-            "Dream Nail - Awoken",
-            "Dream Gate",
-            "Great Slash",
-            "Howling Wraiths",
-            "Isma\'s Tear",
-            "Mantis Claw",
-            "Monarch Wings",
-            "Mothwing Cloak",
-            "Shade Cloak",
-            "Shade Soul",
-            "Vengeful Spirit"});
-            this.checkedListBoxSkillsH.Location = new System.Drawing.Point(19, 28);
-            this.checkedListBoxSkillsH.Name = "checkedListBoxSkillsH";
-            this.checkedListBoxSkillsH.Size = new System.Drawing.Size(470, 169);
-            this.checkedListBoxSkillsH.TabIndex = 0;
-            this.checkedListBoxSkillsH.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxSkillsH_ItemCheck);
-            // 
-            // groupBoxCharms
-            // 
-            this.groupBoxCharms.Controls.Add(this.checkedListBoxCharms);
-            this.groupBoxCharms.Location = new System.Drawing.Point(3, 35);
-            this.groupBoxCharms.Name = "groupBoxCharms";
-            this.groupBoxCharms.Size = new System.Drawing.Size(499, 212);
-            this.groupBoxCharms.TabIndex = 10;
-            this.groupBoxCharms.TabStop = false;
-            this.groupBoxCharms.Text = "Charms";
-            // 
-            // checkedListBoxCharms
-            // 
-            this.checkedListBoxCharms.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBoxCharms.CheckOnClick = true;
-            this.checkedListBoxCharms.FormattingEnabled = true;
-            this.checkedListBoxCharms.Items.AddRange(new object[] {
-            "Baldur Shell",
-            "Dashmaster",
-            "Deep Focus",
-            "Defenders Crest",
-            "Dreamshield",
-            "Dream Wielder",
-            "Flukenest",
-            "Fragile Greed",
-            "Fragile Heart",
-            "Fragile Strength",
-            "Fury of the Fallen",
-            "Gathering Swarm",
-            "Glowing Womb",
-            "Grimmchild",
-            "Grimmchild Lvl 2",
-            "Grimmchild Lvl 3",
-            "Grimmchild Lvl 4",
-            "Grubberfly\'s Elegy",
-            "Grubsong",
-            "Heavy Blow",
-            "Hiveblood",
-            "Joni\'s Blessing",
-            "White Fragment - Queen\'s",
-            "White Fragment - King\'s",
-            "Kingsoul",
-            "Lifeblood Core",
-            "Lifeblood Heart",
-            "Longnail",
-            "Mark of Pride",
-            "Nailmaster\'s Glory",
-            "Quick Focus",
-            "Quick Slash",
-            "Shaman Stone",
-            "Shape of Unn",
-            "Sharp Shadow",
-            "Soul Catcher",
-            "Soul Eater",
-            "Spell Twister",
-            "Spore Shroom",
-            "Sprintmaster",
-            "Stalwart Shell",
-            "Steady Body",
-            "Thorns of Agony",
-            "Unbreakable Greed",
-            "Unbreakable Heart",
-            "Unbreakable Strength",
-            "Void Heart",
-            "Wayward Compass",
-            "Weaversong",
-            "Shrumal Ogres (Charm)",
-            "Fog Canyon",
-            "Salubra 1",
-            "Salubra 2",
-            "Salubra 3",
-            "Salubra 4"});
-            this.checkedListBoxCharms.Location = new System.Drawing.Point(19, 28);
-            this.checkedListBoxCharms.Name = "checkedListBoxCharms";
-            this.checkedListBoxCharms.Size = new System.Drawing.Size(470, 169);
-            this.checkedListBoxCharms.TabIndex = 0;
-            this.checkedListBoxCharms.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCharms_ItemCheck);
-            // 
-            // comboBoxItemSelectH
-            // 
-            this.comboBoxItemSelectH.BackColor = System.Drawing.SystemColors.GrayText;
-            this.comboBoxItemSelectH.FormattingEnabled = true;
-            this.comboBoxItemSelectH.Items.AddRange(new object[] {
-            "Skills",
-            "Charms"});
-            this.comboBoxItemSelectH.Location = new System.Drawing.Point(78, 3);
-            this.comboBoxItemSelectH.Name = "comboBoxItemSelectH";
-            this.comboBoxItemSelectH.Size = new System.Drawing.Size(361, 21);
-            this.comboBoxItemSelectH.TabIndex = 9;
-            this.comboBoxItemSelectH.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemSelectH_SelectedIndexChanged);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(33, 6);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(35, 13);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "select";
             // 
             // refreshHollow
             // 
@@ -7034,15 +7315,87 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
-            // btnHowSetup
+            // tabDishonored
             // 
-            this.btnHowSetup.Location = new System.Drawing.Point(291, 144);
-            this.btnHowSetup.Name = "btnHowSetup";
-            this.btnHowSetup.Size = new System.Drawing.Size(89, 25);
-            this.btnHowSetup.TabIndex = 10;
-            this.btnHowSetup.Text = "How Setup";
-            this.btnHowSetup.UseVisualStyleBackColor = true;
-            this.btnHowSetup.Click += new System.EventHandler(this.btnHowSetup_Click);
+            this.tabDishonored.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDishonored.Controls.Add(this.groupBoxEventsDishonored);
+            this.tabDishonored.Controls.Add(this.btnRefreshDish);
+            this.tabDishonored.Controls.Add(this.btnDesactiveAllDishonored);
+            this.tabDishonored.Controls.Add(this.DishonoredRunning);
+            this.tabDishonored.Controls.Add(this.DishonoredNotRunning);
+            this.tabDishonored.Location = new System.Drawing.Point(4, 22);
+            this.tabDishonored.Name = "tabDishonored";
+            this.tabDishonored.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDishonored.Size = new System.Drawing.Size(587, 351);
+            this.tabDishonored.TabIndex = 13;
+            this.tabDishonored.Text = "Dishonored";
+            // 
+            // groupBoxEventsDishonored
+            // 
+            this.groupBoxEventsDishonored.Controls.Add(this.checkedListBoxDishonored);
+            this.groupBoxEventsDishonored.Location = new System.Drawing.Point(76, 64);
+            this.groupBoxEventsDishonored.Name = "groupBoxEventsDishonored";
+            this.groupBoxEventsDishonored.Size = new System.Drawing.Size(424, 242);
+            this.groupBoxEventsDishonored.TabIndex = 33;
+            this.groupBoxEventsDishonored.TabStop = false;
+            this.groupBoxEventsDishonored.Text = "Events";
+            // 
+            // checkedListBoxDishonored
+            // 
+            this.checkedListBoxDishonored.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxDishonored.CheckOnClick = true;
+            this.checkedListBoxDishonored.FormattingEnabled = true;
+            this.checkedListBoxDishonored.Items.AddRange(new object[] {
+            "Intro End",
+            "Mission End",
+            "Prision Escape (Sewer Entrace)",
+            "Outsider\'s Dream",
+            "Weepers"});
+            this.checkedListBoxDishonored.Location = new System.Drawing.Point(28, 30);
+            this.checkedListBoxDishonored.Name = "checkedListBoxDishonored";
+            this.checkedListBoxDishonored.Size = new System.Drawing.Size(361, 184);
+            this.checkedListBoxDishonored.TabIndex = 0;
+            this.checkedListBoxDishonored.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxDishonored_ItemCheck);
+            // 
+            // btnRefreshDish
+            // 
+            this.btnRefreshDish.Location = new System.Drawing.Point(471, 17);
+            this.btnRefreshDish.Name = "btnRefreshDish";
+            this.btnRefreshDish.Size = new System.Drawing.Size(62, 23);
+            this.btnRefreshDish.TabIndex = 32;
+            this.btnRefreshDish.Text = "Refresh";
+            this.btnRefreshDish.UseVisualStyleBackColor = true;
+            this.btnRefreshDish.Click += new System.EventHandler(this.refresh_Btn);
+            // 
+            // btnDesactiveAllDishonored
+            // 
+            this.btnDesactiveAllDishonored.Location = new System.Drawing.Point(24, 17);
+            this.btnDesactiveAllDishonored.Name = "btnDesactiveAllDishonored";
+            this.btnDesactiveAllDishonored.Size = new System.Drawing.Size(100, 23);
+            this.btnDesactiveAllDishonored.TabIndex = 31;
+            this.btnDesactiveAllDishonored.Text = "Desactive All";
+            this.btnDesactiveAllDishonored.UseVisualStyleBackColor = true;
+            this.btnDesactiveAllDishonored.Click += new System.EventHandler(this.btnDesactiveAllDishonored_Click);
+            // 
+            // DishonoredRunning
+            // 
+            this.DishonoredRunning.AutoSize = true;
+            this.DishonoredRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.DishonoredRunning.Location = new System.Drawing.Point(341, 22);
+            this.DishonoredRunning.Name = "DishonoredRunning";
+            this.DishonoredRunning.Size = new System.Drawing.Size(114, 13);
+            this.DishonoredRunning.TabIndex = 30;
+            this.DishonoredRunning.Text = "Dishonored is Running";
+            // 
+            // DishonoredNotRunning
+            // 
+            this.DishonoredNotRunning.AutoSize = true;
+            this.DishonoredNotRunning.ForeColor = System.Drawing.Color.Red;
+            this.DishonoredNotRunning.Location = new System.Drawing.Point(331, 22);
+            this.DishonoredNotRunning.Name = "DishonoredNotRunning";
+            this.DishonoredNotRunning.Size = new System.Drawing.Size(134, 13);
+            this.DishonoredNotRunning.TabIndex = 29;
+            this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
             // AutoSplitter
             // 
@@ -7058,8 +7411,10 @@ namespace AutoSplitterCore
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControl2.ResumeLayout(false);
             this.tabConfig.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxMProfile.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBoxUpdate.ResumeLayout(false);
+            this.groupBoxUpdate.PerformLayout();
             this.groupBoxSplitters.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
             this.tabInfo.PerformLayout();
@@ -7067,6 +7422,11 @@ namespace AutoSplitterCore
             this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
+            this.groupBoxTDishonored.ResumeLayout(false);
+            this.groupBoxATDishonored.ResumeLayout(false);
+            this.groupBoxATDishonored.PerformLayout();
+            this.groupBoxTMDishonored.ResumeLayout(false);
+            this.groupBoxTMDishonored.PerformLayout();
             this.groupBoxTCuphead.ResumeLayout(false);
             this.groupBoxTCuphead.PerformLayout();
             this.groupBoxATCuphead.ResumeLayout(false);
@@ -7110,16 +7470,18 @@ namespace AutoSplitterCore
             this.groupBoxTMS.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
+            this.panelMiniBossSekiro.ResumeLayout(false);
+            this.panelMiniBossSekiro.PerformLayout();
+            this.panelBossS.ResumeLayout(false);
+            this.panelBossS.PerformLayout();
             this.panelMortalJourney.ResumeLayout(false);
             this.panelMortalJourney.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxMJS.ResumeLayout(false);
+            this.groupBoxMJS.PerformLayout();
             this.panelPositionS.ResumeLayout(false);
             this.panelPositionS.PerformLayout();
             this.panelCfSekiro.ResumeLayout(false);
             this.panelCfSekiro.PerformLayout();
-            this.panelBossS.ResumeLayout(false);
-            this.panelBossS.PerformLayout();
             this.panelIdolsS.ResumeLayout(false);
             this.panelIdolsS.PerformLayout();
             this.groupBoxAshinaCastle.ResumeLayout(false);
@@ -7178,28 +7540,28 @@ namespace AutoSplitterCore
             this.panelBossDs3.PerformLayout();
             this.tabElden.ResumeLayout(false);
             this.tabElden.PerformLayout();
-            this.panelCfER.ResumeLayout(false);
-            this.panelCfER.PerformLayout();
             this.panelPositionsER.ResumeLayout(false);
             this.panelPositionsER.PerformLayout();
             this.panelGraceER.ResumeLayout(false);
             this.panelGraceER.PerformLayout();
+            this.panelCfER.ResumeLayout(false);
+            this.panelCfER.PerformLayout();
             this.panelBossER.ResumeLayout(false);
             this.panelBossER.PerformLayout();
             this.tabHollow.ResumeLayout(false);
             this.tabHollow.PerformLayout();
-            this.panelPositionH.ResumeLayout(false);
-            this.panelPositionH.PerformLayout();
             this.panelBossH.ResumeLayout(false);
             this.panelBossH.PerformLayout();
-            this.groupBoxMBH.ResumeLayout(false);
             this.groupBoxPantheon.ResumeLayout(false);
             this.groupBoxPantheon.PerformLayout();
+            this.groupBoxMBH.ResumeLayout(false);
             this.groupBossH.ResumeLayout(false);
             this.panelItemH.ResumeLayout(false);
             this.panelItemH.PerformLayout();
-            this.groupBoxSkillsH.ResumeLayout(false);
             this.groupBoxCharms.ResumeLayout(false);
+            this.groupBoxSkillsH.ResumeLayout(false);
+            this.panelPositionH.ResumeLayout(false);
+            this.panelPositionH.PerformLayout();
             this.tabCeleste.ResumeLayout(false);
             this.tabCeleste.PerformLayout();
             this.panelCheckpointsCeleste.ResumeLayout(false);
@@ -7208,6 +7570,9 @@ namespace AutoSplitterCore
             this.tabCuphead.PerformLayout();
             this.panelBossCuphead.ResumeLayout(false);
             this.panelLevelCuphead.ResumeLayout(false);
+            this.tabDishonored.ResumeLayout(false);
+            this.tabDishonored.PerformLayout();
+            this.groupBoxEventsDishonored.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7621,12 +7986,12 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Button btnDesactiveAllTiming;
         private System.Windows.Forms.Panel panelMortalJourney;
         internal System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxMJS;
         private System.Windows.Forms.CheckBox checkBoxMortalJourneyRun;
         private System.Windows.Forms.TabPage tabLicense;
-        internal System.Windows.Forms.TextBox textBox2;
+        internal System.Windows.Forms.TextBox textBoxLicenses;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxUpdate;
         private System.Windows.Forms.CheckBox cbCheckUpdatesOnStartup;
         private System.Windows.Forms.Label labelCloudVer;
         private System.Windows.Forms.Label LabelVersion;
@@ -7637,5 +8002,30 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button btnHowSetup;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnDishonored;
+        private System.Windows.Forms.TabPage tabDishonored;
+        private System.Windows.Forms.GroupBox groupBoxEventsDishonored;
+        private System.Windows.Forms.CheckedListBox checkedListBoxDishonored;
+        private System.Windows.Forms.Button btnRefreshDish;
+        private System.Windows.Forms.Button btnDesactiveAllDishonored;
+        private System.Windows.Forms.Label DishonoredRunning;
+        private System.Windows.Forms.Label DishonoredNotRunning;
+        private System.Windows.Forms.GroupBox groupBoxTDishonored;
+        private System.Windows.Forms.GroupBox groupBoxATDishonored;
+        private System.Windows.Forms.CheckBox checkBoxATDishonored;
+        private System.Windows.Forms.GroupBox groupBoxTMDishonored;
+        private System.Windows.Forms.RadioButton radioIGTDishonored;
+        private System.Windows.Forms.RadioButton radioRealTimerDishonored;
+        private System.Windows.Forms.GroupBox groupBoxMProfile;
+        private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Panel panelMiniBossSekiro;
+        private System.Windows.Forms.Button btnAddMiniBossSekiro;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.ComboBox comboBoxMiniBossSekiro;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.ComboBox comboBoxHowMiniBoss;
+        private System.Windows.Forms.ListBox listBoxMiniBossesS;
+        internal System.Windows.Forms.TextBox textBoxDescriptionMiniBoss;
     }
 }

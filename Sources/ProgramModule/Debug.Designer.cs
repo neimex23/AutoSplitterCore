@@ -59,6 +59,8 @@
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.checkBoxPracticeMode = new System.Windows.Forms.CheckBox();
+            this.checkBoxAutoToggle = new System.Windows.Forms.CheckBox();
+            this.btnResetFlags = new System.Windows.Forms.Button();
             this.groupBoxDebug.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,12 +131,12 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(270, 17);
+            this.label1.Location = new System.Drawing.Point(270, 13);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.label1.Size = new System.Drawing.Size(67, 32);
             this.label1.TabIndex = 55;
-            this.label1.Text = "Split Flag:\r\n (Toggle)\r\n";
+            this.label1.Text = "Split Flag";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBoxDebug
@@ -161,9 +163,9 @@
             this.groupBoxDebug.Controls.Add(this.textBoxZ);
             this.groupBoxDebug.Controls.Add(this.textBoxY);
             this.groupBoxDebug.Controls.Add(this.textBoxX);
-            this.groupBoxDebug.Location = new System.Drawing.Point(8, 68);
+            this.groupBoxDebug.Location = new System.Drawing.Point(8, 73);
             this.groupBoxDebug.Name = "groupBoxDebug";
-            this.groupBoxDebug.Size = new System.Drawing.Size(633, 231);
+            this.groupBoxDebug.Size = new System.Drawing.Size(633, 237);
             this.groupBoxDebug.TabIndex = 56;
             this.groupBoxDebug.TabStop = false;
             this.groupBoxDebug.Text = "Debug Information";
@@ -208,7 +210,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(262, 184);
+            this.label6.Location = new System.Drawing.Point(262, 192);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 26);
             this.label6.TabIndex = 66;
@@ -217,7 +219,7 @@
             // btnSplitCf
             // 
             this.btnSplitCf.BackColor = System.Drawing.Color.Red;
-            this.btnSplitCf.Location = new System.Drawing.Point(371, 153);
+            this.btnSplitCf.Location = new System.Drawing.Point(371, 161);
             this.btnSplitCf.Name = "btnSplitCf";
             this.btnSplitCf.Size = new System.Drawing.Size(30, 32);
             this.btnSplitCf.TabIndex = 57;
@@ -226,7 +228,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(281, 142);
+            this.label5.Location = new System.Drawing.Point(281, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 65;
@@ -234,7 +236,7 @@
             // 
             // textBoxCfID
             // 
-            this.textBoxCfID.Location = new System.Drawing.Point(265, 160);
+            this.textBoxCfID.Location = new System.Drawing.Point(265, 168);
             this.textBoxCfID.Name = "textBoxCfID";
             this.textBoxCfID.Size = new System.Drawing.Size(100, 20);
             this.textBoxCfID.TabIndex = 64;
@@ -377,11 +379,35 @@
             this.checkBoxPracticeMode.UseVisualStyleBackColor = true;
             this.checkBoxPracticeMode.CheckedChanged += new System.EventHandler(this.checkBoxPracticeMode_CheckedChanged);
             // 
+            // checkBoxAutoToggle
+            // 
+            this.checkBoxAutoToggle.AutoSize = true;
+            this.checkBoxAutoToggle.ForeColor = System.Drawing.Color.Chocolate;
+            this.checkBoxAutoToggle.Location = new System.Drawing.Point(256, 40);
+            this.checkBoxAutoToggle.Name = "checkBoxAutoToggle";
+            this.checkBoxAutoToggle.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxAutoToggle.TabIndex = 68;
+            this.checkBoxAutoToggle.Text = "Auto Toggle";
+            this.checkBoxAutoToggle.UseVisualStyleBackColor = true;
+            this.checkBoxAutoToggle.CheckedChanged += new System.EventHandler(this.checkBoxAutoToggle_CheckedChanged);
+            // 
+            // btnResetFlags
+            // 
+            this.btnResetFlags.Location = new System.Drawing.Point(329, 55);
+            this.btnResetFlags.Name = "btnResetFlags";
+            this.btnResetFlags.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFlags.TabIndex = 69;
+            this.btnResetFlags.Text = "Reset Flags";
+            this.btnResetFlags.UseVisualStyleBackColor = true;
+            this.btnResetFlags.Click += new System.EventHandler(this.btnResetFlags_Click);
+            // 
             // Debug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 304);
+            this.ClientSize = new System.Drawing.Size(650, 322);
+            this.Controls.Add(this.btnResetFlags);
+            this.Controls.Add(this.checkBoxAutoToggle);
             this.Controls.Add(this.checkBoxPracticeMode);
             this.Controls.Add(this.groupBoxDebug);
             this.Controls.Add(this.label1);
@@ -433,5 +459,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label LabelVersion;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBoxAutoToggle;
+        private System.Windows.Forms.Button btnResetFlags;
     }
 }

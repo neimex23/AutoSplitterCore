@@ -21,22 +21,24 @@
 //SOFTWARE.
 
 using HitCounterManager;
+using Microsoft.SqlServer.Server;
 using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using static AutoSplitterCore.DefinitionsSekiro;
 
 namespace AutoSplitterCore
 {
     public class SekiroSplitter
     {
         public static Sekiro sekiro = new Sekiro();
-        public bool _StatusProcedure = true;
         public bool _StatusSekiro = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTSekiro dataSekiro;
         public DefinitionsSekiro defS = new DefinitionsSekiro();
         public ProfilesControl _profile;
@@ -88,17 +90,13 @@ namespace AutoSplitterCore
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
         public void resetSplited()
         {
             listPendingB.Clear();
             listPendingI.Clear();
             listPendingP.Clear();
             listPendingCf.Clear();
+            listPendingMb.Clear();
 
             if (dataSekiro.getBossToSplit().Count > 0)
             {
@@ -129,6 +127,14 @@ namespace AutoSplitterCore
                 foreach (var cf in dataSekiro.getFlagToSplit())
                 {
                     cf.IsSplited = false;
+                }
+            }
+
+            if (dataSekiro.getMiniBossToSplit().Count > 0)
+            {
+                foreach (var mb in dataSekiro.getMiniBossToSplit())
+                {
+                    mb.IsSplited = false;
                 }
             }
             index = 0;
@@ -168,6 +174,278 @@ namespace AutoSplitterCore
                 Mode = mode
             };
             dataSekiro.flagToSplit.Add(cFlag);
+        }
+
+        public void AddMiniBoss (string miniboss, string mode)
+        {
+            DefinitionsSekiro.MiniBossS mBoss = new DefinitionsSekiro.MiniBossS();
+            switch (miniboss)
+            {
+                case "Leader Shigenori Yamauchi":
+                    mBoss.Id = 51120150;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "General Naomori Kawarada":
+                    mBoss.Id = 714;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Ogre - Ashina Outskirts":
+                    mBoss.vector = new Vector3f((float)124.60, (float)-35.50, (float)140.20);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break; 
+                case "General Tenzen Yamauchi":
+                    mBoss.vector = new Vector3f((float)163.30, (float)-72.40, (float)220.50);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break;
+                case "Headless Ako":
+                    mBoss.Id = 11100330;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Blazing Bull":
+                    mBoss.Id = defS.idolToEnum("Ashina Castle").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Shigekichi of the Red Guard":
+                    mBoss.Id = defS.idolToEnum("Flames of Hatred").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Shinobi Hunter Enshin of Misen":
+                    mBoss.Id = 50006120;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Juzou the Drunkard":
+                    mBoss.Id = defS.idolToEnum("Hirata Audience Chamber").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Lone Shadow Masanaga the Spear-Bearer":
+                    mBoss.vector = new Vector3f((float)74.50, (float)-37.65, (float)385.25);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break;
+                case "Seven Ashina Spears - Shume Masaji Oniwa":
+                    mBoss.Id = 61120711;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Juzou the Drunkard 2":
+                    mBoss.Id = 11000301;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "General Kuranosuke Matsumoto":
+                    mBoss.Id = 11110410;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Seven Achina Spears – Shikibu Toshikatsu Yamauchi":
+                    mBoss.Id = 11120530;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Lone Shadow Longswordsman":
+                    mBoss.vector = new Vector3f((float)-323.20, (float)-48.30, (float)344.35);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break;
+                case "Headless Ungo":
+                    mBoss.vector = new Vector3f((float)-27.80, (float)0.25, (float)252.0);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break;
+                case "Ashina Elite – Jinsuke Saze":
+                    mBoss.Id = 11110504;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Ogre - Ashina Castle":
+                    mBoss.vector = new Vector3f((float)-111.20, (float)25.00, (float)237.90);
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
+                    break;
+                case "Lone Shadow Vilehand": //Check
+                    mBoss.Id = 51110330; 
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Ashina Elite - Ujinari Mizuo":
+                    mBoss.Id = 51110650;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Shichimen Warrior - Abandoned Dungeon":
+                    mBoss.Id = defS.idolToEnum("Bottomless Hole").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Armored Warrior":
+                    mBoss.Id = 12000400;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Long-arm Centipede Sen’un":
+                    mBoss.Id = 12000279;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Headless Gokan":
+                    mBoss.Id = 11700500;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Long-arm Centipede Giraffe":
+                    mBoss.Id = 11705202;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Snake Eyes Shirahagi":
+                    mBoss.Id = defS.idolToEnum("Hidden Forest").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Shichimen Warrior - Ashina Depths":
+                    mBoss.Id = 11700520;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Headless Gacchin":
+                    mBoss.Id = 11500680;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Tokujiro the Glutton":
+                    mBoss.Id = 11500490;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Mist Noble":
+                    mBoss.Id = 11505200;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "O'rin of the Water":
+                    mBoss.Id = 11500690;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Sakura Bull of the Palace":
+                    mBoss.Id = 12500570;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Leader Okami":
+                    mBoss.Id = 12500406;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Headless Yashariku":
+                    mBoss.Id = defS.idolToEnum("Flower Viewing Stage").Id;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                case "Shichimen Warrior - Fountainhead Palace":
+                    mBoss.Id = 12500580;
+                    mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
+                    break;
+                default: return;
+            }
+            mBoss.Title = miniboss;
+            mBoss.Mode = mode;
+            dataSekiro.miniBossToSplit.Add(mBoss);
+        }
+
+        public string GetMiniBossDescription(string Game)
+        {
+            switch (Game)
+            {
+                case "Leader Shigenori Yamauchi":
+                    return "Split when obtain Fistful of Ash in Genichiro path";
+
+                case "General Naomori Kawarada":
+                    return "Split when kill General Naomori Kawarada";
+
+                case "Ogre - Ashina Outskirts":
+                    return "Split when trigger window position after kill Ogre\r\n X= 124.60, Y= -35.50, Z= 140.20";
+
+                case "General Tenzen Yamauchi":
+                    return "Split shen trigger position near mini hose\r\nPath of Headless Ako \r\n X= 1134.60, Y= -57.50, Z= 220.10";
+
+                case "Headless Ako":
+                    return "Split when kill Headless Ako";
+
+                case "Blazing Bull":
+                    return "Split when idol: Ashina Castle is automatically activate after kill Blazing Bull";
+
+                case "Shigekichi of the Red Guard":
+                    return "Split when idol: Flames of Hatred is manual activated";
+
+                case "Shinobi Hunter Enshin of Misen":
+                    return "Split when obtain Hidden Temple Key with Owl";
+
+                case "Juzou the Drunkard":
+                    return "Split when idol: Hirata Audience Chamber is manual activated";
+
+                case "Lone Shadow Masanaga the Spear-Bearer":
+                    return "Split when trigger psition near Gokan path grapple \r\n X=74.50, Y=-37.65, Z=385.25";
+
+                case "Juzou the Drunkard 2":
+                    return "Split when kill Juzou the Drunkard 2";
+
+                case "General Kuranosuke Matsumoto":
+                    return "Split when kill General Kuranosuke Matsumoto";
+
+                case "Seven Achina Spears – Shikibu Toshikatsu Yamauchi":
+                    return "Split when kill Shikibu Toshikatsu Yamauchi";
+
+                case "Lone Shadow Longswordsman":
+                    return "Split when trigger position after water grapple\r\nPath to Shichimen Warrior\r\n X= -323.20, Y= -48.30, Z= 344.35";
+
+                case "Headless Ungo":
+                    return "Split when trigger position grapple\r\nExit of Ungo Boss Fight arena near of Bridge \r\n X= -27.80, Y= 0.25, Z= 252.0";
+
+                case "Ashina Elite – Jinsuke Saze":
+                    return "Split when kill Jinsuke Saze";
+
+                case "Ogre - Ashina Castle":
+                    return "Split when trigger position on the beam above ogre\r\n X= -111.20, Y= 25.00 237.90 \r\nRecommend: Loading Game After";
+
+                case "Lone Shadow Vilehand":
+                    return "Splits when opening the door leading to Ogre 2";
+
+                case "Seven Ashina Spears - Shume Masaji Oniwa":
+                    return "Split when open SSIshin door";
+
+                case "Ashina Elite - Ujinari Mizuo":
+                    return "Split when kill Ashina Elite Ujinari Mizuo";
+
+                case "Shichimen Warrior - Abandoned Dungeon":
+                    return "Split when idol: Bottomless Hole is manual activated";
+
+                case "Armored Warrior":
+                    return "Split when kill Armored Warrior";
+
+                case "Long-arm Centipede Sen’un":
+                    return "Split when kill Long-arm Centipede Sen’un";
+
+                case "Headless Gokan":
+                    return "Split when kill Headless Gokan";
+
+                case "Long-arm Centipede Giraffe":
+                    return "Split when use key on door after Centipede";
+
+                case "Snake Eyes Shirahagi":
+                    return "Split when idol: Hidden Forest is manual activated";
+
+                case "Shichimen Warrior - Ashina Depths":
+                    return "Split when kill Shichimen Warrior";
+
+                case "Headless Gacchin":
+                    return "Split when kill Headless Gacchin";
+
+                case "Tokujiro the Glutton":
+                    return "Split when kill Tokujiro the Glutton";
+
+                case "Mist Noble":
+                    return "Split when kill Mist Noble";
+
+                case "O'rin of the Water":
+                    return "Split when kill O'rin";
+
+                case "Sakura Bull of the Palace":
+                    return "Split when kill Sakura Bull";
+
+                case "Leader Okami":
+                    return "Split when kill Leader Okami";
+
+                case "Headless Yashariku":
+                    return "Split when idol: Flower Viewing Stage is manually activated\r\nRute Recomended: Okami,Yashariku,go to idol";
+
+                case "Shichimen Warrior - Fountainhead Palace":
+                    return "Split when kill Shichimen Warrior";
+
+                default:
+                    return "None";
+            }
+        }
+
+        public void RemoveMiniBoss(int position)
+        {
+            listPendingMb.RemoveAll(imb => imb.Title == dataSekiro.miniBossToSplit[position].Title);
+            dataSekiro.miniBossToSplit.RemoveAt(position);
         }
 
         public void RemoveCustomFlag(int position)
@@ -219,11 +497,13 @@ namespace AutoSplitterCore
             listPendingI.Clear();
             listPendingP.Clear();
             listPendingCf.Clear();
+            listPendingMb.Clear();
             PendingMortal.Clear();
             dataSekiro.bossToSplit.Clear();
             dataSekiro.idolsTosplit.Clear();
             dataSekiro.positionsToSplit.Clear();
             dataSekiro.flagToSplit.Clear();
+            dataSekiro.miniBossToSplit.Clear();
             notSplited(ref MortalJourneyData);
             dataSekiro.positionMargin = 3;
             dataSekiro.mortalJourneyRun = false;
@@ -278,6 +558,11 @@ namespace AutoSplitterCore
             {
                 MortalJourney();
             });
+            var task6 = new Task(() =>
+            {
+                MiniBossSplit();
+            });
+
             taskRefresh.Start();
             taskCheckload.Start();
             task1.Start();
@@ -285,6 +570,7 @@ namespace AutoSplitterCore
             task3.Start();
             task4.Start();
             task5.Start();
+            task6.Start();
         }
         #endregion
         #region CheckFlag Init()   
@@ -292,12 +578,12 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getSekiroStatusProcess(delay);
-            while (_StatusProcedure && dataSekiro.enableSplitting)
+            while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(10);
                getSekiroStatusProcess(delay);
-               if (!_StatusSekiro)
-               {
+                if (!_StatusSekiro)
+                {
                     _writeMemory = false;
                     delay = 2000;
                 }
@@ -321,14 +607,15 @@ namespace AutoSplitterCore
         List<DefinitionsSekiro.BossS> listPendingB = new List<DefinitionsSekiro.BossS>();
         List<DefinitionsSekiro.Idol> listPendingI = new List<DefinitionsSekiro.Idol>();
         List<DefinitionsSekiro.CfSk> listPendingCf = new List<DefinitionsSekiro.CfSk>();
+        List<DefinitionsSekiro.MiniBossS> listPendingMb = new List<DefinitionsSekiro.MiniBossS>();
 
 
         private void checkLoad()
         {
-            while (dataSekiro.enableSplitting && _StatusProcedure)
+            while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(200);
-                if (listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count >0)
+                if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count >0) && _StatusSekiro)
                 {
                     if (!sekiro.IsPlayerLoaded())
                     {
@@ -362,6 +649,14 @@ namespace AutoSplitterCore
                             dataSekiro.flagToSplit[c].IsSplited = true;
                         }
 
+                        foreach (var mb in listPendingMb)
+                        {
+                            SplitCheck();
+                            var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
+                            dataSekiro.miniBossToSplit[mbo].IsSplited = true;
+                        }
+
+
                         listPendingB.Clear();
                         listPendingI.Clear();
                         listPendingP.Clear();
@@ -373,12 +668,14 @@ namespace AutoSplitterCore
 
         private void BossSplit()
         {
-            while (dataSekiro.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataSekiro.getBossToSplit();
+            while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(5000);
-                if (!_PracticeMode)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var b in dataSekiro.getBossToSplit())
+                    if(BossToSplit != dataSekiro.getBossToSplit()) BossToSplit = dataSekiro.getBossToSplit();
+                    foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && sekiro.ReadEventFlag(b.Id))
                         {
@@ -399,6 +696,64 @@ namespace AutoSplitterCore
                 }
             }
         }
+
+        private void MiniBossSplit()
+        {
+            var MiniBossToSplit = dataSekiro.getMiniBossToSplit();
+            while (dataSekiro.enableSplitting)
+            {
+                Thread.Sleep(100);
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
+                {
+                    if (MiniBossToSplit != dataSekiro.getMiniBossToSplit()) MiniBossToSplit = dataSekiro.getMiniBossToSplit();
+                    foreach (var mb in MiniBossToSplit)
+                    {
+                        if (!mb.IsSplited)
+                        {
+                            if (mb.kindSplit == DefinitionsSekiro.KindSplit.ID && sekiro.ReadEventFlag(mb.Id))
+                            {
+                                if (mb.Mode == "Loading game after")
+                                {
+                                    if (!listPendingMb.Contains(mb))
+                                    {
+                                        listPendingMb.Add(mb);
+                                    }
+                                }
+                                else
+                                {
+                                    mb.IsSplited = true;
+                                    SplitCheck();
+                                }
+                            }
+
+                            if (mb.kindSplit == DefinitionsSekiro.KindSplit.Position)
+                            {
+                                var currentlyPosition = sekiro.GetPlayerPosition();
+                                var rangeX = ((currentlyPosition.X - mb.vector.X) <= dataSekiro.positionMargin) && ((currentlyPosition.X - mb.vector.X) >= -dataSekiro.positionMargin);
+                                var rangeY = ((currentlyPosition.Y - mb.vector.Y) <= dataSekiro.positionMargin) && ((currentlyPosition.Y - mb.vector.Y) >= -dataSekiro.positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - mb.vector.Z) <= dataSekiro.positionMargin) && ((currentlyPosition.Z - mb.vector.Z) >= -dataSekiro.positionMargin);
+                                if (rangeX && rangeY && rangeZ)
+                                {
+                                    if (mb.Mode == "Loading game after")
+                                    {
+                                        if (!listPendingMb.Contains(mb))
+                                        {
+                                            listPendingMb.Add(mb);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        mb.IsSplited = true;
+                                        SplitCheck();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
         List<DefinitionsSekiro.PositionS> MortalJourneyData = new List<DefinitionsSekiro.PositionS>()
         {
@@ -438,7 +793,7 @@ namespace AutoSplitterCore
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
                     if (dataSekiro.mortalJourneyRun && index < MortalJourneyData.Count)
                     {
@@ -485,14 +840,15 @@ namespace AutoSplitterCore
 
         private void IdolSplit()
         {
-            while (dataSekiro.enableSplitting && _StatusProcedure)
+            var IdolsToSplit = dataSekiro.getidolsTosplit();
+            while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var i in dataSekiro.getidolsTosplit())
+                    if (IdolsToSplit != dataSekiro.getidolsTosplit()) IdolsToSplit = dataSekiro.getidolsTosplit();
+                    foreach (var i in IdolsToSplit)
                     {
-
                         if (!i.IsSplited && sekiro.ReadEventFlag(i.Id))
                         {
                             if (i.Mode == "Loading game after")
@@ -514,13 +870,14 @@ namespace AutoSplitterCore
         }
 
         private void PositionSplit() {
-            
-            while (dataSekiro.enableSplitting && _StatusProcedure)
+            var PositionsToSplit = dataSekiro.getPositionsToSplit();
+            while (dataSekiro.enableSplitting)
             {              
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var p in dataSekiro.getPositionsToSplit())
+                    if (PositionsToSplit != dataSekiro.getPositionsToSplit()) PositionsToSplit = dataSekiro.getPositionsToSplit();
+                    foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)
                         {
@@ -532,12 +889,10 @@ namespace AutoSplitterCore
                             {
                                 if (p.Mode == "Loading game after")
                                 {
-
                                     if (!listPendingP.Contains(p))
                                     {
                                         listPendingP.Add(p);
                                     }
-
                                 }
                                 else
                                 {
@@ -553,12 +908,14 @@ namespace AutoSplitterCore
 
         private void customFlagToSplit()
         {
-            while (dataSekiro.enableSplitting && _StatusProcedure)
+            var FlagToSplit = dataSekiro.getFlagToSplit();
+            while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var cf in dataSekiro.getFlagToSplit())
+                    if (FlagToSplit != dataSekiro.getFlagToSplit()) FlagToSplit = dataSekiro.getFlagToSplit();
+                    foreach (var cf in FlagToSplit)
                     {
                         if (!cf.IsSplited && sekiro.ReadEventFlag(cf.Id))
                         {

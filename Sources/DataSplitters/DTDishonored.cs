@@ -22,40 +22,38 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
-    public class GameConstruction //Dont Use Intance of This reference by "GameConstruction.X"
+    public class DefinitionDishonored
     {
-        //List All Games
-        public static List<string> GameList = new List<string>()
+        [Serializable]
+        public class DishonoredOptions
         {
-            "Sekiro",
-            "Dark Souls 1",
-            "Dark Souls 2",
-            "Dark Souls 3",
-            "Elden Ring",
-            "Hollow Knight",
-            "Celeste",
-            "Cuphead",
-            "Dishonored",
-            "ASL Method"
+            public string Option = string.Empty;
+            public bool Enable = false;
+        }
+    }
+    public class DTDishonored
+    {
+        //Settings Vars
+        public bool enableSplitting = false;
+        public bool autoTimer = false;
+        public bool gameTimer = false;
+        //Flags to Split
+        public List<DefinitionDishonored.DishonoredOptions> DishonoredOptions = new List<DefinitionDishonored.DishonoredOptions>()
+        {
+            new DefinitionDishonored.DishonoredOptions() { Option = "Intro End"},
+            new DefinitionDishonored.DishonoredOptions() { Option = "Mission End"},
+            new DefinitionDishonored.DishonoredOptions() { Option = "Prision Escape (Sewer Entrace)"},
+            new DefinitionDishonored.DishonoredOptions() { Option = "Outsider's Dream"},
+            new DefinitionDishonored.DishonoredOptions() { Option = "Weepers"}
         };
 
-        //SplitterIndex: Use For if Want Add a new Game change index it do more easier
-        public const int NoneSplitterIndex = 0; //Dont Change, is Seted Always in HCM program
-        public const int SekiroSplitterIndex = 1;
-        public const int Ds1SplitterIndex = 2;
-        public const int Ds2SplitterIndex = 3;
-        public const int Ds3SplitterIndex = 4;
-        public const int EldenSplitterIndex = 5;
-        public const int HollowSplitterIndex = 6;
-        public const int CelesteSplitterIndex = 7;
-        public const int CupheadSplitterIndex = 8;
-        public const int DishonoredSplitterIndex = 9; 
-        public const int ASLSplitterIndex = 10;
+        public List<DefinitionDishonored.DishonoredOptions> getOptionToSplit()
+        {
+            return this.DishonoredOptions;
+        }
+
     }
 }

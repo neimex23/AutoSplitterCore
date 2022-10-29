@@ -49,12 +49,18 @@ DLL Used:
         Source: https://github.com/ShootMe/LiveSplit.Celeste.git
         Licence: MIT
 	
-     - DLL LiveSplit.Cuphead
+    - DLL LiveSplit.Cuphead
         Title: LiveSplit.Cuphead
         Author: DevilSquirrel
         Source: https://github.com/ShootMe/LiveSplit.Cuphead.git
         Licence: MIT			   
 
+	- DLL LiveSplit.Dishonored
+		Title: LiveSplit.Dishonored
+        Author: Fatalis
+        Source: https://github.com/fatalis/LiveSplit.Dishonored.git
+        Licence: MIT(WTFPL)	
+		
     - DLL LiveSplit.Core
         Title: LiveSplit
         Author: LiveSplit
@@ -105,6 +111,15 @@ File Title: AutoSplitterSetupIcon.ico
 Author: Elionas
 Source: https://pixabay.com/images/id-1345869/
 Licence: Pixabay License
+
+==============================================================================	
+Check Icon
+
+Title: icono-símbolo-confirmación-gancho-803718
+Author: Leovinus
+Source: https://pixabay.com/images/id-803718/
+Licence: Pixabay License
+
 
 Licenses:
 ==============================================================================

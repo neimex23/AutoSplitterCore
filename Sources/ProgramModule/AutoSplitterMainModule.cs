@@ -44,15 +44,18 @@ namespace AutoSplitterCore
         public HollowSplitter hollowSplitter = new HollowSplitter();
         public CelesteSplitter celesteSplitter = new CelesteSplitter();
         public CupheadSplitter cupSplitter = new CupheadSplitter();
+        public DishonoredSplitter dishonoredSplitter = new DishonoredSplitter();
         public AslSplitter aslSplitter = new AslSplitter();
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
         public UpdateModule updateModule = new UpdateModule();
+        public Debug debugForm;
         public bool DebugMode = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
+        public Form1 main;
         private ProfilesControl profCtrl;
-        private Form1 main;
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1500 };
+        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
 
         public List<string> GetGames() { return GameConstruction.GameList; }
 
@@ -68,22 +71,51 @@ namespace AutoSplitterCore
             hollowSplitter.DebugMode = true;
             celesteSplitter.DebugMode = true;
             cupSplitter.DebugMode = true;
+            dishonoredSplitter.DebugMode = true;
             aslSplitter.DebugMode = true;
             updateModule.DebugMode = true;
+            saveModule._DebugMode = true;
         }
 
         public void AutoSplitterForm(bool darkMode)
         {
-            Form form = new AutoSplitter(sekiroSplitter, hollowSplitter, eldenSplitter, ds3Splitter, celesteSplitter, ds2Splitter, aslSplitter, cupSplitter, ds1Splitter, updateModule, darkMode);
+            SetShowSettings(true);
+            Form form = new AutoSplitter
+                   (sekiroSplitter, 
+                    hollowSplitter, 
+                    eldenSplitter, 
+                    ds3Splitter,
+                    celesteSplitter, 
+                    ds2Splitter, 
+                    aslSplitter, 
+                    cupSplitter,
+                    ds1Splitter,
+                    dishonoredSplitter, 
+                    updateModule, 
+                    saveModule, 
+                    darkMode);
             form.ShowDialog();
+            SetShowSettings(false);
         }
 
         public void LoadAutoSplitterSettings(ProfilesControl profiles, Form1 main)
         {
             //SetPointers
             igtModule.setSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
-            saveModule.SetPointers(sekiroSplitter, ds1Splitter, ds2Splitter, ds3Splitter, eldenSplitter, hollowSplitter, celesteSplitter, cupSplitter, aslSplitter, updateModule);
-            //LoadSettings
+            saveModule.SetPointers
+                    (sekiroSplitter,
+                    ds1Splitter,
+                    ds2Splitter,
+                    ds3Splitter,
+                    eldenSplitter,
+                    hollowSplitter, 
+                    celesteSplitter,
+                    cupSplitter,
+                    dishonoredSplitter,
+                    aslSplitter,
+                    updateModule,
+                    this);
+                //LoadSettings
             saveModule.LoadAutoSplitterSettings(profiles);
             this.profCtrl = profiles;
             this.main = main;         
@@ -118,8 +150,25 @@ namespace AutoSplitterCore
             hollowSplitter._PracticeMode = status;
             celesteSplitter._PracticeMode = status;
             cupSplitter._PracticeMode = status;
+            dishonoredSplitter._PracticeMode = status;
             aslSplitter._PracticeMode = status;
         }
+
+        public void SetShowSettings(bool status)
+        {
+            _ShowSettings = status;
+            sekiroSplitter._ShowSettings = status;
+            ds1Splitter._ShowSettings = status;
+            ds2Splitter._ShowSettings = status;
+            ds3Splitter._ShowSettings = status;
+            eldenSplitter._ShowSettings = status;
+            hollowSplitter._ShowSettings = status;
+            celesteSplitter._ShowSettings = status;
+            cupSplitter._ShowSettings = status;
+            dishonoredSplitter._ShowSettings = status;
+            aslSplitter._ShowSettings = status;
+        }
+
         public int GetSplitterEnable()
         {
             if (sekiroSplitter.dataSekiro.enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
@@ -129,6 +178,7 @@ namespace AutoSplitterCore
             if (eldenSplitter.dataElden.enableSplitting) { return GameConstruction.EldenSplitterIndex; }
             if (hollowSplitter.dataHollow.enableSplitting) { return GameConstruction.HollowSplitterIndex; }
             if (celesteSplitter.dataCeleste.enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
+            if (dishonoredSplitter.dataDish.enableSplitting) { return GameConstruction.DishonoredSplitterIndex; }
             if (cupSplitter.dataCuphead.enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
             if (aslSplitter.enableSplitting) { return GameConstruction.ASLSplitterIndex; }
             return GameConstruction.NoneSplitterIndex;
@@ -147,6 +197,7 @@ namespace AutoSplitterCore
                 eldenSplitter.setStatusSplitting(false);
                 hollowSplitter.setStatusSplitting(false);
                 celesteSplitter.setStatusSplitting(false);
+                dishonoredSplitter.setStatusSplitting(false);
                 cupSplitter.setStatusSplitting(false);
                 aslSplitter.setStatusSplitting(false);
             }
@@ -161,8 +212,10 @@ namespace AutoSplitterCore
                     case GameConstruction.EldenSplitterIndex: eldenSplitter.setStatusSplitting(true); break;
                     case GameConstruction.HollowSplitterIndex: hollowSplitter.setStatusSplitting(true); break;
                     case GameConstruction.CelesteSplitterIndex: celesteSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.DishonoredSplitterIndex: dishonoredSplitter.setStatusSplitting(true); break;
                     case GameConstruction.CupheadSplitterIndex: cupSplitter.setStatusSplitting(true); break;
                     case GameConstruction.ASLSplitterIndex: aslSplitter.setStatusSplitting(true); break;
+                    default: EnableSplitting(0); break;
                 }
             }
         }
@@ -201,7 +254,7 @@ namespace AutoSplitterCore
             switch (gameActive)
             {
                 case GameConstruction.SekiroSplitterIndex: //Sekiro
-                    if (sekiroSplitter.dataSekiro.autoTimer && !_PracticeMode)
+                    if (sekiroSplitter.dataSekiro.autoTimer && sekiroSplitter._StatusSekiro && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (sekiroSplitter.dataSekiro.gameTimer)
@@ -211,7 +264,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.Ds1SplitterIndex: //DS1
-                    if (ds1Splitter.dataDs1.autoTimer && !_PracticeMode)
+                    if (ds1Splitter.dataDs1.autoTimer && ds1Splitter._StatusDs1 && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (ds1Splitter.dataDs1.gameTimer)
@@ -221,7 +274,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.Ds3SplitterIndex: //Ds3
-                    if (ds3Splitter.dataDs3.autoTimer && !_PracticeMode)
+                    if (ds3Splitter.dataDs3.autoTimer && ds3Splitter._StatusDs3 && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (!ds3Splitter.dataDs3.gameTimer)
@@ -231,7 +284,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.EldenSplitterIndex: //Elden
-                    if (eldenSplitter.dataElden.autoTimer && !_PracticeMode)
+                    if (eldenSplitter.dataElden.autoTimer && eldenSplitter._StatusElden && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (eldenSplitter.dataElden.gameTimer)
@@ -240,14 +293,17 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
+
+                //Special Case
                 case GameConstruction.CelesteSplitterIndex: //Celeste
-                    if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
+                    if (celesteSplitter.dataCeleste.autoTimer && celesteSplitter._StatusCeleste && !_PracticeMode)
                     {
                         if (!celesteSplitter.dataCeleste.gameTimer)
                         {                           
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
-                                main.StartStopTimer(true);
+                                if (!profCtrl.TimerRunning)
+                                    main.StartStopTimer(true);
                                 celesteSplitter._runStarted = true;
                             }
                         }
@@ -256,9 +312,16 @@ namespace AutoSplitterCore
                             anyGameTime = true;
                             var currentCelesteTime = celesteSplitter.getTimeInGame();
                             if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame())
-                                main.StartStopTimer(true);
+                            {
+                                if (!profCtrl.TimerRunning)
+                                    main.StartStopTimer(true);
+                            }
                             else
-                                main.StartStopTimer(false);
+                            {
+                                if (profCtrl.TimerRunning)
+                                    main.StartStopTimer(false);
+                            }
+                                
 
                             if (currentCelesteTime > 0)
                                 _lastCelesteTime = currentCelesteTime;
@@ -266,29 +329,33 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.CupheadSplitterIndex: //Cuphead
-                    if (cupSplitter.dataCuphead.autoTimer && !_PracticeMode)
+                    if (cupSplitter.dataCuphead.autoTimer && cupSplitter._StatusCuphead && !_PracticeMode)
                     {
                         if (!cupSplitter.dataCuphead.gameTimer)
                         {
-                            if (cupSplitter.GetSceneName() == string.Empty || cupSplitter.GetSceneName() == "scene_title")
+                            if (!cupSplitter.IsInGame())
                             {
-                                main.StartStopTimer(false);
+                                if (profCtrl.TimerRunning)
+                                    main.StartStopTimer(false);
                             }
                             else
                             {
-                                main.StartStopTimer(true);
+                                if (!profCtrl.TimerRunning)
+                                    main.StartStopTimer(true);
                             }
                         }
                         else
                         {
                             anyGameTime = true;
-                            if (cupSplitter.GetSceneName() == string.Empty || cupSplitter.GetSceneName() == "scene_title" || cupSplitter.levelCompleted())
+                            if (!cupSplitter.IsInGame() || cupSplitter.levelCompleted())
                             {
-                                main.StartStopTimer(false);
+                                if (profCtrl.TimerRunning)
+                                    main.StartStopTimer(false);
                             }
                             else
                             {
-                                main.StartStopTimer(true);
+                                if (!profCtrl.TimerRunning)
+                                    main.StartStopTimer(true);
                             }
                         }                     
                     }
@@ -296,37 +363,48 @@ namespace AutoSplitterCore
 
                 //Manual Controller with Loading Events
                 case GameConstruction.Ds2SplitterIndex: //DS2
-                    if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
+                    if (ds2Splitter.dataDs2.autoTimer && ds2Splitter._StatusDs2 && !_PracticeMode)
                     {
-                        if (ds2Splitter._runStarted)
-                        {
+                        if (ds2Splitter._runStarted && !profCtrl.TimerRunning)
                             main.StartStopTimer(true);
-                        }
-                        else
-                        {
-                            if (!ds2Splitter._runStarted)
-                            {
-                                main.StartStopTimer(false);
-                            }
-                        }
+
+                        if (!ds2Splitter._runStarted && profCtrl.TimerRunning)
+                            main.StartStopTimer(false);
                     }
                     break;
                 case GameConstruction.HollowSplitterIndex: //Hollow
-                    if (hollowSplitter.dataHollow.autoTimer && !_PracticeMode)
+                    if (hollowSplitter.dataHollow.autoTimer && hollowSplitter._StatusHollow && !_PracticeMode)
                     {
-                        if (hollowSplitter._runStarted)
-                        {
+                        if (hollowSplitter._runStarted && !profCtrl.TimerRunning)
                             main.StartStopTimer(true);
+
+                        if (!hollowSplitter._runStarted && profCtrl.TimerRunning)
+                            main.StartStopTimer(false);
+                    }
+                    break;
+                case GameConstruction.DishonoredSplitterIndex:
+                    if (dishonoredSplitter.dataDish.autoTimer && dishonoredSplitter._StatusDish && !_PracticeMode)
+                    {
+                        if (!dishonoredSplitter.dataDish.gameTimer)
+                        {
+                            if (dishonoredSplitter._runStarted && !profCtrl.TimerRunning)
+                                main.StartStopTimer(true);
+                            
+                            if (!dishonoredSplitter._runStarted && profCtrl.TimerRunning)
+                                main.StartStopTimer(false);
                         }
                         else
                         {
-                            if (!hollowSplitter._runStarted)
-                            {
+                            if (dishonoredSplitter._runStarted && !dishonoredSplitter.isLoading && !profCtrl.TimerRunning)
+                                main.StartStopTimer(true);
+
+                            if ((!dishonoredSplitter._runStarted || dishonoredSplitter.isLoading) && profCtrl.TimerRunning)
                                 main.StartStopTimer(false);
-                            }
                         }
                     }
                     break;
+
+
                 case GameConstruction.ASLSplitterIndex:
                 case GameConstruction.NoneSplitterIndex:               
                 default: anyGameTime = false; autoTimer = false; break;

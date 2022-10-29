@@ -34,17 +34,17 @@ namespace AutoSplitterCore
     {
         public static HollowKnightInfo hollow = new HollowKnightInfo();
         public DefinitionHollow defH = new DefinitionHollow();      
-        public bool _StatusProcedure = true;
         public bool _StatusHollow = false;
         public bool _runStarted = false;
         public bool _SplitGo = false;
-        public bool _PracticeMode = false;
         public DTHollow dataHollow;
         public ProfilesControl _profile;    
         public DefinitionHollow.Vector3F currentPosition = new DefinitionHollow.Vector3F();
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
+        public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
 
         #region Control Management
         public DTHollow getDataHollow()
@@ -75,16 +75,11 @@ namespace AutoSplitterCore
                 _SplitGo = true;
             }
         }
+
         public bool getHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             return _StatusHollow = hollow.Memory.HookProcess();
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void setStatusSplitting(bool status)
@@ -292,6 +287,7 @@ namespace AutoSplitterCore
             {
                 positionToSplit();
             });
+
             taskRefresh.Start();
             taskRefreshPosition.Start();
             taskCheckStart.Start();
@@ -308,7 +304,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getHollowStatusProcess(0);
-            while (_StatusProcedure && dataHollow.enableSplitting)
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
                 getHollowStatusProcess(delay);
@@ -321,7 +317,7 @@ namespace AutoSplitterCore
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(500);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
                     if (hollow.Memory.GameState() == GameState.PLAYING)
                     {
@@ -332,7 +328,7 @@ namespace AutoSplitterCore
                         do
                         {
                             _runStarted = false;
-                        } while (hollow.Memory.GameState() == GameState.LOADING || hollow.Memory.GameState() == GameState.CUTSCENE);
+                        } while (hollow.Memory.GameState() == GameState.LOADING || hollow.Memory.GameState() == GameState.ENTERING_LEVEL || hollow.Memory.GameState() == GameState.EXITING_LEVEL);
                         _runStarted = true;
                     }
 
@@ -349,11 +345,14 @@ namespace AutoSplitterCore
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
-                currentPosition.position = hollow.Memory.GetCameraTarget();
-                if (hollow.Memory.SceneName() != currentPosition.sceneName)
+                if (_StatusHollow)
                 {
-                    currentPosition.previousScene = currentPosition.sceneName;
-                    currentPosition.sceneName = hollow.Memory.SceneName();
+                    currentPosition.position = hollow.Memory.GetCameraTarget();
+                    if (hollow.Memory.SceneName() != currentPosition.sceneName)
+                    {
+                        currentPosition.previousScene = currentPosition.sceneName;
+                        currentPosition.sceneName = hollow.Memory.SceneName();
+                    }
                 }
             }
         }
@@ -366,15 +365,16 @@ namespace AutoSplitterCore
         }
 
        
-
         private void bossToSplit()
         {
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataHollow.getBosstoSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var element in dataHollow.getBosstoSplit())
+                    if (BossToSplit != dataHollow.getBosstoSplit()) BossToSplit = dataHollow.getBosstoSplit();
+                    foreach (var element in BossToSplit)
                     {
                         if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
                         {
@@ -388,27 +388,32 @@ namespace AutoSplitterCore
 
         private void miniBossToSplit()
         {
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            var MiniBossToSplit = dataHollow.getMiniBossToSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(3000);
-                foreach (var element in dataHollow.getMiniBossToSplit())
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (!element.IsSplited)
+                    if (MiniBossToSplit != dataHollow.getMiniBossToSplit()) MiniBossToSplit = dataHollow.getMiniBossToSplit();
+                    foreach (var element in MiniBossToSplit)
                     {
-                        if (element.intMethod)
+                        if (!element.IsSplited)
                         {
-                            if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
+                            if (element.intMethod)
                             {
-                                element.IsSplited = true;
-                                SplitCheck();
+                                if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
+                                {
+                                    element.IsSplited = true;
+                                    SplitCheck();
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (hollow.Memory.PlayerData<bool>(element.Offset))
+                            else
                             {
-                                element.IsSplited = true;
-                                SplitCheck();
+                                if (hollow.Memory.PlayerData<bool>(element.Offset))
+                                {
+                                    element.IsSplited = true;
+                                    SplitCheck();
+                                }
                             }
                         }
                     }
@@ -418,12 +423,14 @@ namespace AutoSplitterCore
 
         private void charmToSplit()
         {
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            var CharmToSplit = dataHollow.getCharmToSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var element in dataHollow.getCharmToSplit())
+                    if (CharmToSplit != dataHollow.getCharmToSplit()) CharmToSplit = dataHollow.getCharmToSplit();
+                    foreach (var element in CharmToSplit)
                     {
                         if (!element.IsSplited)
                         {
@@ -459,12 +466,14 @@ namespace AutoSplitterCore
 
         private void skillsToSplit()
         {
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            var SkillsToSplit = dataHollow.getSkillsToSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var element in dataHollow.getSkillsToSplit())
+                    if (SkillsToSplit != dataHollow.getSkillsToSplit()) SkillsToSplit = dataHollow.getSkillsToSplit();
+                    foreach (var element in SkillsToSplit)
                     {
                         if (!element.IsSplited)
                         {
@@ -492,12 +501,14 @@ namespace AutoSplitterCore
 
         private void positionToSplit()
         {
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            var PositionToSplit = dataHollow.getPositionToSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var p in dataHollow.getPositionToSplit())
+                    if (PositionToSplit != dataHollow.getPositionToSplit()) PositionToSplit = dataHollow.getPositionToSplit();
+                    foreach (var p in PositionToSplit)
                     {
                         if (!p.IsSplited)
                         {
@@ -520,150 +531,122 @@ namespace AutoSplitterCore
         private bool PantheonCase(string title)
         {
             bool shouldSplit = false;
+            bool NotDeath = !currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath");
             switch (title)
             {
                 case "Vengefly King":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Vengefly") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")) ; break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Vengefly") && NotDeath; break;
                 case "Gruz Mother":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Gruz_Mother") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Gruz_Mother") && NotDeath; break;
                 case "False Knight":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_False_Knight") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_False_Knight") && NotDeath; break;
                 case "Massive Moss Charger":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mega_Moss_Charger") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mega_Moss_Charger") && NotDeath; break;
                 case "Hornet (Protector)":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hornet_1") && !(!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hornet_1") && NotDeath; break;
                 case "Gorb":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Gorb") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Gorb") && NotDeath; break;
                 case "Dung Defender":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Dung_Defender") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Dung_Defender") && NotDeath; break;
                 case "Soul Warrior":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mage_Knight") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mage_Knight") && NotDeath; break;
                 case "Brooding Mawlek":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Brooding_Mawlek") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Brooding_Mawlek") && NotDeath; break;
                 case "Oro & Mato Nail Bros":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Nailmasters") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Nailmasters") && NotDeath; break;
                 case "Xero":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Xero") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Xero") && NotDeath; break;
                 case "Crystal Guardian":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Crystal_Guardian") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Crystal_Guardian") && NotDeath; break;
                 case "Soul Master":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Soul_Master") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Soul_Master") && NotDeath; break;
                 case "Oblobbles":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Oblobble") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Oblobble") && NotDeath; break;
                 case "Sisters of Battle":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mantis_Lord") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Mantis_Lord") && NotDeath; break;
                 case "Marmu":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Marmu") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Marmu") && NotDeath; break;
                 case "Flukemarm":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Flukemarm") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Flukemarm") && NotDeath; break;
                 case "Broken Vessel":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Broken_Vessel") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Broken_Vessel") && NotDeath; break;
                 case "Galien":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Galien") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Galien") && NotDeath; break;
                 case "Paintmaster Sheo":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Painter") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Painter") && NotDeath; break;
                 case "Hive Knight":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hive_Knight") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hive_Knight") && NotDeath; break;
                 case "Elder Hu":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Hu") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Hu") && NotDeath; break;
                 case "The Collector":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Collector") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Collector") && NotDeath; break;
                 case "God Tamer":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_God_Tamer") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_God_Tamer") && NotDeath; break;
                 case "Troupe Master Grim":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grimm") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grimm") && NotDeath; break;
                 case "Watcher Knights":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Watcher_Knights") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Watcher_Knights") && NotDeath; break;
                 case "Uumuu":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Uumuu") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Uumuu") && NotDeath; break;
                 case "Nosk":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Nosk") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene == "GG_Nosk" && NotDeath; break;
                 case "Winged Nosk":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Nosk_Hornet") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Nosk_Hornet") && NotDeath; break;
                 case "Great Nailsage Slay":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Sly") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Sly") && NotDeath; break;
                 case "Hornet (Sentinel)":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hornet_2") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hornet_2") && NotDeath; break;
                 case "Enraged Guardian":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Crystal_Guardian_2") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Crystal_Guardian_2") && NotDeath; break;
                 case "Lost Kin":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Lost_Kin") && !(!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Lost_Kin") && NotDeath; break;
                 case "No Eyes":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_No_Eyes") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_No_Eyes") && NotDeath; break;
                 case "Traitor Lord":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Traitor_Lord") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Traitor_Lord") && NotDeath; break;
                 case "White Defender":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_White_Defender") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_White_Defender") && NotDeath; break;
                 case "Soul Tyrant":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Soul_Tyrant") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Soul_Tyrant") && NotDeath; break;
                 case "Markoth":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Markoth") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Ghost_Markoth") && NotDeath; break;
                 case "Grey Prince Zote":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grey_Prince_Zote") && !(!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grey_Prince_Zote") && NotDeath; break;
                 case "Failed Champion":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Failed_Champion") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Failed_Champion") && NotDeath; break;
                 case "Nightmare King Grimm":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grimm_Nightmare") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Grimm_Nightmare") && NotDeath; break;
                 case "Pure Vessel":
-                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hollow_Knight") && (!currentPosition.sceneName.StartsWith("GG_Atrium") && !currentPosition.sceneName.StartsWith("Quit_To_Menu") && !currentPosition.sceneName.StartsWith("PermaDeath")); break;
+                    shouldSplit = currentPosition.previousScene.StartsWith("GG_Hollow_Knight") && NotDeath; break;
                 case "Absolute Radiance":
                     shouldSplit = currentPosition.sceneName.StartsWith("Cinematic_Ending_E"); break;
-                default: shouldSplit = false; break;
             }
             return shouldSplit;
         }
 
-        private void notSplited(ref List<DefinitionHollow.Pantheon> p)
-        {
-            foreach (var i in p)
-            {
-                i.IsSplited = false;
-            }
-        }
         private void pantheonToSplit()
         {
-            int p3s = 0, p5s = 0, nSplit = 0;
-
-            foreach (var i in dataHollow.getPhanteonToSplit())
-            {
-                if (i.Title == "Grey Prince Zote")
-                {
-                    p3s = 10;
-                    p5s = 42;
-                    break;
-                }
-                p3s = 9;
-                p5s = 41;
-            }
-
-            int tSplit = 30 + p3s;
-
-            while (dataHollow.enableSplitting && _StatusProcedure)
+            List <DefinitionHollow.Pantheon> PantheonToSplit = dataHollow.getPhanteonToSplit();
+            while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
-                if (!_PracticeMode)
+                if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
+                    if (PantheonToSplit != dataHollow.getPhanteonToSplit()) PantheonToSplit = dataHollow.getPhanteonToSplit();
                     if (dataHollow.PantheonMode == 0)
                     {
-
-                        foreach (var element in dataHollow.getPhanteonToSplit())
+                        foreach (var element in PantheonToSplit)
                         {
                             if (!element.IsSplited && PantheonCase(element.Title))
                             {
                                 element.IsSplited = true;
                                 SplitCheck();
-                                nSplit++;
                             }
-                        }
-                        if ((nSplit == tSplit && currentPosition.sceneName.StartsWith("GG_Atrium")) || (nSplit == p5s && currentPosition.sceneName.StartsWith("Cinematic_Ending_E")))
-                        { //P1+2+3+4 o p5
-                            notSplited(ref dataHollow.phanteonToSplit);
-                            nSplit = 0;
                         }
                     }
                     else
                     {
-                        foreach (var element in dataHollow.getPhanteonToSplit())
+                        foreach (var element in PantheonToSplit)
                         {
                             if (element.Title == "Pantheon of the Master" && !element.IsSplited)
                             {

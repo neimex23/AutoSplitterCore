@@ -29,6 +29,7 @@ namespace AutoSplitterCore
 {
     public class DefinitionHollow
     {
+        #region ElementToSplitH
         [Serializable]
         public class ElementToSplitH
         {
@@ -520,11 +521,10 @@ namespace AutoSplitterCore
 
 
                     #endregion
-
-
             }
             return elem;
         }
+        #endregion
         #region Vector3F
         [Serializable]
         public class Vector3F
@@ -535,7 +535,6 @@ namespace AutoSplitterCore
             public bool IsSplited = false;
         }
         #endregion
-
         #region Pantheon
         [Serializable]
         public class Pantheon

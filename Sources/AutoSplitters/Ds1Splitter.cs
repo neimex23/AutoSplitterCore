@@ -33,10 +33,10 @@ namespace AutoSplitterCore
     public class Ds1Splitter
     {
         public static DarkSouls1 Ds1 = new DarkSouls1();
-        public bool _StatusProcedure = true;
         public bool _StatusDs1 = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTDs1 dataDs1;
         public DefinitionsDs1 defDs1 = new DefinitionsDs1();
         public ProfilesControl _profile;       
@@ -86,12 +86,6 @@ namespace AutoSplitterCore
         {
             dataDs1.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void resetSplited()
@@ -219,7 +213,7 @@ namespace AutoSplitterCore
         public void RemoveItem(int position)
         {
             listPendingItem.RemoveAll(iboss => iboss.Id == dataDs1.itemToSplit[position].Id);
-            dataDs1.bossToSplit.RemoveAt(position);
+            dataDs1.itemToSplit.RemoveAt(position);
         }
 
         public void clearData()
@@ -311,7 +305,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getDs1StatusProcess(delay);
-            while (_StatusProcedure && dataDs1.enableSplitting)
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(10);
                 getDs1StatusProcess(delay);
@@ -328,10 +322,10 @@ namespace AutoSplitterCore
 
         public void inventorySee()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(3000);
-                inventory = Ds1.GetInventory();
+                if(_StatusDs1) inventory = Ds1.GetInventory();
             }            
         }
 
@@ -343,10 +337,10 @@ namespace AutoSplitterCore
 
         private void checkLoad()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(200);
-                if (listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingP.Count > 0 || listPendingItem.Count > 0)
+                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingP.Count > 0 || listPendingItem.Count > 0) && _StatusDs1)
                 {
                     if (!Ds1.IsPlayerLoaded())
                     {
@@ -398,12 +392,14 @@ namespace AutoSplitterCore
 
         private void bossToSplit()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataDs1.getBossToSplit();
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var b in dataDs1.getBossToSplit())
+                    if(BossToSplit != dataDs1.getBossToSplit()) BossToSplit = dataDs1.getBossToSplit();
+                    foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds1.ReadEventFlag(b.Id))
                         {
@@ -427,12 +423,14 @@ namespace AutoSplitterCore
 
         private void bonfireToSplit()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            var BonfireToSplit = dataDs1.getBonfireToSplit();
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var bonfire in dataDs1.getBonfireToSplit())
+                    if (BonfireToSplit != dataDs1.getBonfireToSplit()) BonfireToSplit = dataDs1.getBonfireToSplit();
+                    foreach (var bonfire in BonfireToSplit)
                     {
                         Bonfire aux = bonfire.Id;
                         if (!bonfire.IsSplited && Ds1.GetBonfireState(bonfire.Id) == bonfire.Value)
@@ -457,12 +455,14 @@ namespace AutoSplitterCore
 
         private void lvlToSplit()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            var LvlToSplit = dataDs1.getLvlToSplit();
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var lvl in dataDs1.getLvlToSplit())
+                    if (LvlToSplit != dataDs1.getLvlToSplit()) LvlToSplit = dataDs1.getLvlToSplit();
+                    foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds1.GetAttribute(lvl.Attribute) >= lvl.Value)
                         {
@@ -486,12 +486,14 @@ namespace AutoSplitterCore
 
         private void positionToSplit()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            var PositionsToSplit = dataDs1.getPositionsToSplit();
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var p in dataDs1.getPositionsToSplit())
+                    if (PositionsToSplit != dataDs1.getPositionsToSplit()) PositionsToSplit = dataDs1.getPositionsToSplit();
+                    foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)
                         {
@@ -523,12 +525,14 @@ namespace AutoSplitterCore
         private readonly List<Item> allItems = SoulMemory.DarkSouls1.Item.AllItems;
         private void itemToSplit()
         {
-            while (dataDs1.enableSplitting && _StatusProcedure)
+            var ItemsToSplit = dataDs1.getItemsToSplit();
+            while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var item in dataDs1.getItemsToSplit())
+                    if (ItemsToSplit != dataDs1.getItemsToSplit()) ItemsToSplit = dataDs1.getItemsToSplit();
+                    foreach (var item in ItemsToSplit)
                     {
                         Item aux = allItems.Find(i => i.Id == item.Id);
                         if (!item.IsSplited && inventory.Exists(i => i.ItemType == aux.ItemType))

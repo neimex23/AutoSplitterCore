@@ -35,6 +35,9 @@ namespace AutoSplitterCore
     [Serializable]
     public class DataAutoSplitter
     {
+        //Profile
+        public string ProfileName = "Default";
+        public string Author = "Owner";
         //Settings
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
@@ -48,6 +51,7 @@ namespace AutoSplitterCore
         public DTDs1 DataDs1;
         public DTCeleste DataCeleste;
         public DTCuphead DataCuphead;
+        public DTDishonored DataDishonored;
     }
     #endregion
     #region SaveModule
@@ -58,6 +62,7 @@ namespace AutoSplitterCore
     {
         public DataAutoSplitter dataAS = new DataAutoSplitter();
         public bool _PracticeMode = false;
+        public bool _DebugMode = false;
         private SekiroSplitter sekiroSplitter = null;
         private Ds1Splitter ds1Splitter = null;
         private Ds2Splitter ds2Splitter = null;
@@ -67,9 +72,12 @@ namespace AutoSplitterCore
         private CelesteSplitter celesteSplitter = null;
         private CupheadSplitter cupSplitter = null;
         private AslSplitter aslSplitter = null;
+        private DishonoredSplitter dishonoredSplitter = null;
         private UpdateModule updateModule = null;
+        private ProfilesControl prfCtl = null;
+        private AutoSplitterMainModule mainModule = null;
 
-        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, AslSplitter aslSplitter, UpdateModule updateModule)
+        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, AslSplitter aslSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
         {
             this.sekiroSplitter = sekiroSplitter;
             this.ds1Splitter = ds1Splitter;
@@ -79,8 +87,29 @@ namespace AutoSplitterCore
             this.hollowSplitter = hollowSplitter;
             this.celesteSplitter = celesteSplitter;
             this.cupSplitter = cupheadSplitter;
+            this.dishonoredSplitter = dishonoredSplitter;
             this.aslSplitter = aslSplitter;
             this.updateModule = updateModule;
+            this.mainModule = mainModule;
+        }
+
+        /// <summary>
+        /// Update Values of DataAutoSplitter
+        /// </summary>
+        public void UpdateAutoSplitterData()
+        {
+            dataAS.DataSekiro = sekiroSplitter.getDataSekiro();
+            dataAS.DataHollow = hollowSplitter.getDataHollow();
+            dataAS.DataElden = eldenSplitter.getDataElden();
+            dataAS.DataDs3 = ds3Splitter.getDataDs3();
+            dataAS.DataDs2 = ds2Splitter.getDataDs2();
+            dataAS.DataDs1 = ds1Splitter.getDataDs1();
+            dataAS.DataCeleste = celesteSplitter.getDataCeleste();
+            dataAS.DataCuphead = cupSplitter.getDataCuphead();
+            dataAS.DataDishonored = dishonoredSplitter.getDataDishonored();
+            dataAS.ASLMethod = aslSplitter.enableSplitting;
+            dataAS.PracticeMode = _PracticeMode;
+            dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
         }
 
         /// <summary>
@@ -104,18 +133,8 @@ namespace AutoSplitterCore
             if (!newSave) { File.Move(savePath, saveBakPath); }
             File.Delete(savePath);
             Stream myStream = new FileStream("HitCounterManagerSaveAutoSplitter.xml", FileMode.Create, FileAccess.Write, FileShare.None);
-            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead) });
-            dataAS.DataSekiro = sekiroSplitter.getDataSekiro();
-            dataAS.DataHollow = hollowSplitter.getDataHollow();
-            dataAS.DataElden = eldenSplitter.getDataElden();
-            dataAS.DataDs3 = ds3Splitter.getDataDs3();
-            dataAS.DataDs2 = ds2Splitter.getDataDs2();
-            dataAS.DataDs1 = ds1Splitter.getDataDs1();
-            dataAS.DataCeleste = celesteSplitter.getDataCeleste();
-            dataAS.DataCuphead = cupSplitter.getDataCuphead();
-            dataAS.ASLMethod = aslSplitter.enableSplitting;
-            dataAS.PracticeMode = _PracticeMode;
-            dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
+            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead),typeof(DTDishonored) });
+            UpdateAutoSplitterData();
             formatter.Serialize(myStream, dataAS);
             myStream.Close();
             XmlDocument Save = new XmlDocument();
@@ -127,11 +146,13 @@ namespace AutoSplitterCore
             Save.Save(savePath);
         }
 
+
         /// <summary>
         /// Load user data in XML for AutoSplitter
         /// </summary>
         public void LoadAutoSplitterSettings(ProfilesControl profiles)
         {
+            prfCtl = profiles;
             DTSekiro dataSekiro = null;
             DTHollow dataHollow = null;
             DTElden dataElden = null;
@@ -140,11 +161,12 @@ namespace AutoSplitterCore
             DTDs1 dataDs1 = null;
             DTCeleste dataCeleste = null;
             DTCuphead dataCuphead = null;
+            DTDishonored dataDishonored = null;
 
             try
             {
                 Stream myStream = new FileStream("HitCounterManagerSaveAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
-                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead) });
+                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
                 dataAS = (DataAutoSplitter)formatter.Deserialize(myStream);
                 dataSekiro = dataAS.DataSekiro;
                 dataHollow = dataAS.DataHollow;
@@ -154,6 +176,7 @@ namespace AutoSplitterCore
                 dataDs1 = dataAS.DataDs1;
                 dataCeleste = dataAS.DataCeleste;
                 dataCuphead = dataAS.DataCuphead;
+                dataDishonored = dataAS.DataDishonored;
                 myStream.Close();
             }
             catch (Exception) { }
@@ -167,6 +190,7 @@ namespace AutoSplitterCore
             if (dataDs1 == null) { dataDs1 = new DTDs1(); }
             if (dataCeleste == null) { dataCeleste = new DTCeleste(); }
             if (dataCuphead == null) { dataCuphead = new DTCuphead(); }
+            if (dataDishonored == null) { dataDishonored = new DTDishonored(); }
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
@@ -179,6 +203,7 @@ namespace AutoSplitterCore
             ds1Splitter.setDataDs1(dataDs1, profiles);
             celesteSplitter.setDataCeleste(dataCeleste, profiles);
             cupSplitter.setDataCuphead(dataCuphead, profiles);
+            dishonoredSplitter.setDataDishonored(dataDishonored, profiles);
             try
             {
                 string savePath = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
@@ -195,6 +220,95 @@ namespace AutoSplitterCore
             }
             catch (Exception) { aslSplitter.setData(null, profiles); }
         }
+
+        /// <summary>
+        /// Management Profiles
+        /// </summary>
+        #region ProfileManager
+        public void ReLoadAutoSplitterSettings()
+        {
+            LoadAutoSplitterSettings(prfCtl);
+            if (!_DebugMode)
+            {
+                mainModule.main.SetComboBoxGameIndex(mainModule.GetSplitterEnable());
+                mainModule.main.SetPractice(mainModule.GetPracticeMode());
+            }
+            else
+            {
+                mainModule.debugForm.UpdateBoxes();
+            }
+        }
+
+        public string GetProfileName()
+        {
+            return dataAS.ProfileName;
+        }
+
+        public string GetAuthor()
+        {
+            return dataAS.Author;
+        }
+
+        public void SetProfileName(string Name)
+        {
+            dataAS.ProfileName = Name;
+        }
+
+        public void SetAuthor(string Name)
+        {
+            dataAS.Author = Name;
+        }
+
+        public XmlNode GetAslData()
+        {
+            XmlDocument Save = new XmlDocument();
+            XmlNode Asl = Save.CreateElement("DataASL");
+            XmlNode AslData = aslSplitter.getData(Save);
+            Asl.AppendChild(AslData);
+            return aslSplitter.getData(Save);
+        }
+
+        public bool GetPracticeMode()
+        {
+            return mainModule.GetPracticeMode();
+        }
+
+        public string GetGameSelected()
+        {
+            int game = mainModule.GetSplitterEnable();
+            switch (game)
+            {
+                case GameConstruction.SekiroSplitterIndex:
+                    return "Sekiro";
+                case GameConstruction.Ds1SplitterIndex:
+                    return "Dark Souls 1";
+                case GameConstruction.Ds2SplitterIndex:
+                    return "Dark Souls 2";
+                case GameConstruction.Ds3SplitterIndex:
+                    return "Dark Souls 3";
+                case GameConstruction.EldenSplitterIndex:
+                    return "Elden Ring";
+                case GameConstruction.HollowSplitterIndex:
+                    return "Hollow Knight";
+                case GameConstruction.CelesteSplitterIndex:
+                    return "Celeste";
+                case GameConstruction.DishonoredSplitterIndex:
+                    return "Dishonored";
+                case GameConstruction.CupheadSplitterIndex:
+                    return "Cuphead";
+                case GameConstruction.ASLSplitterIndex:
+                    return "ASL Method";
+                case GameConstruction.NoneSplitterIndex:
+                default: return "None";
+            }
+        }
+
+        public void ResetFlags()
+        {
+            mainModule.ResetSplitterFlags();
+        }
+
+        #endregion
     }
     #endregion
 }

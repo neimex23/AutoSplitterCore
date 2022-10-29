@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<DataAutoSplitter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileName>EldenRing AllRemembrances</ProfileName>
+  <Author>Neimex23</Author>
+  <CheckUpdatesOnStartup>true</CheckUpdatesOnStartup>
+  <PracticeMode>false</PracticeMode>
+  <ASLMethod>false</ASLMethod>
+  <DataSekiro>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <mortalJourneyRun>false</mortalJourneyRun>
+    <bossToSplit />
+    <miniBossToSplit />
+    <idolsTosplit />
+    <positionsToSplit />
+    <flagToSplit />
+    <positionMargin>3</positionMargin>
+  </DataSekiro>
+  <DataHollow>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <PantheonMode>0</PantheonMode>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <miniBossToSplit />
+    <charmToSplit />
+    <skillsToSplit />
+    <phanteonToSplit />
+    <positionToSplit />
+  </DataHollow>
+  <DataElden>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit>
+      <BossER>
+        <Title>Godrick the Grafted - Stormveil Castle</Title>
+        <Id>10000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Rennala, Queen of the Full Moon - Academy of Raya Lucaria</Title>
+        <Id>14000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Starscourge Radahn - Battlefield (Caelid)</Title>
+        <Id>1252380800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Regal Ancestor Spirit - Nokron, Eternal City</Title>
+        <Id>12090800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Rykard, Lord of Blasphemy - Volcano Manor</Title>
+        <Id>16000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Morgott, the Omen King - Leyndell</Title>
+        <Id>11000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Malenia, Blade of Miquella - Miquella's Haligtree</Title>
+        <Id>15000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Fire Giant - Giant's Forge (Mountaintops)</Title>
+        <Id>1052520800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Mohg, Lord of Blood - Mohgwyn Palace</Title>
+        <Id>12050800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Lichdragon Fortissax - Deeproot Depths</Title>
+        <Id>12030850</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Maliketh, The Black Blade - Crumbling Farum Azula</Title>
+        <Id>13000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Hoarah Loux - Leyndell</Title>
+        <Id>11050800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+      <BossER>
+        <Title>Elden Beast - Elden Throne</Title>
+        <Id>19000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossER>
+    </bossToSplit>
+    <graceToSplit />
+    <positionToSplit />
+    <flagsToSplit />
+  </DataElden>
+  <DataDs3>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <bossToSplit />
+    <bonfireToSplit />
+    <lvlToSplit />
+    <flagToSplit />
+  </DataDs3>
+  <DataDs2>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <lvlToSplit />
+    <positionsToSplit />
+  </DataDs2>
+  <DataDs1>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <bonfireToSplit />
+    <lvlToSplit />
+    <positionsToSplit />
+    <itemToSplit />
+  </DataDs1>
+  <DataCeleste>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <chapterToSplit />
+  </DataCeleste>
+  <DataCuphead>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <elementToSplit />
+  </DataCuphead>
+  <DataDishonored>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+    </DishonoredOptions>
+  </DataDishonored>
+  <DataASL>
+    <Settings>
+      <Version>1.5</Version>
+      <ScriptPath>
+      </ScriptPath>
+      <CustomSettings />
+    </Settings>
+  </DataASL>
+</DataAutoSplitter>

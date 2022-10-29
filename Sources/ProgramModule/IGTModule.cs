@@ -50,6 +50,7 @@ namespace AutoSplitterCore
 
                 case GameConstruction.Ds2SplitterIndex:
                 case GameConstruction.HollowSplitterIndex:
+                case GameConstruction.DishonoredSplitterIndex:
                 case GameConstruction.NoneSplitterIndex:
                 case GameConstruction.ASLSplitterIndex:
                 default:

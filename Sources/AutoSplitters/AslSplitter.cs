@@ -39,6 +39,7 @@ namespace AutoSplitterCore
         public bool enableSplitting = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         private static readonly object _object = new object();       
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1500 };
         private System.Windows.Forms.Timer _update_timer2 = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -109,7 +110,7 @@ namespace AutoSplitterCore
                      if (asl.Script.shouldSplit)
                      {
                         asl.Script.shouldSplit = false;
-                        if (!_PracticeMode) { SplitCheck(); }                           
+                        if (!_PracticeMode && !_ShowSettings) { SplitCheck(); }                           
                      }
                  }
              }

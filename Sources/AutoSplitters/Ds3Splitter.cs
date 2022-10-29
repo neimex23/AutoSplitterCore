@@ -32,10 +32,10 @@ namespace AutoSplitterCore
     public class Ds3Splitter
     {
         public static DarkSouls3 Ds3 = new DarkSouls3();
-        public bool _StatusProcedure = true;
         public bool _StatusDs3 = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTDs3 dataDs3;
         public DefinitionsDs3 defD3 = new DefinitionsDs3();
         public ProfilesControl _profile;
@@ -85,12 +85,6 @@ namespace AutoSplitterCore
         {
             dataDs3.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void resetSplited()
@@ -255,7 +249,7 @@ namespace AutoSplitterCore
         {           
             int delay = 2000;
             _StatusDs3 = getDs3StatusProcess(delay);
-            while (_StatusProcedure && dataDs3.enableSplitting)
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(10);
                 getDs3StatusProcess(delay);
@@ -288,10 +282,10 @@ namespace AutoSplitterCore
 
         private void checkLoad()
         {
-            while (dataDs3.enableSplitting && _StatusProcedure)
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(200);
-                if (listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count >0)
+                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count >0) && _StatusDs3)
                 {
                     if (!Ds3.IsPlayerLoaded())
                     {
@@ -337,12 +331,14 @@ namespace AutoSplitterCore
        
         private void bossToSplit()
         {
-            while (dataDs3.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataDs3.getBossToSplit();
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var b in dataDs3.getBossToSplit())
+                    if (BossToSplit != dataDs3.getBossToSplit()) BossToSplit = dataDs3.getBossToSplit();
+                    foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds3.ReadEventFlag(b.Id))
                         {
@@ -359,7 +355,6 @@ namespace AutoSplitterCore
                                 SplitCheck();
                             }
                         }
-
                     }
                 }
             }
@@ -368,12 +363,14 @@ namespace AutoSplitterCore
 
         private void bonfireToSplit()
         {
-            while (dataDs3.enableSplitting && _StatusProcedure)
+            var BonfireToSplit = dataDs3.getBonfireToSplit();
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var bonfire in dataDs3.getBonfireToSplit())
+                    if (BonfireToSplit != dataDs3.getBonfireToSplit()) BonfireToSplit = dataDs3.getBonfireToSplit();
+                    foreach (var bonfire in BonfireToSplit)
                     {
                         if (!bonfire.IsSplited && Ds3.ReadEventFlag(bonfire.Id))
                         {
@@ -388,7 +385,6 @@ namespace AutoSplitterCore
                             {
                                 bonfire.IsSplited = true;
                                 SplitCheck();
-
                             }
                         }
                     }
@@ -398,12 +394,14 @@ namespace AutoSplitterCore
 
         private void lvlToSplit()
         {
-            while (dataDs3.enableSplitting && _StatusProcedure)
+            var LvlToSplit = dataDs3.getLvlToSplit();
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var lvl in dataDs3.getLvlToSplit())
+                    if (LvlToSplit != dataDs3.getLvlToSplit()) LvlToSplit = dataDs3.getLvlToSplit();
+                    foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds3.ReadAttribute(lvl.Attribute) >= lvl.Value)
                         {
@@ -427,12 +425,14 @@ namespace AutoSplitterCore
 
         private void customFlagToSplit()
         {
-            while (dataDs3.enableSplitting && _StatusProcedure)
+            var FlagToSplit = dataDs3.getFlagToSplit();
+            while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var cf in dataDs3.getFlagToSplit())
+                    if (FlagToSplit != dataDs3.getFlagToSplit()) FlagToSplit = dataDs3.getFlagToSplit();
+                    foreach (var cf in FlagToSplit)
                     {
                         if (!cf.IsSplited && Ds3.ReadEventFlag(cf.Id))
                         {

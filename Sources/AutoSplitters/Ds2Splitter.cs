@@ -34,11 +34,11 @@ namespace AutoSplitterCore
     public class Ds2Splitter
     {
         public static DarkSouls2 Ds2 = new DarkSouls2();
-        public bool _StatusProcedure = true;
         public bool _StatusDs2 = false;
         public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTDs2 dataDs2;
         public DefinitionsDs2 defD2 = new DefinitionsDs2();
         public ProfilesControl _profile;
@@ -86,11 +86,6 @@ namespace AutoSplitterCore
         {
             dataDs2.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void resetSplited()
@@ -233,7 +228,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getDs2StatusProcess(delay);
-            while (_StatusProcedure && dataDs2.enableSplitting)
+            while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(10);
                 getDs2StatusProcess(delay);
@@ -246,7 +241,7 @@ namespace AutoSplitterCore
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(500);
-                if (!_PracticeMode)
+                if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
                     var position = Ds2.GetPosition();
                     if (
@@ -277,10 +272,10 @@ namespace AutoSplitterCore
 
         private void checkLoad()
         {
-            while (dataDs2.enableSplitting && _StatusProcedure)
+            while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(200);
-                if (listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0)
+                if ((listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0) && _StatusDs2)
                 {
                     if (Ds2.IsLoading())
                     {
@@ -315,12 +310,14 @@ namespace AutoSplitterCore
 
         private void bossToSplit()
         {
-            while (dataDs2.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataDs2.getBossToSplit();
+            while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var b in dataDs2.getBossToSplit())
+                    if (BossToSplit != dataDs2.getBossToSplit()) BossToSplit = dataDs2.getBossToSplit();
+                    foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds2.GetBossKillCount(b.Id) > 0)
                         {
@@ -335,7 +332,6 @@ namespace AutoSplitterCore
                             {
                                 b.IsSplited = true;
                                 SplitCheck();
-
                             }
                         }
                     }
@@ -345,12 +341,14 @@ namespace AutoSplitterCore
 
         private void lvlToSplit()
         {
-            while (dataDs2.enableSplitting && _StatusProcedure)
+            var LvlToSplit = dataDs2.getLvlToSplit();
+            while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var lvl in dataDs2.getLvlToSplit())
+                    if (LvlToSplit != dataDs2.getLvlToSplit()) LvlToSplit = dataDs2.getLvlToSplit();
+                    foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds2.GetAttribute(lvl.Attribute) >= lvl.Value)
                         {
@@ -374,12 +372,14 @@ namespace AutoSplitterCore
 
         private void positionToSplit()
         {
-            while (dataDs2.enableSplitting && _StatusProcedure)
+            var PositionsToSplit = dataDs2.getPositionsToSplit();
+            while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var p in dataDs2.getPositionsToSplit())
+                    if (PositionsToSplit != dataDs2.getPositionsToSplit()) PositionsToSplit = dataDs2.getPositionsToSplit();
+                    foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)
                         {

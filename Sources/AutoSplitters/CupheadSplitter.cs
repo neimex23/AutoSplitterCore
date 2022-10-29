@@ -36,10 +36,10 @@ namespace AutoSplitterCore
     {
         private static MemoryManager cup = new MemoryManager();
         public DTCuphead dataCuphead;
-        public bool _StatusProcedure = true;
         public bool _StatusCuphead = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public ProfilesControl _profile;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -81,12 +81,6 @@ namespace AutoSplitterCore
                 if (_SplitGo) { Thread.Sleep(2000); }
                 _SplitGo = true;
             }
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void setStatusSplitting(bool status)
@@ -146,6 +140,11 @@ namespace AutoSplitterCore
         {
             return _StatusCuphead && cup.LevelEnding();
         }
+
+        public bool IsInGame()
+        {
+            return _StatusCuphead && cup.InGame();
+        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()
@@ -167,7 +166,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getCupheadStatusProcess(0);
-            while (_StatusProcedure && dataCuphead.enableSplitting)
+            while (dataCuphead.enableSplitting)
             {
                 Thread.Sleep(10);
                 getCupheadStatusProcess(delay);
@@ -272,12 +271,14 @@ namespace AutoSplitterCore
 
         private void elementToSplit()
         {
-            while (dataCuphead.enableSplitting && _StatusProcedure)
+            var ElementToSplit = dataCuphead.getElementToSplit();
+            while (dataCuphead.enableSplitting)
             {
                 Thread.Sleep(1000);
-                if (!_PracticeMode)
+                if (_StatusCuphead && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var element in dataCuphead.getElementToSplit())
+                    if (ElementToSplit != dataCuphead.getElementToSplit()) ElementToSplit = dataCuphead.getElementToSplit();
+                    foreach (var element in ElementToSplit)
                     {
                         if (!element.IsSplited && ElementCase(element.Title))
                         {

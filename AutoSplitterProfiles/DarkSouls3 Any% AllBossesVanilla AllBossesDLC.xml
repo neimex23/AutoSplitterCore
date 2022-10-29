@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<DataAutoSplitter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileName>DarkSouls3 Any% AllBossesVanilla AllBossesDLC</ProfileName>
+  <Author>Bender</Author>
+  <CheckUpdatesOnStartup>true</CheckUpdatesOnStartup>
+  <PracticeMode>false</PracticeMode>
+  <ASLMethod>false</ASLMethod>
+  <DataSekiro>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <mortalJourneyRun>false</mortalJourneyRun>
+    <bossToSplit />
+    <miniBossToSplit />
+    <idolsTosplit />
+    <positionsToSplit />
+    <flagToSplit />
+    <positionMargin>3</positionMargin>
+  </DataSekiro>
+  <DataHollow>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <PantheonMode>0</PantheonMode>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <miniBossToSplit />
+    <charmToSplit />
+    <skillsToSplit />
+    <phanteonToSplit />
+    <positionToSplit />
+  </DataHollow>
+  <DataElden>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <graceToSplit />
+    <positionToSplit />
+    <flagsToSplit />
+  </DataElden>
+  <DataDs3>
+    <enableSplitting>true</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <bossToSplit>
+      <BossDs3>
+        <Title>Iudex Gundyr</Title>
+        <Id>14000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Vordt of the Boreal Valley</Title>
+        <Id>13000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Curse-Rotted Greatwood</Title>
+        <Id>13100800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Crystal Sage</Title>
+        <Id>13300850</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Abyss Watchers</Title>
+        <Id>13300800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Deacons of the Deep</Title>
+        <Id>13500800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>High Lord Wolnir</Title>
+        <Id>13800800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Old Demon King</Title>
+        <Id>13800830</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Pontiff Sulyvahn</Title>
+        <Id>13700850</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Yhorm the Giant</Title>
+        <Id>13900800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Aldrich, Devourer of Gods</Title>
+        <Id>13700800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Dancer of the Boreal Valley</Title>
+        <Id>13000890</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Dragonslayer Armour</Title>
+        <Id>13010800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Oceiros, the Consumed King</Title>
+        <Id>13000830</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Champion Gundyr</Title>
+        <Id>14000830</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Lothric, Younger Prince</Title>
+        <Id>13410830</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Ancient Wyvern</Title>
+        <Id>13200800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Nameless King</Title>
+        <Id>13200850</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Soul of Cinder</Title>
+        <Id>14100800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Sister Friede</Title>
+        <Id>14500800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Champion's Gravetender &amp; Gravetender Greatwolf</Title>
+        <Id>14500860</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Demon in Pain &amp; Demon From Below / Demon Prince</Title>
+        <Id>15000800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Halflight, Spear of the Church</Title>
+        <Id>15100800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Darkeater Midir</Title>
+        <Id>15100850</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+      <BossDs3>
+        <Title>Slave Knight Gael</Title>
+        <Id>15110800</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs3>
+    </bossToSplit>
+    <bonfireToSplit />
+    <lvlToSplit />
+    <flagToSplit />
+  </DataDs3>
+  <DataDs2>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <lvlToSplit />
+    <positionsToSplit />
+  </DataDs2>
+  <DataDs1>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <bonfireToSplit />
+    <lvlToSplit />
+    <positionsToSplit />
+    <itemToSplit />
+  </DataDs1>
+  <DataCeleste>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <chapterToSplit />
+  </DataCeleste>
+  <DataCuphead>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <elementToSplit />
+  </DataCuphead>
+  <DataDishonored>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+    </DishonoredOptions>
+  </DataDishonored>
+  <DataASL>
+    <Settings>
+      <Version>1.5</Version>
+      <ScriptPath>
+      </ScriptPath>
+      <CustomSettings />
+    </Settings>
+  </DataASL>
+</DataAutoSplitter>

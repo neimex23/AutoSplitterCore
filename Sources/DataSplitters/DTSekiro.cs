@@ -56,7 +56,7 @@ namespace AutoSplitterCore
                 case "Genichiro Ashina - Tutorial":
                     boss.BossDate("Genichiro Ashina - Tutorial", 11120803); break;
                 case "Gyoubu Masataka Oniwa":
-                      boss.BossDate("Gyoubu Masataka Oniwa", 9301);
+                    boss.BossDate("Gyoubu Masataka Oniwa", 9301);
                     break;
                 case "Lady Butterfly":
                     boss.BossDate("Lady Butterfly", 9302);
@@ -184,10 +184,10 @@ namespace AutoSplitterCore
                     idol.IdolDate("Castle Tower Lookout", "Ashina Castle", 11110002);
                     break;
                 case "Upper Tower - Kuro's Room":
-                    idol.IdolDate("Upper Tower - Kuro's Room", "Ashina Castle", 11110006);
+                    idol.IdolDate("Upper Tower - Kuro's Room", "Ashina Castle", 11110003);
                     break;
                 case "Old Grave":
-                    idol.IdolDate("Old Grave", "Ashina Castle", 11110003);
+                    idol.IdolDate("Old Grave", "Ashina Castle", 11110006);
                     break;
                 case "Great Serpent Shrine":
                     idol.IdolDate("Great Serpent Shrine", "Ashina Castle", 11110004);
@@ -328,6 +328,23 @@ namespace AutoSplitterCore
         }
 
         #endregion
+        #region MiniBoss.Sekiro
+        [Serializable]
+        public class MiniBossS
+        {
+            public string Title;
+            public uint Id;
+            public Vector3f vector;
+            public bool IsSplited;
+            public string Mode;
+            public KindSplit kindSplit;
+        }
+
+        #endregion
+        public enum KindSplit
+        {
+            ID,Position
+        }
     }
 
 
@@ -341,6 +358,7 @@ namespace AutoSplitterCore
         //Flags to Split
         public bool mortalJourneyRun = false;
         public List<DefinitionsSekiro.BossS> bossToSplit = new List<DefinitionsSekiro.BossS>();
+        public List<DefinitionsSekiro.MiniBossS> miniBossToSplit = new List<DefinitionsSekiro.MiniBossS>();
         public List<DefinitionsSekiro.Idol> idolsTosplit = new List<DefinitionsSekiro.Idol>();
         public List<DefinitionsSekiro.PositionS> positionsToSplit = new List<DefinitionsSekiro.PositionS>();
         public List<DefinitionsSekiro.CfSk> flagToSplit = new List<DefinitionsSekiro.CfSk>();
@@ -365,6 +383,11 @@ namespace AutoSplitterCore
         public List<DefinitionsSekiro.CfSk> getFlagToSplit()
         {
             return this.flagToSplit;
+        }
+
+        public List<DefinitionsSekiro.MiniBossS> getMiniBossToSplit()
+        {
+            return this.miniBossToSplit;
         }
     }
 }

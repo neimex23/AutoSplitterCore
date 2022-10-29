@@ -19,11 +19,6 @@ Use the "Reset Run" button or Shortcut, to reset this state.
 
 - AutoTimer with RealTime Method in Celeste only start timer when join into a level, don't stop after this.
 
-- If you want to auto reset internal flags to split all Pantheon bosses in a hollow autosplitter.
-If you want play P1+P2+P3+P4 to play P5 after, or P5 to play P1....P4 after 
-You should check "Grey Prince Zote" if you run, have this boss or not.
-(Turn on/off depending the case)
-
 - Currently Elden Ring is only supported with Easy Anti-Cheat disabled.
 To disable Easy Anti-Cheat, navigate to "Steam\steamapps\common\ELDEN RING\Game"
 Launching the game from "Steam\steamapps\common\ELDEN RING\Game\eldenring.exe" will run elden ring without EAC.

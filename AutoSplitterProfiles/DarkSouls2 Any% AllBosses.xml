@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<DataAutoSplitter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileName>DarkSouls2 Any% AllBosses</ProfileName>
+  <Author>Neimex23</Author>
+  <CheckUpdatesOnStartup>true</CheckUpdatesOnStartup>
+  <PracticeMode>false</PracticeMode>
+  <ASLMethod>false</ASLMethod>
+  <DataSekiro>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <mortalJourneyRun>false</mortalJourneyRun>
+    <bossToSplit />
+    <miniBossToSplit />
+    <idolsTosplit />
+    <positionsToSplit />
+    <flagToSplit />
+    <positionMargin>3</positionMargin>
+  </DataSekiro>
+  <DataHollow>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <PantheonMode>0</PantheonMode>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <miniBossToSplit />
+    <charmToSplit />
+    <skillsToSplit />
+    <phanteonToSplit />
+    <positionToSplit />
+  </DataHollow>
+  <DataElden>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <graceToSplit />
+    <positionToSplit />
+    <flagsToSplit />
+  </DataElden>
+  <DataDs3>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <bossToSplit />
+    <bonfireToSplit />
+    <lvlToSplit />
+    <flagToSplit />
+  </DataDs3>
+  <DataDs2>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit>
+      <BossDs2>
+        <Title>The Last Giant</Title>
+        <Id>TheLastGiant</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>The Persuer</Title>
+        <Id>ThePursuer</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Executioners Chariot</Title>
+        <Id>ExecutionersChariot</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Looking Glass Knight</Title>
+        <Id>LookingGlassKnight</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>The Skeleton Lords</Title>
+        <Id>TheSkeletonLords</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Flexile Sentry</Title>
+        <Id>FlexileSentry</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Lost Sinner</Title>
+        <Id>LostSinner</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Belfry Gargoyles</Title>
+        <Id>BelfryGargoyles</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Ruin Sentinels</Title>
+        <Id>RuinSentinels</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Royal Rat Vanguard</Title>
+        <Id>RoyalRatVanguard</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Royal Rat Authority</Title>
+        <Id>RoyalRatAuthority</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Scorpioness Najka</Title>
+        <Id>ScorpionessNajka</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>The Duke's Dear Freja</Title>
+        <Id>TheDukesDearFreja</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Mytha, the Baneful Queen</Title>
+        <Id>MythaTheBanefulQueen</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>The Rotten</Title>
+        <Id>TheRotten</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Old DragonSlayer</Title>
+        <Id>OldDragonSlayer</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Covetous Demon</Title>
+        <Id>CovetousDemon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Smelter Demon</Title>
+        <Id>SmelterDemon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Old Iron King</Title>
+        <Id>OldIronKing</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Guardian Dragon</Title>
+        <Id>GuardianDragon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Demon of Song</Title>
+        <Id>DemonOfSong</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Velstadt, The Royal Aegis</Title>
+        <Id>VelstadtTheRoyalAegis</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Vendrick</Title>
+        <Id>Vendrick</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Darklurker</Title>
+        <Id>Darklurker</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Dragonrider</Title>
+        <Id>Dragonrider</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Twin Dragonriders</Title>
+        <Id>TwinDragonriders</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Prowling Magnus and Congregation</Title>
+        <Id>ProwlingMagnusAndCongregation</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Giant Lord</Title>
+        <Id>GiantLord</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Ancient Dragon</Title>
+        <Id>AncientDragon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Throne Watcher and Throne Defender</Title>
+        <Id>ThroneWatcherAndThroneDefender</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Nashandra</Title>
+        <Id>Nashandra</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Aldia, Scholar of the First Sin</Title>
+        <Id>AldiaScholarOfTheFirstSin</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Elana, Squalid Queen</Title>
+        <Id>ElanaSqualidQueen</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Sinh, the Slumbering Dragon</Title>
+        <Id>SinhTheSlumberingDragon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Afflicted Graverobber, Ancient Soldier Varg, and Cerah the Old Explorer</Title>
+        <Id>AfflictedGraverobberAncientSoldierVargCerahTheOldExplorer</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Blue Smelter Demon</Title>
+        <Id>BlueSmelterDemon</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Fume knight</Title>
+        <Id>Fumeknight</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Sir Alonne</Title>
+        <Id>SirAlonne</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Burnt Ivory King</Title>
+        <Id>BurntIvoryKing</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Aava, the King's Pet</Title>
+        <Id>AavaTheKingsPet</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+      <BossDs2>
+        <Title>Lud and Zallen, the King's Pets</Title>
+        <Id>LudAndZallenTheKingsPets</Id>
+        <IsSplited>false</IsSplited>
+        <Mode>Inmediatly</Mode>
+      </BossDs2>
+    </bossToSplit>
+    <lvlToSplit />
+    <positionsToSplit />
+  </DataDs2>
+  <DataDs1>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <positionMargin>3</positionMargin>
+    <bossToSplit />
+    <bonfireToSplit />
+    <lvlToSplit />
+    <positionsToSplit />
+    <itemToSplit />
+  </DataDs1>
+  <DataCeleste>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <chapterToSplit />
+  </DataCeleste>
+  <DataCuphead>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <elementToSplit />
+  </DataCuphead>
+  <DataDishonored>
+    <enableSplitting>false</enableSplitting>
+    <autoTimer>false</autoTimer>
+    <gameTimer>false</gameTimer>
+    <DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Intro End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Mission End</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Prision Escape (Sewer Entrace)</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Outsider's Dream</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+      <DishonoredOptions>
+        <Option>Weepers</Option>
+        <Enable>false</Enable>
+      </DishonoredOptions>
+    </DishonoredOptions>
+  </DataDishonored>
+  <DataASL>
+    <Settings>
+      <Version>1.5</Version>
+      <ScriptPath>
+      </ScriptPath>
+      <CustomSettings />
+    </Settings>
+  </DataASL>
+</DataAutoSplitter>

@@ -32,10 +32,10 @@ namespace AutoSplitterCore
     public class EldenSplitter
     {
         public static EldenRing elden = new EldenRing();
-        public bool _StatusProcedure = true;
         public bool _StatusElden = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTElden dataElden;
         public DefinitionsElden defE = new DefinitionsElden();
         public ProfilesControl _profile;
@@ -84,12 +84,6 @@ namespace AutoSplitterCore
         {
             dataElden.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void setPositionMargin(int select)
@@ -260,7 +254,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getEldenStatusProcess(delay);
-            while (_StatusProcedure && dataElden.enableSplitting)
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(10);
                 getEldenStatusProcess(20000);
@@ -291,10 +285,10 @@ namespace AutoSplitterCore
       
         private void checkLoad()
         {
-            while (dataElden.enableSplitting && _StatusProcedure)
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(200);
-                if (listPendingB.Count > 0 || listPendingG.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count >0)
+                if ((listPendingB.Count > 0 || listPendingG.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count >0) && _StatusElden)
                 {
                     if (!elden.IsPlayerLoaded())
                     {                      
@@ -340,12 +334,14 @@ namespace AutoSplitterCore
 
         private void bossToSplit()
         {
-            while (dataElden.enableSplitting && _StatusProcedure)
+            var BossToSplit = dataElden.getBossToSplit();
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var b in dataElden.getBossToSplit())
+                    if (BossToSplit != dataElden.getBossToSplit()) BossToSplit = dataElden.getBossToSplit();
+                    foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && elden.ReadEventFlag(b.Id))
                         {
@@ -369,14 +365,15 @@ namespace AutoSplitterCore
 
         private void graceToSplit()
         {
-            while (dataElden.enableSplitting && _StatusProcedure)
+            var GraceToSplit = dataElden.getGraceToSplit();
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var i in dataElden.getGraceToSplit())
+                    if (GraceToSplit != dataElden.getGraceToSplit()) GraceToSplit = dataElden.getGraceToSplit();
+                    foreach (var i in GraceToSplit)
                     {
-
                         if (!i.IsSplited && elden.ReadEventFlag(i.Id))
                         {
                             if (i.Mode == "Loading game after")
@@ -399,12 +396,14 @@ namespace AutoSplitterCore
 
         private void flagsToSplit()
         {
-            while (dataElden.enableSplitting && _StatusProcedure)
+            var FlagsToSplit = dataElden.getFlagsToSplit();
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(3000);
-                if (!_PracticeMode)
+                if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var cf in dataElden.getFlagsToSplit())
+                    if (FlagsToSplit != dataElden.getFlagsToSplit()) FlagsToSplit = dataElden.getFlagsToSplit();
+                    foreach (var cf in FlagsToSplit)
                     {
 
                         if (!cf.IsSplited && elden.ReadEventFlag(cf.Id))
@@ -429,12 +428,14 @@ namespace AutoSplitterCore
 
         private void positionToSplit()
         {
-            while (dataElden.enableSplitting && _StatusProcedure)
+            var PositionToSplit = dataElden.getPositionToSplit();
+            while (dataElden.enableSplitting)
             {
                 Thread.Sleep(100);
-                if (!_PracticeMode)
+                if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var p in dataElden.getPositionToSplit())
+                    if (PositionToSplit != dataElden.getPositionToSplit()) PositionToSplit = dataElden.getPositionToSplit();
+                    foreach (var p in PositionToSplit)
                     {
                         if (!p.IsSplited)
                         {

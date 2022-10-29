@@ -31,11 +31,11 @@ namespace AutoSplitterCore
     public class CelesteSplitter
     {
         public static SplitterMemory celeste = new SplitterMemory();
-        public bool _StatusProcedure = true;
         public bool _StatusCeleste = false;
         public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        public bool _ShowSettings = false;
         public DTCeleste dataCeleste;
         public ProfilesControl _profile;
         public DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste();
@@ -77,11 +77,6 @@ namespace AutoSplitterCore
                 if (_SplitGo) { Thread.Sleep(2000); }
                 _SplitGo = true;
             }
-        }
-        public void setProcedure(bool procedure)
-        {
-            this._StatusProcedure = procedure;
-            if (procedure) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
         public void setStatusSplitting(bool status)
@@ -190,7 +185,7 @@ namespace AutoSplitterCore
         {
             int delay = 2000;
             getCelesteStatusProcess(delay);
-            while (_StatusProcedure && dataCeleste.enableSplitting)
+            while (dataCeleste.enableSplitting)
             {
                 Thread.Sleep(10);
                 getCelesteStatusProcess(delay);
@@ -220,12 +215,14 @@ namespace AutoSplitterCore
         private void chapterToSplit()
         {
             bool shouldSplit = false;
-            while (dataCeleste.enableSplitting && _StatusProcedure)
+            var ChapterToSplit = dataCeleste.getChapterToSplit();
+            while (dataCeleste.enableSplitting)
             {
                 Thread.Sleep(10);
-                if (!_PracticeMode)
+                if (_StatusCeleste && !_PracticeMode && !_ShowSettings)
                 {
-                    foreach (var element in dataCeleste.getChapterToSplit())
+                    if (ChapterToSplit != dataCeleste.getChapterToSplit()) ChapterToSplit = dataCeleste.getChapterToSplit();
+                    foreach (var element in ChapterToSplit)
                     {
                         if (!element.IsSplited)
                         {

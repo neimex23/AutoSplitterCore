@@ -39,11 +39,18 @@ set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v1.x.0.zip
 rmdir /S /Q %PR_TARGET% 2>nul
 mkdir %PR_TARGET%
 del %PR_OUTPUT% 2>nul
-FOR %%G IN (AutoSplitterCore.dll HitCounterManager.dll Irony.dll LiveSplit.Celeste.dll LiveSplit.Core.dll LiveSplit.Cuphead.dll LiveSplit.HollowKnight.dll LiveSplit.ScriptableAutoSplit.dll SoulMemory.dll Newtonsoft.Json.dll) DO copy %PR_BASE%\%%G %PR_TARGET%
+FOR %%G IN (AutoSplitterCore.dll HitCounterManager.dll Irony.dll LiveSplit.Celeste.dll LiveSplit.Core.dll LiveSplit.Cuphead.dll LiveSplit.HollowKnight.dll LiveSplit.ScriptableAutoSplit.dll LiveSplit.Dishonored.dll SoulMemory.dll Newtonsoft.Json.dll) DO copy %PR_BASE%\%%G %PR_TARGET%
 
 echo Copying ASLScripts:
 mkdir %PR_TARGET%\ASLScripts
 copy ASLScripts %PR_TARGET%\ASLScripts
+
+
+echo Copying PreProfiles
+mkdir %PR_TARGET%\AutoSplitterProfiles
+mkdir %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
+copy AutoSplitterProfiles %PR_TARGET%\AutoSplitterProfiles
+copy AutoSplitterProfiles\ProfilesForHCM %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
 
 7z a %PR_OUTPUT% .\%PR_TARGET%\*
 

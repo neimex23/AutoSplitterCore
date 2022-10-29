@@ -34,6 +34,7 @@ namespace AutoSplitterCore
         private AutoSplitterMainModule mainModule;
         private int GameActive = 0;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 100 };
+        private System.Windows.Forms.Timer _update_flag = new System.Windows.Forms.Timer() { Interval = 10000 };
 
         public Debug(AutoSplitterMainModule mainModule)
         {
@@ -43,6 +44,8 @@ namespace AutoSplitterCore
             mainModule.LoadAutoSplitterSettings(new HitCounterManager.ProfilesControl(),null);
             _update_timer.Tick += (sender, args) => CheckInfo();
             _update_timer.Enabled = true;
+            _update_flag.Tick += (sender, args) => checkBoxAutoToggle_CheckedChanged(null, null);
+            _update_flag.Enabled = true;
         }
 
         private void Debug_Load(object sender, EventArgs e)
@@ -53,20 +56,23 @@ namespace AutoSplitterCore
             foreach (string i in GameList) comboBoxGame.Items.Add(i);
             switch (mainModule.GetSplitterEnable())
             {
-                case GameConstruction.SekiroSplitterIndex: comboBoxGame.SelectedIndex = 1; break;
-                case GameConstruction.Ds1SplitterIndex: comboBoxGame.SelectedIndex = 2; break;
-                case GameConstruction.Ds2SplitterIndex: comboBoxGame.SelectedIndex = 3; break;
-                case GameConstruction.Ds3SplitterIndex: comboBoxGame.SelectedIndex = 4; break;
-                case GameConstruction.EldenSplitterIndex: comboBoxGame.SelectedIndex = 5; break;
-                case GameConstruction.HollowSplitterIndex: comboBoxGame.SelectedIndex = 6; break;
-                case GameConstruction.CelesteSplitterIndex: comboBoxGame.SelectedIndex = 7; break;
-                case GameConstruction.CupheadSplitterIndex: comboBoxGame.SelectedIndex = 8; break;
-                case GameConstruction.ASLSplitterIndex: comboBoxGame.SelectedIndex = 9; break;
+                case GameConstruction.SekiroSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.SekiroSplitterIndex; break;
+                case GameConstruction.Ds1SplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.Ds1SplitterIndex; break;
+                case GameConstruction.Ds2SplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.Ds2SplitterIndex; break;
+                case GameConstruction.Ds3SplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.Ds3SplitterIndex; break;
+                case GameConstruction.EldenSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.EldenSplitterIndex; break;
+                case GameConstruction.HollowSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.HollowSplitterIndex; break;
+                case GameConstruction.CelesteSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.CelesteSplitterIndex; break;
+                case GameConstruction.CupheadSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.CupheadSplitterIndex; break;
+                case GameConstruction.DishonoredSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.DishonoredSplitterIndex; break;
+                case GameConstruction.ASLSplitterIndex: comboBoxGame.SelectedIndex = GameConstruction.ASLSplitterIndex; break;
                 case GameConstruction.NoneSplitterIndex:
-                default: comboBoxGame.SelectedIndex = 0; break;
+                default: comboBoxGame.SelectedIndex = GameConstruction.NoneSplitterIndex; break;
             }
             LabelVersion.Text = mainModule.updateModule.currentVer;
             labelCloudVer.Text = mainModule.updateModule.cloudVer;
+            checkBoxAutoToggle.Checked = true;
+            mainModule.debugForm = this;
         }
         private void comboBoxGame_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -74,6 +80,12 @@ namespace AutoSplitterCore
             mainModule.EnableSplitting(comboBoxGame.SelectedIndex);
             GameActive = comboBoxGame.SelectedIndex;
             mainModule.igtModule.gameSelect = GameActive;
+        }
+
+        public void UpdateBoxes()
+        {
+            comboBoxGame.SelectedIndex = mainModule.GetSplitterEnable();
+            checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
         }
 
         bool debugSplit = false;
@@ -136,7 +148,7 @@ namespace AutoSplitterCore
                     this.textBoxY.Paste(Vector6.Y.ToString("0.00"));
                     this.textBoxSceneName.Paste(mainModule.hollowSplitter.currentPosition.sceneName.ToString());
                     status = mainModule.hollowSplitter._StatusHollow;
-                    debugSplit = mainModule.eldenSplitter._SplitGo;
+                    debugSplit = mainModule.hollowSplitter._SplitGo;
                     break;
                 case GameConstruction.CelesteSplitterIndex:
                     this.textBoxSceneName.Paste(mainModule.celesteSplitter.getLevelName());
@@ -148,8 +160,11 @@ namespace AutoSplitterCore
                     status = mainModule.cupSplitter._StatusCuphead;
                     debugSplit = mainModule.cupSplitter._SplitGo;
                     break;
+                case GameConstruction.DishonoredSplitterIndex:
+                    debugSplit = mainModule.dishonoredSplitter._SplitGo; break;
                 case GameConstruction.ASLSplitterIndex:
                     debugSplit = mainModule.aslSplitter._SplitGo; break;
+                    
                 case GameConstruction.NoneSplitterIndex:
                 default: break;
             }
@@ -198,6 +213,9 @@ namespace AutoSplitterCore
                 case GameConstruction.CupheadSplitterIndex:
                     mainModule.cupSplitter.getCupheadStatusProcess(0);
                     break;
+                case GameConstruction.DishonoredSplitterIndex:
+                    mainModule.dishonoredSplitter.getDishonoredStatusProcess();
+                    break;
                 case GameConstruction.ASLSplitterIndex:
                     mainModule.aslSplitter.UpdateScript();
                     break;
@@ -216,7 +234,7 @@ namespace AutoSplitterCore
                     bool status = false;
                     switch (GameActive)
                     {
-                        case GameConstruction.SekiroSplitterIndex: //Sekiro
+                        case GameConstruction.SekiroSplitterIndex:
                             status = mainModule.sekiroSplitter.CheckFlag(flag);
                             break;
                         case GameConstruction.Ds1SplitterIndex:
@@ -225,7 +243,7 @@ namespace AutoSplitterCore
                         case GameConstruction.Ds2SplitterIndex:
                             status = mainModule.ds2Splitter.CheckFlag(flag);
                             break;
-                        case GameConstruction.Ds3SplitterIndex: //Ds3
+                        case GameConstruction.Ds3SplitterIndex:
                             status = mainModule.ds3Splitter.CheckFlag(flag);
                             break;
                         case GameConstruction.EldenSplitterIndex:
@@ -236,6 +254,8 @@ namespace AutoSplitterCore
                         case GameConstruction.CelesteSplitterIndex:
                             break;
                         case GameConstruction.CupheadSplitterIndex:
+                            break;
+                        case GameConstruction.DishonoredSplitterIndex:
                             break;
                         case GameConstruction.ASLSplitterIndex:
                         case GameConstruction.NoneSplitterIndex:
@@ -283,12 +303,31 @@ namespace AutoSplitterCore
                 case GameConstruction.CupheadSplitterIndex:
                     mainModule.cupSplitter._SplitGo = !debugSplit;
                     break;
+                case GameConstruction.DishonoredSplitterIndex:
+                    mainModule.dishonoredSplitter._SplitGo = !debugSplit;
+                    break;
                 case GameConstruction.ASLSplitterIndex:
                     mainModule.aslSplitter._SplitGo = !debugSplit;
                     break;
                 case GameConstruction.NoneSplitterIndex:
                     break;
             }
+        }
+
+        private void checkBoxAutoToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAutoToggle.Checked && debugSplit)
+            {
+                btnStatusSplitting_Click(null, null);
+                debugSplit = false;
+            }
+        }
+
+        private void btnResetFlags_Click(object sender, EventArgs e)
+        {
+            btnStatusSplitting_Click(null, null);
+            debugSplit = false;
+            mainModule.ResetSplitterFlags();
         }
     }
 }
