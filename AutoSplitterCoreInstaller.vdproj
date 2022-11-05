@@ -990,11 +990,6 @@
             "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.1.7.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_906542141A24EC4D84BCE569F2A05314"
-                    {
-                    "Name" = "8:SoulMemory.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SoulMemory.dll"
             "TargetName" = "8:"
@@ -1547,15 +1542,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{F79626DA-1FD0-49E0-87CA-86059B1071DA}"
-        "PackageCode" = "8:{80728A62-01AA-4463-BA09-68BCE392E9E4}"
+        "ProductCode" = "8:{D2AE6ABA-EFE7-44E5-BFC3-A5E7C42B2324}"
+        "PackageCode" = "8:{FD0E899B-CB39-4DB8-B00F-DBCA8CBBE6DD}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.0.0"
+        "ProductVersion" = "8:2.1.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

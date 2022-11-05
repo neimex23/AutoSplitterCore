@@ -69,8 +69,8 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Source\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SoulMemory, Version=1.1.7.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\SoulMemory.1.1.7\lib\netstandard2.0\SoulMemory.dll</HintPath>
+    <Reference Include="SoulMemory">
+      <HintPath>Sources\SoulMemory.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -161,9 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

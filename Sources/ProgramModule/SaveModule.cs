@@ -22,6 +22,7 @@
 
 using System;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using HitCounterManager;
@@ -227,7 +228,16 @@ namespace AutoSplitterCore
         #region ProfileManager
         public void ReLoadAutoSplitterSettings()
         {
-            LoadAutoSplitterSettings(prfCtl);
+            try
+            {
+                LoadAutoSplitterSettings(prfCtl);
+            }catch (Exception e)
+            {
+                MessageBox.Show("Error to load Profile, file corrupt or not compatible\r\nLoaded Default Settings\r\nError: "+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                File.Delete(Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml"));
+                LoadAutoSplitterSettings(prfCtl);
+            }
+            
             if (!_DebugMode)
             {
                 mainModule.main.SetComboBoxGameIndex(mainModule.GetSplitterEnable());
