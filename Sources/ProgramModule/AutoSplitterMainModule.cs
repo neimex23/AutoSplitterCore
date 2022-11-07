@@ -55,7 +55,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public Form1 main;
         private ProfilesControl profCtrl;
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
+        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };
 
         public List<string> GetGames() { return GameConstruction.GameList; }
 
@@ -411,25 +411,38 @@ namespace AutoSplitterCore
                 default: anyGameTime = false; autoTimer = false; break;
             }
 
-            if (autoTimer)
+
+            IProfileInfo SelectedProfileInf;
+            if (autoTimer && anyGameTime)
             {
-                IProfileInfo SelectedProfileInf = profCtrl.SelectedProfileInfo;
+                SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 var inGameTime = igtModule.ReturnCurrentIGT();
+
                 if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount)
                 { 
                     main.StartStopTimer(true);
                     profCtrl.UpdateDuration();
                 }
                     
-                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime)) && (profCtrl.TimerRunning || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount))
+                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount) && profCtrl.TimerRunning)
                 {
                     main.StartStopTimer(false);
                     profCtrl.UpdateDuration();
                 }
-                    
 
                 if (inGameTime > 0)
                     _lastTime = inGameTime;
+            }
+
+            if (autoTimer && !anyGameTime)
+            {
+                SelectedProfileInf = profCtrl.SelectedProfileInfo;
+                var inGameTime = igtModule.ReturnCurrentIGT();
+                if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount)
+                    main.StartStopTimer(true);
+
+                if ((inGameTime <= 0 || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount) && profCtrl.TimerRunning)
+                    main.StartStopTimer(false);
             }
         } 
         #endregion
