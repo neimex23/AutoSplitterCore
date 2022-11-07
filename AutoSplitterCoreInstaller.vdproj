@@ -40,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_0B9D93F2893F100D170CE9078A9E4454"
-        "OwnerKey" = "8:_906542141A24EC4D84BCE569F2A05314"
+        "OwnerKey" = "8:_ED9DF40FCB57D9DADBD758CD16342E01"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,7 +106,7 @@
         "Entry"
         {
         "MsmKey" = "8:_4E75EC3B1BAC60C3833A44350BDE7A6A"
-        "OwnerKey" = "8:_906542141A24EC4D84BCE569F2A05314"
+        "OwnerKey" = "8:_ED9DF40FCB57D9DADBD758CD16342E01"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,12 +172,6 @@
         "Entry"
         {
         "MsmKey" = "8:_8BA0A7D8DA1C8F32115FBE85AE72FBC2"
-        "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_906542141A24EC4D84BCE569F2A05314"
         "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -287,6 +281,12 @@
         {
         "MsmKey" = "8:_DEFD6C5B4C6DD72F20698004BAC2BAD7"
         "OwnerKey" = "8:_5398C4C558C28AA6960D48714D016FA4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_ED9DF40FCB57D9DADBD758CD16342E01"
+        "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -983,32 +983,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_906542141A24EC4D84BCE569F2A05314"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.1.7.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SoulMemory.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4D8FE2CE9E694CB7A8B64FD65FEC552B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91A73DDE5EAF4C72892C134A0710ADEB"
             {
             "SourcePath" = "8:AutoSplitterProfiles\\ProfilesForHCM\\Ds3-Bender.xml"
@@ -1384,6 +1358,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ED9DF40FCB57D9DADBD758CD16342E01"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.1.8.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_ED9DF40FCB57D9DADBD758CD16342E01"
+                    {
+                    "Name" = "8:SoulMemory.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SoulMemory.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4D8FE2CE9E694CB7A8B64FD65FEC552B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3F667C50E13482AA6CF4410787ED060"
             {
             "SourcePath" = "8:AutoSplitterProfiles\\SekiroIS-AB.xml"
@@ -1408,7 +1413,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:LiveSplit.HollowKnight, Version=3.1.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:LiveSplit.HollowKnight, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F9B84D0BE1BC1A4F0084BF6543FCB896"
@@ -1542,15 +1547,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{D2AE6ABA-EFE7-44E5-BFC3-A5E7C42B2324}"
-        "PackageCode" = "8:{FD0E899B-CB39-4DB8-B00F-DBCA8CBBE6DD}"
+        "ProductCode" = "8:{C59B0E1A-A90F-4147-92F9-7CD8AE3B084C}"
+        "PackageCode" = "8:{196F7A14-330A-42F6-9ED6-A442F42563A6}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.1.0"
+        "ProductVersion" = "8:2.2.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

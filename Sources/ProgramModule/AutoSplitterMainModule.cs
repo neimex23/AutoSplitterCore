@@ -247,6 +247,7 @@ namespace AutoSplitterCore
         private bool anyGameTime = false;
         private bool autoTimer = false;
         private long _lastCelesteTime;
+        private long _lastTime;
         public void CheckAutoTimers()
         {
             anyGameTime = false;
@@ -412,11 +413,23 @@ namespace AutoSplitterCore
 
             if (autoTimer)
             {
+                IProfileInfo SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 var inGameTime = igtModule.ReturnCurrentIGT();
-                if (inGameTime > 0 && !profCtrl.TimerRunning)
+                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount)
+                { 
                     main.StartStopTimer(true);
-                if (inGameTime <= 0 && profCtrl.TimerRunning)
+                    profCtrl.UpdateDuration();
+                }
+                    
+                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime)) && (profCtrl.TimerRunning || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount))
+                {
                     main.StartStopTimer(false);
+                    profCtrl.UpdateDuration();
+                }
+                    
+
+                if (inGameTime > 0)
+                    _lastTime = inGameTime;
             }
         } 
         #endregion
