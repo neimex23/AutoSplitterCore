@@ -255,7 +255,7 @@ namespace AutoSplitterCore
             switch (gameActive)
             {
                 case GameConstruction.SekiroSplitterIndex: //Sekiro
-                    if (sekiroSplitter.dataSekiro.autoTimer && sekiroSplitter._StatusSekiro && !_PracticeMode)
+                    if (sekiroSplitter.dataSekiro.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (sekiroSplitter.dataSekiro.gameTimer)
@@ -265,7 +265,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.Ds1SplitterIndex: //DS1
-                    if (ds1Splitter.dataDs1.autoTimer && ds1Splitter._StatusDs1 && !_PracticeMode)
+                    if (ds1Splitter.dataDs1.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (ds1Splitter.dataDs1.gameTimer)
@@ -275,7 +275,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.Ds3SplitterIndex: //Ds3
-                    if (ds3Splitter.dataDs3.autoTimer && ds3Splitter._StatusDs3 && !_PracticeMode)
+                    if (ds3Splitter.dataDs3.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (!ds3Splitter.dataDs3.gameTimer)
@@ -285,7 +285,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.EldenSplitterIndex: //Elden
-                    if (eldenSplitter.dataElden.autoTimer && eldenSplitter._StatusElden && !_PracticeMode)
+                    if (eldenSplitter.dataElden.autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
                         if (eldenSplitter.dataElden.gameTimer)
@@ -297,13 +297,13 @@ namespace AutoSplitterCore
 
                 //Special Case
                 case GameConstruction.CelesteSplitterIndex: //Celeste
-                    if (celesteSplitter.dataCeleste.autoTimer && celesteSplitter._StatusCeleste && !_PracticeMode)
+                    if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.dataCeleste.gameTimer)
                         {                           
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
-                                if (!profCtrl.TimerRunning)
+                                if (!profCtrl.TimerRunning && GameOn())
                                     main.StartStopTimer(true);
                                 celesteSplitter._runStarted = true;
                             }
@@ -312,7 +312,7 @@ namespace AutoSplitterCore
                         {
                             anyGameTime = true;
                             var currentCelesteTime = celesteSplitter.getTimeInGame();
-                            if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame())
+                            if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame() && GameOn())
                             {
                                 if (!profCtrl.TimerRunning)
                                     main.StartStopTimer(true);
@@ -330,11 +330,11 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.CupheadSplitterIndex: //Cuphead
-                    if (cupSplitter.dataCuphead.autoTimer && cupSplitter._StatusCuphead && !_PracticeMode)
+                    if (cupSplitter.dataCuphead.autoTimer && !_PracticeMode)
                     {
                         if (!cupSplitter.dataCuphead.gameTimer)
                         {
-                            if (!cupSplitter.IsInGame())
+                            if (!cupSplitter.IsInGame() || !GameOn())
                             {
                                 if (profCtrl.TimerRunning)
                                     main.StartStopTimer(false);
@@ -348,7 +348,7 @@ namespace AutoSplitterCore
                         else
                         {
                             anyGameTime = true;
-                            if (!cupSplitter.IsInGame() || cupSplitter.levelCompleted())
+                            if (!cupSplitter.IsInGame() || cupSplitter.levelCompleted() || !GameOn())
                             {
                                 if (profCtrl.TimerRunning)
                                     main.StartStopTimer(false);
@@ -364,42 +364,42 @@ namespace AutoSplitterCore
 
                 //Manual Controller with Loading Events
                 case GameConstruction.Ds2SplitterIndex: //DS2
-                    if (ds2Splitter.dataDs2.autoTimer && ds2Splitter._StatusDs2 && !_PracticeMode)
+                    if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
                     {
-                        if (ds2Splitter._runStarted && !profCtrl.TimerRunning)
+                        if (ds2Splitter._runStarted && !profCtrl.TimerRunning && GameOn())
                             main.StartStopTimer(true);
 
-                        if (!ds2Splitter._runStarted && profCtrl.TimerRunning)
+                        if ((!ds2Splitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
                             main.StartStopTimer(false);
                     }
                     break;
                 case GameConstruction.HollowSplitterIndex: //Hollow
-                    if (hollowSplitter.dataHollow.autoTimer && hollowSplitter._StatusHollow && !_PracticeMode)
+                    if (hollowSplitter.dataHollow.autoTimer && !_PracticeMode)
                     {
-                        if (hollowSplitter._runStarted && !profCtrl.TimerRunning)
+                        if (hollowSplitter._runStarted && !profCtrl.TimerRunning && GameOn())
                             main.StartStopTimer(true);
 
-                        if (!hollowSplitter._runStarted && profCtrl.TimerRunning)
+                        if ((!hollowSplitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
                             main.StartStopTimer(false);
                     }
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
-                    if (dishonoredSplitter.dataDish.autoTimer && dishonoredSplitter._StatusDish && !_PracticeMode)
+                    if (dishonoredSplitter.dataDish.autoTimer && !_PracticeMode)
                     {
                         if (!dishonoredSplitter.dataDish.gameTimer)
                         {
-                            if (dishonoredSplitter._runStarted && !profCtrl.TimerRunning)
+                            if (dishonoredSplitter._runStarted && !profCtrl.TimerRunning && GameOn())
                                 main.StartStopTimer(true);
                             
-                            if (!dishonoredSplitter._runStarted && profCtrl.TimerRunning)
+                            if ((!dishonoredSplitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
                                 main.StartStopTimer(false);
                         }
                         else
                         {
-                            if (dishonoredSplitter._runStarted && !dishonoredSplitter.isLoading && !profCtrl.TimerRunning)
+                            if (dishonoredSplitter._runStarted && !dishonoredSplitter.isLoading && !profCtrl.TimerRunning && GameOn())
                                 main.StartStopTimer(true);
 
-                            if ((!dishonoredSplitter._runStarted || dishonoredSplitter.isLoading) && profCtrl.TimerRunning)
+                            if ((!dishonoredSplitter._runStarted || dishonoredSplitter.isLoading || !GameOn()) && profCtrl.TimerRunning)
                                 main.StartStopTimer(false);
                         }
                     }
@@ -418,14 +418,16 @@ namespace AutoSplitterCore
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 var inGameTime = igtModule.ReturnCurrentIGT();
 
-                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount)
-                { 
+                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
+                {
+                    profCtrl.UpdateDuration();
                     main.StartStopTimer(true);
                     profCtrl.UpdateDuration();
                 }
                     
-                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount) && profCtrl.TimerRunning)
+                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount || !GameOn()) && profCtrl.TimerRunning)
                 {
+                    profCtrl.UpdateDuration();
                     main.StartStopTimer(false);
                     profCtrl.UpdateDuration();
                 }
@@ -438,13 +440,41 @@ namespace AutoSplitterCore
             {
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 var inGameTime = igtModule.ReturnCurrentIGT();
-                if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount)
+                if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
                     main.StartStopTimer(true);
 
-                if ((inGameTime <= 0 || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount) && profCtrl.TimerRunning)
+                if ((inGameTime <= 0 || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount || !GameOn()) && profCtrl.TimerRunning)
                     main.StartStopTimer(false);
             }
         } 
+
+        public bool GameOn()
+        {
+            switch (gameActive)
+            {
+                case GameConstruction.SekiroSplitterIndex: 
+                    return sekiroSplitter._StatusSekiro;
+                case GameConstruction.Ds1SplitterIndex: 
+                    return ds1Splitter._StatusDs1;
+                case GameConstruction.Ds2SplitterIndex:
+                    return ds2Splitter._StatusDs2;
+                case GameConstruction.Ds3SplitterIndex:
+                    return ds3Splitter._StatusDs3;
+                case GameConstruction.EldenSplitterIndex:
+                    return eldenSplitter._StatusElden;
+                case GameConstruction.HollowSplitterIndex:
+                    return hollowSplitter._StatusHollow;
+                case GameConstruction.CelesteSplitterIndex:
+                    return celesteSplitter._StatusCeleste;
+                case GameConstruction.DishonoredSplitterIndex:
+                    return dishonoredSplitter._StatusDish;
+                case GameConstruction.CupheadSplitterIndex:
+                    return cupSplitter._StatusCuphead;  
+                case GameConstruction.ASLSplitterIndex:
+                case GameConstruction.NoneSplitterIndex:
+                default: return false;
+            }
+        }
         #endregion
     }
 }
