@@ -910,7 +910,7 @@ namespace AutoSplitterCore
         public bool enableSplitting = false;
         public bool autoTimer = false;
         public bool gameTimer = false;
-        public int positionMargin = 3;
+        public int positionMargin = 5;
         //Flags to Split
         public List<DefinitionsDs1.BossDs1> bossToSplit = new List<DefinitionsDs1.BossDs1>();
         public List<DefinitionsDs1.BonfireDs1> bonfireToSplit = new List<DefinitionsDs1.BonfireDs1>();

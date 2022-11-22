@@ -396,6 +396,19 @@ namespace AutoSplitterCore
             else
                 Summary += Space + "Not Have Flags" + Line;
             Summary += Line;
+
+            Summary += "Positions: " + Line;
+            Summary += Space + "Margin: " + saveModule.dataAS.DataDs3.positionMargin + Line;
+            if (saveModule.dataAS.DataDs3.positionsToSplit.Count > 0)
+            {
+                foreach (var sb in saveModule.dataAS.DataDs3.positionsToSplit)
+                {
+                    Summary += Space + sb.vector + " - " + sb.Mode + Line;
+                }
+            }
+            else
+                Summary += Space + Space + "Not Have Flags" + Line;
+            Summary += Line;
             #endregion
             #region EldenRingSummary
             Summary += "=======================================================" + Line;

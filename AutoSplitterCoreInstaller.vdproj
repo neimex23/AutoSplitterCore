@@ -316,6 +316,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_958930F53618145003DDBBA907E30BD7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -401,12 +407,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0E992BB5C94BEA8CC43AF4CE7EF6A738"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_958930F53618145003DDBBA907E30BD7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1362,7 +1362,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.1.9.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.2.1.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
                     "_ED9DF40FCB57D9DADBD758CD16342E01"
@@ -1547,15 +1547,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{0F34A81B-A440-4AFB-B942-3F8182912A58}"
-        "PackageCode" = "8:{BCFA40A4-A351-44FA-8A9C-ED16642CA605}"
+        "ProductCode" = "8:{1872317D-0738-40EF-99C3-DD541392A5CB}"
+        "PackageCode" = "8:{206851A1-3EC5-439E-AD74-2E7B76217960}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.3.0"
+        "ProductVersion" = "8:2.4.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -2079,7 +2079,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B9FD165A5B60478F92E7A09C7472265B"
             {
-            "SourcePath" = "8:obj\\Release\\AutoSplitterCore.dll"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4D8FE2CE9E694CB7A8B64FD65FEC552B"

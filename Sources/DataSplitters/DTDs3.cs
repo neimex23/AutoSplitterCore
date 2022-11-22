@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using SoulMemory;
 
 namespace AutoSplitterCore
 {
@@ -217,6 +218,14 @@ namespace AutoSplitterCore
             public string Mode;
         }
         #endregion
+        #region Position.Ds3
+        public class PositionDs3
+        {
+            public Vector3f vector = new Vector3f();
+            public bool IsSplited = false;
+            public string Mode;
+        }
+        #endregion
     }
 
     [Serializable]
@@ -226,11 +235,13 @@ namespace AutoSplitterCore
         public bool enableSplitting = false;
         public bool autoTimer = false;
         public bool gameTimer = false;
+        public int positionMargin = 5;
         //Flags to Split
         public List<DefinitionsDs3.BossDs3> bossToSplit = new List<DefinitionsDs3.BossDs3>();
         public List<DefinitionsDs3.BonfireDs3> bonfireToSplit = new List<DefinitionsDs3.BonfireDs3>();
         public List<DefinitionsDs3.LvlDs3> lvlToSplit = new List<DefinitionsDs3.LvlDs3>();
         public List<DefinitionsDs3.CfDs3> flagToSplit = new List<DefinitionsDs3.CfDs3>();
+        public List<DefinitionsDs3.PositionDs3> positionsToSplit = new List<DefinitionsDs3.PositionDs3>();
 
         public List<DefinitionsDs3.BossDs3> getBossToSplit()
         {
@@ -250,6 +261,11 @@ namespace AutoSplitterCore
         public List<DefinitionsDs3.CfDs3> getFlagToSplit()
         {
             return this.flagToSplit;
+        }
+
+        public List<DefinitionsDs3.PositionDs3> getPositionsToSplit()
+        {
+            return this.positionsToSplit;
         }
     }
 }

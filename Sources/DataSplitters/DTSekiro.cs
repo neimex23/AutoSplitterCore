@@ -362,7 +362,7 @@ namespace AutoSplitterCore
         public List<DefinitionsSekiro.Idol> idolsTosplit = new List<DefinitionsSekiro.Idol>();
         public List<DefinitionsSekiro.PositionS> positionsToSplit = new List<DefinitionsSekiro.PositionS>();
         public List<DefinitionsSekiro.CfSk> flagToSplit = new List<DefinitionsSekiro.CfSk>();
-        public int positionMargin = 3;
+        public int positionMargin = 5;
 
 
         public List<DefinitionsSekiro.BossS> getBossToSplit()

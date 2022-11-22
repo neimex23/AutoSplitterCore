@@ -553,7 +553,7 @@ namespace AutoSplitterCore
         public bool autoTimer = false;
         public bool gameTimer = false;
         public int PantheonMode = 0;
-        public int positionMargin = 3;
+        public int positionMargin = 5;
         //Flags to Split
         public List<DefinitionHollow.ElementToSplitH> bossToSplit = new List<DefinitionHollow.ElementToSplitH>();
         public List<DefinitionHollow.ElementToSplitH> miniBossToSplit = new List<DefinitionHollow.ElementToSplitH>();

@@ -117,6 +117,7 @@ namespace AutoSplitterCore
             panelBonfireDs3.Hide();
             panelLvlDs3.Hide();
             panelCfDs3.Hide();
+            panelPositionsDs3.Hide();
             #endregion
             #region CelesteTab
             panelChapterCeleste.Hide();
@@ -411,6 +412,13 @@ namespace AutoSplitterCore
             {
                 listBoxCfDs3.Items.Add(cf.Id + " - " + cf.Mode);
             }
+            #endregion
+            #region Ds3Load.Position
+            foreach (DefinitionsDs3.PositionDs3 position in ds3Data.getPositionsToSplit())
+            {
+                listBoxPositionsDs3.Items.Add(position.vector + " - " + position.Mode);
+            }
+            comboBoxMarginDs3.SelectedIndex = ds3Data.positionMargin;
             #endregion
             DTCeleste celesteData = celesteSplitter.getDataCeleste();
             #region CelesteLoad.Chapters
@@ -1994,7 +2002,6 @@ namespace AutoSplitterCore
 
         private void btnAddPositionDs1_Click(object sender, EventArgs e)
         {
-
             if (this.VectorDs1 != null)
             {
                 var contains1 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Inmediatly");
@@ -2254,6 +2261,7 @@ namespace AutoSplitterCore
             panelBonfireDs3.Hide();
             panelLvlDs3.Hide();
             panelCfDs3.Hide();
+            panelPositionsDs3.Hide();
 
 
             switch (comboBoxToSplitSelectDs3.SelectedIndex)
@@ -2269,6 +2277,9 @@ namespace AutoSplitterCore
                     break;
                 case 3:
                     panelCfDs3.Show();
+                    break;
+                case 4:
+                    panelPositionsDs3.Show();
                     break;
             }
         }
@@ -2422,6 +2433,70 @@ namespace AutoSplitterCore
                 ds3Splitter.RemoveCustomFlag(i);
                 listBoxCfDs3.Items.Remove(listBoxCfDs3.SelectedItem);
             }
+        }
+
+        Vector3f VectorDs3;
+        private void btnGetPositionDs3_Click(object sender, EventArgs e)
+        {
+            var Vector = ds3Splitter.getCurrentPosition();
+            this.VectorDs3 = Vector;
+            this.textBoxXDs3.Clear();
+            this.textBoxYDs3.Clear();
+            this.textBoxZDs3.Clear();
+            this.textBoxXDs3.Paste(Vector.X.ToString("0.00"));
+            this.textBoxYDs3.Paste(Vector.Y.ToString("0.00"));
+            this.textBoxZDs3.Paste(Vector.Z.ToString("0.00"));
+        }
+
+        private void btnAddPositionDs3_Click(object sender, EventArgs e)
+        {
+            if (this.VectorDs3 != null)
+            {
+                var contains1 = !listBoxPositionsDs3.Items.Contains(this.VectorDs3 + " - " + "Inmediatly");
+                var contains2 = !listBoxPositionsDs3.Items.Contains(this.VectorDs3 + " - " + "Loading game after");
+                if (contains1 && contains2)
+                {
+                    if (comboBoxHowPositionsDs3.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (this.VectorDs3.X == 0 && this.VectorDs3.Y == 0 && this.VectorDs3.Z == 0)
+                        {
+                            MessageBox.Show("Dont use cords 0,0,0", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            listBoxPositionsDs3.Items.Add(this.VectorDs3 + " - " + comboBoxHowPositionsDs3.Text.ToString());
+                            ds3Splitter.AddPosition(this.VectorDs3, comboBoxHowPositionsDs3.Text.ToString());
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You have already added this trigger", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Plase get a position ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void listBoxPositionDs3_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBoxPositionsDs3.SelectedItem != null)
+            {
+                int i = listBoxPositionsDs3.Items.IndexOf(listBoxPositionsDs3.SelectedItem);
+                ds3Splitter.RemovePosition(i);
+                listBoxPositionsDs3.Items.Remove(listBoxPositionsDs3.SelectedItem);
+            }
+        }
+
+        private void comboBoxMarginDs3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ds3Splitter.dataDs3.positionMargin = comboBoxMarginDs3.SelectedIndex;
         }
 
         private void btnDesactiveAllDs3_Click(object sender, EventArgs e)

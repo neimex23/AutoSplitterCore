@@ -26,6 +26,9 @@ using System.Threading.Tasks;
 using System.Threading;
 using SoulMemory.DarkSouls3;
 using HitCounterManager;
+using SoulMemory;
+using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
 
 namespace AutoSplitterCore
 {
@@ -78,7 +81,7 @@ namespace AutoSplitterCore
         public bool getDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusDs3 = Ds3.Refresh();
+            return _StatusDs3 = Ds3.TryRefresh(out Exception e);
         }
 
         public void setStatusSplitting(bool status)
@@ -93,6 +96,8 @@ namespace AutoSplitterCore
             listPendingBon.Clear();
             listPendingLvl.Clear();
             listPendingCf.Clear();
+            listPendingP.Clear();
+
             if (dataDs3.getBossToSplit().Count > 0)
             {
                 foreach (var b in dataDs3.getBossToSplit())
@@ -122,6 +127,14 @@ namespace AutoSplitterCore
                 foreach (var cf in dataDs3.getFlagToSplit())
                 {
                     cf.IsSplited = false;
+                }
+            }
+
+            if (dataDs3.getPositionsToSplit().Count > 0)
+            {
+                foreach (var p in dataDs3.getPositionsToSplit())
+                {
+                    p.IsSplited = false;
                 }
             }
         }
@@ -183,16 +196,33 @@ namespace AutoSplitterCore
             dataDs3.flagToSplit.RemoveAt(position);
         }
 
+        public void AddPosition(Vector3f vector, string mode)
+        {
+            var position = new DefinitionsDs3.PositionDs3()
+            {
+                vector = vector,
+                Mode = mode
+            };
+            dataDs3.positionsToSplit.Add(position);
+        }
+
+        public void RemovePosition(int position)
+        {
+            listPendingP.RemoveAll(iposition => iposition.vector == dataDs3.positionsToSplit[position].vector);
+            dataDs3.positionsToSplit.RemoveAt(position);
+        }
         public void clearData()
         {
             listPendingB.Clear();
             listPendingBon.Clear();
             listPendingLvl.Clear();
             listPendingCf.Clear();
+            listPendingP.Clear();
             dataDs3.bossToSplit.Clear();
             dataDs3.bonfireToSplit.Clear();
             dataDs3.lvlToSplit.Clear();
             dataDs3.flagToSplit.Clear();
+            dataDs3.positionsToSplit.Clear();
         }
         #endregion
         #region Checking
@@ -204,6 +234,12 @@ namespace AutoSplitterCore
         public int getTimeInGame()
         {
             return Ds3.GetInGameTimeMilliseconds();
+        }
+
+        public Vector3f getCurrentPosition()
+        {
+            getDs3StatusProcess(0);
+            return Ds3.GetPosition();
         }
         #endregion
         #region Procedure
@@ -236,12 +272,18 @@ namespace AutoSplitterCore
                 customFlagToSplit();
             });
 
+            var task5 = new Task(() =>
+            {
+                positionToSplit();
+            });
+
             taskRefresh.Start();
             taskCheckload.Start();
             task1.Start();
             task2.Start();
             task3.Start();
             task4.Start();
+            task5.Start();
         }
         #endregion
         #region CheckFlag Init()   
@@ -278,6 +320,7 @@ namespace AutoSplitterCore
         List<DefinitionsDs3.BonfireDs3> listPendingBon = new List<DefinitionsDs3.BonfireDs3>();
         List<DefinitionsDs3.LvlDs3> listPendingLvl = new List<DefinitionsDs3.LvlDs3>();
         List<DefinitionsDs3.CfDs3> listPendingCf = new List<DefinitionsDs3.CfDs3>();
+        List<DefinitionsDs3.PositionDs3> listPendingP = new List<DefinitionsDs3.PositionDs3>();
 
 
         private void checkLoad()
@@ -285,7 +328,7 @@ namespace AutoSplitterCore
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count >0) && _StatusDs3)
+                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count > 0 || listPendingP.Count > 0) && _StatusDs3)
                 {
                     if (!Ds3.IsPlayerLoaded())
                     {
@@ -317,11 +360,18 @@ namespace AutoSplitterCore
                             dataDs3.flagToSplit[c].IsSplited = true;
                         }
 
+                        foreach (var position in listPendingP)
+                        {
+                            SplitCheck();
+                            var p = dataDs3.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                            dataDs3.positionsToSplit[p].IsSplited = true;
+                        }
+
                         listPendingB.Clear();
                         listPendingBon.Clear();
                         listPendingLvl.Clear();
                         listPendingCf.Clear();
-
+                        listPendingP.Clear();
 
                     }
                 }
@@ -447,6 +497,44 @@ namespace AutoSplitterCore
                             {
                                 cf.IsSplited = true;
                                 SplitCheck();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void positionToSplit()
+        {
+            var PositionsToSplit = dataDs3.getPositionsToSplit();
+            while (dataDs3.enableSplitting)
+            {
+                Thread.Sleep(100);
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
+                {
+                    if (PositionsToSplit != dataDs3.getPositionsToSplit()) PositionsToSplit = dataDs3.getPositionsToSplit();
+                    foreach (var p in PositionsToSplit)
+                    {
+                        if (!p.IsSplited)
+                        {
+                            var currentlyPosition = Ds3.GetPosition();
+                            var rangeX = ((currentlyPosition.X - p.vector.X) <= dataDs3.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataDs3.positionMargin);
+                            var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataDs3.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataDs3.positionMargin);
+                            var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataDs3.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataDs3.positionMargin);
+                            if (rangeX && rangeY && rangeZ)
+                            {
+                                if (p.Mode == "Loading game after")
+                                {
+                                    if (!listPendingP.Contains(p))
+                                    {
+                                        listPendingP.Add(p);
+                                    }
+                                }
+                                else
+                                {
+                                    p.IsSplited = true;
+                                    SplitCheck();
+                                }
                             }
                         }
                     }
