@@ -224,6 +224,7 @@
             this.btnSplitCf.Size = new System.Drawing.Size(30, 32);
             this.btnSplitCf.TabIndex = 57;
             this.btnSplitCf.UseVisualStyleBackColor = false;
+            this.btnSplitCf.Click += new System.EventHandler(this.btnSplitCf_Click);
             // 
             // label5
             // 

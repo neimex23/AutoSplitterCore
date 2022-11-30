@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore", "AutoSpl
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoSplitterCore Installer", "AutoSplitterCoreInstaller.vdproj", "{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCoreDebug", "AutoSplitterCoreDebug.csproj", "{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A} = {8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,9 +23,11 @@ Global
 		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Debug|Any CPU.ActiveCfg = Debug
-		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Debug|Any CPU.Build.0 = Debug
 		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Release|Any CPU.ActiveCfg = Release
 		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Release|Any CPU.Build.0 = Release
+		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

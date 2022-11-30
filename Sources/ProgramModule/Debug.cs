@@ -329,5 +329,10 @@ namespace AutoSplitterCore
             debugSplit = false;
             mainModule.ResetSplitterFlags();
         }
+
+        private void btnSplitCf_Click(object sender, EventArgs e)
+        {
+            textBoxCfID_TextChanged(null, null);
+        }
     }
 }
