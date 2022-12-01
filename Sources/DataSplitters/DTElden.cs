@@ -583,6 +583,7 @@ namespace AutoSplitterCore
         public bool autoTimer = false;
         public bool gameTimer = false;
         public int positionMargin = 5;
+        public bool ResetIGTNG = false;
         //Flags to Split
         public List<DefinitionsElden.BossER> bossToSplit = new List<DefinitionsElden.BossER>();
         public List<DefinitionsElden.Grace> graceToSplit = new List<DefinitionsElden.Grace>();

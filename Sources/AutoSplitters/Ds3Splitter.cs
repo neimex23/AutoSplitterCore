@@ -228,17 +228,19 @@ namespace AutoSplitterCore
         #region Checking
         public bool CheckFlag(uint id)
         {
-            return Ds3.ReadEventFlag(id);
+            if (!_StatusDs3) getDs3StatusProcess(0);
+            return _StatusDs3 && Ds3.ReadEventFlag(id);
         }
 
         public int getTimeInGame()
         {
+            if (!_StatusDs3) getDs3StatusProcess(0);
             return Ds3.GetInGameTimeMilliseconds();
         }
 
         public Vector3f getCurrentPosition()
         {
-            getDs3StatusProcess(0);
+            if(!_StatusDs3) getDs3StatusProcess(0);
             return Ds3.GetPosition();
         }
         #endregion
@@ -305,13 +307,13 @@ namespace AutoSplitterCore
                     delay = 20000;
                 }
 
-                if (!_writeMemory)
+                if (!_writeMemory && _StatusDs3)
                 {
-                    if (Ds3.GetInGameTimeMilliseconds() < 1)
+                    if (dataDs3.ResetIGTNG && Ds3.GetInGameTimeMilliseconds() < 1)
                     {
-                        Ds3.WriteInGameTimeMilliseconds(0);                      
-                    }
-                    _writeMemory = true;
+                        Ds3.WriteInGameTimeMilliseconds(0);
+                        _writeMemory = true;
+                    }          
                 }
             }
         }

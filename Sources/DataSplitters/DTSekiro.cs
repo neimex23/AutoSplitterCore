@@ -355,6 +355,8 @@ namespace AutoSplitterCore
         public bool enableSplitting = false;
         public bool autoTimer = false;
         public bool gameTimer = false;
+        public int positionMargin = 5;
+        public bool ResetIGTNG = false;
         //Flags to Split
         public bool mortalJourneyRun = false;
         public List<DefinitionsSekiro.BossS> bossToSplit = new List<DefinitionsSekiro.BossS>();
@@ -362,7 +364,7 @@ namespace AutoSplitterCore
         public List<DefinitionsSekiro.Idol> idolsTosplit = new List<DefinitionsSekiro.Idol>();
         public List<DefinitionsSekiro.PositionS> positionsToSplit = new List<DefinitionsSekiro.PositionS>();
         public List<DefinitionsSekiro.CfSk> flagToSplit = new List<DefinitionsSekiro.CfSk>();
-        public int positionMargin = 5;
+
 
 
         public List<DefinitionsSekiro.BossS> getBossToSplit()

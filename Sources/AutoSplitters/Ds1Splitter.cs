@@ -235,18 +235,20 @@ namespace AutoSplitterCore
         #region Checking
         public int getTimeInGame()
         {
+            if (!_StatusDs1) getDs1StatusProcess(0);
             return Ds1.GetInGameTimeMilliseconds();
         }
 
         public Vector3f getCurrentPosition()
         {
-            getDs1StatusProcess(0);
+            if (!_StatusDs1) getDs1StatusProcess(0);
             return Ds1.GetPosition();
         }
 
         public bool CheckFlag(uint id)
         {
-            return Ds1.ReadEventFlag(id);
+            if (!_StatusDs1) getDs1StatusProcess(0);
+            return _StatusDs1 && Ds1.ReadEventFlag(id);
         }
         #endregion
         #region Procedure

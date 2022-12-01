@@ -236,6 +236,7 @@ namespace AutoSplitterCore
         public bool autoTimer = false;
         public bool gameTimer = false;
         public int positionMargin = 5;
+        public bool ResetIGTNG = false;
         //Flags to Split
         public List<DefinitionsDs3.BossDs3> bossToSplit = new List<DefinitionsDs3.BossDs3>();
         public List<DefinitionsDs3.BonfireDs3> bonfireToSplit = new List<DefinitionsDs3.BonfireDs3>();

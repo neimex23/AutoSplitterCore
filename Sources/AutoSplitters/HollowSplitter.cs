@@ -233,12 +233,6 @@ namespace AutoSplitterCore
             manualRefreshPosition();
             return this.currentPosition.position;
         }
-
-        public bool getIsLoading()
-        {
-            return hollow.Memory.GameState() == GameState.LOADING ? true : false;
-        }
-
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

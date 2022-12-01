@@ -171,18 +171,14 @@ namespace AutoSplitterCore
         #region Checking
         public Vector3f getCurrentPosition()
         {
-            getDs2StatusProcess(0);
+            if (!_StatusDs2) getDs2StatusProcess(0);
             return Ds2.GetPosition();
-        }
-
-        public bool getIsLoading()
-        {
-            return Ds2.IsLoading();
         }
 
         public bool CheckFlag(uint id)
         {
-            return Ds2.ReadEventFlag(id);
+            if (!_StatusDs2) getDs2StatusProcess(0);
+            return _StatusDs2 && Ds2.ReadEventFlag(id);
         }
         #endregion
         #region Procedure

@@ -513,18 +513,20 @@ namespace AutoSplitterCore
         #region Checking
         public Vector3f getCurrentPosition()
         {
-            getSekiroStatusProcess(0);
+            if (!_StatusSekiro) getSekiroStatusProcess(0);
             return sekiro.GetPlayerPosition();
         }
 
         public int getTimeInGame()
         {
+            if (!_StatusSekiro) getSekiroStatusProcess(0);
             return sekiro.GetInGameTimeMilliseconds();
         }
 
         public bool CheckFlag(uint id)
         {
-            return sekiro.ReadEventFlag(id);
+            if(!_StatusSekiro) getSekiroStatusProcess(0);
+            return _StatusSekiro && sekiro.ReadEventFlag(id);
         }
         #endregion
         #region Procedure
@@ -592,13 +594,13 @@ namespace AutoSplitterCore
                     delay = 20000;
                 }
                 
-                if (!_writeMemory)
+                if (!_writeMemory && _StatusSekiro)
                 {
-                    if (sekiro.GetInGameTimeMilliseconds() < 1)
+                    if (dataSekiro.ResetIGTNG && sekiro.GetInGameTimeMilliseconds() < 1)
                     {
                         sekiro.WriteInGameTimeMilliseconds(0);
+                        _writeMemory = true;
                     }                   
-                    _writeMemory = true;
                 }
             }           
         }

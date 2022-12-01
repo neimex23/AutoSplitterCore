@@ -122,12 +122,13 @@ namespace AutoSplitterCore
         public int getTimeInGame()
         {
             //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
+            if (!_StatusCeleste) getCelesteStatusProcess(0);
             return (int)celeste.GameTime()*1000+1; 
         }
 
         public string getLevelName()
         {
-            getCelesteStatusProcess(0);
+            if (!_StatusCeleste) getCelesteStatusProcess(0);
             if (_StatusCeleste)
             {
                 string AreaID;
@@ -157,6 +158,7 @@ namespace AutoSplitterCore
 
         public bool IsInGame()
         {
+            if (!_StatusCeleste) getCelesteStatusProcess(0);
             return _StatusCeleste && infoPlayer.areaID != Area.Menu;
         }
         #endregion

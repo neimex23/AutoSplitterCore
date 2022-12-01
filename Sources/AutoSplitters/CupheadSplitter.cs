@@ -133,16 +133,19 @@ namespace AutoSplitterCore
 
         public string GetSceneName()
         {
+            if (!_StatusCuphead) getCupheadStatusProcess(0);
             return cup.SceneName();
         }
 
         public bool levelCompleted()
         {
+            if (!_StatusCuphead) getCupheadStatusProcess(0);
             return _StatusCuphead && cup.LevelEnding();
         }
 
         public bool IsInGame()
         {
+            if (!_StatusCuphead) getCupheadStatusProcess(0);
             return _StatusCuphead && cup.InGame();
         }
         #endregion

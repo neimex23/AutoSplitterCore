@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 using SoulMemory.EldenRing;
 using System.Threading;
 using HitCounterManager;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace AutoSplitterCore
 {
@@ -198,18 +199,20 @@ namespace AutoSplitterCore
         #region Checking
         public SoulMemory.EldenRing.Position getCurrentPosition()
         {
-            getEldenStatusProcess(0);
+            if (!_StatusElden) getEldenStatusProcess(0);
             return elden.GetPosition();
         }
 
         public int getTimeInGame()
         {
+            if (!_StatusElden) getEldenStatusProcess(0);
             return elden.GetInGameTimeMilliseconds();
         }
 
         public bool CheckFlag(uint id)
         {
-            return elden.ReadEventFlag(id);
+            if(!_StatusElden) getEldenStatusProcess(0);
+            return _StatusElden && elden.ReadEventFlag(id);
         }
         #endregion
         #region Procedure
@@ -268,10 +271,12 @@ namespace AutoSplitterCore
                     delay = 20000;
                 }
 
-                if (!_writeMemory)
+                if (!_writeMemory && _StatusElden)
                 {
-                    if (elden.GetInGameTimeMilliseconds() < 1) { elden.WriteInGameTimeMilliseconds(0); }                   
-                    _writeMemory = true;
+                    if (dataElden.ResetIGTNG && elden.GetInGameTimeMilliseconds() < 1) { 
+                        elden.WriteInGameTimeMilliseconds(0);
+                        _writeMemory = true;
+                    }
                 }
             }
         }

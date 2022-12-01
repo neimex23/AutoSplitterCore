@@ -139,7 +139,7 @@ namespace AutoSplitterCore
             panelPositionDs1.Hide();
             panelItemDs1.Hide();
             #endregion
-            #region Timing
+            #region TimingTab
             groupBoxTSekiro.Hide();
             groupBoxTDs1.Hide();
             groupBoxTDs2.Hide();
@@ -989,6 +989,33 @@ namespace AutoSplitterCore
         private void radioIGTDishonored_CheckedChanged(object sender, EventArgs e)
         {
             _ = radioIGTDishonored.Checked == true ? dishonoredSplitter.dataDish.gameTimer = true : dishonoredSplitter.dataDish.gameTimer = false;
+        }
+
+        private void checkBoxResetIgtDs3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioIGTDs3.Checked && checkBoxResetIgtDs3.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIgtDs3.Checked = false; }
+            else
+            {
+                _ = checkBoxResetIgtDs3.Checked ? ds3Splitter.dataDs3.ResetIGTNG = true : ds3Splitter.dataDs3.ResetIGTNG = false;
+            }
+        }
+
+        private void checkBoxResetIGTNGEr_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioIGTEr.Checked && checkBoxResetIGTNGEr.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIGTNGEr.Checked = false; }
+            else
+            {
+                _ = checkBoxResetIGTNGEr.Checked ? eldenSplitter.dataElden.ResetIGTNG = true : eldenSplitter.dataElden.ResetIGTNG = false;
+            }
+        }
+
+        private void checkBoxResetIGTSekiro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioIGTSTimer.Checked && checkBoxResetIGTSekiro.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIGTSekiro.Checked = false; }
+            else
+            {
+                _ = checkBoxResetIGTSekiro.Checked ? sekiroSplitter.dataSekiro.ResetIGTNG = true : sekiroSplitter.dataSekiro.ResetIGTNG = false;
+            }
         }
 
         private void btnHowSetup_Click(object sender, EventArgs e)
