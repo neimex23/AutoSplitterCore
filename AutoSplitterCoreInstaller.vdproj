@@ -1362,7 +1362,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.2.1.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
                     "_ED9DF40FCB57D9DADBD758CD16342E01"
@@ -1547,15 +1547,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{30BE995F-B456-437F-8EF0-C98CFD9B0F69}"
-        "PackageCode" = "8:{0553B8E7-6443-4289-AC90-55B02693F977}"
+        "ProductCode" = "8:{F0431FF3-FC0C-4B43-B1E5-43181CCE778A}"
+        "PackageCode" = "8:{6F44634E-0777-4CFE-BD4D-7807570DC5FA}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.5.0"
+        "ProductVersion" = "8:2.6.0"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
