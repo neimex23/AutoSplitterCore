@@ -30,5 +30,10 @@ namespace AutoSplitterCore
             System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
             Close();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

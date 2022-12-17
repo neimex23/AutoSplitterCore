@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateShowDialog));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnGoToDownloadPage = new System.Windows.Forms.Button();
             this.label76 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnGoToDownloadPage);
             this.groupBox2.Controls.Add(this.label76);
             this.groupBox2.Controls.Add(this.label78);
@@ -47,15 +49,26 @@
             this.groupBox2.Controls.Add(this.LabelVersion);
             this.groupBox2.Location = new System.Drawing.Point(12, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(305, 126);
+            this.groupBox2.Size = new System.Drawing.Size(305, 131);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ASC Update";
             // 
+            // btnClose
+            // 
+            this.btnClose.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnClose.Location = new System.Drawing.Point(161, 95);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(137, 23);
+            this.btnClose.TabIndex = 79;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // btnGoToDownloadPage
             // 
             this.btnGoToDownloadPage.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnGoToDownloadPage.Location = new System.Drawing.Point(86, 94);
+            this.btnGoToDownloadPage.Location = new System.Drawing.Point(18, 95);
             this.btnGoToDownloadPage.Name = "btnGoToDownloadPage";
             this.btnGoToDownloadPage.Size = new System.Drawing.Size(137, 23);
             this.btnGoToDownloadPage.TabIndex = 77;
@@ -103,10 +116,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 151);
+            this.ClientSize = new System.Drawing.Size(329, 153);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(345, 190);
+            this.MaximumSize = new System.Drawing.Size(345, 192);
+            this.MinimumSize = new System.Drawing.Size(345, 192);
             this.Name = "UpdateShowDialog";
             this.Text = "ASC: New version available";
             this.Load += new System.EventHandler(this.UpdateShowDialog_Load);
@@ -124,5 +138,6 @@
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label labelCloudVer;
         private System.Windows.Forms.Label LabelVersion;
+        private System.Windows.Forms.Button btnClose;
     }
 }

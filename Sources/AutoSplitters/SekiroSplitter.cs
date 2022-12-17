@@ -81,7 +81,7 @@ namespace AutoSplitterCore
         public bool getSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusSekiro = sekiro.TryRefresh(out Exception exc);
+            return _StatusSekiro = sekiro.TryRefresh();
         }
 
         public void setStatusSplitting(bool status)

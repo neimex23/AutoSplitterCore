@@ -78,7 +78,7 @@ namespace AutoSplitterCore
         public bool getEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusElden = elden.TryRefresh(out Exception exc);
+            return _StatusElden = elden.TryRefresh();
         }
 
         public void setStatusSplitting(bool status)

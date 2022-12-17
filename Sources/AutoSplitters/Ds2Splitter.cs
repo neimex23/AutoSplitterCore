@@ -79,7 +79,7 @@ namespace AutoSplitterCore
         public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusDs2 = Ds2.Refresh(out Exception exc);
+            return _StatusDs2 = Ds2.TryRefresh();
         }
 
         public void setStatusSplitting(bool status)

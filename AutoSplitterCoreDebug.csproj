@@ -67,7 +67,7 @@
       <HintPath>Sources\LiveSplit.ScriptableAutoSplit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Source\Newtonsoft.Json.dll</HintPath>
+      <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SoulMemory, Version=1.2.1.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
