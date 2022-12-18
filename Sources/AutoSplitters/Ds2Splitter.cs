@@ -228,7 +228,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getDs2StatusProcess(delay);
-                if (!_StatusDs2) { delay = 2000; }else { delay = 20000; }
+                if (!_StatusDs2) { delay = 2000; }else { delay = 10000; }
             }
         }
 
@@ -236,7 +236,7 @@ namespace AutoSplitterCore
         {
             while (dataDs2.enableSplitting)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(200);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
                     var position = Ds2.GetPosition();
@@ -309,7 +309,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataDs2.getBossToSplit();
             while (dataDs2.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
                     if (BossToSplit != dataDs2.getBossToSplit()) BossToSplit = dataDs2.getBossToSplit();
@@ -340,7 +340,7 @@ namespace AutoSplitterCore
             var LvlToSplit = dataDs2.getLvlToSplit();
             while (dataDs2.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
                     if (LvlToSplit != dataDs2.getLvlToSplit()) LvlToSplit = dataDs2.getLvlToSplit();

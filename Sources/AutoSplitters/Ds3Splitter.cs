@@ -304,7 +304,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 20000;
+                    delay = 10000;
                 }
 
                 if (!_writeMemory && _StatusDs3)
@@ -386,7 +386,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataDs3.getBossToSplit();
             while (dataDs3.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
                     if (BossToSplit != dataDs3.getBossToSplit()) BossToSplit = dataDs3.getBossToSplit();
@@ -418,7 +418,7 @@ namespace AutoSplitterCore
             var BonfireToSplit = dataDs3.getBonfireToSplit();
             while (dataDs3.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
                     if (BonfireToSplit != dataDs3.getBonfireToSplit()) BonfireToSplit = dataDs3.getBonfireToSplit();
@@ -449,7 +449,7 @@ namespace AutoSplitterCore
             var LvlToSplit = dataDs3.getLvlToSplit();
             while (dataDs3.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
                     if (LvlToSplit != dataDs3.getLvlToSplit()) LvlToSplit = dataDs3.getLvlToSplit();
@@ -480,7 +480,7 @@ namespace AutoSplitterCore
             var FlagToSplit = dataDs3.getFlagToSplit();
             while (dataDs3.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
                     if (FlagToSplit != dataDs3.getFlagToSplit()) FlagToSplit = dataDs3.getFlagToSplit();

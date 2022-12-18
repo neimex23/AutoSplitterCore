@@ -591,7 +591,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 20000;
+                    delay = 10000;
                 }
                 
                 if (!_writeMemory && _StatusSekiro)
@@ -673,7 +673,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataSekiro.getBossToSplit();
             while (dataSekiro.enableSplitting)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
                     if(BossToSplit != dataSekiro.getBossToSplit()) BossToSplit = dataSekiro.getBossToSplit();
@@ -845,7 +845,7 @@ namespace AutoSplitterCore
             var IdolsToSplit = dataSekiro.getidolsTosplit();
             while (dataSekiro.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
                     if (IdolsToSplit != dataSekiro.getidolsTosplit()) IdolsToSplit = dataSekiro.getidolsTosplit();
@@ -913,7 +913,7 @@ namespace AutoSplitterCore
             var FlagToSplit = dataSekiro.getFlagToSplit();
             while (dataSekiro.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
                     if (FlagToSplit != dataSekiro.getFlagToSplit()) FlagToSplit = dataSekiro.getFlagToSplit();

@@ -268,7 +268,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 20000;
+                    delay = 10000;
                 }
 
                 if (!_writeMemory && _StatusElden)
@@ -342,7 +342,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataElden.getBossToSplit();
             while (dataElden.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
                     if (BossToSplit != dataElden.getBossToSplit()) BossToSplit = dataElden.getBossToSplit();
@@ -373,7 +373,7 @@ namespace AutoSplitterCore
             var GraceToSplit = dataElden.getGraceToSplit();
             while (dataElden.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
                     if (GraceToSplit != dataElden.getGraceToSplit()) GraceToSplit = dataElden.getGraceToSplit();
@@ -404,7 +404,7 @@ namespace AutoSplitterCore
             var FlagsToSplit = dataElden.getFlagsToSplit();
             while (dataElden.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
                     if (FlagsToSplit != dataElden.getFlagsToSplit()) FlagsToSplit = dataElden.getFlagsToSplit();

@@ -317,7 +317,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 20000;
+                    delay = 10000;
                 }
             }
         }
@@ -326,7 +326,7 @@ namespace AutoSplitterCore
         {
             while (dataDs1.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if(_StatusDs1) inventory = Ds1.GetInventory();
             }            
         }
@@ -397,7 +397,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataDs1.getBossToSplit();
             while (dataDs1.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
                     if(BossToSplit != dataDs1.getBossToSplit()) BossToSplit = dataDs1.getBossToSplit();
@@ -428,7 +428,7 @@ namespace AutoSplitterCore
             var BonfireToSplit = dataDs1.getBonfireToSplit();
             while (dataDs1.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
                     if (BonfireToSplit != dataDs1.getBonfireToSplit()) BonfireToSplit = dataDs1.getBonfireToSplit();
@@ -460,7 +460,7 @@ namespace AutoSplitterCore
             var LvlToSplit = dataDs1.getLvlToSplit();
             while (dataDs1.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
                     if (LvlToSplit != dataDs1.getLvlToSplit()) LvlToSplit = dataDs1.getLvlToSplit();

@@ -302,7 +302,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getHollowStatusProcess(delay);
-                if (!_StatusHollow) { delay = 2000; } else { delay = 20000; }
+                if (!_StatusHollow) { delay = 2000; } else { delay = 10000; }
             }
         }
 
@@ -364,7 +364,7 @@ namespace AutoSplitterCore
             var BossToSplit = dataHollow.getBosstoSplit();
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
                     if (BossToSplit != dataHollow.getBosstoSplit()) BossToSplit = dataHollow.getBosstoSplit();
@@ -385,7 +385,7 @@ namespace AutoSplitterCore
             var MiniBossToSplit = dataHollow.getMiniBossToSplit();
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
                     if (MiniBossToSplit != dataHollow.getMiniBossToSplit()) MiniBossToSplit = dataHollow.getMiniBossToSplit();
@@ -420,7 +420,7 @@ namespace AutoSplitterCore
             var CharmToSplit = dataHollow.getCharmToSplit();
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
                     if (CharmToSplit != dataHollow.getCharmToSplit()) CharmToSplit = dataHollow.getCharmToSplit();
@@ -463,7 +463,7 @@ namespace AutoSplitterCore
             var SkillsToSplit = dataHollow.getSkillsToSplit();
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
                     if (SkillsToSplit != dataHollow.getSkillsToSplit()) SkillsToSplit = dataHollow.getSkillsToSplit();

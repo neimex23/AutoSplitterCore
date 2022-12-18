@@ -173,7 +173,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getCupheadStatusProcess(delay);
-                if (!_StatusCuphead) { delay = 2000; } else { delay = 20000; }
+                if (!_StatusCuphead) { delay = 2000; } else { delay = 10000; }
             }
         }
 

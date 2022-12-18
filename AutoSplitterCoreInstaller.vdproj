@@ -165,14 +165,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_91A73DDE5EAF4C72892C134A0710ADEB"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_8F3B6CCCA8BEB64B27835EBC09BB2CF3"
+        "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_932234CCC36F87F05D772B4B59969540"
-        "OwnerKey" = "8:_B9FD165A5B60478F92E7A09C7472265B"
+        "MsmKey" = "8:_91A73DDE5EAF4C72892C134A0710ADEB"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -316,6 +316,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8F3B6CCCA8BEB64B27835EBC09BB2CF3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_5398C4C558C28AA6960D48714D016FA4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -359,12 +365,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3D70CA76007A3351D13EE142E29A3490"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_932234CCC36F87F05D772B4B59969540"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -946,34 +946,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91A73DDE5EAF4C72892C134A0710ADEB"
-            {
-            "SourcePath" = "8:AutoSplitterProfiles\\ProfilesForHCM\\Ds3-Bender.xml"
-            "TargetName" = "8:Ds3-Bender.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_E594D1C5BFB843A2A45F72642BF05396"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_932234CCC36F87F05D772B4B59969540"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8F3B6CCCA8BEB64B27835EBC09BB2CF3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_932234CCC36F87F05D772B4B59969540"
+                    "_8F3B6CCCA8BEB64B27835EBC09BB2CF3"
                     {
                     "Name" = "8:Newtonsoft.Json.dll"
                     "Attributes" = "3:512"
@@ -995,6 +975,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91A73DDE5EAF4C72892C134A0710ADEB"
+            {
+            "SourcePath" = "8:AutoSplitterProfiles\\ProfilesForHCM\\Ds3-Bender.xml"
+            "TargetName" = "8:Ds3-Bender.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_E594D1C5BFB843A2A45F72642BF05396"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_958930F53618145003DDBBA907E30BD7"
@@ -1541,15 +1541,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AutoSplitterCore for HCM"
-        "ProductCode" = "8:{E94E7380-28FE-4D31-BAE0-2242438D6E2A}"
-        "PackageCode" = "8:{DCDCCD36-FAC1-4F9F-A7C9-D127D2D0E776}"
+        "ProductCode" = "8:{233BF258-61D9-4C41-8ED9-DC897231CFE7}"
+        "PackageCode" = "8:{1C0716CF-1281-439D-963B-3176798F6B7D}"
         "UpgradeCode" = "8:{8D9DB7B5-72BC-4051-90C2-F744423C2376}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.7.0"
+        "ProductVersion" = "8:2.7.1"
         "Manufacturer" = "8:Neimex23"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

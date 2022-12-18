@@ -191,7 +191,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getCelesteStatusProcess(delay);
-                if (!_StatusCeleste) { delay = 2000; } else { delay = 20000; }
+                if (!_StatusCeleste) { delay = 2000; } else { delay = 10000; }
             }
         }
 
