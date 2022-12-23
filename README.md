@@ -142,9 +142,6 @@
 * Contact to <ezequielmedina23@gmail.com>
 * Twitch: [Neimex23](https://www.twitch.tv/neimex23)
 * Discord: **Neimex23#6674**
-* Donations Paypal: <neimex23@gmail.com> or BuyMeCoffe: <https://ko-fi.com/neimex23>
-
-  
 
 ## Special thanks
 
