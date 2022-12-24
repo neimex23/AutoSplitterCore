@@ -145,6 +145,22 @@
 
 ## Special thanks
 
+All Awesome Peoples that Develop AutoSplitters for LiveSplit that i Use to do This Possible:
+
+* **F.stam (FrankvdStam)**
+  - Sekiro
+  - Dark Souls 1
+  - Dark Souls 2
+  - Dark Souls 3
+  - Elden Ring
+* **DevilSquirrel**
+  - Hollow Knight
+  - Celeste
+* **LiveSplit Developers**
+  - LiveSplitCore 
+  - LiveSplit Scripteable AutoSplitter
+* Read More into [THIRDPARTYLICENSEREADME](https://github.com/neimex23/HitCounterManager/blob/master/THIRDPARTYLICENSEREADME)
+
 Thanks to Beta Testers of AutoSplit(in alphabetical order):
 
 * [AvegaX](https://www.twitch.tv/avegax)
