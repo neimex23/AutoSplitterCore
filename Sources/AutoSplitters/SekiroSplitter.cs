@@ -617,7 +617,7 @@ namespace AutoSplitterCore
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count >0) && _StatusSekiro)
+                if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count > 0) && _StatusSekiro)
                 {
                     if (!sekiro.IsPlayerLoaded())
                     {
@@ -730,10 +730,11 @@ namespace AutoSplitterCore
 
                             if (mb.kindSplit == DefinitionsSekiro.KindSplit.Position)
                             {
+                                double positionMargin = 2.5;
                                 var currentlyPosition = sekiro.GetPlayerPosition();
-                                var rangeX = ((currentlyPosition.X - mb.vector.X) <= dataSekiro.positionMargin) && ((currentlyPosition.X - mb.vector.X) >= -dataSekiro.positionMargin);
-                                var rangeY = ((currentlyPosition.Y - mb.vector.Y) <= dataSekiro.positionMargin) && ((currentlyPosition.Y - mb.vector.Y) >= -dataSekiro.positionMargin);
-                                var rangeZ = ((currentlyPosition.Z - mb.vector.Z) <= dataSekiro.positionMargin) && ((currentlyPosition.Z - mb.vector.Z) >= -dataSekiro.positionMargin);
+                                var rangeX = ((currentlyPosition.X - mb.vector.X) <= positionMargin) && ((currentlyPosition.X - mb.vector.X) >= -positionMargin);
+                                var rangeY = ((currentlyPosition.Y - mb.vector.Y) <= positionMargin) && ((currentlyPosition.Y - mb.vector.Y) >= -positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - mb.vector.Z) <= positionMargin) && ((currentlyPosition.Z - mb.vector.Z) >= -positionMargin);
                                 if (rangeX && rangeY && rangeZ)
                                 {
                                     if (mb.Mode == "Loading game after")
@@ -776,7 +777,6 @@ namespace AutoSplitterCore
             new DefinitionsSekiro.PositionS(){vector = new Vector3f((float)-102.9759,(float) 53.90246, (float)243.125)}, //Inner Genichiro
             new DefinitionsSekiro.PositionS(){vector = new Vector3f((float)-206.347, (float)-787.7436, (float)565.117)}, //Inner Father
             new DefinitionsSekiro.PositionS(){vector = new Vector3f((float)-372.1677, (float)-46.28377, (float)184.5305)}, //Inner Isshin
-            
         };
 
         private void notSplited(ref List<DefinitionsSekiro.PositionS> p)
@@ -804,10 +804,11 @@ namespace AutoSplitterCore
                         {
                             if (!p.IsSplited)
                             {
+                                int positionMargin = 10;
                                 var currentlyPosition = sekiro.GetPlayerPosition();
-                                var rangeX = ((currentlyPosition.X - p.vector.X) <= 10) && ((currentlyPosition.X - p.vector.X) >= -10);
-                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= 10) && ((currentlyPosition.Y - p.vector.Y) >= -10);
-                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= 10) && ((currentlyPosition.Z - p.vector.Z) >= -10);
+                                var rangeX = ((currentlyPosition.X - p.vector.X) <= positionMargin) && ((currentlyPosition.X - p.vector.X) >= -positionMargin);
+                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -positionMargin);
                                 if (rangeX && rangeY && rangeZ)
                                 {
                                     if (!PendingMortal.Contains(p))
