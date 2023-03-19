@@ -147,16 +147,18 @@
 
 All Awesome Peoples that Develop AutoSplitters for LiveSplit that i Use to do This Possible:
 
-* **F.stam (FrankvdStam)**
+* **[F.stam (FrankvdStam)](https://github.com/FrankvdStam)**
   - Sekiro
   - Dark Souls 1
   - Dark Souls 2
   - Dark Souls 3
   - Elden Ring
-* **DevilSquirrel**
+* **[DevilSquirrel](https://github.com/ShootMe)**
   - Hollow Knight
   - Celeste
-* **LiveSplit Developers**
+* **[Fatalis](https://github.com/fatalis)**
+  - Dishonored
+* **[LiveSplit Developers](https://github.com/LiveSplit)**
   - LiveSplitCore 
   - LiveSplit Scripteable AutoSplitter
 * Read More into [THIRDPARTYLICENSEREADME](https://github.com/neimex23/HitCounterManager/blob/master/THIRDPARTYLICENSEREADME)
