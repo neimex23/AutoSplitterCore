@@ -215,8 +215,8 @@ DLL Used:
         Source: https://github.com/ShootMe/LiveSplit.Cuphead.git
         Licence: MIT			   
 
-	- DLL LiveSplit.Dishonored
-		Title: LiveSplit.Dishonored
+    - DLL LiveSplit.Dishonored (Modified)
+        Title: LiveSplit.Dishonored
         Author: Fatalis
         Source: https://github.com/fatalis/LiveSplit.Dishonored.git
         Licence: MIT(WTFPL)	

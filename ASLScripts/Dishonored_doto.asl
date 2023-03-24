@@ -19,6 +19,13 @@ state("Dishonored_DO", "1.3") {
     string128 levelName: 0x415CF50;
 }
 
+state("Dishonored_DO", "Epic") {
+    // 1.145.0.0
+    // 105369600
+    bool isLoading:      0x4232168;
+    string128 levelName: 0x500E3E0;
+}
+
 startup {
     vars.autoSplits = new Tuple<string,string>[]{
         Tuple.Create("Follow the Ink"     ,"dlc01/boat/boat_02/boat_02_p"     ),
@@ -41,6 +48,7 @@ init {
     switch (modules.First().ModuleMemorySize) {
         case 188620800: version = "1.1"; break;
         case 194486272: version = "1.2"; break;
+        case 105369600: version = "Epic"; break;
         case  71852032: version = "1.3"; break;
         default:        version = "1.3"; break;
     }

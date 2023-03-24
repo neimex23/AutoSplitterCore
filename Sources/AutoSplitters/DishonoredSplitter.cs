@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2023 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -59,7 +59,6 @@ namespace AutoSplitterCore
             Dish.OnFirstLevelLoading += Dish_OnFirstLevelLoading;
             Dish.OnPlayerGainedControl += Dish_OnPlayerGainedControl;
             Dish.OnLoadStarted += Dish_OnLoadStarted;
-            Dish.OnLoadFinished += Dish_OnLoadFinished;
             Dish.OnAreaCompleted += Dish_OnAreaCompleted;
         }
 
@@ -73,7 +72,7 @@ namespace AutoSplitterCore
             {
                 Trace.WriteLine(ex.ToString());
             }
-            return _StatusDish = Dish.GameAttached;
+            return _StatusDish = Dish._process != null;
         }
 
         public void SplitGo()
@@ -141,12 +140,6 @@ namespace AutoSplitterCore
                 isLoading = true;
         }
 
-        void Dish_OnLoadFinished(object sender, EventArgs e)
-        {
-            if (_StatusDish && !_PracticeMode)
-                isLoading = false;
-        }
-
         void Dish_OnAreaCompleted(object sender, GameMemory.AreaCompletionType type)
         {
             if (_StatusDish && !_PracticeMode && !_ShowSettings)
@@ -155,7 +148,8 @@ namespace AutoSplitterCore
                     || (type == GameMemory.AreaCompletionType.MissionEnd && dataDish.DishonoredOptions[1].Enable)
                     || (type == GameMemory.AreaCompletionType.PrisonEscape && dataDish.DishonoredOptions[2].Enable)
                     || (type == GameMemory.AreaCompletionType.OutsidersDream && dataDish.DishonoredOptions[3].Enable)
-                    || (type == GameMemory.AreaCompletionType.Weepers && dataDish.DishonoredOptions[4].Enable))
+                    || (type == GameMemory.AreaCompletionType.Weepers && dataDish.DishonoredOptions[4].Enable)
+                    || (type == GameMemory.AreaCompletionType.DLC06IntroEnd && dataDish.DishonoredOptions[5].Enable))
                 {
                     SplitCheck();
                 }
