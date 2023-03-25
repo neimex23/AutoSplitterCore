@@ -591,7 +591,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 10000;
+                    delay = 7000;
                 }
                 
                 if (!_writeMemory && _StatusSekiro)

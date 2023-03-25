@@ -161,6 +161,7 @@ namespace AutoSplitterCore
                     debugSplit = mainModule.cupSplitter._SplitGo;
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
+                    status = mainModule.dishonoredSplitter._StatusDish;
                     debugSplit = mainModule.dishonoredSplitter._SplitGo; break;
                 case GameConstruction.ASLSplitterIndex:
                     debugSplit = mainModule.aslSplitter._SplitGo; break;

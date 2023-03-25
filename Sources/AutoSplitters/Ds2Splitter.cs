@@ -228,7 +228,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getDs2StatusProcess(delay);
-                if (!_StatusDs2) { delay = 2000; }else { delay = 10000; }
+                if (!_StatusDs2) { delay = 2000; }else { delay = 7000; }
             }
         }
 

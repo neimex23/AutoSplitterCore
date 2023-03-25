@@ -467,6 +467,8 @@ namespace AutoSplitterCore
             this.toSplitSelectHollow = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabCeleste = new System.Windows.Forms.TabPage();
+            this.panelCassettesNHearts = new System.Windows.Forms.Panel();
+            this.checkedListBoxCassettesNHearts = new System.Windows.Forms.CheckedListBox();
             this.panelCheckpointsCeleste = new System.Windows.Forms.Panel();
             this.checkedListBoxCheckpointsCeleste = new System.Windows.Forms.CheckedListBox();
             this.panelChapterCeleste = new System.Windows.Forms.Panel();
@@ -586,6 +588,7 @@ namespace AutoSplitterCore
             this.groupBoxCharms.SuspendLayout();
             this.groupBoxSkillsH.SuspendLayout();
             this.tabCeleste.SuspendLayout();
+            this.panelCassettesNHearts.SuspendLayout();
             this.panelCheckpointsCeleste.SuspendLayout();
             this.panelChapterCeleste.SuspendLayout();
             this.tabCuphead.SuspendLayout();
@@ -7197,6 +7200,7 @@ namespace AutoSplitterCore
             // tabCeleste
             // 
             this.tabCeleste.BackColor = System.Drawing.SystemColors.Control;
+            this.tabCeleste.Controls.Add(this.panelCassettesNHearts);
             this.tabCeleste.Controls.Add(this.panelCheckpointsCeleste);
             this.tabCeleste.Controls.Add(this.panelChapterCeleste);
             this.tabCeleste.Controls.Add(this.comboBoxToSplitCeleste);
@@ -7211,10 +7215,47 @@ namespace AutoSplitterCore
             this.tabCeleste.TabIndex = 7;
             this.tabCeleste.Text = "Celeste";
             // 
+            // panelCassettesNHearts
+            // 
+            this.panelCassettesNHearts.Controls.Add(this.checkedListBoxCassettesNHearts);
+            this.panelCassettesNHearts.Location = new System.Drawing.Point(13, 73);
+            this.panelCassettesNHearts.Name = "panelCassettesNHearts";
+            this.panelCassettesNHearts.Size = new System.Drawing.Size(557, 261);
+            this.panelCassettesNHearts.TabIndex = 24;
+            // 
+            // checkedListBoxCassettesNHearts
+            // 
+            this.checkedListBoxCassettesNHearts.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxCassettesNHearts.CheckOnClick = true;
+            this.checkedListBoxCassettesNHearts.FormattingEnabled = true;
+            this.checkedListBoxCassettesNHearts.Items.AddRange(new object[] {
+            "Chapter 1 - Forsaken City - Cassette",
+            "Chapter 2 - Old Site - Cassette",
+            "Chapter 3 - Celestial Resort - Cassette",
+            "Chapter 4 - Golden Ridge - Cassette",
+            "Chapter 5 - Mirror Temple - Cassette",
+            "Chapter 6 - Reflection - Cassette",
+            "Chapter 7 - The Summit - Cassette",
+            "Chapter 8 - Core - Cassette",
+            "===========================",
+            "Chapter 1 - Forsaken City - Heart Gem",
+            "Chapter 2 - Old Site -  Heart Gem",
+            "Chapter 3 - Celestial Resort -  Heart Gem",
+            "Chapter 4 - Golden Ridge - Heart Gem",
+            "Chapter 5 - Mirror Temple -  Heart Gem",
+            "Chapter 6 - Reflection -  Heart Gem",
+            "Chapter 7 - The Summit -  Heart Gem",
+            "Chapter 8 - Core -  Heart Gem"});
+            this.checkedListBoxCassettesNHearts.Location = new System.Drawing.Point(25, 14);
+            this.checkedListBoxCassettesNHearts.Name = "checkedListBoxCassettesNHearts";
+            this.checkedListBoxCassettesNHearts.Size = new System.Drawing.Size(515, 229);
+            this.checkedListBoxCassettesNHearts.TabIndex = 0;
+            this.checkedListBoxCassettesNHearts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCassettesNHearts_ItemCheck);
+            // 
             // panelCheckpointsCeleste
             // 
             this.panelCheckpointsCeleste.Controls.Add(this.checkedListBoxCheckpointsCeleste);
-            this.panelCheckpointsCeleste.Location = new System.Drawing.Point(15, 73);
+            this.panelCheckpointsCeleste.Location = new System.Drawing.Point(14, 73);
             this.panelCheckpointsCeleste.Name = "panelCheckpointsCeleste";
             this.panelCheckpointsCeleste.Size = new System.Drawing.Size(557, 261);
             this.panelCheckpointsCeleste.TabIndex = 23;
@@ -7304,7 +7345,8 @@ namespace AutoSplitterCore
             this.comboBoxToSplitCeleste.FormattingEnabled = true;
             this.comboBoxToSplitCeleste.Items.AddRange(new object[] {
             "Chapters",
-            "Checkpoints"});
+            "Checkpoints",
+            "Cassettes/Hearts"});
             this.comboBoxToSplitCeleste.Location = new System.Drawing.Point(89, 46);
             this.comboBoxToSplitCeleste.Name = "comboBoxToSplitCeleste";
             this.comboBoxToSplitCeleste.Size = new System.Drawing.Size(444, 21);
@@ -7538,9 +7580,9 @@ namespace AutoSplitterCore
             // groupBoxEventsDishonored
             // 
             this.groupBoxEventsDishonored.Controls.Add(this.checkedListBoxDishonored);
-            this.groupBoxEventsDishonored.Location = new System.Drawing.Point(76, 64);
+            this.groupBoxEventsDishonored.Location = new System.Drawing.Point(60, 57);
             this.groupBoxEventsDishonored.Name = "groupBoxEventsDishonored";
-            this.groupBoxEventsDishonored.Size = new System.Drawing.Size(424, 242);
+            this.groupBoxEventsDishonored.Size = new System.Drawing.Size(483, 267);
             this.groupBoxEventsDishonored.TabIndex = 33;
             this.groupBoxEventsDishonored.TabStop = false;
             this.groupBoxEventsDishonored.Text = "Events";
@@ -7559,7 +7601,7 @@ namespace AutoSplitterCore
             "Knife of Dunwall Intro End"});
             this.checkedListBoxDishonored.Location = new System.Drawing.Point(28, 30);
             this.checkedListBoxDishonored.Name = "checkedListBoxDishonored";
-            this.checkedListBoxDishonored.Size = new System.Drawing.Size(361, 184);
+            this.checkedListBoxDishonored.Size = new System.Drawing.Size(431, 199);
             this.checkedListBoxDishonored.TabIndex = 0;
             this.checkedListBoxDishonored.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxDishonored_ItemCheck);
             // 
@@ -7772,6 +7814,7 @@ namespace AutoSplitterCore
             this.groupBoxSkillsH.ResumeLayout(false);
             this.tabCeleste.ResumeLayout(false);
             this.tabCeleste.PerformLayout();
+            this.panelCassettesNHearts.ResumeLayout(false);
             this.panelCheckpointsCeleste.ResumeLayout(false);
             this.panelChapterCeleste.ResumeLayout(false);
             this.tabCuphead.ResumeLayout(false);
@@ -8251,5 +8294,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxResetIgtDs3;
         private System.Windows.Forms.CheckBox checkBoxResetIGTNGEr;
         private System.Windows.Forms.CheckBox checkBoxResetIGTSekiro;
+        private System.Windows.Forms.Panel panelCassettesNHearts;
+        private System.Windows.Forms.CheckedListBox checkedListBoxCassettesNHearts;
     }
 }

@@ -25,6 +25,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using SoulMemory;
 using System.Globalization;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace AutoSplitterCore
 {
@@ -122,6 +123,7 @@ namespace AutoSplitterCore
             #region CelesteTab
             panelChapterCeleste.Hide();
             panelCheckpointsCeleste.Hide();
+            panelCassettesNHearts.Hide();
             #endregion
             #region Ds2Tab
             panelBossDS2.Hide();
@@ -441,6 +443,18 @@ namespace AutoSplitterCore
                     if (c.Title == checkedListBoxCheckpointsCeleste.Items[i].ToString())
                     {
                         checkedListBoxCheckpointsCeleste.SetItemChecked(i, true);
+                    }
+                }
+            }
+            #endregion
+            #region CelesteLoad.CassettesNHearts
+            foreach (var c in celesteData.getChapterToSplit())
+            {
+                for (int i = 0; i < checkedListBoxCassettesNHearts.Items.Count; i++)
+                {
+                    if (c.Title == checkedListBoxCassettesNHearts.Items[i].ToString())
+                    {
+                        checkedListBoxCassettesNHearts.SetItemChecked(i, true);
                     }
                 }
             }
@@ -3005,6 +3019,7 @@ namespace AutoSplitterCore
         {
             panelChapterCeleste.Hide();
             panelCheckpointsCeleste.Hide();
+            panelCassettesNHearts.Hide();
 
             switch (comboBoxToSplitCeleste.SelectedIndex)
             {
@@ -3012,6 +3027,8 @@ namespace AutoSplitterCore
                     panelChapterCeleste.Show(); break;
                 case 1:
                     panelCheckpointsCeleste.Show(); break;
+                case 2:
+                    panelCassettesNHearts.Show(); break;
             }
 
         }
@@ -3044,6 +3061,22 @@ namespace AutoSplitterCore
                 }
             }
         }
+
+        private void checkedListBoxCassettesNHearts_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (checkedListBoxCassettesNHearts.SelectedIndex != -1)
+            {
+                if (checkedListBoxCassettesNHearts.GetItemChecked(checkedListBoxCassettesNHearts.SelectedIndex) == false)
+                {
+                    celesteSplitter.AddChapter(checkedListBoxCassettesNHearts.SelectedItem.ToString());
+                }
+                else
+                {
+                    celesteSplitter.RemoveChapter(checkedListBoxCassettesNHearts.SelectedItem.ToString());
+                }
+            }
+        }
+
 
         private void btnRemoveAllCeleste_Click(object sender, EventArgs e)
         {
@@ -3135,7 +3168,6 @@ namespace AutoSplitterCore
                 }
             }
         }
-
         private void btnDesactiveAllDishonored_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -3150,6 +3182,7 @@ namespace AutoSplitterCore
                 TabControl2.SelectTab(tabDishonored);
             }
         }
+
         #endregion
     }
 }

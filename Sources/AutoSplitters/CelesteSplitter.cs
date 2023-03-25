@@ -25,6 +25,11 @@ using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Celeste;
 using HitCounterManager;
+using SoulMemory;
+using System.Security.Cryptography;
+using System.Security.Policy;
+using System.Drawing.Text;
+using LiveSplit.Options;
 
 namespace AutoSplitterCore
 {
@@ -38,7 +43,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public DTCeleste dataCeleste;
         public ProfilesControl _profile;
-        public DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste();
+        public DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste(); 
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
@@ -149,7 +154,7 @@ namespace AutoSplitterCore
                     case Area.Menu: AreaID = "Menu"; break;
                     default: AreaID = string.Empty; break;
                 }
-                _ = infoPlayer.levelName == null ? LevelName = string.Empty : LevelName =  infoPlayer.levelName.ToString();
+                _ = infoPlayer.levelName == null ? LevelName = "None" : LevelName =  infoPlayer.levelName.ToString();
                 return LevelName + " - " + AreaID;
             }
             else
@@ -191,7 +196,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getCelesteStatusProcess(delay);
-                if (!_StatusCeleste) { delay = 2000; } else { delay = 10000; }
+                if (!_StatusCeleste) { delay = 2000; } else { delay = 5000; }
             }
         }
 
@@ -212,6 +217,59 @@ namespace AutoSplitterCore
                     catch (Exception) { }
                 }
             }
+        }
+
+
+        private int lastCassettes;
+        private int lastHeartGems;
+
+        private bool CheckItems(string level)
+        {
+            bool shouldSplit = false;
+            bool chapterCassette = celeste.ChapterCassetteCollected();
+            bool chapterHeart = celeste.ChapterHeartCollected();
+            int cassettes = celeste.Cassettes();
+            int heartGems = celeste.HeartGems();
+            switch (level)
+            {
+                case "Chapter 1 - Forsaken City - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.ForsakenCity && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 2 - Old Site - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.OldSite && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 3 - Celestial Resort - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.CelestialResort && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 4 - Golden Ridge - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.GoldenRidge && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 5 - Mirror Temple - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.MirrorTemple && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 6 - Reflection - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.Reflection && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 7 - The Summit - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.TheSummit && (chapterCassette || cassettes == lastCassettes + 1)); break;
+                case "Chapter 8 - Core - Cassette":
+                    shouldSplit = (infoPlayer.areaID == Area.Core && (chapterCassette || cassettes == lastCassettes + 1)); break;
+
+                case "Chapter 1 - Forsaken City - Heart Gem":
+                    if (infoPlayer.areaID == Area.ForsakenCity && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 2 - Old Site - Heart Gem":
+                    if (infoPlayer.areaID == Area.OldSite && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 3 - Celestial Resort - Heart Gem":
+                    if (infoPlayer.areaID == Area.CelestialResort && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 4 - Golden Ridge - Heart Gem":
+                    if (infoPlayer.areaID == Area.GoldenRidge && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 5 - Mirror Temple - Heart Gem":
+                    if (infoPlayer.areaID == Area.MirrorTemple && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 6 - Reflection - Heart Gem":
+                    if (infoPlayer.areaID == Area.Reflection && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 7 - The Summit - Heart Gem":
+                    if (infoPlayer.areaID == Area.TheSummit && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                case "Chapter 8 - Core - Heart Gem":
+                    if (infoPlayer.areaID == Area.Core && (chapterHeart || heartGems == lastHeartGems + 1)) shouldSplit = true; break;
+                default: shouldSplit = false; break;
+            }
+            lastCassettes = cassettes;
+            lastHeartGems = heartGems;
+            return shouldSplit;
         }
 
         private void chapterToSplit()
@@ -325,6 +383,28 @@ namespace AutoSplitterCore
                                     shouldSplit = infoPlayer.areaID == Area.Farewell && infoPlayer.levelName == "j-00"; break;
                                 case "Chapter 9 - Farewell (CP 8)":
                                     shouldSplit = infoPlayer.areaID == Area.Farewell && infoPlayer.levelName == "j-16"; break;
+
+                                case "Chapter 1 - Forsaken City - Cassette":                                   
+                                case "Chapter 2 - Old Site - Cassette":                               
+                                case "Chapter 3 - Celestial Resort - Cassette":                                  
+                                case "Chapter 4 - Golden Ridge - Cassette":                                   
+                                case "Chapter 5 - Mirror Temple - Cassette":                                 
+                                case "Chapter 6 - Reflection - Cassette":
+                                case "Chapter 7 - The Summit - Cassette":                                  
+                                case "Chapter 8 - Core - Cassette":                                   
+                                case "Chapter 1 - Forsaken City - Heart Gem":                                   
+                                case "Chapter 2 - Old Site - Heart Gem":                                    
+                                case "Chapter 3 - Celestial Resort - Heart Gem":
+                                case "Chapter 4 - Golden Ridge - Heart Gem":
+                                case "Chapter 5 - Mirror Temple - Heart Gem":
+                                case "Chapter 6 - Reflection - Heart Gem":
+                                case "Chapter 7 - The Summit - Heart Gem":
+                                case "Chapter 8 - Core - Heart Gem":
+                                    shouldSplit = CheckItems(element.Title); break;
+    
+                                case "===========================":
+                                    RemoveChapter(element.Title); shouldSplit = false; break;
+
                                 default:
                                     shouldSplit = false; break;
                             }

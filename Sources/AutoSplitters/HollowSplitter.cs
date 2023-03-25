@@ -302,7 +302,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getHollowStatusProcess(delay);
-                if (!_StatusHollow) { delay = 2000; } else { delay = 10000; }
+                if (!_StatusHollow) { delay = 2000; } else { delay = 7000; }
             }
         }
 
