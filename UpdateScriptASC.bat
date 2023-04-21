@@ -21,7 +21,7 @@ if %1 equ 1 (
     rem
     echo ========= Stage 3: Cleaning =========
     del .\UpdateASCInstaller.msi
-    echo All trush elements was erased
+    echo All junk items were removed
     echo ===========================================
     
 
@@ -40,7 +40,7 @@ if %1 equ 1 (
     rem     
     echo ========= Stage 3: Cleaning =========
     rmdir /S /Q .\Update
-    echo All trush elements was erased
+    echo All junk items were removed
     echo ============================================
 	
 ) else if %1 equ 3 (
@@ -58,7 +58,7 @@ if %1 equ 1 (
     rem     
     echo ========= Stage 3: Cleaning =========
     rmdir /S /Q .\Update
-    echo All trush elements was erased
+    echo All junk items were removed
     echo ============================================
 )
 
