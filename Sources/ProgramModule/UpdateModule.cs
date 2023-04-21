@@ -23,13 +23,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
 using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 using TinyJson;
-using System.IO;
 
 namespace AutoSplitterCore
 {
@@ -37,16 +34,24 @@ namespace AutoSplitterCore
     {
         WebClient client = new WebClient();
         public string currentVer;
+        public string currentVersionNotDot;
         public string cloudVer;
+        public string cloudVerNotDot;
+        public string cloudSoulsVer;
+        public string cloudSoulsVerNotDot;
+        public string currentSoulsVer;
         public bool CheckUpdatesOnStartup;
         private static List<Version> Releases = new List<Version>();
+        private static List<Version> SoulsMemoryRelease = new List<Version>();
         private Assembly dll;
+        private Assembly SoulDll;
         public bool DebugMode = false;
 
         public void CheckUpdates(bool ForceUpdate)
         {
             try
             {
+                //AutoSplitterCore GetVersions
                 client.Encoding = System.Text.Encoding.UTF8;
 
                 // https://developer.github.com/v3/#user-agent-required
@@ -65,20 +70,56 @@ namespace AutoSplitterCore
                     if (ver.StartsWith("ASC_"))
                     {
                         ver = ver.Remove(0, 5); //Remove "ASC_v"
-                        ver = ver + ".0"; //Add .0
-                        Version version = Version.Parse(ver);
-                        Releases.Add(version);
+                        Releases.Add(Version.Parse(ver));
                     }
                 }
-                cloudVer = Releases[0].ToString();
-                if (!DebugMode) dll = Assembly.LoadFrom("AutoSplitterCore.dll");
-                _ = DebugMode ? currentVer = Application.ProductVersion.ToString() + ".0" : currentVer = dll.GetName().Version.ToString();
+                cloudVer = Releases[0].ToString() + ".0";
+                cloudVerNotDot = Releases[0].ToString();
+                if (!DebugMode)
+                {
+                    dll = Assembly.LoadFrom("AutoSplitterCore.dll");
+                    currentVer = dll.GetName().Version.ToString();
+                    currentVersionNotDot = currentVer;
+                    currentVersionNotDot = currentVersionNotDot.Remove(currentVersionNotDot.LastIndexOf(".0"));
+                }
+                else
+                {
+                    currentVer = Application.ProductVersion.ToString() + ".0";
+                    currentVersionNotDot = Application.ProductVersion.ToString();
+                }
+
+                //SoulsMemory GetVersions
+                client.Headers.Clear();
+                SoulsMemoryRelease.Clear();
+                SoulDll = Assembly.LoadFrom("SoulMemory.dll");
+                currentSoulsVer = SoulDll.GetName().Version.ToString();
+                client.Headers.Add("User-Agent", "SoulSplitter/" + SoulDll.ToString());
+                client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
+                response = client.DownloadString("http://api.github.com/repos/FrankvdStam/SoulSplitter/releases");
+                auxReleases = response.FromJson<List<Dictionary<string, object>>>();
+                foreach (var aux in auxReleases)
+                {
+                    var ver = aux["tag_name"].ToString();
+                    SoulsMemoryRelease.Add(Version.Parse(ver));
+                }
+                cloudSoulsVerNotDot = SoulsMemoryRelease[0].ToString();
+                cloudSoulsVer = SoulsMemoryRelease[0].ToString()+".0";
             }
             catch (Exception) { };
-            if ((CheckUpdatesOnStartup && Releases.Count > 0 && dll != null && (Releases[0] > dll.GetName().Version))) //|| (DebugMode))
+            if ((CheckUpdatesOnStartup)) //|| (DebugMode))
             {
-                Form aux = new UpdateShowDialog(this);
-                aux.ShowDialog();
+                if (Releases.Count > 0 && dll != null && Releases[0] > dll.GetName().Version)
+                {
+                    Form aux = new UpdateShowDialog(this);
+                    aux.ShowDialog();
+                }
+
+                if (SoulsMemoryRelease.Count > 0 && SoulDll != null && cloudSoulsVer != SoulDll.GetName().Version.ToString())
+                {
+                    Form aux2 = new UpdateShowDialogSouls(this);
+                    aux2.ShowDialog();
+                }
+
             } else if (ForceUpdate) { MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information); }
         }
     }

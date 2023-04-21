@@ -77,6 +77,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -143,6 +145,12 @@
     <Compile Include="Sources\ProgramModule\UpdateShowDialog.Designer.cs">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.Designer.cs">
+      <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sources\AutoSplitters\AslConfigurator.resx">
@@ -160,9 +168,18 @@
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialogSouls.resx">
+      <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PrepareReleaseAutoSplitter.bat" />
+    <None Include="UpdateScriptASC.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
