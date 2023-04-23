@@ -49,6 +49,7 @@ namespace AutoSplitterCore
 
         public void CheckUpdates(bool ForceUpdate)
         {
+            bool update = false;
             try
             {
                 //AutoSplitterCore GetVersions
@@ -110,17 +111,21 @@ namespace AutoSplitterCore
             {
                 if (Releases.Count > 0 && dll != null && Releases[0] > dll.GetName().Version)
                 {
+                    update = true;
                     Form aux = new UpdateShowDialog(this);
                     aux.ShowDialog();
                 }
 
                 if (SoulsMemoryRelease.Count > 0 && SoulDll != null && cloudSoulsVer != SoulDll.GetName().Version.ToString())
                 {
+                    update = true;
                     Form aux2 = new UpdateShowDialogSouls(this);
                     aux2.ShowDialog();
                 }
 
-            } else if (ForceUpdate) { MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                if (!update && ForceUpdate) MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

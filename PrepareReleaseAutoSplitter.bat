@@ -39,8 +39,7 @@ set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v2.x.0.zip
 rmdir /S /Q %PR_TARGET% 2>nul
 mkdir %PR_TARGET%
 del %PR_OUTPUT% 2>nul
-FOR %%G IN (AutoSplitterCore.dll HitCounterManager.dll Irony.dll LiveSplit.Celeste.dll LiveSplit.Core.dll LiveSplit.Cuphead.dll LiveSplit.HollowKnight.dll LiveSplit.ScriptableAutoSplit.dll LiveSplit.Dishonored.dll Newtonsoft.Json.dll UpdateScriptASC.bat) DO copy %PR_BASE%\%%G %PR_TARGET%
-copy .\packages\SoulMemory.1.4.2\lib\netstandard2.0\SoulMemory.dll
+FOR %%G IN (AutoSplitterCore.dll HitCounterManager.dll Irony.dll LiveSplit.Celeste.dll LiveSplit.Core.dll LiveSplit.Cuphead.dll LiveSplit.HollowKnight.dll LiveSplit.ScriptableAutoSplit.dll LiveSplit.Dishonored.dll Newtonsoft.Json.dll SoulMemory.dll UpdateScriptASC.bat) DO copy %PR_BASE%\%%G %PR_TARGET%
 
 echo Copying ASLScripts:
 mkdir %PR_TARGET%\ASLScripts
