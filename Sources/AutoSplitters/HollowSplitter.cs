@@ -79,7 +79,11 @@ namespace AutoSplitterCore
         public bool getHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusHollow = hollow.Memory.HookProcess();
+            try
+            {
+                _StatusHollow = hollow.Memory.HookProcess();
+            } catch (Exception) { _StatusHollow = false; }
+            return _StatusHollow;
         }
 
         public void setStatusSplitting(bool status)
@@ -302,7 +306,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getHollowStatusProcess(delay);
-                if (!_StatusHollow) { delay = 2000; } else { delay = 7000; }
+                if (!_StatusHollow) { delay = 2000; } else { delay = 5000; }
             }
         }
 

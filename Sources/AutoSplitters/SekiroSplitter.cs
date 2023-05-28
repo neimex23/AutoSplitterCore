@@ -81,7 +81,11 @@ namespace AutoSplitterCore
         public bool getSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusSekiro = sekiro.TryRefresh();
+            try
+            {
+                _StatusSekiro = sekiro.TryRefresh();
+            } catch (Exception) { _StatusSekiro = false; };
+            return _StatusSekiro;
         }
 
         public void setStatusSplitting(bool status)
@@ -514,6 +518,11 @@ namespace AutoSplitterCore
         public Vector3f getCurrentPosition()
         {
             if (!_StatusSekiro) getSekiroStatusProcess(0);
+            if (!_StatusSekiro)
+            {
+                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
+                return vector;
+            }
             return sekiro.GetPlayerPosition();
         }
 
@@ -591,7 +600,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 7000;
+                    delay = 5000;
                 }
                 
                 if (!_writeMemory && _StatusSekiro)

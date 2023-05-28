@@ -60,8 +60,12 @@ namespace AutoSplitterCore
         public bool getCupheadStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            cup.HookProcess();
-            cup.GamePointers();              
+            try
+            {
+                cup.HookProcess();
+                cup.GamePointers();
+            } catch (Exception) { return _StatusCuphead = false; }
+         
             return _StatusCuphead = cup.IsHooked;
         }
 
@@ -173,7 +177,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getCupheadStatusProcess(delay);
-                if (!_StatusCuphead) { delay = 2000; } else { delay = 7000; }
+                if (!_StatusCuphead) { delay = 2000; } else { delay = 5000; }
             }
         }
 

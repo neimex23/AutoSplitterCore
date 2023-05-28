@@ -63,7 +63,11 @@ namespace AutoSplitterCore
         public bool getCelesteStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusCeleste = celeste.HookProcess();
+            try
+            {
+                _StatusCeleste = celeste.HookProcess();
+            } catch (Exception) { _StatusCeleste = false; }
+            return _StatusCeleste;
         }
 
         public void SplitGo()

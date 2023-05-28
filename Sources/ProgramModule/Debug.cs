@@ -233,36 +233,39 @@ namespace AutoSplitterCore
                 {
                     var flag = uint.Parse(textBoxCfID.Text);
                     bool status = false;
-                    switch (GameActive)
+                    if (mainModule.GameOn())
                     {
-                        case GameConstruction.SekiroSplitterIndex:
-                            status = mainModule.sekiroSplitter.CheckFlag(flag);
-                            break;
-                        case GameConstruction.Ds1SplitterIndex:
-                            status = mainModule.ds1Splitter.CheckFlag(flag);
-                            break;
-                        case GameConstruction.Ds2SplitterIndex:
-                            status = mainModule.ds2Splitter.CheckFlag(flag);
-                            break;
-                        case GameConstruction.Ds3SplitterIndex:
-                            status = mainModule.ds3Splitter.CheckFlag(flag);
-                            break;
-                        case GameConstruction.EldenSplitterIndex:
-                            status = mainModule.eldenSplitter.CheckFlag(flag);
-                            break;
-                        case GameConstruction.HollowSplitterIndex:
-                            break;
-                        case GameConstruction.CelesteSplitterIndex:
-                            break;
-                        case GameConstruction.CupheadSplitterIndex:
-                            break;
-                        case GameConstruction.DishonoredSplitterIndex:
-                            break;
-                        case GameConstruction.ASLSplitterIndex:
-                        case GameConstruction.NoneSplitterIndex:
-                        default: break;
+                        switch (GameActive)
+                        {
+                            case GameConstruction.SekiroSplitterIndex:
+                                status = mainModule.sekiroSplitter.CheckFlag(flag);
+                                break;
+                            case GameConstruction.Ds1SplitterIndex:
+                                status = mainModule.ds1Splitter.CheckFlag(flag);
+                                break;
+                            case GameConstruction.Ds2SplitterIndex:
+                                status = mainModule.ds2Splitter.CheckFlag(flag);
+                                break;
+                            case GameConstruction.Ds3SplitterIndex:
+                                status = mainModule.ds3Splitter.CheckFlag(flag);
+                                break;
+                            case GameConstruction.EldenSplitterIndex:
+                                status = mainModule.eldenSplitter.CheckFlag(flag);
+                                break;
+                            case GameConstruction.HollowSplitterIndex:
+                                break;
+                            case GameConstruction.CelesteSplitterIndex:
+                                break;
+                            case GameConstruction.CupheadSplitterIndex:
+                                break;
+                            case GameConstruction.DishonoredSplitterIndex:
+                                break;
+                            case GameConstruction.ASLSplitterIndex:
+                            case GameConstruction.NoneSplitterIndex:
+                            default: break;
+                        }
+                        if (status) { btnSplitCf.BackColor = System.Drawing.Color.Green; } else { btnSplitCf.BackColor = System.Drawing.Color.Red; }
                     }
-                    if (status) { btnSplitCf.BackColor = System.Drawing.Color.Green; } else { btnSplitCf.BackColor = System.Drawing.Color.Red; }
                 }
                 catch (Exception)
                 {

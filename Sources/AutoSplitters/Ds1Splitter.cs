@@ -79,7 +79,12 @@ namespace AutoSplitterCore
         public bool getDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusDs1 = Ds1.TryRefresh();
+            try
+            {
+                _StatusDs1 = Ds1.TryRefresh();
+            }
+            catch (Exception) { _StatusDs1 = false; }
+            return _StatusDs1;
         }
 
         public void setStatusSplitting(bool status)
@@ -242,6 +247,11 @@ namespace AutoSplitterCore
         public Vector3f getCurrentPosition()
         {
             if (!_StatusDs1) getDs1StatusProcess(0);
+            if (!_StatusDs1)
+            {
+                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
+                return vector;
+            }
             return Ds1.GetPosition();
         }
 
@@ -317,7 +327,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 7000;
+                    delay = 5000;
                 }
             }
         }

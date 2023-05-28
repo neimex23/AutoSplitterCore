@@ -79,7 +79,12 @@ namespace AutoSplitterCore
         public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusDs2 = Ds2.TryRefresh();
+            try 
+            { 
+                _StatusDs2 = Ds2.TryRefresh(); 
+            }
+            catch (Exception) { _StatusDs2 = false; }
+            return _StatusDs2;
         }
 
         public void setStatusSplitting(bool status)
@@ -172,6 +177,11 @@ namespace AutoSplitterCore
         public Vector3f getCurrentPosition()
         {
             if (!_StatusDs2) getDs2StatusProcess(0);
+            if (!_StatusDs2)
+            {
+                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
+                return vector;
+            }
             return Ds2.GetPosition();
         }
 
@@ -228,7 +238,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 getDs2StatusProcess(delay);
-                if (!_StatusDs2) { delay = 2000; }else { delay = 7000; }
+                if (!_StatusDs2) { delay = 2000; }else { delay = 5000; }
             }
         }
 
@@ -240,23 +250,23 @@ namespace AutoSplitterCore
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
                     var position = Ds2.GetPosition();
-                    if (
-                        position.Y < -322.0f && position.Y > -323.0f &&
-                        position.X < -213.0f && position.X > -214.0f)
-                    {
-                        _runStarted = true;
-                    }
-                    if (position.X == 0.00 && position.Y == 0.00 && position.Z == 0.00)
-                    {
-                        _runStarted = false;
-                    }
-                    if (Ds2.IsLoading() && dataDs2.gameTimer)
-                    {
-                        do
-                        {
+                    bool menu = position.X == 0.00 && position.Y == 0.00 && position.Z == 0.00;
+
+                    if (!dataDs2.gameTimer) {
+                        if (menu)
                             _runStarted = false;
-                        } while (Ds2.IsLoading());
-                        _runStarted = true;
+                        else
+                            _runStarted = true;
+                    }else
+                    {
+                        if (!menu && Ds2.IsLoading())
+                            _runStarted = false;
+
+                        if (menu && !Ds2.IsLoading())
+                            _runStarted = false;
+
+                        if (!menu &&  !Ds2.IsLoading())
+                            _runStarted = true;
                     }
                 }
             }

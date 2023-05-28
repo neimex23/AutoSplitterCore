@@ -78,7 +78,10 @@ namespace AutoSplitterCore
         public bool getEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusElden = elden.TryRefresh();
+            try { 
+                _StatusElden = elden.TryRefresh(); 
+            }catch  (Exception) { _StatusElden = false; }
+            return _StatusElden;
         }
 
         public void setStatusSplitting(bool status)
@@ -200,6 +203,11 @@ namespace AutoSplitterCore
         public SoulMemory.EldenRing.Position getCurrentPosition()
         {
             if (!_StatusElden) getEldenStatusProcess(0);
+            if (!_StatusElden)
+            {
+                SoulMemory.EldenRing.Position vector = new SoulMemory.EldenRing.Position() { X = 0, Y = 0, Z = 0 };
+                return vector;
+            }
             return elden.GetPosition();
         }
 
@@ -268,10 +276,10 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 7000;
+                    delay = 5000;
                 }
 
-                if (!_writeMemory && _StatusElden)
+                if (_StatusElden && !_writeMemory)
                 {
                     if (dataElden.ResetIGTNG && elden.GetInGameTimeMilliseconds() < 1) { 
                         elden.WriteInGameTimeMilliseconds(0);
@@ -473,4 +481,3 @@ namespace AutoSplitterCore
     }
     #endregion
 }
-

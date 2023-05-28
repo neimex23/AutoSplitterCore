@@ -71,6 +71,7 @@ namespace AutoSplitterCore
             catch (Exception ex)
             {
                 Trace.WriteLine(ex.ToString());
+                return _StatusDish = false;
             }
             return _StatusDish = Dish._process != null;
         }

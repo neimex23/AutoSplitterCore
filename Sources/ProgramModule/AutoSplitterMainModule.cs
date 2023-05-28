@@ -416,7 +416,9 @@ namespace AutoSplitterCore
             if (autoTimer && anyGameTime)
             {
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
-                var inGameTime = igtModule.ReturnCurrentIGT();
+                int inGameTime = -1;
+                if (GameOn())
+                    inGameTime = igtModule.ReturnCurrentIGT();
 
                 if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
                 {
@@ -439,7 +441,10 @@ namespace AutoSplitterCore
             if (autoTimer && !anyGameTime)
             {
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
-                var inGameTime = igtModule.ReturnCurrentIGT();
+                int inGameTime = -1;
+                if (GameOn())
+                    inGameTime = igtModule.ReturnCurrentIGT();
+
                 if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
                     main.StartStopTimer(true);
 

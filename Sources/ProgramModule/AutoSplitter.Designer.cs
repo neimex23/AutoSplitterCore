@@ -63,6 +63,12 @@ namespace AutoSplitterCore
             this.tabLicense = new System.Windows.Forms.TabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
+            this.groupBoxTCeleste = new System.Windows.Forms.GroupBox();
+            this.groupBoxATCeleste = new System.Windows.Forms.GroupBox();
+            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCeleste = new System.Windows.Forms.GroupBox();
+            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
             this.groupBoxTDs3 = new System.Windows.Forms.GroupBox();
             this.groupBoxATDs3 = new System.Windows.Forms.GroupBox();
             this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
@@ -98,12 +104,6 @@ namespace AutoSplitterCore
             this.label60 = new System.Windows.Forms.Label();
             this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
             this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCeleste = new System.Windows.Forms.GroupBox();
-            this.groupBoxATCeleste = new System.Windows.Forms.GroupBox();
-            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCeleste = new System.Windows.Forms.GroupBox();
-            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
             this.btnDesactiveAllTiming = new System.Windows.Forms.Button();
             this.groupBoxTHK = new System.Windows.Forms.GroupBox();
             this.groupBoxATHk = new System.Windows.Forms.GroupBox();
@@ -506,6 +506,9 @@ namespace AutoSplitterCore
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
+            this.groupBoxTCeleste.SuspendLayout();
+            this.groupBoxATCeleste.SuspendLayout();
+            this.groupBoxTMCeleste.SuspendLayout();
             this.groupBoxTDs3.SuspendLayout();
             this.groupBoxATDs3.SuspendLayout();
             this.groupBoxTMDs3.SuspendLayout();
@@ -521,9 +524,6 @@ namespace AutoSplitterCore
             this.groupBoxTCuphead.SuspendLayout();
             this.groupBoxATCuphead.SuspendLayout();
             this.groupBoxTMCuphead.SuspendLayout();
-            this.groupBoxTCeleste.SuspendLayout();
-            this.groupBoxATCeleste.SuspendLayout();
-            this.groupBoxTMCeleste.SuspendLayout();
             this.groupBoxTHK.SuspendLayout();
             this.groupBoxATHk.SuspendLayout();
             this.groupBoxTMHollow.SuspendLayout();
@@ -955,15 +955,15 @@ namespace AutoSplitterCore
             // tabTiming
             // 
             this.tabTiming.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTiming.Controls.Add(this.groupBoxTDs2);
+            this.tabTiming.Controls.Add(this.groupBoxTCeleste);
             this.tabTiming.Controls.Add(this.groupBoxTDs3);
             this.tabTiming.Controls.Add(this.groupBoxTEr);
             this.tabTiming.Controls.Add(this.groupBoxTSekiro);
             this.tabTiming.Controls.Add(this.groupBoxTDishonored);
             this.tabTiming.Controls.Add(this.groupBoxTCuphead);
-            this.tabTiming.Controls.Add(this.groupBoxTCeleste);
             this.tabTiming.Controls.Add(this.btnDesactiveAllTiming);
             this.tabTiming.Controls.Add(this.groupBoxTHK);
-            this.tabTiming.Controls.Add(this.groupBoxTDs2);
             this.tabTiming.Controls.Add(this.groupBoxTDs1);
             this.tabTiming.Controls.Add(this.comboBoxTGame);
             this.tabTiming.Controls.Add(this.label75);
@@ -972,6 +972,72 @@ namespace AutoSplitterCore
             this.tabTiming.Size = new System.Drawing.Size(587, 351);
             this.tabTiming.TabIndex = 11;
             this.tabTiming.Text = "Timing";
+            // 
+            // groupBoxTCeleste
+            // 
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
+            this.groupBoxTCeleste.Location = new System.Drawing.Point(126, 62);
+            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
+            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCeleste.TabIndex = 12;
+            this.groupBoxTCeleste.TabStop = false;
+            this.groupBoxTCeleste.Text = "Celeste Timing";
+            // 
+            // groupBoxATCeleste
+            // 
+            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
+            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 30);
+            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
+            this.groupBoxATCeleste.Size = new System.Drawing.Size(153, 108);
+            this.groupBoxATCeleste.TabIndex = 4;
+            this.groupBoxATCeleste.TabStop = false;
+            this.groupBoxATCeleste.Text = "AutoTimer";
+            // 
+            // checkBoxATCeleste
+            // 
+            this.checkBoxATCeleste.AutoSize = true;
+            this.checkBoxATCeleste.Location = new System.Drawing.Point(46, 49);
+            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
+            this.checkBoxATCeleste.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxATCeleste.TabIndex = 1;
+            this.checkBoxATCeleste.Text = "Enable";
+            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
+            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
+            // 
+            // groupBoxTMCeleste
+            // 
+            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
+            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
+            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 30);
+            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
+            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 108);
+            this.groupBoxTMCeleste.TabIndex = 3;
+            this.groupBoxTMCeleste.TabStop = false;
+            this.groupBoxTMCeleste.Text = "Timing Method";
+            // 
+            // radioIGTCeleste
+            // 
+            this.radioIGTCeleste.AutoSize = true;
+            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCeleste.Name = "radioIGTCeleste";
+            this.radioIGTCeleste.Size = new System.Drawing.Size(79, 17);
+            this.radioIGTCeleste.TabIndex = 1;
+            this.radioIGTCeleste.Text = "Game Time";
+            this.radioIGTCeleste.UseVisualStyleBackColor = true;
+            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
+            // 
+            // radioRealTimerCeleste
+            // 
+            this.radioRealTimerCeleste.AutoSize = true;
+            this.radioRealTimerCeleste.Checked = true;
+            this.radioRealTimerCeleste.Location = new System.Drawing.Point(40, 34);
+            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
+            this.radioRealTimerCeleste.Size = new System.Drawing.Size(73, 17);
+            this.radioRealTimerCeleste.TabIndex = 0;
+            this.radioRealTimerCeleste.TabStop = true;
+            this.radioRealTimerCeleste.Text = "Real Time";
+            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
             // 
             // groupBoxTDs3
             // 
@@ -1360,72 +1426,6 @@ namespace AutoSplitterCore
             this.radioRealTimerCuphead.TabStop = true;
             this.radioRealTimerCuphead.Text = "Real Time";
             this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCeleste
-            // 
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
-            this.groupBoxTCeleste.Location = new System.Drawing.Point(126, 62);
-            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
-            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCeleste.TabIndex = 12;
-            this.groupBoxTCeleste.TabStop = false;
-            this.groupBoxTCeleste.Text = "Celeste Timing";
-            // 
-            // groupBoxATCeleste
-            // 
-            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
-            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 30);
-            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
-            this.groupBoxATCeleste.Size = new System.Drawing.Size(153, 108);
-            this.groupBoxATCeleste.TabIndex = 4;
-            this.groupBoxATCeleste.TabStop = false;
-            this.groupBoxATCeleste.Text = "AutoTimer";
-            // 
-            // checkBoxATCeleste
-            // 
-            this.checkBoxATCeleste.AutoSize = true;
-            this.checkBoxATCeleste.Location = new System.Drawing.Point(46, 49);
-            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
-            this.checkBoxATCeleste.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxATCeleste.TabIndex = 1;
-            this.checkBoxATCeleste.Text = "Enable";
-            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
-            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
-            // 
-            // groupBoxTMCeleste
-            // 
-            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
-            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
-            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 30);
-            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
-            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 108);
-            this.groupBoxTMCeleste.TabIndex = 3;
-            this.groupBoxTMCeleste.TabStop = false;
-            this.groupBoxTMCeleste.Text = "Timing Method";
-            // 
-            // radioIGTCeleste
-            // 
-            this.radioIGTCeleste.AutoSize = true;
-            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCeleste.Name = "radioIGTCeleste";
-            this.radioIGTCeleste.Size = new System.Drawing.Size(79, 17);
-            this.radioIGTCeleste.TabIndex = 1;
-            this.radioIGTCeleste.Text = "Game Time";
-            this.radioIGTCeleste.UseVisualStyleBackColor = true;
-            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
-            // 
-            // radioRealTimerCeleste
-            // 
-            this.radioRealTimerCeleste.AutoSize = true;
-            this.radioRealTimerCeleste.Checked = true;
-            this.radioRealTimerCeleste.Location = new System.Drawing.Point(40, 34);
-            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
-            this.radioRealTimerCeleste.Size = new System.Drawing.Size(73, 17);
-            this.radioRealTimerCeleste.TabIndex = 0;
-            this.radioRealTimerCeleste.TabStop = true;
-            this.radioRealTimerCeleste.Text = "Real Time";
-            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
             // 
             // btnDesactiveAllTiming
             // 
@@ -7670,6 +7670,11 @@ namespace AutoSplitterCore
             this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
+            this.groupBoxTCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.PerformLayout();
+            this.groupBoxTMCeleste.ResumeLayout(false);
+            this.groupBoxTMCeleste.PerformLayout();
             this.groupBoxTDs3.ResumeLayout(false);
             this.groupBoxATDs3.ResumeLayout(false);
             this.groupBoxATDs3.PerformLayout();
@@ -7696,11 +7701,6 @@ namespace AutoSplitterCore
             this.groupBoxATCuphead.PerformLayout();
             this.groupBoxTMCuphead.ResumeLayout(false);
             this.groupBoxTMCuphead.PerformLayout();
-            this.groupBoxTCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.PerformLayout();
-            this.groupBoxTMCeleste.ResumeLayout(false);
-            this.groupBoxTMCeleste.PerformLayout();
             this.groupBoxTHK.ResumeLayout(false);
             this.groupBoxATHk.ResumeLayout(false);
             this.groupBoxATHk.PerformLayout();

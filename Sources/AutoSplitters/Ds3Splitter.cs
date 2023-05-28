@@ -81,7 +81,10 @@ namespace AutoSplitterCore
         public bool getDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            return _StatusDs3 = Ds3.TryRefresh();
+            try {
+                _StatusDs3 = Ds3.TryRefresh();
+            } catch (Exception) { _StatusDs3 = false; }
+            return _StatusDs3;
         }
 
         public void setStatusSplitting(bool status)
@@ -241,6 +244,11 @@ namespace AutoSplitterCore
         public Vector3f getCurrentPosition()
         {
             if(!_StatusDs3) getDs3StatusProcess(0);
+            if (!_StatusDs3)
+            {
+                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
+                return vector;
+            }
             return Ds3.GetPosition();
         }
         #endregion
@@ -304,10 +312,10 @@ namespace AutoSplitterCore
                 }
                 else
                 {
-                    delay = 7000;
+                    delay = 5000;
                 }
 
-                if (!_writeMemory && _StatusDs3)
+                if (_StatusDs3 && !_writeMemory)
                 {
                     if (dataDs3.ResetIGTNG && Ds3.GetInGameTimeMilliseconds() < 1)
                     {
@@ -323,7 +331,6 @@ namespace AutoSplitterCore
         List<DefinitionsDs3.LvlDs3> listPendingLvl = new List<DefinitionsDs3.LvlDs3>();
         List<DefinitionsDs3.CfDs3> listPendingCf = new List<DefinitionsDs3.CfDs3>();
         List<DefinitionsDs3.PositionDs3> listPendingP = new List<DefinitionsDs3.PositionDs3>();
-
 
         private void checkLoad()
         {
@@ -379,7 +386,6 @@ namespace AutoSplitterCore
                 }
             }
         }
-
        
         private void bossToSplit()
         {
