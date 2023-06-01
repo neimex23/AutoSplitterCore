@@ -235,7 +235,17 @@ namespace AutoSplitterCore
         #region IGT & Timmer 
         public long ReturnCurrentIGT()
         {
-            return (long)igtModule.ReturnCurrentIGT();
+            long igtTime;
+            if (GameOn())
+            {
+                try
+                {
+                    igtTime = (long)igtModule.ReturnCurrentIGT();
+                }
+                catch (Exception) { igtTime = -1; }
+            }else { igtTime = -1; }
+
+            return igtTime;
         }
 
         public bool GetIsIGTActive()
@@ -417,8 +427,11 @@ namespace AutoSplitterCore
             {
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 int inGameTime = -1;
-                if (GameOn())
-                    inGameTime = igtModule.ReturnCurrentIGT();
+                if (GameOn()) {
+                    try {
+                        inGameTime = igtModule.ReturnCurrentIGT(); 
+                    } catch (Exception) { inGameTime = -1; }
+                }
 
                 if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
                 {
@@ -443,7 +456,13 @@ namespace AutoSplitterCore
                 SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 int inGameTime = -1;
                 if (GameOn())
-                    inGameTime = igtModule.ReturnCurrentIGT();
+                {
+                    try
+                    {
+                        inGameTime = igtModule.ReturnCurrentIGT();
+                    }
+                    catch (Exception) { inGameTime = -1; }
+                }
 
                 if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
                     main.StartStopTimer(true);
