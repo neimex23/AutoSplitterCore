@@ -42,7 +42,7 @@ namespace AutoSplitterCore
             "Celeste",
             "Cuphead",
             "Dishonored",
-            "ASL Method"
+            "ASL Method (Experimental)"
         };
 
         //SplitterIndex: Use For if Want Add a new Game change index it do more easier

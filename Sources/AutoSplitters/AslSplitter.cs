@@ -32,7 +32,7 @@ namespace AutoSplitterCore
 {
     public class AslSplitter
     {
-        private static LiveSplit.Model.LiveSplitState state = new LiveSplit.Model.LiveSplitState();
+        private static LiveSplit.Model.LiveSplitState state = new LiveSplit.Model.LiveSplitState(null,null,null,null,null);
         public static ASLComponent asl = new ASLComponent(state);
         public Control control = asl.GetSettingsControl(LiveSplit.UI.LayoutMode.Vertical);
         public ProfilesControl _profile;
@@ -41,7 +41,7 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
         private static readonly object _object = new object();       
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1500 };
+        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         private System.Windows.Forms.Timer _update_timer2 = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
 
@@ -49,8 +49,8 @@ namespace AutoSplitterCore
         public void setData(XmlNode node, ProfilesControl profile)
         {
             this._profile = profile;
-            if (node != null) { asl.SetSettings(node); asl.UpdateScript(); }
-            _update_timer.Tick += (sender, args) => asl.UpdateScript();
+            if (node != null) { asl.SetSettings(node); } //asl.UpdateScript(); }
+            //_update_timer.Tick += (sender, args) => asl.UpdateScript();
             _update_timer2.Tick += (sender, args) => SplitGo();
             _update_timer.Enabled = true;                    
         }
@@ -68,7 +68,7 @@ namespace AutoSplitterCore
 
         public void UpdateScript()
         {
-            asl.UpdateScript();
+            //asl.UpdateScript();
         }
         #endregion
         #region Procedure
@@ -107,9 +107,9 @@ namespace AutoSplitterCore
                  Thread.Sleep(1000);
                  if (asl.Script != null)
                  {
-                     if (asl.Script.shouldSplit)
+                     if (asl.Script.ShouldSplit)
                      {
-                        asl.Script.shouldSplit = false;
+                        asl.Script.ShouldSplit = false;
                         if (!_PracticeMode && !_ShowSettings) { SplitCheck(); }                           
                      }
                  }

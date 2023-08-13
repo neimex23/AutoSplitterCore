@@ -1,7 +1,7 @@
 @echo off
 Color 1F
 echo ======== AutoSpliterCore Update Script ========
-echo                      v1.0
+echo                      v1.1
 echo ============================================
 echo Warning: This script must not be run individually, 
 echo you must download the files from the program first 
@@ -9,7 +9,7 @@ echo ============================================
 rem
 
 if %1 equ 1 (
-     echo ========= ASC_Portable Function =========
+     echo ========= ASC_Installer Function =========
     echo  ========= Stage 1: Finishing Proccess  =========
     rem     
     taskkill /im "HitCounterManager.exe" /f >nul 2>nul

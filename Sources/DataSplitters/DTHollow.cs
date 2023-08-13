@@ -533,6 +533,7 @@ namespace AutoSplitterCore
             public string sceneName = "None";
             public string previousScene = "None";
             public bool IsSplited = false;
+            public string Title;
         }
         #endregion
         #region Pantheon

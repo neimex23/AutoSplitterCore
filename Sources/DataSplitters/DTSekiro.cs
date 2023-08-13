@@ -310,6 +310,7 @@ namespace AutoSplitterCore
             public Vector3f vector = new Vector3f();
             public bool IsSplited = false;
             public string Mode;
+            public string Title;
             public void setVector(Vector3f vector)
             {
                 this.vector = vector;

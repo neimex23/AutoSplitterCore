@@ -192,12 +192,13 @@ namespace AutoSplitterCore
             dataDs1.lvlToSplit.RemoveAt(position);
         }
 
-        public void AddPosition(Vector3f vector, string mode) 
+        public void AddPosition(Vector3f vector, string mode, string title) 
         {
             var position = new DefinitionsDs1.PositionDs1()
             {
                 vector = vector,
-                Mode = mode
+                Mode = mode,
+                Title = title
             };
             dataDs1.positionsToSplit.Add(position);
         }

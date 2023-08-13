@@ -265,7 +265,7 @@ namespace AutoSplitterCore
             #region SekiroLoad.Position
             foreach (DefinitionsSekiro.PositionS position in sekiroData.getPositionsToSplit())
             {
-                listBoxPositionsS.Items.Add(position.vector.X + "; " + position.vector.Y + "; " + position.vector.Z + " - " + position.Mode);
+                listBoxPositionsS.Items.Add(position.vector.X + "; " + position.vector.Y + "; " + position.vector.Z + " - " + position.Mode + position.Title);
             }
             comboBoxMarginS.SelectedIndex = sekiroData.positionMargin;
             #endregion
@@ -360,7 +360,7 @@ namespace AutoSplitterCore
             #region HollowLoad.Position
             foreach (var p in hollowData.getPositionToSplit())
             {
-                listBoxPositionH.Items.Add(p.position + " - " + p.sceneName);
+                listBoxPositionH.Items.Add(p.position + " - " + p.sceneName + p.Title);
             }
             comboBoxMarginH.SelectedIndex = hollowData.positionMargin;
             #endregion
@@ -380,7 +380,7 @@ namespace AutoSplitterCore
             #region EldenLoad.Positions
             foreach (DefinitionsElden.PositionER position in eldenData.getPositionToSplit())
             {
-                listBoxPositionsER.Items.Add(position.vector + " - " + position.Mode);
+                listBoxPositionsER.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginER.SelectedIndex = eldenData.positionMargin;
             #endregion
@@ -418,7 +418,7 @@ namespace AutoSplitterCore
             #region Ds3Load.Position
             foreach (DefinitionsDs3.PositionDs3 position in ds3Data.getPositionsToSplit())
             {
-                listBoxPositionsDs3.Items.Add(position.vector + " - " + position.Mode);
+                listBoxPositionsDs3.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginDs3.SelectedIndex = ds3Data.positionMargin;
             #endregion
@@ -475,7 +475,7 @@ namespace AutoSplitterCore
             #region Ds2Load.Position
             foreach (DefinitionsDs2.PositionDs2 position in ds2Data.getPositionsToSplit())
             {
-                listBoxPositionsDs2.Items.Add(position.vector + " - " + position.Mode);
+                listBoxPositionsDs2.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginDs2.SelectedIndex = ds2Data.positionMargin;
             #endregion
@@ -521,7 +521,7 @@ namespace AutoSplitterCore
             #region Ds1Load.Position
             foreach (DefinitionsDs1.PositionDs1 position in ds1Data.getPositionsToSplit())
             {
-                listBoxPositionsDs1.Items.Add(position.vector + " - " + position.Mode);
+                listBoxPositionsDs1.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginDs1.SelectedIndex = ds1Data.positionMargin;
             #endregion
@@ -1264,8 +1264,15 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPosition.Text.ToString());                                
-                                sekiroSplitter.AddPosition(X, Y, Z, comboBoxHowPosition.Text.ToString());
+                                string title = string.Empty;
+                                if (textBoxTitlePositionS.Text != string.Empty)
+                                {
+                                    title = " - " + textBoxTitlePositionS.Text;
+                                    textBoxTitlePositionS.Clear();
+                                }
+
+                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPosition.Text.ToString() + title);                                
+                                sekiroSplitter.AddPosition(X, Y, Z, comboBoxHowPosition.Text.ToString(), title);
                             }
                         }
                         else
@@ -2061,8 +2068,15 @@ namespace AutoSplitterCore
                         }
                         else
                         {
-                            listBoxPositionsDs1.Items.Add(this.VectorDs1 + " - " + comboBoxHowPositionsDs1.Text.ToString());
-                            ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString());
+                            string title = string.Empty;
+                            if (textBoxTitlePositionDs1.Text != string.Empty)
+                            {
+                                title = " - " + textBoxTitlePositionDs1.Text;
+                                textBoxTitlePositionDs1.Clear();
+                            }
+
+                            listBoxPositionsDs1.Items.Add(this.VectorDs1 + " - " + comboBoxHowPositionsDs1.Text.ToString() + title);
+                            ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString(),title);
                         }
                     }
                 }
@@ -2252,8 +2266,14 @@ namespace AutoSplitterCore
                         }
                         else
                         {
-                            listBoxPositionsDs2.Items.Add(this.VectorDs2 + " - " + comboBoxHowPositionsDs2.Text.ToString());
-                            ds2Splitter.AddPosition(this.VectorDs2, comboBoxHowPositionsDs2.Text.ToString());
+                            string title = string.Empty;
+                            if (textBoxTitlePositionDs2.Text != string.Empty)
+                            {
+                                title = " - " + textBoxTitlePositionDs2.Text;
+                                textBoxTitlePositionDs2.Clear();
+                            }
+                            listBoxPositionsDs2.Items.Add(this.VectorDs2 + " - " + comboBoxHowPositionsDs2.Text.ToString() + title);
+                            ds2Splitter.AddPosition(this.VectorDs2, comboBoxHowPositionsDs2.Text.ToString(), title);
                         }
                     }
                 }
@@ -2509,8 +2529,14 @@ namespace AutoSplitterCore
                         }
                         else
                         {
-                            listBoxPositionsDs3.Items.Add(this.VectorDs3 + " - " + comboBoxHowPositionsDs3.Text.ToString());
-                            ds3Splitter.AddPosition(this.VectorDs3, comboBoxHowPositionsDs3.Text.ToString());
+                            string title = string.Empty;
+                            if (textBoxTitlePositionDs3.Text != string.Empty)
+                            {
+                                title = " - " + textBoxTitlePositionDs3.Text;
+                                textBoxTitlePositionDs3.Clear();
+                            }
+                            listBoxPositionsDs3.Items.Add(this.VectorDs3 + " - " + comboBoxHowPositionsDs3.Text.ToString() + title);
+                            ds3Splitter.AddPosition(this.VectorDs3, comboBoxHowPositionsDs3.Text.ToString(), title);
                         }
                     }
                 }
@@ -2680,8 +2706,14 @@ namespace AutoSplitterCore
                         }
                         else
                         {
-                            listBoxPositionsER.Items.Add(this.VectorER + " - " + comboBoxHowPositionsER.Text.ToString());
-                            eldenSplitter.AddPosition(this.VectorER, comboBoxHowPositionsER.Text.ToString());
+                            string title = string.Empty;
+                            if (textBoxTitlePositionER.Text != string.Empty)
+                            {
+                                title = " - " + textBoxTitlePositionER.Text;
+                                textBoxTitlePositionER.Clear();
+                            }
+                            listBoxPositionsER.Items.Add(this.VectorER + " - " + comboBoxHowPositionsER.Text.ToString() + title);
+                            eldenSplitter.AddPosition(this.VectorER, comboBoxHowPositionsER.Text.ToString(), title);
                         }
                     }
                 }
@@ -2973,8 +3005,14 @@ namespace AutoSplitterCore
                     }
                     else
                     {
-                        listBoxPositionH.Items.Add(this.VectorH + " - " + textBoxSh.Text);
-                        hollowSplitter.AddPosition(this.VectorH, textBoxSh.Text);
+                        string title = string.Empty;
+                        if (textBoxTitlePositionHK.Text != string.Empty)
+                        {
+                            title = " - " + textBoxTitlePositionHK.Text;
+                            textBoxTitlePositionHK.Clear();
+                        }
+                        listBoxPositionH.Items.Add(this.VectorH + " - " + textBoxSh.Text + title);
+                        hollowSplitter.AddPosition(this.VectorH, textBoxSh.Text, title);
                     }
                 }
                 else

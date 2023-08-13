@@ -63,6 +63,12 @@ namespace AutoSplitterCore
             this.tabLicense = new System.Windows.Forms.TabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
+            this.groupBoxTDs2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxATDs2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs2 = new System.Windows.Forms.GroupBox();
+            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
             this.groupBoxTCeleste = new System.Windows.Forms.GroupBox();
             this.groupBoxATCeleste = new System.Windows.Forms.GroupBox();
             this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
@@ -111,12 +117,6 @@ namespace AutoSplitterCore
             this.groupBoxTMHollow = new System.Windows.Forms.GroupBox();
             this.radioIGTHollow = new System.Windows.Forms.RadioButton();
             this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs2 = new System.Windows.Forms.GroupBox();
-            this.groupBoxATDs2 = new System.Windows.Forms.GroupBox();
-            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs2 = new System.Windows.Forms.GroupBox();
-            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
             this.groupBoxTDs1 = new System.Windows.Forms.GroupBox();
             this.groupBoxATDs1 = new System.Windows.Forms.GroupBox();
             this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
@@ -497,6 +497,18 @@ namespace AutoSplitterCore
             this.btnDesactiveAllDishonored = new System.Windows.Forms.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionS = new System.Windows.Forms.TextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs1 = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs2 = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs3 = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionER = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionHK = new System.Windows.Forms.TextBox();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -506,6 +518,9 @@ namespace AutoSplitterCore
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
+            this.groupBoxTDs2.SuspendLayout();
+            this.groupBoxATDs2.SuspendLayout();
+            this.groupBoxTMDs2.SuspendLayout();
             this.groupBoxTCeleste.SuspendLayout();
             this.groupBoxATCeleste.SuspendLayout();
             this.groupBoxTMCeleste.SuspendLayout();
@@ -527,9 +542,6 @@ namespace AutoSplitterCore
             this.groupBoxTHK.SuspendLayout();
             this.groupBoxATHk.SuspendLayout();
             this.groupBoxTMHollow.SuspendLayout();
-            this.groupBoxTDs2.SuspendLayout();
-            this.groupBoxATDs2.SuspendLayout();
-            this.groupBoxTMDs2.SuspendLayout();
             this.groupBoxTDs1.SuspendLayout();
             this.groupBoxATDs1.SuspendLayout();
             this.groupBoxTMDs1.SuspendLayout();
@@ -972,6 +984,72 @@ namespace AutoSplitterCore
             this.tabTiming.Size = new System.Drawing.Size(587, 351);
             this.tabTiming.TabIndex = 11;
             this.tabTiming.Text = "Timing";
+            // 
+            // groupBoxTDs2
+            // 
+            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
+            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
+            this.groupBoxTDs2.Location = new System.Drawing.Point(126, 62);
+            this.groupBoxTDs2.Name = "groupBoxTDs2";
+            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs2.TabIndex = 9;
+            this.groupBoxTDs2.TabStop = false;
+            this.groupBoxTDs2.Text = "Ds2 Timing";
+            // 
+            // groupBoxATDs2
+            // 
+            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
+            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 30);
+            this.groupBoxATDs2.Name = "groupBoxATDs2";
+            this.groupBoxATDs2.Size = new System.Drawing.Size(153, 108);
+            this.groupBoxATDs2.TabIndex = 4;
+            this.groupBoxATDs2.TabStop = false;
+            this.groupBoxATDs2.Text = "AutoTimer";
+            // 
+            // checkBoxATDs2
+            // 
+            this.checkBoxATDs2.AutoSize = true;
+            this.checkBoxATDs2.Location = new System.Drawing.Point(46, 49);
+            this.checkBoxATDs2.Name = "checkBoxATDs2";
+            this.checkBoxATDs2.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxATDs2.TabIndex = 1;
+            this.checkBoxATDs2.Text = "Enable";
+            this.checkBoxATDs2.UseVisualStyleBackColor = true;
+            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
+            // 
+            // groupBoxTMDs2
+            // 
+            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
+            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
+            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 30);
+            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
+            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 108);
+            this.groupBoxTMDs2.TabIndex = 3;
+            this.groupBoxTMDs2.TabStop = false;
+            this.groupBoxTMDs2.Text = "Timing Method";
+            // 
+            // radioIGTDs2
+            // 
+            this.radioIGTDs2.AutoSize = true;
+            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs2.Name = "radioIGTDs2";
+            this.radioIGTDs2.Size = new System.Drawing.Size(79, 17);
+            this.radioIGTDs2.TabIndex = 1;
+            this.radioIGTDs2.Text = "Game Time";
+            this.radioIGTDs2.UseVisualStyleBackColor = true;
+            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
+            // 
+            // radioRealTimerDs2
+            // 
+            this.radioRealTimerDs2.AutoSize = true;
+            this.radioRealTimerDs2.Checked = true;
+            this.radioRealTimerDs2.Location = new System.Drawing.Point(40, 34);
+            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
+            this.radioRealTimerDs2.Size = new System.Drawing.Size(73, 17);
+            this.radioRealTimerDs2.TabIndex = 0;
+            this.radioRealTimerDs2.TabStop = true;
+            this.radioRealTimerDs2.Text = "Real Time";
+            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
             // 
             // groupBoxTCeleste
             // 
@@ -1503,72 +1581,6 @@ namespace AutoSplitterCore
             this.radioRealTimerHollow.Text = "Real Time";
             this.radioRealTimerHollow.UseVisualStyleBackColor = true;
             // 
-            // groupBoxTDs2
-            // 
-            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
-            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
-            this.groupBoxTDs2.Location = new System.Drawing.Point(126, 62);
-            this.groupBoxTDs2.Name = "groupBoxTDs2";
-            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs2.TabIndex = 9;
-            this.groupBoxTDs2.TabStop = false;
-            this.groupBoxTDs2.Text = "Ds2 Timing";
-            // 
-            // groupBoxATDs2
-            // 
-            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
-            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 30);
-            this.groupBoxATDs2.Name = "groupBoxATDs2";
-            this.groupBoxATDs2.Size = new System.Drawing.Size(153, 108);
-            this.groupBoxATDs2.TabIndex = 4;
-            this.groupBoxATDs2.TabStop = false;
-            this.groupBoxATDs2.Text = "AutoTimer";
-            // 
-            // checkBoxATDs2
-            // 
-            this.checkBoxATDs2.AutoSize = true;
-            this.checkBoxATDs2.Location = new System.Drawing.Point(46, 49);
-            this.checkBoxATDs2.Name = "checkBoxATDs2";
-            this.checkBoxATDs2.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxATDs2.TabIndex = 1;
-            this.checkBoxATDs2.Text = "Enable";
-            this.checkBoxATDs2.UseVisualStyleBackColor = true;
-            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
-            // 
-            // groupBoxTMDs2
-            // 
-            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
-            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
-            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 30);
-            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
-            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 108);
-            this.groupBoxTMDs2.TabIndex = 3;
-            this.groupBoxTMDs2.TabStop = false;
-            this.groupBoxTMDs2.Text = "Timing Method";
-            // 
-            // radioIGTDs2
-            // 
-            this.radioIGTDs2.AutoSize = true;
-            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs2.Name = "radioIGTDs2";
-            this.radioIGTDs2.Size = new System.Drawing.Size(79, 17);
-            this.radioIGTDs2.TabIndex = 1;
-            this.radioIGTDs2.Text = "Game Time";
-            this.radioIGTDs2.UseVisualStyleBackColor = true;
-            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
-            // 
-            // radioRealTimerDs2
-            // 
-            this.radioRealTimerDs2.AutoSize = true;
-            this.radioRealTimerDs2.Checked = true;
-            this.radioRealTimerDs2.Location = new System.Drawing.Point(40, 34);
-            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
-            this.radioRealTimerDs2.Size = new System.Drawing.Size(73, 17);
-            this.radioRealTimerDs2.TabIndex = 0;
-            this.radioRealTimerDs2.TabStop = true;
-            this.radioRealTimerDs2.Text = "Real Time";
-            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
-            // 
             // groupBoxTDs1
             // 
             this.groupBoxTDs1.Controls.Add(this.groupBoxATDs1);
@@ -1689,6 +1701,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionS
             // 
+            this.panelPositionS.Controls.Add(this.label85);
+            this.panelPositionS.Controls.Add(this.textBoxTitlePositionS);
             this.panelPositionS.Controls.Add(this.label11);
             this.panelPositionS.Controls.Add(this.label10);
             this.panelPositionS.Controls.Add(this.label9);
@@ -1703,7 +1717,7 @@ namespace AutoSplitterCore
             this.panelPositionS.Controls.Add(this.textBoxX);
             this.panelPositionS.Location = new System.Drawing.Point(44, 82);
             this.panelPositionS.Name = "panelPositionS";
-            this.panelPositionS.Size = new System.Drawing.Size(505, 244);
+            this.panelPositionS.Size = new System.Drawing.Size(505, 273);
             this.panelPositionS.TabIndex = 13;
             // 
             // label11
@@ -1780,7 +1794,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsS.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsS.FormattingEnabled = true;
-            this.listBoxPositionsS.Location = new System.Drawing.Point(3, 90);
+            this.listBoxPositionsS.Location = new System.Drawing.Point(4, 117);
             this.listBoxPositionsS.Name = "listBoxPositionsS";
             this.listBoxPositionsS.Size = new System.Drawing.Size(495, 147);
             this.listBoxPositionsS.TabIndex = 6;
@@ -1788,7 +1802,7 @@ namespace AutoSplitterCore
             // 
             // btnAddPosition
             // 
-            this.btnAddPosition.Location = new System.Drawing.Point(248, 63);
+            this.btnAddPosition.Location = new System.Drawing.Point(248, 90);
             this.btnAddPosition.Name = "btnAddPosition";
             this.btnAddPosition.Size = new System.Drawing.Size(100, 21);
             this.btnAddPosition.TabIndex = 5;
@@ -1798,7 +1812,7 @@ namespace AutoSplitterCore
             // 
             // btnGetPositionS
             // 
-            this.btnGetPositionS.Location = new System.Drawing.Point(142, 63);
+            this.btnGetPositionS.Location = new System.Drawing.Point(142, 90);
             this.btnGetPositionS.Name = "btnGetPositionS";
             this.btnGetPositionS.Size = new System.Drawing.Size(100, 21);
             this.btnGetPositionS.TabIndex = 4;
@@ -3212,6 +3226,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionDs1
             // 
+            this.panelPositionDs1.Controls.Add(this.label86);
+            this.panelPositionDs1.Controls.Add(this.textBoxTitlePositionDs1);
             this.panelPositionDs1.Controls.Add(this.label68);
             this.panelPositionDs1.Controls.Add(this.label69);
             this.panelPositionDs1.Controls.Add(this.label70);
@@ -3226,7 +3242,7 @@ namespace AutoSplitterCore
             this.panelPositionDs1.Controls.Add(this.textBoxXDs1);
             this.panelPositionDs1.Location = new System.Drawing.Point(43, 89);
             this.panelPositionDs1.Name = "panelPositionDs1";
-            this.panelPositionDs1.Size = new System.Drawing.Size(505, 244);
+            this.panelPositionDs1.Size = new System.Drawing.Size(505, 266);
             this.panelPositionDs1.TabIndex = 27;
             // 
             // label68
@@ -3303,7 +3319,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs1.FormattingEnabled = true;
-            this.listBoxPositionsDs1.Location = new System.Drawing.Point(3, 90);
+            this.listBoxPositionsDs1.Location = new System.Drawing.Point(3, 113);
             this.listBoxPositionsDs1.Name = "listBoxPositionsDs1";
             this.listBoxPositionsDs1.Size = new System.Drawing.Size(495, 147);
             this.listBoxPositionsDs1.TabIndex = 6;
@@ -3311,7 +3327,7 @@ namespace AutoSplitterCore
             // 
             // btnAddPositionDs1
             // 
-            this.btnAddPositionDs1.Location = new System.Drawing.Point(248, 63);
+            this.btnAddPositionDs1.Location = new System.Drawing.Point(244, 90);
             this.btnAddPositionDs1.Name = "btnAddPositionDs1";
             this.btnAddPositionDs1.Size = new System.Drawing.Size(100, 21);
             this.btnAddPositionDs1.TabIndex = 5;
@@ -3321,7 +3337,7 @@ namespace AutoSplitterCore
             // 
             // btnGetPositionDs1
             // 
-            this.btnGetPositionDs1.Location = new System.Drawing.Point(142, 63);
+            this.btnGetPositionDs1.Location = new System.Drawing.Point(138, 90);
             this.btnGetPositionDs1.Name = "btnGetPositionDs1";
             this.btnGetPositionDs1.Size = new System.Drawing.Size(100, 21);
             this.btnGetPositionDs1.TabIndex = 4;
@@ -4547,6 +4563,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionDs2
             // 
+            this.panelPositionDs2.Controls.Add(this.label87);
+            this.panelPositionDs2.Controls.Add(this.textBoxTitlePositionDs2);
             this.panelPositionDs2.Controls.Add(this.label55);
             this.panelPositionDs2.Controls.Add(this.label56);
             this.panelPositionDs2.Controls.Add(this.label57);
@@ -4561,7 +4579,7 @@ namespace AutoSplitterCore
             this.panelPositionDs2.Controls.Add(this.textBoxXDs2);
             this.panelPositionDs2.Location = new System.Drawing.Point(37, 88);
             this.panelPositionDs2.Name = "panelPositionDs2";
-            this.panelPositionDs2.Size = new System.Drawing.Size(505, 244);
+            this.panelPositionDs2.Size = new System.Drawing.Size(505, 267);
             this.panelPositionDs2.TabIndex = 26;
             // 
             // label55
@@ -4637,7 +4655,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs2.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs2.FormattingEnabled = true;
-            this.listBoxPositionsDs2.Location = new System.Drawing.Point(3, 90);
+            this.listBoxPositionsDs2.Location = new System.Drawing.Point(4, 113);
             this.listBoxPositionsDs2.Name = "listBoxPositionsDs2";
             this.listBoxPositionsDs2.Size = new System.Drawing.Size(495, 147);
             this.listBoxPositionsDs2.TabIndex = 6;
@@ -4645,7 +4663,7 @@ namespace AutoSplitterCore
             // 
             // btnAddPositionDs2
             // 
-            this.btnAddPositionDs2.Location = new System.Drawing.Point(248, 63);
+            this.btnAddPositionDs2.Location = new System.Drawing.Point(248, 90);
             this.btnAddPositionDs2.Name = "btnAddPositionDs2";
             this.btnAddPositionDs2.Size = new System.Drawing.Size(100, 21);
             this.btnAddPositionDs2.TabIndex = 5;
@@ -4655,7 +4673,7 @@ namespace AutoSplitterCore
             // 
             // btnGetPositionDs2
             // 
-            this.btnGetPositionDs2.Location = new System.Drawing.Point(142, 63);
+            this.btnGetPositionDs2.Location = new System.Drawing.Point(142, 90);
             this.btnGetPositionDs2.Name = "btnGetPositionDs2";
             this.btnGetPositionDs2.Size = new System.Drawing.Size(100, 21);
             this.btnGetPositionDs2.TabIndex = 4;
@@ -4994,6 +5012,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionsDs3
             // 
+            this.panelPositionsDs3.Controls.Add(this.label88);
+            this.panelPositionsDs3.Controls.Add(this.textBoxTitlePositionDs3);
             this.panelPositionsDs3.Controls.Add(this.label81);
             this.panelPositionsDs3.Controls.Add(this.label82);
             this.panelPositionsDs3.Controls.Add(this.label83);
@@ -5008,7 +5028,7 @@ namespace AutoSplitterCore
             this.panelPositionsDs3.Controls.Add(this.textBoxXDs3);
             this.panelPositionsDs3.Location = new System.Drawing.Point(43, 85);
             this.panelPositionsDs3.Name = "panelPositionsDs3";
-            this.panelPositionsDs3.Size = new System.Drawing.Size(505, 244);
+            this.panelPositionsDs3.Size = new System.Drawing.Size(505, 270);
             this.panelPositionsDs3.TabIndex = 28;
             // 
             // label81
@@ -5085,7 +5105,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs3.FormattingEnabled = true;
-            this.listBoxPositionsDs3.Location = new System.Drawing.Point(3, 90);
+            this.listBoxPositionsDs3.Location = new System.Drawing.Point(2, 116);
             this.listBoxPositionsDs3.Name = "listBoxPositionsDs3";
             this.listBoxPositionsDs3.Size = new System.Drawing.Size(495, 147);
             this.listBoxPositionsDs3.TabIndex = 6;
@@ -5093,7 +5113,7 @@ namespace AutoSplitterCore
             // 
             // btnAddPositionDs3
             // 
-            this.btnAddPositionDs3.Location = new System.Drawing.Point(248, 63);
+            this.btnAddPositionDs3.Location = new System.Drawing.Point(254, 91);
             this.btnAddPositionDs3.Name = "btnAddPositionDs3";
             this.btnAddPositionDs3.Size = new System.Drawing.Size(100, 21);
             this.btnAddPositionDs3.TabIndex = 5;
@@ -5103,7 +5123,7 @@ namespace AutoSplitterCore
             // 
             // btnGetPositionDs3
             // 
-            this.btnGetPositionDs3.Location = new System.Drawing.Point(142, 63);
+            this.btnGetPositionDs3.Location = new System.Drawing.Point(148, 91);
             this.btnGetPositionDs3.Name = "btnGetPositionDs3";
             this.btnGetPositionDs3.Size = new System.Drawing.Size(100, 21);
             this.btnGetPositionDs3.TabIndex = 4;
@@ -5661,6 +5681,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionsER
             // 
+            this.panelPositionsER.Controls.Add(this.label89);
+            this.panelPositionsER.Controls.Add(this.textBoxTitlePositionER);
             this.panelPositionsER.Controls.Add(this.label32);
             this.panelPositionsER.Controls.Add(this.label34);
             this.panelPositionsER.Controls.Add(this.label35);
@@ -5675,7 +5697,7 @@ namespace AutoSplitterCore
             this.panelPositionsER.Controls.Add(this.textBoxXEr);
             this.panelPositionsER.Location = new System.Drawing.Point(38, 82);
             this.panelPositionsER.Name = "panelPositionsER";
-            this.panelPositionsER.Size = new System.Drawing.Size(505, 244);
+            this.panelPositionsER.Size = new System.Drawing.Size(505, 273);
             this.panelPositionsER.TabIndex = 22;
             // 
             // label32
@@ -5752,7 +5774,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsER.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsER.FormattingEnabled = true;
-            this.listBoxPositionsER.Location = new System.Drawing.Point(3, 90);
+            this.listBoxPositionsER.Location = new System.Drawing.Point(5, 119);
             this.listBoxPositionsER.Name = "listBoxPositionsER";
             this.listBoxPositionsER.Size = new System.Drawing.Size(495, 147);
             this.listBoxPositionsER.TabIndex = 6;
@@ -5760,7 +5782,7 @@ namespace AutoSplitterCore
             // 
             // btnAddPositionER
             // 
-            this.btnAddPositionER.Location = new System.Drawing.Point(248, 63);
+            this.btnAddPositionER.Location = new System.Drawing.Point(246, 92);
             this.btnAddPositionER.Name = "btnAddPositionER";
             this.btnAddPositionER.Size = new System.Drawing.Size(100, 21);
             this.btnAddPositionER.TabIndex = 5;
@@ -5770,7 +5792,7 @@ namespace AutoSplitterCore
             // 
             // btnGetPosition
             // 
-            this.btnGetPosition.Location = new System.Drawing.Point(142, 63);
+            this.btnGetPosition.Location = new System.Drawing.Point(140, 92);
             this.btnGetPosition.Name = "btnGetPosition";
             this.btnGetPosition.Size = new System.Drawing.Size(100, 21);
             this.btnGetPosition.TabIndex = 4;
@@ -6603,6 +6625,8 @@ namespace AutoSplitterCore
             // 
             // panelPositionH
             // 
+            this.panelPositionH.Controls.Add(this.label90);
+            this.panelPositionH.Controls.Add(this.textBoxTitlePositionHK);
             this.panelPositionH.Controls.Add(this.label29);
             this.panelPositionH.Controls.Add(this.label26);
             this.panelPositionH.Controls.Add(this.label27);
@@ -6615,7 +6639,7 @@ namespace AutoSplitterCore
             this.panelPositionH.Controls.Add(this.textBoxSh);
             this.panelPositionH.Location = new System.Drawing.Point(43, 82);
             this.panelPositionH.Name = "panelPositionH";
-            this.panelPositionH.Size = new System.Drawing.Size(506, 255);
+            this.panelPositionH.Size = new System.Drawing.Size(506, 273);
             this.panelPositionH.TabIndex = 20;
             // 
             // label29
@@ -6671,15 +6695,15 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionH.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionH.FormattingEnabled = true;
-            this.listBoxPositionH.Location = new System.Drawing.Point(6, 98);
+            this.listBoxPositionH.Location = new System.Drawing.Point(3, 127);
             this.listBoxPositionH.Name = "listBoxPositionH";
-            this.listBoxPositionH.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionH.Size = new System.Drawing.Size(495, 134);
             this.listBoxPositionH.TabIndex = 18;
             this.listBoxPositionH.DoubleClick += new System.EventHandler(this.listBoxPositionH_DoubleClick);
             // 
             // btn_AddPositionH
             // 
-            this.btn_AddPositionH.Location = new System.Drawing.Point(251, 71);
+            this.btn_AddPositionH.Location = new System.Drawing.Point(245, 101);
             this.btn_AddPositionH.Name = "btn_AddPositionH";
             this.btn_AddPositionH.Size = new System.Drawing.Size(100, 21);
             this.btn_AddPositionH.TabIndex = 17;
@@ -6689,7 +6713,7 @@ namespace AutoSplitterCore
             // 
             // btn_getPositionH
             // 
-            this.btn_getPositionH.Location = new System.Drawing.Point(145, 71);
+            this.btn_getPositionH.Location = new System.Drawing.Point(139, 101);
             this.btn_getPositionH.Name = "btn_getPositionH";
             this.btn_getPositionH.Size = new System.Drawing.Size(100, 21);
             this.btn_getPositionH.TabIndex = 16;
@@ -7645,6 +7669,102 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
+            // textBoxTitlePositionS
+            // 
+            this.textBoxTitlePositionS.Location = new System.Drawing.Point(188, 61);
+            this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
+            this.textBoxTitlePositionS.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionS.TabIndex = 13;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(130, 61);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(52, 26);
+            this.label85.TabIndex = 14;
+            this.label85.Text = "     Title\r\n(Optional)";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(136, 61);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(52, 26);
+            this.label86.TabIndex = 16;
+            this.label86.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs1
+            // 
+            this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(194, 61);
+            this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
+            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs1.TabIndex = 15;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(139, 61);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(52, 26);
+            this.label87.TabIndex = 18;
+            this.label87.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs2
+            // 
+            this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(197, 61);
+            this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
+            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs2.TabIndex = 17;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(144, 63);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(52, 26);
+            this.label88.TabIndex = 20;
+            this.label88.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs3
+            // 
+            this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(202, 63);
+            this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
+            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs3.TabIndex = 19;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(137, 63);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(52, 26);
+            this.label89.TabIndex = 22;
+            this.label89.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionER
+            // 
+            this.textBoxTitlePositionER.Location = new System.Drawing.Point(195, 63);
+            this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
+            this.textBoxTitlePositionER.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionER.TabIndex = 21;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(141, 70);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(52, 26);
+            this.label90.TabIndex = 26;
+            this.label90.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionHK
+            // 
+            this.textBoxTitlePositionHK.Location = new System.Drawing.Point(199, 70);
+            this.textBoxTitlePositionHK.Name = "textBoxTitlePositionHK";
+            this.textBoxTitlePositionHK.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionHK.TabIndex = 25;
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7670,6 +7790,11 @@ namespace AutoSplitterCore
             this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
+            this.groupBoxTDs2.ResumeLayout(false);
+            this.groupBoxATDs2.ResumeLayout(false);
+            this.groupBoxATDs2.PerformLayout();
+            this.groupBoxTMDs2.ResumeLayout(false);
+            this.groupBoxTMDs2.PerformLayout();
             this.groupBoxTCeleste.ResumeLayout(false);
             this.groupBoxATCeleste.ResumeLayout(false);
             this.groupBoxATCeleste.PerformLayout();
@@ -7706,11 +7831,6 @@ namespace AutoSplitterCore
             this.groupBoxATHk.PerformLayout();
             this.groupBoxTMHollow.ResumeLayout(false);
             this.groupBoxTMHollow.PerformLayout();
-            this.groupBoxTDs2.ResumeLayout(false);
-            this.groupBoxATDs2.ResumeLayout(false);
-            this.groupBoxATDs2.PerformLayout();
-            this.groupBoxTMDs2.ResumeLayout(false);
-            this.groupBoxTMDs2.PerformLayout();
             this.groupBoxTDs1.ResumeLayout(false);
             this.groupBoxATDs1.ResumeLayout(false);
             this.groupBoxATDs1.PerformLayout();
@@ -8296,5 +8416,17 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxResetIGTSekiro;
         private System.Windows.Forms.Panel panelCassettesNHearts;
         private System.Windows.Forms.CheckedListBox checkedListBoxCassettesNHearts;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.TextBox textBoxTitlePositionS;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox textBoxTitlePositionDs1;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.TextBox textBoxTitlePositionDs2;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.TextBox textBoxTitlePositionDs3;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.TextBox textBoxTitlePositionER;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.TextBox textBoxTitlePositionHK;
     }
 }

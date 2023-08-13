@@ -150,10 +150,10 @@ namespace AutoSplitterCore
             dataElden.graceToSplit.Add(cGrace);
         }
 
-        public void AddPosition(SoulMemory.EldenRing.Position vector, string mode)
+        public void AddPosition(SoulMemory.EldenRing.Position vector, string mode, string title)
         {
             DefinitionsElden.PositionER cPosition = new DefinitionsElden.PositionER()
-            { vector = vector, Mode = mode };
+            { vector = vector, Mode = mode, Title = title };
             dataElden.positionToSplit.Add(cPosition);   
         }
 

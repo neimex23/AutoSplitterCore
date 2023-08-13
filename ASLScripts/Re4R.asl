@@ -1,335 +1,344 @@
-//Resident Evil 4 Remake Autosplitter V1.0.2 (07/04/2023)
-//Supports IGT and Game Splits
-//Script & Pointers by TheDementedSalad
-//Special Thanks to:
-//Yuushi & AvuKamu for going through the game and collecting data for splits
-
-state("re4","Release")
+state("bio4")
 {
-   long GameElapsedTime		: 0xD234048, 0x18, 0x38;
-   long DemoSpendingTime	: 0xD234048, 0x18, 0x40;
-   long PauseSpendingTime	: 0xD234048, 0x18, 0x50;
-   long ChapterTimeStart	: 0xD20FF80, 0x20, 0x10, 0x18;
-   
-   int Cutscene				: 0xD21B2C8, 0x17C;	
-   int Chapter				: 0xD2368B0, 0x30;				//21100 Chapter 1, 21200 Chapter 2
-   int Map					: 0xD2368B0, 0x38, 0x14;		//50500 next to the beginning car, 50501 after bushes (CampaignManager in REFramework)
-   int ItemID				: 0xD22B258, 0xE0, 0xE8;
+	byte currentArea    : 0x7FC1C9;	// Current Area
+	byte currentScreen  : 0x8597BB;	// Current Screen
+	byte loadingScreen  : 0x858F77;	// Loading Screen
+	byte loadingCount   : 0x858F7B;	// Loading Count
+	byte map            : 0xCED6DC;	// Map Screen
+	byte subtitle       : 0x817840;	// Subtitles on the Screen
+	byte item           : 0x858EE4;	// Pick up Items
+	int  isEndOfChapter : 0x85F6F8;	// End of Chapter
+	int  mgEnd          : 0x8594B8;	// Ending Cutscene in Main Game
+	int  swEnd          : 0x867BDC;	// Ending Cutscene in Separate Ways
+	int  fslPlaga       : 0x85F9EC;	// First, Second, and Last Plaga
+	int  tfPlaga        : 0x85F9F0;	// Third and Fourth Plaga
+	int  operate        : 0x850300;	// Operate Command on Button Presses
+	int  igt            : 0x85F704;	// In Game Time
 }
 
-state("re4","7/4/23")
+state("bio4", "1.0.6")
 {
-   long GameElapsedTime		: 0xD22D7D0, 0x18, 0x38;
-   long DemoSpendingTime	: 0xD22D7D0, 0x18, 0x40;
-   long PauseSpendingTime	: 0xD22D7D0, 0x18, 0x50;
-   long ChapterTimeStart	: 0xD217780, 0x20, 0x10, 0x18;
-	
-   int Cutscene			: 0xD222610, 0x17C;	
-   int Chapter			: 0xD22B018, 0x30;				//21100 Chapter 1, 21200 Chapter 2
-   int Map			: 0xD22B018, 0x38, 0x14;		//50500 next to the beginning car, 50501 after bushes
-   int ItemID			: 0xD22B240, 0xE0, 0xE8;
-   
-   byte DARank			: 0xD22B1A0, 0x10;
-   float ActionPoint 		: 0xD22B1A0, 0x14;
-   float ItemPoint		: 0xD22B1A0, 0x18;
-}
-
-init
-{
-	vars.StartTime = 0;
-	vars.completedSplits = new List<int>();
-	
-	switch (modules.First().ModuleMemorySize)
-	{
-		case (548831232):
-		case (538660864):
-			version = "7/4/23";
-			break;
-		default:
-			version = "Release";
-			break;
-	}
+	byte currentArea    : 0x7FB1C9;
+	byte currentScreen  : 0x855F3B;
+	byte loadingScreen  : 0x8556F7;
+	byte loadingCount   : 0x8556FB;
+	byte map            : 0xCE9E5C;
+	byte subtitle       : 0x814030;
+	byte item           : 0x855664;
+	int  isEndOfChapter : 0x85BE78;
+	int  mgEnd          : 0x855C38;
+	int  swEnd          : 0x86434C;
+	int  fslPlaga       : 0x85C16C;
+	int  tfPlaga        : 0x85C170;
+	int  operate        : 0x84CA80;
+	int  igt            : 0x85BE84;
 }
 
 startup
 {
-	// Asks user to change to game time if LiveSplit is currently set to Real Time.
-		if (timer.CurrentTimingMethod == TimingMethod.RealTime)
-    {        
-        var timingMessage = MessageBox.Show (
-            "This game uses In Game Time as the main timing method.\n"+
-            "LiveSplit is currently set to show Real Time (RTA).\n"+
-            "Would you like to set the timing method to Game Time?",
-            "LiveSplit | Resident Evil 4 (2023)",
-            MessageBoxButtons.YesNo,MessageBoxIcon.Question
-        );
+	// Creating the Options
+	settings.Add("MainGameSplits", true, "Main Game");
+	settings.Add("MainGameChapterSplits", true, "Chapters", "MainGameSplits");
+	settings.Add("Chapter1GameMode1", true, "Chapter 1-1", "MainGameChapterSplits");
+	settings.Add("Chapter2GameMode1", true, "Chapter 1-2", "MainGameChapterSplits");
+	settings.Add("Chapter3GameMode1", true, "Chapter 1-3", "MainGameChapterSplits");
+	settings.Add("Chapter4GameMode1", true, "Chapter 2-1", "MainGameChapterSplits");
+	settings.Add("Chapter5GameMode1", true, "Chapter 2-2", "MainGameChapterSplits");
+	settings.Add("Chapter6GameMode1", true, "Chapter 2-3", "MainGameChapterSplits");
+	settings.Add("Chapter7GameMode1", true, "Chapter 3-1", "MainGameChapterSplits");
+	settings.Add("Chapter8GameMode1", true, "Chapter 3-2", "MainGameChapterSplits");
+	settings.Add("Chapter9GameMode1", true, "Chapter 3-3", "MainGameChapterSplits");
+	settings.Add("Chapter10GameMode1", true, "Chapter 3-4", "MainGameChapterSplits");
+	settings.Add("Chapter11GameMode1", true, "Chapter 4-1", "MainGameChapterSplits");
+	settings.Add("Chapter12GameMode1", true, "Chapter 4-2", "MainGameChapterSplits");
+	settings.Add("Chapter13GameMode1", true, "Chapter 4-3", "MainGameChapterSplits");
+	settings.Add("Chapter14GameMode1", true, "Chapter 4-4", "MainGameChapterSplits");
+	settings.Add("Chapter15GameMode1", true, "Chapter 5-1", "MainGameChapterSplits");
+	settings.Add("Chapter16GameMode1", true, "Chapter 5-2", "MainGameChapterSplits");
+	settings.Add("Chapter17GameMode1", true, "Chapter 5-3", "MainGameChapterSplits");
+	settings.Add("Chapter18GameMode1", true, "Chapter 5-4", "MainGameChapterSplits");
 
-        if (timingMessage == DialogResult.Yes)
-        {
-            timer.CurrentTimingMethod = TimingMethod.GameTime;
-        }
-    }
-	
-	settings.Add("Ch1", false, "Chapter 1");
-	settings.CurrentDefaultParent = "Ch1";
-	settings.Add("40510", false, "Reach Hunter's Cabin");
-	settings.Add("10153", false, "Meet First Ganado");
-	settings.Add("10154", false, "Dead Police Officer");
-	settings.Add("10155", false, "Contact Hunnigan");
-	settings.Add("40200", false, "Reach Village");
-	settings.Add("10011", false, "La Campana");
-	settings.Add("119235200", false, "Wooden Cog");
-	settings.Add("43400", false, "Exit Tunnel");
-	settings.Add("21200", false, "Finish Chapter 1");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch2", false, "Chapter 2");
-	settings.CurrentDefaultParent = "Ch2";
-	settings.Add("10128", false, "Meet Merchant");
-	settings.Add("44400", false, "Enter TNT Valley");
-	settings.Add("119203200", false, "Hexagonal Emblem");
-	settings.Add("44201", false, "Open Hexagonal Emblem Door");
-	settings.Add("119217600", false, "Crystal Marble");
-	settings.Add("21300", false, "Finish Chapter 2");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch3", false, "Chapter 3");
-	settings.CurrentDefaultParent = "Ch3";
-	settings.Add("40212", false, "Enter Town Hall");
-	settings.Add("10137", false, "Reach the Church");
-	settings.Add("45400", false, "Reach Fishing Village");
-	settings.Add("119273600", false, "Boat Fuel");
-	settings.Add("10018", false, "Del Lago Start");
-	settings.Add("22100", false, "Finish Chapter 3");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch4", false, "Chapter 4");
-	settings.CurrentDefaultParent = "Ch4";
-	settings.Add("119256000", false, "Old Wayshrine Key");
-	settings.Add("46200", false, "Reach Apostate's Head Island");
-	settings.Add("119232000", false, "Apostate's Head");
-	settings.Add("46110", false, "Reach Blasphemer's Head Island");
-	settings.Add("119230400", false, "Blasphemer's Head");
-	settings.Add("277083456", false, "Bawk's Golden Egg");
-	settings.Add("119257600", false, "Church Insignia");
-	settings.Add("Merch", false, "Reach Merchant Dock");
-	settings.Add("10022", false, "Gigante Start");
-	settings.Add("20123", false, "Gigante End");
-	settings.Add("Church", false, "Enter Church");
-	settings.Add("22200", false, "Finish Chapter 4");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch5", false, "Chapter 5");
-	settings.CurrentDefaultParent = "Ch5";
-	settings.Add("Town", false, "Back to Town Hall");
-	settings.Add("Barn", false, "Back to Barn House");
-	settings.Add("10026", false, "Start Cabin");
-	settings.Add("20132", false, "Cabin Part 2");
-	settings.Add("22300", false, "Finish Chapter 5");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch6", false, "Chapter 6");
-	settings.CurrentDefaultParent = "Ch6";
-	settings.Add("47102", false, "Enter Checkpoint Area");
-	settings.Add("10125", false, "Bella Sisters Start");
-	settings.Add("119246400", false, "Checkpoint Crank");
-	settings.Add("10126", false, "Start Mendez Escape");
-	settings.Add("10127", false, "Bridge Collapse");
-	settings.Add("10028", false, "Mendez Start");
-	settings.Add("20111", false, "Mendez Phase 2 Start");
-	settings.Add("20112", false, "Mendez Finish");
-	settings.Add("23100", false, "Finish Chapter 6");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch7", false, "Chapter 7");
-	settings.CurrentDefaultParent = "Ch7";
-	settings.Add("50202", false, "Pass First Mandibula Plaga");
-	settings.Add("10104", false, "Catapult Cutscene");
-	settings.Add("50400", false, "Enter Castle");
-	settings.Add("10114", false, "Meet Garrador");
-	settings.Add("50601", false, "Enter Water Hall");
-	settings.Add("119206400", false, "Halo Wheel");
-	settings.Add("23200", false, "Finish Chapter 7");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch8", false, "Chapter 8");
-	settings.CurrentDefaultParent = "Ch8";
-	settings.Add("119209600", true, "Crimson Lantern");
-	settings.Add("10036", true, "Meet Ada");
-	settings.Add("20113", true, "Start Gigante Escape");
-	settings.Add("10138", true, "Gigante Under the Bridge");
-	settings.Add("23300", true, "Finish Chapter 8");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch9", false, "Chapter 9");
-	settings.CurrentDefaultParent = "Ch9";
-	settings.Add("52100", false, "Finish Maze");
-	settings.Add("119222400", false, "Lion Head");
-	settings.Add("119224000", false, "Goat Head");
-	settings.Add("119225600", false, "Serpent Head");
-	settings.Add("53100", false, "Ashley Start");
-	settings.Add("119275200", false, "Bunch of Keys");
-	settings.Add("53302", false, "Enter the Crypts");
-	settings.Add("119220800", false, "Salazar Family Insignia");
-	settings.Add("24100", false, "Finish Chapter 9");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch10", false, "Chapter 10");
-	settings.CurrentDefaultParent = "Ch10";
-	settings.Add("54200", false, "Enter Novi Hall");
-	settings.Add("54300", false, "Enter Double Garrador Hall");
-	settings.Add("54400", false, "Sewers Start");
-	settings.Add("54401", false, "Tunnels Before Verdugo");
-	settings.Add("10042", false, "Verdugo Spawns");
-	settings.Add("24200", false, "Finish Chapter 10");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch11", false, "Chapter 11");
-	settings.CurrentDefaultParent = "Ch11";
-	settings.Add("55103", false, "Enter Dynamite Area");
-	settings.Add("119236800", false, "Dynamite");
-	settings.Add("10046", false, "Start Double Gigante");
-	settings.Add("55201", false, "Enter Minecart Area");
-	settings.Add("55202", false, "Finish 1st Minecart Section");
-	settings.Add("55418", false, "Begin 2nd Minecart Section");
-	settings.Add("10047", false, "Reach Novi Hive");
-	settings.Add("10048", false, "Krauser Start");
-	settings.Add("24300", false, "Finish Chapter 11");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch12", false, "Chapter 12");
-	settings.CurrentDefaultParent = "Ch12";
-	settings.Add("10147", false, "Begin Clocktower Climb");
-	settings.Add("56104", false, "Finish Clocktower Climb");
-	settings.Add("10051", false, "Salazar Start");
-	settings.Add("20115", false, "Salazar Finish");
-	settings.Add("56300", false, "Enter Docks");
-	settings.Add("25100", false, "Finish Chapter 12");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch13", false, "Chapter 13");
-	settings.CurrentDefaultParent = "Ch13";
-	settings.Add("60103", false, "Turret Skip Double Door");
-	settings.Add("61100", false, "Enter Facility");
-	settings.Add("10056", false, "Find Ashley");
-	settings.Add("61301", false, "Enter Regenerator Labs");
-	settings.Add("119211200", false, "Level 1 Keycard");
-	settings.Add("119212800", false, "Level 2 Keycard");
-	settings.Add("119219200", false, "Wrench");
-	settings.Add("119214400", false, "Level 3 Keycard");
-	settings.Add("25200", false, "Finish Chapter 13");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch14", false, "Chapter 14");
-	settings.CurrentDefaultParent = "Ch14";
-	settings.Add("62100", false, "Enter Cargo Depot");
-	settings.Add("63100", false, "Enter Facility 2");
-	settings.Add("63108", false, "Enter Sewer Drainage");
-	settings.Add("62200", false, "Enter Wrecking Ball Area");
-	settings.Add("62201", false, "Area After Wrecking Ball");
-	settings.Add("10061", false, "Reach Amber");
-	settings.Add("10062", false, "Start Krauser Fight");
-	settings.Add("10136", false, "Start Final Krauser Fight");
-	settings.Add("25300", false, "Finish Chapter 14");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch15", false, "Chapter 15");
-	settings.CurrentDefaultParent = "Ch15";
-	settings.Add("20130", false, "Mike Blows Up Debris");
-	settings.Add("20128", false, "Mike Blows Up Double Door");
-	settings.Add("10066", false, "RIP Mike");
-	settings.Add("67104", false, "Enter Turret Skip Gauntlet");
-	settings.Add("10067", false, "Pick Up Ashley");
-	settings.Add("25400", false, "Chapter 15");
-	settings.CurrentDefaultParent = null;
-	
-	settings.Add("Ch16", false, "Chapter 16");
-	settings.CurrentDefaultParent = "Ch16";
-	settings.Add("10071", false, "Saddler Start");
-	settings.Add("20119", false, "Saddler Phase 2 Start");
-	settings.Add("10158", false, "Saddler End");
-	settings.Add("10074", false, "Reach Boat");
-	settings.Add("10075", true, "Chapter 16 (Final Split)");
-	settings.CurrentDefaultParent = null;
+	settings.Add("MainGameItemSplits", false, "Key Items", "MainGameSplits");
+	settings.Add("Item164GameMode1", true, "Emblem (Right half)", "MainGameItemSplits");
+	settings.Add("Item165GameMode1", true, "Emblem (Left half)", "MainGameItemSplits");
+	settings.Add("Item59GameMode1", true, "Insignia Key", "MainGameItemSplits");
+	settings.Add("Item60GameMode1", true, "Round Insignia", "MainGameItemSplits");
+	settings.Add("Item140GameMode1", true, "Camp Key", "MainGameItemSplits");
+	settings.Add("Item139GameMode1", true, "Old Key", "MainGameItemSplits");
+	settings.Add("Item61GameMode1", true, "False Eye", "MainGameItemSplits");
+	settings.Add("Item128GameMode1", true, "Golden Sword", "MainGameItemSplits");
+	settings.Add("Item196GameMode1", true, "Platinum Sword", "MainGameItemSplits");
+	settings.Add("Item167GameMode1", true, "Castle Gate Key", "MainGameItemSplits");
+	settings.Add("Item195GameMode1", true, "Prison Key", "MainGameItemSplits");
+	settings.Add("Item163GameMode1", true, "Gallery Key", "MainGameItemSplits");
+	settings.Add("Item31GameMode1", true, "Goat Ornament", "MainGameItemSplits");
+	settings.Add("Item58GameMode1", true, "Moonstone (Right half)", "MainGameItemSplits");
+	settings.Add("Item105GameMode1", true, "Moonstone (Left half)", "MainGameItemSplits");
+	settings.Add("Item29GameMode1", true, "Stone Tablet", "MainGameItemSplits");
+	settings.Add("Item15GameMode1", true, "Salazar Family Insignia", "MainGameItemSplits");
+	settings.Add("Item57GameMode1", true, "Serpent Ornament", "MainGameItemSplits");
+	settings.Add("Item30GameMode1", true, "Lion Ornament", "MainGameItemSplits");
+	settings.Add("Item111GameMode1", true, "Queen's Grail", "MainGameItemSplits");
+	settings.Add("Item110GameMode1", true, "King's Grail", "MainGameItemSplits");
+	settings.Add("Item141GameMode1", true, "Dynamite", "MainGameItemSplits");
+	settings.Add("Item123GameMode1", true, "Key to the Mine", "MainGameItemSplits");
+	settings.Add("Item130GameMode1", true, "Stone of Sacrifice", "MainGameItemSplits");
+	settings.Add("Item132GameMode1", true, "Freezer Card Key", "MainGameItemSplits");
+	settings.Add("Item146GameMode1", true, "Waste Disposal Card Key", "MainGameItemSplits");
+	settings.Add("Item131GameMode1", true, "Storage Room Card Key", "MainGameItemSplits");
+	settings.Add("Item135GameMode1", true, "Piece of the Holy Beast, Eagle", "MainGameItemSplits");
+	settings.Add("Item134GameMode1", true, "Piece of the Holy Beast, Serpent", "MainGameItemSplits");
+	settings.Add("Item116GameMode1", true, "Emergency Lock Card Key", "MainGameItemSplits");
+	settings.Add("Item136GameMode1", true, "Jet-ski Key", "MainGameItemSplits");
+
+	settings.Add("SeparateWaysSplits", true, "Separate Ways");
+	settings.Add("SeparateWaysChapterSplits", true, "Chapters", "SeparateWaysSplits");
+	settings.Add("Chapter1GameMode2", true, "Chapter 1", "SeparateWaysChapterSplits");
+	settings.Add("Chapter2GameMode2", true, "Chapter 2", "SeparateWaysChapterSplits");
+	settings.Add("Chapter3GameMode2", true, "Chapter 3", "SeparateWaysChapterSplits");
+	settings.Add("Chapter4GameMode2", true, "Chapter 4", "SeparateWaysChapterSplits");
+	settings.Add("Chapter5GameMode2", true, "Chapter 5", "SeparateWaysChapterSplits");
+
+	settings.Add("SeparateWaysItemSplits", false, "Key Items", "SeparateWaysSplits");
+	settings.Add("Item59GameMode2", true, "Insignia Key", "SeparateWaysItemSplits");
+	settings.Add("Item118GameMode2", true, "Green Catseye", "SeparateWaysItemSplits");
+	settings.Add("Item60GameMode2", true, "Round Insignia", "SeparateWaysItemSplits");
+	settings.Add("Item129GameMode2", true, "Iron Key", "SeparateWaysItemSplits");
+	settings.Add("Item142GameMode2", true, "Lift Activation Key", "SeparateWaysItemSplits");
+	settings.Add("Item27GameMode2", true, "Hourglass w/ gold decor", "SeparateWaysItemSplits");
+	settings.Add("Item49GameMode2", true, "Activation Key (blue)", "SeparateWaysItemSplits");
+	settings.Add("Item51GameMode2", true, "Activation Key (red)", "SeparateWaysItemSplits");
+
+	settings.Add("AssignmentAdaSplits", true, "Assignment Ada");
+	settings.Add("AssignmentAdaSamplesSplits", true, "Plaga Samples", "AssignmentAdaSplits");
+	settings.Add("Sample8", true, "Plaga Sample 1", "AssignmentAdaSamplesSplits");
+	settings.Add("Sample12", true, "Plaga Sample 2", "AssignmentAdaSamplesSplits");
+	settings.Add("Sample1073741824", true, "Plaga Sample 3", "AssignmentAdaSamplesSplits");
+	settings.Add("Sample1342177280", true, "Plaga Sample 4", "AssignmentAdaSamplesSplits");
+	settings.Add("Sample28", true, "Plaga Sample 5", "AssignmentAdaSamplesSplits");
+
+	settings.Add("DoorSplits", true, "Door Splits");
+
+	settings.SetToolTip("MainGameChapterSplits", "Check this Option if you want to split on Chapters.");
+	settings.SetToolTip("MainGameItemSplits", "Check this Option if you want to split on Key Items.");
+	settings.SetToolTip("SeparateWaysChapterSplits", "Check this Option if you want to split on Chapters.");
+	settings.SetToolTip("SeparateWaysItemSplits", "Check this Option if you want to split on Key Items.");
+	settings.SetToolTip("AssignmentAdaSamplesSplits", "Check this Option if you want to split on Plaga Samples.");
+	settings.SetToolTip("DoorSplits", "Check this Option if you want to use Door Splits.");
+
+	// Creating the Lists
+	vars.BlackListedDoors = new Dictionary<int, Tuple<int, int>>{ };
+	vars.WhiteListedDoors = new Dictionary<int, Tuple<int, int>>{ };
+	vars.ObtainedKeyItems = new List<byte>{ };
+	vars.ObtainedPlagaSamples = new List<int>{ };
+	vars.BlackListedDoors.Add(1, Tuple.Create(0, 0));
+	vars.BlackListedDoors.Add(2, Tuple.Create(0, 0));
+
+	// Main Game Blacklist
+	vars.BlackListedDoors.Add(3, Tuple.Create(159, 192));
+	vars.BlackListedDoors.Add(4, Tuple.Create(178, 138));
+	vars.BlackListedDoors.Add(5, Tuple.Create(207, 174));
+	vars.BlackListedDoors.Add(6, Tuple.Create(221, 174));
+	vars.BlackListedDoors.Add(7, Tuple.Create(248, 88));
+	vars.BlackListedDoors.Add(8, Tuple.Create(236, 2));
+	vars.BlackListedDoors.Add(9, Tuple.Create(2, 119));
+	vars.BlackListedDoors.Add(10, Tuple.Create(154, 167));
+	vars.BlackListedDoors.Add(11, Tuple.Create(167, 250));
+	vars.BlackListedDoors.Add(12, Tuple.Create(229, 74));
+	vars.BlackListedDoors.Add(13, Tuple.Create(80, 140));
+	vars.BlackListedDoors.Add(14, Tuple.Create(140, 113));
+	vars.BlackListedDoors.Add(15, Tuple.Create(113, 140));
+	vars.BlackListedDoors.Add(16, Tuple.Create(147, 37));
+
+	// Separate Ways Blacklist
+	vars.BlackListedDoors.Add(17, Tuple.Create(173, 112));
+	vars.BlackListedDoors.Add(18, Tuple.Create(202, 79));
+	vars.BlackListedDoors.Add(19, Tuple.Create(216, 70));
+	vars.BlackListedDoors.Add(20, Tuple.Create(119, 68));
+
+	// Main Game Whitelist
+	vars.WhiteListedDoors.Add(1, Tuple.Create(7, 206));
+	vars.WhiteListedDoors.Add(2, Tuple.Create(149, 7));
+	vars.WhiteListedDoors.Add(3, Tuple.Create(133, 207));
+	vars.WhiteListedDoors.Add(4, Tuple.Create(133, 237));
+	vars.WhiteListedDoors.Add(5, Tuple.Create(221, 180));
+	vars.WhiteListedDoors.Add(6, Tuple.Create(230, 178));
+	vars.WhiteListedDoors.Add(7, Tuple.Create(150, 13));
+	vars.WhiteListedDoors.Add(8, Tuple.Create(150, 88));
+	vars.WhiteListedDoors.Add(9, Tuple.Create(183, 252));
+	vars.WhiteListedDoors.Add(10, Tuple.Create(192, 68));
+	vars.WhiteListedDoors.Add(11, Tuple.Create(192, 191));
+	vars.WhiteListedDoors.Add(12, Tuple.Create(123, 216));
+	vars.WhiteListedDoors.Add(13, Tuple.Create(216, 226));
+	vars.WhiteListedDoors.Add(14, Tuple.Create(160, 141));
+	vars.WhiteListedDoors.Add(15, Tuple.Create(101, 81));
+	vars.WhiteListedDoors.Add(16, Tuple.Create(123, 191));
+
+	// Separate Ways Whitelist
+	vars.WhiteListedDoors.Add(17, Tuple.Create(112, 231));
+	vars.WhiteListedDoors.Add(18, Tuple.Create(231, 160));
+	vars.WhiteListedDoors.Add(19, Tuple.Create(160, 145));
+	vars.WhiteListedDoors.Add(20, Tuple.Create(153, 34));
+
+	// Assignment Ada Whitelist
+	vars.WhiteListedDoors.Add(21, Tuple.Create(15, 147));
+	vars.WhiteListedDoors.Add(22, Tuple.Create(15, 13));
 }
 
-update
+init
 {
-	//print(modules.First().ModuleMemorySize.ToString());
-	
-	if(timer.CurrentPhase == TimerPhase.NotRunning)
+	// Check the Version of the Game
+	version = modules.First().FileVersionInfo.FileVersion;
+	if (version == "1.0.18384.3" || version == "1.0.18384.2" || version == "1.0.18384.1")
 	{
-		vars.completedSplits.Clear();
+		version = "1.0.6";
 	}
-	
-	if(current.Cutscene == 10003 && old.Cutscene == -1 && current.Map == 40500){
-		vars.StartTime = current.ChapterTimeStart;
-		return true;
+	else
+	{
+		version = "";
 	}
-}
 
-gameTime
-{
-	return TimeSpan.FromSeconds((current.GameElapsedTime - current.DemoSpendingTime - current.PauseSpendingTime - vars.StartTime) / 1000000.0);
+	// Initializing Variables
+	vars.TimerModel = new TimerModel { CurrentState = timer };
+
+	Action ResetVariables = () => {
+		vars.gameMode = 0;
+		vars.chapter = 0;
+		vars.towerDoor = 0;
+		vars.BlackListedDoors[1] = Tuple.Create(0, 0);
+		vars.BlackListedDoors[2] = Tuple.Create(0, 0);
+	};
+	vars.ResetVariables = ResetVariables;
+	vars.ResetVariables();
 }
 
 start
 {
-	return current.Cutscene == 10003 && old.Cutscene == -1 && current.Map == 40500;
+	// Check to see if Main Game is running
+	if (current.loadingCount <= 240 && old.loadingCount >= 240 && current.currentArea == 233 && settings["MainGameSplits"])
+	{
+		vars.ResetVariables();
+		vars.gameMode = 1;
+		vars.ObtainedKeyItems = new List<byte>{ };
+		return true;
+	}
+
+	// Check to see if Separate Ways is running
+	if (current.map == 0 && old.map == 1 && current.currentArea == 231 && settings["SeparateWaysSplits"])
+	{
+		vars.ResetVariables();
+		vars.gameMode = 2;
+		vars.ObtainedKeyItems = new List<byte>{ };
+		return true;
+	}
+
+	// Check to see if Assignment Ada is running
+	if (current.subtitle == 0 && old.subtitle == 1 && current.currentArea == 114 && settings["AssignmentAdaSplits"])
+	{
+		vars.ResetVariables();
+		vars.gameMode = 3;
+		vars.ObtainedPlagaSamples = new List<int>{ };
+		return true;
+	}
 }
 
 split
 {
-	if(settings["" + current.Chapter] && !vars.completedSplits.Contains(current.Chapter)){
-		vars.completedSplits.Add(current.Chapter);
-		return true;
+	// Door Splits
+	if (current.currentArea != old.currentArea && settings["DoorSplits"])
+	{
+		if (!vars.BlackListedDoors.ContainsValue(Tuple.Create(Convert.ToInt32(old.currentArea), Convert.ToInt32(current.currentArea))))
+		{
+			vars.BlackListedDoors[1] = Tuple.Create(Convert.ToInt32(old.currentArea), Convert.ToInt32(current.currentArea));
+			vars.BlackListedDoors[2] = Tuple.Create(Convert.ToInt32(current.currentArea), Convert.ToInt32(old.currentArea));
+			return true;
+		}
+		if (vars.WhiteListedDoors.ContainsValue(Tuple.Create(Convert.ToInt32(old.currentArea), Convert.ToInt32(current.currentArea))) || vars.WhiteListedDoors.ContainsValue(Tuple.Create(Convert.ToInt32(current.currentArea), Convert.ToInt32(old.currentArea))))
+		{
+			return true;
+		}
 	}
-	
-	if(settings["" + current.Cutscene] && !vars.completedSplits.Contains(current.Cutscene)){
-		vars.completedSplits.Add(current.Cutscene);
-		return true;
-	}
-	
-	if(settings["" + current.Map] && !vars.completedSplits.Contains(current.Map)){
-		vars.completedSplits.Add(current.Map);
-		return true;
-	}
-	
-	if(settings["" + current.ItemID] && !vars.completedSplits.Contains(current.ItemID)){
-		vars.completedSplits.Add(current.ItemID);
-		return true;
-	}
-	
-	if(settings["Merch"] && current.Chapter == 22100 && current.Map == 46210 && !vars.completedSplits.Contains(current.Map)){
-		vars.completedSplits.Add(current.Map);
-		return true;
-	}
-	
-	if((settings["Merch"] && current.Map == 46210 || settings["Church"] && current.Map == 45401) && current.Chapter == 22100 && !vars.completedSplits.Contains(current.Map)){
-		vars.completedSplits.Add(current.Map);
-		return true;
-	}
-	
-	if((settings["Town"] && current.Map == 40213 || settings["Barn"] && current.Map == 43300) && current.Chapter == 22200 && !vars.completedSplits.Contains(current.Map)){
-		vars.completedSplits.Add(current.Map);
-		return true;
-	}
-}
 
+	// Chapter Splits
+	if (current.isEndOfChapter - old.isEndOfChapter == 65536)
+	{
+		vars.chapter++;
+		return settings["Chapter" + vars.chapter.ToString() + "GameMode" + vars.gameMode.ToString()];
+	}
+
+	// Item Splits
+	if (current.item != old.item && !vars.ObtainedKeyItems.Contains(current.item) && settings["Item" + current.item.ToString() + "GameMode" + vars.gameMode.ToString()])
+	{
+		vars.ObtainedKeyItems.Add(current.item);
+		return true;
+	}
+
+	// Assignment Ada Splits
+	if ((current.fslPlaga > old.fslPlaga || current.tfPlaga > old.tfPlaga) && vars.gameMode == 3)
+	{
+		if (!vars.ObtainedPlagaSamples.Contains(current.fslPlaga) && settings["Sample" + current.fslPlaga.ToString()])
+		{
+			vars.ObtainedPlagaSamples.Add(current.fslPlaga);
+			return true;
+		}
+		if (!vars.ObtainedPlagaSamples.Contains(current.tfPlaga) && settings["Sample" + current.tfPlaga.ToString()])
+		{
+			vars.ObtainedPlagaSamples.Add(current.tfPlaga);
+			return true;
+		}
+	}
+
+	// Check to see if the Door was used after defeating Krauser
+	if (current.subtitle == 0 && current.fslPlaga == 28 && current.operate == 0 && old.operate == 65537 && vars.towerDoor == 0)
+	{
+		vars.towerDoor = 1;
+	}
+
+	// Split at the Bridge Door after reunited with Ashley
+	if (current.currentArea == 174 && old.currentArea == 207 && current.isEndOfChapter >= 655360 && settings["DoorSplits"])
+	{
+		return true;
+	}
+
+	// Final Splits
+	return
+	current.mgEnd != old.mgEnd && vars.gameMode == 1 ||
+	current.swEnd != old.swEnd && vars.gameMode == 2 ||
+	current.subtitle == 0 && old.subtitle == 1 && current.fslPlaga == 28 && current.operate == 256 && vars.towerDoor == 1 && vars.gameMode == 3;
+}
 
 isLoading
 {
-	return true;
+	// Pause Timer when the Load Screen or Pause Menu
+	if (current.currentArea == 65 || current.currentArea == 175 || current.currentArea == 64)
+	{
+		return current.loadingScreen == 255 || current.loadingCount >= 240 || current.currentScreen == 208 || current.loadingCount >= 100 && current.currentScreen == 64;
+	}
+	else if (current.currentArea == 192 || current.currentArea == 2 || current.currentArea == 148)
+	{
+		return current.loadingScreen == 255 || current.loadingCount >= 240 || current.currentScreen == 208 || current.loadingCount >= 220 && current.currentScreen == 64;
+	}
+	else
+	{
+		return current.loadingScreen == 255 || current.loadingCount >= 240 || current.currentScreen == 208;
+	}
 }
 
 reset
 {
-	return current.Cutscene == 10157 && old.Cutscene == -1;
-	vars.StartTime = 0;
+	// Reset Timer when the Main Menu
+	if (current.igt == 0 && old.igt != 0)
+	{
+		vars.ResetVariables();
+		return true;
+	}
 }
 
 exit
 {
-    //pauses timer if the game crashes
-	timer.IsGameTimePaused = true;
+	// Reset Timer when the Game Exit
+	if (timer.CurrentPhase != TimerPhase.Ended)
+	{
+		vars.TimerModel.Reset();
+	}
 }

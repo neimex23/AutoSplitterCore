@@ -199,12 +199,13 @@ namespace AutoSplitterCore
             dataDs3.flagToSplit.RemoveAt(position);
         }
 
-        public void AddPosition(Vector3f vector, string mode)
+        public void AddPosition(Vector3f vector, string mode, string title)
         {
             var position = new DefinitionsDs3.PositionDs3()
             {
                 vector = vector,
-                Mode = mode
+                Mode = mode,
+                Title = title
             };
             dataDs3.positionsToSplit.Add(position);
         }

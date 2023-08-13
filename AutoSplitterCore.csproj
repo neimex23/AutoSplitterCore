@@ -44,29 +44,34 @@
     <Reference Include="HitCounterManager">
       <HintPath>Sources\HitCounterManager.dll</HintPath>
     </Reference>
-    <Reference Include="Irony">
+    <Reference Include="Irony, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\Irony.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Core">
+    <Reference Include="LiveSplit.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.Core.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Cuphead">
       <HintPath>Sources\LiveSplit.Cuphead.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Dishonored, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="LiveSplit.Dishonored, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.Dishonored.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.HollowKnight">
+    <Reference Include="LiveSplit.HollowKnight, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.ScriptableAutoSplit">
+    <Reference Include="LiveSplit.ScriptableAutoSplit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.ScriptableAutoSplit.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64">

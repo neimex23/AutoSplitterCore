@@ -178,10 +178,10 @@ namespace AutoSplitterCore
 
         }
 
-        public void AddPosition(PointF position, string scene)
+        public void AddPosition(PointF position, string scene, string title)
         {
             DefinitionHollow.Vector3F vector = new DefinitionHollow.Vector3F()
-            { position = position, sceneName = scene, previousScene = null };
+            { position = position, sceneName = scene, previousScene = null, Title = title };
             dataHollow.positionToSplit.Add(vector);
 
         }

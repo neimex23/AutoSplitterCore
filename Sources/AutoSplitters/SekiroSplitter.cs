@@ -162,11 +162,12 @@ namespace AutoSplitterCore
             dataSekiro.bossToSplit.Add(cBoss);
         }
 
-        public void AddPosition(float X, float Y, float Z , string mode)
+        public void AddPosition(float X, float Y, float Z , string mode, string title)
         {
             var position = new DefinitionsSekiro.PositionS();
             position.setVector(new Vector3f(X,Y,Z));
             position.Mode = mode;
+            position.Title = title;
             dataSekiro.positionsToSplit.Add(position);
         }
 

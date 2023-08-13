@@ -224,6 +224,7 @@ namespace AutoSplitterCore
             public Vector3f vector = new Vector3f();
             public bool IsSplited = false;
             public string Mode;
+            public string Title;
         }
         #endregion
     }

@@ -129,11 +129,11 @@ namespace AutoSplitterCore
             dataDs2.bossToSplit.RemoveAt(position);
         }
 
-        public void AddPosition(Vector3f vector, string mode)
+        public void AddPosition(Vector3f vector, string mode, string title)
         {
             var position = new DefinitionsDs2.PositionDs2()
             {
-                vector = vector, Mode = mode
+                vector = vector, Mode = mode, Title = title
             };
             dataDs2.positionsToSplit.Add(position);
         }
