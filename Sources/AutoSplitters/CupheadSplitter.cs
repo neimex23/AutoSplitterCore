@@ -25,9 +25,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Cuphead;
 using HitCounterManager;
-using System.Reflection;
-using LiveSplit.Updates;
-using System.Windows.Forms;
 
 
 namespace AutoSplitterCore

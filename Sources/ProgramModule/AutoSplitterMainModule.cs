@@ -22,15 +22,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using HitCounterManager;
 using System.Windows.Forms;
-using System.Net.NetworkInformation;
-using LiveSplit.Cuphead;
-using System.Reflection;
 
 namespace AutoSplitterCore
 {
