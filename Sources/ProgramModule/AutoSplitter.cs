@@ -25,7 +25,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using SoulMemory;
 using System.Globalization;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace AutoSplitterCore
 {
@@ -282,7 +281,7 @@ namespace AutoSplitterCore
             #region SekiroLoad.CustomFlag
             foreach (DefinitionsSekiro.CfSk cf in sekiroData.getFlagToSplit())
             {
-                listBoxCfS.Items.Add(cf.Id + " - " + cf.Mode);
+                listBoxCfS.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
             DTHollow hollowData = hollowSplitter.getDataHollow();
@@ -387,7 +386,7 @@ namespace AutoSplitterCore
             #region EldenLoad.CustomFlags
             foreach (DefinitionsElden.CustomFlagER cf in eldenData.getFlagsToSplit())
             {
-                listBoxCfER.Items.Add(cf.Id + " - " + cf.Mode);
+                listBoxCfER.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
             DTDs3 ds3Data = ds3Splitter.getDataDs3();
@@ -412,7 +411,7 @@ namespace AutoSplitterCore
             #region Ds3Load.CustomFlags
             foreach (DefinitionsDs3.CfDs3 cf in ds3Data.getFlagToSplit())
             {
-                listBoxCfDs3.Items.Add(cf.Id + " - " + cf.Mode);
+                listBoxCfDs3.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
             #region Ds3Load.Position
@@ -1819,8 +1818,15 @@ namespace AutoSplitterCore
                     var contains2 = !listBoxCfS.Items.Contains(id + " - " + "Loading game after");
                     if (contains1 && contains2)
                     {
-                        sekiroSplitter.AddCustomFlag(id, comboBoxHowCfS.Text.ToString());
-                        listBoxCfS.Items.Add(id + " - " + comboBoxHowCfS.Text.ToString());
+                        string title = string.Empty;
+                        if (textBoxTitleCFS.Text != string.Empty)
+                        {
+                            title = " - " + textBoxTitleCFS.Text;
+                            textBoxTitleCFS.Clear();
+                        }
+
+                        sekiroSplitter.AddCustomFlag(id, comboBoxHowCfS.Text.ToString(), title);
+                        listBoxCfS.Items.Add(id + " - " + comboBoxHowCfS.Text.ToString() + title);
                     }
                     else
                     {
@@ -2470,8 +2476,15 @@ namespace AutoSplitterCore
                     var contains2 = !listBoxCfDs3.Items.Contains(id + " - " + "Loading game after");
                     if (contains1 && contains2)
                     {
-                        ds3Splitter.AddCustomFlag(id, comboBoxHowCfDs3.Text.ToString());
-                        listBoxCfDs3.Items.Add(id + " - " + comboBoxHowCfDs3.Text.ToString());
+                        string title = string.Empty;
+                        if (textBoxTitleCFDs3.Text != string.Empty)
+                        {
+                            title = " - " + textBoxTitleCFDs3.Text;
+                            textBoxTitleCFDs3.Clear();
+                        }
+
+                        ds3Splitter.AddCustomFlag(id, comboBoxHowCfDs3.Text.ToString(),title);
+                        listBoxCfDs3.Items.Add(id + " - " + comboBoxHowCfDs3.Text.ToString() + title);
                     }
                     else
                     {
@@ -2758,8 +2771,15 @@ namespace AutoSplitterCore
                     var contains2 = !listBoxCfER.Items.Contains(id + " - " + "Loading game after");
                     if (contains1 && contains2)
                     {
-                        eldenSplitter.AddCustomFlag(id, comboBoxHowCfER.Text.ToString());
-                        listBoxCfER.Items.Add(id + " - " + comboBoxHowCfER.Text.ToString());
+                        string title = string.Empty;
+                        if (textBoxTitleCFER.Text != string.Empty)
+                        {
+                            title = " - " + textBoxTitleCFER.Text;
+                            textBoxTitleCFER.Clear();
+                        }
+
+                        eldenSplitter.AddCustomFlag(id, comboBoxHowCfER.Text.ToString(), title);
+                        listBoxCfER.Items.Add(id + " - " + comboBoxHowCfER.Text.ToString() + title);
                     }
                     else
                     {

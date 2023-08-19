@@ -25,11 +25,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Celeste;
 using HitCounterManager;
-using SoulMemory;
-using System.Security.Cryptography;
-using System.Security.Policy;
-using System.Drawing.Text;
-using LiveSplit.Options;
 
 namespace AutoSplitterCore
 {
@@ -40,6 +35,7 @@ namespace AutoSplitterCore
         public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public DTCeleste dataCeleste;
         public ProfilesControl _profile;
@@ -83,8 +79,14 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
 
@@ -414,9 +416,9 @@ namespace AutoSplitterCore
                             }
 
                             if (shouldSplit)
-                            {
-                                element.IsSplited = true;
+                            {                       
                                 SplitCheck();
+                                element.IsSplited = PK;
                             }
                         }
                     }

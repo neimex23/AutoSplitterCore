@@ -21,14 +21,12 @@
 //SOFTWARE.
 
 using HitCounterManager;
-using Microsoft.SqlServer.Server;
 using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using static AutoSplitterCore.DefinitionsSekiro;
 
 namespace AutoSplitterCore
 {
@@ -38,6 +36,7 @@ namespace AutoSplitterCore
         public bool _StatusSekiro = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public DTSekiro dataSekiro;
         public DefinitionsSekiro defS = new DefinitionsSekiro();
@@ -69,12 +68,18 @@ namespace AutoSplitterCore
             }
         }
 
-        private void SplitCheck()
+        private void SplitCheck() //PK is seted false if user set Practice mode after a flagcheck is produced 
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }              
             }
         }
 
@@ -171,12 +176,13 @@ namespace AutoSplitterCore
             dataSekiro.positionsToSplit.Add(position);
         }
 
-        public void AddCustomFlag(uint id,string mode)
+        public void AddCustomFlag(uint id,string mode, string title)
         {
             DefinitionsSekiro.CfSk cFlag = new DefinitionsSekiro.CfSk()
             {
                 Id = id,
-                Mode = mode
+                Mode = mode,
+                Title = title
             };
             dataSekiro.flagToSplit.Add(cFlag);
         }
@@ -627,52 +633,53 @@ namespace AutoSplitterCore
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count > 0) && _StatusSekiro)
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (!sekiro.IsPlayerLoaded())
+                    if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count > 0))
                     {
-                        foreach (var idol in listPendingI)
+                        if (!sekiro.IsPlayerLoaded())
                         {
-                            SplitCheck();
-                            var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
-                            dataSekiro.idolsTosplit[i].IsSplited = true;
-                            
+                            foreach (var idol in listPendingI)
+                            {
+                                SplitCheck();
+                                var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
+                                dataSekiro.idolsTosplit[i].IsSplited = true;
+                            }
+
+                            foreach (var boss in listPendingB)
+                            {
+                                SplitCheck();
+                                var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
+                                dataSekiro.bossToSplit[b].IsSplited = true;
+
+                            }
+
+                            foreach (var position in listPendingP)
+                            {
+                                SplitCheck();
+                                var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                dataSekiro.positionsToSplit[p].IsSplited = true;
+                            }
+
+                            foreach (var cf in listPendingCf)
+                            {
+                                SplitCheck();
+                                var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                dataSekiro.flagToSplit[c].IsSplited = true;
+                            }
+
+                            foreach (var mb in listPendingMb)
+                            {
+                                SplitCheck();
+                                var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
+                                dataSekiro.miniBossToSplit[mbo].IsSplited = true;
+                            }
+
+                            listPendingB.Clear();
+                            listPendingI.Clear();
+                            listPendingP.Clear();
+                            listPendingCf.Clear();
                         }
-
-                        foreach (var boss in listPendingB)
-                        {
-                            SplitCheck();
-                            var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
-                            dataSekiro.bossToSplit[b].IsSplited = true;
-
-                        }
-
-                        foreach (var position in listPendingP)
-                        {
-                            SplitCheck();
-                            var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                            dataSekiro.positionsToSplit[p].IsSplited = true;
-                        }
-
-                        foreach (var cf in listPendingCf)
-                        {
-                            SplitCheck();
-                            var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
-                            dataSekiro.flagToSplit[c].IsSplited = true;
-                        }
-
-                        foreach (var mb in listPendingMb)
-                        {
-                            SplitCheck();
-                            var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
-                            dataSekiro.miniBossToSplit[mbo].IsSplited = true;
-                        }
-
-
-                        listPendingB.Clear();
-                        listPendingI.Clear();
-                        listPendingP.Clear();
-                        listPendingCf.Clear();
                     }
                 }
             }
@@ -700,8 +707,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                b.IsSplited = true;
                                 SplitCheck();
+                                b.IsSplited = PK;
                             }
                         }
                     }
@@ -732,9 +739,9 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {
-                                    mb.IsSplited = true;
+                                {                                  
                                     SplitCheck();
+                                    mb.IsSplited = PK;
                                 }
                             }
 
@@ -755,9 +762,9 @@ namespace AutoSplitterCore
                                         }
                                     }
                                     else
-                                    {
-                                        mb.IsSplited = true;
+                                    {                                      
                                         SplitCheck();
+                                        mb.IsSplited = PK;
                                     }
                                 }
                             }
@@ -837,8 +844,11 @@ namespace AutoSplitterCore
                             if (!sekiro.IsPlayerLoaded())
                             {
                                 SplitCheck();
-                                p.IsSplited = true;
-                                PendingMortal.Clear();
+                                if (PK)
+                                {
+                                    p.IsSplited = true;
+                                    PendingMortal.Clear();
+                                }
                             }
                         }
                     }
@@ -872,9 +882,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                i.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                i.IsSplited = PK;
                             }
                         }
                     }
@@ -908,9 +918,9 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {
-                                    p.IsSplited = true;
+                                {                                   
                                     SplitCheck();
+                                    p.IsSplited = PK;
                                 }
                             }
                         }
@@ -940,9 +950,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                cf.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                cf.IsSplited = PK;
                             }
                         }
                     }

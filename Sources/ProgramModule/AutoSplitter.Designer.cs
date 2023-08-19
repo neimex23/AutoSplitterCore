@@ -127,6 +127,8 @@ namespace AutoSplitterCore
             this.label75 = new System.Windows.Forms.Label();
             this.tabSekiro = new System.Windows.Forms.TabPage();
             this.panelPositionS = new System.Windows.Forms.Panel();
+            this.label85 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionS = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -249,6 +251,8 @@ namespace AutoSplitterCore
             this.label1 = new System.Windows.Forms.Label();
             this.tabDs1 = new System.Windows.Forms.TabPage();
             this.panelPositionDs1 = new System.Windows.Forms.Panel();
+            this.label86 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs1 = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
@@ -301,6 +305,8 @@ namespace AutoSplitterCore
             this.label62 = new System.Windows.Forms.Label();
             this.tabDs2 = new System.Windows.Forms.TabPage();
             this.panelPositionDs2 = new System.Windows.Forms.Panel();
+            this.label87 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs2 = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -337,6 +343,8 @@ namespace AutoSplitterCore
             this.label51 = new System.Windows.Forms.Label();
             this.tabDs3 = new System.Windows.Forms.TabPage();
             this.panelPositionsDs3 = new System.Windows.Forms.Panel();
+            this.label88 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionDs3 = new System.Windows.Forms.TextBox();
             this.label81 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
@@ -388,6 +396,8 @@ namespace AutoSplitterCore
             this.label38 = new System.Windows.Forms.Label();
             this.tabElden = new System.Windows.Forms.TabPage();
             this.panelPositionsER = new System.Windows.Forms.Panel();
+            this.label89 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionER = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -430,6 +440,8 @@ namespace AutoSplitterCore
             this.label30 = new System.Windows.Forms.Label();
             this.tabHollow = new System.Windows.Forms.TabPage();
             this.panelPositionH = new System.Windows.Forms.Panel();
+            this.label90 = new System.Windows.Forms.Label();
+            this.textBoxTitlePositionHK = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -497,18 +509,12 @@ namespace AutoSplitterCore
             this.btnDesactiveAllDishonored = new System.Windows.Forms.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionS = new System.Windows.Forms.TextBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionDs1 = new System.Windows.Forms.TextBox();
-            this.label87 = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionDs2 = new System.Windows.Forms.TextBox();
-            this.label88 = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionDs3 = new System.Windows.Forms.TextBox();
-            this.label89 = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionER = new System.Windows.Forms.TextBox();
-            this.label90 = new System.Windows.Forms.Label();
-            this.textBoxTitlePositionHK = new System.Windows.Forms.TextBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFS = new System.Windows.Forms.TextBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFDs3 = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFER = new System.Windows.Forms.TextBox();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -1680,11 +1686,11 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSekiro.Controls.Add(this.panelCfSekiro);
             this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelMiniBossSekiro);
             this.tabSekiro.Controls.Add(this.panelBossS);
             this.tabSekiro.Controls.Add(this.panelMortalJourney);
-            this.tabSekiro.Controls.Add(this.panelCfSekiro);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
             this.tabSekiro.Controls.Add(this.btnRefreshSekiro);
             this.tabSekiro.Controls.Add(this.btnDesactiveSekiro);
@@ -1719,6 +1725,22 @@ namespace AutoSplitterCore
             this.panelPositionS.Name = "panelPositionS";
             this.panelPositionS.Size = new System.Drawing.Size(505, 273);
             this.panelPositionS.TabIndex = 13;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(130, 61);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(52, 26);
+            this.label85.TabIndex = 14;
+            this.label85.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionS
+            // 
+            this.textBoxTitlePositionS.Location = new System.Drawing.Point(188, 61);
+            this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
+            this.textBoxTitlePositionS.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionS.TabIndex = 13;
             // 
             // label11
             // 
@@ -2102,6 +2124,8 @@ namespace AutoSplitterCore
             // 
             // panelCfSekiro
             // 
+            this.panelCfSekiro.Controls.Add(this.label91);
+            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
             this.panelCfSekiro.Controls.Add(this.label7);
             this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
             this.panelCfSekiro.Controls.Add(this.listBoxCfS);
@@ -2111,7 +2135,7 @@ namespace AutoSplitterCore
             this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
             this.panelCfSekiro.Location = new System.Drawing.Point(46, 82);
             this.panelCfSekiro.Name = "panelCfSekiro";
-            this.panelCfSekiro.Size = new System.Drawing.Size(504, 242);
+            this.panelCfSekiro.Size = new System.Drawing.Size(504, 266);
             this.panelCfSekiro.TabIndex = 25;
             // 
             // label7
@@ -2139,7 +2163,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxCfS.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfS.FormattingEnabled = true;
-            this.listBoxCfS.Location = new System.Drawing.Point(9, 116);
+            this.listBoxCfS.Location = new System.Drawing.Point(8, 139);
             this.listBoxCfS.Name = "listBoxCfS";
             this.listBoxCfS.Size = new System.Drawing.Size(488, 121);
             this.listBoxCfS.TabIndex = 19;
@@ -2147,7 +2171,7 @@ namespace AutoSplitterCore
             // 
             // btnAddCfS
             // 
-            this.btnAddCfS.Location = new System.Drawing.Point(211, 82);
+            this.btnAddCfS.Location = new System.Drawing.Point(202, 107);
             this.btnAddCfS.Name = "btnAddCfS";
             this.btnAddCfS.Size = new System.Drawing.Size(100, 21);
             this.btnAddCfS.TabIndex = 18;
@@ -3244,6 +3268,22 @@ namespace AutoSplitterCore
             this.panelPositionDs1.Name = "panelPositionDs1";
             this.panelPositionDs1.Size = new System.Drawing.Size(505, 266);
             this.panelPositionDs1.TabIndex = 27;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(136, 61);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(52, 26);
+            this.label86.TabIndex = 16;
+            this.label86.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs1
+            // 
+            this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(194, 61);
+            this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
+            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs1.TabIndex = 15;
             // 
             // label68
             // 
@@ -4582,6 +4622,22 @@ namespace AutoSplitterCore
             this.panelPositionDs2.Size = new System.Drawing.Size(505, 267);
             this.panelPositionDs2.TabIndex = 26;
             // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(139, 61);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(52, 26);
+            this.label87.TabIndex = 18;
+            this.label87.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs2
+            // 
+            this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(197, 61);
+            this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
+            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs2.TabIndex = 17;
+            // 
             // label55
             // 
             this.label55.AutoSize = true;
@@ -4992,9 +5048,9 @@ namespace AutoSplitterCore
             // tabDs3
             // 
             this.tabDs3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDs3.Controls.Add(this.panelCfDs3);
             this.tabDs3.Controls.Add(this.panelPositionsDs3);
             this.tabDs3.Controls.Add(this.panelLvlDs3);
-            this.tabDs3.Controls.Add(this.panelCfDs3);
             this.tabDs3.Controls.Add(this.panelBonfireDs3);
             this.tabDs3.Controls.Add(this.panelBossDs3);
             this.tabDs3.Controls.Add(this.btnRefreshDS3);
@@ -5030,6 +5086,22 @@ namespace AutoSplitterCore
             this.panelPositionsDs3.Name = "panelPositionsDs3";
             this.panelPositionsDs3.Size = new System.Drawing.Size(505, 270);
             this.panelPositionsDs3.TabIndex = 28;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(144, 63);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(52, 26);
+            this.label88.TabIndex = 20;
+            this.label88.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionDs3
+            // 
+            this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(202, 63);
+            this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
+            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionDs3.TabIndex = 19;
             // 
             // label81
             // 
@@ -5264,6 +5336,8 @@ namespace AutoSplitterCore
             // 
             // panelCfDs3
             // 
+            this.panelCfDs3.Controls.Add(this.label92);
+            this.panelCfDs3.Controls.Add(this.textBoxTitleCFDs3);
             this.panelCfDs3.Controls.Add(this.label46);
             this.panelCfDs3.Controls.Add(this.comboBoxHowCfDs3);
             this.panelCfDs3.Controls.Add(this.listBoxCfDs3);
@@ -5273,7 +5347,7 @@ namespace AutoSplitterCore
             this.panelCfDs3.Controls.Add(this.textBoxIdDs3);
             this.panelCfDs3.Location = new System.Drawing.Point(40, 85);
             this.panelCfDs3.Name = "panelCfDs3";
-            this.panelCfDs3.Size = new System.Drawing.Size(504, 242);
+            this.panelCfDs3.Size = new System.Drawing.Size(504, 270);
             this.panelCfDs3.TabIndex = 24;
             // 
             // label46
@@ -5301,7 +5375,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxCfDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfDs3.FormattingEnabled = true;
-            this.listBoxCfDs3.Location = new System.Drawing.Point(9, 116);
+            this.listBoxCfDs3.Location = new System.Drawing.Point(11, 142);
             this.listBoxCfDs3.Name = "listBoxCfDs3";
             this.listBoxCfDs3.Size = new System.Drawing.Size(488, 121);
             this.listBoxCfDs3.TabIndex = 19;
@@ -5309,7 +5383,7 @@ namespace AutoSplitterCore
             // 
             // btnAddCfeDs3
             // 
-            this.btnAddCfeDs3.Location = new System.Drawing.Point(211, 82);
+            this.btnAddCfeDs3.Location = new System.Drawing.Point(215, 108);
             this.btnAddCfeDs3.Name = "btnAddCfeDs3";
             this.btnAddCfeDs3.Size = new System.Drawing.Size(100, 21);
             this.btnAddCfeDs3.TabIndex = 18;
@@ -5662,9 +5736,9 @@ namespace AutoSplitterCore
             // tabElden
             // 
             this.tabElden.BackColor = System.Drawing.SystemColors.Control;
+            this.tabElden.Controls.Add(this.panelCfER);
             this.tabElden.Controls.Add(this.panelPositionsER);
             this.tabElden.Controls.Add(this.panelGraceER);
-            this.tabElden.Controls.Add(this.panelCfER);
             this.tabElden.Controls.Add(this.panelBossER);
             this.tabElden.Controls.Add(this.EldenRingRunning);
             this.tabElden.Controls.Add(this.EldenRingNotRunning);
@@ -5699,6 +5773,22 @@ namespace AutoSplitterCore
             this.panelPositionsER.Name = "panelPositionsER";
             this.panelPositionsER.Size = new System.Drawing.Size(505, 273);
             this.panelPositionsER.TabIndex = 22;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(137, 63);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(52, 26);
+            this.label89.TabIndex = 22;
+            this.label89.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionER
+            // 
+            this.textBoxTitlePositionER.Location = new System.Drawing.Point(195, 63);
+            this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
+            this.textBoxTitlePositionER.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionER.TabIndex = 21;
             // 
             // label32
             // 
@@ -6217,6 +6307,8 @@ namespace AutoSplitterCore
             // 
             // panelCfER
             // 
+            this.panelCfER.Controls.Add(this.label93);
+            this.panelCfER.Controls.Add(this.textBoxTitleCFER);
             this.panelCfER.Controls.Add(this.label42);
             this.panelCfER.Controls.Add(this.comboBoxHowCfER);
             this.panelCfER.Controls.Add(this.listBoxCfER);
@@ -6226,7 +6318,7 @@ namespace AutoSplitterCore
             this.panelCfER.Controls.Add(this.textBoxIdER);
             this.panelCfER.Location = new System.Drawing.Point(40, 84);
             this.panelCfER.Name = "panelCfER";
-            this.panelCfER.Size = new System.Drawing.Size(504, 242);
+            this.panelCfER.Size = new System.Drawing.Size(504, 271);
             this.panelCfER.TabIndex = 23;
             // 
             // label42
@@ -6254,7 +6346,7 @@ namespace AutoSplitterCore
             // 
             this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfER.FormattingEnabled = true;
-            this.listBoxCfER.Location = new System.Drawing.Point(9, 116);
+            this.listBoxCfER.Location = new System.Drawing.Point(8, 140);
             this.listBoxCfER.Name = "listBoxCfER";
             this.listBoxCfER.Size = new System.Drawing.Size(488, 121);
             this.listBoxCfER.TabIndex = 19;
@@ -6262,7 +6354,7 @@ namespace AutoSplitterCore
             // 
             // btnAddCfER
             // 
-            this.btnAddCfER.Location = new System.Drawing.Point(211, 82);
+            this.btnAddCfER.Location = new System.Drawing.Point(213, 113);
             this.btnAddCfER.Name = "btnAddCfER";
             this.btnAddCfER.Size = new System.Drawing.Size(100, 21);
             this.btnAddCfER.TabIndex = 18;
@@ -6641,6 +6733,22 @@ namespace AutoSplitterCore
             this.panelPositionH.Name = "panelPositionH";
             this.panelPositionH.Size = new System.Drawing.Size(506, 273);
             this.panelPositionH.TabIndex = 20;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(141, 70);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(52, 26);
+            this.label90.TabIndex = 26;
+            this.label90.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitlePositionHK
+            // 
+            this.textBoxTitlePositionHK.Location = new System.Drawing.Point(199, 70);
+            this.textBoxTitlePositionHK.Name = "textBoxTitlePositionHK";
+            this.textBoxTitlePositionHK.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitlePositionHK.TabIndex = 25;
             // 
             // label29
             // 
@@ -7669,101 +7777,53 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
-            // textBoxTitlePositionS
+            // label91
             // 
-            this.textBoxTitlePositionS.Location = new System.Drawing.Point(188, 61);
-            this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
-            this.textBoxTitlePositionS.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionS.TabIndex = 13;
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(162, 77);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(52, 26);
+            this.label91.TabIndex = 24;
+            this.label91.Text = "     Title\r\n(Optional)";
             // 
-            // label85
+            // textBoxTitleCFS
             // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(130, 61);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(52, 26);
-            this.label85.TabIndex = 14;
-            this.label85.Text = "     Title\r\n(Optional)";
+            this.textBoxTitleCFS.Location = new System.Drawing.Point(220, 77);
+            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
+            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFS.TabIndex = 23;
             // 
-            // label86
+            // label92
             // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(136, 61);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(52, 26);
-            this.label86.TabIndex = 16;
-            this.label86.Text = "     Title\r\n(Optional)";
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(167, 79);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(52, 26);
+            this.label92.TabIndex = 26;
+            this.label92.Text = "     Title\r\n(Optional)";
             // 
-            // textBoxTitlePositionDs1
+            // textBoxTitleCFDs3
             // 
-            this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(194, 61);
-            this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
-            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionDs1.TabIndex = 15;
+            this.textBoxTitleCFDs3.Location = new System.Drawing.Point(225, 79);
+            this.textBoxTitleCFDs3.Name = "textBoxTitleCFDs3";
+            this.textBoxTitleCFDs3.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFDs3.TabIndex = 25;
             // 
-            // label87
+            // label93
             // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(139, 61);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(52, 26);
-            this.label87.TabIndex = 18;
-            this.label87.Text = "     Title\r\n(Optional)";
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(167, 83);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(52, 26);
+            this.label93.TabIndex = 28;
+            this.label93.Text = "     Title\r\n(Optional)";
             // 
-            // textBoxTitlePositionDs2
+            // textBoxTitleCFER
             // 
-            this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(197, 61);
-            this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
-            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionDs2.TabIndex = 17;
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(144, 63);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(52, 26);
-            this.label88.TabIndex = 20;
-            this.label88.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitlePositionDs3
-            // 
-            this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(202, 63);
-            this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
-            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionDs3.TabIndex = 19;
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(137, 63);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(52, 26);
-            this.label89.TabIndex = 22;
-            this.label89.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitlePositionER
-            // 
-            this.textBoxTitlePositionER.Location = new System.Drawing.Point(195, 63);
-            this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
-            this.textBoxTitlePositionER.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionER.TabIndex = 21;
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(141, 70);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(52, 26);
-            this.label90.TabIndex = 26;
-            this.label90.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitlePositionHK
-            // 
-            this.textBoxTitlePositionHK.Location = new System.Drawing.Point(199, 70);
-            this.textBoxTitlePositionHK.Name = "textBoxTitlePositionHK";
-            this.textBoxTitlePositionHK.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitlePositionHK.TabIndex = 25;
+            this.textBoxTitleCFER.Location = new System.Drawing.Point(225, 83);
+            this.textBoxTitleCFER.Name = "textBoxTitleCFER";
+            this.textBoxTitleCFER.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFER.TabIndex = 27;
             // 
             // AutoSplitter
             // 
@@ -8428,5 +8488,11 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TextBox textBoxTitlePositionER;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.TextBox textBoxTitlePositionHK;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.TextBox textBoxTitleCFS;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox textBoxTitleCFDs3;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.TextBox textBoxTitleCFER;
     }
 }

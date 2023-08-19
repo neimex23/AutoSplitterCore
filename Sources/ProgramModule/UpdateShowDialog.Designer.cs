@@ -38,9 +38,9 @@
             this.labelCloudVer = new System.Windows.Forms.Label();
             this.LabelVersion = new System.Windows.Forms.Label();
             this.groupBoxInstallerSelect = new System.Windows.Forms.GroupBox();
-            this.btnInstaller = new System.Windows.Forms.Button();
-            this.btnPortable = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPortable = new System.Windows.Forms.Button();
+            this.btnInstaller = new System.Windows.Forms.Button();
             this.groupBoxUpdating = new System.Windows.Forms.GroupBox();
             this.progressBarUpdating = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
@@ -146,16 +146,14 @@
             this.groupBoxInstallerSelect.TabStop = false;
             this.groupBoxInstallerSelect.Text = "Installer Select";
             // 
-            // btnInstaller
+            // label1
             // 
-            this.btnInstaller.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnInstaller.Location = new System.Drawing.Point(18, 84);
-            this.btnInstaller.Name = "btnInstaller";
-            this.btnInstaller.Size = new System.Drawing.Size(137, 23);
-            this.btnInstaller.TabIndex = 81;
-            this.btnInstaller.Text = "Installer";
-            this.btnInstaller.UseVisualStyleBackColor = true;
-            this.btnInstaller.Click += new System.EventHandler(this.btnInstaller_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 13);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Select Installation Method";
             // 
             // btnPortable
             // 
@@ -168,14 +166,16 @@
             this.btnPortable.UseVisualStyleBackColor = true;
             this.btnPortable.Click += new System.EventHandler(this.btnPortable_Click);
             // 
-            // label1
+            // btnInstaller
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 13);
-            this.label1.TabIndex = 83;
-            this.label1.Text = "Select Installation Method";
+            this.btnInstaller.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnInstaller.Location = new System.Drawing.Point(18, 84);
+            this.btnInstaller.Name = "btnInstaller";
+            this.btnInstaller.Size = new System.Drawing.Size(137, 23);
+            this.btnInstaller.TabIndex = 81;
+            this.btnInstaller.Text = "Installer";
+            this.btnInstaller.UseVisualStyleBackColor = true;
+            this.btnInstaller.Click += new System.EventHandler(this.btnInstaller_Click);
             // 
             // groupBoxUpdating
             // 
@@ -209,11 +209,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 185);
+            this.Controls.Add(this.groupBoxUpdate);
             this.Controls.Add(this.groupBoxInstallerSelect);
             this.Controls.Add(this.groupBoxUpdating);
-            this.Controls.Add(this.groupBoxUpdate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(345, 224);
             this.MinimumSize = new System.Drawing.Size(345, 224);
             this.Name = "UpdateShowDialog";
             this.Text = "ASC: New version available";

@@ -100,11 +100,20 @@ namespace AutoSplitterCore
                 auxReleases = response.FromJson<List<Dictionary<string, object>>>();
                 foreach (var aux in auxReleases)
                 {
-                    var ver = aux["tag_name"].ToString();
-                    SoulsMemoryRelease.Add(Version.Parse(ver));
+                    if (aux.TryGetValue("tag_name", out var tagValue) && tagValue is string ver)
+                    {
+                        Version outVer = null;
+                        Version.TryParse(ver, out outVer);
+                        if (outVer != null) 
+                            SoulsMemoryRelease.Add(outVer);
+                    }                        
                 }
-                cloudSoulsVerNotDot = SoulsMemoryRelease[0].ToString();
-                cloudSoulsVer = SoulsMemoryRelease[0].ToString()+".0";
+
+                if (SoulsMemoryRelease.Count > 0)
+                {
+                    cloudSoulsVerNotDot = SoulsMemoryRelease[0].ToString();
+                    cloudSoulsVer = SoulsMemoryRelease[0].ToString() + ".0";
+                }
             }
             catch (Exception) { };
             if ((CheckUpdatesOnStartup)) //|| (DebugMode))

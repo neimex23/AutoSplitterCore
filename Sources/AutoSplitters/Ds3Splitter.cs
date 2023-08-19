@@ -27,8 +27,6 @@ using System.Threading;
 using SoulMemory.DarkSouls3;
 using HitCounterManager;
 using SoulMemory;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography;
 
 namespace AutoSplitterCore
 {
@@ -38,6 +36,7 @@ namespace AutoSplitterCore
         public bool _StatusDs3 = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public DTDs3 dataDs3;
         public DefinitionsDs3 defD3 = new DefinitionsDs3();
@@ -73,8 +72,14 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
 
@@ -186,10 +191,10 @@ namespace AutoSplitterCore
             dataDs3.lvlToSplit.RemoveAt(position);
         }
 
-        public void AddCustomFlag(uint id, string mode)
+        public void AddCustomFlag(uint id, string mode, string title)
         {
             DefinitionsDs3.CfDs3 cf = new DefinitionsDs3.CfDs3()
-            { Id = id, Mode = mode };
+            { Id = id, Mode = mode, Title = title };
             dataDs3.flagToSplit.Add(cf);
         }
 
@@ -338,51 +343,54 @@ namespace AutoSplitterCore
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count > 0 || listPendingP.Count > 0) && _StatusDs3)
+                if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (!Ds3.IsPlayerLoaded())
+                    if (listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingCf.Count > 0 || listPendingP.Count > 0)
                     {
-                        foreach (var boss in listPendingB)
+                        if (!Ds3.IsPlayerLoaded())
                         {
-                            SplitCheck();
-                            var b = dataDs3.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
-                            dataDs3.bossToSplit[b].IsSplited = true;
+                            foreach (var boss in listPendingB)
+                            {
+                                SplitCheck();
+                                var b = dataDs3.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                dataDs3.bossToSplit[b].IsSplited = true;
+                            }
+
+                            foreach (var bone in listPendingBon)
+                            {
+                                SplitCheck();
+                                var bo = dataDs3.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
+                                dataDs3.bonfireToSplit[bo].IsSplited = true;
+                            }
+
+                            foreach (var lvl in listPendingLvl)
+                            {
+                                SplitCheck();
+                                var l = dataDs3.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                dataDs3.lvlToSplit[l].IsSplited = true;
+                            }
+
+                            foreach (var cf in listPendingCf)
+                            {
+                                SplitCheck();
+                                var c = dataDs3.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                dataDs3.flagToSplit[c].IsSplited = true;
+                            }
+
+                            foreach (var position in listPendingP)
+                            {
+                                SplitCheck();
+                                var p = dataDs3.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                dataDs3.positionsToSplit[p].IsSplited = true;
+                            }
+
+                            listPendingB.Clear();
+                            listPendingBon.Clear();
+                            listPendingLvl.Clear();
+                            listPendingCf.Clear();
+                            listPendingP.Clear();
+
                         }
-
-                        foreach (var bone in listPendingBon)
-                        {
-                            SplitCheck();
-                            var bo = dataDs3.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
-                            dataDs3.bonfireToSplit[bo].IsSplited = true;
-                        }
-
-                        foreach (var lvl in listPendingLvl)
-                        {
-                            SplitCheck();
-                            var l = dataDs3.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
-                            dataDs3.lvlToSplit[l].IsSplited = true;
-                        }
-
-                        foreach (var cf in listPendingCf)
-                        {
-                            SplitCheck();
-                            var c = dataDs3.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
-                            dataDs3.flagToSplit[c].IsSplited = true;
-                        }
-
-                        foreach (var position in listPendingP)
-                        {
-                            SplitCheck();
-                            var p = dataDs3.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                            dataDs3.positionsToSplit[p].IsSplited = true;
-                        }
-
-                        listPendingB.Clear();
-                        listPendingBon.Clear();
-                        listPendingLvl.Clear();
-                        listPendingCf.Clear();
-                        listPendingP.Clear();
-
                     }
                 }
             }
@@ -409,9 +417,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                b.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                b.IsSplited = PK;
                             }
                         }
                     }
@@ -442,8 +450,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                bonfire.IsSplited = true;
                                 SplitCheck();
+                                bonfire.IsSplited = PK;
                             }
                         }
                     }
@@ -473,8 +481,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                lvl.IsSplited = true;
                                 SplitCheck();
+                                lvl.IsSplited = PK;
                             }
                         }
                     }
@@ -504,8 +512,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                cf.IsSplited = true;
                                 SplitCheck();
+                                cf.IsSplited = PK;
                             }
                         }
                     }
@@ -541,8 +549,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {
-                                    p.IsSplited = true;
                                     SplitCheck();
+                                    p.IsSplited = PK;
                                 }
                             }
                         }

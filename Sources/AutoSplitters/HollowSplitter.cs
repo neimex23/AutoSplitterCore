@@ -44,6 +44,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
 
         #region Control Management
@@ -71,8 +72,14 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
 
@@ -375,9 +382,9 @@ namespace AutoSplitterCore
                     foreach (var element in BossToSplit)
                     {
                         if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
-                        {
-                            element.IsSplited = true;
+                        {                            
                             SplitCheck();
+                            element.IsSplited = PK;
                         }
                     }
                 }
@@ -400,17 +407,17 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {
-                                    element.IsSplited = true;
+                                {                                    
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
-                                {
-                                    element.IsSplited = true;
+                                {                                    
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                             }
                         }
@@ -435,24 +442,24 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {
-                                    element.IsSplited = true;
+                                {                                   
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset) && !element.kingSoulsCase)
-                                {
-                                    element.IsSplited = true;
+                                {                                    
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                                 else
                                 {
                                     if (hollow.Memory.PlayerData<int>(Offset.charmCost_36) == 5 && hollow.Memory.PlayerData<int>(Offset.royalCharmState) == 3)
-                                    {
-                                        element.IsSplited = true;
+                                    {                                        
                                         SplitCheck();
+                                        element.IsSplited = PK;
                                     }
                                 }
                             }
@@ -478,17 +485,17 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {
-                                    element.IsSplited = true;
+                                {                                   
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
-                                {
-                                    element.IsSplited = true;
+                                {                                   
                                     SplitCheck();
+                                    element.IsSplited = PK;
                                 }
                             }
                         }
@@ -515,9 +522,9 @@ namespace AutoSplitterCore
                             var rangeY = ((currentlyPosition.position.Y - p.position.Y) <= dataHollow.positionMargin) && ((currentlyPosition.position.Y - p.position.Y) >= -dataHollow.positionMargin);
                             var rangeZ = currentPosition.sceneName == p.sceneName;
                             if (rangeX && rangeY && rangeZ)
-                            {
-                                p.IsSplited = true;
+                            {                              
                                 SplitCheck();
+                                p.IsSplited = PK;
                             }
                         }
                     }
@@ -636,9 +643,9 @@ namespace AutoSplitterCore
                         foreach (var element in PantheonToSplit)
                         {
                             if (!element.IsSplited && PantheonCase(element.Title))
-                            {
-                                element.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                element.IsSplited = PK;
                             }
                         }
                     }
@@ -651,7 +658,7 @@ namespace AutoSplitterCore
                                 if (currentPosition.previousScene.StartsWith("GG_Nailmasters") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
                                     SplitCheck();
-                                    element.IsSplited = true;
+                                    element.IsSplited = PK;
                                 }
                             }
 
@@ -661,7 +668,7 @@ namespace AutoSplitterCore
                                 if (currentPosition.previousScene.StartsWith("GG_Painter") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
                                     SplitCheck();
-                                    element.IsSplited = true;
+                                    element.IsSplited = PK;
                                 }
                             }
 
@@ -670,7 +677,7 @@ namespace AutoSplitterCore
                                 if (currentPosition.previousScene.StartsWith("GG_Sly") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
                                     SplitCheck();
-                                    element.IsSplited = true;
+                                    element.IsSplited = PK;
                                 }
 
                             }
@@ -680,7 +687,7 @@ namespace AutoSplitterCore
                                 if (currentPosition.previousScene.StartsWith("GG_Hollow_Knight") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
                                     SplitCheck();
-                                    element.IsSplited = true;
+                                    element.IsSplited = PK;
                                 }
                             }
 
@@ -689,7 +696,7 @@ namespace AutoSplitterCore
                                 if (currentPosition.sceneName.StartsWith("Cinematic_Ending_E"))
                                 {
                                     SplitCheck();
-                                    element.IsSplited = true;
+                                    element.IsSplited = PK;
                                 }
                             }
                         }

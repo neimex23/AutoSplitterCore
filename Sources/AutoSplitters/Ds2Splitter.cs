@@ -38,6 +38,7 @@ namespace AutoSplitterCore
         public bool _runStarted = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public DTDs2 dataDs2;
         public DefinitionsDs2 defD2 = new DefinitionsDs2();
@@ -72,10 +73,17 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
+
         public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
@@ -281,34 +289,37 @@ namespace AutoSplitterCore
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0) && _StatusDs2)
+                if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (Ds2.IsLoading())
+                    if ((listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0))
                     {
-                        foreach (var boss in listPendingB)
+                        if (Ds2.IsLoading())
                         {
-                            SplitCheck();
-                            var b = dataDs2.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
-                            dataDs2.bossToSplit[b].IsSplited = true;
-                        }
+                            foreach (var boss in listPendingB)
+                            {
+                                SplitCheck();
+                                var b = dataDs2.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                dataDs2.bossToSplit[b].IsSplited = true;
+                            }
 
-                        foreach (var position in listPendingP)
-                        {
-                            SplitCheck();
-                            var p = dataDs2.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                            dataDs2.positionsToSplit[p].IsSplited = true;
-                        }
+                            foreach (var position in listPendingP)
+                            {
+                                SplitCheck();
+                                var p = dataDs2.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                dataDs2.positionsToSplit[p].IsSplited = true;
+                            }
 
-                        foreach (var lvl in listPendingLvl)
-                        {
-                            SplitCheck();
-                            var l = dataDs2.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
-                            dataDs2.lvlToSplit[l].IsSplited = true;
-                        }
+                            foreach (var lvl in listPendingLvl)
+                            {
+                                SplitCheck();
+                                var l = dataDs2.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                dataDs2.lvlToSplit[l].IsSplited = true;
+                            }
 
-                        listPendingB.Clear();
-                        listPendingP.Clear();
-                        listPendingLvl.Clear();
+                            listPendingB.Clear();
+                            listPendingP.Clear();
+                            listPendingLvl.Clear();
+                        }
                     }
                 }
             }
@@ -336,8 +347,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                b.IsSplited = true;
                                 SplitCheck();
+                                b.IsSplited = PK;                               
                             }
                         }
                     }
@@ -367,8 +378,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                lvl.IsSplited = true;
                                 SplitCheck();
+                                lvl.IsSplited = PK;
                             }
                         }
                     }
@@ -405,8 +416,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {
-                                    p.IsSplited = true;
                                     SplitCheck();
+                                    p.IsSplited = PK;
                                 }
                             }
                         }

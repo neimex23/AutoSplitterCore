@@ -571,7 +571,7 @@ namespace AutoSplitterCore
             public uint Id;
             public bool IsSplited = false;
             public string Mode;
-
+            public string Title;
         }
         #endregion
     }

@@ -66,7 +66,7 @@ namespace AutoSplitterCore
             WebClient webClient = new WebClient();
             string ver = updateModule.cloudSoulsVerNotDot;
             string url = "https://github.com/FrankvdStam/SoulSplitter/releases/download/" + ver + "/"+ ver + ".zip";
-            string to = Path.GetFullPath("SoulsMemory.dll").ToString() + ".zip";
+            string to = Path.GetFullPath("SoulMemory.dll").ToString() + ".zip";
             string extractPath = Directory.GetCurrentDirectory() + "/Update";
             progressBarUpdating.Increment(20);
             webClient.DownloadFile(url, to);

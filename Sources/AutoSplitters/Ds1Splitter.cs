@@ -36,6 +36,7 @@ namespace AutoSplitterCore
         public bool _StatusDs1 = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public DTDs1 dataDs1;
         public DefinitionsDs1 defDs1 = new DefinitionsDs1();
@@ -71,8 +72,14 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
 
@@ -353,51 +360,53 @@ namespace AutoSplitterCore
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(200);
-                if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingP.Count > 0 || listPendingItem.Count > 0) && _StatusDs1)
+                if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (!Ds1.IsPlayerLoaded())
+                    if ((listPendingB.Count > 0 || listPendingBon.Count > 0 || listPendingLvl.Count > 0 || listPendingP.Count > 0 || listPendingItem.Count > 0))
                     {
-                        foreach (var boss in listPendingB)
+                        if (!Ds1.IsPlayerLoaded())
                         {
-                            SplitCheck();
-                            var b = dataDs1.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
-                            dataDs1.bossToSplit[b].IsSplited = true;
-                        }
+                            foreach (var boss in listPendingB)
+                            {
+                                SplitCheck();
+                                var b = dataDs1.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                dataDs1.bossToSplit[b].IsSplited = true;
+                            }
 
-                        foreach (var bone in listPendingBon)
-                        {
-                            SplitCheck();
-                            var bo = dataDs1.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
-                            dataDs1.bonfireToSplit[bo].IsSplited = true;
-                        }
+                            foreach (var bone in listPendingBon)
+                            {
+                                SplitCheck();
+                                var bo = dataDs1.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
+                                dataDs1.bonfireToSplit[bo].IsSplited = true;
+                            }
 
-                        foreach (var lvl in listPendingLvl)
-                        {
-                            SplitCheck();
-                            var l = dataDs1.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
-                            dataDs1.lvlToSplit[l].IsSplited = true;
-                        }
+                            foreach (var lvl in listPendingLvl)
+                            {
+                                SplitCheck();
+                                var l = dataDs1.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                dataDs1.lvlToSplit[l].IsSplited = true;
+                            }
 
-                        foreach (var position in listPendingP)
-                        {
-                            SplitCheck();
-                            var p = dataDs1.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                            dataDs1.positionsToSplit[p].IsSplited = true;
-                        }
+                            foreach (var position in listPendingP)
+                            {
+                                SplitCheck();
+                                var p = dataDs1.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                dataDs1.positionsToSplit[p].IsSplited = true;
+                            }
 
-                        foreach (var cf in listPendingItem)
-                        {
-                            SplitCheck();
-                            var c = dataDs1.itemToSplit.FindIndex(icf => icf.Id == cf.Id);
-                            dataDs1.itemToSplit[c].IsSplited = true;
-                        }
+                            foreach (var cf in listPendingItem)
+                            {
+                                SplitCheck();
+                                var c = dataDs1.itemToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                dataDs1.itemToSplit[c].IsSplited = true;
+                            }
 
-                       
-                        listPendingB.Clear();
-                        listPendingBon.Clear();
-                        listPendingLvl.Clear();
-                        listPendingP.Clear();
-                        listPendingItem.Clear();
+                            listPendingB.Clear();
+                            listPendingBon.Clear();
+                            listPendingLvl.Clear();
+                            listPendingP.Clear();
+                            listPendingItem.Clear();
+                        }
                     }
                 }
             }
@@ -424,9 +433,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                b.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                b.IsSplited = PK;
                             }
                         }
                     }
@@ -456,9 +465,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                bonfire.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                bonfire.IsSplited = PK;
                             }
                         }
                     }
@@ -487,9 +496,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                lvl.IsSplited = true;
+                            {                                
                                 SplitCheck();
+                                lvl.IsSplited = PK;
                             }
                         }
                     }
@@ -524,9 +533,9 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {
-                                    p.IsSplited = true;
+                                {                                    
                                     SplitCheck();
+                                    p.IsSplited = PK;
                                 }
                             }
                         }
@@ -1258,9 +1267,9 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {
-                                item.IsSplited = true;
+                            {                               
                                 SplitCheck();
+                                item.IsSplited = PK;
                             }
                         }
                     }

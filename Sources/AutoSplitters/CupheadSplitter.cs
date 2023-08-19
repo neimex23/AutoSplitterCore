@@ -39,6 +39,7 @@ namespace AutoSplitterCore
         public bool _StatusCuphead = false;
         public bool _SplitGo = false;
         public bool _PracticeMode = false;
+        private bool PK = true;
         public bool _ShowSettings = false;
         public ProfilesControl _profile;
         private static readonly object _object = new object();
@@ -82,8 +83,14 @@ namespace AutoSplitterCore
         {
             lock (_object)
             {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
+                if (_PracticeMode)
+                    PK = false;
+                else
+                {
+                    if (_SplitGo) { Thread.Sleep(2000); }
+                    _SplitGo = true;
+                    PK = true;
+                }
             }
         }
 
@@ -288,9 +295,9 @@ namespace AutoSplitterCore
                     foreach (var element in ElementToSplit)
                     {
                         if (!element.IsSplited && ElementCase(element.Title))
-                        {
-                            element.IsSplited = true;
+                        {                         
                             SplitCheck();
+                            element.IsSplited = PK;
                         }
                     }
                 }
