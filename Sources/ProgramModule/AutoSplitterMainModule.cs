@@ -249,12 +249,14 @@ namespace AutoSplitterCore
         private int gameActive = 0;
         private bool anyGameTime = false;
         private bool autoTimer = false;
+        private bool profileResetDone = false;
         private long _lastCelesteTime;
         private long _lastTime;
+
         public void CheckAutoTimers()
         {
             anyGameTime = false;
-            autoTimer = false;
+            autoTimer = false;        
             switch (gameActive)
             {
                 case GameConstruction.SekiroSplitterIndex: //Sekiro
@@ -365,7 +367,7 @@ namespace AutoSplitterCore
                     }
                     break;
 
-                //Manual Controller with Loading Events
+                //Manual Controller with Loading Events           
                 case GameConstruction.Ds2SplitterIndex: //DS2
                     if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
                     {
@@ -415,10 +417,35 @@ namespace AutoSplitterCore
             }
 
 
-            IProfileInfo SelectedProfileInf;
-            if (autoTimer && anyGameTime)
+            IProfileInfo SelectedProfileInf = profCtrl.SelectedProfileInfo;
+
+            if (saveModule.dataAS.AutoResetSplit)
             {
-                SelectedProfileInf = profCtrl.SelectedProfileInfo;
+                int inGameTime = -1;
+                if (GameOn())
+                {
+                    try
+                    {
+                        inGameTime = igtModule.ReturnCurrentIGT();
+                    }
+                    catch (Exception) { inGameTime = -1; }
+                }
+
+                if (inGameTime > 0 && inGameTime <= 10000)
+                {
+                    if (!profileResetDone)
+                    {
+                        profCtrl.ProfileReset();
+                        profileResetDone = true; 
+                    }
+                }else
+                {
+                    profileResetDone = false;
+                }
+            }
+
+            if (autoTimer && anyGameTime)
+            {                
                 int inGameTime = -1;
                 if (GameOn()) {
                     try {
@@ -446,7 +473,6 @@ namespace AutoSplitterCore
 
             if (autoTimer && !anyGameTime)
             {
-                SelectedProfileInf = profCtrl.SelectedProfileInfo;
                 int inGameTime = -1;
                 if (GameOn())
                 {
@@ -463,7 +489,7 @@ namespace AutoSplitterCore
                 if ((inGameTime <= 0 || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount || !GameOn()) && profCtrl.TimerRunning)
                     main.StartStopTimer(false);
             }
-        } 
+        }
 
         public bool GameOn()
         {

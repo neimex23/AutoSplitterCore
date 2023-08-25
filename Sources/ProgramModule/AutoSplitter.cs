@@ -547,6 +547,8 @@ namespace AutoSplitterCore
             }
             #endregion
             #region Timming
+            comboBoxTGame.SelectedIndex = 0;
+            checkBoxResetSplitNg.Checked = saveModule.dataAS.AutoResetSplit;
             if (sekiroData.autoTimer)
             {
                 checkBoxATS.Checked = true;
@@ -868,6 +870,11 @@ namespace AutoSplitterCore
             updateModule.CheckUpdates(true);
             LabelVersion.Text = updateModule.currentVer;
             labelCloudVer.Text = updateModule.cloudVer;
+        }
+
+        private void checkBoxResetSplitNg_CheckedChanged(object sender, EventArgs e)
+        {
+            saveModule.dataAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
         }
 
         private void comboBoxTGame_SelectedIndexChanged(object sender, EventArgs e)

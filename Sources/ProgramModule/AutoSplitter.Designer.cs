@@ -126,6 +126,16 @@ namespace AutoSplitterCore
             this.comboBoxTGame = new System.Windows.Forms.ComboBox();
             this.label75 = new System.Windows.Forms.Label();
             this.tabSekiro = new System.Windows.Forms.TabPage();
+            this.panelCfSekiro = new System.Windows.Forms.Panel();
+            this.label91 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFS = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxHowCfS = new System.Windows.Forms.ComboBox();
+            this.listBoxCfS = new System.Windows.Forms.ListBox();
+            this.btnAddCfS = new System.Windows.Forms.Button();
+            this.btnGetListFlagsSekiro = new System.Windows.Forms.Button();
+            this.label59 = new System.Windows.Forms.Label();
+            this.textBoxCfIdS = new System.Windows.Forms.TextBox();
             this.panelPositionS = new System.Windows.Forms.Panel();
             this.label85 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionS = new System.Windows.Forms.TextBox();
@@ -160,14 +170,6 @@ namespace AutoSplitterCore
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBoxMJS = new System.Windows.Forms.GroupBox();
             this.checkBoxMortalJourneyRun = new System.Windows.Forms.CheckBox();
-            this.panelCfSekiro = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxHowCfS = new System.Windows.Forms.ComboBox();
-            this.listBoxCfS = new System.Windows.Forms.ListBox();
-            this.btnAddCfS = new System.Windows.Forms.Button();
-            this.btnGetListFlagsSekiro = new System.Windows.Forms.Button();
-            this.label59 = new System.Windows.Forms.Label();
-            this.textBoxCfIdS = new System.Windows.Forms.TextBox();
             this.panelIdolsS = new System.Windows.Forms.Panel();
             this.groupBoxAshinaCastle = new System.Windows.Forms.GroupBox();
             this.listBoxAshinaCastle = new System.Windows.Forms.ListBox();
@@ -342,6 +344,16 @@ namespace AutoSplitterCore
             this.comboBoxToSplitDs2 = new System.Windows.Forms.ComboBox();
             this.label51 = new System.Windows.Forms.Label();
             this.tabDs3 = new System.Windows.Forms.TabPage();
+            this.panelCfDs3 = new System.Windows.Forms.Panel();
+            this.label92 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFDs3 = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.comboBoxHowCfDs3 = new System.Windows.Forms.ComboBox();
+            this.listBoxCfDs3 = new System.Windows.Forms.ListBox();
+            this.btnAddCfeDs3 = new System.Windows.Forms.Button();
+            this.btnGetListFlagDs3 = new System.Windows.Forms.Button();
+            this.label47 = new System.Windows.Forms.Label();
+            this.textBoxIdDs3 = new System.Windows.Forms.TextBox();
             this.panelPositionsDs3 = new System.Windows.Forms.Panel();
             this.label88 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionDs3 = new System.Windows.Forms.TextBox();
@@ -366,14 +378,6 @@ namespace AutoSplitterCore
             this.comboBoxHowAttributeDs3 = new System.Windows.Forms.ComboBox();
             this.comboBoxAttributeDs3 = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.panelCfDs3 = new System.Windows.Forms.Panel();
-            this.label46 = new System.Windows.Forms.Label();
-            this.comboBoxHowCfDs3 = new System.Windows.Forms.ComboBox();
-            this.listBoxCfDs3 = new System.Windows.Forms.ListBox();
-            this.btnAddCfeDs3 = new System.Windows.Forms.Button();
-            this.btnGetListFlagDs3 = new System.Windows.Forms.Button();
-            this.label47 = new System.Windows.Forms.Label();
-            this.textBoxIdDs3 = new System.Windows.Forms.TextBox();
             this.panelBonfireDs3 = new System.Windows.Forms.Panel();
             this.listBoxBonfireDs3 = new System.Windows.Forms.ListBox();
             this.btnAddBonfire = new System.Windows.Forms.Button();
@@ -395,6 +399,16 @@ namespace AutoSplitterCore
             this.comboBoxToSplitSelectDs3 = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.tabElden = new System.Windows.Forms.TabPage();
+            this.panelCfER = new System.Windows.Forms.Panel();
+            this.label93 = new System.Windows.Forms.Label();
+            this.textBoxTitleCFER = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.comboBoxHowCfER = new System.Windows.Forms.ComboBox();
+            this.listBoxCfER = new System.Windows.Forms.ListBox();
+            this.btnAddCfER = new System.Windows.Forms.Button();
+            this.btnGetListER = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textBoxIdER = new System.Windows.Forms.TextBox();
             this.panelPositionsER = new System.Windows.Forms.Panel();
             this.label89 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionER = new System.Windows.Forms.TextBox();
@@ -417,14 +431,6 @@ namespace AutoSplitterCore
             this.comboBoxHowGraceER = new System.Windows.Forms.ComboBox();
             this.comboBoxZoneSelectER = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.panelCfER = new System.Windows.Forms.Panel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.comboBoxHowCfER = new System.Windows.Forms.ComboBox();
-            this.listBoxCfER = new System.Windows.Forms.ListBox();
-            this.btnAddCfER = new System.Windows.Forms.Button();
-            this.btnGetListER = new System.Windows.Forms.Button();
-            this.label41 = new System.Windows.Forms.Label();
-            this.textBoxIdER = new System.Windows.Forms.TextBox();
             this.panelBossER = new System.Windows.Forms.Panel();
             this.btnAddBossER = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -509,12 +515,9 @@ namespace AutoSplitterCore
             this.btnDesactiveAllDishonored = new System.Windows.Forms.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.textBoxTitleCFS = new System.Windows.Forms.TextBox();
-            this.label92 = new System.Windows.Forms.Label();
-            this.textBoxTitleCFDs3 = new System.Windows.Forms.TextBox();
-            this.label93 = new System.Windows.Forms.Label();
-            this.textBoxTitleCFER = new System.Windows.Forms.TextBox();
+            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -552,12 +555,12 @@ namespace AutoSplitterCore
             this.groupBoxATDs1.SuspendLayout();
             this.groupBoxTMDs1.SuspendLayout();
             this.tabSekiro.SuspendLayout();
+            this.panelCfSekiro.SuspendLayout();
             this.panelPositionS.SuspendLayout();
             this.panelMiniBossSekiro.SuspendLayout();
             this.panelBossS.SuspendLayout();
             this.panelMortalJourney.SuspendLayout();
             this.groupBoxMJS.SuspendLayout();
-            this.panelCfSekiro.SuspendLayout();
             this.panelIdolsS.SuspendLayout();
             this.groupBoxAshinaCastle.SuspendLayout();
             this.groupBoxRadioAshinaCastle.SuspendLayout();
@@ -586,15 +589,15 @@ namespace AutoSplitterCore
             this.panelLvlDs2.SuspendLayout();
             this.panelBossDS2.SuspendLayout();
             this.tabDs3.SuspendLayout();
+            this.panelCfDs3.SuspendLayout();
             this.panelPositionsDs3.SuspendLayout();
             this.panelLvlDs3.SuspendLayout();
-            this.panelCfDs3.SuspendLayout();
             this.panelBonfireDs3.SuspendLayout();
             this.panelBossDs3.SuspendLayout();
             this.tabElden.SuspendLayout();
+            this.panelCfER.SuspendLayout();
             this.panelPositionsER.SuspendLayout();
             this.panelGraceER.SuspendLayout();
-            this.panelCfER.SuspendLayout();
             this.panelBossER.SuspendLayout();
             this.tabHollow.SuspendLayout();
             this.panelPositionH.SuspendLayout();
@@ -614,6 +617,7 @@ namespace AutoSplitterCore
             this.panelLevelCuphead.SuspendLayout();
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl2
@@ -973,6 +977,7 @@ namespace AutoSplitterCore
             // tabTiming
             // 
             this.tabTiming.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTiming.Controls.Add(this.groupBox2);
             this.tabTiming.Controls.Add(this.groupBoxTDs2);
             this.tabTiming.Controls.Add(this.groupBoxTCeleste);
             this.tabTiming.Controls.Add(this.groupBoxTDs3);
@@ -1705,6 +1710,106 @@ namespace AutoSplitterCore
             this.tabSekiro.TabIndex = 2;
             this.tabSekiro.Text = "Sekiro";
             // 
+            // panelCfSekiro
+            // 
+            this.panelCfSekiro.Controls.Add(this.label91);
+            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
+            this.panelCfSekiro.Controls.Add(this.label7);
+            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
+            this.panelCfSekiro.Controls.Add(this.listBoxCfS);
+            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
+            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
+            this.panelCfSekiro.Controls.Add(this.label59);
+            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
+            this.panelCfSekiro.Location = new System.Drawing.Point(46, 82);
+            this.panelCfSekiro.Name = "panelCfSekiro";
+            this.panelCfSekiro.Size = new System.Drawing.Size(504, 266);
+            this.panelCfSekiro.TabIndex = 25;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(162, 77);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(52, 26);
+            this.label91.TabIndex = 24;
+            this.label91.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitleCFS
+            // 
+            this.textBoxTitleCFS.Location = new System.Drawing.Point(220, 77);
+            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
+            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFS.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(392, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "How:";
+            // 
+            // comboBoxHowCfS
+            // 
+            this.comboBoxHowCfS.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBoxHowCfS.FormattingEnabled = true;
+            this.comboBoxHowCfS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfS.Location = new System.Drawing.Point(276, 50);
+            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
+            this.comboBoxHowCfS.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowCfS.TabIndex = 20;
+            // 
+            // listBoxCfS
+            // 
+            this.listBoxCfS.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxCfS.FormattingEnabled = true;
+            this.listBoxCfS.Location = new System.Drawing.Point(8, 139);
+            this.listBoxCfS.Name = "listBoxCfS";
+            this.listBoxCfS.Size = new System.Drawing.Size(488, 121);
+            this.listBoxCfS.TabIndex = 19;
+            this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
+            // 
+            // btnAddCfS
+            // 
+            this.btnAddCfS.Location = new System.Drawing.Point(202, 107);
+            this.btnAddCfS.Name = "btnAddCfS";
+            this.btnAddCfS.Size = new System.Drawing.Size(100, 21);
+            this.btnAddCfS.TabIndex = 18;
+            this.btnAddCfS.Text = "Add";
+            this.btnAddCfS.UseVisualStyleBackColor = true;
+            this.btnAddCfS.Click += new System.EventHandler(this.btnAddCfS_Click);
+            // 
+            // btnGetListFlagsSekiro
+            // 
+            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(201, 9);
+            this.btnGetListFlagsSekiro.Name = "btnGetListFlagsSekiro";
+            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(127, 23);
+            this.btnGetListFlagsSekiro.TabIndex = 2;
+            this.btnGetListFlagsSekiro.Text = "Get List Flags";
+            this.btnGetListFlagsSekiro.UseVisualStyleBackColor = true;
+            this.btnGetListFlagsSekiro.Click += new System.EventHandler(this.btnGetListFlagsSekiro_Click);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(120, 53);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(21, 13);
+            this.label59.TabIndex = 1;
+            this.label59.Text = "ID:";
+            // 
+            // textBoxCfIdS
+            // 
+            this.textBoxCfIdS.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCfIdS.Location = new System.Drawing.Point(151, 50);
+            this.textBoxCfIdS.Name = "textBoxCfIdS";
+            this.textBoxCfIdS.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCfIdS.TabIndex = 0;
+            // 
             // panelPositionS
             // 
             this.panelPositionS.Controls.Add(this.label85);
@@ -2121,90 +2226,6 @@ namespace AutoSplitterCore
             this.checkBoxMortalJourneyRun.Text = "Enable Mortal Journey Run";
             this.checkBoxMortalJourneyRun.UseVisualStyleBackColor = true;
             this.checkBoxMortalJourneyRun.CheckedChanged += new System.EventHandler(this.checkBoxMortalJourneyRun_CheckedChanged);
-            // 
-            // panelCfSekiro
-            // 
-            this.panelCfSekiro.Controls.Add(this.label91);
-            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
-            this.panelCfSekiro.Controls.Add(this.label7);
-            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
-            this.panelCfSekiro.Controls.Add(this.listBoxCfS);
-            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
-            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
-            this.panelCfSekiro.Controls.Add(this.label59);
-            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
-            this.panelCfSekiro.Location = new System.Drawing.Point(46, 82);
-            this.panelCfSekiro.Name = "panelCfSekiro";
-            this.panelCfSekiro.Size = new System.Drawing.Size(504, 266);
-            this.panelCfSekiro.TabIndex = 25;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(392, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "How:";
-            // 
-            // comboBoxHowCfS
-            // 
-            this.comboBoxHowCfS.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBoxHowCfS.FormattingEnabled = true;
-            this.comboBoxHowCfS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfS.Location = new System.Drawing.Point(276, 50);
-            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
-            this.comboBoxHowCfS.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowCfS.TabIndex = 20;
-            // 
-            // listBoxCfS
-            // 
-            this.listBoxCfS.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxCfS.FormattingEnabled = true;
-            this.listBoxCfS.Location = new System.Drawing.Point(8, 139);
-            this.listBoxCfS.Name = "listBoxCfS";
-            this.listBoxCfS.Size = new System.Drawing.Size(488, 121);
-            this.listBoxCfS.TabIndex = 19;
-            this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
-            // 
-            // btnAddCfS
-            // 
-            this.btnAddCfS.Location = new System.Drawing.Point(202, 107);
-            this.btnAddCfS.Name = "btnAddCfS";
-            this.btnAddCfS.Size = new System.Drawing.Size(100, 21);
-            this.btnAddCfS.TabIndex = 18;
-            this.btnAddCfS.Text = "Add";
-            this.btnAddCfS.UseVisualStyleBackColor = true;
-            this.btnAddCfS.Click += new System.EventHandler(this.btnAddCfS_Click);
-            // 
-            // btnGetListFlagsSekiro
-            // 
-            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(201, 9);
-            this.btnGetListFlagsSekiro.Name = "btnGetListFlagsSekiro";
-            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(127, 23);
-            this.btnGetListFlagsSekiro.TabIndex = 2;
-            this.btnGetListFlagsSekiro.Text = "Get List Flags";
-            this.btnGetListFlagsSekiro.UseVisualStyleBackColor = true;
-            this.btnGetListFlagsSekiro.Click += new System.EventHandler(this.btnGetListFlagsSekiro_Click);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(120, 53);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(21, 13);
-            this.label59.TabIndex = 1;
-            this.label59.Text = "ID:";
-            // 
-            // textBoxCfIdS
-            // 
-            this.textBoxCfIdS.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxCfIdS.Location = new System.Drawing.Point(151, 50);
-            this.textBoxCfIdS.Name = "textBoxCfIdS";
-            this.textBoxCfIdS.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCfIdS.TabIndex = 0;
             // 
             // panelIdolsS
             // 
@@ -5066,6 +5087,106 @@ namespace AutoSplitterCore
             this.tabDs3.TabIndex = 1;
             this.tabDs3.Text = "Dark Souls 3";
             // 
+            // panelCfDs3
+            // 
+            this.panelCfDs3.Controls.Add(this.label92);
+            this.panelCfDs3.Controls.Add(this.textBoxTitleCFDs3);
+            this.panelCfDs3.Controls.Add(this.label46);
+            this.panelCfDs3.Controls.Add(this.comboBoxHowCfDs3);
+            this.panelCfDs3.Controls.Add(this.listBoxCfDs3);
+            this.panelCfDs3.Controls.Add(this.btnAddCfeDs3);
+            this.panelCfDs3.Controls.Add(this.btnGetListFlagDs3);
+            this.panelCfDs3.Controls.Add(this.label47);
+            this.panelCfDs3.Controls.Add(this.textBoxIdDs3);
+            this.panelCfDs3.Location = new System.Drawing.Point(40, 85);
+            this.panelCfDs3.Name = "panelCfDs3";
+            this.panelCfDs3.Size = new System.Drawing.Size(504, 270);
+            this.panelCfDs3.TabIndex = 24;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(167, 79);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(52, 26);
+            this.label92.TabIndex = 26;
+            this.label92.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitleCFDs3
+            // 
+            this.textBoxTitleCFDs3.Location = new System.Drawing.Point(225, 79);
+            this.textBoxTitleCFDs3.Name = "textBoxTitleCFDs3";
+            this.textBoxTitleCFDs3.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFDs3.TabIndex = 25;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(392, 53);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(32, 13);
+            this.label46.TabIndex = 21;
+            this.label46.Text = "How:";
+            // 
+            // comboBoxHowCfDs3
+            // 
+            this.comboBoxHowCfDs3.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBoxHowCfDs3.FormattingEnabled = true;
+            this.comboBoxHowCfDs3.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfDs3.Location = new System.Drawing.Point(276, 50);
+            this.comboBoxHowCfDs3.Name = "comboBoxHowCfDs3";
+            this.comboBoxHowCfDs3.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowCfDs3.TabIndex = 20;
+            // 
+            // listBoxCfDs3
+            // 
+            this.listBoxCfDs3.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxCfDs3.FormattingEnabled = true;
+            this.listBoxCfDs3.Location = new System.Drawing.Point(11, 142);
+            this.listBoxCfDs3.Name = "listBoxCfDs3";
+            this.listBoxCfDs3.Size = new System.Drawing.Size(488, 121);
+            this.listBoxCfDs3.TabIndex = 19;
+            this.listBoxCfDs3.DoubleClick += new System.EventHandler(this.listBoxCfDs3_DoubleClick);
+            // 
+            // btnAddCfeDs3
+            // 
+            this.btnAddCfeDs3.Location = new System.Drawing.Point(215, 108);
+            this.btnAddCfeDs3.Name = "btnAddCfeDs3";
+            this.btnAddCfeDs3.Size = new System.Drawing.Size(100, 21);
+            this.btnAddCfeDs3.TabIndex = 18;
+            this.btnAddCfeDs3.Text = "Add";
+            this.btnAddCfeDs3.UseVisualStyleBackColor = true;
+            this.btnAddCfeDs3.Click += new System.EventHandler(this.btnAddCfeDs3_Click);
+            // 
+            // btnGetListFlagDs3
+            // 
+            this.btnGetListFlagDs3.Location = new System.Drawing.Point(201, 9);
+            this.btnGetListFlagDs3.Name = "btnGetListFlagDs3";
+            this.btnGetListFlagDs3.Size = new System.Drawing.Size(127, 23);
+            this.btnGetListFlagDs3.TabIndex = 2;
+            this.btnGetListFlagDs3.Text = "Get List Flags";
+            this.btnGetListFlagDs3.UseVisualStyleBackColor = true;
+            this.btnGetListFlagDs3.Click += new System.EventHandler(this.btnGetListFlagDs3_Click);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(120, 53);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(21, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "ID:";
+            // 
+            // textBoxIdDs3
+            // 
+            this.textBoxIdDs3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxIdDs3.Location = new System.Drawing.Point(151, 50);
+            this.textBoxIdDs3.Name = "textBoxIdDs3";
+            this.textBoxIdDs3.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIdDs3.TabIndex = 0;
+            // 
             // panelPositionsDs3
             // 
             this.panelPositionsDs3.Controls.Add(this.label88);
@@ -5333,90 +5454,6 @@ namespace AutoSplitterCore
             this.label44.Size = new System.Drawing.Size(45, 13);
             this.label44.TabIndex = 17;
             this.label44.Text = "attribute";
-            // 
-            // panelCfDs3
-            // 
-            this.panelCfDs3.Controls.Add(this.label92);
-            this.panelCfDs3.Controls.Add(this.textBoxTitleCFDs3);
-            this.panelCfDs3.Controls.Add(this.label46);
-            this.panelCfDs3.Controls.Add(this.comboBoxHowCfDs3);
-            this.panelCfDs3.Controls.Add(this.listBoxCfDs3);
-            this.panelCfDs3.Controls.Add(this.btnAddCfeDs3);
-            this.panelCfDs3.Controls.Add(this.btnGetListFlagDs3);
-            this.panelCfDs3.Controls.Add(this.label47);
-            this.panelCfDs3.Controls.Add(this.textBoxIdDs3);
-            this.panelCfDs3.Location = new System.Drawing.Point(40, 85);
-            this.panelCfDs3.Name = "panelCfDs3";
-            this.panelCfDs3.Size = new System.Drawing.Size(504, 270);
-            this.panelCfDs3.TabIndex = 24;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(392, 53);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(32, 13);
-            this.label46.TabIndex = 21;
-            this.label46.Text = "How:";
-            // 
-            // comboBoxHowCfDs3
-            // 
-            this.comboBoxHowCfDs3.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBoxHowCfDs3.FormattingEnabled = true;
-            this.comboBoxHowCfDs3.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfDs3.Location = new System.Drawing.Point(276, 50);
-            this.comboBoxHowCfDs3.Name = "comboBoxHowCfDs3";
-            this.comboBoxHowCfDs3.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowCfDs3.TabIndex = 20;
-            // 
-            // listBoxCfDs3
-            // 
-            this.listBoxCfDs3.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxCfDs3.FormattingEnabled = true;
-            this.listBoxCfDs3.Location = new System.Drawing.Point(11, 142);
-            this.listBoxCfDs3.Name = "listBoxCfDs3";
-            this.listBoxCfDs3.Size = new System.Drawing.Size(488, 121);
-            this.listBoxCfDs3.TabIndex = 19;
-            this.listBoxCfDs3.DoubleClick += new System.EventHandler(this.listBoxCfDs3_DoubleClick);
-            // 
-            // btnAddCfeDs3
-            // 
-            this.btnAddCfeDs3.Location = new System.Drawing.Point(215, 108);
-            this.btnAddCfeDs3.Name = "btnAddCfeDs3";
-            this.btnAddCfeDs3.Size = new System.Drawing.Size(100, 21);
-            this.btnAddCfeDs3.TabIndex = 18;
-            this.btnAddCfeDs3.Text = "Add";
-            this.btnAddCfeDs3.UseVisualStyleBackColor = true;
-            this.btnAddCfeDs3.Click += new System.EventHandler(this.btnAddCfeDs3_Click);
-            // 
-            // btnGetListFlagDs3
-            // 
-            this.btnGetListFlagDs3.Location = new System.Drawing.Point(201, 9);
-            this.btnGetListFlagDs3.Name = "btnGetListFlagDs3";
-            this.btnGetListFlagDs3.Size = new System.Drawing.Size(127, 23);
-            this.btnGetListFlagDs3.TabIndex = 2;
-            this.btnGetListFlagDs3.Text = "Get List Flags";
-            this.btnGetListFlagDs3.UseVisualStyleBackColor = true;
-            this.btnGetListFlagDs3.Click += new System.EventHandler(this.btnGetListFlagDs3_Click);
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(120, 53);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(21, 13);
-            this.label47.TabIndex = 1;
-            this.label47.Text = "ID:";
-            // 
-            // textBoxIdDs3
-            // 
-            this.textBoxIdDs3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxIdDs3.Location = new System.Drawing.Point(151, 50);
-            this.textBoxIdDs3.Name = "textBoxIdDs3";
-            this.textBoxIdDs3.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIdDs3.TabIndex = 0;
             // 
             // panelBonfireDs3
             // 
@@ -5752,6 +5789,106 @@ namespace AutoSplitterCore
             this.tabElden.Size = new System.Drawing.Size(587, 351);
             this.tabElden.TabIndex = 3;
             this.tabElden.Text = "Elden Ring";
+            // 
+            // panelCfER
+            // 
+            this.panelCfER.Controls.Add(this.label93);
+            this.panelCfER.Controls.Add(this.textBoxTitleCFER);
+            this.panelCfER.Controls.Add(this.label42);
+            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
+            this.panelCfER.Controls.Add(this.listBoxCfER);
+            this.panelCfER.Controls.Add(this.btnAddCfER);
+            this.panelCfER.Controls.Add(this.btnGetListER);
+            this.panelCfER.Controls.Add(this.label41);
+            this.panelCfER.Controls.Add(this.textBoxIdER);
+            this.panelCfER.Location = new System.Drawing.Point(40, 84);
+            this.panelCfER.Name = "panelCfER";
+            this.panelCfER.Size = new System.Drawing.Size(504, 271);
+            this.panelCfER.TabIndex = 23;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(167, 83);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(52, 26);
+            this.label93.TabIndex = 28;
+            this.label93.Text = "     Title\r\n(Optional)";
+            // 
+            // textBoxTitleCFER
+            // 
+            this.textBoxTitleCFER.Location = new System.Drawing.Point(225, 83);
+            this.textBoxTitleCFER.Name = "textBoxTitleCFER";
+            this.textBoxTitleCFER.Size = new System.Drawing.Size(127, 20);
+            this.textBoxTitleCFER.TabIndex = 27;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(392, 53);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(32, 13);
+            this.label42.TabIndex = 21;
+            this.label42.Text = "How:";
+            // 
+            // comboBoxHowCfER
+            // 
+            this.comboBoxHowCfER.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBoxHowCfER.FormattingEnabled = true;
+            this.comboBoxHowCfER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfER.Location = new System.Drawing.Point(276, 50);
+            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
+            this.comboBoxHowCfER.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowCfER.TabIndex = 20;
+            // 
+            // listBoxCfER
+            // 
+            this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxCfER.FormattingEnabled = true;
+            this.listBoxCfER.Location = new System.Drawing.Point(8, 140);
+            this.listBoxCfER.Name = "listBoxCfER";
+            this.listBoxCfER.Size = new System.Drawing.Size(488, 121);
+            this.listBoxCfER.TabIndex = 19;
+            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
+            // 
+            // btnAddCfER
+            // 
+            this.btnAddCfER.Location = new System.Drawing.Point(213, 113);
+            this.btnAddCfER.Name = "btnAddCfER";
+            this.btnAddCfER.Size = new System.Drawing.Size(100, 21);
+            this.btnAddCfER.TabIndex = 18;
+            this.btnAddCfER.Text = "Add";
+            this.btnAddCfER.UseVisualStyleBackColor = true;
+            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
+            // 
+            // btnGetListER
+            // 
+            this.btnGetListER.Location = new System.Drawing.Point(201, 9);
+            this.btnGetListER.Name = "btnGetListER";
+            this.btnGetListER.Size = new System.Drawing.Size(127, 23);
+            this.btnGetListER.TabIndex = 2;
+            this.btnGetListER.Text = "Get List Flags";
+            this.btnGetListER.UseVisualStyleBackColor = true;
+            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(120, 53);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(21, 13);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "ID:";
+            // 
+            // textBoxIdER
+            // 
+            this.textBoxIdER.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxIdER.Location = new System.Drawing.Point(151, 50);
+            this.textBoxIdER.Name = "textBoxIdER";
+            this.textBoxIdER.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIdER.TabIndex = 0;
             // 
             // panelPositionsER
             // 
@@ -6304,90 +6441,6 @@ namespace AutoSplitterCore
             this.label33.Size = new System.Drawing.Size(34, 13);
             this.label33.TabIndex = 8;
             this.label33.Text = "grace";
-            // 
-            // panelCfER
-            // 
-            this.panelCfER.Controls.Add(this.label93);
-            this.panelCfER.Controls.Add(this.textBoxTitleCFER);
-            this.panelCfER.Controls.Add(this.label42);
-            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
-            this.panelCfER.Controls.Add(this.listBoxCfER);
-            this.panelCfER.Controls.Add(this.btnAddCfER);
-            this.panelCfER.Controls.Add(this.btnGetListER);
-            this.panelCfER.Controls.Add(this.label41);
-            this.panelCfER.Controls.Add(this.textBoxIdER);
-            this.panelCfER.Location = new System.Drawing.Point(40, 84);
-            this.panelCfER.Name = "panelCfER";
-            this.panelCfER.Size = new System.Drawing.Size(504, 271);
-            this.panelCfER.TabIndex = 23;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(392, 53);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(32, 13);
-            this.label42.TabIndex = 21;
-            this.label42.Text = "How:";
-            // 
-            // comboBoxHowCfER
-            // 
-            this.comboBoxHowCfER.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBoxHowCfER.FormattingEnabled = true;
-            this.comboBoxHowCfER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfER.Location = new System.Drawing.Point(276, 50);
-            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
-            this.comboBoxHowCfER.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowCfER.TabIndex = 20;
-            // 
-            // listBoxCfER
-            // 
-            this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxCfER.FormattingEnabled = true;
-            this.listBoxCfER.Location = new System.Drawing.Point(8, 140);
-            this.listBoxCfER.Name = "listBoxCfER";
-            this.listBoxCfER.Size = new System.Drawing.Size(488, 121);
-            this.listBoxCfER.TabIndex = 19;
-            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
-            // 
-            // btnAddCfER
-            // 
-            this.btnAddCfER.Location = new System.Drawing.Point(213, 113);
-            this.btnAddCfER.Name = "btnAddCfER";
-            this.btnAddCfER.Size = new System.Drawing.Size(100, 21);
-            this.btnAddCfER.TabIndex = 18;
-            this.btnAddCfER.Text = "Add";
-            this.btnAddCfER.UseVisualStyleBackColor = true;
-            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
-            // 
-            // btnGetListER
-            // 
-            this.btnGetListER.Location = new System.Drawing.Point(201, 9);
-            this.btnGetListER.Name = "btnGetListER";
-            this.btnGetListER.Size = new System.Drawing.Size(127, 23);
-            this.btnGetListER.TabIndex = 2;
-            this.btnGetListER.Text = "Get List Flags";
-            this.btnGetListER.UseVisualStyleBackColor = true;
-            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(120, 53);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(21, 13);
-            this.label41.TabIndex = 1;
-            this.label41.Text = "ID:";
-            // 
-            // textBoxIdER
-            // 
-            this.textBoxIdER.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxIdER.Location = new System.Drawing.Point(151, 50);
-            this.textBoxIdER.Name = "textBoxIdER";
-            this.textBoxIdER.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIdER.TabIndex = 0;
             // 
             // panelBossER
             // 
@@ -7777,53 +7830,37 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
-            // label91
+            // checkBoxResetSplitNg
             // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(162, 77);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(52, 26);
-            this.label91.TabIndex = 24;
-            this.label91.Text = "     Title\r\n(Optional)";
+            this.checkBoxResetSplitNg.AutoSize = true;
+            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(36, 22);
+            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
+            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxResetSplitNg.TabIndex = 17;
+            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
+            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
+            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
             // 
-            // textBoxTitleCFS
+            // groupBox2
             // 
-            this.textBoxTitleCFS.Location = new System.Drawing.Point(220, 77);
-            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
-            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitleCFS.TabIndex = 23;
+            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
+            this.groupBox2.Location = new System.Drawing.Point(176, 243);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(216, 79);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "General";
             // 
-            // label92
+            // label94
             // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(167, 79);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(52, 26);
-            this.label92.TabIndex = 26;
-            this.label92.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitleCFDs3
-            // 
-            this.textBoxTitleCFDs3.Location = new System.Drawing.Point(225, 79);
-            this.textBoxTitleCFDs3.Name = "textBoxTitleCFDs3";
-            this.textBoxTitleCFDs3.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitleCFDs3.TabIndex = 25;
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(167, 83);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(52, 26);
-            this.label93.TabIndex = 28;
-            this.label93.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitleCFER
-            // 
-            this.textBoxTitleCFER.Location = new System.Drawing.Point(225, 83);
-            this.textBoxTitleCFER.Name = "textBoxTitleCFER";
-            this.textBoxTitleCFER.Size = new System.Drawing.Size(127, 20);
-            this.textBoxTitleCFER.TabIndex = 27;
+            this.label94.AutoSize = true;
+            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label94.Location = new System.Drawing.Point(23, 42);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(175, 26);
+            this.label94.TabIndex = 18;
+            this.label94.Text = "              Not Compatible:\r\nDs2, Dishonored and Hollow Knight\r\n";
             // 
             // AutoSplitter
             // 
@@ -7898,6 +7935,8 @@ namespace AutoSplitterCore
             this.groupBoxTMDs1.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
+            this.panelCfSekiro.ResumeLayout(false);
+            this.panelCfSekiro.PerformLayout();
             this.panelPositionS.ResumeLayout(false);
             this.panelPositionS.PerformLayout();
             this.panelMiniBossSekiro.ResumeLayout(false);
@@ -7908,8 +7947,6 @@ namespace AutoSplitterCore
             this.panelMortalJourney.PerformLayout();
             this.groupBoxMJS.ResumeLayout(false);
             this.groupBoxMJS.PerformLayout();
-            this.panelCfSekiro.ResumeLayout(false);
-            this.panelCfSekiro.PerformLayout();
             this.panelIdolsS.ResumeLayout(false);
             this.panelIdolsS.PerformLayout();
             this.groupBoxAshinaCastle.ResumeLayout(false);
@@ -7958,24 +7995,24 @@ namespace AutoSplitterCore
             this.panelBossDS2.PerformLayout();
             this.tabDs3.ResumeLayout(false);
             this.tabDs3.PerformLayout();
+            this.panelCfDs3.ResumeLayout(false);
+            this.panelCfDs3.PerformLayout();
             this.panelPositionsDs3.ResumeLayout(false);
             this.panelPositionsDs3.PerformLayout();
             this.panelLvlDs3.ResumeLayout(false);
             this.panelLvlDs3.PerformLayout();
-            this.panelCfDs3.ResumeLayout(false);
-            this.panelCfDs3.PerformLayout();
             this.panelBonfireDs3.ResumeLayout(false);
             this.panelBonfireDs3.PerformLayout();
             this.panelBossDs3.ResumeLayout(false);
             this.panelBossDs3.PerformLayout();
             this.tabElden.ResumeLayout(false);
             this.tabElden.PerformLayout();
+            this.panelCfER.ResumeLayout(false);
+            this.panelCfER.PerformLayout();
             this.panelPositionsER.ResumeLayout(false);
             this.panelPositionsER.PerformLayout();
             this.panelGraceER.ResumeLayout(false);
             this.panelGraceER.PerformLayout();
-            this.panelCfER.ResumeLayout(false);
-            this.panelCfER.PerformLayout();
             this.panelBossER.ResumeLayout(false);
             this.panelBossER.PerformLayout();
             this.tabHollow.ResumeLayout(false);
@@ -8004,6 +8041,8 @@ namespace AutoSplitterCore
             this.tabDishonored.ResumeLayout(false);
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -8494,5 +8533,8 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TextBox textBoxTitleCFDs3;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.TextBox textBoxTitleCFER;
+        private System.Windows.Forms.CheckBox checkBoxResetSplitNg;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label94;
     }
 }

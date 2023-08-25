@@ -43,6 +43,7 @@ namespace AutoSplitterCore
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
         public bool ASLMethod = false;
+        public bool AutoResetSplit = false;
         //AutoSplitters Config
         public DTSekiro DataSekiro;
         public DTHollow DataHollow;
