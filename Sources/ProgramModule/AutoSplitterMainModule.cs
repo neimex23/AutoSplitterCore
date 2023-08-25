@@ -435,7 +435,9 @@ namespace AutoSplitterCore
                 {
                     if (!profileResetDone)
                     {
+                        main.StartStopTimer(false);
                         profCtrl.ProfileReset();
+                        ResetSplitterFlags();
                         profileResetDone = true; 
                     }
                 }else
