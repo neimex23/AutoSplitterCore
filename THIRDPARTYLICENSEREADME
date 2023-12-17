@@ -66,14 +66,6 @@ DLL Used:
         Author: LiveSplit
         Source: https://github.com/LiveSplit/LiveSplit
         Licence: MIT
-
-    - DLL LiveSplit.ScriptableAutoSplit (Modified)
-        Title: ScriptableAutoSplit
-        Author: LiveSplit
-        Source: https://github.com/LiveSplit/LiveSplit.ScriptableAutoSplit.git
-        Licence: MIT
-        Source Modified: https://github.com/neimex23/LiveSplit.ScriptableAutoSplit.git
-        Licence: MIT
 		   
     - DLL Irony (Dependency of ScripteableAutoSplit)
 		Title: Irony — .NET Language Implementation Kit

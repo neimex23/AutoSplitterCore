@@ -41,8 +41,7 @@ namespace AutoSplitterCore
             "Hollow Knight",
             "Celeste",
             "Cuphead",
-            "Dishonored",
-            "ASL Method (Experimental)"
+            "Dishonored"
         };
 
         //SplitterIndex: Use For if Want Add a new Game change index it do more easier
@@ -56,6 +55,5 @@ namespace AutoSplitterCore
         public const int CelesteSplitterIndex = 7;
         public const int CupheadSplitterIndex = 8;
         public const int DishonoredSplitterIndex = 9; 
-        public const int ASLSplitterIndex = 10;
     }
 }

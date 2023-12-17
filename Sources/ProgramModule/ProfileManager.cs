@@ -112,6 +112,7 @@ namespace AutoSplitterCore
             Summary += "Author: " + saveModule.GetAuthor() + Line;
             Summary += "Practice Mode: " + saveModule.GetPracticeMode() + Line;
             Summary += "Game Selected: " + saveModule.GetGameSelected() + Line;
+            Summary += "Reset Split New Game" + saveModule.GetResetNewGame() + Line;
             Summary += Line;
             #endregion
             #region TimingSummary
@@ -577,45 +578,9 @@ namespace AutoSplitterCore
                 Summary += Space + Space + "Not Have Flags" + Line;
             Summary += Line;
             #endregion
-            #region DishonoredSummary
-            Summary += "=======================================================" + Line;
-            Summary += "Dishonored Flags:" + Line;
-            Summary += "=======================================================" + Line;
-
-            Summary += "Options" + Line;
-            foreach (var o in saveModule.dataAS.DataDishonored.DishonoredOptions)
-            {
-                Summary += Space + o.Option + ": " + o.Enable + Line;
-            }
-            Summary += Line;
-            #endregion
-            #region ASLSummary
-
-            Summary += "=======================================================" + Line;
-            Summary += "ASL:" + Line;
-            Summary += "=======================================================" + Line;
-
-            Summary += XmlToString(saveModule.GetAslData(),2) + Line;
-
-            #endregion
-            Summary += "=======================================================" + Line;
             Summary += "=======================================================" + Line;
 
             TextBoxSummary.Text = Summary;
-        }
-
-        public string XmlToString(XmlNode node, int indentation)
-        {
-            using (var sw = new StringWriter())
-            {
-                using (var xw = new XmlTextWriter(sw))
-                {
-                    xw.Formatting = Formatting.Indented;
-                    xw.Indentation = indentation;
-                    node.WriteContentTo(xw);
-                }
-                return sw.ToString();
-            }
         }
 
         private void btnLoadProfile_Click(object sender, EventArgs e)

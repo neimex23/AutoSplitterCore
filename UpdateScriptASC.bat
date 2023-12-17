@@ -22,9 +22,7 @@ if %1 equ 1 (
     echo ========= Stage 3: Cleaning =========
     del .\UpdateASCInstaller.msi
     echo All junk items were removed
-    echo ===========================================
-    
-
+    echo ===========================================  
 	
 ) else if %1 equ 2 (
 

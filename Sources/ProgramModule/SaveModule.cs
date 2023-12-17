@@ -73,13 +73,12 @@ namespace AutoSplitterCore
         private HollowSplitter hollowSplitter = null;
         private CelesteSplitter celesteSplitter = null;
         private CupheadSplitter cupSplitter = null;
-        private AslSplitter aslSplitter = null;
         private DishonoredSplitter dishonoredSplitter = null;
         private UpdateModule updateModule = null;
         private ProfilesControl prfCtl = null;
         private AutoSplitterMainModule mainModule = null;
 
-        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, AslSplitter aslSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
+        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
         {
             this.sekiroSplitter = sekiroSplitter;
             this.ds1Splitter = ds1Splitter;
@@ -90,7 +89,6 @@ namespace AutoSplitterCore
             this.celesteSplitter = celesteSplitter;
             this.cupSplitter = cupheadSplitter;
             this.dishonoredSplitter = dishonoredSplitter;
-            this.aslSplitter = aslSplitter;
             this.updateModule = updateModule;
             this.mainModule = mainModule;
         }
@@ -109,7 +107,6 @@ namespace AutoSplitterCore
             dataAS.DataCeleste = celesteSplitter.getDataCeleste();
             dataAS.DataCuphead = cupSplitter.getDataCuphead();
             dataAS.DataDishonored = dishonoredSplitter.getDataDishonored();
-            dataAS.ASLMethod = aslSplitter.enableSplitting;
             dataAS.PracticeMode = _PracticeMode;
             dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
         }
@@ -139,13 +136,6 @@ namespace AutoSplitterCore
             UpdateAutoSplitterData();
             formatter.Serialize(myStream, dataAS);
             myStream.Close();
-            XmlDocument Save = new XmlDocument();
-            Save.Load(savePath);
-            XmlNode Asl = Save.CreateElement("DataASL");
-            XmlNode AslData = aslSplitter.getData(Save);
-            Asl.AppendChild(AslData);
-            Save.DocumentElement.AppendChild(Asl);
-            Save.Save(savePath);
         }
 
 
@@ -196,7 +186,6 @@ namespace AutoSplitterCore
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
-            aslSplitter.enableSplitting = dataAS.ASLMethod;
             sekiroSplitter.setDataSekiro(dataSekiro, profiles);
             hollowSplitter.setDataHollow(dataHollow, profiles);
             eldenSplitter.setDataElden(dataElden, profiles);
@@ -206,21 +195,7 @@ namespace AutoSplitterCore
             celesteSplitter.setDataCeleste(dataCeleste, profiles);
             cupSplitter.setDataCuphead(dataCuphead, profiles);
             dishonoredSplitter.setDataDishonored(dataDishonored, profiles);
-            try
-            {
-                string savePath = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
-                XmlDocument doc = new XmlDocument();
-                doc.Load(savePath);
-
-                XmlElement docElements = doc.DocumentElement;
-                XmlNodeList nodeList = docElements.SelectNodes("//DataASL");
-
-                foreach (XmlNode node in nodeList)
-                {
-                    aslSplitter.setData(node.FirstChild, profiles);
-                }
-            }
-            catch (Exception) { aslSplitter.setData(null, profiles); }
+          
         }
 
         /// <summary>
@@ -270,15 +245,6 @@ namespace AutoSplitterCore
             dataAS.Author = Name;
         }
 
-        public XmlNode GetAslData()
-        {
-            XmlDocument Save = new XmlDocument();
-            XmlNode Asl = Save.CreateElement("DataASL");
-            XmlNode AslData = aslSplitter.getData(Save);
-            Asl.AppendChild(AslData);
-            return aslSplitter.getData(Save);
-        }
-
         public bool GetPracticeMode()
         {
             return mainModule.GetPracticeMode();
@@ -307,11 +273,14 @@ namespace AutoSplitterCore
                     return "Dishonored";
                 case GameConstruction.CupheadSplitterIndex:
                     return "Cuphead";
-                case GameConstruction.ASLSplitterIndex:
-                    return "ASL Method";
                 case GameConstruction.NoneSplitterIndex:
                 default: return "None";
             }
+        }
+
+        public bool GetResetNewGame()
+        {
+            return dataAS.AutoResetSplit;
         }
 
         public void ResetFlags()

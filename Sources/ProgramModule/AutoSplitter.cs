@@ -39,12 +39,11 @@ namespace AutoSplitterCore
         Ds1Splitter ds1Splitter;
         CelesteSplitter celesteSplitter;
         DishonoredSplitter dishonoredSplitter;
-        AslSplitter aslSplitter;
         CupheadSplitter cupSplitter;
         UpdateModule updateModule;
         SaveModule saveModule;
 
-        public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, AslSplitter aslSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, SaveModule saveModule, bool darkMode)
+        public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
@@ -55,7 +54,6 @@ namespace AutoSplitterCore
             this.ds2Splitter = ds2Splitter;
             this.ds1Splitter = ds1Splitter;
             this.celesteSplitter = celesteSplitter;
-            this.aslSplitter = aslSplitter;
             this.cupSplitter = cupSplitter;
             this.dishonoredSplitter = dishonoredSplitter;
             this.updateModule = updateModule;
@@ -1146,11 +1144,6 @@ namespace AutoSplitterCore
                 TabControl2.TabPages.Add(tabTiming);
             }
             TabControl2.SelectTab(tabTiming);
-        }
-        private void btnASL_Click(object sender, EventArgs e)
-        {
-            Form form = new AslConfigurator(aslSplitter, darkMode);
-            form.ShowDialog();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

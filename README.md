@@ -21,7 +21,6 @@
 	- Celeste
 	- Cuphead
 	- Dishonored
-	- Others
 
 * **Auto start Timer** when game run is started
 
@@ -91,18 +90,6 @@
 	- Weepers
 
 
-- ASL || **[Inmediatly]**
-	- Any ASL with Split (AutoSplitter Language for LiveSplit).
-
-` Can give you the possibility to use AutoSplitting for any game that was development ASL file to LiveSplit`
-
-	-  Include ASL Scripts
-	-  Hades
-	-  All Resident Evils Remakes and Classic
-	-  Dishonored 2
-	-  Dishonored ## Death of the Outsider
-
-
 ## AutoMods Features
 
 - Sekiro:
@@ -115,7 +102,7 @@
 
 ## Requirements
 
-* Software: [.Net Framework 4.8 or newer](https://dotnet.microsoft.com/en-us/download/dotnet-framework).
+* Software: [.Net Framework 4.8.1 or newer](https://dotnet.microsoft.com/en-us/download/dotnet-framework).
 
 * OS: Windows (**64-bits only**).
 
@@ -125,10 +112,10 @@
 ## Installation:
 
 - Portable:
-	- Decompress .zip File _"AutoSplitterCore_Portable_v1.x.0"_ in a folder and copy content to Installation dir of HitCounterManager
+	- Decompress .zip File _"AutoSplitterCore_Portable_v2.x.0"_ in a folder and copy content to Installation dir of HitCounterManager
 
 - Installator:
-	- Install _"AutoSplitterCore_Installer_v1.X.0.msi"_ in same folder than HitCounterManager
+	- Install _"AutoSplitterCore_Installer_v2.X.0.msi"_ in same folder than HitCounterManager
 
 > This uninstall previous version automatically and install the new version.
 
@@ -160,7 +147,6 @@ All Awesome Peoples that Develop AutoSplitters for LiveSplit that i Use to do Th
   - Dishonored
 * **[LiveSplit Developers](https://github.com/LiveSplit)**
   - LiveSplitCore 
-  - LiveSplit Scripteable AutoSplitter
 * Read More into [THIRDPARTYLICENSEREADME](https://github.com/neimex23/HitCounterManager/blob/master/THIRDPARTYLICENSEREADME)
 
 Thanks to Beta Testers of AutoSplit(in alphabetical order):

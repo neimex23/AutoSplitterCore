@@ -52,7 +52,6 @@ namespace AutoSplitterCore
                 case GameConstruction.HollowSplitterIndex:
                 case GameConstruction.DishonoredSplitterIndex:
                 case GameConstruction.NoneSplitterIndex:
-                case GameConstruction.ASLSplitterIndex:
                 default:
                     return -1;
             }

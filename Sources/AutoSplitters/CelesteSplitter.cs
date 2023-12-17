@@ -30,7 +30,7 @@ namespace AutoSplitterCore
 {
     public class CelesteSplitter
     {
-        public static SplitterMemory celeste = new SplitterMemory();
+        public static ISplitterMemory celeste = new SplitterMemoryDispatch();
         public bool _StatusCeleste = false;
         public bool _runStarted = false;
         public bool _SplitGo = false;

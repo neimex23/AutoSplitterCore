@@ -244,6 +244,12 @@ namespace AutoSplitterCore
             manualRefreshPosition();
             return this.currentPosition.position;
         }
+
+        public bool IsNewgame()
+        {
+            if (!_StatusHollow) getHollowStatusProcess(0);
+            return currentPosition.sceneName.StartsWith("Opening_Sequence");
+        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

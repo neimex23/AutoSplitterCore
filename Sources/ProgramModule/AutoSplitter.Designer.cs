@@ -33,6 +33,9 @@ namespace AutoSplitterCore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControl2 = new HitCounterManager.ProfileTabControl();
             this.tabConfig = new System.Windows.Forms.TabPage();
+            this.groupBoxOtherS = new System.Windows.Forms.GroupBox();
+            this.btnTiming = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.groupBoxMProfile = new System.Windows.Forms.GroupBox();
             this.btnProfile = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,9 +50,6 @@ namespace AutoSplitterCore
             this.cbCheckUpdatesOnStartup = new System.Windows.Forms.CheckBox();
             this.groupBoxSplitters = new System.Windows.Forms.GroupBox();
             this.btnDishonored = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.btnTiming = new System.Windows.Forms.Button();
-            this.btnASL = new System.Windows.Forms.Button();
             this.btnCuphead = new System.Windows.Forms.Button();
             this.btnCeleste = new System.Windows.Forms.Button();
             this.btnHollow = new System.Windows.Forms.Button();
@@ -63,6 +63,9 @@ namespace AutoSplitterCore
             this.tabLicense = new System.Windows.Forms.TabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabTiming = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
             this.groupBoxTDs2 = new System.Windows.Forms.GroupBox();
             this.groupBoxATDs2 = new System.Windows.Forms.GroupBox();
             this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
@@ -515,11 +518,9 @@ namespace AutoSplitterCore
             this.btnDesactiveAllDishonored = new System.Windows.Forms.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
-            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label94 = new System.Windows.Forms.Label();
             this.TabControl2.SuspendLayout();
             this.tabConfig.SuspendLayout();
+            this.groupBoxOtherS.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
@@ -527,6 +528,7 @@ namespace AutoSplitterCore
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBoxTDs2.SuspendLayout();
             this.groupBoxATDs2.SuspendLayout();
             this.groupBoxTMDs2.SuspendLayout();
@@ -617,7 +619,6 @@ namespace AutoSplitterCore
             this.panelLevelCuphead.SuspendLayout();
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl2
@@ -644,6 +645,7 @@ namespace AutoSplitterCore
             // tabConfig
             // 
             this.tabConfig.BackColor = System.Drawing.SystemColors.Control;
+            this.tabConfig.Controls.Add(this.groupBoxOtherS);
             this.tabConfig.Controls.Add(this.groupBoxMProfile);
             this.tabConfig.Controls.Add(this.groupBox1);
             this.tabConfig.Controls.Add(this.groupBoxUpdate);
@@ -654,12 +656,43 @@ namespace AutoSplitterCore
             this.tabConfig.TabIndex = 10;
             this.tabConfig.Text = "Configuration";
             // 
+            // groupBoxOtherS
+            // 
+            this.groupBoxOtherS.Controls.Add(this.btnTiming);
+            this.groupBoxOtherS.Controls.Add(this.btnAbout);
+            this.groupBoxOtherS.Location = new System.Drawing.Point(432, 13);
+            this.groupBoxOtherS.Name = "groupBoxOtherS";
+            this.groupBoxOtherS.Size = new System.Drawing.Size(142, 101);
+            this.groupBoxOtherS.TabIndex = 7;
+            this.groupBoxOtherS.TabStop = false;
+            this.groupBoxOtherS.Text = "Settings";
+            // 
+            // btnTiming
+            // 
+            this.btnTiming.Location = new System.Drawing.Point(27, 23);
+            this.btnTiming.Name = "btnTiming";
+            this.btnTiming.Size = new System.Drawing.Size(89, 28);
+            this.btnTiming.TabIndex = 8;
+            this.btnTiming.Text = "Timing";
+            this.btnTiming.UseVisualStyleBackColor = true;
+            this.btnTiming.Click += new System.EventHandler(this.btnTiming_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Location = new System.Drawing.Point(27, 57);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(89, 28);
+            this.btnAbout.TabIndex = 9;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
             // groupBoxMProfile
             // 
             this.groupBoxMProfile.Controls.Add(this.btnProfile);
-            this.groupBoxMProfile.Location = new System.Drawing.Point(432, 85);
+            this.groupBoxMProfile.Location = new System.Drawing.Point(432, 123);
             this.groupBoxMProfile.Name = "groupBoxMProfile";
-            this.groupBoxMProfile.Size = new System.Drawing.Size(142, 87);
+            this.groupBoxMProfile.Size = new System.Drawing.Size(138, 87);
             this.groupBoxMProfile.TabIndex = 6;
             this.groupBoxMProfile.TabStop = false;
             this.groupBoxMProfile.Text = "Manager";
@@ -784,9 +817,6 @@ namespace AutoSplitterCore
             // groupBoxSplitters
             // 
             this.groupBoxSplitters.Controls.Add(this.btnDishonored);
-            this.groupBoxSplitters.Controls.Add(this.btnAbout);
-            this.groupBoxSplitters.Controls.Add(this.btnTiming);
-            this.groupBoxSplitters.Controls.Add(this.btnASL);
             this.groupBoxSplitters.Controls.Add(this.btnCuphead);
             this.groupBoxSplitters.Controls.Add(this.btnCeleste);
             this.groupBoxSplitters.Controls.Add(this.btnHollow);
@@ -805,43 +835,13 @@ namespace AutoSplitterCore
             // 
             // btnDishonored
             // 
-            this.btnDishonored.Location = new System.Drawing.Point(291, 38);
+            this.btnDishonored.Location = new System.Drawing.Point(282, 88);
             this.btnDishonored.Name = "btnDishonored";
             this.btnDishonored.Size = new System.Drawing.Size(89, 28);
             this.btnDishonored.TabIndex = 10;
             this.btnDishonored.Text = "Dishonored";
             this.btnDishonored.UseVisualStyleBackColor = true;
             this.btnDishonored.Click += new System.EventHandler(this.btnDishonored_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Location = new System.Drawing.Point(291, 141);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(89, 28);
-            this.btnAbout.TabIndex = 9;
-            this.btnAbout.Text = "About";
-            this.btnAbout.UseVisualStyleBackColor = true;
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // btnTiming
-            // 
-            this.btnTiming.Location = new System.Drawing.Point(291, 72);
-            this.btnTiming.Name = "btnTiming";
-            this.btnTiming.Size = new System.Drawing.Size(89, 28);
-            this.btnTiming.TabIndex = 8;
-            this.btnTiming.Text = "Timing";
-            this.btnTiming.UseVisualStyleBackColor = true;
-            this.btnTiming.Click += new System.EventHandler(this.btnTiming_Click);
-            // 
-            // btnASL
-            // 
-            this.btnASL.Location = new System.Drawing.Point(291, 105);
-            this.btnASL.Name = "btnASL";
-            this.btnASL.Size = new System.Drawing.Size(89, 28);
-            this.btnASL.TabIndex = 1;
-            this.btnASL.Text = "ASL";
-            this.btnASL.UseVisualStyleBackColor = true;
-            this.btnASL.Click += new System.EventHandler(this.btnASL_Click);
             // 
             // btnCuphead
             // 
@@ -995,6 +995,38 @@ namespace AutoSplitterCore
             this.tabTiming.Size = new System.Drawing.Size(587, 351);
             this.tabTiming.TabIndex = 11;
             this.tabTiming.Text = "Timing";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
+            this.groupBox2.Location = new System.Drawing.Point(176, 243);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(216, 79);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "General";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label94.Location = new System.Drawing.Point(33, 42);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(124, 26);
+            this.label94.TabIndex = 18;
+            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
+            // 
+            // checkBoxResetSplitNg
+            // 
+            this.checkBoxResetSplitNg.AutoSize = true;
+            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(36, 22);
+            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
+            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxResetSplitNg.TabIndex = 17;
+            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
+            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
+            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
             // 
             // groupBoxTDs2
             // 
@@ -7830,38 +7862,6 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
-            // checkBoxResetSplitNg
-            // 
-            this.checkBoxResetSplitNg.AutoSize = true;
-            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(36, 22);
-            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
-            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(149, 17);
-            this.checkBoxResetSplitNg.TabIndex = 17;
-            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
-            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
-            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label94);
-            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
-            this.groupBox2.Location = new System.Drawing.Point(176, 243);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 79);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "General";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label94.Location = new System.Drawing.Point(23, 42);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(175, 26);
-            this.label94.TabIndex = 18;
-            this.label94.Text = "              Not Compatible:\r\nDs2, Dishonored and Hollow Knight\r\n";
-            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7876,6 +7876,7 @@ namespace AutoSplitterCore
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControl2.ResumeLayout(false);
             this.tabConfig.ResumeLayout(false);
+            this.groupBoxOtherS.ResumeLayout(false);
             this.groupBoxMProfile.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBoxUpdate.ResumeLayout(false);
@@ -7887,6 +7888,8 @@ namespace AutoSplitterCore
             this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBoxTDs2.ResumeLayout(false);
             this.groupBoxATDs2.ResumeLayout(false);
             this.groupBoxATDs2.PerformLayout();
@@ -8041,8 +8044,6 @@ namespace AutoSplitterCore
             this.tabDishonored.ResumeLayout(false);
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -8326,7 +8327,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TextBox textBoxZDs2;
         private System.Windows.Forms.TextBox textBoxYDs2;
         private System.Windows.Forms.TextBox textBoxXDs2;
-        private System.Windows.Forms.Button btnASL;
         private System.Windows.Forms.Panel panelCfSekiro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxHowCfS;
@@ -8536,5 +8536,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxResetSplitNg;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.GroupBox groupBoxOtherS;
     }
 }

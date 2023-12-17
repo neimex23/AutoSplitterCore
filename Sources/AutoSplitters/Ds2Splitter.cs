@@ -198,6 +198,12 @@ namespace AutoSplitterCore
             if (!_StatusDs2) getDs2StatusProcess(0);
             return _StatusDs2 && Ds2.ReadEventFlag(id);
         }
+
+        public bool Ds2IsLoading()
+        {
+            if (!_StatusDs2) getDs2StatusProcess(0);
+            return Ds2.IsLoading();
+        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()
