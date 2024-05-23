@@ -42,7 +42,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public DTDs2 dataDs2;
         public DefinitionsDs2 defD2 = new DefinitionsDs2();
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
@@ -53,7 +53,7 @@ namespace AutoSplitterCore
             return this.dataDs2;
         }
 
-        public void setDataDs2(DTDs2 data, ProfilesControl profile)
+        public void setDataDs2(DTDs2 data, IAutoSplitterCoreInterface profile)
         {
             this.dataDs2 = data;
             this._profile = profile;

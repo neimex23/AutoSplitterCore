@@ -38,7 +38,7 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         private bool PK = true;
         public bool _ShowSettings = false;
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
@@ -48,7 +48,7 @@ namespace AutoSplitterCore
         {
             return this.dataCuphead;
         }
-        public void setDataCuphead(DTCuphead data, ProfilesControl profile)
+        public void setDataCuphead(DTCuphead data, IAutoSplitterCoreInterface profile)
         {
             this.dataCuphead = data;
             this._profile = profile;

@@ -860,7 +860,7 @@ namespace AutoSplitterCore
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/releases/latest"));
         }
 
         private void btnCheckVersion_Click(object sender, EventArgs e)
@@ -1038,7 +1038,7 @@ namespace AutoSplitterCore
 
         private void btnHowSetup_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/wiki");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/wiki"));
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -1799,7 +1799,7 @@ namespace AutoSplitterCore
 
         private void btnGetListFlagsSekiro_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://docs.google.com/spreadsheets/d/1Nwp6XwURGksUu-_jCVhcyXh4KH7hTCXYsJTCHbw87JQ/edit?usp=sharing");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://docs.google.com/spreadsheets/d/1Nwp6XwURGksUu-_jCVhcyXh4KH7hTCXYsJTCHbw87JQ/edit?usp=sharing"));
         }
 
         private void btnAddCfS_Click(object sender, EventArgs e)
@@ -2458,7 +2458,7 @@ namespace AutoSplitterCore
 
         private void btnGetListFlagDs3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://pastebin.com/3DyjrgUN");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://pastebin.com/3DyjrgUN"));
         }
 
         private void btnAddCfeDs3_Click(object sender, EventArgs e)
@@ -2753,7 +2753,7 @@ namespace AutoSplitterCore
 
         private void btnGetListER_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://pastebin.com/p8gByAgU");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://pastebin.com/p8gByAgU"));
         }
 
         private void btnAddCfER_Click(object sender, EventArgs e)

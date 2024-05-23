@@ -22,11 +22,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using SoulMemory;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using HitCounterManager;
 
 namespace AutoSplitterCore
 {
@@ -41,7 +39,7 @@ namespace AutoSplitterCore
             InitializeComponent();
             this.mainModule = mainModule;
             mainModule.InitDebug();
-            mainModule.LoadAutoSplitterSettings(new HitCounterManager.ProfilesControl(),null);
+            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
             _update_timer.Tick += (sender, args) => CheckInfo();
             _update_timer.Enabled = true;
         }
@@ -68,7 +66,9 @@ namespace AutoSplitterCore
             }
             LabelVersion.Text = mainModule.updateModule.currentVer;
             labelCloudVer.Text = mainModule.updateModule.cloudVer;
+#if !HCMv2
             mainModule.debugForm = this;
+#endif
             listBoxLog.Items.Clear(); 
         }
         private void comboBoxGame_SelectedIndexChanged(object sender, EventArgs e)

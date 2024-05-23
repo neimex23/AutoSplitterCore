@@ -40,7 +40,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public DTDs3 dataDs3;
         public DefinitionsDs3 defD3 = new DefinitionsDs3();
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private bool _writeMemory = false;      
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -52,7 +52,7 @@ namespace AutoSplitterCore
             return this.dataDs3;
         }
 
-        public void setDataDs3(DTDs3 data, ProfilesControl profile)
+        public void setDataDs3(DTDs3 data, IAutoSplitterCoreInterface profile)
         {
             this.dataDs3 = data;
             this._profile = profile;
