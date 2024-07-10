@@ -40,37 +40,43 @@ namespace AutoSplitterCore
 
         public BossDs3 stringToEnumBoss(string boss)
         {
-            BossDs3 cBoss = new BossDs3();
-            switch (boss)
+            var bossMapping = new Dictionary<string, (string Title, uint Id)> 
             {
-                case "Iudex Gundyr": cBoss.Title = "Iudex Gundyr";cBoss.Id = 14000800; break;
-                case "Vordt of the Boreal Valley": cBoss.Title = "Vordt of the Boreal Valley"; cBoss.Id = 13000800; break;
-                case "Curse-Rotted Greatwood": cBoss.Title = "Curse-Rotted Greatwood"; cBoss.Id = 13100800; break;
-                case "Crystal Sage": cBoss.Title = "Crystal Sage"; cBoss.Id = 13300850; break;
-                case "Abyss Watchers": cBoss.Title = "Abyss Watchers"; cBoss.Id = 13300800; break;
-                case "Deacons of the Deep": cBoss.Title = "Deacons of the Deep"; cBoss.Id = 13500800; break;
-                case "High Lord Wolnir": cBoss.Title = "High Lord Wolnir"; cBoss.Id = 13800800; break;
-                case "Old Demon King": cBoss.Title = "Old Demon King"; cBoss.Id = 13800830; break;
-                case "Pontiff Sulyvahn": cBoss.Title = "Pontiff Sulyvahn"; cBoss.Id = 13700850; break;
-                case "Yhorm the Giant": cBoss.Title = "Yhorm the Giant"; cBoss.Id = 13900800; break;
-                case "Aldrich, Devourer of Gods": cBoss.Title = "Aldrich, Devourer of Gods"; cBoss.Id = 13700800; break;
-                case "Dancer of the Boreal Valley": cBoss.Title = "Dancer of the Boreal Valley"; cBoss.Id = 13000890; break;
-                case "Dragonslayer Armour": cBoss.Title = "Dragonslayer Armour"; cBoss.Id = 13010800; break;
-                case "Oceiros, the Consumed King": cBoss.Title = "Oceiros, the Consumed King"; cBoss.Id = 13000830; break;
-                case "Champion Gundyr": cBoss.Title = "Champion Gundyr"; cBoss.Id = 14000830; break;
-                case "Lothric, Younger Prince": cBoss.Title = "Lothric, Younger Prince"; cBoss.Id = 13410830; break;
-                case "Ancient Wyvern": cBoss.Title = "Ancient Wyvern"; cBoss.Id = 13200800; break;
-                case "Nameless King": cBoss.Title = "Nameless King"; cBoss.Id = 13200850; break;
-                case "Soul of Cinder": cBoss.Title = "Soul of Cinder"; cBoss.Id = 14100800; break;
-                case "Sister Friede": cBoss.Title = "Sister Friede"; cBoss.Id = 14500800; break;
-                case "Champion's Gravetender & Gravetender Greatwolf": cBoss.Title = "Champion's Gravetender & Gravetender Greatwolf"; cBoss.Id = 14500860; break;
-                case "Demon in Pain & Demon From Below / Demon Prince": cBoss.Title = "Demon in Pain & Demon From Below / Demon Prince"; cBoss.Id = 15000800; break;
-                case "Halflight, Spear of the Church": cBoss.Title = "Halflight, Spear of the Church"; cBoss.Id = 15100800; break;
-                case "Darkeater Midir": cBoss.Title = "Darkeater Midir"; cBoss.Id = 15100850; break;
-                case "Slave Knight Gael": cBoss.Title = "Slave Knight Gael"; cBoss.Id = 15110800; break;
-                default: cBoss = null; break;
+                { "Iudex Gundyr", ("Iudex Gundyr", 14000800)},
+                { "Vordt of the Boreal Valley", ("Vordt of the Boreal Valley", 13000800)},
+                { "Curse-Rotted Greatwood", ("Curse-Rotted Greatwood", 13100800)},
+                { "Crystal Sage", ("Crystal Sage", 13300850)},
+                { "Abyss Watchers", ("Abyss Watchers", 13300800)},
+                { "Deacons of the Deep", ("Deacons of the Deep", 13500800)},
+                { "High Lord Wolnir", ("High Lord Wolnir", 13800800)},
+                { "Old Demon King", ("Old Demon King", 13800830)},
+                { "Pontiff Sulyvahn", ("Pontiff Sulyvahn", 13700850)},
+                { "Yhorm the Giant", ("Yhorm the Giant", 13900800)},
+                { "Aldrich, Devourer of Gods", ("Aldrich, Devourer of Gods", 13700800)},
+                { "Dancer of the Boreal Valley", ("Dancer of the Boreal Valley", 13000890)},
+                { "Dragonslayer Armour", ("Dragonslayer Armour", 13010800)},
+                { "Oceiros, the Consumed King", ("Oceiros, the Consumed King", 13000830)},
+                { "Champion Gundyr", ("Champion Gundyr", 14000830)},
+                { "Lothric, Younger Prince", ("Lothric, Younger Prince", 13410830)},
+                { "Ancient Wyvern", ("Ancient Wyvern", 13200800)},
+                { "Nameless King", ("Nameless King", 13200850)},
+                { "Soul of Cinder", ("Soul of Cinder", 14100800)},
+                { "Sister Friede", ("Sister Friede", 14500800)},
+                { "Champion's Gravetender & Gravetender Greatwolf", ("Champion's Gravetender & Gravetender Greatwolf", 14500860)},
+                { "Demon in Pain & Demon From Below / Demon Prince", ("Demon in Pain & Demon From Below / Demon Prince", 15000800)},
+                { "Halflight, Spear of the Church", ("Halflight, Spear of the Church", 15100800)},
+                { "Darkeater Midir", ("Darkeater Midir", 15100850)},
+                { "Slave Knight Gael", ("Slave Knight Gael", 15110800)}
+            };
+
+            if (bossMapping.TryGetValue(boss, out var bossInfo))
+            {
+                return new BossDs3 { Title = bossInfo.Title, Id = bossInfo.Id };
             }
-            return cBoss;
+            else
+            {
+                throw new ArgumentException($"Invalid boss string: {boss}");
+            }
         }
         #endregion
         #region Bonfire.Ds3
@@ -85,89 +91,95 @@ namespace AutoSplitterCore
 
         public BonfireDs3 stringToEnumBonfire(string Bonfire)
         {
-            BonfireDs3 cBonfire = new BonfireDs3();
-            switch (Bonfire)
+            var bonfireMapping = new Dictionary<string, (string Title, uint Id)> 
             {
-                case "Firelink Shrine": cBonfire.Title = "Firelink Shrine"; cBonfire.Id = 14000000; break;
-                case "Cemetery of Ash": cBonfire.Title = "Cemetery of Ash"; cBonfire.Id = 14000001; break;
-                case "Iudex Gundyr": cBonfire.Title = "Iudex Gundyr"; cBonfire.Id = 14000002; break;
-                case "Untended Graves": cBonfire.Title = "Untended Graves"; cBonfire.Id = 14000003; break;
-                case "Champion Gundyr": cBonfire.Title = "Champion Gundyr"; cBonfire.Id = 14000004; break;
-                case "High Wall of Lothric": cBonfire.Title = "High Wall of Lothric"; cBonfire.Id = 13000009; break;
-                case "Tower on the Wall": cBonfire.Title = "Tower on the Wall"; cBonfire.Id = 13000005; break;
-                case "Vordt of the Boreal Valley": cBonfire.Title = "Vordt of the Boreal Valley"; cBonfire.Id = 13000002; break;
-                case "Dancer of the Boreal Valley": cBonfire.Title = "Dancer of the Boreal Valley"; cBonfire.Id = 13000004; break;
-                case "Oceiros, the Consumed King": cBonfire.Title = "Oceiros, the Consumed King"; cBonfire.Id = 13000001; break;
-                case "Foot of the High Wall": cBonfire.Title = "Foot of the High Wall"; cBonfire.Id = 13100004; break;
-                case "Undead Settlement": cBonfire.Title = "Undead Settlement"; cBonfire.Id = 13100000; break;
-                case "Cliff Underside": cBonfire.Title = "Cliff Underside"; cBonfire.Id = 13100002; break;
-                case "Dilapidated Bridge": cBonfire.Title = "Dilapidated Bridge"; cBonfire.Id = 13100003; break;
-                case "Pit of Hollows": cBonfire.Title = "Pit of Hollows"; cBonfire.Id = 13100001; break;
-                case "Road of Sacrifices": cBonfire.Title = "Road of Sacrifices"; cBonfire.Id = 13300006; break;
-                case "Halfway Fortress": cBonfire.Title = "Halfway Fortress"; cBonfire.Id = 13300000; break;
-                case "Crucifixion Woods": cBonfire.Title = "Crucifixion Woods"; cBonfire.Id = 13300007; break;
-                case "Crystal Sage": cBonfire.Title = "Crystal Sage"; cBonfire.Id = 13300002; break;
-                case "Farron Keep": cBonfire.Title = "Farron Keep"; cBonfire.Id = 13300003; break;
-                case "Keep Ruins": cBonfire.Title = "Keep Ruins"; cBonfire.Id = 13300004; break;
-                case "Farron Keep Perimeter": cBonfire.Title = "Farron Keep Perimeter"; cBonfire.Id = 13300008; break;
-                case "Old Wolf of Farron": cBonfire.Title = "Old Wolf of Farron"; cBonfire.Id = 13300005; break;
-                case "Abyss Watchers": cBonfire.Title = "Abyss Watchers"; cBonfire.Id = 13300001; break;
-                case "Cathedral of the Deep": cBonfire.Title = "Cathedral of the Deep"; cBonfire.Id = 13500003; break;
-                case "Cleansing Chapel": cBonfire.Title = "Cleansing Chapel"; cBonfire.Id = 13500000; break;
-                case "Rosaria's Bed Chamber": cBonfire.Title = "Rosaria's Bed Chamber"; cBonfire.Id = 13500002; break;
-                case "Deacons of the Deep": cBonfire.Title = "Deacons of the Deep"; cBonfire.Id = 13500001; break;
-                case "Catacombs of Carthus": cBonfire.Title = "Catacombs of Carthus"; cBonfire.Id = 13800006; break;
-                case "High Lord Wolnir": cBonfire.Title = "High Lord Wolnir"; cBonfire.Id = 13800000; break;
-                case "Abandoned Tomb": cBonfire.Title = "Abandoned Tomb"; cBonfire.Id = 13800001; break;
-                case "Old King's Antechamber": cBonfire.Title = "Old King's Antechamber"; cBonfire.Id = 13800002; break;
-                case "Demon Ruins": cBonfire.Title = "Demon Ruins"; cBonfire.Id = 13800003; break;
-                case "Old Demon King": cBonfire.Title = "Old Demon King"; cBonfire.Id = 13800004; break;
-                case "Irithyll of the Boreal Valley": cBonfire.Title = "Irithyll of the Boreal Valley"; cBonfire.Id = 13700007; break;
-                case "Central Irithyll": cBonfire.Title = "Central Irithyll"; cBonfire.Id = 13700004; break;
-                case "Church of Yorshka": cBonfire.Title = "Church of Yorshka"; cBonfire.Id = 13700000; break;
-                case "Distant Manor": cBonfire.Title = "Distant Manor"; cBonfire.Id = 13700005; break;
-                case "Pontiff Sulyvahn": cBonfire.Title = "Pontiff Sulyvahn"; cBonfire.Id = 13700001; break;
-                case "Water Reserve": cBonfire.Title = "Water Reserve"; cBonfire.Id = 13700006; break;
-                case "Anor Londo": cBonfire.Title = "Anor Londo"; cBonfire.Id = 13700003; break;
-                case "Prison Tower": cBonfire.Title = "Prison Tower"; cBonfire.Id = 13700008; break;
-                case "Aldrich, Devourer of Gods": cBonfire.Title = "Aldrich, Devourer of Gods"; cBonfire.Id = 13700002; break;
-                case "Irithyll Dungeon": cBonfire.Title = "Irithyll Dungeon"; cBonfire.Id = 13900000; break;
-                case "Profaned Capital": cBonfire.Title = "Profaned Capital"; cBonfire.Id = 13900002; break;
-                case "Yhorm the Giant": cBonfire.Title = "Yhorm the Giant"; cBonfire.Id = 13900001; break;
-                case "Lothric Castle": cBonfire.Title = "Lothric Castle"; cBonfire.Id = 13010000; break;
-                case "Dragon Barracks": cBonfire.Title = "Dragon Barracks"; cBonfire.Id = 13010002; break;
-                case "Dragonslayer Armour": cBonfire.Title = "Dragonslayer Armour"; cBonfire.Id = 13010001; break;
-                case "Grand Archives": cBonfire.Title = "Grand Archives"; cBonfire.Id = 13410001; break;
-                case "Twin Princes": cBonfire.Title = "Twin Princes"; cBonfire.Id = 13410000; break;
-                case "Archdragon Peak": cBonfire.Title = "Archdragon Peak"; cBonfire.Id = 13200000; break;
-                case "Dragon-Kin Mausoleum": cBonfire.Title = "Dragon-Kin Mausoleum"; cBonfire.Id = 13200003; break;
-                case "Great Belfry": cBonfire.Title = "Great Belfry"; cBonfire.Id = 13200002; break;
-                case "Nameless King": cBonfire.Title = "Nameless King"; cBonfire.Id = 13200001; break;
-                case "Flameless Shrine": cBonfire.Title = "Flameless Shrine"; cBonfire.Id = 14100000; break;
-                case "Kiln of the First Flame": cBonfire.Title = "Kiln of the First Flame"; cBonfire.Id = 14100001; break;
-                case "Snowfield": cBonfire.Title = "Snowfield"; cBonfire.Id = 14500001; break;
-                case "Rope Bridge Cave": cBonfire.Title = "Rope Bridge Cave"; cBonfire.Id = 14500002; break;
-                case "Corvian Settlement": cBonfire.Title = "Corvian Settlement"; cBonfire.Id = 14500003; break;
-                case "Snowy Mountain Pass": cBonfire.Title = "Snowy Mountain Pass"; cBonfire.Id = 14500004; break;
-                case "Ariandel Chapel": cBonfire.Title = "Ariandel Chapel"; cBonfire.Id = 14500005; break;
-                case "Sister Friede": cBonfire.Title = "Sister Friede"; cBonfire.Id = 14500000; break;
-                case "Depths of the Painting": cBonfire.Title = "Depths of the Painting"; cBonfire.Id = 14500007; break;
-                case "Champion's Gravetender": cBonfire.Title = "Champion's Gravetender"; cBonfire.Id = 14500006; break;
-                case "The Dreg Heap": cBonfire.Title = "The Dreg Heap"; cBonfire.Id = 15000001; break;
-                case "Earthen Peak Ruins": cBonfire.Title = "Earthen Peak Ruins"; cBonfire.Id = 15000002; break;
-                case "Within the Earthen Peak Ruins": cBonfire.Title = "Within the Earthen Peak Ruins"; cBonfire.Id = 15000003; break;
-                case "The Demon Prince": cBonfire.Title = "The Demon Prince"; cBonfire.Id = 15000000; break;
-                case "Mausoleum Lookout": cBonfire.Title = "Mausoleum Lookout"; cBonfire.Id = 15100002; break;
-                case "Ringed Inner Wall": cBonfire.Title = "Ringed Inner Wall"; cBonfire.Id = 15100003; break;
-                case "Ringed City Streets": cBonfire.Title = "Ringed City Streets"; cBonfire.Id = 15100004; break;
-                case "Shared Grave": cBonfire.Title = "Shared Grave"; cBonfire.Id = 15100005; break;
-                case "Church of Filianore": cBonfire.Title = "Church of Filianore"; cBonfire.Id = 15100000; break;
-                case "Darkeater Midir": cBonfire.Title = "Darkeater Midir"; cBonfire.Id = 15100001; break;
-                case "Filianore's Rest": cBonfire.Title = "Filianore's Rest"; cBonfire.Id = 15110001; break;
-                case "Slave Knight Gael": cBonfire.Title = "Slave Knight Gael"; cBonfire.Id = 15110000; break;
-                default: cBonfire = null; break;
+                { "Firelink Shrine", ("Firelink Shrine", 14000000)},
+                { "Cemetery of Ash", ("Cemetery of Ash", 14000001)},
+                { "Iudex Gundyr", ("Iudex Gundyr", 14000002)},
+                { "Untended Graves", ("Untended Graves", 14000003)},
+                { "Champion Gundyr", ("Champion Gundyr", 14000004)},
+                { "High Wall of Lothric", ("High Wall of Lothric", 13000009)},
+                { "Tower on the Wall", ("Tower on the Wall", 13000005)},
+                { "Vordt of the Boreal Valley", ("Vordt of the Boreal Valley", 13000002)},
+                { "Dancer of the Boreal Valley", ("Dancer of the Boreal Valley", 13000004)},
+                { "Oceiros, the Consumed King", ("Oceiros, the Consumed King", 13000001)},
+                { "Foot of the High Wall", ("Foot of the High Wall", 13100004)},
+                { "Undead Settlement", ("Undead Settlement", 13100000)},
+                { "Cliff Underside", ("Cliff Underside", 13100002)},
+                { "Dilapidated Bridge", ("Dilapidated Bridge", 13100003)},
+                { "Pit of Hollows", ("Pit of Hollows", 13100001)},
+                { "Road of Sacrifices", ("Road of Sacrifices", 13300006)},
+                { "Halfway Fortress", ("Halfway Fortress", 13300000)},
+                { "Crucifixion Woods", ("Crucifixion Woods", 13300007)},
+                { "Crystal Sage", ("Crystal Sage", 13300002)},
+                { "Farron Keep", ("Farron Keep", 13300003)},
+                { "Keep Ruins", ("Keep Ruins", 13300004)},
+                { "Farron Keep Perimeter", ("Farron Keep Perimeter", 13300008)},
+                { "Old Wolf of Farron", ("Old Wolf of Farron", 13300005)},
+                { "Abyss Watchers", ("Abyss Watchers", 13300001)},
+                { "Cathedral of the Deep", ("Cathedral of the Deep", 13500003)},
+                { "Cleansing Chapel", ("Cleansing Chapel", 13500000)},
+                { "Rosaria's Bed Chamber", ("Rosaria's Bed Chamber", 13500002)},
+                { "Deacons of the Deep", ("Deacons of the Deep", 13500001)},
+                { "Catacombs of Carthus", ("Catacombs of Carthus", 13800006)},
+                { "High Lord Wolnir", ("High Lord Wolnir", 13800000)},
+                { "Abandoned Tomb", ("Abandoned Tomb", 13800001)},
+                { "Old King's Antechamber", ("Old King's Antechamber", 13800002)},
+                { "Demon Ruins", ("Demon Ruins", 13800003)},
+                { "Old Demon King", ("Old Demon King", 13800004)},
+                { "Irithyll of the Boreal Valley", ("Irithyll of the Boreal Valley", 13700007)},
+                { "Central Irithyll", ("Central Irithyll", 13700004)},
+                { "Church of Yorshka", ("Church of Yorshka", 13700000)},
+                { "Distant Manor", ("Distant Manor", 13700005)},
+                { "Pontiff Sulyvahn", ("Pontiff Sulyvahn", 13700001)},
+                { "Water Reserve", ("Water Reserve", 13700006)},
+                { "Anor Londo", ("Anor Londo", 13700003)},
+                { "Prison Tower", ("Prison Tower", 13700008)},
+                { "Aldrich, Devourer of Gods", ("Aldrich, Devourer of Gods", 13700002)},
+                { "Irithyll Dungeon", ("Irithyll Dungeon", 13900000)},
+                { "Profaned Capital", ("Profaned Capital", 13900002)},
+                { "Yhorm the Giant", ("Yhorm the Giant", 13900001)},
+                { "Lothric Castle", ("Lothric Castle", 13010000)},
+                { "Dragon Barracks", ("Dragon Barracks", 13010002)},
+                { "Dragonslayer Armour", ("Dragonslayer Armour", 13010001)},
+                { "Grand Archives", ("Grand Archives", 13410001)},
+                { "Twin Princes", ("Twin Princes", 13410000)},
+                { "Archdragon Peak", ("Archdragon Peak", 13200000)},
+                { "Dragon-Kin Mausoleum", ("Dragon-Kin Mausoleum", 13200003)},
+                { "Great Belfry", ("Great Belfry", 13200002)},
+                { "Nameless King", ("Nameless King", 13200001)},
+                { "Flameless Shrine", ("Flameless Shrine", 14100000)},
+                { "Kiln of the First Flame", ("Kiln of the First Flame", 14100001)},
+                { "Snowfield", ("Snowfield", 14500001)},
+                { "Rope Bridge Cave", ("Rope Bridge Cave", 14500002)},
+                { "Corvian Settlement", ("Corvian Settlement", 14500003)},
+                { "Snowy Mountain Pass", ("Snowy Mountain Pass", 14500004)},
+                { "Ariandel Chapel", ("Ariandel Chapel", 14500005)},
+                { "Sister Friede", ("Sister Friede", 14500000)},
+                { "Depths of the Painting", ("Depths of the Painting", 14500007)},
+                { "Champion's Gravetender", ("Champion's Gravetender", 14500006)},
+                { "The Dreg Heap", ("The Dreg Heap", 15000001)},
+                { "Earthen Peak Ruins", ("Earthen Peak Ruins", 15000002)},
+                { "Within the Earthen Peak Ruins", ("Within the Earthen Peak Ruins", 15000003)},
+                { "The Demon Prince", ("The Demon Prince", 15000000)},
+                { "Mausoleum Lookout", ("Mausoleum Lookout", 15100002)},
+                { "Ringed Inner Wall", ("Ringed Inner Wall", 15100003)},
+                { "Ringed City Streets", ("Ringed City Streets", 15100004)},
+                { "Shared Grave", ("Shared Grave", 15100005)},
+                { "Church of Filianore", ("Church of Filianore", 15100000)},
+                { "Darkeater Midir", ("Darkeater Midir", 15100001)},
+                { "Filianore's Rest", ("Filianore's Rest", 15110001)},
+                { "Slave Knight Gael", ("Slave Knight Gael", 15110000)}
+            };
+
+            if (bonfireMapping.TryGetValue(Bonfire, out var BonfireInfo))
+            {
+                return new BonfireDs3 { Title = BonfireInfo.Title, Id = BonfireInfo.Id };
             }
-            return cBonfire;
+            else
+            {
+                throw new ArgumentException($"Invalid boss string: {Bonfire}");
+            }
         }
         #endregion
         #region Lvl.Ds3
