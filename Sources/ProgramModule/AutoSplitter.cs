@@ -363,13 +363,15 @@ namespace AutoSplitterCore
             #endregion
             DTElden eldenData = eldenSplitter.getDataElden();
             #region EldenLoad.Boss
+            comboBoxBossER_DLC.Hide();  
             foreach (DefinitionsElden.BossER boss in eldenData.getBossToSplit())
             {
                 listBoxBossER.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region EldenLoad.Grace
-            foreach (DefinitionsElden.Grace grace in eldenData.getGraceToSplit())
+            comboBoxGraceDLC_ER.Hide();
+            foreach (DefinitionsElden.GraceER grace in eldenData.getGraceToSplit())
             {
                 listBoxGrace.Items.Add(grace.Title + " - " + grace.Mode);
             }
@@ -2615,20 +2617,37 @@ namespace AutoSplitterCore
             }
         }
 
+        private void checkBoxDLC_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBoxDLCBoss.Checked) 
+            {
+                comboBoxBossER_DLC.Show();
+                comboBoxBossER.Hide();
+            }
+            else
+            {
+                comboBoxBossER.Show();
+                comboBoxBossER_DLC.Hide();
+            }
+        }
+
         private void btnAddBossER_Click(object sender, EventArgs e)
         {
-            if (comboBoxBossER.SelectedIndex == -1 || comboBoxHowBossER.SelectedIndex == -1)
+            string comboBoxTextSelected = string.Empty;
+            _ = checkBoxDLCBoss.Checked ? comboBoxTextSelected = comboBoxTextSelected = comboBoxBossER_DLC.Text : comboBoxTextSelected = comboBoxBossER.Text;
+
+            if (comboBoxTextSelected == string.Empty || comboBoxHowBossER.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select boss and 'How' do you want split  ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var contains1 = !listBoxBossER.Items.Contains(comboBoxBossER.Text.ToString() + " - " + "Inmediatly");
-                var contains2 = !listBoxBossER.Items.Contains(comboBoxBossER.Text.ToString() + " - " + "Loading game after");
+                var contains1 = !listBoxBossER.Items.Contains(comboBoxTextSelected + " - " + "Inmediatly");
+                var contains2 = !listBoxBossER.Items.Contains(comboBoxTextSelected + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
-                    eldenSplitter.AddBoss(comboBoxBossER.Text.ToString(), comboBoxHowBossER.Text.ToString());
-                    listBoxBossER.Items.Add(comboBoxBossER.Text.ToString() + " - " + comboBoxHowBossER.Text.ToString());
+                    eldenSplitter.AddBoss(comboBoxTextSelected, comboBoxHowBossER.Text.ToString());
+                    listBoxBossER.Items.Add(comboBoxTextSelected + " - " + comboBoxHowBossER.Text.ToString());
                 }
                 else
                 {
@@ -2647,20 +2666,38 @@ namespace AutoSplitterCore
             }
         }
 
+
+        private void checkBoxViewDlcGrace_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBoxViewDlcGrace.Checked)
+            {
+                comboBoxGraceDLC_ER.Show();
+                comboBoxGraceER.Hide();
+            }
+            else
+            {
+                comboBoxGraceER.Show();
+                comboBoxGraceDLC_ER.Hide();
+            }
+        }
+
         private void btnAddGraceER_Click(object sender, EventArgs e)
         {
-            if (comboBoxZoneSelectER.SelectedIndex == -1 || comboBoxHowGraceER.SelectedIndex == -1)
+            string comboBoxTextSelected = string.Empty;
+            _ = checkBoxViewDlcGrace.Checked ? comboBoxTextSelected = comboBoxTextSelected = comboBoxGraceDLC_ER.Text : comboBoxTextSelected = comboBoxGraceER.Text;
+
+            if (comboBoxTextSelected == string.Empty || comboBoxHowGraceER.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select grace and 'How' do you want split  ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var contains1 = !listBoxGrace.Items.Contains(comboBoxZoneSelectER.Text.ToString() + " - " + "Inmediatly");
-                var contains2 = !listBoxGrace.Items.Contains(comboBoxZoneSelectER.Text.ToString() + " - " + "Loading game after");
+                var contains1 = !listBoxGrace.Items.Contains(comboBoxTextSelected + " - " + "Inmediatly");
+                var contains2 = !listBoxGrace.Items.Contains(comboBoxTextSelected + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
-                    eldenSplitter.AddGrace(comboBoxZoneSelectER.Text.ToString(), comboBoxHowGraceER.Text.ToString());
-                    listBoxGrace.Items.Add(comboBoxZoneSelectER.Text.ToString() + " - " + comboBoxHowGraceER.Text.ToString());
+                    eldenSplitter.AddGrace(comboBoxTextSelected, comboBoxHowGraceER.Text.ToString());
+                    listBoxGrace.Items.Add(comboBoxTextSelected + " - " + comboBoxHowGraceER.Text.ToString());
                 }
                 else
                 {
@@ -3241,6 +3278,8 @@ namespace AutoSplitterCore
             }
         }
 
+
         #endregion
+
     }
 }

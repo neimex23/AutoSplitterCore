@@ -40,189 +40,235 @@ namespace AutoSplitterCore
 
         public BossER stringToEnumBoss(string boss)
         {
-            BossER cBoss = new BossER();
-            switch (boss)
+            var bossMapping = new Dictionary<string, (string Title, uint Id)>
             {
-                case "Godrick the Grafted - Stormveil Castle": cBoss.Title = "Godrick the Grafted - Stormveil Castle"; cBoss.Id = 10000800; break;
-                case "Margit, the Fell Omen - Stormveil Castle": cBoss.Title = "Margit, the Fell Omen - Stormveil Castle"; cBoss.Id = 10000850; break;
-                case "Grafted Scion - Chapel of Anticipation": cBoss.Title = "Grafted Scion - Chapel of Anticipation"; cBoss.Id = 10010800; break;
-                case "Morgott, the Omen King - Leyndell": cBoss.Title = "Morgott, the Omen King - Leyndell"; cBoss.Id = 11000800; break;
-                case "Godfrey, First Elden Lord - Leyndell": cBoss.Title = "Godfrey, First Elden Lord - Leyndell"; cBoss.Id = 11000850; break;
-                case "Hoarah Loux - Leyndell": cBoss.Title = "Hoarah Loux - Leyndell"; cBoss.Id = 11050800; break;
-                case "Sir Gideon Ofnir, the All-Knowing - Leyndell": cBoss.Title = "Sir Gideon Ofnir, the All-Knowing - Leyndell"; cBoss.Id = 11050850; break;
-                case "Dragonkin Soldier of Nokstella - Ainsel River": cBoss.Title = "Dragonkin Soldier of Nokstella - Ainsel River"; cBoss.Id = 12010800; break;
-                case "Dragonkin Soldier - Lake of Rot": cBoss.Title = "Dragonkin Soldier - Lake of Rot"; cBoss.Id = 12010850; break;
-                case "Valiant Gargoyles - Siofra River": cBoss.Title = "Valiant Gargoyles - Siofra River"; cBoss.Id = 12020800; break;
-                case "Dragonkin Soldier - Siofra River": cBoss.Title = "Dragonkin Soldier - Siofra River"; cBoss.Id = 12020830; break;
-                case "Mimic Tear - Siofra River": cBoss.Title = "Mimic Tear - Siofra River"; cBoss.Id = 12020850; break;
-                case "Crucible Knight Sirulia - Deeproot Depths": cBoss.Title = "Crucible Knight Sirulia - Deeproot Depths"; cBoss.Id = 12030390; break;
-                case "Fia's Champion - Deeproot Depths": cBoss.Title = "Fia's Champion - Deeproot Depths"; cBoss.Id = 12030800; break;
-                case "Lichdragon Fortissax - Deeproot Depths": cBoss.Title = "Lichdragon Fortissax - Deeproot Depths"; cBoss.Id = 12030850; break;
-                case "Astel, Naturalborn of the Void - Lake of Rot": cBoss.Title = "Astel, Naturalborn of the Void - Lake of Rot"; cBoss.Id = 12040800; break;
-                case "Mohg, Lord of Blood - Mohgwyn Palace": cBoss.Title = "Mohg, Lord of Blood - Mohgwyn Palace"; cBoss.Id = 12050800; break;
-                case "Ancestor Spirit - Siofra River": cBoss.Title = "Ancestor Spirit - Siofra River"; cBoss.Id = 12080800; break;
-                case "Regal Ancestor Spirit - Nokron, Eternal City": cBoss.Title = "Regal Ancestor Spirit - Nokron, Eternal City"; cBoss.Id = 12090800; break;
-                case "Maliketh, The Black Blade - Crumbling Farum Azula": cBoss.Title = "Maliketh, The Black Blade - Crumbling Farum Azula"; cBoss.Id = 13000800; break;
-                case "Dragonlord Placidusax - Crumbling Farum Azula": cBoss.Title = "Dragonlord Placidusax - Crumbling Farum Azula"; cBoss.Id = 13000830; break;
-                case "Godskin Duo - Crumbling Farum Azula": cBoss.Title = "Godskin Duo - Crumbling Farum Azula"; cBoss.Id = 13000850; break;
-                case "Rennala, Queen of the Full Moon - Academy of Raya Lucaria": cBoss.Title = "Rennala, Queen of the Full Moon - Academy of Raya Lucaria"; cBoss.Id = 14000800; break;
-                case "Red Wolf of Radagon - Academy of Raya Lucaria": cBoss.Title = "Red Wolf of Radagon - Academy of Raya Lucaria"; cBoss.Id = 14000850; break;
-                case "Malenia, Blade of Miquella - Miquella's Haligtree": cBoss.Title = "Malenia, Blade of Miquella - Miquella's Haligtree"; cBoss.Id = 15000800; break;
-                case "Loretta, Knight of the Haligtree - Miquella's Haligtree": cBoss.Title = "Loretta, Knight of the Haligtree - Miquella's Haligtree"; cBoss.Id = 15000850; break;
-                case "Rykard, Lord of Blasphemy - Volcano Manor": cBoss.Title = "Rykard, Lord of Blasphemy - Volcano Manor"; cBoss.Id = 16000800; break;
-                case "Godskin Noble - Volcano Manor": cBoss.Title = "Godskin Noble - Volcano Manor"; cBoss.Id = 16000850; break;
-                case "Abductor Virgins - Volcano Manor": cBoss.Title = "Abductor Virgins - Volcano Manor"; cBoss.Id = 16000860; break;
-                case "Ulcerated Tree Spirit - Stranded Graveyard": cBoss.Title = "Ulcerated Tree Spirit - Stranded Graveyard"; cBoss.Id = 18000800; break;
-                case "Soldier of Godrick - Stranded Graveyard": cBoss.Title = "Soldier of Godrick - Stranded Graveyard"; cBoss.Id = 18000850; break;
-                case "Elden Beast - Elden Throne": cBoss.Title = "Elden Beast - Elden Throne"; cBoss.Id = 19000800; break;
-                case "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)": cBoss.Title = "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)"; cBoss.Id = 35000800; break;
-                case "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)": cBoss.Title = "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)"; cBoss.Id = 35000850; break;
-                case "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)": cBoss.Title = "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)"; cBoss.Id = 39200800; break;
-                case "Cemetery Shade - Tombsward Catacombs (Limgrave)": cBoss.Title = "Cemetery Shade - Tombsward Catacombs (Limgrave)"; cBoss.Id = 30000800; break;
-                case "Erdtree Burial Watchdog - Impaler's Catacombs (Weeping Penisula)": cBoss.Title = "Erdtree Burial Watchdog - Impaler's Catacombs (Weeping Penisula)"; cBoss.Id = 30010800; break;
-                case "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)": cBoss.Title = "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)"; cBoss.Id = 30020800; break;
-                case "Black Knife Assassin - Deathtouched Catacombs (Limgrave)": cBoss.Title = "Black Knife Assassin - Deathtouched Catacombs (Limgrave)"; cBoss.Id = 30110800; break;
-                case "Grave Warden Duelist - Murkwater Catacombs (Limgrave)": cBoss.Title = "Grave Warden Duelist - Murkwater Catacombs (Limgrave)"; cBoss.Id = 30040800; break;
-                case "Cemetery Shade - Black Knife Catacombs (Liurnia)": cBoss.Title = "Cemetery Shade - Black Knife Catacombs (Liurnia)"; cBoss.Id = 30050800; break;
-                case "Black Knife Assassin - Black Knife Catacombs (Liurnia)": cBoss.Title = "Black Knife Assassin - Black Knife Catacombs (Liurnia)"; cBoss.Id = 30050850; break;
-                case "Spirit-Caller Snail - Road's End Catacombs (Liurnia)": cBoss.Title = "Spirit-Caller Snail - Road's End Catacombs (Liurnia)"; cBoss.Id = 30030800; break;
-                case "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)": cBoss.Title = "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)"; cBoss.Id = 30060800; break;
-                case "Ancient Hero of Zamor - Sainted Hero's Grave (Altus Plateau)": cBoss.Title = "Ancient Hero of Zamor - Sainted Hero's Grave (Altus Plateau)"; cBoss.Id = 30080800; break;
-                case "Red Wolf of the Champion - Gelmir Hero's Grave (Mt. Gelmir)": cBoss.Title = "Red Wolf of the Champion - Gelmir Hero's Grave (Mt. Gelmir)"; cBoss.Id = 30090800; break;
-                case "Crucible Knight Ordovis - Auriza Hero's Grave (Altus Plateau)": cBoss.Title = "Crucible Knight Ordovis - Auriza Hero's Grave (Altus Plateau)"; cBoss.Id = 30100800; break;
-                case "Crucible Knight (Tree Spear) - Auriza Hero's Grave (Altus Plateau)": cBoss.Title = "Crucible Knight (Tree Spear) - Auriza Hero's Grave (Altus Plateau)"; cBoss.Id = 30100800; break;
-                case "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)": cBoss.Title = "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)"; cBoss.Id = 30120800; break;
-                case "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)": cBoss.Title = "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)"; cBoss.Id = 30120800; break;
-                case "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)": cBoss.Title = "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)"; cBoss.Id = 30070800; break;
-                case "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)": cBoss.Title = "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)"; cBoss.Id = 30130800; break;
-                case "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)": cBoss.Title = "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)"; cBoss.Id = 30140800; break;
-                case "Cemetery Shade - Caelid Catacombs (Caelid)": cBoss.Title = "Cemetery Shade - Caelid Catacombs (Caelid)"; cBoss.Id = 30150800; break;
-                case "Putrid Tree Spirit - War-Dead Catacombs (Caelid)": cBoss.Title = "Putrid Tree Spirit - War-Dead Catacombs (Caelid)"; cBoss.Id = 30160800; break;
-                case "Ancient Hero of Zamor - Giant-Conquering Hero's Grave (Mountaintops)": cBoss.Title = "Ancient Hero of Zamor - Giant-Conquering Hero's Grave (Mountaintops)"; cBoss.Id = 30170800; break;
-                case "Ulcerated Tree Sprit - Giants' Mountaintop Catacombs (Mountaintops)": cBoss.Title = "Ulcerated Tree Sprit - Giants' Mountaintop Catacombs (Mountaintops)"; cBoss.Id = 30180800; break;
-                case "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)": cBoss.Title = "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)"; cBoss.Id = 30190800; break;
-                case "Stray Mimic Tear - Hidden Path to the Haligtree": cBoss.Title = "Stray Mimic Tear - Hidden Path to the Haligtree"; cBoss.Id = 30202800; break;
-                case "Patches - Murkwater Cave (Limgrave)": cBoss.Title = "Patches - Murkwater Cave (Limgrave)"; cBoss.Id = 31000800; break;
-                case "Runebear - Earthbore Cave (Weeping Penisula)": cBoss.Title = "Runebear - Earthbore Cave (Weeping Penisula)"; cBoss.Id = 31010800; break;
-                case "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)": cBoss.Title = "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)"; cBoss.Id = 31020800; break;
-                case "Beastman of Farum Azula - Groveside Cave (Limgrave)": cBoss.Title = "Beastman of Farum Azula - Groveside Cave (Limgrave)"; cBoss.Id = 31030800; break;
-                case "Demi-Human Chief - Coastal Cave (Limgrave)": cBoss.Title = "Demi-Human Chief - Coastal Cave (Limgrave)"; cBoss.Id = 31150800; break;
-                case "Guardian Golem - Highroad Cave (Limgrave)": cBoss.Title = "Guardian Golem - Highroad Cave (Limgrave)"; cBoss.Id = 31170800; break;
-                case "Cleanrot Knight - Stillwater Cave (Liurnia)": cBoss.Title = "Cleanrot Knight - Stillwater Cave (Liurnia)"; cBoss.Id = 31040800; break;
-                case "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)": cBoss.Title = "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)"; cBoss.Id = 31050800; break;
-                case "Crystalians - Academy Crystal Cave (Liurnia)": cBoss.Title = "Crystalians - Academy Crystal Cave (Liurnia)"; cBoss.Id = 31060800; break;
-                case "Kindred of Rot - Seethewater Cave (Mt. Gelmir)": cBoss.Title = "Kindred of Rot - Seethewater Cave (Mt. Gelmir)"; cBoss.Id = 31070800; break;
-                case "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)": cBoss.Title = "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)"; cBoss.Id = 31090800; break;
-                case "Miranda the Blighted Bloom - Perfumer's Grotto (Altus Plateau)": cBoss.Title = "Miranda the Blighted Bloom - Perfumer's Grotto (Altus Plateau)"; cBoss.Id = 31180800; break;
-                case "Black Knife Assassin - Sage's Cave (Altus Plateau)": cBoss.Title = "Black Knife Assassin - Sage's Cave (Altus Plateau)"; cBoss.Id = 31190800; break;
-                case "Necromancer Garris - Sage's Cave (Altus Plateau)": cBoss.Title = "Necromancer Garris - Sage's Cave (Altus Plateau)"; cBoss.Id = 31190850; break;
-                case "Frenzied Duelist - Gaol Cave (Caelid)": cBoss.Title = "Frenzied Duelist - Gaol Cave (Caelid)"; cBoss.Id = 31210800; break;
-                case "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)": cBoss.Title = "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)"; cBoss.Id = 31100800; break;
-                case "Cleanrot Knight - Abandoned Cave (Caelid)": cBoss.Title = "Cleanrot Knight - Abandoned Cave (Caelid)"; cBoss.Id = 31200800; break;
-                case "Putrid Crystalians - Sellia Hideaway (Caelid)": cBoss.Title = "Putrid Crystalians - Sellia Hideaway (Caelid)"; cBoss.Id = 31110800; break;
-                case "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)": cBoss.Title = "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)"; cBoss.Id = 31120800; break;
-                case "Spirit-Caller Snail - Spiritcaller's Cave (Mountaintops)": cBoss.Title = "Spirit-Caller Snail - Spiritcaller's Cave (Mountaintops)"; cBoss.Id = 31220800; break;
-                case "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)": cBoss.Title = "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)"; cBoss.Id = 32000800; break;
-                case "Stonedigger Troll - Limgrave Tunnels (Limgrave)": cBoss.Title = "Stonedigger Troll - Limgrave Tunnels (Limgrave)"; cBoss.Id = 32010800; break;
-                case "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)": cBoss.Title = "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)"; cBoss.Id = 32020800; break;
-                case "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)": cBoss.Title = "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)"; cBoss.Id = 32040800; break;
-                case "Onyx Lord - Divine Tower of West Altus (Altus Plateau)": cBoss.Title = "Onyx Lord - Divine Tower of West Altus (Altus Plateau)"; cBoss.Id = 34120800; break;
-                case "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)": cBoss.Title = "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)"; cBoss.Id = 32050800; break;
-                case "Crystalian (Spear) - Altus Tunnel (Altus Plateau)": cBoss.Title = "Crystalian (Spear) - Altus Tunnel (Altus Plateau)"; cBoss.Id = 32050800; break;
-                case "Magma Wyrm - Gael Tunnel (Caelid)": cBoss.Title = "Magma Wyrm - Gael Tunnel (Caelid)"; cBoss.Id = 32070800; break;
-                case "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)": cBoss.Title = "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)"; cBoss.Id = 32080800; break;
-                case "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)": cBoss.Title = "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)"; cBoss.Id = 32110800; break;
-                case "Godskin Apostle - Divine Tower of Caelid (Caelid)": cBoss.Title = "Godskin Apostle - Divine Tower of Caelid (Caelid)"; cBoss.Id = 34130800; break;
-                case "Fell Twins - Divine Tower of East Altus (Capital Outskirts)": cBoss.Title = "Fell Twins - Divine Tower of East Altus (Capital Outskirts)"; cBoss.Id = 34140850; break;
-                case "Mad Pumpkin Head - Waypoint Ruins (Limgrave)": cBoss.Title = "Mad Pumpkin Head - Waypoint Ruins (Limgrave)"; cBoss.Id = 1044360800; break;
-                case "Night's Cavalry - Agheel Lake North (Limgrave)": cBoss.Title = "Night's Cavalry - Agheel Lake North (Limgrave)"; cBoss.Id = 1043370800; break;
-                case "Death Rite Bird - Stormgate (Limgrave)": cBoss.Title = "Death Rite Bird - Stormgate (Limgrave)"; cBoss.Id = 1042380800; break;
-                case "Ball-Bearing Hunter - Warmaster's Shack (Limgrave)": cBoss.Title = "Ball-Bearing Hunter - Warmaster's Shack (Limgrave)"; cBoss.Id = 1042380850; break;
-                case "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)": cBoss.Title = "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)"; cBoss.Id = 1042330800; break;
-                case "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)": cBoss.Title = "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)"; cBoss.Id = 1044350800; break;
-                case "Crucible Knight - Stormhill Evergaol (Limgrave)": cBoss.Title = "Crucible Knight - Stormhill Evergaol (Limgrave)"; cBoss.Id = 1042370800; break;
-                case "Erdtree Avatar - Minor Erdtree (Weeping Penisula)": cBoss.Title = "Erdtree Avatar - Minor Erdtree (Weeping Penisula)"; cBoss.Id = 1043330800; break;
-                case "Night's Cavalry - Castle Morne Approach (Weeping Penisula)": cBoss.Title = "Night's Cavalry - Castle Morne Approach (Weeping Penisula)"; cBoss.Id = 1044320850; break;
-                case "Death Rite Bird - Castle Morne Approach (Weeping Penisula)": cBoss.Title = "Death Rite Bird - Castle Morne Approach (Weeping Penisula)"; cBoss.Id = 1044320800; break;
-                case "Leonine Misbegotten - Castle Morne (Weeping Penisula)": cBoss.Title = "Leonine Misbegotten - Castle Morne (Weeping Penisula)"; cBoss.Id = 1043300800; break;
-                case "Tree Sentinel - Church of Elleh (Limgrave)": cBoss.Title = "Tree Sentinel - Church of Elleh (Limgrave)"; cBoss.Id = 1042360800; break;
-                case "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)": cBoss.Title = "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)"; cBoss.Id = 1043360800; break;
-                case "Tibia Mariner - Summonwater Village (Limgrave)": cBoss.Title = "Tibia Mariner - Summonwater Village (Limgrave)"; cBoss.Id = 1045390800; break;
-                case "Royal Revenant - Kingsrealm Ruins (Liurnia)": cBoss.Title = "Royal Revenant - Kingsrealm Ruins (Liurnia)"; cBoss.Id = 1034480800; break;
-                case "Adan, Thief of Fire - Malefactor's Evergaol (Liurnia)": cBoss.Title = "Adan, Thief of Fire - Malefactor's Evergaol (Liurnia)"; cBoss.Id = 1038410800; break;
-                case "Bols, Carian Knight - Cuckoo's Evergaol (Liurnia)": cBoss.Title = "Bols, Carian Knight - Cuckoo's Evergaol (Liurnia)"; cBoss.Id = 1033450800; break;
-                case "Onyx Lord - Royal Grave Evergaol (Liurnia)": cBoss.Title = "Onyx Lord - Royal Grave Evergaol (Liurnia)"; cBoss.Id = 1036500800; break;
-                case "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)": cBoss.Title = "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)"; cBoss.Id = 1033420800; break;
-                case "Erdtree Avatar - Revenger's Shack (Liurnia)": cBoss.Title = "Erdtree Avatar - Revenger's Shack (Liurnia)"; cBoss.Id = 1033430800; break;
-                case "Erdtree Avatar - Minor Erdtree (Liurnia)": cBoss.Title = "Erdtree Avatar - Minor Erdtree (Liurnia)"; cBoss.Id = 1038480800; break;
-                case "Royal Knight Loretta - Carian Manor (Liurnia)": cBoss.Title = "Royal Knight Loretta - Carian Manor (Liurnia)"; cBoss.Id = 1035500800; break;
-                case "Ball-Bearing Hunter - Church of Vows (Liurnia)": cBoss.Title = "Ball-Bearing Hunter - Church of Vows (Liurnia)"; cBoss.Id = 1037460800; break;
-                case "Night's Cavalry - Liurnia Highway Far North (Liurnia)": cBoss.Title = "Night's Cavalry - Liurnia Highway Far North (Liurnia)"; cBoss.Id = 1039430800; break;
-                case "Night's Cavalry - East Raya Lucaria Gate (Liurnia)": cBoss.Title = "Night's Cavalry - East Raya Lucaria Gate (Liurnia)"; cBoss.Id = 1036480800; break;
-                case "Deathbird - Laskyar Ruins (Liurnia)": cBoss.Title = "Deathbird - Laskyar Ruins (Liurnia)"; cBoss.Id = 1037420800; break;
-                case "Death Rite Bird - Gate Town Northwest (Liurnia)": cBoss.Title = "Death Rite Bird - Gate Town Northwest (Liurnia)"; cBoss.Id = 1036450800; break;
-                case "Glintstone Dragon Smarag - Meeting Place (Liurnia)": cBoss.Title = "Glintstone Dragon Smarag - Meeting Place (Liurnia)"; cBoss.Id = 1034450800; break;
-                case "Glintstone Dragon Adula - Ranni's Rise (Liurnia)": cBoss.Title = "Glintstone Dragon Adula - Ranni's Rise (Liurnia)"; cBoss.Id = 1034500800; break;
-                case "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)": cBoss.Title = "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)"; cBoss.Id = 1034420800; break;
-                case "Omenkiller - Village of the Albinaurics (Liurnia)": cBoss.Title = "Omenkiller - Village of the Albinaurics (Liurnia)"; cBoss.Id = 1035420800; break;
-                case "Tibia Mariner - Jarburg (Liurnia)": cBoss.Title = "Tibia Mariner - Jarburg (Liurnia)"; cBoss.Id = 1039440800; break;
-                case "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)": cBoss.Title = "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)"; cBoss.Id = 1037510800; break;
-                case "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)": cBoss.Title = "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)"; cBoss.Id = 1041520800; break;
-                case "Demi-Human Queen - Lux Ruins (Altus Plateau)": cBoss.Title = "Demi-Human Queen - Lux Ruins (Altus Plateau)"; cBoss.Id = 1038510800; break;
-                case "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)": cBoss.Title = "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)"; cBoss.Id = 1041500800; break;
-                case "Sanguine Noble - Writheblood Ruins (Altus Plateau)": cBoss.Title = "Sanguine Noble - Writheblood Ruins (Altus Plateau)"; cBoss.Id = 1040530800; break;
-                case "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)": cBoss.Title = "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)"; cBoss.Id = 1041510800; break;
-                case "Godskin Apostle - Windmill Heights (Altus Plateau)": cBoss.Title = "Godskin Apostle - Windmill Heights (Altus Plateau)"; cBoss.Id = 1042550800; break;
-                case "Black Knife Assassin - Sainted Hero's Grave Entrance (Altus Plateau)": cBoss.Title = "Black Knife Assassin - Sainted Hero's Grave Entrance (Altus Plateau)"; cBoss.Id = 1040520800; break;
-                case "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)": cBoss.Title = "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)"; cBoss.Id = 1045520800; break;
-                case "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)": cBoss.Title = "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)"; cBoss.Id = 1039500800; break;
-                case "Wormface - Woodfolk Ruins (Altus Plateau)": cBoss.Title = "Wormface - Woodfolk Ruins (Altus Plateau)"; cBoss.Id = 1041530800; break;
-                case "Night's Cavalry - Altus Highway Junction (Altus Plateau)": cBoss.Title = "Night's Cavalry - Altus Highway Junction (Altus Plateau)"; cBoss.Id = 1043530800; break;
-                case "Death Rite Bird - Minor Erdtree (Capital Outskirts)": cBoss.Title = "Death Rite Bird - Minor Erdtree (Capital Outskirts)"; cBoss.Id = 1043530800; break;
-                case "Ball-Bearing Hunter - Hermit Merchant's Shack (Capital Outskirts)": cBoss.Title = "Ball-Bearing Hunter - Hermit Merchant's Shack (Capital Outskirts)"; cBoss.Id = 1043530800; break;
-                case "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)": cBoss.Title = "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)"; cBoss.Id = 1037530800; break;
-                case "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)": cBoss.Title = "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)"; cBoss.Id = 1035530800; break;
-                case "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)": cBoss.Title = "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)"; cBoss.Id = 1036540800; break;
-                case "Elemer of the Briar - Shaded Castle (Altus Plateau)": cBoss.Title = "Elemer of the Briar - Shaded Castle (Altus Plateau)"; cBoss.Id = 1039540800; break;
-                case "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)": cBoss.Title = "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)"; cBoss.Id = 1037540810; break;
-                case "Tibia Mariner - Wyndham Ruins (Altus Plateau)": cBoss.Title = "Tibia Mariner - Wyndham Ruins (Altus Plateau)"; cBoss.Id = 1038520800; break;
-                case "Putrid Avatar - Minor Erdtree (Caelid)": cBoss.Title = "Putrid Avatar - Minor Erdtree (Caelid)"; cBoss.Id = 1047400800; break;
-                case "Decaying Ekzykes - Caelid Highway South (Caelid)": cBoss.Title = "Decaying Ekzykes - Caelid Highway South (Caelid)"; cBoss.Id = 1048370800; break;
-                case "Monstrous Dog - Southwest of Caelid Highway South (Caelid)": cBoss.Title = "Monstrous Dog - Southwest of Caelid Highway South (Caelid)"; cBoss.Id = 1048400800; break;
-                case "Night's Cavalry - Southern Aeonia Swamp Bank (Caelid)": cBoss.Title = "Night's Cavalry - Southern Aeonia Swamp Bank (Caelid)"; cBoss.Id = 1049370800; break;
-                case "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)": cBoss.Title = "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)"; cBoss.Id = 1049370850; break;
-                case "Commander O'Neil - East Aeonia Swamp (Caelid)": cBoss.Title = "Commander O'Neil - East Aeonia Swamp (Caelid)"; cBoss.Id = 1049380800; break;
-                case "Crucible Knight - Redmane Castle (Caelid)": cBoss.Title = "Crucible Knight - Redmane Castle (Caelid)"; cBoss.Id = 1051360800; break;
-                case "Starscourge Radahn - Battlefield (Caelid)": cBoss.Title = "Starscourge Radahn - Battlefield (Caelid)"; cBoss.Id = 1252380800; break;
-                case "Nox Priest - West Sellia (Caelid)": cBoss.Title = "Nox Priest - West Sellia (Caelid)"; cBoss.Id = 1049390800; break;
-                case "Bell-Bearing Hunter - Isolated Merchant's Shack (Dragonbarrow)": cBoss.Title = "Bell-Bearing Hunter - Isolated Merchant's Shack (Dragonbarrow)"; cBoss.Id = 1048410800; break;
-                case "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)": cBoss.Title = "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)"; cBoss.Id = 1049390850; break;
-                case "Putrid Avatar - Dragonbarrow Fork (Caelid)": cBoss.Title = "Putrid Avatar - Dragonbarrow Fork (Caelid)"; cBoss.Id = 1051400800; break;
-                case "Flying Dragon Greyll - Dragonbarrow (Caelid)": cBoss.Title = "Flying Dragon Greyll - Dragonbarrow (Caelid)"; cBoss.Id = 1052410800; break;
-                case "Night's Cavalry - Dragonbarrow (Caelid)": cBoss.Title = "Night's Cavalry - Dragonbarrow (Caelid)"; cBoss.Id = 1052410850; break;
-                case "Black Blade Kindred - Bestial Sanctum (Caelid)": cBoss.Title = "Black Blade Kindred - Bestial Sanctum (Caelid)"; cBoss.Id = 1051430800; break;
-                case "Night's Cavalry - Forbidden Lands (Mountaintops)": cBoss.Title = "Night's Cavalry - Forbidden Lands (Mountaintops)"; cBoss.Id = 1048510800; break;
-                case "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)": cBoss.Title = "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)"; cBoss.Id = 1049520800; break;
-                case "Borealis the Freezing Fog - Freezing Fields (Mountaintops)": cBoss.Title = "Borealis the Freezing Fog - Freezing Fields (Mountaintops)"; cBoss.Id = 1254560800; break;
-                case "Roundtable Knight Vyke - Lord Contender's Evergaol (Mountaintops)": cBoss.Title = "Roundtable Knight Vyke - Lord Contender's Evergaol (Mountaintops)"; cBoss.Id = 1053560800; break;
-                case "Fire Giant - Giant's Forge (Mountaintops)": cBoss.Title = "Fire Giant - Giant's Forge (Mountaintops)"; cBoss.Id = 1052520800; break;
-                case "Erdtree Avatar - Minor Erdtree (Mountaintops)": cBoss.Title = "Erdtree Avatar - Minor Erdtree (Mountaintops)"; cBoss.Id = 1052560800; break;
-                case "Death Rite Bird - West of Castle So (Mountaintops)": cBoss.Title = "Death Rite Bird - West of Castle So (Mountaintops)"; cBoss.Id = 1050570800; break;
-                case "Putrid Avatar - Minor Erdtree (Snowfield)": cBoss.Title = "Putrid Avatar - Minor Erdtree (Snowfield)"; cBoss.Id = 1050570850; break;
-                case "Commander Niall - Castle Soul (Mountaintops)": cBoss.Title = "Commander Niall - Castle Soul (Mountaintops)"; cBoss.Id = 1051570800; break;
-                case "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)": cBoss.Title = "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)"; cBoss.Id = 1050560800; break;
-                case "Night's Cavalry - Sourthwest (Mountaintops)": cBoss.Title = "Night's Cavalry - Sourthwest (Mountaintops)"; cBoss.Id = 1248550800; break;
-                case "Death Rite Bird - Ordina, Liturgical Town (Snowfield)": cBoss.Title = "Death Rite Bird - Ordina, Liturgical Town (Snowfield)"; cBoss.Id = 1048570800; break;
-                default: cBoss = null; break;
+                { "Godrick the Grafted - Stormveil Castle", ("Godrick the Grafted - Stormveil Castle", 10000800) },
+                { "Margit, the Fell Omen - Stormveil Castle", ("Margit, the Fell Omen - Stormveil Castle", 10000850) },
+                { "Grafted Scion - Chapel of Anticipation", ("Grafted Scion - Chapel of Anticipation", 10010800) },
+                { "Morgott, the Omen King - Leyndell", ("Morgott, the Omen King - Leyndell", 11000800) },
+                { "Godfrey, First Elden Lord - Leyndell", ("Godfrey, First Elden Lord - Leyndell", 11000850) },
+                { "Hoarah Loux - Leyndell", ("Hoarah Loux - Leyndell", 11050800) },
+                { "Sir Gideon Ofnir, the All-Knowing - Leyndell", ("Sir Gideon Ofnir, the All-Knowing - Leyndell", 11050850) },
+                { "Dragonkin Soldier of Nokstella - Ainsel River", ("Dragonkin Soldier of Nokstella - Ainsel River", 12010800) },
+                { "Dragonkin Soldier - Lake of Rot", ("Dragonkin Soldier - Lake of Rot", 12010850) },
+                { "Valiant Gargoyles - Siofra River", ("Valiant Gargoyles - Siofra River", 12020800) },
+                { "Dragonkin Soldier - Siofra River", ("Dragonkin Soldier - Siofra River", 12020830) },
+                { "Mimic Tear - Siofra River", ("Mimic Tear - Siofra River", 12020850) },
+                { "Crucible Knight Sirulia - Deeproot Depths", ("Crucible Knight Sirulia - Deeproot Depths", 12030390) },
+                { "Fia's Champion - Deeproot Depths", ("Fia's Champion - Deeproot Depths", 12030800) },
+                { "Lichdragon Fortissax - Deeproot Depths", ("Lichdragon Fortissax - Deeproot Depths", 12030850) },
+                { "Astel, Naturalborn of the Void - Lake of Rot", ("Astel, Naturalborn of the Void - Lake of Rot", 12040800) },
+                { "Mohg, Lord of Blood - Mohgwyn Palace", ("Mohg, Lord of Blood - Mohgwyn Palace", 12050800) },
+                { "Ancestor Spirit - Siofra River", ("Ancestor Spirit - Siofra River", 12080800) },
+                { "Regal Ancestor Spirit - Nokron, Eternal City", ("Regal Ancestor Spirit - Nokron, Eternal City", 12090800) },
+                { "Maliketh, The Black Blade - Crumbling Farum Azula", ("Maliketh, The Black Blade - Crumbling Farum Azula", 13000800) },
+                { "Dragonlord Placidusax - Crumbling Farum Azula", ("Dragonlord Placidusax - Crumbling Farum Azula", 13000830) },
+                { "Godskin Duo - Crumbling Farum Azula", ("Godskin Duo - Crumbling Farum Azula", 13000850) },
+                { "Rennala, Queen of the Full Moon - Academy of Raya Lucaria", ("Rennala, Queen of the Full Moon - Academy of Raya Lucaria", 14000800) },
+                { "Red Wolf of Radagon - Academy of Raya Lucaria", ("Red Wolf of Radagon - Academy of Raya Lucaria", 14000850) },
+                { "Malenia, Blade of Miquella - Miquella's Haligtree", ("Malenia, Blade of Miquella - Miquella's Haligtree", 15000800) },
+                { "Loretta, Knight of the Haligtree - Miquella's Haligtree", ("Loretta, Knight of the Haligtree - Miquella's Haligtree", 15000850) },
+                { "Rykard, Lord of Blasphemy - Volcano Manor", ("Rykard, Lord of Blasphemy - Volcano Manor", 16000800) },
+                { "Godskin Noble - Volcano Manor", ("Godskin Noble - Volcano Manor", 16000850) },
+                { "Abductor Virgins - Volcano Manor", ("Abductor Virgins - Volcano Manor", 16000860) },
+                { "Ulcerated Tree Spirit - Stranded Graveyard", ("Ulcerated Tree Spirit - Stranded Graveyard", 18000800) },
+                { "Soldier of Godrick - Stranded Graveyard", ("Soldier of Godrick - Stranded Graveyard", 18000850) },
+                { "Elden Beast - Elden Throne", ("Elden Beast - Elden Throne", 19000800) },
+                { "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)", ("Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)", 35000800) },
+                { "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)", ("Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)", 35000850) },
+                { "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)", ("Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)", 39200800) },
+                { "Cemetery Shade - Tombsward Catacombs (Limgrave)", ("Cemetery Shade - Tombsward Catacombs (Limgrave)", 30000800) },
+                { "Erdtree Burial Watchdog - Impaler's Catacombs (Weeping Penisula)", ("Erdtree Burial Watchdog - Impaler's Catacombs (Weeping Penisula)", 30010800) },
+                { "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)", ("Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)", 30020800) },
+                { "Black Knife Assassin - Deathtouched Catacombs (Limgrave)", ("Black Knife Assassin - Deathtouched Catacombs (Limgrave)", 30110800) },
+                { "Grave Warden Duelist - Murkwater Catacombs (Limgrave)", ("Grave Warden Duelist - Murkwater Catacombs (Limgrave)", 30040800) },
+                { "Cemetery Shade - Black Knife Catacombs (Liurnia)", ("Cemetery Shade - Black Knife Catacombs (Liurnia)", 30050800) },
+                { "Black Knife Assassin - Black Knife Catacombs (Liurnia)", ("Black Knife Assassin - Black Knife Catacombs (Liurnia)", 30050850) },
+                { "Spirit-Caller Snail - Road's End Catacombs (Liurnia)", ("Spirit-Caller Snail - Road's End Catacombs (Liurnia)", 30030800) },
+                { "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)", ("Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)", 30060800) },
+                { "Ancient Hero of Zamor - Sainted Hero's Grave (Altus Plateau)", ("Ancient Hero of Zamor - Sainted Hero's Grave (Altus Plateau)", 30080800) },
+                { "Red Wolf of the Champion - Gelmir Hero's Grave (Mt. Gelmir)", ("Red Wolf of the Champion - Gelmir Hero's Grave (Mt. Gelmir)", 30090800) },
+                { "Crucible Knight Ordovis - Auriza Hero's Grave (Altus Plateau)", ("Crucible Knight Ordovis - Auriza Hero's Grave (Altus Plateau)", 30100800) },
+                { "Crucible Knight (Tree Spear) - Auriza Hero's Grave (Altus Plateau)", ("Crucible Knight (Tree Spear) - Auriza Hero's Grave (Altus Plateau)", 30100800) },
+                { "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)", ("Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)", 30120800) },
+                { "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)", ("Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)", 30120800) },
+                { "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)", ("Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)", 30070800) },
+                { "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)", ("Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)", 30130800) },
+                { "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)", ("Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)", 30140800) },
+                { "Cemetery Shade - Caelid Catacombs (Caelid)", ("Cemetery Shade - Caelid Catacombs (Caelid)", 30150800) },
+                { "Putrid Tree Spirit - War-Dead Catacombs (Caelid)", ("Putrid Tree Spirit - War-Dead Catacombs (Caelid)", 30160800) },
+                { "Ancient Hero of Zamor - Giant-Conquering Hero's Grave (Mountaintops)", ("Ancient Hero of Zamor - Giant-Conquering Hero's Grave (Mountaintops)", 30170800) },
+                { "Ulcerated Tree Sprit - Giants' Mountaintop Catacombs (Mountaintops)", ("Ulcerated Tree Sprit - Giants' Mountaintop Catacombs (Mountaintops)", 30180800) },
+                { "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)", ("Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)", 30190800) },
+                { "Stray Mimic Tear - Hidden Path to the Haligtree", ("Stray Mimic Tear - Hidden Path to the Haligtree", 30202800) },
+                { "Patches - Murkwater Cave (Limgrave)", ("Patches - Murkwater Cave (Limgrave)", 31000800) },
+                { "Runebear - Earthbore Cave (Weeping Penisula)", ("Runebear - Earthbore Cave (Weeping Penisula)", 31010800) },
+                { "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)", ("Miranda the Blighted Bloom - Tombsward Cave (Limgrave)", 31020800) },
+                { "Beastman of Farum Azula - Groveside Cave (Limgrave)", ("Beastman of Farum Azula - Groveside Cave (Limgrave)", 31030800) },
+                { "Demi-Human Chief - Coastal Cave (Limgrave)", ("Demi-Human Chief - Coastal Cave (Limgrave)", 31150800) },
+                { "Guardian Golem - Highroad Cave (Limgrave)", ("Guardian Golem - Highroad Cave (Limgrave)", 31170800) },
+                { "Cleanrot Knight - Stillwater Cave (Liurnia)", ("Cleanrot Knight - Stillwater Cave (Liurnia)", 31040800) },
+                { "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)", ("Bloodhound Knight - Lakeside Crystal Cave (Liurnia)", 31050800) },
+                { "Crystalians - Academy Crystal Cave (Liurnia)", ("Crystalians - Academy Crystal Cave (Liurnia)", 31060800) },
+                { "Kindred of Rot - Seethewater Cave (Mt. Gelmir)", ("Kindred of Rot - Seethewater Cave (Mt. Gelmir)", 31070800) },
+                { "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)", ("Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)", 31090800) },
+                { "Miranda the Blighted Bloom - Perfumer's Grotto (Altus Plateau)", ("Miranda the Blighted Bloom - Perfumer's Grotto (Altus Plateau)", 31180800) },
+                { "Black Knife Assassin - Sage's Cave (Altus Plateau)", ("Black Knife Assassin - Sage's Cave (Altus Plateau)", 31190800) },
+                { "Necromancer Garris - Sage's Cave (Altus Plateau)", ("Necromancer Garris - Sage's Cave (Altus Plateau)", 31190850) },
+                { "Frenzied Duelist - Gaol Cave (Caelid)", ("Frenzied Duelist - Gaol Cave (Caelid)", 31210800) },
+                { "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)", ("Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)", 31100800) },
+                { "Cleanrot Knight - Abandoned Cave (Caelid)", ("Cleanrot Knight - Abandoned Cave (Caelid)", 31200800) },
+                { "Putrid Crystalians - Sellia Hideaway (Caelid)", ("Putrid Crystalians - Sellia Hideaway (Caelid)", 31110800) },
+                { "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)", ("Misbegotten Crusader - Cave of the Forlorn (Mountaintops)", 31120800) },
+                { "Spirit-Caller Snail - Spiritcaller's Cave (Mountaintops)", ("Spirit-Caller Snail - Spiritcaller's Cave (Mountaintops)", 31220800) },
+                { "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)", ("Scaly Misbegotten - Morne Tunnel (Weeping Penisula)", 32000800) },
+                { "Stonedigger Troll - Limgrave Tunnels (Limgrave)", ("Stonedigger Troll - Limgrave Tunnels (Limgrave)", 32010800) },
+                { "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)", ("Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)", 32020800) },
+                { "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)", ("Stonedigger Troll - Old Altus Tunnel (Altus Plateau)", 32040800) },
+                { "Onyx Lord - Divine Tower of West Altus (Altus Plateau)", ("Onyx Lord - Divine Tower of West Altus (Altus Plateau)", 34120800) },
+                { "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)", ("Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)", 32050800) },
+                { "Crystalian (Spear) - Altus Tunnel (Altus Plateau)", ("Crystalian (Spear) - Altus Tunnel (Altus Plateau)", 32050800) },
+                { "Magma Wyrm - Gael Tunnel (Caelid)", ("Magma Wyrm - Gael Tunnel (Caelid)", 32070800) },
+                { "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)", ("Fallingstar Beast - Sellia Crystal Tunnel (Caelid)", 32080800) },
+                { "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)", ("Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)", 32110800) },
+                { "Godskin Apostle - Divine Tower of Caelid (Caelid)", ("Godskin Apostle - Divine Tower of Caelid (Caelid)", 34130800) },
+                { "Fell Twins - Divine Tower of East Altus (Capital Outskirts)", ("Fell Twins - Divine Tower of East Altus (Capital Outskirts)", 34140850) },
+                { "Mad Pumpkin Head - Waypoint Ruins (Limgrave)", ("Mad Pumpkin Head - Waypoint Ruins (Limgrave)", 1044360800) },
+                { "Night's Cavalry - Agheel Lake North (Limgrave)", ("Night's Cavalry - Agheel Lake North (Limgrave)", 1043370800) },
+                { "Deathbird - Stormgate (Limgrave)", ("Deathbird - Stormgate (Limgrave)", 1042380800) },
+                { "Ball-Bearing Hunter - Warmaster's Shack (Limgrave)", ("Ball-Bearing Hunter - Warmaster's Shack (Limgrave)", 1042380850) },
+                { "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)", ("Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)", 1042330800) },
+                { "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)", ("Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)", 1044350800) },
+                { "Crucible Knight - Stormhill Evergaol (Limgrave)", ("Crucible Knight - Stormhill Evergaol (Limgrave)", 1042370800) },
+                { "Erdtree Avatar - Minor Erdtree (Weeping Penisula)", ("Erdtree Avatar - Minor Erdtree (Weeping Penisula)", 1043330800) },
+                { "Night's Cavalry - Castle Morne Approach (Weeping Penisula)", ("Night's Cavalry - Castle Morne Approach (Weeping Penisula)", 1044320850) },
+                { "Deathbird - Castle Morne Approach (Weeping Penisula)", ("Deathbird - Castle Morne Approach (Weeping Penisula)", 1044320800) },
+                { "Leonine Misbegotten - Castle Morne (Weeping Penisula)", ("Leonine Misbegotten - Castle Morne (Weeping Penisula)", 1043300800) },
+                { "Tree Sentinel - Church of Elleh (Limgrave)", ("Tree Sentinel - Church of Elleh (Limgrave)", 1042360800) },
+                { "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)", ("Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)", 1043360800) },
+                { "Tibia Mariner - Summonwater Village (Limgrave)", ("Tibia Mariner - Summonwater Village (Limgrave)", 1045390800) },
+                { "Royal Revenant - Kingsrealm Ruins (Liurnia)", ("Royal Revenant - Kingsrealm Ruins (Liurnia)", 1034480800) },
+                { "Adan, Thief of Fire - Malefactor's Evergaol (Liurnia)", ("Adan, Thief of Fire - Malefactor's Evergaol (Liurnia)", 1038410800) },
+                { "Bols, Carian Knight - Cuckoo's Evergaol (Liurnia)", ("Bols, Carian Knight - Cuckoo's Evergaol (Liurnia)", 1033450800) },
+                { "Onyx Lord - Royal Grave Evergaol (Liurnia)", ("Onyx Lord - Royal Grave Evergaol (Liurnia)", 1036500800) },
+                { "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)", ("Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)", 1033420800) },
+                { "Erdtree Avatar - Revenger's Shack (Liurnia)", ("Erdtree Avatar - Revenger's Shack (Liurnia)", 1033430800) },
+                { "Erdtree Avatar - Minor Erdtree (Liurnia)", ("Erdtree Avatar - Minor Erdtree (Liurnia)", 1038480800) },
+                { "Royal Knight Loretta - Carian Manor (Liurnia)", ("Royal Knight Loretta - Carian Manor (Liurnia)", 1035500800) },
+                { "Ball-Bearing Hunter - Church of Vows (Liurnia)", ("Ball-Bearing Hunter - Church of Vows (Liurnia)", 1037460800) },
+                { "Night's Cavalry - Liurnia Highway Far North (Liurnia)", ("Night's Cavalry - Liurnia Highway Far North (Liurnia)", 1039430800) },
+                { "Night's Cavalry - East Raya Lucaria Gate (Liurnia)", ("Night's Cavalry - East Raya Lucaria Gate (Liurnia)", 1036480800) },
+                { "Deathbird - Laskyar Ruins (Liurnia)", ("Deathbird - Laskyar Ruins (Liurnia)", 1037420800) },
+                { "Death Rite Bird - Gate Town Northwest (Liurnia)", ("Death Rite Bird - Gate Town Northwest (Liurnia)", 1036450800) },
+                { "Glintstone Dragon Smarag - Meeting Place (Liurnia)", ("Glintstone Dragon Smarag - Meeting Place (Liurnia)", 1034450800) },
+                { "Glintstone Dragon Adula - Ranni's Rise (Liurnia)", ("Glintstone Dragon Adula - Ranni's Rise (Liurnia)", 1034500800) },
+                { "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)", ("Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)", 1034420800) },
+                { "Omenkiller - Village of the Albinaurics (Liurnia)", ("Omenkiller - Village of the Albinaurics (Liurnia)", 1035420800) },
+                { "Tibia Mariner - Jarburg (Liurnia)", ("Tibia Mariner - Jarburg (Liurnia)", 1039440800) },
+                { "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)", ("Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)", 1037510800) },
+                { "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)", ("Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)", 1041520800) },
+                { "Demi-Human Queen - Lux Ruins (Altus Plateau)", ("Demi-Human Queen - Lux Ruins (Altus Plateau)", 1038510800) },
+                { "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)", ("Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)", 1041500800) },
+                { "Sanguine Noble - Writheblood Ruins (Altus Plateau)", ("Sanguine Noble - Writheblood Ruins (Altus Plateau)", 1040530800) },
+                { "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)", ("Tree Sentinel - Tree Sentinel Duo (Altus Plateau)", 1041510800) },
+                { "Godskin Apostle - Windmill Heights (Altus Plateau)", ("Godskin Apostle - Windmill Heights (Altus Plateau)", 1042550800) },
+                { "Black Knife Assassin - Sainted Hero's Grave Entrance (Altus Plateau)", ("Black Knife Assassin - Sainted Hero's Grave Entrance (Altus Plateau)", 1040520800) },
+                { "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)", ("Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)", 1045520800) },
+                { "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)", ("Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)", 1039500800) },
+                { "Wormface - Woodfolk Ruins (Altus Plateau)", ("Wormface - Woodfolk Ruins (Altus Plateau)", 1041530800) },
+                { "Ball-Bearing Hunter - Hermit Merchant's Shack (Capital Outskirts)", ("Ball-Bearing Hunter - Hermit Merchant's Shack (Capital Outskirts)", 1043530800) },
+                { "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)", ("Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)", 1037530800) },
+                { "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)", ("Magma Wyrm - Seethewater Terminus (Mt. Gelmir)", 1035530800) },
+                { "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)", ("Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)", 1036540800) },
+                { "Elemer of the Briar - Shaded Castle (Altus Plateau)", ("Elemer of the Briar - Shaded Castle (Altus Plateau)", 1039540800) },
+                { "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)", ("Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)", 1037540810) },
+                { "Tibia Mariner - Wyndham Ruins (Altus Plateau)", ("Tibia Mariner - Wyndham Ruins (Altus Plateau)", 1038520800) },
+                { "Putrid Avatar - Minor Erdtree (Caelid)", ("Putrid Avatar - Minor Erdtree (Caelid)", 1047400800) },
+                { "Decaying Ekzykes - Caelid Highway South (Caelid)", ("Decaying Ekzykes - Caelid Highway South (Caelid)", 1048370800) },
+                { "Night's Cavalry - Southern Aeonia Swamp Bank (Caelid)", ("Night's Cavalry - Southern Aeonia Swamp Bank (Caelid)", 1049370800) },
+                { "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)", ("Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)", 1049370850) },
+                { "Commander O'Neil - East Aeonia Swamp (Caelid)", ("Commander O'Neil - East Aeonia Swamp (Caelid)", 1049380800) },
+                { "Crucible Knight - Redmane Castle (Caelid)", ("Crucible Knight - Redmane Castle (Caelid)", 1051360800) },
+                { "Starscourge Radahn - Battlefield (Caelid)", ("Starscourge Radahn - Battlefield (Caelid)", 1252380800) },
+                { "Nox Priest - West Sellia (Caelid)", ("Nox Priest - West Sellia (Caelid)", 1049390800) },
+                { "Bell-Bearing Hunter - Isolated Merchant's Shack (Dragonbarrow)", ("Bell-Bearing Hunter - Isolated Merchant's Shack (Dragonbarrow)", 1048410800) },
+                { "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)", ("Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)", 1049390850) },
+                { "Putrid Avatar - Dragonbarrow Fork (Caelid)", ("Putrid Avatar - Dragonbarrow Fork (Caelid)", 1051400800) },
+                { "Flying Dragon Greyll - Dragonbarrow (Caelid)", ("Flying Dragon Greyll - Dragonbarrow (Caelid)", 1052410800) },
+                { "Night's Cavalry - Dragonbarrow (Caelid)", ("Night's Cavalry - Dragonbarrow (Caelid)", 1052410850) },
+                { "Black Blade Kindred - Bestial Sanctum (Caelid)", ("Black Blade Kindred - Bestial Sanctum (Caelid)", 1051430800) },
+                { "Night's Cavalry - Forbidden Lands (Mountaintops)", ("Night's Cavalry - Forbidden Lands (Mountaintops)", 1048510800) },
+                { "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)", ("Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)", 1049520800) },
+                { "Borealis the Freezing Fog - Freezing Fields (Mountaintops)", ("Borealis the Freezing Fog - Freezing Fields (Mountaintops)", 1254560800) },
+                { "Roundtable Knight Vyke - Lord Contender's Evergaol (Mountaintops)", ("Roundtable Knight Vyke - Lord Contender's Evergaol (Mountaintops)", 1053560800) },
+                { "Fire Giant - Giant's Forge (Mountaintops)", ("Fire Giant - Giant's Forge (Mountaintops)", 1052520800) },
+                { "Erdtree Avatar - Minor Erdtree (Mountaintops)", ("Erdtree Avatar - Minor Erdtree (Mountaintops)", 1052560800) },
+                { "Death Rite Bird - West of Castle So (Mountaintops)", ("Death Rite Bird - West of Castle So (Mountaintops)", 1050570800) },
+                { "Putrid Avatar - Minor Erdtree (Snowfield)", ("Putrid Avatar - Minor Erdtree (Snowfield)", 1050570850) },
+                { "Commander Niall - Castle Soul (Mountaintops)", ("Commander Niall - Castle Soul (Mountaintops)", 1051570800) },
+                { "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)", ("Great Wyrm Theodorix - Albinauric Rise (Mountaintops)", 1050560800) },
+                { "Night's Cavalry - Sourthwest (Mountaintops)", ("Night's Cavalry - Sourthwest (Mountaintops)", 1248550800) },
+                { "Death Rite Bird - Ordina, Liturgical Town (Snowfield)", ("Death Rite Bird - Ordina, Liturgical Town (Snowfield)", 1048570800) },
+                { "Deathbird - Minor Erdtree (Capital Outskirts)", ("Deathbird - Minor Erdtree (Capital Outskirts)", 1044530800) },
+                #region DLC Boss
+                { "Ghostflame Dragon - Gravesite Plain (Northwest)", ("Ghostflame Dragon - Gravesite Plain (Northwest)", 2045440800)},
+                { "Blackgaol Knight - Western Nameless Mausoleum", ( "Blackgaol Knight - Western Nameless Mausoleum", 2046410800)},
+                { "Chief Bloodfiend - Rivermouth Cave", ("Chief Bloodfiend - Rivermouth Cave", 43000800)},
+                { "Lamenter - Lamenter's Gaol", ("Lamenter - Lamenter's Gaol", 41020800)},
+                { "Demi-Human Swordmaster Onze - Belurat Gaol", ("Demi-Human Swordmaster Onze - Belurat Gaol", 41000800)},
+                { "Divine Beast Dancing Lion - Belurat, Tower Settlement", ("Divine Beast Dancing Lion - Belurat, Tower Settlement", 20000800)},
+                { "Rellana, Twin Moon Knight - Castle Ensis", ("Rellana, Twin Moon Knight - Castle Ensis", 2048440800)},
+                { "Ghostflame Dragon", ("Ghostflame Dragon", 2049430800)},
+                { "Ralva the Great Red Bear", ("Ralva the Great Red Bear", 2049450800)},
+                { "Rugalea the Great Red Bear - Rauh Base (Northwest)", ("Rugalea the Great Red Bear - Rauh Base (Northwest)", 2044470800)},
+                { "Dryleaf Dane - Moorth Ruins", ("Dryleaf Dane - Moorth Ruins", 2049440800)},
+                { "Black Knight Edredd - Fort of Reprimand", ("Black Knight Edredd - Fort of Reprimand", 2049430850)},
+                { "Black Knight Garrew - Fog Rift Fort", ("Black Knight Garrew - Fog Rift Fort", 2047450800)},
+                { "Red Bear - Northern Nameless Mausoleum", ("Red Bear - Northern Nameless Mausoleum", 2046450800)},
+                { "Rakshasa - Eastern Nameless Mausoleum", ("Rakshasa - Eastern Nameless Mausoleum", 2051440800)},
+                { "Metyr, Mother of Fingers - Cathedral of Manus Metyr", ("Metyr, Mother of Fingers - Cathedral of Manus Metyr", 25000800)},
+                { "Count Ymir, Mother of Fingers - Cathedral of Manus Metyr", ("Count Ymir, Mother of Fingers - Cathedral of Manus Metyr", 2051450800)},
+                { "Death Knight - Fog Rift Catacombs", ("Death Knight - Fog Rift Catacombs", 40000800)},
+                { "Death Knight - Scorpion River Catacombs", ("Death Knight - Scorpion River Catacombs", 40010800)},
+                { "Curseblade Labirith - Bonny Gaol", ("Curseblade Labirith - Bonny Gaol", 41010800)},
+                { "Golden Hippopotamus - Main Gate Plaza", ("Golden Hippopotamus - Main Gate Plaza", 21000850)},
+                { "Base Serpent Messmer - Messmer's Dark Chamber", ("Base Serpent Messmer - Messmer's Dark Chamber", 21010800)},
+                { "Divine Beast Dancing Lion - Ancient Ruins of Rauh", ("Divine Beast Dancing Lion - Ancient Ruins of Rauh", 2046460800)},
+                { "Romina, Saint of the Bud - Church of the Bud", ("Romina, Saint of the Bud - Church of the Bud", 2044450800)},
+                { "Ghostflame Dragon - Cerulean Coast", ("Ghostflame Dragon - Cerulean Coast", 2048380850)},
+                { "Dancer of Ranah - Southern Nameless Mausoleum", ("Dancer of Ranah - Southern Nameless Mausoleum", 2046380800)},
+                { "Putrescent Knight - Stone Coffin Fissure", ("Putrescent Knight - Stone Coffin Fissure", 22000800)},
+                { "Death Rite Bird - Charo's Hidden Grave", ("Death Rite Bird - Charo's Hidden Grave", 2047390800)},
+                { "Demi-Human Queen Marigga - Charo's Hidden Grave (West)", ("Demi-Human Queen Marigga - Charo's Hidden Grave (West)", 2046400800)},
+                { "Jagged Peak Drake - Foot of the Jagged Peak", ("Jagged Peak Drake - Foot of the Jagged Peak", 2049410800)},
+                { "Jagged Peak Drake - Jagged Peak Mountainside", ("Jagged Peak Drake - Jagged Peak Mountainside", 2052400800)},
+                { "Ancient Dragon-Man - Dragon's Pit", ("Ancient Dragon-Man - Dragon's Pit", 43010800)},
+                { "Ancient Dragon Senessax - Jagged Peak Mountainside", ("Ancient Dragon Senessax - Jagged Peak Mountainside", 2054390850)},
+                { "Bayle the Dread - Jagged Peak Summit", ("Bayle the Dread - Jagged Peak Summit", 2054390800)},
+                { "Tree Sentinel - Hinterland", ("Tree Sentinel - Hinterland", 2050470800)},
+                { "Tree Sentinel - Hinterland Bridge", ("Tree Sentinel - Hinterland Bridge", 2050480860)},
+                { "Fallingstar Beast - Fingerstone Hill", ("Fallingstar Beast - Fingerstone Hill", 2052480800)},
+                { "Commander Gaius - Scaduview", ("Commander Gaius - Scaduview", 2049480800)},
+                { "Scadutree Avatar - Scadutree Base", ("Scadutree Avatar - Scadutree Base", 2050480800)},
+                { "Jori, Elder Inquisitor - Darklight Catacombs", ("Jori, Elder Inquisitor - Darklight Catacombs", 2052430800)},
+                { "Midra, Lord of Frenzied Flame - Midra's Manse", ("Midra, Lord of Frenzied Flame - Midra's Manse", 28000800)},
+                { "Radahn, Consort of Miquella - Enir-Ilim", ("Radahn, Consort of Miquella - Enir-Ilim", 20010800)}
+                #endregion
+            };
+
+            if (bossMapping.TryGetValue(boss, out var bossInfo))
+            {
+                return new BossER { Title = bossInfo.Title, Id = bossInfo.Id };
             }
-            return cBoss;
+            else
+            {
+                throw new ArgumentException($"Invalid boss string: {boss}");
+            }
         }
-
-
         #endregion
         #region Grace.Elden
         [Serializable]
-        public class Grace
+        public class GraceER
         {
             public string Title;
             public uint Id;
@@ -230,328 +276,441 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public Grace stringToGraceEnum(string grace)
+        public GraceER stringToGraceEnum(string grace)
         {
-            Grace cGrace = new Grace();
-            switch (grace)
+            var graceMapping = new Dictionary<string, (string Title, uint Id)>
             {
-                case "Raya Lucaria Grand Library": cGrace.Title = "Raya Lucaria Grand Library"; cGrace.Id = 71400; break;
-                case "Debate Parlor": cGrace.Title = "Debate Parlor"; cGrace.Id = 71401; break;
-                case "Church of the Cuckoo": cGrace.Title = "Church of the Cuckoo"; cGrace.Id = 71402; break;
-                case "Schoolhouse Classroom": cGrace.Title = "Schoolhouse Classroom"; cGrace.Id = 71403; break;
-                case "Dragonkin Soldier of Nokstella": cGrace.Title = "Dragonkin Soldier of Nokstella"; cGrace.Id = 71210; break;
-                case "Ainsel River Well Depths": cGrace.Title = "Ainsel River Well Depths"; cGrace.Id = 71211; break;
-                case "Ainsel River Sluice Gate": cGrace.Title = "Ainsel River Sluice Gate"; cGrace.Id = 71212; break;
-                case "Ainsel River Downstream": cGrace.Title = "Ainsel River Downstream"; cGrace.Id = 71213; break;
-                case "Astel, Naturalborn of the Void": cGrace.Title = "Astel, Naturalborn of the Void"; cGrace.Id = 71240; break;
-                case "Ainsel River Main": cGrace.Title = "Ainsel River Main"; cGrace.Id = 71214; break;
-                case "Nokstella, Eternal City": cGrace.Title = "Nokstella, Eternal City"; cGrace.Id = 71215; break;
-                case "Nokstella Waterfall Basin": cGrace.Title = "Nokstella Waterfall Basin"; cGrace.Id = 71219; break;
-                case "Sainted Hero's Grave": cGrace.Title = "Sainted Hero's Grave"; cGrace.Id = 73008; break;
-                case "Unsightly Catacombs": cGrace.Title = "Unsightly Catacombs"; cGrace.Id = 73012; break;
-                case "Perfumer's Grotto": cGrace.Title = "Perfumer's Grotto"; cGrace.Id = 73118; break;
-                case "Sage's Cave": cGrace.Title = "Sage's Cave"; cGrace.Id = 73119; break;
-                case "Old Altus Tunnel": cGrace.Title = "Old Altus Tunnel"; cGrace.Id = 73204; break;
-                case "Altus Tunnel": cGrace.Title = "Altus Tunnel"; cGrace.Id = 73205; break;
-                case "Abandoned Coffin": cGrace.Title = "Abandoned Coffin"; cGrace.Id = 76300; break;
-                case "Altus Plateau": cGrace.Title = "Altus Plateau"; cGrace.Id = 76301; break;
-                case "Erdtree-Gazing Hill": cGrace.Title = "Erdtree-Gazing Hill"; cGrace.Id = 76302; break;
-                case "Altus Highway Junction": cGrace.Title = "Altus Highway Junction"; cGrace.Id = 76303; break;
-                case "Forest-Spanning Greatbridge": cGrace.Title = "Forest-Spanning Greatbridge"; cGrace.Id = 76304; break;
-                case "Rampartside Path": cGrace.Title = "Rampartside Path"; cGrace.Id = 76305; break;
-                case "Bower of Bounty": cGrace.Title = "Bower of Bounty"; cGrace.Id = 76306; break;
-                case "Road of Iniquity Side Path": cGrace.Title = "Road of Iniquity Side Path"; cGrace.Id = 76307; break;
-                case "Windmill Village": cGrace.Title = "Windmill Village"; cGrace.Id = 76308; break;
-                case "Windmill Heights": cGrace.Title = "Windmill Heights"; cGrace.Id = 76313; break;
-                case "Shaded Castle Ramparts": cGrace.Title = "Shaded Castle Ramparts"; cGrace.Id = 76320; break;
-                case "Shaded Castle Inner Gate": cGrace.Title = "Shaded Castle Inner Gate"; cGrace.Id = 76321; break;
-                case "Castellan's Hall": cGrace.Title = "Castellan's Hall"; cGrace.Id = 76322; break;
-                case "East Raya Lucaria Gate": cGrace.Title = "East Raya Lucaria Gate"; cGrace.Id = 76207; break;
-                case "Bellum Church": cGrace.Title = "Bellum Church"; cGrace.Id = 76208; break;
-                case "Frenzied Flame Village Outskirts": cGrace.Title = "Frenzied Flame Village Outskirts"; cGrace.Id = 76239; break;
-                case "Church of Inhibition": cGrace.Title = "Church of Inhibition"; cGrace.Id = 76240; break;
-                case "Minor Erdtree Catacombs": cGrace.Title = "Minor Erdtree Catacombs"; cGrace.Id = 73014; break;
-                case "Caelid Catacombs": cGrace.Title = "Caelid Catacombs"; cGrace.Id = 73015; break;
-                case "War-Dead Catacombs": cGrace.Title = "War-Dead Catacombs"; cGrace.Id = 73016; break;
-                case "Abandoned Cave": cGrace.Title = "Abandoned Cave"; cGrace.Id = 73120; break;
-                case "Gaol Cave": cGrace.Title = "Gaol Cave"; cGrace.Id = 73121; break;
-                case "Gael Tunnel": cGrace.Title = "Gael Tunnel"; cGrace.Id = 73207; break;
-                case "Rear Gael Tunnel Entrance": cGrace.Title = "Rear Gael Tunnel Entrance"; cGrace.Id = 73207; break;
-                case "Sellia Crystal Tunnel": cGrace.Title = "Sellia Crystal Tunnel"; cGrace.Id = 73208; break;
-                case "Smoldering Church": cGrace.Title = "Smoldering Church"; cGrace.Id = 76400; break;
-                case "Rotview Balcony": cGrace.Title = "Rotview Balcony"; cGrace.Id = 76401; break;
-                case "Fort Gael North": cGrace.Title = "Fort Gael North"; cGrace.Id = 76402; break;
-                case "Caelem Ruins": cGrace.Title = "Caelem Ruins"; cGrace.Id = 76403; break;
-                case "Cathedral of Dragon Communion": cGrace.Title = "Cathedral of Dragon Communion"; cGrace.Id = 76404; break;
-                case "Caelid Highway South": cGrace.Title = "Caelid Highway South"; cGrace.Id = 76405; break;
-                case "Smoldering Wall": cGrace.Title = "Smoldering Wall"; cGrace.Id = 76409; break;
-                case "Deep Siofra Well": cGrace.Title = "Deep Siofra Well"; cGrace.Id = 76410; break;
-                case "Southern Aeonia Swamp Bank": cGrace.Title = "Southern Aeonia Swamp Bank"; cGrace.Id = 76411; break;
-                case "Sellia Backstreets": cGrace.Title = "Sellia Backstreets"; cGrace.Id = 76414; break;
-                case "Chair-Crypt of Sellia": cGrace.Title = "Chair-Crypt of Sellia"; cGrace.Id = 76415; break;
-                case "Sellia Under-Stair": cGrace.Title = "Sellia Under-Stair"; cGrace.Id = 76416; break;
-                case "Impassable Greatbridge": cGrace.Title = "Impassable Greatbridge"; cGrace.Id = 76417; break;
-                case "Church of the Plague": cGrace.Title = "Church of the Plague"; cGrace.Id = 76418; break;
-                case "Redmane Castle Plaza": cGrace.Title = "Redmane Castle Plaza"; cGrace.Id = 76419; break;
-                case "Chamber Outside the Plaza": cGrace.Title = "Chamber Outside the Plaza"; cGrace.Id = 76420; break;
-                case "Starscourge Radahn": cGrace.Title = "Starscourge Radahn"; cGrace.Id = 76422; break;
-                case "Auriza Hero's Grave": cGrace.Title = "Auriza Hero's Grave"; cGrace.Id = 73010; break;
-                case "Auriza Side Tomb": cGrace.Title = "Auriza Side Tomb"; cGrace.Id = 73013; break;
-                case "Divine Tower of West Altus": cGrace.Title = "Divine Tower of West Altus"; cGrace.Id = 73430; break;
-                case "Sealed Tunnel": cGrace.Title = "Sealed Tunnel"; cGrace.Id = 73431; break;
-                case "Divine Tower of West Altus: Gate": cGrace.Title = "Divine Tower of West Altus: Gate"; cGrace.Id = 73432; break;
-                case "Outer Wall Phantom Tree": cGrace.Title = "Outer Wall Phantom Tree"; cGrace.Id = 76309; break;
-                case "Minor Erdtree Church": cGrace.Title = "Minor Erdtree Church"; cGrace.Id = 76310; break;
-                case "Hermit Merchant's Shack": cGrace.Title = "Hermit Merchant's Shack"; cGrace.Id = 76311; break;
-                case "Outer Wall Battleground": cGrace.Title = "Outer Wall Battleground"; cGrace.Id = 76312; break;
-                case "Capital Rampart": cGrace.Title = "Capital Rampart"; cGrace.Id = 76314; break;
-                case "Consecrated Snowfield Catacombs": cGrace.Title = "Consecrated Snowfield Catacombs"; cGrace.Id = 73019; break;
-                case "Cave of the Forlorn": cGrace.Title = "Cave of the Forlorn"; cGrace.Id = 73112; break;
-                case "Yelough Anix Tunnel": cGrace.Title = "Yelough Anix Tunnel"; cGrace.Id = 73211; break;
-                case "Consecrated Snowfield": cGrace.Title = "Consecrated Snowfield"; cGrace.Id = 76550; break;
-                case "Inner Consecrated Snowfield": cGrace.Title = "Inner Consecrated Snowfield"; cGrace.Id = 76551; break;
-                case "Ordina, Liturgical Town": cGrace.Title = "Ordina, Liturgical Town"; cGrace.Id = 76652; break;
-                case "Apostate Derelict": cGrace.Title = "Apostate Derelict"; cGrace.Id = 76653; break;
-                case "Maliketh, the Black Blade": cGrace.Title = "Maliketh, the Black Blade"; cGrace.Id = 71300; break;
-                case "Dragonlord Placidusax": cGrace.Title = "Dragonlord Placidusax"; cGrace.Id = 71301; break;
-                case "Dragon Temple Altar": cGrace.Title = "Dragon Temple Altar"; cGrace.Id = 71302; break;
-                case "Crumbling Beast Grave": cGrace.Title = "Crumbling Beast Grave"; cGrace.Id = 71303; break;
-                case "Crumbling Beast Grave Depths": cGrace.Title = "Crumbling Beast Grave Depths"; cGrace.Id = 71304; break;
-                case "Tempest-Facing Balcony": cGrace.Title = "Tempest-Facing Balcony"; cGrace.Id = 71305; break;
-                case "Dragon Temple": cGrace.Title = "Dragon Temple"; cGrace.Id = 71306; break;
-                case "Dragon Temple Transept": cGrace.Title = "Dragon Temple Transept"; cGrace.Id = 71307; break;
-                case "Dragon Temple Lift": cGrace.Title = "Dragon Temple Lift"; cGrace.Id = 71308; break;
-                case "Dragon Temple Rooftop": cGrace.Title = "Dragon Temple Rooftop"; cGrace.Id = 71309; break;
-                case "Beside the Great Bridge": cGrace.Title = "Beside the Great Bridge"; cGrace.Id = 71310; break;
-                case "Prince of Death's Throne": cGrace.Title = "Prince of Death's Throne"; cGrace.Id = 71230; break;
-                case "Root-Facing Cliffs": cGrace.Title = "Root-Facing Cliffs"; cGrace.Id = 71231; break;
-                case "Great Waterfall Crest": cGrace.Title = "Great Waterfall Crest"; cGrace.Id = 71232; break;
-                case "Deeproot Depths": cGrace.Title = "Deeproot Depths"; cGrace.Id = 71233; break;
-                case "The Nameless Eternal City": cGrace.Title = "The Nameless Eternal City"; cGrace.Id = 71234; break;
-                case "Across the Roots": cGrace.Title = "Across the Roots"; cGrace.Id = 71235; break;
-                case "Fractured Marika": cGrace.Title = "Fractured Marika"; cGrace.Id = 71900; break;
-                case "Malenia, Goddess of Rot": cGrace.Title = "Malenia, Goddess of Rot"; cGrace.Id = 71500; break;
-                case "Prayer Room": cGrace.Title = "Prayer Room"; cGrace.Id = 71501; break;
-                case "Elphael Inner Wall": cGrace.Title = "Elphael Inner Wall"; cGrace.Id = 71502; break;
-                case "Drainage Channel": cGrace.Title = "Drainage Channel"; cGrace.Id = 71503; break;
-                case "Haligtree Roots": cGrace.Title = "Haligtree Roots"; cGrace.Id = 71504; break;
-                case "Giant-Conquering Hero's Grave": cGrace.Title = "Giant-Conquering Hero's Grave"; cGrace.Id = 73017; break;
-                case "Giants' Mountaintop Catacombs": cGrace.Title = "Giants' Mountaintop Catacombs"; cGrace.Id = 73018; break;
-                case "Giants' Gravepost": cGrace.Title = "Giants' Gravepost"; cGrace.Id = 76506; break;
-                case "Church of Repose": cGrace.Title = "Church of Repose"; cGrace.Id = 76507; break;
-                case "Foot of the Forge": cGrace.Title = "Foot of the Forge"; cGrace.Id = 76508; break;
-                case "Fire Giant": cGrace.Title = "Fire Giant"; cGrace.Id = 76509; break;
-                case "Forge of the Giants": cGrace.Title = "Forge of the Giants"; cGrace.Id = 76510; break;
-                case "Hidden Path to the Haligtree": cGrace.Title = "Hidden Path to the Haligtree"; cGrace.Id = 73020; break;
-                case "Divine Tower of East Altus: Gate": cGrace.Title = "Divine Tower of East Altus: Gate"; cGrace.Id = 73450; break;
-                case "Divine Tower of East Altus": cGrace.Title = "Divine Tower of East Altus"; cGrace.Id = 73451; break;
-                case "Forbidden Lands": cGrace.Title = "Forbidden Lands"; cGrace.Id = 76500; break;
-                case "Grand Lift of Rold": cGrace.Title = "Grand Lift of Rold"; cGrace.Id = 76502; break;
-                case "Dragonbarrow Cave": cGrace.Title = "Dragonbarrow Cave"; cGrace.Id = 73110; break;
-                case "Sellia Hideaway": cGrace.Title = "Sellia Hideaway"; cGrace.Id = 73111; break;
-                case "Divine Tower of Caelid": cGrace.Title = "Divine Tower of Caelid"; cGrace.Id = 73440; break;
-                case "Divine Tower of Caelid: Center": cGrace.Title = "Divine Tower of Caelid: Center"; cGrace.Id = 73441; break;
-                case "Isolated Divine Tower": cGrace.Title = "Isolated Divine Tower"; cGrace.Id = 73460; break;
-                case "Dragonbarrow West": cGrace.Title = "Dragonbarrow West"; cGrace.Id = 76450; break;
-                case "Isolated Merchant's Shack (Greyoll's Dragonbarrow)": cGrace.Title = "Isolated Merchant's Shack (Greyoll's Dragonbarrow)"; cGrace.Id = 76451; break;
-                case "Dragonbarrow Fork": cGrace.Title = "Dragonbarrow Fork"; cGrace.Id = 76452; break;
-                case "Fort Faroth": cGrace.Title = "Fort Faroth"; cGrace.Id = 76453; break;
-                case "Bestial Sanctum": cGrace.Title = "Bestial Sanctum"; cGrace.Id = 76454; break;
-                case "Lenne's Rise": cGrace.Title = "Lenne's Rise"; cGrace.Id = 76455; break;
-                case "Farum Greatbridge": cGrace.Title = "Farum Greatbridge"; cGrace.Id = 76456; break;
-                case "Lake of Rot Shoreside": cGrace.Title = "Lake of Rot Shoreside"; cGrace.Id = 71216; break;
-                case "Grand Cloister": cGrace.Title = "Grand Cloister"; cGrace.Id = 71218; break;
-                case "Elden Throne (Leyndell, Ashen Capital)": cGrace.Title = "Elden Throne (Leyndell, Ashen Capital)"; cGrace.Id = 71120; break;
-                case "Erdtree Sanctuary (Leyndell, Ashen Capital)": cGrace.Title = "Erdtree Sanctuary (Leyndell, Ashen Capital)"; cGrace.Id = 71121; break;
-                case "East Capital Rampart (Leyndell, Ashen Capital)": cGrace.Title = "East Capital Rampart (Leyndell, Ashen Capital)"; cGrace.Id = 71122; break;
-                case "Leyndell, Capital of Ash": cGrace.Title = "Leyndell, Capital of Ash"; cGrace.Id = 71123; break;
-                case "Queen's Bedchamber (Leyndell, Ashen Capital)": cGrace.Title = "Queen's Bedchamber (Leyndell, Ashen Capital)"; cGrace.Id = 71124; break;
-                case "Divine Bridge (Leyndell, Ashen Capital)": cGrace.Title = "Divine Bridge (Leyndell, Ashen Capital)"; cGrace.Id = 71125; break;
-                case "Elden Throne (Leyndell, Royal Capital)": cGrace.Title = "Elden Throne (Leyndell, Royal Capital)"; cGrace.Id = 71100; break;
-                case "Erdtree Sanctuary (Leyndell, Royal Capital)": cGrace.Title = "Erdtree Sanctuary (Leyndell, Royal Capital)"; cGrace.Id = 71101; break;
-                case "East Capital Rampart (Leyndell, Royal Capital)": cGrace.Title = "East Capital Rampart (Leyndell, Royal Capital)"; cGrace.Id = 71102; break;
-                case "Lower Capital Church": cGrace.Title = "Lower Capital Church"; cGrace.Id = 71103; break;
-                case "Avenue Balcony": cGrace.Title = "Avenue Balcony"; cGrace.Id = 71104; break;
-                case "West Capital Rampart": cGrace.Title = "West Capital Rampart"; cGrace.Id = 71105; break;
-                case "Queen's Bedchamber (Leyndell, Royal Capital)": cGrace.Title = "Queen's Bedchamber (Leyndell, Royal Capital)"; cGrace.Id = 71107; break;
-                case "Fortified Manor, First Floor": cGrace.Title = "Fortified Manor, First Floor"; cGrace.Id = 71108; break;
-                case "Divine Bridge (Leyndell, Royal Capital)": cGrace.Title = "Divine Bridge (Leyndell, Royal Capital)"; cGrace.Id = 71109; break;
-                case "Stormfoot Catacombs": cGrace.Title = "Stormfoot Catacombs"; cGrace.Id = 73002; break;
-                case "Murkwater Catacombs": cGrace.Title = "Murkwater Catacombs"; cGrace.Id = 73004; break;
-                case "Murkwater Cave": cGrace.Title = "Murkwater Cave"; cGrace.Id = 73100; break;
-                case "Groveside Cave": cGrace.Title = "Groveside Cave"; cGrace.Id = 73103; break;
-                case "Coastal Cave": cGrace.Title = "Coastal Cave"; cGrace.Id = 73115; break;
-                case "Highroad Cave": cGrace.Title = "Highroad Cave"; cGrace.Id = 73117; break;
-                case "Limgrave Tunnels": cGrace.Title = "Limgrave Tunnels"; cGrace.Id = 73201; break;
-                case "Church of Elleh": cGrace.Title = "Church of Elleh"; cGrace.Id = 76100; break;
-                case "The First Step": cGrace.Title = "The First Step"; cGrace.Id = 76101; break;
-                case "Artist's Shack (Limgrave)": cGrace.Title = "Artist's Shack (Limgrave)"; cGrace.Id = 76103; break;
-                case "Third Church of Marika": cGrace.Title = "Third Church of Marika"; cGrace.Id = 76104; break;
-                case "Fort Haight West": cGrace.Title = "Fort Haight West"; cGrace.Id = 76105; break;
-                case "Agheel Lake South": cGrace.Title = "Agheel Lake South"; cGrace.Id = 76106; break;
-                case "Agheel Lake North": cGrace.Title = "Agheel Lake North"; cGrace.Id = 76108; break;
-                case "Church of Dragon Communion": cGrace.Title = "Church of Dragon Communion"; cGrace.Id = 76110; break;
-                case "Gatefront": cGrace.Title = "Gatefront"; cGrace.Id = 76111; break;
-                case "Seaside Ruins": cGrace.Title = "Seaside Ruins"; cGrace.Id = 76113; break;
-                case "Mistwood Outskirts": cGrace.Title = "Mistwood Outskirts"; cGrace.Id = 76114; break;
-                case "Murkwater Coast": cGrace.Title = "Murkwater Coast"; cGrace.Id = 76116; break;
-                case "Summonwater Village Outskirts": cGrace.Title = "Summonwater Village Outskirts"; cGrace.Id = 76119; break;
-                case "Waypoint Ruins Cellar": cGrace.Title = "Waypoint Ruins Cellar"; cGrace.Id = 76120; break;
-                case "Road's End Catacombs": cGrace.Title = "Road's End Catacombs"; cGrace.Id = 73003; break;
-                case "Black Knife Catacombs": cGrace.Title = "Black Knife Catacombs"; cGrace.Id = 73005; break;
-                case "Cliffbottom Catacombs": cGrace.Title = "Cliffbottom Catacombs"; cGrace.Id = 73006; break;
-                case "Stillwater Cave": cGrace.Title = "Stillwater Cave"; cGrace.Id = 73104; break;
-                case "Lakeside Crystal Cave": cGrace.Title = "Lakeside Crystal Cave"; cGrace.Id = 73105; break;
-                case "Academy Crystal Cave": cGrace.Title = "Academy Crystal Cave"; cGrace.Id = 73106; break;
-                case "Raya Lucaria Crystal Tunnel": cGrace.Title = "Raya Lucaria Crystal Tunnel"; cGrace.Id = 73202; break;
-                case "Study Hall Entrance": cGrace.Title = "Study Hall Entrance"; cGrace.Id = 73420; break;
-                case "Liurnia Tower Bridge": cGrace.Title = "Liurnia Tower Bridge"; cGrace.Id = 73421; break;
-                case "Divine Tower of Liurnia": cGrace.Title = "Divine Tower of Liurnia"; cGrace.Id = 73422; break;
-                case "Uld Palace Ruins": cGrace.Title = "Uld Palace Ruins"; cGrace.Id = 76200; break;
-                case "Liurnia Lake Shore": cGrace.Title = "Liurnia Lake Shore"; cGrace.Id = 76201; break;
-                case "Laskyar Ruins": cGrace.Title = "Laskyar Ruins"; cGrace.Id = 76202; break;
-                case "Scenic Isle": cGrace.Title = "Scenic Isle"; cGrace.Id = 76203; break;
-                case "Academy Gate Town": cGrace.Title = "Academy Gate Town"; cGrace.Id = 76204; break;
-                case "South Raya Lucaria Gate": cGrace.Title = "South Raya Lucaria Gate"; cGrace.Id = 76205; break;
-                case "Main Academy Gate": cGrace.Title = "Main Academy Gate"; cGrace.Id = 76206; break;
-                case "Grand Lift of Dectus": cGrace.Title = "Grand Lift of Dectus"; cGrace.Id = 76209; break;
-                case "Foot of the Four Belfries": cGrace.Title = "Foot of the Four Belfries"; cGrace.Id = 76210; break;
-                case "Sorcerer's Isle": cGrace.Title = "Sorcerer's Isle"; cGrace.Id = 76211; break;
-                case "Northern Liurnia Lake Shore": cGrace.Title = "Northern Liurnia Lake Shore"; cGrace.Id = 76212; break;
-                case "Road to the Manor": cGrace.Title = "Road to the Manor"; cGrace.Id = 76213; break;
-                case "Main Caria Manor Gate": cGrace.Title = "Main Caria Manor Gate"; cGrace.Id = 76214; break;
-                case "Slumbering Wolf's Shack": cGrace.Title = "Slumbering Wolf's Shack"; cGrace.Id = 76215; break;
-                case "Boilprawn Shack": cGrace.Title = "Boilprawn Shack"; cGrace.Id = 76216; break;
-                case "Artist's Shack (Liurnia of the Lakes)": cGrace.Title = "Artist's Shack (Liurnia of the Lakes)"; cGrace.Id = 76217; break;
-                case "Revenger's Shack": cGrace.Title = "Revenger's Shack"; cGrace.Id = 76218; break;
-                case "Folly on the Lake": cGrace.Title = "Folly on the Lake"; cGrace.Id = 76219; break;
-                case "Village of the Albinaurics": cGrace.Title = "Village of the Albinaurics"; cGrace.Id = 76220; break;
-                case "Liurnia Highway North": cGrace.Title = "Liurnia Highway North"; cGrace.Id = 76221; break;
-                case "Gate Town Bridge": cGrace.Title = "Gate Town Bridge"; cGrace.Id = 76222; break;
-                case "Eastern Liurnia Lake Shore": cGrace.Title = "Eastern Liurnia Lake Shore"; cGrace.Id = 76223; break;
-                case "Church of Vows": cGrace.Title = "Church of Vows"; cGrace.Id = 76224; break;
-                case "Ruined Labyrinth": cGrace.Title = "Ruined Labyrinth"; cGrace.Id = 76225; break;
-                case "Mausoleum Compound": cGrace.Title = "Mausoleum Compound"; cGrace.Id = 76226; break;
-                case "The Four Belfries": cGrace.Title = "The Four Belfries"; cGrace.Id = 76227; break;
-                case "Ranni's Rise": cGrace.Title = "Ranni's Rise"; cGrace.Id = 76228; break;
-                case "Ravine-Veiled Village": cGrace.Title = "Ravine-Veiled Village"; cGrace.Id = 76229; break;
-                case "Manor Upper Level": cGrace.Title = "Manor Upper Level"; cGrace.Id = 76230; break;
-                case "Manor Lower Level": cGrace.Title = "Manor Lower Level"; cGrace.Id = 76231; break;
-                case "Royal Moongazing Grounds": cGrace.Title = "Royal Moongazing Grounds"; cGrace.Id = 76232; break;
-                case "Gate Town North": cGrace.Title = "Gate Town North"; cGrace.Id = 76233; break;
-                case "Eastern Tableland": cGrace.Title = "Eastern Tableland"; cGrace.Id = 76234; break;
-                case "The Ravine": cGrace.Title = "The Ravine"; cGrace.Id = 76235; break;
-                case "Fallen Ruins of the Lake": cGrace.Title = "Fallen Ruins of the Lake"; cGrace.Id = 76236; break;
-                case "Converted Tower": cGrace.Title = "Converted Tower"; cGrace.Id = 76237; break;
-                case "Behind Caria Manor": cGrace.Title = "Behind Caria Manor"; cGrace.Id = 76238; break;
-                case "Temple Quarter": cGrace.Title = "Temple Quarter"; cGrace.Id = 76241; break;
-                case "East Gate Bridge Trestle": cGrace.Title = "East Gate Bridge Trestle"; cGrace.Id = 76242; break;
-                case "Crystalline Woods": cGrace.Title = "Crystalline Woods"; cGrace.Id = 76243; break;
-                case "Liurnia Highway South": cGrace.Title = "Liurnia Highway South"; cGrace.Id = 76244; break;
-                case "Jarburg": cGrace.Title = "Jarburg"; cGrace.Id = 76245; break;
-                case "Ranni's Chamber": cGrace.Title = "Ranni's Chamber"; cGrace.Id = 76247; break;
-                case "Haligtree Promenade": cGrace.Title = "Haligtree Promenade"; cGrace.Id = 71505; break;
-                case "Haligtree Canopy": cGrace.Title = "Haligtree Canopy"; cGrace.Id = 71506; break;
-                case "Haligtree Town": cGrace.Title = "Haligtree Town"; cGrace.Id = 71507; break;
-                case "Haligtree Town Plaza": cGrace.Title = "Haligtree Town Plaza"; cGrace.Id = 71508; break;
-                case "Cocoon of the Empyrean": cGrace.Title = "Cocoon of the Empyrean"; cGrace.Id = 71250; break;
-                case "Palace Approach Ledge-Road": cGrace.Title = "Palace Approach Ledge-Road"; cGrace.Id = 71251; break;
-                case "Dynasty Mausoleum Entrance": cGrace.Title = "Dynasty Mausoleum Entrance"; cGrace.Id = 71252; break;
-                case "Dynasty Mausoleum Midpoint": cGrace.Title = "Dynasty Mausoleum Midpoint"; cGrace.Id = 71253; break;
-                case "Moonlight Altar": cGrace.Title = "Moonlight Altar"; cGrace.Id = 76250; break;
-                case "Cathedral of Manus Celes": cGrace.Title = "Cathedral of Manus Celes"; cGrace.Id = 76251; break;
-                case "Altar South": cGrace.Title = "Altar South"; cGrace.Id = 76252; break;
-                case "Spiritcaller's Cave": cGrace.Title = "Spiritcaller's Cave"; cGrace.Id = 73122; break;
-                case "Zamor Ruins": cGrace.Title = "Zamor Ruins"; cGrace.Id = 76501; break;
-                case "Ancient Snow Valley Ruins": cGrace.Title = "Ancient Snow Valley Ruins"; cGrace.Id = 76503; break;
-                case "Freezing Lake": cGrace.Title = "Freezing Lake"; cGrace.Id = 76504; break;
-                case "First Church of Marika": cGrace.Title = "First Church of Marika"; cGrace.Id = 76505; break;
-                case "Whiteridge Road": cGrace.Title = "Whiteridge Road"; cGrace.Id = 76520; break;
-                case "Snow Valley Ruins Overlook": cGrace.Title = "Snow Valley Ruins Overlook"; cGrace.Id = 76521; break;
-                case "Castle Sol Main Gate": cGrace.Title = "Castle Sol Main Gate"; cGrace.Id = 76522; break;
-                case "Church of the Eclipse": cGrace.Title = "Church of the Eclipse"; cGrace.Id = 76523; break;
-                case "Castle Sol Rooftop": cGrace.Title = "Castle Sol Rooftop"; cGrace.Id = 76524; break;
-                case "Wyndham Catacombs": cGrace.Title = "Wyndham Catacombs"; cGrace.Id = 73007; break;
-                case "Gelmir Hero's Grave": cGrace.Title = "Gelmir Hero's Grave"; cGrace.Id = 73009; break;
-                case "Seethewater Cave": cGrace.Title = "Seethewater Cave"; cGrace.Id = 73107; break;
-                case "Volcano Cave": cGrace.Title = "Volcano Cave"; cGrace.Id = 73109; break;
-                case "Bridge of Iniquity": cGrace.Title = "Bridge of Iniquity"; cGrace.Id = 76350; break;
-                case "First Mt. Gelmir Campsite": cGrace.Title = "First Mt. Gelmir Campsite"; cGrace.Id = 76351; break;
-                case "Ninth Mt. Gelmir Campsite": cGrace.Title = "Ninth Mt. Gelmir Campsite"; cGrace.Id = 76352; break;
-                case "Road of Iniquity": cGrace.Title = "Road of Iniquity"; cGrace.Id = 76353; break;
-                case "Seethewater River": cGrace.Title = "Seethewater River"; cGrace.Id = 76354; break;
-                case "Seethewater Terminus": cGrace.Title = "Seethewater Terminus"; cGrace.Id = 76355; break;
-                case "Craftsman's Shack": cGrace.Title = "Craftsman's Shack"; cGrace.Id = 76356; break;
-                case "Primeval Sorcerer Azur": cGrace.Title = "Primeval Sorcerer Azur"; cGrace.Id = 76357; break;
-                case "Great Waterfall Basin": cGrace.Title = "Great Waterfall Basin"; cGrace.Id = 71220; break;
-                case "Mimic Tear": cGrace.Title = "Mimic Tear"; cGrace.Id = 71221; break;
-                case "Ancestral Woods": cGrace.Title = "Ancestral Woods"; cGrace.Id = 71224; break;
-                case "Aqueduct-Facing Cliffs": cGrace.Title = "Aqueduct-Facing Cliffs"; cGrace.Id = 71225; break;
-                case "Night's Sacred Ground": cGrace.Title = "Night's Sacred Ground"; cGrace.Id = 71226; break;
-                case "Nokron, Eternal City": cGrace.Title = "Nokron, Eternal City"; cGrace.Id = 71271; break;
-                case "Table of Lost Grace": cGrace.Title = "Table of Lost Grace"; cGrace.Id = 71190; break;
-                case "Magma Wyrm": cGrace.Title = "Magma Wyrm"; cGrace.Id = 73900; break;
-                case "Ruin-Strewn Precipice": cGrace.Title = "Ruin-Strewn Precipice"; cGrace.Id = 73901; break;
-                case "Ruin-Strewn Precipice Overlook": cGrace.Title = "Ruin-Strewn Precipice Overlook"; cGrace.Id = 73902; break;
-                case "Siofra River Bank": cGrace.Title = "Siofra River Bank"; cGrace.Id = 71222; break;
-                case "Worshippers' Woods": cGrace.Title = "Worshippers' Woods"; cGrace.Id = 71223; break;
-                case "Below the Well": cGrace.Title = "Below the Well"; cGrace.Id = 71227; break;
-                case "Siofra River Well Depths": cGrace.Title = "Siofra River Well Depths"; cGrace.Id = 71270; break;
-                case "Deathtouched Catacombs": cGrace.Title = "Deathtouched Catacombs"; cGrace.Id = 73011; break;
-                case "Limgrave Tower Bridge": cGrace.Title = "Limgrave Tower Bridge"; cGrace.Id = 73410; break;
-                case "Divine Tower of Limgrave": cGrace.Title = "Divine Tower of Limgrave"; cGrace.Id = 73412; break;
-                case "Stormhill Shack": cGrace.Title = "Stormhill Shack"; cGrace.Id = 76102; break;
-                case "Saintsbridge": cGrace.Title = "Saintsbridge"; cGrace.Id = 76117; break;
-                case "Warmaster's Shack": cGrace.Title = "Warmaster's Shack"; cGrace.Id = 76118; break;
-                case "Godrick the Grafted": cGrace.Title = "Godrick the Grafted"; cGrace.Id = 71000; break;
-                case "Margit, the Fell Omen": cGrace.Title = "Margit, the Fell Omen"; cGrace.Id = 71001; break;
-                case "Castleward Tunnel": cGrace.Title = "Castleward Tunnel"; cGrace.Id = 71002; break;
-                case "Gateside Chamber": cGrace.Title = "Gateside Chamber"; cGrace.Id = 71003; break;
-                case "Stormveil Cliffside": cGrace.Title = "Stormveil Cliffside"; cGrace.Id = 71004; break;
-                case "Rampart Tower": cGrace.Title = "Rampart Tower"; cGrace.Id = 71005; break;
-                case "Liftside Chamber": cGrace.Title = "Liftside Chamber"; cGrace.Id = 71006; break;
-                case "Secluded Cell": cGrace.Title = "Secluded Cell"; cGrace.Id = 71007; break;
-                case "Stormveil Main Gate": cGrace.Title = "Stormveil Main Gate"; cGrace.Id = 71008; break;
-                case "Cave of Knowledge": cGrace.Title = "Cave of Knowledge"; cGrace.Id = 71800; break;
-                case "Stranded Graveyard": cGrace.Title = "Stranded Graveyard"; cGrace.Id = 71801; break;
-                case "Cathedral of the Forsaken": cGrace.Title = "Cathedral of the Forsaken"; cGrace.Id = 73500; break;
-                case "Underground Roadside": cGrace.Title = "Underground Roadside"; cGrace.Id = 73501; break;
-                case "Forsaken Depths": cGrace.Title = "Forsaken Depths"; cGrace.Id = 73502; break;
-                case "Leyndell Catacombs": cGrace.Title = "Leyndell Catacombs"; cGrace.Id = 73503; break;
-                case "Frenzied Flame Proscription": cGrace.Title = "Frenzied Flame Proscription"; cGrace.Id = 73504; break;
-                case "Aeonia Swamp Shore": cGrace.Title = "Aeonia Swamp Shore"; cGrace.Id = 76406; break;
-                case "Astray from Caelid Highway North": cGrace.Title = "Astray from Caelid Highway North"; cGrace.Id = 76407; break;
-                case "Heart of Aeonia": cGrace.Title = "Heart of Aeonia"; cGrace.Id = 76412; break;
-                case "Inner Aeonia": cGrace.Title = "Inner Aeonia"; cGrace.Id = 76413; break;
-                case "Rykard, Lord of Blasphemy": cGrace.Title = "Rykard, Lord of Blasphemy"; cGrace.Id = 71600; break;
-                case "Temple of Eiglay": cGrace.Title = "Temple of Eiglay"; cGrace.Id = 71601; break;
-                case "Volcano Manor": cGrace.Title = "Volcano Manor"; cGrace.Id = 71602; break;
-                case "Prison Town Church": cGrace.Title = "Prison Town Church"; cGrace.Id = 71603; break;
-                case "Guest Hall": cGrace.Title = "Guest Hall"; cGrace.Id = 71604; break;
-                case "Audience Pathway": cGrace.Title = "Audience Pathway"; cGrace.Id = 71605; break;
-                case "Abductor Virgin": cGrace.Title = "Abductor Virgin"; cGrace.Id = 71606; break;
-                case "Subterranean Inquisition Chamber": cGrace.Title = "Subterranean Inquisition Chamber"; cGrace.Id = 71607; break;
-                case "Tombsward Catacombs": cGrace.Title = "Tombsward Catacombs"; cGrace.Id = 73000; break;
-                case "Impaler's Catacombs": cGrace.Title = "Impaler's Catacombs"; cGrace.Id = 73001; break;
-                case "Earthbore Cave": cGrace.Title = "Earthbore Cave"; cGrace.Id = 73101; break;
-                case "Tombsward Cave": cGrace.Title = "Tombsward Cave"; cGrace.Id = 73102; break;
-                case "Morne Tunnel": cGrace.Title = "Morne Tunnel"; cGrace.Id = 73200; break;
-                case "Church of Pilgrimage": cGrace.Title = "Church of Pilgrimage"; cGrace.Id = 76150; break;
-                case "Castle Morne Rampart": cGrace.Title = "Castle Morne Rampart"; cGrace.Id = 76151; break;
-                case "Tombsward": cGrace.Title = "Tombsward"; cGrace.Id = 76152; break;
-                case "South of the Lookout Tower": cGrace.Title = "South of the Lookout Tower"; cGrace.Id = 76153; break;
-                case "Ailing Village Outskirts": cGrace.Title = "Ailing Village Outskirts"; cGrace.Id = 76154; break;
-                case "Beside the Crater-Pocked Glade": cGrace.Title = "Beside the Crater-Pocked Glade"; cGrace.Id = 76155; break;
-                case "Isolated Merchant's Shack (Weeping Peninsula)": cGrace.Title = "Isolated Merchant's Shack (Weeping Peninsula)"; cGrace.Id = 76156; break;
-                case "Bridge of Sacrifice": cGrace.Title = "Bridge of Sacrifice"; cGrace.Id = 76157; break;
-                case "Castle Morne Lift": cGrace.Title = "Castle Morne Lift"; cGrace.Id = 76158; break;
-                case "Behind the Castle": cGrace.Title = "Behind the Castle"; cGrace.Id = 76159; break;
-                case "Beside the Rampart Gaol": cGrace.Title = "Beside the Rampart Gaol"; cGrace.Id = 76160; break;
-                case "Morne Moangrave": cGrace.Title = "Morne Moangrave"; cGrace.Id = 76161; break;
-                case "Fourth Church of Marika": cGrace.Title = "Fourth Church of Marika"; cGrace.Id = 76162; break;
-                default: cGrace = null; break;
+                { "Raya Lucaria Grand Library", ("Raya Lucaria Grand Library", 71400)},
+                { "Debate Parlor", ("Debate Parlor", 71401)},
+                { "Church of the Cuckoo", ("Church of the Cuckoo", 71402)},
+                { "Schoolhouse Classroom", ("Schoolhouse Classroom", 71403)},
+                { "Dragonkin Soldier of Nokstella", ("Dragonkin Soldier of Nokstella", 71210)},
+                { "Ainsel River Well Depths", ("Ainsel River Well Depths", 71211)},
+                { "Ainsel River Sluice Gate", ("Ainsel River Sluice Gate", 71212)},
+                { "Ainsel River Downstream", ("Ainsel River Downstream", 71213)},
+                { "Astel, Naturalborn of the Void", ("Astel, Naturalborn of the Void", 71240)},
+                { "Ainsel River Main", ("Ainsel River Main", 71214)},
+                { "Nokstella, Eternal City", ("Nokstella, Eternal City", 71215)},
+                { "Nokstella Waterfall Basin", ("Nokstella Waterfall Basin", 71219)},
+                { "Sainted Hero's Grave", ("Sainted Hero's Grave", 73008)},
+                { "Unsightly Catacombs", ("Unsightly Catacombs", 73012)},
+                { "Perfumer's Grotto", ("Perfumer's Grotto", 73118)},
+                { "Sage's Cave", ("Sage's Cave", 73119)},
+                { "Old Altus Tunnel", ("Old Altus Tunnel", 73204)},
+                { "Altus Tunnel", ("Altus Tunnel", 73205)},
+                { "Abandoned Coffin", ("Abandoned Coffin", 76300)},
+                { "Altus Plateau", ("Altus Plateau", 76301)},
+                { "Erdtree-Gazing Hill", ("Erdtree-Gazing Hill", 76302)},
+                { "Altus Highway Junction", ("Altus Highway Junction", 76303)},
+                { "Forest-Spanning Greatbridge", ("Forest-Spanning Greatbridge", 76304)},
+                { "Rampartside Path", ("Rampartside Path", 76305)},
+                { "Bower of Bounty", ("Bower of Bounty", 76306)},
+                { "Road of Iniquity Side Path", ("Road of Iniquity Side Path", 76307)},
+                { "Windmill Village", ("Windmill Village", 76308)},
+                { "Windmill Heights", ("Windmill Heights", 76313)},
+                { "Shaded Castle Ramparts", ("Shaded Castle Ramparts", 76320)},
+                { "Shaded Castle Inner Gate", ("Shaded Castle Inner Gate", 76321)},
+                { "Castellan's Hall", ("Castellan's Hall", 76322)},
+                { "East Raya Lucaria Gate", ("East Raya Lucaria Gate", 76207)},
+                { "Bellum Church", ("Bellum Church", 76208)},
+                { "Frenzied Flame Village Outskirts", ("Frenzied Flame Village Outskirts", 76239)},
+                { "Church of Inhibition", ("Church of Inhibition", 76240)},
+                { "Minor Erdtree Catacombs", ("Minor Erdtree Catacombs", 73014)},
+                { "Caelid Catacombs", ("Caelid Catacombs", 73015)},
+                { "War-Dead Catacombs", ("War-Dead Catacombs", 73016)},
+                { "Abandoned Cave", ("Abandoned Cave", 73120)},
+                { "Gaol Cave", ("Gaol Cave", 73121)},
+                { "Gael Tunnel", ("Gael Tunnel", 73207)},
+                { "Rear Gael Tunnel Entrance", ("Rear Gael Tunnel Entrance", 73207)},
+                { "Sellia Crystal Tunnel", ("Sellia Crystal Tunnel", 73208)},
+                { "Smoldering Church", ("Smoldering Church", 76400)},
+                { "Rotview Balcony", ("Rotview Balcony", 76401)},
+                { "Fort Gael North", ("Fort Gael North", 76402)},
+                { "Caelem Ruins", ("Caelem Ruins", 76403)},
+                { "Cathedral of Dragon Communion", ("Cathedral of Dragon Communion", 76404)},
+                { "Caelid Highway South", ("Caelid Highway South", 76405)},
+                { "Smoldering Wall", ("Smoldering Wall", 76409)},
+                { "Deep Siofra Well", ("Deep Siofra Well", 76410)},
+                { "Southern Aeonia Swamp Bank", ("Southern Aeonia Swamp Bank", 76411)},
+                { "Sellia Backstreets", ("Sellia Backstreets", 76414)},
+                { "Chair-Crypt of Sellia", ("Chair-Crypt of Sellia", 76415)},
+                { "Sellia Under-Stair", ("Sellia Under-Stair", 76416)},
+                { "Impassable Greatbridge", ("Impassable Greatbridge", 76417)},
+                { "Church of the Plague", ("Church of the Plague", 76418)},
+                { "Redmane Castle Plaza", ("Redmane Castle Plaza", 76419)},
+                { "Chamber Outside the Plaza", ("Chamber Outside the Plaza", 76420)},
+                { "Starscourge Radahn", ("Starscourge Radahn", 76422)},
+                { "Auriza Hero's Grave", ("Auriza Hero's Grave", 73010)},
+                { "Auriza Side Tomb", ("Auriza Side Tomb", 73013)},
+                { "Divine Tower of West Altus", ("Divine Tower of West Altus", 73430)},
+                { "Sealed Tunnel", ("Sealed Tunnel", 73431)},
+                { "Divine Tower of West Altus: Gate", ("Divine Tower of West Altus: Gate", 73432)},
+                { "Outer Wall Phantom Tree", ("Outer Wall Phantom Tree", 76309)},
+                { "Minor Erdtree Church", ("Minor Erdtree Church", 76310)},
+                { "Hermit Merchant's Shack", ("Hermit Merchant's Shack", 76311)},
+                { "Outer Wall Battleground", ("Outer Wall Battleground", 76312)},
+                { "Capital Rampart", ("Capital Rampart", 76314)},
+                { "Consecrated Snowfield Catacombs", ("Consecrated Snowfield Catacombs", 73019)},
+                { "Cave of the Forlorn", ("Cave of the Forlorn", 73112)},
+                { "Yelough Anix Tunnel", ("Yelough Anix Tunnel", 73211)},
+                { "Consecrated Snowfield", ("Consecrated Snowfield", 76550)},
+                { "Inner Consecrated Snowfield", ("Inner Consecrated Snowfield", 76551)},
+                { "Ordina, Liturgical Town", ("Ordina, Liturgical Town", 76652)},
+                { "Apostate Derelict", ("Apostate Derelict", 76653)},
+                { "Maliketh, the Black Blade", ("Maliketh, the Black Blade", 71300)},
+                { "Dragonlord Placidusax", ("Dragonlord Placidusax", 71301)},
+                { "Dragon Temple Altar", ("Dragon Temple Altar", 71302)},
+                { "Crumbling Beast Grave", ("Crumbling Beast Grave", 71303)},
+                { "Crumbling Beast Grave Depths", ("Crumbling Beast Grave Depths", 71304)},
+                { "Tempest-Facing Balcony", ("Tempest-Facing Balcony", 71305)},
+                { "Dragon Temple", ("Dragon Temple", 71306)},
+                { "Dragon Temple Transept", ("Dragon Temple Transept", 71307)},
+                { "Dragon Temple Lift", ("Dragon Temple Lift", 71308)},
+                { "Dragon Temple Rooftop", ("Dragon Temple Rooftop", 71309)},
+                { "Beside the Great Bridge", ("Beside the Great Bridge", 71310)},
+                { "Prince of Death's Throne", ("Prince of Death's Throne", 71230)},
+                { "Root-Facing Cliffs", ("Root-Facing Cliffs", 71231)},
+                { "Great Waterfall Crest", ("Great Waterfall Crest", 71232)},
+                { "Deeproot Depths", ("Deeproot Depths", 71233)},
+                { "The Nameless Eternal City", ("The Nameless Eternal City", 71234)},
+                { "Across the Roots", ("Across the Roots", 71235)},
+                { "Fractured Marika", ("Fractured Marika", 71900)},
+                { "Malenia, Goddess of Rot", ("Malenia, Goddess of Rot", 71500)},
+                { "Prayer Room", ("Prayer Room", 71501)},
+                { "Elphael Inner Wall", ("Elphael Inner Wall", 71502)},
+                { "Drainage Channel", ("Drainage Channel", 71503)},
+                { "Haligtree Roots", ("Haligtree Roots", 71504)},
+                { "Giant-Conquering Hero's Grave", ("Giant-Conquering Hero's Grave", 73017)},
+                { "Giants' Mountaintop Catacombs", ("Giants' Mountaintop Catacombs", 73018)},
+                { "Giants' Gravepost", ("Giants' Gravepost", 76506)},
+                { "Church of Repose", ("Church of Repose", 76507)},
+                { "Foot of the Forge", ("Foot of the Forge", 76508)},
+                { "Fire Giant", ("Fire Giant", 76509)},
+                { "Forge of the Giants", ("Forge of the Giants", 76510)},
+                { "Hidden Path to the Haligtree", ("Hidden Path to the Haligtree", 73020)},
+                { "Divine Tower of East Altus: Gate", ("Divine Tower of East Altus: Gate", 73450)},
+                { "Divine Tower of East Altus", ("Divine Tower of East Altus", 73451)},
+                { "Forbidden Lands", ("Forbidden Lands", 76500)},
+                { "Grand Lift of Rold", ("Grand Lift of Rold", 76502)},
+                { "Dragonbarrow Cave", ("Dragonbarrow Cave", 73110)},
+                { "Sellia Hideaway", ("Sellia Hideaway", 73111)},
+                { "Divine Tower of Caelid", ("Divine Tower of Caelid", 73440)},
+                { "Divine Tower of Caelid: Center", ("Divine Tower of Caelid: Center", 73441)},
+                { "Isolated Divine Tower", ("Isolated Divine Tower", 73460)},
+                { "Dragonbarrow West", ("Dragonbarrow West", 76450)},
+                { "Isolated Merchant's Shack (Greyoll's Dragonbarrow)", ("Isolated Merchant's Shack (Greyoll's Dragonbarrow)", 76451)},
+                { "Dragonbarrow Fork", ("Dragonbarrow Fork", 76452)},
+                { "Fort Faroth", ("Fort Faroth", 76453)},
+                { "Bestial Sanctum", ("Bestial Sanctum", 76454)},
+                { "Lenne's Rise", ("Lenne's Rise", 76455)},
+                { "Farum Greatbridge", ("Farum Greatbridge", 76456)},
+                { "Lake of Rot Shoreside", ("Lake of Rot Shoreside", 71216)},
+                { "Grand Cloister", ("Grand Cloister", 71218)},
+                { "Elden Throne (Leyndell, Ashen Capital)", ("Elden Throne (Leyndell, Ashen Capital)", 71120)},
+                { "Erdtree Sanctuary (Leyndell, Ashen Capital)", ("Erdtree Sanctuary (Leyndell, Ashen Capital)", 71121)},
+                { "East Capital Rampart (Leyndell, Ashen Capital)", ("East Capital Rampart (Leyndell, Ashen Capital)", 71122)},
+                { "Leyndell, Capital of Ash", ("Leyndell, Capital of Ash", 71123)},
+                { "Queen's Bedchamber (Leyndell, Ashen Capital)", ("Queen's Bedchamber (Leyndell, Ashen Capital)", 71124)},
+                { "Divine Bridge (Leyndell, Ashen Capital)", ("Divine Bridge (Leyndell, Ashen Capital)", 71125)},
+                { "Elden Throne (Leyndell, Royal Capital)", ("Elden Throne (Leyndell, Royal Capital)", 71100)},
+                { "Erdtree Sanctuary (Leyndell, Royal Capital)", ("Erdtree Sanctuary (Leyndell, Royal Capital)", 71101)},
+                { "East Capital Rampart (Leyndell, Royal Capital)", ("East Capital Rampart (Leyndell, Royal Capital)", 71102)},
+                { "Lower Capital Church", ("Lower Capital Church", 71103)},
+                { "Avenue Balcony", ("Avenue Balcony", 71104)},
+                { "West Capital Rampart", ("West Capital Rampart", 71105)},
+                { "Queen's Bedchamber (Leyndell, Royal Capital)", ("Queen's Bedchamber (Leyndell, Royal Capital)", 71107)},
+                { "Fortified Manor, First Floor", ("Fortified Manor, First Floor", 71108)},
+                { "Divine Bridge (Leyndell, Royal Capital)", ("Divine Bridge (Leyndell, Royal Capital)", 71109)},
+                { "Stormfoot Catacombs", ("Stormfoot Catacombs", 73002)},
+                { "Murkwater Catacombs", ("Murkwater Catacombs", 73004)},
+                { "Murkwater Cave", ("Murkwater Cave", 73100)},
+                { "Groveside Cave", ("Groveside Cave", 73103)},
+                { "Coastal Cave", ("Coastal Cave", 73115)},
+                { "Highroad Cave", ("Highroad Cave", 73117)},
+                { "Limgrave Tunnels", ("Limgrave Tunnels", 73201)},
+                { "Church of Elleh", ("Church of Elleh", 76100)},
+                { "The First Step", ("The First Step", 76101)},
+                { "Artist's Shack (Limgrave)", ("Artist's Shack (Limgrave)", 76103)},
+                { "Third Church of Marika", ("Third Church of Marika", 76104)},
+                { "Fort Haight West", ("Fort Haight West", 76105)},
+                { "Agheel Lake South", ("Agheel Lake South", 76106)},
+                { "Agheel Lake North", ("Agheel Lake North", 76108)},
+                { "Church of Dragon Communion", ("Church of Dragon Communion", 76110)},
+                { "Gatefront", ("Gatefront", 76111)},
+                { "Seaside Ruins", ("Seaside Ruins", 76113)},
+                { "Mistwood Outskirts", ("Mistwood Outskirts", 76114)},
+                { "Murkwater Coast", ("Murkwater Coast", 76116)},
+                { "Summonwater Village Outskirts", ("Summonwater Village Outskirts", 76119)},
+                { "Waypoint Ruins Cellar", ("Waypoint Ruins Cellar", 76120)},
+                { "Road's End Catacombs", ("Road's End Catacombs", 73003)},
+                { "Black Knife Catacombs", ("Black Knife Catacombs", 73005)},
+                { "Cliffbottom Catacombs", ("Cliffbottom Catacombs", 73006)},
+                { "Stillwater Cave", ("Stillwater Cave", 73104)},
+                { "Lakeside Crystal Cave", ("Lakeside Crystal Cave", 73105)},
+                { "Academy Crystal Cave", ("Academy Crystal Cave", 73106)},
+                { "Raya Lucaria Crystal Tunnel", ("Raya Lucaria Crystal Tunnel", 73202)},
+                { "Study Hall Entrance", ("Study Hall Entrance", 73420)},
+                { "Liurnia Tower Bridge", ("Liurnia Tower Bridge", 73421)},
+                { "Divine Tower of Liurnia", ("Divine Tower of Liurnia", 73422)},
+                { "Lake-Facing Cliffs", ("Lake-Facing Cliffs", 76200)},
+                { "Liurnia Lake Shore", ("Liurnia Lake Shore", 76201)},
+                { "Laskyar Ruins", ("Laskyar Ruins", 76202)},
+                { "Scenic Isle", ("Scenic Isle", 76203)},
+                { "Academy Gate Town", ("Academy Gate Town", 76204)},
+                { "South Raya Lucaria Gate", ("South Raya Lucaria Gate", 76205)},
+                { "Main Academy Gate", ("Main Academy Gate", 76206)},
+                { "Grand Lift of Dectus", ("Grand Lift of Dectus", 76209)},
+                { "Foot of the Four Belfries", ("Foot of the Four Belfries", 76210)},
+                { "Sorcerer's Isle", ("Sorcerer's Isle", 76211)},
+                { "Northern Liurnia Lake Shore", ("Northern Liurnia Lake Shore", 76212)},
+                { "Road to the Manor", ("Road to the Manor", 76213)},
+                { "Main Caria Manor Gate", ("Main Caria Manor Gate", 76214)},
+                { "Slumbering Wolf's Shack", ("Slumbering Wolf's Shack", 76215)},
+                { "Boilprawn Shack", ("Boilprawn Shack", 76216)},
+                { "Artist's Shack (Liurnia of the Lakes)", ("Artist's Shack (Liurnia of the Lakes)", 76217)},
+                { "Revenger's Shack", ("Revenger's Shack", 76218)},
+                { "Folly on the Lake", ("Folly on the Lake", 76219)},
+                { "Village of the Albinaurics", ("Village of the Albinaurics", 76220)},
+                { "Liurnia Highway North", ("Liurnia Highway North", 76221)},
+                { "Gate Town Bridge", ("Gate Town Bridge", 76222)},
+                { "Eastern Liurnia Lake Shore", ("Eastern Liurnia Lake Shore", 76223)},
+                { "Church of Vows", ("Church of Vows", 76224)},
+                { "Ruined Labyrinth", ("Ruined Labyrinth", 76225)},
+                { "Mausoleum Compound", ("Mausoleum Compound", 76226)},
+                { "The Four Belfries", ("The Four Belfries", 76227)},
+                { "Ranni's Rise", ("Ranni's Rise", 76228)},
+                { "Ravine-Veiled Village", ("Ravine-Veiled Village", 76229)},
+                { "Manor Upper Level", ("Manor Upper Level", 76230)},
+                { "Manor Lower Level", ("Manor Lower Level", 76231)},
+                { "Royal Moongazing Grounds", ("Royal Moongazing Grounds", 76232)},
+                { "Gate Town North", ("Gate Town North", 76233)},
+                { "Eastern Tableland", ("Eastern Tableland", 76234)},
+                { "The Ravine", ("The Ravine", 76235)},
+                { "Fallen Ruins of the Lake", ("Fallen Ruins of the Lake", 76236)},
+                { "Converted Tower", ("Converted Tower", 76237)},
+                { "Behind Caria Manor", ("Behind Caria Manor", 76238)},
+                { "Temple Quarter", ("Temple Quarter", 76241)},
+                { "East Gate Bridge Trestle", ("East Gate Bridge Trestle", 76242)},
+                { "Crystalline Woods", ("Crystalline Woods", 76243)},
+                { "Liurnia Highway South", ("Liurnia Highway South", 76244)},
+                { "Jarburg", ("Jarburg", 76245)},
+                { "Ranni's Chamber", ("Ranni's Chamber", 76247)},
+                { "Haligtree Promenade", ("Haligtree Promenade", 71505)},
+                { "Haligtree Canopy", ("Haligtree Canopy", 71506)},
+                { "Haligtree Town", ("Haligtree Town", 71507)},
+                { "Haligtree Town Plaza", ("Haligtree Town Plaza", 71508)},
+                { "Cocoon of the Empyrean", ("Cocoon of the Empyrean", 71250)},
+                { "Palace Approach Ledge-Road", ("Palace Approach Ledge-Road", 71251)},
+                { "Dynasty Mausoleum Entrance", ("Dynasty Mausoleum Entrance", 71252)},
+                { "Dynasty Mausoleum Midpoint", ("Dynasty Mausoleum Midpoint", 71253)},
+                { "Moonlight Altar", ("Moonlight Altar", 76250)},
+                { "Cathedral of Manus Celes", ("Cathedral of Manus Celes", 76251)},
+                { "Altar South", ("Altar South", 76252)},
+                { "Spiritcaller's Cave", ("Spiritcaller's Cave", 73122)},
+                { "Zamor Ruins", ("Zamor Ruins", 76501)},
+                { "Ancient Snow Valley Ruins", ("Ancient Snow Valley Ruins", 76503)},
+                { "Freezing Lake", ("Freezing Lake", 76504)},
+                { "First Church of Marika", ("First Church of Marika", 76505)},
+                { "Whiteridge Road", ("Whiteridge Road", 76520)},
+                { "Snow Valley Ruins Overlook", ("Snow Valley Ruins Overlook", 76521)},
+                { "Castle Sol Main Gate", ("Castle Sol Main Gate", 76522)},
+                { "Church of the Eclipse", ("Church of the Eclipse", 76523)},
+                { "Castle Sol Rooftop", ("Castle Sol Rooftop", 76524)},
+                { "Wyndham Catacombs", ("Wyndham Catacombs", 73007)},
+                { "Gelmir Hero's Grave", ("Gelmir Hero's Grave", 73009)},
+                { "Seethewater Cave", ("Seethewater Cave", 73107)},
+                { "Volcano Cave", ("Volcano Cave", 73109)},
+                { "Bridge of Iniquity", ("Bridge of Iniquity", 76350)},
+                { "First Mt. Gelmir Campsite", ("First Mt. Gelmir Campsite", 76351)},
+                { "Ninth Mt. Gelmir Campsite", ("Ninth Mt. Gelmir Campsite", 76352)},
+                { "Road of Iniquity", ("Road of Iniquity", 76353)},
+                { "Seethewater River", ("Seethewater River", 76354)},
+                { "Seethewater Terminus", ("Seethewater Terminus", 76355)},
+                { "Craftsman's Shack", ("Craftsman's Shack", 76356)},
+                { "Primeval Sorcerer Azur", ("Primeval Sorcerer Azur", 76357)},
+                { "Great Waterfall Basin", ("Great Waterfall Basin", 71220)},
+                { "Mimic Tear", ("Mimic Tear", 71221)},
+                { "Ancestral Woods", ("Ancestral Woods", 71224)},
+                { "Aqueduct-Facing Cliffs", ("Aqueduct-Facing Cliffs", 71225)},
+                { "Night's Sacred Ground", ("Night's Sacred Ground", 71226)},
+                { "Nokron, Eternal City", ("Nokron, Eternal City", 71271)},
+                { "Table of Lost Grace", ("Table of Lost Grace", 71190)},
+                { "Magma Wyrm", ("Magma Wyrm", 73900)},
+                { "Ruin-Strewn Precipice", ("Ruin-Strewn Precipice", 73901)},
+                { "Ruin-Strewn Precipice Overlook", ("Ruin-Strewn Precipice Overlook", 73902)},
+                { "Siofra River Bank", ("Siofra River Bank", 71222)},
+                { "Worshippers' Woods", ("Worshippers' Woods", 71223)},
+                { "Below the Well", ("Below the Well", 71227)},
+                { "Siofra River Well Depths", ("Siofra River Well Depths", 71270)},
+                { "Deathtouched Catacombs", ("Deathtouched Catacombs", 73011)},
+                { "Limgrave Tower Bridge", ("Limgrave Tower Bridge", 73410)},
+                { "Divine Tower of Limgrave", ("Divine Tower of Limgrave", 73412)},
+                { "Stormhill Shack", ("Stormhill Shack", 76102)},
+                { "Saintsbridge", ("Saintsbridge", 76117)},
+                { "Warmaster's Shack", ("Warmaster's Shack", 76118)},
+                { "Godrick the Grafted", ("Godrick the Grafted", 71000)},
+                { "Margit, the Fell Omen", ("Margit, the Fell Omen", 71001)},
+                { "Castleward Tunnel", ("Castleward Tunnel", 71002)},
+                { "Gateside Chamber", ("Gateside Chamber", 71003)},
+                { "Stormveil Cliffside", ("Stormveil Cliffside", 71004)},
+                { "Rampart Tower", ("Rampart Tower", 71005)},
+                { "Liftside Chamber", ("Liftside Chamber", 71006)},
+                { "Secluded Cell", ("Secluded Cell", 71007)},
+                { "Stormveil Main Gate", ("Stormveil Main Gate", 71008)},
+                { "Cave of Knowledge", ("Cave of Knowledge", 71800)},
+                { "Stranded Graveyard", ("Stranded Graveyard", 71801)},
+                { "Cathedral of the Forsaken", ("Cathedral of the Forsaken", 73500)},
+                { "Underground Roadside", ("Underground Roadside", 73501)},
+                { "Forsaken Depths", ("Forsaken Depths", 73502)},
+                { "Leyndell Catacombs", ("Leyndell Catacombs", 73503)},
+                { "Frenzied Flame Proscription", ("Frenzied Flame Proscription", 73504)},
+                { "Aeonia Swamp Shore", ("Aeonia Swamp Shore", 76406)},
+                { "Astray from Caelid Highway North", ("Astray from Caelid Highway North", 76407)},
+                { "Heart of Aeonia", ("Heart of Aeonia", 76412)},
+                { "Inner Aeonia", ("Inner Aeonia", 76413)},
+                { "Rykard, Lord of Blasphemy", ("Rykard, Lord of Blasphemy", 71600)},
+                { "Temple of Eiglay", ("Temple of Eiglay", 71601)},
+                { "Volcano Manor", ("Volcano Manor", 71602)},
+                { "Prison Town Church", ("Prison Town Church", 71603)},
+                { "Guest Hall", ("Guest Hall", 71604)},
+                { "Audience Pathway", ("Audience Pathway", 71605)},
+                { "Abductor Virgin", ("Abductor Virgin", 71606)},
+                { "Subterranean Inquisition Chamber", ("Subterranean Inquisition Chamber", 71607)},
+                { "Tombsward Catacombs", ("Tombsward Catacombs", 73000)},
+                { "Impaler's Catacombs", ("Impaler's Catacombs", 73001)},
+                { "Earthbore Cave", ("Earthbore Cave", 73101)},
+                { "Tombsward Cave", ("Tombsward Cave", 73102)},
+                { "Morne Tunnel", ("Morne Tunnel", 73200)},
+                { "Church of Pilgrimage", ("Church of Pilgrimage", 76150)},
+                { "Castle Morne Rampart", ("Castle Morne Rampart", 76151)},
+                { "Tombsward", ("Tombsward", 76152)},
+                { "South of the Lookout Tower", ("South of the Lookout Tower", 76153)},
+                { "Ailing Village Outskirts", ("Ailing Village Outskirts", 76154)},
+                { "Beside the Crater-Pocked Glade", ("Beside the Crater-Pocked Glade", 76155)},
+                { "Isolated Merchant's Shack (Weeping Peninsula)", ("Isolated Merchant's Shack (Weeping Peninsula)", 76156)},
+                { "Bridge of Sacrifice", ("Bridge of Sacrifice", 76157)},
+                { "Castle Morne Lift", ("Castle Morne Lift", 76158)},
+                { "Behind the Castle", ("Behind the Castle", 76159)},
+                { "Beside the Rampart Gaol", ("Beside the Rampart Gaol", 76160)},
+                { "Morne Moangrave", ("Morne Moangrave", 76161)},
+                { "Fourth Church of Marika", ("Fourth Church of Marika", 76162)},
+                #region DLC Graces
+                { "Theatre of the Divine Beast", ("Theatre of the Divine Beast", 72000)},
+                { "Belurat, Tower Settlement", ("Belurat, Tower Settlement", 72001)},
+                { "Small Private Altar", ("Small Private Altar", 72002)},
+                { "Stagefront", ("Stagefront", 72003)},
+                { "Gate of Divinity", ("Gate of Divinity", 72010)},
+                { "Enir-Ilim: Outer Wall", ("Enir-Ilim: Outer Wall", 72012)},
+                { "First Rise", ("First Rise", 72013)},
+                { "Spiral Rise", ("Spiral Rise", 72014)},
+                { "Cleansing Chamber Anteroom", ("Cleansing Chamber Anteroom", 72015)},
+                { "Divine Gate Front Staircase", ("Divine Gate Front Staircase", 72016)},
+                { "Main Gate Plaza", ("Main Gate Plaza", 72101)},
+                { "Shadow Keep Main Gate", ("Shadow Keep Main Gate", 72102)},
+                { "Church District Entrance", ("Church District Entrance", 72106)},
+                { "Sunken Chapel", ("Sunken Chapel", 72107)},
+                { "Tree,Worship Passage", ("Tree,Worship Passage", 72108)},
+                { "Tree,Worship Sanctum", ("Tree,Worship Sanctum", 72109)},
+                { "Messmer's Dark Chamber", ("Messmer's Dark Chamber", 72110)},
+                { "Storehouse, First Floor", ("Storehouse, First Floor", 72111)},
+                { "Storehouse, Fourth Floor", ("Storehouse, Fourth Floor", 72112)},
+                { "Storehouse, Seventh Floor", ("Storehouse, Seventh Floor", 72113)},
+                { "Dark Chamber Entrance", ("Dark Chamber Entrance", 72114)},
+                { "Storehouse, Back Section", ("Storehouse, Back Section", 72116)},
+                { "Storehouse, Loft", ("Storehouse, Loft", 72117)},
+                { "West Rampart", ("West Rampart", 72120)},
+                { "Garden of Deep Purple", ("Garden of Deep Purple", 72200)},
+                { "Stone Coffin Fissure", ("Stone Coffin Fissure", 72201)},
+                { "Fissure Cross", ("Fissure Cross", 72202)},
+                { "Fissure Waypoint", ("Fissure Waypoint", 72203)},
+                { "Fissure Depths", ("Fissure Depths", 72204)},
+                { "Finger Birthing Grounds", ("Finger Birthing Grounds", 72500)},
+                { "Discussion Chamber", ("Discussion Chamber", 72800)},
+                { "Manse Hall", ("Manse Hall", 72801)},
+                { "Midra's Library", ("Midra's Library", 72802)},
+                { "Second Floor Chamber", ("Second Floor Chamber", 72803)},
+                { "Fog Rift Catacombs", ("Fog Rift Catacombs", 74000)},
+                { "Ruined Forge Lava Intake", ("Ruined Forge Lava Intake", 74200)},
+                { "Rivermouth Cave", ("Rivermouth Cave", 74300)},
+                { "Dragon's Pit", ("Dragon's Pit", 74301)},
+                { "Dragon's Pit Terminus", ("Dragon's Pit Terminus", 74351)},
+                { "Cliffroad Terminus", ("Cliffroad Terminus", 76804)},
+                { "Main Gate Cross", ("Main Gate Cross", 76803)},
+                { "Gravesite Plain", ("Gravesite Plain", 76800)},
+                { "Three,Path Cross", ("Three,Path Cross", 76802)},
+                { "Greatbridge, North", ("Greatbridge, North", 76805)},
+                { "Scorched Ruins", ("Scorched Ruins", 76801)},
+                { "Ellac River Cave", ("Ellac River Cave", 76812)},
+                { "Castle Front", ("Castle Front", 76813)},
+                { "Pillar Path Waypoint", ("Pillar Path Waypoint", 76811)},
+                { "Pillar Path Cross", ("Pillar Path Cross", 76810)},
+                { "Belurat Gaol", ("Belurat Gaol", 74100)},
+                { "Ellac River Downstream", ("Ellac River Downstream", 76830)},
+                { "Charo's Hidden Grave", ("Charo's Hidden Grave", 76841)},
+                { "Lamenter's Gaol", ("Lamenter's Gaol", 74102)},
+                { "Castle Ensis Checkpoint", ("Castle Ensis Checkpoint", 76821)},
+                { "Ensis Moongazing Grounds", ("Ensis Moongazing Grounds", 76823)},
+                { "Castle,Lord's Chamber", ("Castle,Lord's Chamber", 76822)},
+                { "Cerulean Coast West", ("Cerulean Coast West", 76832)},
+                { "The Fissure", ("The Fissure", 76833)},
+                { "Cerulean Coast Cross", ("Cerulean Coast Cross", 76835)},
+                { "Cerulean Coast", ("Cerulean Coast", 76831)},
+                { "Finger Ruins of Rhia", ("Finger Ruins of Rhia", 76834)},
+                { "Grand Altar of Dragon Communion", ("Grand Altar of Dragon Communion", 76840)},
+                { "Divided Falls", ("Divided Falls", 76861)},
+                { "Abyssal Woods", ("Abyssal Woods", 76860)},
+                { "Forsaken Graveyard", ("Forsaken Graveyard", 76862)},
+                { "Church Ruins", ("Church Ruins", 76864)},
+                { "Woodland Trail", ("Woodland Trail", 76863)},
+                { "Foot of the Jagged Peak", ("Foot of the Jagged Peak", 76850)},
+                { "Jagged Peak Mountainside", ("Jagged Peak Mountainside", 76851)},
+                { "Jagged Peak Summit", ("Jagged Peak Summit", 76852)},
+                { "Rest of the Dread Dragon", ("Rest of the Dread Dragon", 76853)},
+                { "Ancient Ruins, Grand Stairway", ("Ancient Ruins, Grand Stairway", 76944)},
+                { "Church of the Bud", ("Church of the Bud", 76945)},
+                { "Church of the Bud, Main Entrance", ("Church of the Bud, Main Entrance", 76943)},
+                { "Rauh Ancient Ruins, West", ("Rauh Ancient Ruins, West", 76942)},
+                { "Rauh Ancient Ruins, East", ("Rauh Ancient Ruins, East", 76941)},
+                { "Viaduct Minor Tower", ("Viaduct Minor Tower", 76940)},
+                { "Temple Town Ruins", ("Temple Town Ruins", 76913)},
+                { "Ravine North", ("Ravine North", 76914)},
+                { "Scorpion River Catacombs", ("Scorpion River Catacombs", 74001)},
+                { "Taylew's Ruined Forge", ("Taylew's Ruined Forge", 74203)},
+                { "Ancient Ruins Base", ("Ancient Ruins Base", 76912)},
+                { "Darklight Catacombs", ("Darklight Catacombs", 74002)},
+                { "Bonny Gaol", ("Bonny Gaol", 74101)},
+                { "Highroad Cross", ("Highroad Cross", 76900)},
+                { "Scadu Altus, West", ("Scadu Altus, West", 76907)},
+                { "Moorth Highway, South", ("Moorth Highway, South", 76908)},
+                { "Fort of Reprimand", ("Fort of Reprimand", 76909)},
+                { "Behind the Fort of Reprimand", ("Behind the Fort of Reprimand", 76910)},
+                { "Moorth Ruins", ("Moorth Ruins", 76902)},
+                { "Bonny Village", ("Bonny Village", 76903)},
+                { "Castle Watering Hole", ("Castle Watering Hole", 76916)},
+                { "Ruined Forge of Starfall Past", ("Ruined Forge of Starfall Past", 74202)},
+                { "Scaduview Cross", ("Scaduview Cross", 76911)},
+                { "Recluses' River Downstream", ("Recluses' River Downstream", 76918)},
+                { "Recluses' River Upstream", ("Recluses' River Upstream", 76917)},
+                { "Bridge Leading to the Village", ("Bridge Leading to the Village", 76904)},
+                { "Cathedral of Manus Metyr", ("Cathedral of Manus Metyr", 76906)},
+                { "Church District Highroad", ("Church District Highroad", 76905)},
+                { "Scaduview", ("Scaduview", 76930)},
+                { "Shadow Keep, Back Gate", ("Shadow Keep, Back Gate", 76931)},
+                { "Fingerstone Hill", ("Fingerstone Hill", 76936)},
+                { "Hinterland Bridge", ("Hinterland Bridge", 76937)},
+                { "Hinterland", ("Hinterland", 76935)},
+                { "Scadutree Base", ("Scadutree Base", 76960)}
+                #endregion
+            };
+
+            if (graceMapping.TryGetValue(grace, out var bossInfo))
+            {
+                return new GraceER { Title = bossInfo.Title, Id = bossInfo.Id };
             }
-            return cGrace;
+            else
+            {
+                throw new ArgumentException($"Invalid grace string: {grace}");
+            }
         }
 
         #endregion
@@ -587,7 +746,7 @@ namespace AutoSplitterCore
         public bool ResetIGTNG = false;
         //Flags to Split
         public List<DefinitionsElden.BossER> bossToSplit = new List<DefinitionsElden.BossER>();
-        public List<DefinitionsElden.Grace> graceToSplit = new List<DefinitionsElden.Grace>();
+        public List<DefinitionsElden.GraceER> graceToSplit = new List<DefinitionsElden.GraceER>();
         public List<DefinitionsElden.PositionER> positionToSplit = new List<DefinitionsElden.PositionER>();
         public List<DefinitionsElden.CustomFlagER> flagsToSplit = new List<DefinitionsElden.CustomFlagER>();
 
@@ -597,7 +756,7 @@ namespace AutoSplitterCore
             return this.bossToSplit;
         }
 
-        public List<DefinitionsElden.Grace> getGraceToSplit()
+        public List<DefinitionsElden.GraceER> getGraceToSplit()
         {
             return this.graceToSplit;
         }

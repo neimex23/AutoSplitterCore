@@ -22,11 +22,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using SoulMemory;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AutoSplitterCore
 {

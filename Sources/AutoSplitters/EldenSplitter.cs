@@ -151,7 +151,7 @@ namespace AutoSplitterCore
 
         public void AddGrace (string grace, string mode)
         {
-            DefinitionsElden.Grace cGrace = defE.stringToGraceEnum(grace);
+            DefinitionsElden.GraceER cGrace = defE.stringToGraceEnum(grace);
             cGrace.Mode = mode;
             dataElden.graceToSplit.Add(cGrace);
         }
@@ -297,7 +297,7 @@ namespace AutoSplitterCore
 
        
         List<DefinitionsElden.BossER> listPendingB = new List<DefinitionsElden.BossER>();
-        List<DefinitionsElden.Grace> listPendingG = new List<DefinitionsElden.Grace>();
+        List<DefinitionsElden.GraceER> listPendingG = new List<DefinitionsElden.GraceER>();
         List<DefinitionsElden.PositionER> listPendingP = new List<DefinitionsElden.PositionER>();
         List<DefinitionsElden.CustomFlagER> listPendingCf = new List<DefinitionsElden.CustomFlagER>();
 

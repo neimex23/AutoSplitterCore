@@ -402,6 +402,24 @@ namespace AutoSplitterCore
             this.comboBoxToSplitSelectDs3 = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.tabElden = new System.Windows.Forms.TabPage();
+            this.panelGraceER = new System.Windows.Forms.Panel();
+            this.comboBoxGraceDLC_ER = new System.Windows.Forms.ComboBox();
+            this.checkBoxViewDlcGrace = new System.Windows.Forms.CheckBox();
+            this.listBoxGrace = new System.Windows.Forms.ListBox();
+            this.btnAddGraceER = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.comboBoxHowGraceER = new System.Windows.Forms.ComboBox();
+            this.comboBoxGraceER = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panelBossER = new System.Windows.Forms.Panel();
+            this.comboBoxBossER_DLC = new System.Windows.Forms.ComboBox();
+            this.checkBoxDLCBoss = new System.Windows.Forms.CheckBox();
+            this.btnAddBossER = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxBossER = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.comboBoxHowBossER = new System.Windows.Forms.ComboBox();
+            this.listBoxBossER = new System.Windows.Forms.ListBox();
             this.panelCfER = new System.Windows.Forms.Panel();
             this.label93 = new System.Windows.Forms.Label();
             this.textBoxTitleCFER = new System.Windows.Forms.TextBox();
@@ -427,20 +445,6 @@ namespace AutoSplitterCore
             this.textBoxZEr = new System.Windows.Forms.TextBox();
             this.textBoxYEr = new System.Windows.Forms.TextBox();
             this.textBoxXEr = new System.Windows.Forms.TextBox();
-            this.panelGraceER = new System.Windows.Forms.Panel();
-            this.listBoxGrace = new System.Windows.Forms.ListBox();
-            this.btnAddGraceER = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
-            this.comboBoxHowGraceER = new System.Windows.Forms.ComboBox();
-            this.comboBoxZoneSelectER = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.panelBossER = new System.Windows.Forms.Panel();
-            this.btnAddBossER = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxBossER = new System.Windows.Forms.ComboBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.comboBoxHowBossER = new System.Windows.Forms.ComboBox();
-            this.listBoxBossER = new System.Windows.Forms.ListBox();
             this.EldenRingRunning = new System.Windows.Forms.Label();
             this.EldenRingNotRunning = new System.Windows.Forms.Label();
             this.btnRefreshE = new System.Windows.Forms.Button();
@@ -597,10 +601,10 @@ namespace AutoSplitterCore
             this.panelBonfireDs3.SuspendLayout();
             this.panelBossDs3.SuspendLayout();
             this.tabElden.SuspendLayout();
-            this.panelCfER.SuspendLayout();
-            this.panelPositionsER.SuspendLayout();
             this.panelGraceER.SuspendLayout();
             this.panelBossER.SuspendLayout();
+            this.panelCfER.SuspendLayout();
+            this.panelPositionsER.SuspendLayout();
             this.tabHollow.SuspendLayout();
             this.panelPositionH.SuspendLayout();
             this.panelBossH.SuspendLayout();
@@ -5805,10 +5809,10 @@ namespace AutoSplitterCore
             // tabElden
             // 
             this.tabElden.BackColor = System.Drawing.SystemColors.Control;
+            this.tabElden.Controls.Add(this.panelBossER);
+            this.tabElden.Controls.Add(this.panelGraceER);
             this.tabElden.Controls.Add(this.panelCfER);
             this.tabElden.Controls.Add(this.panelPositionsER);
-            this.tabElden.Controls.Add(this.panelGraceER);
-            this.tabElden.Controls.Add(this.panelBossER);
             this.tabElden.Controls.Add(this.EldenRingRunning);
             this.tabElden.Controls.Add(this.EldenRingNotRunning);
             this.tabElden.Controls.Add(this.btnRefreshE);
@@ -5821,6 +5825,832 @@ namespace AutoSplitterCore
             this.tabElden.Size = new System.Drawing.Size(587, 351);
             this.tabElden.TabIndex = 3;
             this.tabElden.Text = "Elden Ring";
+            // 
+            // panelGraceER
+            // 
+            this.panelGraceER.Controls.Add(this.comboBoxGraceDLC_ER);
+            this.panelGraceER.Controls.Add(this.checkBoxViewDlcGrace);
+            this.panelGraceER.Controls.Add(this.listBoxGrace);
+            this.panelGraceER.Controls.Add(this.btnAddGraceER);
+            this.panelGraceER.Controls.Add(this.label31);
+            this.panelGraceER.Controls.Add(this.comboBoxHowGraceER);
+            this.panelGraceER.Controls.Add(this.comboBoxGraceER);
+            this.panelGraceER.Controls.Add(this.label33);
+            this.panelGraceER.Location = new System.Drawing.Point(40, 85);
+            this.panelGraceER.Name = "panelGraceER";
+            this.panelGraceER.Size = new System.Drawing.Size(504, 240);
+            this.panelGraceER.TabIndex = 21;
+            // 
+            // comboBoxGraceDLC_ER
+            // 
+            this.comboBoxGraceDLC_ER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxGraceDLC_ER.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxGraceDLC_ER.FormattingEnabled = true;
+            this.comboBoxGraceDLC_ER.Items.AddRange(new object[] {
+            "Theatre of the Divine Beast",
+            "Belurat, Tower Settlement",
+            "Small Private Altar",
+            "Stagefront",
+            "Gate of Divinity",
+            "Enir-Ilim: Outer Wall",
+            "First Rise",
+            "Spiral Rise",
+            "Cleansing Chamber Anteroom",
+            "Divine Gate Front Staircase",
+            "Main Gate Plaza",
+            "Shadow Keep Main Gate",
+            "Church District Entrance",
+            "Sunken Chapel",
+            "Tree,Worship Passage",
+            "Tree,Worship Sanctum",
+            "Messmer\'s Dark Chamber",
+            "Storehouse, First Floor",
+            "Storehouse, Fourth Floor",
+            "Storehouse, Seventh Floor",
+            "Dark Chamber Entrance",
+            "Storehouse, Back Section",
+            "Storehouse, Loft",
+            "West Rampart",
+            "Garden of Deep Purple",
+            "Stone Coffin Fissure",
+            "Fissure Cross",
+            "Fissure Waypoint",
+            "Fissure Depths",
+            "Finger Birthing Grounds",
+            "Discussion Chamber",
+            "Manse Hall",
+            "Midra\'s Library",
+            "Second Floor Chamber",
+            "Fog Rift Catacombs",
+            "Ruined Forge Lava Intake",
+            "Rivermouth Cave",
+            "Dragon\'s Pit",
+            "Dragon\'s Pit Terminus",
+            "Cliffroad Terminus",
+            "Main Gate Cross",
+            "Gravesite Plain",
+            "Three,Path Cross",
+            "Greatbridge, North",
+            "Scorched Ruins",
+            "Ellac River Cave",
+            "Castle Front",
+            "Pillar Path Waypoint",
+            "Pillar Path Cross",
+            "Belurat Gaol",
+            "Ellac River Downstream",
+            "Charo\'s Hidden Grave",
+            "Lamenter\'s Gaol",
+            "Castle Ensis Checkpoint",
+            "Ensis Moongazing Grounds",
+            "Castle,Lord\'s Chamber",
+            "Cerulean Coast West",
+            "The Fissure",
+            "Cerulean Coast Cross",
+            "Cerulean Coast",
+            "Finger Ruins of Rhia",
+            "Grand Altar of Dragon Communion",
+            "Divided Falls",
+            "Abyssal Woods",
+            "Forsaken Graveyard",
+            "Church Ruins",
+            "Woodland Trail",
+            "Foot of the Jagged Peak",
+            "Jagged Peak Mountainside",
+            "Jagged Peak Summit",
+            "Rest of the Dread Dragon",
+            "Ancient Ruins, Grand Stairway",
+            "Church of the Bud",
+            "Church of the Bud, Main Entrance",
+            "Rauh Ancient Ruins, West",
+            "Rauh Ancient Ruins, East",
+            "Viaduct Minor Tower",
+            "Temple Town Ruins",
+            "Ravine North",
+            "Scorpion River Catacombs",
+            "Taylew\'s Ruined Forge",
+            "Ancient Ruins Base",
+            "Darklight Catacombs",
+            "Bonny Gaol",
+            "Highroad Cross",
+            "Scadu Altus, West",
+            "Moorth Highway, South",
+            "Fort of Reprimand",
+            "Behind the Fort of Reprimand",
+            "Moorth Ruins",
+            "Bonny Village",
+            "Castle Watering Hole",
+            "Ruined Forge of Starfall Past",
+            "Scaduview Cross",
+            "Recluses\' River Downstream",
+            "Recluses\' River Upstream",
+            "Bridge Leading to the Village",
+            "Cathedral of Manus Metyr",
+            "Church District Highroad",
+            "Scaduview",
+            "Shadow Keep, Back Gate",
+            "Fingerstone Hill",
+            "Hinterland Bridge",
+            "Hinterland",
+            "Scadutree Base"});
+            this.comboBoxGraceDLC_ER.Location = new System.Drawing.Point(89, 7);
+            this.comboBoxGraceDLC_ER.Name = "comboBoxGraceDLC_ER";
+            this.comboBoxGraceDLC_ER.Size = new System.Drawing.Size(335, 21);
+            this.comboBoxGraceDLC_ER.TabIndex = 18;
+            // 
+            // checkBoxViewDlcGrace
+            // 
+            this.checkBoxViewDlcGrace.AutoSize = true;
+            this.checkBoxViewDlcGrace.Location = new System.Drawing.Point(368, 37);
+            this.checkBoxViewDlcGrace.Name = "checkBoxViewDlcGrace";
+            this.checkBoxViewDlcGrace.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxViewDlcGrace.TabIndex = 17;
+            this.checkBoxViewDlcGrace.Text = "View DLC Only";
+            this.checkBoxViewDlcGrace.UseVisualStyleBackColor = true;
+            this.checkBoxViewDlcGrace.CheckStateChanged += new System.EventHandler(this.checkBoxViewDlcGrace_CheckStateChanged);
+            // 
+            // listBoxGrace
+            // 
+            this.listBoxGrace.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxGrace.FormattingEnabled = true;
+            this.listBoxGrace.Location = new System.Drawing.Point(8, 88);
+            this.listBoxGrace.Name = "listBoxGrace";
+            this.listBoxGrace.Size = new System.Drawing.Size(489, 147);
+            this.listBoxGrace.TabIndex = 16;
+            this.listBoxGrace.DoubleClick += new System.EventHandler(this.listBoxGrace_DoubleClick);
+            // 
+            // btnAddGraceER
+            // 
+            this.btnAddGraceER.Location = new System.Drawing.Point(213, 61);
+            this.btnAddGraceER.Name = "btnAddGraceER";
+            this.btnAddGraceER.Size = new System.Drawing.Size(100, 21);
+            this.btnAddGraceER.TabIndex = 15;
+            this.btnAddGraceER.Text = "Add";
+            this.btnAddGraceER.UseVisualStyleBackColor = true;
+            this.btnAddGraceER.Click += new System.EventHandler(this.btnAddGraceER_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(125, 37);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(27, 13);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "how";
+            // 
+            // comboBoxHowGraceER
+            // 
+            this.comboBoxHowGraceER.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxHowGraceER.FormattingEnabled = true;
+            this.comboBoxHowGraceER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowGraceER.Location = new System.Drawing.Point(170, 34);
+            this.comboBoxHowGraceER.Name = "comboBoxHowGraceER";
+            this.comboBoxHowGraceER.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxHowGraceER.TabIndex = 12;
+            // 
+            // comboBoxGraceER
+            // 
+            this.comboBoxGraceER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxGraceER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.comboBoxGraceER.FormattingEnabled = true;
+            this.comboBoxGraceER.Items.AddRange(new object[] {
+            "Raya Lucaria Grand Library",
+            "Debate Parlor",
+            "Church of the Cuckoo",
+            "Schoolhouse Classroom",
+            "Dragonkin Soldier of Nokstella",
+            "Ainsel River Well Depths",
+            "Ainsel River Sluice Gate",
+            "Ainsel River Downstream",
+            "Astel, Naturalborn of the Void",
+            "Ainsel River Main",
+            "Nokstella, Eternal City",
+            "Nokstella Waterfall Basin",
+            "Sainted Hero\'s Grave",
+            "Unsightly Catacombs",
+            "Perfumer\'s Grotto",
+            "Sage\'s Cave",
+            "Old Altus Tunnel",
+            "Altus Tunnel",
+            "Abandoned Coffin",
+            "Altus Plateau",
+            "Erdtree-Gazing Hill",
+            "Altus Highway Junction",
+            "Forest-Spanning Greatbridge",
+            "Rampartside Path",
+            "Bower of Bounty",
+            "Road of Iniquity Side Path",
+            "Windmill Village",
+            "Windmill Heights",
+            "Shaded Castle Ramparts",
+            "Shaded Castle Inner Gate",
+            "Castellan\'s Hall",
+            "East Raya Lucaria Gate",
+            "Bellum Church",
+            "Frenzied Flame Village Outskirts",
+            "Church of Inhibition",
+            "Minor Erdtree Catacombs",
+            "Caelid Catacombs",
+            "War-Dead Catacombs",
+            "Abandoned Cave",
+            "Gaol Cave",
+            "Gael Tunnel",
+            "Rear Gael Tunnel Entrance",
+            "Sellia Crystal Tunnel",
+            "Smoldering Church",
+            "Rotview Balcony",
+            "Fort Gael North",
+            "Caelem Ruins",
+            "Cathedral of Dragon Communion",
+            "Caelid Highway South",
+            "Smoldering Wall",
+            "Deep Siofra Well",
+            "Southern Aeonia Swamp Bank",
+            "Sellia Backstreets",
+            "Chair-Crypt of Sellia",
+            "Sellia Under-Stair",
+            "Impassable Greatbridge",
+            "Church of the Plague",
+            "Redmane Castle Plaza",
+            "Chamber Outside the Plaza",
+            "Starscourge Radahn",
+            "Auriza Hero\'s Grave",
+            "Auriza Side Tomb",
+            "Divine Tower of West Altus",
+            "Sealed Tunnel",
+            "Divine Tower of West Altus: Gate",
+            "Outer Wall Phantom Tree",
+            "Minor Erdtree Church",
+            "Hermit Merchant\'s Shack",
+            "Outer Wall Battleground",
+            "Capital Rampart",
+            "Consecrated Snowfield Catacombs",
+            "Cave of the Forlorn",
+            "Yelough Anix Tunnel",
+            "Consecrated Snowfield",
+            "Inner Consecrated Snowfield",
+            "Ordina, Liturgical Town",
+            "Apostate Derelict",
+            "Maliketh, the Black Blade",
+            "Dragonlord Placidusax",
+            "Dragon Temple Altar",
+            "Crumbling Beast Grave",
+            "Crumbling Beast Grave Depths",
+            "Tempest-Facing Balcony",
+            "Dragon Temple",
+            "Dragon Temple Transept",
+            "Dragon Temple Lift",
+            "Dragon Temple Rooftop",
+            "Beside the Great Bridge",
+            "Prince of Death\'s Throne",
+            "Root-Facing Cliffs",
+            "Great Waterfall Crest",
+            "Deeproot Depths",
+            "The Nameless Eternal City",
+            "Across the Roots",
+            "Fractured Marika",
+            "Malenia, Goddess of Rot",
+            "Prayer Room",
+            "Elphael Inner Wall",
+            "Drainage Channel",
+            "Haligtree Roots",
+            "Giant-Conquering Hero\'s Grave",
+            "Giants\' Mountaintop Catacombs",
+            "Giants\' Gravepost",
+            "Church of Repose",
+            "Foot of the Forge",
+            "Fire Giant",
+            "Forge of the Giants",
+            "Hidden Path to the Haligtree",
+            "Divine Tower of East Altus: Gate",
+            "Divine Tower of East Altus",
+            "Forbidden Lands",
+            "Grand Lift of Rold",
+            "Dragonbarrow Cave",
+            "Sellia Hideaway",
+            "Divine Tower of Caelid",
+            "Divine Tower of Caelid: Center",
+            "Isolated Divine Tower",
+            "Dragonbarrow West",
+            "Isolated Merchant\'s Shack (Greyoll\'s Dragonbarrow)",
+            "Dragonbarrow Fork",
+            "Fort Faroth",
+            "Bestial Sanctum",
+            "Lenne\'s Rise",
+            "Farum Greatbridge",
+            "Lake of Rot Shoreside",
+            "Grand Cloister",
+            "Elden Throne (Leyndell, Ashen Capital)",
+            "Erdtree Sanctuary (Leyndell, Ashen Capital)",
+            "East Capital Rampart (Leyndell, Ashen Capital)",
+            "Leyndell, Capital of Ash",
+            "Queen\'s Bedchamber (Leyndell, Ashen Capital)",
+            "Divine Bridge (Leyndell, Ashen Capital)",
+            "Elden Throne (Leyndell, Royal Capital)",
+            "Erdtree Sanctuary (Leyndell, Royal Capital)",
+            "East Capital Rampart (Leyndell, Royal Capital)",
+            "Lower Capital Church",
+            "Avenue Balcony",
+            "West Capital Rampart",
+            "Queen\'s Bedchamber (Leyndell, Royal Capital)",
+            "Fortified Manor, First Floor",
+            "Divine Bridge (Leyndell, Royal Capital)",
+            "Stormfoot Catacombs",
+            "Murkwater Catacombs",
+            "Murkwater Cave",
+            "Groveside Cave",
+            "Coastal Cave",
+            "Highroad Cave",
+            "Limgrave Tunnels",
+            "Church of Elleh",
+            "The First Step",
+            "Artist\'s Shack (Limgrave)",
+            "Third Church of Marika",
+            "Fort Haight West",
+            "Agheel Lake South",
+            "Agheel Lake North",
+            "Church of Dragon Communion",
+            "Gatefront",
+            "Seaside Ruins",
+            "Mistwood Outskirts",
+            "Murkwater Coast",
+            "Summonwater Village Outskirts",
+            "Waypoint Ruins Cellar",
+            "Road\'s End Catacombs",
+            "Black Knife Catacombs",
+            "Cliffbottom Catacombs",
+            "Stillwater Cave",
+            "Lakeside Crystal Cave",
+            "Academy Crystal Cave",
+            "Raya Lucaria Crystal Tunnel",
+            "Study Hall Entrance",
+            "Liurnia Tower Bridge",
+            "Divine Tower of Liurnia",
+            "Lake-Facing Cliffs",
+            "Liurnia Lake Shore",
+            "Laskyar Ruins",
+            "Scenic Isle",
+            "Academy Gate Town",
+            "South Raya Lucaria Gate",
+            "Main Academy Gate",
+            "Grand Lift of Dectus",
+            "Foot of the Four Belfries",
+            "Sorcerer\'s Isle",
+            "Northern Liurnia Lake Shore",
+            "Road to the Manor",
+            "Main Caria Manor Gate",
+            "Slumbering Wolf\'s Shack",
+            "Boilprawn Shack",
+            "Artist\'s Shack (Liurnia of the Lakes)",
+            "Revenger\'s Shack",
+            "Folly on the Lake",
+            "Village of the Albinaurics",
+            "Liurnia Highway North",
+            "Gate Town Bridge",
+            "Eastern Liurnia Lake Shore",
+            "Church of Vows",
+            "Ruined Labyrinth",
+            "Mausoleum Compound",
+            "The Four Belfries",
+            "Ranni\'s Rise",
+            "Ravine-Veiled Village",
+            "Manor Upper Level",
+            "Manor Lower Level",
+            "Royal Moongazing Grounds",
+            "Gate Town North",
+            "Eastern Tableland",
+            "The Ravine",
+            "Fallen Ruins of the Lake",
+            "Converted Tower",
+            "Behind Caria Manor",
+            "Temple Quarter",
+            "East Gate Bridge Trestle",
+            "Crystalline Woods",
+            "Liurnia Highway South",
+            "Jarburg",
+            "Ranni\'s Chamber",
+            "Haligtree Promenade",
+            "Haligtree Canopy",
+            "Haligtree Town",
+            "Haligtree Town Plaza",
+            "Cocoon of the Empyrean",
+            "Palace Approach Ledge-Road",
+            "Dynasty Mausoleum Entrance",
+            "Dynasty Mausoleum Midpoint",
+            "Moonlight Altar",
+            "Cathedral of Manus Celes",
+            "Altar South",
+            "Spiritcaller\'s Cave",
+            "Zamor Ruins",
+            "Ancient Snow Valley Ruins",
+            "Freezing Lake",
+            "First Church of Marika",
+            "Whiteridge Road",
+            "Snow Valley Ruins Overlook",
+            "Castle Sol Main Gate",
+            "Church of the Eclipse",
+            "Castle Sol Rooftop",
+            "Wyndham Catacombs",
+            "Gelmir Hero\'s Grave",
+            "Seethewater Cave",
+            "Volcano Cave",
+            "Bridge of Iniquity",
+            "First Mt. Gelmir Campsite",
+            "Ninth Mt. Gelmir Campsite",
+            "Road of Iniquity",
+            "Seethewater River",
+            "Seethewater Terminus",
+            "Craftsman\'s Shack",
+            "Primeval Sorcerer Azur",
+            "Great Waterfall Basin",
+            "Mimic Tear",
+            "Ancestral Woods",
+            "Aqueduct-Facing Cliffs",
+            "Night\'s Sacred Ground",
+            "Nokron, Eternal City",
+            "Table of Lost Grace",
+            "Magma Wyrm",
+            "Ruin-Strewn Precipice",
+            "Ruin-Strewn Precipice Overlook",
+            "Siofra River Bank",
+            "Worshippers\' Woods",
+            "Below the Well",
+            "Siofra River Well Depths",
+            "Deathtouched Catacombs",
+            "Limgrave Tower Bridge",
+            "Divine Tower of Limgrave",
+            "Stormhill Shack",
+            "Saintsbridge",
+            "Warmaster\'s Shack",
+            "Godrick the Grafted",
+            "Margit, the Fell Omen",
+            "Castleward Tunnel",
+            "Gateside Chamber",
+            "Stormveil Cliffside",
+            "Rampart Tower",
+            "Liftside Chamber",
+            "Secluded Cell",
+            "Stormveil Main Gate",
+            "Cave of Knowledge",
+            "Stranded Graveyard",
+            "Cathedral of the Forsaken",
+            "Underground Roadside",
+            "Forsaken Depths",
+            "Leyndell Catacombs",
+            "Frenzied Flame Proscription",
+            "Aeonia Swamp Shore",
+            "Astray from Caelid Highway North",
+            "Heart of Aeonia",
+            "Inner Aeonia",
+            "Rykard, Lord of Blasphemy",
+            "Temple of Eiglay",
+            "Volcano Manor",
+            "Prison Town Church",
+            "Guest Hall",
+            "Audience Pathway",
+            "Abductor Virgin",
+            "Subterranean Inquisition Chamber",
+            "Tombsward Catacombs",
+            "Impaler\'s Catacombs",
+            "Earthbore Cave",
+            "Tombsward Cave",
+            "Morne Tunnel",
+            "Church of Pilgrimage",
+            "Castle Morne Rampart",
+            "Tombsward",
+            "South of the Lookout Tower",
+            "Ailing Village Outskirts",
+            "Beside the Crater-Pocked Glade",
+            "Isolated Merchant\'s Shack (Weeping Peninsula)",
+            "Bridge of Sacrifice",
+            "Castle Morne Lift",
+            "Behind the Castle",
+            "Beside the Rampart Gaol",
+            "Morne Moangrave",
+            "Fourth Church of Marika"});
+            this.comboBoxGraceER.Location = new System.Drawing.Point(83, 7);
+            this.comboBoxGraceER.Name = "comboBoxGraceER";
+            this.comboBoxGraceER.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxGraceER.TabIndex = 9;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(38, 10);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(34, 13);
+            this.label33.TabIndex = 8;
+            this.label33.Text = "grace";
+            // 
+            // panelBossER
+            // 
+            this.panelBossER.Controls.Add(this.comboBoxBossER_DLC);
+            this.panelBossER.Controls.Add(this.checkBoxDLCBoss);
+            this.panelBossER.Controls.Add(this.btnAddBossER);
+            this.panelBossER.Controls.Add(this.label4);
+            this.panelBossER.Controls.Add(this.comboBoxBossER);
+            this.panelBossER.Controls.Add(this.label28);
+            this.panelBossER.Controls.Add(this.comboBoxHowBossER);
+            this.panelBossER.Controls.Add(this.listBoxBossER);
+            this.panelBossER.Location = new System.Drawing.Point(39, 85);
+            this.panelBossER.Name = "panelBossER";
+            this.panelBossER.Size = new System.Drawing.Size(505, 240);
+            this.panelBossER.TabIndex = 20;
+            // 
+            // comboBoxBossER_DLC
+            // 
+            this.comboBoxBossER_DLC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBossER_DLC.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxBossER_DLC.FormattingEnabled = true;
+            this.comboBoxBossER_DLC.Items.AddRange(new object[] {
+            "Ghostflame Dragon - Gravesite Plain (Northwest)",
+            "Blackgaol Knight - Western Nameless Mausoleum",
+            "Chief Bloodfiend - Rivermouth Cave",
+            "Lamenter - Lamenter\'s Gaol",
+            "Demi-Human Swordmaster Onze - Belurat Gaol",
+            "Divine Beast Dancing Lion - Belurat, Tower Settlement",
+            "Rellana, Twin Moon Knight - Castle Ensis",
+            "Ghostflame Dragon",
+            "Ralva the Great Red Bear",
+            "Rugalea the Great Red Bear - Rauh Base (Northwest)",
+            "Dryleaf Dane - Moorth Ruins",
+            "Black Knight Edredd - Fort of Reprimand",
+            "Black Knight Garrew - Fog Rift Fort",
+            "Red Bear - Northern Nameless Mausoleum",
+            "Rakshasa - Eastern Nameless Mausoleum",
+            "Metyr, Mother of Fingers - Cathedral of Manus Metyr",
+            "Count Ymir, Mother of Fingers - Cathedral of Manus Metyr",
+            "Death Knight - Fog Rift Catacombs",
+            "Death Knight - Scorpion River Catacombs",
+            "Curseblade Labirith - Bonny Gaol",
+            "Golden Hippopotamus - Main Gate Plaza",
+            "Base Serpent Messmer - Messmer\'s Dark Chamber",
+            "Divine Beast Dancing Lion - Ancient Ruins of Rauh",
+            "Romina, Saint of the Bud - Church of the Bud",
+            "Ghostflame Dragon - Cerulean Coast",
+            "Dancer of Ranah - Southern Nameless Mausoleum",
+            "Putrescent Knight - Stone Coffin Fissure",
+            "Death Rite Bird - Charo\'s Hidden Grave",
+            "Demi-Human Queen Marigga - Charo\'s Hidden Grave (West)",
+            "Jagged Peak Drake - Foot of the Jagged Peak",
+            "Jagged Peak Drake - Jagged Peak Mountainside",
+            "Ancient Dragon-Man - Dragon\'s Pit",
+            "Ancient Dragon Senessax - Jagged Peak Mountainside",
+            "Bayle the Dread - Jagged Peak Summit",
+            "Tree Sentinel - Hinterland",
+            "Tree Sentinel - Hinterland Bridge",
+            "Fallingstar Beast - Fingerstone Hill",
+            "Commander Gaius - Scaduview",
+            "Scadutree Avatar - Scadutree Base",
+            "Jori, Elder Inquisitor - Darklight Catacombs",
+            "Midra, Lord of Frenzied Flame - Midra\'s Manse",
+            "Radahn, Consort of Miquella - Enir-Ilim"});
+            this.comboBoxBossER_DLC.Location = new System.Drawing.Point(184, 18);
+            this.comboBoxBossER_DLC.Name = "comboBoxBossER_DLC";
+            this.comboBoxBossER_DLC.Size = new System.Drawing.Size(276, 21);
+            this.comboBoxBossER_DLC.TabIndex = 16;
+            // 
+            // checkBoxDLCBoss
+            // 
+            this.checkBoxDLCBoss.AutoSize = true;
+            this.checkBoxDLCBoss.Location = new System.Drawing.Point(328, 48);
+            this.checkBoxDLCBoss.Name = "checkBoxDLCBoss";
+            this.checkBoxDLCBoss.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxDLCBoss.TabIndex = 15;
+            this.checkBoxDLCBoss.Text = "View DLC Boss";
+            this.checkBoxDLCBoss.UseVisualStyleBackColor = true;
+            this.checkBoxDLCBoss.CheckStateChanged += new System.EventHandler(this.checkBoxDLC_CheckStateChanged);
+            // 
+            // btnAddBossER
+            // 
+            this.btnAddBossER.Location = new System.Drawing.Point(204, 48);
+            this.btnAddBossER.Name = "btnAddBossER";
+            this.btnAddBossER.Size = new System.Drawing.Size(100, 21);
+            this.btnAddBossER.TabIndex = 14;
+            this.btnAddBossER.Text = "Add";
+            this.btnAddBossER.UseVisualStyleBackColor = true;
+            this.btnAddBossER.Click += new System.EventHandler(this.btnAddBossER_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(295, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Boss:";
+            // 
+            // comboBoxBossER
+            // 
+            this.comboBoxBossER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBossER.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxBossER.FormattingEnabled = true;
+            this.comboBoxBossER.Items.AddRange(new object[] {
+            "Godrick the Grafted - Stormveil Castle",
+            "Margit, the Fell Omen - Stormveil Castle",
+            "Grafted Scion - Chapel of Anticipation",
+            "Morgott, the Omen King - Leyndell",
+            "Godfrey, First Elden Lord - Leyndell",
+            "Hoarah Loux - Leyndell",
+            "Sir Gideon Ofnir, the All-Knowing - Leyndell",
+            "Dragonkin Soldier of Nokstella - Ainsel River",
+            "Dragonkin Soldier - Lake of Rot",
+            "Valiant Gargoyles - Siofra River",
+            "Dragonkin Soldier - Siofra River",
+            "Mimic Tear - Siofra River",
+            "Crucible Knight Sirulia - Deeproot Depths",
+            "Fia\'s Champion - Deeproot Depths",
+            "Lichdragon Fortissax - Deeproot Depths",
+            "Astel, Naturalborn of the Void - Lake of Rot",
+            "Mohg, Lord of Blood - Mohgwyn Palace",
+            "Ancestor Spirit - Siofra River",
+            "Regal Ancestor Spirit - Nokron, Eternal City",
+            "Maliketh, The Black Blade - Crumbling Farum Azula",
+            "Dragonlord Placidusax - Crumbling Farum Azula",
+            "Godskin Duo - Crumbling Farum Azula",
+            "Rennala, Queen of the Full Moon - Academy of Raya Lucaria",
+            "Red Wolf of Radagon - Academy of Raya Lucaria",
+            "Malenia, Blade of Miquella - Miquella\'s Haligtree",
+            "Loretta, Knight of the Haligtree - Miquella\'s Haligtree",
+            "Rykard, Lord of Blasphemy - Volcano Manor",
+            "Godskin Noble - Volcano Manor",
+            "Abductor Virgins - Volcano Manor",
+            "Ulcerated Tree Spirit - Stranded Graveyard",
+            "Soldier of Godrick - Stranded Graveyard",
+            "Elden Beast - Elden Throne",
+            "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)",
+            "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)",
+            "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)",
+            "Cemetery Shade - Tombsward Catacombs (Limgrave)",
+            "Erdtree Burial Watchdog - Impaler\'s Catacombs (Weeping Penisula)",
+            "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)",
+            "Black Knife Assassin - Deathtouched Catacombs (Limgrave)",
+            "Grave Warden Duelist - Murkwater Catacombs (Limgrave)",
+            "Cemetery Shade - Black Knife Catacombs (Liurnia)",
+            "Black Knife Assassin - Black Knife Catacombs (Liurnia)",
+            "Spirit-Caller Snail - Road\'s End Catacombs (Liurnia)",
+            "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)",
+            "Ancient Hero of Zamor - Sainted Hero\'s Grave (Altus Plateau)",
+            "Red Wolf of the Champion - Gelmir Hero\'s Grave (Mt. Gelmir)",
+            "Crucible Knight Ordovis - Auriza Hero\'s Grave (Altus Plateau)",
+            "Crucible Knight (Tree Spear) - Auriza Hero\'s Grave (Altus Plateau)",
+            "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)",
+            "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)",
+            "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)",
+            "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)",
+            "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)",
+            "Cemetery Shade - Caelid Catacombs (Caelid)",
+            "Putrid Tree Spirit - War-Dead Catacombs (Caelid)",
+            "Ancient Hero of Zamor - Giant-Conquering Hero\'s Grave (Mountaintops)",
+            "Ulcerated Tree Sprit - Giants\' Mountaintop Catacombs (Mountaintops)",
+            "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)",
+            "Stray Mimic Tear - Hidden Path to the Haligtree",
+            "Patches - Murkwater Cave (Limgrave)",
+            "Runebear - Earthbore Cave (Weeping Penisula)",
+            "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)",
+            "Beastman of Farum Azula - Groveside Cave (Limgrave)",
+            "Demi-Human Chief - Coastal Cave (Limgrave)",
+            "Guardian Golem - Highroad Cave (Limgrave)",
+            "Cleanrot Knight - Stillwater Cave (Liurnia)",
+            "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)",
+            "Crystalians - Academy Crystal Cave (Liurnia)",
+            "Kindred of Rot - Seethewater Cave (Mt. Gelmir)",
+            "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)",
+            "Miranda the Blighted Bloom - Perfumer\'s Grotto (Altus Plateau)",
+            "Black Knife Assassin - Sage\'s Cave (Altus Plateau)",
+            "Necromancer Garris - Sage\'s Cave (Altus Plateau)",
+            "Frenzied Duelist - Gaol Cave (Caelid)",
+            "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)",
+            "Cleanrot Knight - Abandoned Cave (Caelid)",
+            "Putrid Crystalians - Sellia Hideaway (Caelid)",
+            "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)",
+            "Spirit-Caller Snail - Spiritcaller\'s Cave (Mountaintops)",
+            "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)",
+            "Stonedigger Troll - Limgrave Tunnels (Limgrave)",
+            "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)",
+            "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)",
+            "Onyx Lord - Divine Tower of West Altus (Altus Plateau)",
+            "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)",
+            "Crystalian (Spear) - Altus Tunnel (Altus Plateau)",
+            "Magma Wyrm - Gael Tunnel (Caelid)",
+            "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)",
+            "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)",
+            "Godskin Apostle - Divine Tower of Caelid (Caelid)",
+            "Fell Twins - Divine Tower of East Altus (Capital Outskirts)",
+            "Mad Pumpkin Head - Waypoint Ruins (Limgrave)",
+            "Night\'s Cavalry - Agheel Lake North (Limgrave)",
+            "Deathbird - Stormgate (Limgrave)",
+            "Ball-Bearing Hunter - Warmaster\'s Shack (Limgrave)",
+            "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)",
+            "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)",
+            "Crucible Knight - Stormhill Evergaol (Limgrave)",
+            "Erdtree Avatar - Minor Erdtree (Weeping Penisula)",
+            "Night\'s Cavalry - Castle Morne Approach (Weeping Penisula)",
+            "Deathbird - Castle Morne Approach (Weeping Penisula)",
+            "Leonine Misbegotten - Castle Morne (Weeping Penisula)",
+            "Tree Sentinel - Church of Elleh (Limgrave)",
+            "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)",
+            "Tibia Mariner - Summonwater Village (Limgrave)",
+            "Royal Revenant - Kingsrealm Ruins (Liurnia)",
+            "Adan, Thief of Fire - Malefactor\'s Evergaol (Liurnia)",
+            "Bols, Carian Knight - Cuckoo\'s Evergaol (Liurnia)",
+            "Onyx Lord - Royal Grave Evergaol (Liurnia)",
+            "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)",
+            "Erdtree Avatar - Revenger\'s Shack (Liurnia)",
+            "Erdtree Avatar - Minor Erdtree (Liurnia)",
+            "Royal Knight Loretta - Carian Manor (Liurnia)",
+            "Ball-Bearing Hunter - Church of Vows (Liurnia)",
+            "Night\'s Cavalry - Liurnia Highway Far North (Liurnia)",
+            "Night\'s Cavalry - East Raya Lucaria Gate (Liurnia)",
+            "Deathbird - Laskyar Ruins (Liurnia)",
+            "Death Rite Bird - Gate Town Northwest (Liurnia)",
+            "Glintstone Dragon Smarag - Meeting Place (Liurnia)",
+            "Glintstone Dragon Adula - Ranni\'s Rise (Liurnia)",
+            "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)",
+            "Omenkiller - Village of the Albinaurics (Liurnia)",
+            "Tibia Mariner - Jarburg (Liurnia)",
+            "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)",
+            "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)",
+            "Demi-Human Queen - Lux Ruins (Altus Plateau)",
+            "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)",
+            "Sanguine Noble - Writheblood Ruins (Altus Plateau)",
+            "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)",
+            "Godskin Apostle - Windmill Heights (Altus Plateau)",
+            "Black Knife Assassin - Sainted Hero\'s Grave Entrance (Altus Plateau)",
+            "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)",
+            "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)",
+            "Wormface - Woodfolk Ruins (Altus Plateau)",
+            "Ball-Bearing Hunter - Hermit Merchant\'s Shack (Capital Outskirts)",
+            "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)",
+            "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)",
+            "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)",
+            "Elemer of the Briar - Shaded Castle (Altus Plateau)",
+            "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)",
+            "Tibia Mariner - Wyndham Ruins (Altus Plateau)",
+            "Putrid Avatar - Minor Erdtree (Caelid)",
+            "Decaying Ekzykes - Caelid Highway South (Caelid)",
+            "Monstrous Dog - Southwest of Caelid Highway South (Caelid)",
+            "Night\'s Cavalry - Southern Aeonia Swamp Bank (Caelid)",
+            "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)",
+            "Commander O\'Neil - East Aeonia Swamp (Caelid)",
+            "Crucible Knight - Redmane Castle (Caelid)",
+            "Starscourge Radahn - Battlefield (Caelid)",
+            "Nox Priest - West Sellia (Caelid)",
+            "Bell-Bearing Hunter - Isolated Merchant\'s Shack (Dragonbarrow)",
+            "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)",
+            "Putrid Avatar - Dragonbarrow Fork (Caelid)",
+            "Flying Dragon Greyll - Dragonbarrow (Caelid)",
+            "Night\'s Cavalry - Dragonbarrow (Caelid)",
+            "Black Blade Kindred - Bestial Sanctum (Caelid)",
+            "Night\'s Cavalry - Forbidden Lands (Mountaintops)",
+            "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)",
+            "Borealis the Freezing Fog - Freezing Fields (Mountaintops)",
+            "Roundtable Knight Vyke - Lord Contender\'s Evergaol (Mountaintops)",
+            "Fire Giant - Giant\'s Forge (Mountaintops)",
+            "Erdtree Avatar - Minor Erdtree (Mountaintops)",
+            "Death Rite Bird - West of Castle So (Mountaintops)",
+            "Putrid Avatar - Minor Erdtree (Snowfield)",
+            "Commander Niall - Castle Soul (Mountaintops)",
+            "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)",
+            "Night\'s Cavalry - Sourthwest (Mountaintops)",
+            "Death Rite Bird - Ordina, Liturgical Town (Snowfield)",
+            "Deathbird - Minor Erdtree (Capital Outskirts)"});
+            this.comboBoxBossER.Location = new System.Drawing.Point(184, 18);
+            this.comboBoxBossER.Name = "comboBoxBossER";
+            this.comboBoxBossER.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBossER.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(87, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(32, 13);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "How:";
+            // 
+            // comboBoxHowBossER
+            // 
+            this.comboBoxHowBossER.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxHowBossER.FormattingEnabled = true;
+            this.comboBoxHowBossER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowBossER.Location = new System.Drawing.Point(46, 18);
+            this.comboBoxHowBossER.Name = "comboBoxHowBossER";
+            this.comboBoxHowBossER.Size = new System.Drawing.Size(110, 21);
+            this.comboBoxHowBossER.TabIndex = 10;
+            // 
+            // listBoxBossER
+            // 
+            this.listBoxBossER.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxBossER.FormattingEnabled = true;
+            this.listBoxBossER.Location = new System.Drawing.Point(9, 82);
+            this.listBoxBossER.Name = "listBoxBossER";
+            this.listBoxBossER.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBossER.TabIndex = 7;
+            this.listBoxBossER.DoubleClick += new System.EventHandler(this.listBoxBossER_DoubleClick);
             // 
             // panelCfER
             // 
@@ -6085,638 +6915,6 @@ namespace AutoSplitterCore
             this.textBoxXEr.ReadOnly = true;
             this.textBoxXEr.Size = new System.Drawing.Size(52, 20);
             this.textBoxXEr.TabIndex = 0;
-            // 
-            // panelGraceER
-            // 
-            this.panelGraceER.Controls.Add(this.listBoxGrace);
-            this.panelGraceER.Controls.Add(this.btnAddGraceER);
-            this.panelGraceER.Controls.Add(this.label31);
-            this.panelGraceER.Controls.Add(this.comboBoxHowGraceER);
-            this.panelGraceER.Controls.Add(this.comboBoxZoneSelectER);
-            this.panelGraceER.Controls.Add(this.label33);
-            this.panelGraceER.Location = new System.Drawing.Point(40, 85);
-            this.panelGraceER.Name = "panelGraceER";
-            this.panelGraceER.Size = new System.Drawing.Size(504, 240);
-            this.panelGraceER.TabIndex = 21;
-            // 
-            // listBoxGrace
-            // 
-            this.listBoxGrace.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxGrace.FormattingEnabled = true;
-            this.listBoxGrace.Location = new System.Drawing.Point(8, 88);
-            this.listBoxGrace.Name = "listBoxGrace";
-            this.listBoxGrace.Size = new System.Drawing.Size(489, 147);
-            this.listBoxGrace.TabIndex = 16;
-            this.listBoxGrace.DoubleClick += new System.EventHandler(this.listBoxGrace_DoubleClick);
-            // 
-            // btnAddGraceER
-            // 
-            this.btnAddGraceER.Location = new System.Drawing.Point(213, 61);
-            this.btnAddGraceER.Name = "btnAddGraceER";
-            this.btnAddGraceER.Size = new System.Drawing.Size(100, 21);
-            this.btnAddGraceER.TabIndex = 15;
-            this.btnAddGraceER.Text = "Add";
-            this.btnAddGraceER.UseVisualStyleBackColor = true;
-            this.btnAddGraceER.Click += new System.EventHandler(this.btnAddGraceER_Click);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(125, 37);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(27, 13);
-            this.label31.TabIndex = 13;
-            this.label31.Text = "how";
-            // 
-            // comboBoxHowGraceER
-            // 
-            this.comboBoxHowGraceER.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboBoxHowGraceER.FormattingEnabled = true;
-            this.comboBoxHowGraceER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowGraceER.Location = new System.Drawing.Point(170, 34);
-            this.comboBoxHowGraceER.Name = "comboBoxHowGraceER";
-            this.comboBoxHowGraceER.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxHowGraceER.TabIndex = 12;
-            // 
-            // comboBoxZoneSelectER
-            // 
-            this.comboBoxZoneSelectER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxZoneSelectER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.comboBoxZoneSelectER.FormattingEnabled = true;
-            this.comboBoxZoneSelectER.Items.AddRange(new object[] {
-            "Raya Lucaria Grand Library",
-            "Debate Parlor",
-            "Church of the Cuckoo",
-            "Schoolhouse Classroom",
-            "Dragonkin Soldier of Nokstella",
-            "Ainsel River Well Depths",
-            "Ainsel River Sluice Gate",
-            "Ainsel River Downstream",
-            "Astel, Naturalborn of the Void",
-            "Ainsel River Main",
-            "Nokstella, Eternal City",
-            "Nokstella Waterfall Basin",
-            "Sainted Hero\'s Grave",
-            "Unsightly Catacombs",
-            "Perfumer\'s Grotto",
-            "Sage\'s Cave",
-            "Old Altus Tunnel",
-            "Altus Tunnel",
-            "Abandoned Coffin",
-            "Altus Plateau",
-            "Erdtree-Gazing Hill",
-            "Altus Highway Junction",
-            "Forest-Spanning Greatbridge",
-            "Rampartside Path",
-            "Bower of Bounty",
-            "Road of Iniquity Side Path",
-            "Windmill Village",
-            "Windmill Heights",
-            "Shaded Castle Ramparts",
-            "Shaded Castle Inner Gate",
-            "Castellan\'s Hall",
-            "East Raya Lucaria Gate",
-            "Bellum Church",
-            "Frenzied Flame Village Outskirts",
-            "Church of Inhibition",
-            "Minor Erdtree Catacombs",
-            "Caelid Catacombs",
-            "War-Dead Catacombs",
-            "Abandoned Cave",
-            "Gaol Cave",
-            "Gael Tunnel",
-            "Rear Gael Tunnel Entrance",
-            "Sellia Crystal Tunnel",
-            "Smoldering Church",
-            "Rotview Balcony",
-            "Fort Gael North",
-            "Caelem Ruins",
-            "Cathedral of Dragon Communion",
-            "Caelid Highway South",
-            "Smoldering Wall",
-            "Deep Siofra Well",
-            "Southern Aeonia Swamp Bank",
-            "Sellia Backstreets",
-            "Chair-Crypt of Sellia",
-            "Sellia Under-Stair",
-            "Impassable Greatbridge",
-            "Church of the Plague",
-            "Redmane Castle Plaza",
-            "Chamber Outside the Plaza",
-            "Starscourge Radahn",
-            "Auriza Hero\'s Grave",
-            "Auriza Side Tomb",
-            "Divine Tower of West Altus",
-            "Sealed Tunnel",
-            "Divine Tower of West Altus: Gate",
-            "Outer Wall Phantom Tree",
-            "Minor Erdtree Church",
-            "Hermit Merchant\'s Shack",
-            "Outer Wall Battleground",
-            "Capital Rampart",
-            "Consecrated Snowfield Catacombs",
-            "Cave of the Forlorn",
-            "Yelough Anix Tunnel",
-            "Consecrated Snowfield",
-            "Inner Consecrated Snowfield",
-            "Ordina, Liturgical Town",
-            "Apostate Derelict",
-            "Maliketh, the Black Blade",
-            "Dragonlord Placidusax",
-            "Dragon Temple Altar",
-            "Crumbling Beast Grave",
-            "Crumbling Beast Grave Depths",
-            "Tempest-Facing Balcony",
-            "Dragon Temple",
-            "Dragon Temple Transept",
-            "Dragon Temple Lift",
-            "Dragon Temple Rooftop",
-            "Beside the Great Bridge",
-            "Prince of Death\'s Throne",
-            "Root-Facing Cliffs",
-            "Great Waterfall Crest",
-            "Deeproot Depths",
-            "The Nameless Eternal City",
-            "Across the Roots",
-            "Fractured Marika",
-            "Malenia, Goddess of Rot",
-            "Prayer Room",
-            "Elphael Inner Wall",
-            "Drainage Channel",
-            "Haligtree Roots",
-            "Giant-Conquering Hero\'s Grave",
-            "Giants\' Mountaintop Catacombs",
-            "Giants\' Gravepost",
-            "Church of Repose",
-            "Foot of the Forge",
-            "Fire Giant",
-            "Forge of the Giants",
-            "Hidden Path to the Haligtree",
-            "Divine Tower of East Altus: Gate",
-            "Divine Tower of East Altus",
-            "Forbidden Lands",
-            "Grand Lift of Rold",
-            "Dragonbarrow Cave",
-            "Sellia Hideaway",
-            "Divine Tower of Caelid",
-            "Divine Tower of Caelid: Center",
-            "Isolated Divine Tower",
-            "Dragonbarrow West",
-            "Isolated Merchant\'s Shack (Greyoll\'s Dragonbarrow)",
-            "Dragonbarrow Fork",
-            "Fort Faroth",
-            "Bestial Sanctum",
-            "Lenne\'s Rise",
-            "Farum Greatbridge",
-            "Lake of Rot Shoreside",
-            "Grand Cloister",
-            "Elden Throne (Leyndell, Ashen Capital)",
-            "Erdtree Sanctuary (Leyndell, Ashen Capital)",
-            "East Capital Rampart (Leyndell, Ashen Capital)",
-            "Leyndell, Capital of Ash",
-            "Queen\'s Bedchamber (Leyndell, Ashen Capital)",
-            "Divine Bridge (Leyndell, Ashen Capital)",
-            "Elden Throne (Leyndell, Royal Capital)",
-            "Erdtree Sanctuary (Leyndell, Royal Capital)",
-            "East Capital Rampart (Leyndell, Royal Capital)",
-            "Lower Capital Church",
-            "Avenue Balcony",
-            "West Capital Rampart",
-            "Queen\'s Bedchamber (Leyndell, Royal Capital)",
-            "Fortified Manor, First Floor",
-            "Divine Bridge (Leyndell, Royal Capital)",
-            "Stormfoot Catacombs",
-            "Murkwater Catacombs",
-            "Murkwater Cave",
-            "Groveside Cave",
-            "Coastal Cave",
-            "Highroad Cave",
-            "Limgrave Tunnels",
-            "Church of Elleh",
-            "The First Step",
-            "Artist\'s Shack (Limgrave)",
-            "Third Church of Marika",
-            "Fort Haight West",
-            "Agheel Lake South",
-            "Agheel Lake North",
-            "Church of Dragon Communion",
-            "Gatefront",
-            "Seaside Ruins",
-            "Mistwood Outskirts",
-            "Murkwater Coast",
-            "Summonwater Village Outskirts",
-            "Waypoint Ruins Cellar",
-            "Road\'s End Catacombs",
-            "Black Knife Catacombs",
-            "Cliffbottom Catacombs",
-            "Stillwater Cave",
-            "Lakeside Crystal Cave",
-            "Academy Crystal Cave",
-            "Raya Lucaria Crystal Tunnel",
-            "Study Hall Entrance",
-            "Liurnia Tower Bridge",
-            "Divine Tower of Liurnia",
-            "Uld Palace Ruins",
-            "Liurnia Lake Shore",
-            "Laskyar Ruins",
-            "Scenic Isle",
-            "Academy Gate Town",
-            "South Raya Lucaria Gate",
-            "Main Academy Gate",
-            "Grand Lift of Dectus",
-            "Foot of the Four Belfries",
-            "Sorcerer\'s Isle",
-            "Northern Liurnia Lake Shore",
-            "Road to the Manor",
-            "Main Caria Manor Gate",
-            "Slumbering Wolf\'s Shack",
-            "Boilprawn Shack",
-            "Artist\'s Shack (Liurnia of the Lakes)",
-            "Revenger\'s Shack",
-            "Folly on the Lake",
-            "Village of the Albinaurics",
-            "Liurnia Highway North",
-            "Gate Town Bridge",
-            "Eastern Liurnia Lake Shore",
-            "Church of Vows",
-            "Ruined Labyrinth",
-            "Mausoleum Compound",
-            "The Four Belfries",
-            "Ranni\'s Rise",
-            "Ravine-Veiled Village",
-            "Manor Upper Level",
-            "Manor Lower Level",
-            "Royal Moongazing Grounds",
-            "Gate Town North",
-            "Eastern Tableland",
-            "The Ravine",
-            "Fallen Ruins of the Lake",
-            "Converted Tower",
-            "Behind Caria Manor",
-            "Temple Quarter",
-            "East Gate Bridge Trestle",
-            "Crystalline Woods",
-            "Liurnia Highway South",
-            "Jarburg",
-            "Ranni\'s Chamber",
-            "Haligtree Promenade",
-            "Haligtree Canopy",
-            "Haligtree Town",
-            "Haligtree Town Plaza",
-            "Cocoon of the Empyrean",
-            "Palace Approach Ledge-Road",
-            "Dynasty Mausoleum Entrance",
-            "Dynasty Mausoleum Midpoint",
-            "Moonlight Altar",
-            "Cathedral of Manus Celes",
-            "Altar South",
-            "Spiritcaller\'s Cave",
-            "Zamor Ruins",
-            "Ancient Snow Valley Ruins",
-            "Freezing Lake",
-            "First Church of Marika",
-            "Whiteridge Road",
-            "Snow Valley Ruins Overlook",
-            "Castle Sol Main Gate",
-            "Church of the Eclipse",
-            "Castle Sol Rooftop",
-            "Wyndham Catacombs",
-            "Gelmir Hero\'s Grave",
-            "Seethewater Cave",
-            "Volcano Cave",
-            "Bridge of Iniquity",
-            "First Mt. Gelmir Campsite",
-            "Ninth Mt. Gelmir Campsite",
-            "Road of Iniquity",
-            "Seethewater River",
-            "Seethewater Terminus",
-            "Craftsman\'s Shack",
-            "Primeval Sorcerer Azur",
-            "Great Waterfall Basin",
-            "Mimic Tear",
-            "Ancestral Woods",
-            "Aqueduct-Facing Cliffs",
-            "Night\'s Sacred Ground",
-            "Nokron, Eternal City",
-            "Table of Lost Grace",
-            "Magma Wyrm",
-            "Ruin-Strewn Precipice",
-            "Ruin-Strewn Precipice Overlook",
-            "Siofra River Bank",
-            "Worshippers\' Woods",
-            "Below the Well",
-            "Siofra River Well Depths",
-            "Deathtouched Catacombs",
-            "Limgrave Tower Bridge",
-            "Divine Tower of Limgrave",
-            "Stormhill Shack",
-            "Saintsbridge",
-            "Warmaster\'s Shack",
-            "Godrick the Grafted",
-            "Margit, the Fell Omen",
-            "Castleward Tunnel",
-            "Gateside Chamber",
-            "Stormveil Cliffside",
-            "Rampart Tower",
-            "Liftside Chamber",
-            "Secluded Cell",
-            "Stormveil Main Gate",
-            "Cave of Knowledge",
-            "Stranded Graveyard",
-            "Cathedral of the Forsaken",
-            "Underground Roadside",
-            "Forsaken Depths",
-            "Leyndell Catacombs",
-            "Frenzied Flame Proscription",
-            "Aeonia Swamp Shore",
-            "Astray from Caelid Highway North",
-            "Heart of Aeonia",
-            "Inner Aeonia",
-            "Rykard, Lord of Blasphemy",
-            "Temple of Eiglay",
-            "Volcano Manor",
-            "Prison Town Church",
-            "Guest Hall",
-            "Audience Pathway",
-            "Abductor Virgin",
-            "Subterranean Inquisition Chamber",
-            "Tombsward Catacombs",
-            "Impaler\'s Catacombs",
-            "Earthbore Cave",
-            "Tombsward Cave",
-            "Morne Tunnel",
-            "Church of Pilgrimage",
-            "Castle Morne Rampart",
-            "Tombsward",
-            "South of the Lookout Tower",
-            "Ailing Village Outskirts",
-            "Beside the Crater-Pocked Glade",
-            "Isolated Merchant\'s Shack (Weeping Peninsula)",
-            "Bridge of Sacrifice",
-            "Castle Morne Lift",
-            "Behind the Castle",
-            "Beside the Rampart Gaol",
-            "Morne Moangrave",
-            "Fourth Church of Marika"});
-            this.comboBoxZoneSelectER.Location = new System.Drawing.Point(83, 7);
-            this.comboBoxZoneSelectER.Name = "comboBoxZoneSelectER";
-            this.comboBoxZoneSelectER.Size = new System.Drawing.Size(361, 21);
-            this.comboBoxZoneSelectER.TabIndex = 9;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(38, 10);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(34, 13);
-            this.label33.TabIndex = 8;
-            this.label33.Text = "grace";
-            // 
-            // panelBossER
-            // 
-            this.panelBossER.Controls.Add(this.btnAddBossER);
-            this.panelBossER.Controls.Add(this.label4);
-            this.panelBossER.Controls.Add(this.comboBoxBossER);
-            this.panelBossER.Controls.Add(this.label28);
-            this.panelBossER.Controls.Add(this.comboBoxHowBossER);
-            this.panelBossER.Controls.Add(this.listBoxBossER);
-            this.panelBossER.Location = new System.Drawing.Point(39, 85);
-            this.panelBossER.Name = "panelBossER";
-            this.panelBossER.Size = new System.Drawing.Size(505, 240);
-            this.panelBossER.TabIndex = 20;
-            // 
-            // btnAddBossER
-            // 
-            this.btnAddBossER.Location = new System.Drawing.Point(204, 48);
-            this.btnAddBossER.Name = "btnAddBossER";
-            this.btnAddBossER.Size = new System.Drawing.Size(100, 21);
-            this.btnAddBossER.TabIndex = 14;
-            this.btnAddBossER.Text = "Add";
-            this.btnAddBossER.UseVisualStyleBackColor = true;
-            this.btnAddBossER.Click += new System.EventHandler(this.btnAddBossER_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(295, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Boss:";
-            // 
-            // comboBoxBossER
-            // 
-            this.comboBoxBossER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxBossER.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.comboBoxBossER.FormattingEnabled = true;
-            this.comboBoxBossER.Items.AddRange(new object[] {
-            "Godrick the Grafted - Stormveil Castle",
-            "Margit, the Fell Omen - Stormveil Castle",
-            "Grafted Scion - Chapel of Anticipation",
-            "Morgott, the Omen King - Leyndell",
-            "Godfrey, First Elden Lord - Leyndell",
-            "Hoarah Loux - Leyndell",
-            "Sir Gideon Ofnir, the All-Knowing - Leyndell",
-            "Dragonkin Soldier of Nokstella - Ainsel River",
-            "Dragonkin Soldier - Lake of Rot",
-            "Valiant Gargoyles - Siofra River",
-            "Dragonkin Soldier - Siofra River",
-            "Mimic Tear - Siofra River",
-            "Crucible Knight Sirulia - Deeproot Depths",
-            "Fia\'s Champion - Deeproot Depths",
-            "Lichdragon Fortissax - Deeproot Depths",
-            "Astel, Naturalborn of the Void - Lake of Rot",
-            "Mohg, Lord of Blood - Mohgwyn Palace",
-            "Ancestor Spirit - Siofra River",
-            "Regal Ancestor Spirit - Nokron, Eternal City",
-            "Maliketh, The Black Blade - Crumbling Farum Azula",
-            "Dragonlord Placidusax - Crumbling Farum Azula",
-            "Godskin Duo - Crumbling Farum Azula",
-            "Rennala, Queen of the Full Moon - Academy of Raya Lucaria",
-            "Red Wolf of Radagon - Academy of Raya Lucaria",
-            "Malenia, Blade of Miquella - Miquella\'s Haligtree",
-            "Loretta, Knight of the Haligtree - Miquella\'s Haligtree",
-            "Rykard, Lord of Blasphemy - Volcano Manor",
-            "Godskin Noble - Volcano Manor",
-            "Abductor Virgins - Volcano Manor",
-            "Ulcerated Tree Spirit - Stranded Graveyard",
-            "Soldier of Godrick - Stranded Graveyard",
-            "Elden Beast - Elden Throne",
-            "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)",
-            "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)",
-            "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)",
-            "Cemetery Shade - Tombsward Catacombs (Limgrave)",
-            "Erdtree Burial Watchdog - Impaler\'s Catacombs (Weeping Penisula)",
-            "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)",
-            "Black Knife Assassin - Deathtouched Catacombs (Limgrave)",
-            "Grave Warden Duelist - Murkwater Catacombs (Limgrave)",
-            "Cemetery Shade - Black Knife Catacombs (Liurnia)",
-            "Black Knife Assassin - Black Knife Catacombs (Liurnia)",
-            "Spirit-Caller Snail - Road\'s End Catacombs (Liurnia)",
-            "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)",
-            "Ancient Hero of Zamor - Sainted Hero\'s Grave (Altus Plateau)",
-            "Red Wolf of the Champion - Gelmir Hero\'s Grave (Mt. Gelmir)",
-            "Crucible Knight Ordovis - Auriza Hero\'s Grave (Altus Plateau)",
-            "Crucible Knight (Tree Spear) - Auriza Hero\'s Grave (Altus Plateau)",
-            "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)",
-            "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)",
-            "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)",
-            "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)",
-            "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)",
-            "Cemetery Shade - Caelid Catacombs (Caelid)",
-            "Putrid Tree Spirit - War-Dead Catacombs (Caelid)",
-            "Ancient Hero of Zamor - Giant-Conquering Hero\'s Grave (Mountaintops)",
-            "Ulcerated Tree Sprit - Giants\' Mountaintop Catacombs (Mountaintops)",
-            "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)",
-            "Stray Mimic Tear - Hidden Path to the Haligtree",
-            "Patches - Murkwater Cave (Limgrave)",
-            "Runebear - Earthbore Cave (Weeping Penisula)",
-            "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)",
-            "Beastman of Farum Azula - Groveside Cave (Limgrave)",
-            "Demi-Human Chief - Coastal Cave (Limgrave)",
-            "Guardian Golem - Highroad Cave (Limgrave)",
-            "Cleanrot Knight - Stillwater Cave (Liurnia)",
-            "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)",
-            "Crystalians - Academy Crystal Cave (Liurnia)",
-            "Kindred of Rot - Seethewater Cave (Mt. Gelmir)",
-            "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)",
-            "Miranda the Blighted Bloom - Perfumer\'s Grotto (Altus Plateau)",
-            "Black Knife Assassin - Sage\'s Cave (Altus Plateau)",
-            "Necromancer Garris - Sage\'s Cave (Altus Plateau)",
-            "Frenzied Duelist - Gaol Cave (Caelid)",
-            "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)",
-            "Cleanrot Knight - Abandoned Cave (Caelid)",
-            "Putrid Crystalians - Sellia Hideaway (Caelid)",
-            "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)",
-            "Spirit-Caller Snail - Spiritcaller\'s Cave (Mountaintops)",
-            "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)",
-            "Stonedigger Troll - Limgrave Tunnels (Limgrave)",
-            "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)",
-            "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)",
-            "Onyx Lord - Divine Tower of West Altus (Altus Plateau)",
-            "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)",
-            "Crystalian (Spear) - Altus Tunnel (Altus Plateau)",
-            "Magma Wyrm - Gael Tunnel (Caelid)",
-            "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)",
-            "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)",
-            "Godskin Apostle - Divine Tower of Caelid (Caelid)",
-            "Fell Twins - Divine Tower of East Altus (Capital Outskirts)",
-            "Mad Pumpkin Head - Waypoint Ruins (Limgrave)",
-            "Night\'s Cavalry - Agheel Lake North (Limgrave)",
-            "Death Rite Bird - Stormgate (Limgrave)",
-            "Ball-Bearing Hunter - Warmaster\'s Shack (Limgrave)",
-            "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)",
-            "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)",
-            "Crucible Knight - Stormhill Evergaol (Limgrave)",
-            "Erdtree Avatar - Minor Erdtree (Weeping Penisula)",
-            "Night\'s Cavalry - Castle Morne Approach (Weeping Penisula)",
-            "Death Rite Bird - Castle Morne Approach (Weeping Penisula)",
-            "Leonine Misbegotten - Castle Morne (Weeping Penisula)",
-            "Tree Sentinel - Church of Elleh (Limgrave)",
-            "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)",
-            "Tibia Mariner - Summonwater Village (Limgrave)",
-            "Royal Revenant - Kingsrealm Ruins (Liurnia)",
-            "Adan, Thief of Fire - Malefactor\'s Evergaol (Liurnia)",
-            "Bols, Carian Knight - Cuckoo\'s Evergaol (Liurnia)",
-            "Onyx Lord - Royal Grave Evergaol (Liurnia)",
-            "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)",
-            "Erdtree Avatar - Revenger\'s Shack (Liurnia)",
-            "Erdtree Avatar - Minor Erdtree (Liurnia)",
-            "Royal Knight Loretta - Carian Manor (Liurnia)",
-            "Ball-Bearing Hunter - Church of Vows (Liurnia)",
-            "Night\'s Cavalry - Liurnia Highway Far North (Liurnia)",
-            "Night\'s Cavalry - East Raya Lucaria Gate (Liurnia)",
-            "Deathbird - Laskyar Ruins (Liurnia)",
-            "Death Rite Bird - Gate Town Northwest (Liurnia)",
-            "Glintstone Dragon Smarag - Meeting Place (Liurnia)",
-            "Glintstone Dragon Adula - Ranni\'s Rise (Liurnia)",
-            "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)",
-            "Omenkiller - Village of the Albinaurics (Liurnia)",
-            "Tibia Mariner - Jarburg (Liurnia)",
-            "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)",
-            "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)",
-            "Demi-Human Queen - Lux Ruins (Altus Plateau)",
-            "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)",
-            "Sanguine Noble - Writheblood Ruins (Altus Plateau)",
-            "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)",
-            "Godskin Apostle - Windmill Heights (Altus Plateau)",
-            "Black Knife Assassin - Sainted Hero\'s Grave Entrance (Altus Plateau)",
-            "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)",
-            "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)",
-            "Wormface - Woodfolk Ruins (Altus Plateau)",
-            "Night\'s Cavalry - Altus Highway Junction (Altus Plateau)",
-            "Death Rite Bird - Minor Erdtree (Capital Outskirts)",
-            "Ball-Bearing Hunter - Hermit Merchant\'s Shack (Capital Outskirts)",
-            "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)",
-            "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)",
-            "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)",
-            "Elemer of the Briar - Shaded Castle (Altus Plateau)",
-            "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)",
-            "Tibia Mariner - Wyndham Ruins (Altus Plateau)",
-            "Putrid Avatar - Minor Erdtree (Caelid)",
-            "Decaying Ekzykes - Caelid Highway South (Caelid)",
-            "Monstrous Dog - Southwest of Caelid Highway South (Caelid)",
-            "Night\'s Cavalry - Southern Aeonia Swamp Bank (Caelid)",
-            "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)",
-            "Commander O\'Neil - East Aeonia Swamp (Caelid)",
-            "Crucible Knight - Redmane Castle (Caelid)",
-            "Starscourge Radahn - Battlefield (Caelid)",
-            "Nox Priest - West Sellia (Caelid)",
-            "Bell-Bearing Hunter - Isolated Merchant\'s Shack (Dragonbarrow)",
-            "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)",
-            "Putrid Avatar - Dragonbarrow Fork (Caelid)",
-            "Flying Dragon Greyll - Dragonbarrow (Caelid)",
-            "Night\'s Cavalry - Dragonbarrow (Caelid)",
-            "Black Blade Kindred - Bestial Sanctum (Caelid)",
-            "Night\'s Cavalry - Forbidden Lands (Mountaintops)",
-            "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)",
-            "Borealis the Freezing Fog - Freezing Fields (Mountaintops)",
-            "Roundtable Knight Vyke - Lord Contender\'s Evergaol (Mountaintops)",
-            "Fire Giant - Giant\'s Forge (Mountaintops)",
-            "Erdtree Avatar - Minor Erdtree (Mountaintops)",
-            "Death Rite Bird - West of Castle So (Mountaintops)",
-            "Putrid Avatar - Minor Erdtree (Snowfield)",
-            "Commander Niall - Castle Soul (Mountaintops)",
-            "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)",
-            "Night\'s Cavalry - Sourthwest (Mountaintops)",
-            "Death Rite Bird - Ordina, Liturgical Town (Snowfield)"});
-            this.comboBoxBossER.Location = new System.Drawing.Point(184, 18);
-            this.comboBoxBossER.Name = "comboBoxBossER";
-            this.comboBoxBossER.Size = new System.Drawing.Size(292, 21);
-            this.comboBoxBossER.TabIndex = 12;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(87, 3);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(32, 13);
-            this.label28.TabIndex = 11;
-            this.label28.Text = "How:";
-            // 
-            // comboBoxHowBossER
-            // 
-            this.comboBoxHowBossER.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.comboBoxHowBossER.FormattingEnabled = true;
-            this.comboBoxHowBossER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowBossER.Location = new System.Drawing.Point(46, 18);
-            this.comboBoxHowBossER.Name = "comboBoxHowBossER";
-            this.comboBoxHowBossER.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxHowBossER.TabIndex = 10;
-            // 
-            // listBoxBossER
-            // 
-            this.listBoxBossER.BackColor = System.Drawing.SystemColors.Control;
-            this.listBoxBossER.FormattingEnabled = true;
-            this.listBoxBossER.Location = new System.Drawing.Point(9, 82);
-            this.listBoxBossER.Name = "listBoxBossER";
-            this.listBoxBossER.Size = new System.Drawing.Size(489, 147);
-            this.listBoxBossER.TabIndex = 7;
-            this.listBoxBossER.DoubleClick += new System.EventHandler(this.listBoxBossER_DoubleClick);
             // 
             // EldenRingRunning
             // 
@@ -8010,14 +8208,14 @@ namespace AutoSplitterCore
             this.panelBossDs3.PerformLayout();
             this.tabElden.ResumeLayout(false);
             this.tabElden.PerformLayout();
-            this.panelCfER.ResumeLayout(false);
-            this.panelCfER.PerformLayout();
-            this.panelPositionsER.ResumeLayout(false);
-            this.panelPositionsER.PerformLayout();
             this.panelGraceER.ResumeLayout(false);
             this.panelGraceER.PerformLayout();
             this.panelBossER.ResumeLayout(false);
             this.panelBossER.PerformLayout();
+            this.panelCfER.ResumeLayout(false);
+            this.panelCfER.PerformLayout();
+            this.panelPositionsER.ResumeLayout(false);
+            this.panelPositionsER.PerformLayout();
             this.tabHollow.ResumeLayout(false);
             this.tabHollow.PerformLayout();
             this.panelPositionH.ResumeLayout(false);
@@ -8211,7 +8409,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.ComboBox comboBoxHowBossER;
         private System.Windows.Forms.ListBox listBoxBossER;
         private System.Windows.Forms.Panel panelGraceER;
-        private System.Windows.Forms.ComboBox comboBoxZoneSelectER;
+        private System.Windows.Forms.ComboBox comboBoxGraceER;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ListBox listBoxGrace;
         private System.Windows.Forms.Button btnAddGraceER;
@@ -8537,5 +8735,9 @@ namespace AutoSplitterCore
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.GroupBox groupBoxOtherS;
+        private System.Windows.Forms.CheckBox checkBoxDLCBoss;
+        private System.Windows.Forms.ComboBox comboBoxBossER_DLC;
+        private System.Windows.Forms.CheckBox checkBoxViewDlcGrace;
+        private System.Windows.Forms.ComboBox comboBoxGraceDLC_ER;
     }
 }
