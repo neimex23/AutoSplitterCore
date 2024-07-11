@@ -38,7 +38,7 @@ namespace AutoSplitterCore
         private bool PK = true;
         public bool _ShowSettings = false;
         public DTCeleste dataCeleste;
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         public DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste(); 
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -49,7 +49,7 @@ namespace AutoSplitterCore
         {
             return this.dataCeleste;
         }
-        public void setDataCeleste(DTCeleste data, ProfilesControl profile)
+        public void setDataCeleste(DTCeleste data, IAutoSplitterCoreInterface profile)
         {
             this.dataCeleste = data;
             this._profile = profile;

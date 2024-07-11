@@ -39,7 +39,7 @@ namespace AutoSplitterCore
         public bool isLoading = false;
         public DTDishonored dataDish;
         public DefinitionDishonored defDish = new DefinitionDishonored();
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
         public bool DebugMode = false;
@@ -50,7 +50,7 @@ namespace AutoSplitterCore
             return this.dataDish;
         }
 
-        public void setDataDishonored(DTDishonored data, ProfilesControl profile)
+        public void setDataDishonored(DTDishonored data, IAutoSplitterCoreInterface profile)
         {
             this.dataDish = data;
             this._profile = profile;

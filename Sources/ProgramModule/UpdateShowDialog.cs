@@ -49,7 +49,7 @@ namespace AutoSplitterCore
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/neimex23/HitCounterManager/releases/latest");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/releases/latest"));
             Close();
         }
 

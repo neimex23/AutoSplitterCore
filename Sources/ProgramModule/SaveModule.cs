@@ -75,7 +75,7 @@ namespace AutoSplitterCore
         private CupheadSplitter cupSplitter = null;
         private DishonoredSplitter dishonoredSplitter = null;
         private UpdateModule updateModule = null;
-        private ProfilesControl prfCtl = null;
+        private IAutoSplitterCoreInterface prfCtl = null;
         private AutoSplitterMainModule mainModule = null;
 
         public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
@@ -142,7 +142,7 @@ namespace AutoSplitterCore
         /// <summary>
         /// Load user data in XML for AutoSplitter
         /// </summary>
-        public void LoadAutoSplitterSettings(ProfilesControl profiles)
+        public void LoadAutoSplitterSettings(IAutoSplitterCoreInterface profiles)
         {
             prfCtl = profiles;
             DTSekiro dataSekiro = null;
@@ -216,12 +216,14 @@ namespace AutoSplitterCore
             
             if (!_DebugMode)
             {
-                mainModule.main.SetComboBoxGameIndex(mainModule.GetSplitterEnable());
-                mainModule.main.SetPractice(mainModule.GetPracticeMode());
+                mainModule.main.ActiveGameIndex = mainModule.GetSplitterEnable();
+                mainModule.main.PracticeMode = mainModule.GetPracticeMode();
             }
             else
             {
+#if !HCMv2
                 mainModule.debugForm.UpdateBoxes();
+#endif
             }
         }
 

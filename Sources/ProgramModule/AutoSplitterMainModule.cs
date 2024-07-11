@@ -1,6 +1,7 @@
 ﻿//MIT License
 
 //Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2024 Peter Kirmeier (Update new HCM interface)
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,9 @@
 
 using System;
 using System.Collections.Generic;
-using HitCounterManager;
+using System.Diagnostics;
 using System.Windows.Forms;
-using static System.Collections.Specialized.BitVector32;
+using HitCounterManager;
 
 namespace AutoSplitterCore
 {
@@ -42,12 +43,14 @@ namespace AutoSplitterCore
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
         public UpdateModule updateModule = new UpdateModule();
+#if !HCMv2
         public Debug debugForm;
+#endif
         public bool DebugMode = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
-        public Form1 main;
-        private ProfilesControl profCtrl;
+        public IAutoSplitterCoreInterface main;
+        private IAutoSplitterCoreInterface profCtrl;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };
 
         public List<string> GetGames() { return GameConstruction.GameList; }
@@ -89,7 +92,7 @@ namespace AutoSplitterCore
             SetShowSettings(false);
         }
 
-        public void LoadAutoSplitterSettings(ProfilesControl profiles, Form1 main)
+        public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)
         {
             //SetPointers
             igtModule.setSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
@@ -99,16 +102,16 @@ namespace AutoSplitterCore
                     ds2Splitter,
                     ds3Splitter,
                     eldenSplitter,
-                    hollowSplitter, 
+                    hollowSplitter,
                     celesteSplitter,
                     cupSplitter,
                     dishonoredSplitter,
                     updateModule,
                     this);
-                //LoadSettings
-            saveModule.LoadAutoSplitterSettings(profiles);
-            this.profCtrl = profiles;
-            this.main = main;         
+            //LoadSettings
+            saveModule.LoadAutoSplitterSettings(interfaceASC);
+            this.profCtrl = interfaceASC;
+            this.main = interfaceASC;
             if (main != null)
                 _update_timer.Tick += (senderT, args) => CheckAutoTimers();
 
@@ -116,6 +119,41 @@ namespace AutoSplitterCore
             _update_timer.Enabled = true;
 
             updateModule.CheckUpdates(false);
+
+            interfaceASC.GameList.Clear();
+            foreach (string game in GetGames())
+            {
+                interfaceASC.GameList.Add(game);
+            }
+
+            main.ActiveGameIndex = GetSplitterEnable();
+            interfaceASC.SetActiveGameIndexMethod = (splitter) =>
+            {
+                //Disable all games
+                EnableSplitting(0);
+                //Ask Selected index
+                EnableSplitting(splitter);
+            };
+            interfaceASC.PracticeMode = GetPracticeMode();
+            interfaceASC.SetPracticeModeMethod = SetPracticeMode;
+
+            interfaceASC.OpenSettingsMethod = AutoSplitterForm;
+            interfaceASC.SaveSettingsMethod = SaveAutoSplitterSettings;
+
+            interfaceASC.GetCurrentInGameTimeMethod = GetCurrentInGameTime;
+            bool GetCurrentInGameTime(out long totalTimeMs)
+            {
+                if (GetIsIGTActive())
+                {
+                    totalTimeMs = ReturnCurrentIGT();
+                    return true;
+                }
+
+                totalTimeMs = 0;
+                return false;
+            }
+
+            interfaceASC.SplitterResetMethod = ResetSplitterFlags;
         }
 
         public void SaveAutoSplitterSettings()
@@ -410,8 +448,6 @@ namespace AutoSplitterCore
             }
 
 
-            IProfileInfo SelectedProfileInf = profCtrl.SelectedProfileInfo;         
-
             //AutoTimerReset Checking
             if (autoTimer && anyGameTime)
             {                
@@ -422,14 +458,14 @@ namespace AutoSplitterCore
                     } catch (Exception) { inGameTime = -1; }
                 }
 
-                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
+                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && profCtrl.ActiveSplit != profCtrl.SplitCount && GameOn())
                 {
                     profCtrl.UpdateDuration();
                     main.StartStopTimer(true);
                     profCtrl.UpdateDuration();
                 }
                     
-                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount || !GameOn()) && profCtrl.TimerRunning)
+                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || profCtrl.ActiveSplit == profCtrl.SplitCount || !GameOn()) && profCtrl.TimerRunning)
                 {
                     profCtrl.UpdateDuration();
                     main.StartStopTimer(false);
@@ -452,10 +488,10 @@ namespace AutoSplitterCore
                     catch (Exception) { inGameTime = -1; }
                 }
 
-                if (inGameTime > 0 && !profCtrl.TimerRunning && SelectedProfileInf.ActiveSplit != SelectedProfileInf.SplitCount && GameOn())
+                if (inGameTime > 0 && !profCtrl.TimerRunning && profCtrl.ActiveSplit != profCtrl.SplitCount && GameOn())
                     main.StartStopTimer(true);
 
-                if ((inGameTime <= 0 || SelectedProfileInf.ActiveSplit == SelectedProfileInf.SplitCount || !GameOn()) && profCtrl.TimerRunning)
+                if ((inGameTime <= 0 || profCtrl.ActiveSplit == profCtrl.SplitCount || !GameOn()) && profCtrl.TimerRunning)
                     main.StartStopTimer(false);
             }
         }
@@ -576,6 +612,14 @@ namespace AutoSplitterCore
                 default: return false;
             }
         }
+        #endregion
+        #region Common
+        /// <summary>
+        /// Tries to open an URI with the system's registered default browser.
+        /// (See: https://github.com/dotnet/runtime/issues/21798)
+        /// </summary>
+        /// <param name="uri">URI that shall be opened</param>
+        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true });
         #endregion
     }
 }

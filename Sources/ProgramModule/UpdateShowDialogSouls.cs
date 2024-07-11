@@ -41,7 +41,7 @@ namespace AutoSplitterCore
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/FrankvdStam/SoulSplitter/releases/latest");
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/FrankvdStam/SoulSplitter/releases/latest"));
             Close();
         }
 
