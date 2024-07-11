@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoSplitterCore</RootNamespace>
+    <AssemblyName>AutoSplitterCore</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug-HCMv2\</OutputPath>
+    <IntermediateOutputPath>obj\Debug-HCMv2\</IntermediateOutputPath>
+    <DefineConstants>TRACE;DEBUG;HCMv2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release-HCMv2\</OutputPath>
+    <IntermediateOutputPath>obj\Release-HCMv2\</IntermediateOutputPath>
+    <DefineConstants>TRACE;HCMv2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sources\ProgramModule\AutoSplitterSetupIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HitCounterManager.PCL">
+      <HintPath>Sources\HitCounterManager.PCL.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.Celeste">
+      <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\LiveSplit.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.Cuphead">
+      <HintPath>Sources\LiveSplit.Cuphead.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.Dishonored, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\LiveSplit.Dishonored.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.HollowKnight, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.ScriptableAutoSplit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\LiveSplit.ScriptableAutoSplit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\SoulMemory.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
+    <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
+    <Compile Include="Sources\ProgramModule\AutoSplitter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\AutoSplitter.Designer.cs">
+      <DependentUpon>AutoSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
+    <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
+    <None Include="Sources\ProgramModule\Debug.cs">
+      <!--<SubType>Form</SubType>-->
+    </None>
+    <None Include="Sources\ProgramModule\Debug.Designer.cs">
+      <!--<DependentUpon>Debug.cs</DependentUpon>-->
+    </None>
+    <Compile Include="Sources\AutoSplitters\Ds1Splitter.cs" />
+    <Compile Include="Sources\AutoSplitters\Ds2Splitter.cs" />
+    <Compile Include="Sources\AutoSplitters\Ds3Splitter.cs" />
+    <Compile Include="Sources\DataSplitters\DTCeleste.cs" />
+    <Compile Include="Sources\DataSplitters\DTCuphead.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs1.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs2.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs3.cs" />
+    <Compile Include="Sources\DataSplitters\DTElden.cs" />
+    <Compile Include="Sources\DataSplitters\DTHollow.cs" />
+    <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
+    <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
+    <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
+    <Compile Include="Sources\ProgramModule\IGTModule.cs" />
+    <Compile Include="Sources\ProgramModule\ProfileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\ProfileManager.Designer.cs">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+    </Compile>
+    <None Include="Sources\ProgramModule\Program.cs" />
+    <Compile Include="Sources\ProgramModule\SaveModule.cs" />
+    <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
+    <Compile Include="Sources\ProgramModule\UpdateModule.cs" />
+    <Compile Include="Sources\ProgramModule\UpdateShowDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\UpdateShowDialog.Designer.cs">
+      <DependentUpon>UpdateShowDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.Designer.cs">
+      <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sources\ProgramModule\AutoSplitter.resx">
+      <DependentUpon>AutoSplitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\ProfileManager.resx">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
+      <DependentUpon>UpdateShowDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialogSouls.resx">
+      <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PrepareReleaseAutoSplitter.bat" />
+    <None Include="UpdateScriptASC.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

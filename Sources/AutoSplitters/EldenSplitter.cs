@@ -39,7 +39,7 @@ namespace AutoSplitterCore
         private bool PK = true;
         public DTElden dataElden;
         public DefinitionsElden defE = new DefinitionsElden();
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private bool _writeMemory = false;      
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -51,7 +51,7 @@ namespace AutoSplitterCore
             return this.dataElden;
         }
 
-        public void setDataElden(DTElden data, ProfilesControl profile)
+        public void setDataElden(DTElden data, IAutoSplitterCoreInterface profile)
         {
             this.dataElden = data;
             this._profile = profile;

@@ -40,7 +40,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public DTSekiro dataSekiro;
         public DefinitionsSekiro defS = new DefinitionsSekiro();
-        public ProfilesControl _profile;
+        public IAutoSplitterCoreInterface _profile;
         private bool _writeMemory = false;
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -52,7 +52,7 @@ namespace AutoSplitterCore
             return this.dataSekiro;
         }
 
-        public void setDataSekiro(DTSekiro data, ProfilesControl profile)
+        public void setDataSekiro(DTSekiro data, IAutoSplitterCoreInterface profile)
         {
             this.dataSekiro = data;
             this._profile = profile;

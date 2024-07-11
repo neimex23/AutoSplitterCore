@@ -1,5 +1,4 @@
-﻿using HitCounterManager;
-
+﻿
 namespace AutoSplitterCore
 {
     partial class AutoSplitter
@@ -31,7 +30,7 @@ namespace AutoSplitterCore
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
-            this.TabControl2 = new HitCounterManager.ProfileTabControl();
+            this.TabControl2 = new System.Windows.Forms.TabControl();
             this.tabConfig = new System.Windows.Forms.TabPage();
             this.groupBoxOtherS = new System.Windows.Forms.GroupBox();
             this.btnTiming = new System.Windows.Forms.Button();
@@ -8254,7 +8253,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TabPage tabSekiro;
         private System.Windows.Forms.ComboBox toSplitSelectSekiro;
         private System.Windows.Forms.Label label1;
-        private ProfileTabControl TabControl2;
+        private System.Windows.Forms.TabControl TabControl2;
         private System.Windows.Forms.Label sekiroRunning;
         private System.Windows.Forms.Label SekiroNotRunning;
         private System.Windows.Forms.Button btnDesactiveSekiro;

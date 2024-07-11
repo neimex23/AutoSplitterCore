@@ -38,7 +38,7 @@ namespace AutoSplitterCore
         public bool _runStarted = false;
         public bool _SplitGo = false;
         public DTHollow dataHollow;
-        public ProfilesControl _profile;    
+        public IAutoSplitterCoreInterface _profile;
         public DefinitionHollow.Vector3F currentPosition = new DefinitionHollow.Vector3F();
         private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
@@ -53,7 +53,7 @@ namespace AutoSplitterCore
             return this.dataHollow;
         }
 
-        public void setDataHollow(DTHollow data, ProfilesControl profile)
+        public void setDataHollow(DTHollow data, IAutoSplitterCoreInterface profile)
         {
             this.dataHollow = data;
             this._profile = profile;
