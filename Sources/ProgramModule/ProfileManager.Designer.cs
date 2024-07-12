@@ -83,7 +83,7 @@
             this.btnRemoveProfile.Size = new System.Drawing.Size(93, 23);
             this.btnRemoveProfile.TabIndex = 19;
             this.btnRemoveProfile.Text = "Remove Profile";
-            this.btnRemoveProfile.UseVisualStyleBackColor = true;
+            
             this.btnRemoveProfile.Click += new System.EventHandler(this.btnRemoveProfile_Click);
             // 
             // btnSaveProfile
@@ -93,7 +93,7 @@
             this.btnSaveProfile.Size = new System.Drawing.Size(83, 35);
             this.btnSaveProfile.TabIndex = 4;
             this.btnSaveProfile.Text = "Save Current Profile";
-            this.btnSaveProfile.UseVisualStyleBackColor = true;
+            
             this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
             // 
             // btnSetProfile
@@ -143,7 +143,7 @@
             this.btnLoadProfile.Size = new System.Drawing.Size(93, 23);
             this.btnLoadProfile.TabIndex = 14;
             this.btnLoadProfile.Text = "Load Profile";
-            this.btnLoadProfile.UseVisualStyleBackColor = true;
+            
             this.btnLoadProfile.Click += new System.EventHandler(this.btnLoadProfile_Click);
             // 
             // btnBrowser
@@ -153,7 +153,7 @@
             this.btnBrowser.Size = new System.Drawing.Size(83, 23);
             this.btnBrowser.TabIndex = 11;
             this.btnBrowser.Text = "Browser";
-            this.btnBrowser.UseVisualStyleBackColor = true;
+            
             this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
             // label3

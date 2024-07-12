@@ -383,7 +383,7 @@
             this.btnResetFlags.Size = new System.Drawing.Size(75, 23);
             this.btnResetFlags.TabIndex = 72;
             this.btnResetFlags.Text = "Reset Flags";
-            this.btnResetFlags.UseVisualStyleBackColor = true;
+            
             this.btnResetFlags.Click += new System.EventHandler(this.btnResetFlags_Click);
             // 
             // Debug

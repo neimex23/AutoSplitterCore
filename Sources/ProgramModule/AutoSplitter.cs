@@ -25,10 +25,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using SoulMemory;
 using System.Globalization;
+using ReaLTaiizor;
 
 namespace AutoSplitterCore
 {
-    public partial class AutoSplitter : Form
+    public partial class AutoSplitter : ReaLTaiizor.Forms.PoisonForm
     {
         bool darkMode = false;
         SekiroSplitter sekiroSplitter;
@@ -42,11 +43,11 @@ namespace AutoSplitterCore
         CupheadSplitter cupSplitter;
         UpdateModule updateModule;
         SaveModule saveModule;
-
         public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+            
             this.sekiroSplitter = sekiroSplitter;
             this.hollowSplitter = hollowSplitter;
             this.eldenSplitter = eldenSplitter;
@@ -71,8 +72,8 @@ namespace AutoSplitterCore
             }
             #endregion
             #region ControlTab
-            TabControl2.TabPages.Clear();
-            TabControl2.TabPages.Add(tabConfig);
+            TabControlGeneral.TabPages.Clear();
+            TabControlGeneral.TabPages.Add(tabConfig);
             #endregion
             #region SekiroTab       
             panelPositionS.Hide();
@@ -855,7 +856,7 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Config UI
-        private void cbCheckUpdatesOnStartup_CheckedChanged(object sender, EventArgs e)
+        private void cbCheckUpdatesOnStartup_CheckedChanged(object sender)
         {
             updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
         }
@@ -1045,107 +1046,107 @@ namespace AutoSplitterCore
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabInfo))
+            if (!TabControlGeneral.TabPages.Contains(tabInfo))
             {
-                TabControl2.TabPages.Add(tabInfo);
+                TabControlGeneral.TabPages.Add(tabInfo);
             }
-            if (!TabControl2.TabPages.Contains(tabLicense))
+            if (!TabControlGeneral.TabPages.Contains(tabLicense))
             {
-                TabControl2.TabPages.Add(tabLicense);
+                TabControlGeneral.TabPages.Add(tabLicense);
             }
-            TabControl2.SelectTab(tabInfo);
+            TabControlGeneral.SelectTab(tabInfo);
         }
 
         private void btnSekiro_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabSekiro))
+            if (!TabControlGeneral.TabPages.Contains(tabSekiro))
             {
-                TabControl2.TabPages.Add(tabSekiro);
+                TabControlGeneral.TabPages.Add(tabSekiro);
             }
-            TabControl2.SelectTab(tabSekiro);
+            TabControlGeneral.SelectTab(tabSekiro);
 
         }
 
         private void btnDs1_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabDs1))
+            if (!TabControlGeneral.TabPages.Contains(tabDs1))
             {
-                TabControl2.TabPages.Add(tabDs1);
+                TabControlGeneral.TabPages.Add(tabDs1);
             }
-            TabControl2.SelectTab(tabDs1);
+            TabControlGeneral.SelectTab(tabDs1);
         }
 
         private void btnDs2_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabDs2))
+            if (!TabControlGeneral.TabPages.Contains(tabDs2))
             {
-                TabControl2.TabPages.Add(tabDs2);
+                TabControlGeneral.TabPages.Add(tabDs2);
             }
-            TabControl2.SelectTab(tabDs2);
+            TabControlGeneral.SelectTab(tabDs2);
         }
 
         private void btnDs3_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabDs3))
+            if (!TabControlGeneral.TabPages.Contains(tabDs3))
             {
-                TabControl2.TabPages.Add(tabDs3);
+                TabControlGeneral.TabPages.Add(tabDs3);
             }
-            TabControl2.SelectTab(tabDs3);
+            TabControlGeneral.SelectTab(tabDs3);
         }
 
         private void btnHollow_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabHollow))
+            if (!TabControlGeneral.TabPages.Contains(tabHollow))
             {
-                TabControl2.TabPages.Add(tabHollow);
+                TabControlGeneral.TabPages.Add(tabHollow);
             }
-            TabControl2.SelectTab(tabHollow);
+            TabControlGeneral.SelectTab(tabHollow);
 
         }
 
         private void btnCeleste_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabCeleste))
+            if (!TabControlGeneral.TabPages.Contains(tabCeleste))
             {
-                TabControl2.TabPages.Add(tabCeleste);
+                TabControlGeneral.TabPages.Add(tabCeleste);
             }
-            TabControl2.SelectTab(tabCeleste);
+            TabControlGeneral.SelectTab(tabCeleste);
         }
 
         private void btnCuphead_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabCuphead))
+            if (!TabControlGeneral.TabPages.Contains(tabCuphead))
             {
-                TabControl2.TabPages.Add(tabCuphead);
+                TabControlGeneral.TabPages.Add(tabCuphead);
             }
-            TabControl2.SelectTab(tabCuphead);
+            TabControlGeneral.SelectTab(tabCuphead);
         }
 
         private void btnElden_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabElden))
+            if (!TabControlGeneral.TabPages.Contains(tabElden))
             {
-                TabControl2.TabPages.Add(tabElden);
+                TabControlGeneral.TabPages.Add(tabElden);
             }
-            TabControl2.SelectTab(tabElden);
+            TabControlGeneral.SelectTab(tabElden);
         }
 
         private void btnDishonored_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabDishonored))
+            if (!TabControlGeneral.TabPages.Contains(tabDishonored))
             {
-                TabControl2.TabPages.Add(tabDishonored);
+                TabControlGeneral.TabPages.Add(tabDishonored);
             }
-            TabControl2.SelectTab(tabDishonored);
+            TabControlGeneral.SelectTab(tabDishonored);
         }
 
         private void btnTiming_Click(object sender, EventArgs e)
         {
-            if (!TabControl2.TabPages.Contains(tabTiming))
+            if (!TabControlGeneral.TabPages.Contains(tabTiming))
             {
-                TabControl2.TabPages.Add(tabTiming);
+                TabControlGeneral.TabPages.Add(tabTiming);
             }
-            TabControl2.SelectTab(tabTiming);
+            TabControlGeneral.SelectTab(tabTiming);
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -1185,8 +1186,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabTiming);
-                TabControl2.SelectTab(tabTiming);
+                TabControlGeneral.TabPages.Add(tabTiming);
+                TabControlGeneral.SelectTab(tabTiming);
             }
         }
         #endregion
@@ -1900,8 +1901,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabSekiro);
-                TabControl2.SelectTab(tabSekiro);
+                TabControlGeneral.TabPages.Add(tabSekiro);
+                TabControlGeneral.SelectTab(tabSekiro);
             }
         }
         #endregion
@@ -2142,8 +2143,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabDs1);
-                TabControl2.SelectTab(tabDs1);
+                TabControlGeneral.TabPages.Add(tabDs1);
+                TabControlGeneral.SelectTab(tabDs1);
             }
         }
         #endregion
@@ -2316,8 +2317,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabDs2);
-                TabControl2.SelectTab(tabDs2);
+                TabControlGeneral.TabPages.Add(tabDs2);
+                TabControlGeneral.SelectTab(tabDs2);
             }
         }
 
@@ -2591,8 +2592,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabDs3);
-                TabControl2.SelectTab(tabDs3);
+                TabControlGeneral.TabPages.Add(tabDs3);
+                TabControlGeneral.SelectTab(tabDs3);
             }
         }
         #endregion
@@ -2851,8 +2852,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabElden);
-                TabControl2.SelectTab(tabElden);
+                TabControlGeneral.TabPages.Add(tabElden);
+                TabControlGeneral.SelectTab(tabElden);
             }
         }
         #endregion
@@ -3104,8 +3105,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabHollow);
-                TabControl2.SelectTab(tabHollow);
+                TabControlGeneral.TabPages.Add(tabHollow);
+                TabControlGeneral.SelectTab(tabHollow);
             }
         }
         #endregion
@@ -3183,8 +3184,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabCeleste);
-                TabControl2.SelectTab(tabCeleste);
+                TabControlGeneral.TabPages.Add(tabCeleste);
+                TabControlGeneral.SelectTab(tabCeleste);
             }
         }
         #endregion
@@ -3242,8 +3243,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabCuphead);
-                TabControl2.SelectTab(tabCuphead);
+                TabControlGeneral.TabPages.Add(tabCuphead);
+                TabControlGeneral.SelectTab(tabCuphead);
             }
         }
 
@@ -3273,13 +3274,14 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 refreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControl2.TabPages.Add(tabDishonored);
-                TabControl2.SelectTab(tabDishonored);
+                TabControlGeneral.TabPages.Add(tabDishonored);
+                TabControlGeneral.SelectTab(tabDishonored);
             }
         }
 
 
         #endregion
+
 
     }
 }

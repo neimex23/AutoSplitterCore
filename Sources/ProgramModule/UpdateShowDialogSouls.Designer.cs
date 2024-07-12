@@ -69,7 +69,7 @@
             this.btnDownload.Size = new System.Drawing.Size(137, 23);
             this.btnDownload.TabIndex = 80;
             this.btnDownload.Text = "Download";
-            this.btnDownload.UseVisualStyleBackColor = true;
+            
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // btnClose
@@ -80,7 +80,7 @@
             this.btnClose.Size = new System.Drawing.Size(137, 23);
             this.btnClose.TabIndex = 79;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnGoToDownloadPage
@@ -91,7 +91,7 @@
             this.btnGoToDownloadPage.Size = new System.Drawing.Size(137, 23);
             this.btnGoToDownloadPage.TabIndex = 77;
             this.btnGoToDownloadPage.Text = "Go to download page";
-            this.btnGoToDownloadPage.UseVisualStyleBackColor = true;
+            
             this.btnGoToDownloadPage.Click += new System.EventHandler(this.btnGoToDownloadPage_Click);
             // 
             // label76

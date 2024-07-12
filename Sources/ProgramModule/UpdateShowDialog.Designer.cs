@@ -73,7 +73,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(137, 23);
             this.btnUpdate.TabIndex = 80;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClose
@@ -84,7 +84,7 @@
             this.btnClose.Size = new System.Drawing.Size(137, 23);
             this.btnClose.TabIndex = 79;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnGoToDownloadPage
@@ -95,7 +95,7 @@
             this.btnGoToDownloadPage.Size = new System.Drawing.Size(137, 23);
             this.btnGoToDownloadPage.TabIndex = 77;
             this.btnGoToDownloadPage.Text = "Go to download page";
-            this.btnGoToDownloadPage.UseVisualStyleBackColor = true;
+            
             this.btnGoToDownloadPage.Click += new System.EventHandler(this.btnGoToDownloadPage_Click);
             // 
             // label76
@@ -163,7 +163,7 @@
             this.btnPortable.Size = new System.Drawing.Size(137, 23);
             this.btnPortable.TabIndex = 82;
             this.btnPortable.Text = "Portable";
-            this.btnPortable.UseVisualStyleBackColor = true;
+            
             this.btnPortable.Click += new System.EventHandler(this.btnPortable_Click);
             // 
             // btnInstaller
@@ -174,7 +174,7 @@
             this.btnInstaller.Size = new System.Drawing.Size(137, 23);
             this.btnInstaller.TabIndex = 81;
             this.btnInstaller.Text = "Installer";
-            this.btnInstaller.UseVisualStyleBackColor = true;
+            
             this.btnInstaller.Click += new System.EventHandler(this.btnInstaller_Click);
             // 
             // groupBoxUpdating
