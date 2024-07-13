@@ -31,7 +31,7 @@ namespace AutoSplitterCore
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.MetroTabControl();
-            this.tabConfig = new System.Windows.Forms.TabPage();
+            this.tabConfig = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
             this.btnTiming = new ReaLTaiizor.Controls.Button();
             this.btnAbout = new ReaLTaiizor.Controls.Button();
@@ -58,11 +58,8 @@ namespace AutoSplitterCore
             this.btnDs2 = new ReaLTaiizor.Controls.Button();
             this.btnDs1 = new ReaLTaiizor.Controls.Button();
             this.btnSekiro = new ReaLTaiizor.Controls.Button();
-            this.tabInfo = new System.Windows.Forms.TabPage();
-            this.TextBoxManual = new System.Windows.Forms.TextBox();
-            this.tabLicense = new System.Windows.Forms.TabPage();
-            this.textBoxLicenses = new System.Windows.Forms.TextBox();
-            this.tabTiming = new System.Windows.Forms.TabPage();
+            this.tabTiming = new ReaLTaiizor.Child.Metro.MetroTabPage();
+            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
             this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
             this.label94 = new System.Windows.Forms.Label();
             this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
@@ -126,9 +123,12 @@ namespace AutoSplitterCore
             this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
             this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
             this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
-            this.comboBoxTGame = new System.Windows.Forms.ComboBox();
-            this.label75 = new System.Windows.Forms.Label();
-            this.tabSekiro = new System.Windows.Forms.TabPage();
+            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
+            this.tabInfo = new ReaLTaiizor.Child.Metro.MetroTabPage();
+            this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
+            this.tabLicense = new ReaLTaiizor.Child.Metro.MetroTabPage();
+            this.textBoxLicenses = new System.Windows.Forms.TextBox();
+            this.tabSekiro = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelCfSekiro = new System.Windows.Forms.Panel();
             this.label91 = new System.Windows.Forms.Label();
             this.textBoxTitleCFS = new System.Windows.Forms.TextBox();
@@ -254,7 +254,7 @@ namespace AutoSplitterCore
             this.SekiroNotRunning = new System.Windows.Forms.Label();
             this.toSplitSelectSekiro = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabDs1 = new System.Windows.Forms.TabPage();
+            this.tabDs1 = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelPositionDs1 = new System.Windows.Forms.Panel();
             this.label86 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionDs1 = new System.Windows.Forms.TextBox();
@@ -308,7 +308,7 @@ namespace AutoSplitterCore
             this.Ds1NotRunning = new System.Windows.Forms.Label();
             this.comboBoxToSplitDs1 = new System.Windows.Forms.ComboBox();
             this.label62 = new System.Windows.Forms.Label();
-            this.tabDs2 = new System.Windows.Forms.TabPage();
+            this.tabDs2 = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelPositionDs2 = new System.Windows.Forms.Panel();
             this.label87 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionDs2 = new System.Windows.Forms.TextBox();
@@ -346,7 +346,7 @@ namespace AutoSplitterCore
             this.Ds2NotRunning = new System.Windows.Forms.Label();
             this.comboBoxToSplitDs2 = new System.Windows.Forms.ComboBox();
             this.label51 = new System.Windows.Forms.Label();
-            this.tabDs3 = new System.Windows.Forms.TabPage();
+            this.tabDs3 = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelCfDs3 = new System.Windows.Forms.Panel();
             this.label92 = new System.Windows.Forms.Label();
             this.textBoxTitleCFDs3 = new System.Windows.Forms.TextBox();
@@ -401,7 +401,7 @@ namespace AutoSplitterCore
             this.Ds3NotRunning = new System.Windows.Forms.Label();
             this.comboBoxToSplitSelectDs3 = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.tabElden = new System.Windows.Forms.TabPage();
+            this.tabElden = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelBossER = new System.Windows.Forms.Panel();
             this.comboBoxBossER_DLC = new System.Windows.Forms.ComboBox();
             this.checkBoxDLCBoss = new System.Windows.Forms.CheckBox();
@@ -451,7 +451,7 @@ namespace AutoSplitterCore
             this.btn_DesactiveAllElden = new ReaLTaiizor.Controls.Button();
             this.comboBoxToSplitEldenRing = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.tabHollow = new System.Windows.Forms.TabPage();
+            this.tabHollow = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelPositionH = new System.Windows.Forms.Panel();
             this.label90 = new System.Windows.Forms.Label();
             this.textBoxTitlePositionHK = new System.Windows.Forms.TextBox();
@@ -491,7 +491,7 @@ namespace AutoSplitterCore
             this.HollowNotRunning = new System.Windows.Forms.Label();
             this.toSplitSelectHollow = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.tabCeleste = new System.Windows.Forms.TabPage();
+            this.tabCeleste = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelCassettesNHearts = new System.Windows.Forms.Panel();
             this.checkedListBoxCassettesNHearts = new System.Windows.Forms.CheckedListBox();
             this.panelCheckpointsCeleste = new System.Windows.Forms.Panel();
@@ -504,7 +504,7 @@ namespace AutoSplitterCore
             this.btnRemoveAllCeleste = new ReaLTaiizor.Controls.Button();
             this.CelesteRunning = new System.Windows.Forms.Label();
             this.CelesteNotRunning = new System.Windows.Forms.Label();
-            this.tabCuphead = new System.Windows.Forms.TabPage();
+            this.tabCuphead = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelBossCuphead = new System.Windows.Forms.Panel();
             this.checkedListBoxBossCuphead = new System.Windows.Forms.CheckedListBox();
             this.panelLevelCuphead = new System.Windows.Forms.Panel();
@@ -515,13 +515,14 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new ReaLTaiizor.Controls.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
-            this.tabDishonored = new System.Windows.Forms.TabPage();
+            this.tabDishonored = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.groupBoxEventsDishonored = new ReaLTaiizor.Controls.GroupBox();
             this.checkedListBoxDishonored = new System.Windows.Forms.CheckedListBox();
             this.btnRefreshDish = new ReaLTaiizor.Controls.Button();
             this.btnDesactiveAllDishonored = new ReaLTaiizor.Controls.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
+            this.panel1 = new ReaLTaiizor.Controls.Panel();
             this.TabControlGeneral.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -529,8 +530,6 @@ namespace AutoSplitterCore
             this.groupBox1.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
             this.groupBoxSplitters.SuspendLayout();
-            this.tabInfo.SuspendLayout();
-            this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxTDs2.SuspendLayout();
@@ -560,6 +559,8 @@ namespace AutoSplitterCore
             this.groupBoxTDs1.SuspendLayout();
             this.groupBoxATDs1.SuspendLayout();
             this.groupBoxTMDs1.SuspendLayout();
+            this.tabInfo.SuspendLayout();
+            this.tabLicense.SuspendLayout();
             this.tabSekiro.SuspendLayout();
             this.panelCfSekiro.SuspendLayout();
             this.panelPositionS.SuspendLayout();
@@ -623,17 +624,18 @@ namespace AutoSplitterCore
             this.panelLevelCuphead.SuspendLayout();
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControlGeneral
             // 
-            this.TabControlGeneral.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.QuadIn;
+            this.TabControlGeneral.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.QuartOut;
             this.TabControlGeneral.AnimateTime = 200;
             this.TabControlGeneral.BackgroundColor = System.Drawing.Color.White;
             this.TabControlGeneral.Controls.Add(this.tabConfig);
+            this.TabControlGeneral.Controls.Add(this.tabTiming);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
-            this.TabControlGeneral.Controls.Add(this.tabTiming);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
             this.TabControlGeneral.Controls.Add(this.tabDs2);
@@ -646,7 +648,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ControlsVisible = true;
             this.TabControlGeneral.IsDerivedStyle = true;
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(50, 38);
-            this.TabControlGeneral.Location = new System.Drawing.Point(8, 56);
+            this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.MCursor = System.Windows.Forms.Cursors.Hand;
             this.TabControlGeneral.Name = "TabControlGeneral";
             this.TabControlGeneral.SelectedIndex = 0;
@@ -659,27 +661,34 @@ namespace AutoSplitterCore
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.ThemeAuthor = "Taiizor";
             this.TabControlGeneral.ThemeName = "MetroLight";
-            this.TabControlGeneral.UnselectedTextColor = System.Drawing.Color.Gray;
+            this.TabControlGeneral.UnselectedTextColor = System.Drawing.Color.Silver;
             // 
             // tabConfig
             // 
-            this.tabConfig.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabConfig.BaseColor = System.Drawing.Color.White;
             this.tabConfig.Controls.Add(this.groupBoxOtherS);
             this.tabConfig.Controls.Add(this.groupBoxMProfile);
             this.tabConfig.Controls.Add(this.groupBox1);
             this.tabConfig.Controls.Add(this.groupBoxUpdate);
             this.tabConfig.Controls.Add(this.groupBoxSplitters);
+            this.tabConfig.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabConfig.ImageKey = null;
+            this.tabConfig.IsDerivedStyle = true;
             this.tabConfig.Location = new System.Drawing.Point(4, 42);
-            this.tabConfig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Size = new System.Drawing.Size(609, 339);
-            this.tabConfig.TabIndex = 10;
+            this.tabConfig.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabConfig.StyleManager = null;
+            this.tabConfig.TabIndex = 1;
             this.tabConfig.Text = "Configuration";
+            this.tabConfig.ThemeAuthor = "Taiizor";
+            this.tabConfig.ThemeName = "MetroLight";
+            this.tabConfig.ToolTipText = null;
             // 
             // groupBoxOtherS
             // 
             this.groupBoxOtherS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxOtherS.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxOtherS.BackGColor = System.Drawing.Color.MediumSlateBlue;
             this.groupBoxOtherS.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxOtherS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxOtherS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
@@ -687,7 +696,7 @@ namespace AutoSplitterCore
             this.groupBoxOtherS.Controls.Add(this.btnAbout);
             this.groupBoxOtherS.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxOtherS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxOtherS.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxOtherS.HeaderColor = System.Drawing.Color.DarkOrchid;
             this.groupBoxOtherS.Location = new System.Drawing.Point(436, 16);
             this.groupBoxOtherS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxOtherS.MinimumSize = new System.Drawing.Size(136, 50);
@@ -790,14 +799,14 @@ namespace AutoSplitterCore
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBox1.BackGColor = System.Drawing.Color.Magenta;
             this.groupBox1.BaseColor = System.Drawing.Color.Transparent;
             this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             this.groupBox1.Controls.Add(this.btnHowSetup);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBox1.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBox1.HeaderColor = System.Drawing.Color.DarkViolet;
             this.groupBox1.Location = new System.Drawing.Point(438, 225);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
@@ -937,7 +946,7 @@ namespace AutoSplitterCore
             // 
             this.LabelVersion.AutoSize = true;
             this.LabelVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelVersion.Location = new System.Drawing.Point(79, 47);
+            this.LabelVersion.Location = new System.Drawing.Point(79, 50);
             this.LabelVersion.Name = "LabelVersion";
             this.LabelVersion.Size = new System.Drawing.Size(40, 15);
             this.LabelVersion.TabIndex = 72;
@@ -955,10 +964,10 @@ namespace AutoSplitterCore
             this.cbCheckUpdatesOnStartup.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.cbCheckUpdatesOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbCheckUpdatesOnStartup.IsDerivedStyle = true;
-            this.cbCheckUpdatesOnStartup.Location = new System.Drawing.Point(202, 92);
+            this.cbCheckUpdatesOnStartup.Location = new System.Drawing.Point(204, 92);
             this.cbCheckUpdatesOnStartup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCheckUpdatesOnStartup.Name = "cbCheckUpdatesOnStartup";
-            this.cbCheckUpdatesOnStartup.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
+            this.cbCheckUpdatesOnStartup.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
             this.cbCheckUpdatesOnStartup.Size = new System.Drawing.Size(187, 16);
             this.cbCheckUpdatesOnStartup.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             this.cbCheckUpdatesOnStartup.StyleManager = null;
@@ -1218,64 +1227,10 @@ namespace AutoSplitterCore
             this.btnSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnSekiro.Click += new System.EventHandler(this.btnSekiro_Click);
             // 
-            // tabInfo
-            // 
-            this.tabInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.tabInfo.Controls.Add(this.TextBoxManual);
-            this.tabInfo.Location = new System.Drawing.Point(4, 42);
-            this.tabInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabInfo.Name = "tabInfo";
-            this.tabInfo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabInfo.Size = new System.Drawing.Size(609, 339);
-            this.tabInfo.TabIndex = 6;
-            this.tabInfo.Text = "Info";
-            // 
-            // TextBoxManual
-            // 
-            this.TextBoxManual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxManual.Location = new System.Drawing.Point(6, 6);
-            this.TextBoxManual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxManual.Multiline = true;
-            this.TextBoxManual.Name = "TextBoxManual";
-            this.TextBoxManual.ReadOnly = true;
-            this.TextBoxManual.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBoxManual.Size = new System.Drawing.Size(597, 322);
-            this.TextBoxManual.TabIndex = 2;
-            this.TextBoxManual.TabStop = false;
-            this.TextBoxManual.Text = resources.GetString("TextBoxManual.Text");
-            // 
-            // tabLicense
-            // 
-            this.tabLicense.BackColor = System.Drawing.SystemColors.Control;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Location = new System.Drawing.Point(4, 42);
-            this.tabLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 339);
-            this.tabLicense.TabIndex = 12;
-            this.tabLicense.Text = "License";
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(579, 340);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
-            // 
             // tabTiming
             // 
-            this.tabTiming.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTiming.BaseColor = System.Drawing.Color.White;
+            this.tabTiming.Controls.Add(this.poisonLabel1);
             this.tabTiming.Controls.Add(this.groupBox2);
             this.tabTiming.Controls.Add(this.groupBoxTDs2);
             this.tabTiming.Controls.Add(this.groupBoxTCeleste);
@@ -1288,13 +1243,31 @@ namespace AutoSplitterCore
             this.tabTiming.Controls.Add(this.groupBoxTHK);
             this.tabTiming.Controls.Add(this.groupBoxTDs1);
             this.tabTiming.Controls.Add(this.comboBoxTGame);
-            this.tabTiming.Controls.Add(this.label75);
+            this.tabTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabTiming.ImageKey = null;
+            this.tabTiming.IsDerivedStyle = true;
             this.tabTiming.Location = new System.Drawing.Point(4, 42);
-            this.tabTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTiming.Name = "tabTiming";
             this.tabTiming.Size = new System.Drawing.Size(609, 339);
-            this.tabTiming.TabIndex = 11;
+            this.tabTiming.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabTiming.StyleManager = null;
+            this.tabTiming.TabIndex = 4;
             this.tabTiming.Text = "Timing";
+            this.tabTiming.ThemeAuthor = "Taiizor";
+            this.tabTiming.ThemeName = "MetroLight";
+            this.tabTiming.ToolTipText = null;
+            // 
+            // poisonLabel1
+            // 
+            this.poisonLabel1.AutoSize = true;
+            this.poisonLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.poisonLabel1.Location = new System.Drawing.Point(47, 21);
+            this.poisonLabel1.Name = "poisonLabel1";
+            this.poisonLabel1.Size = new System.Drawing.Size(44, 19);
+            this.poisonLabel1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            this.poisonLabel1.TabIndex = 19;
+            this.poisonLabel1.Text = "Game";
+            this.poisonLabel1.UseStyleColors = true;
             // 
             // groupBox2
             // 
@@ -1309,7 +1282,6 @@ namespace AutoSplitterCore
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox2.HeaderColor = System.Drawing.Color.CornflowerBlue;
             this.groupBox2.Location = new System.Drawing.Point(177, 242);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1323,7 +1295,7 @@ namespace AutoSplitterCore
             // 
             this.label94.AutoSize = true;
             this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label94.Location = new System.Drawing.Point(33, 41);
+            this.label94.Location = new System.Drawing.Point(6, 41);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(151, 28);
             this.label94.TabIndex = 18;
@@ -1344,7 +1316,7 @@ namespace AutoSplitterCore
             // groupBoxTDs2
             // 
             this.groupBoxTDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs2.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxTDs2.BackGColor = System.Drawing.Color.Gold;
             this.groupBoxTDs2.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxTDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxTDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
@@ -1352,8 +1324,8 @@ namespace AutoSplitterCore
             this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
             this.groupBoxTDs2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxTDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTDs2.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs2.Location = new System.Drawing.Point(125, 63);
             this.groupBoxTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxTDs2.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxTDs2.Name = "groupBoxTDs2";
@@ -1380,7 +1352,7 @@ namespace AutoSplitterCore
             this.groupBoxATDs2.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxATDs2.Name = "groupBoxATDs2";
             this.groupBoxATDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs2.Size = new System.Drawing.Size(153, 109);
+            this.groupBoxATDs2.Size = new System.Drawing.Size(164, 109);
             this.groupBoxATDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxATDs2.TabIndex = 4;
             this.groupBoxATDs2.TabStop = false;
@@ -1389,7 +1361,7 @@ namespace AutoSplitterCore
             // checkBoxATDs2
             // 
             this.checkBoxATDs2.AutoSize = true;
-            this.checkBoxATDs2.Location = new System.Drawing.Point(45, 50);
+            this.checkBoxATDs2.Location = new System.Drawing.Point(54, 50);
             this.checkBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxATDs2.Name = "checkBoxATDs2";
             this.checkBoxATDs2.Size = new System.Drawing.Size(62, 18);
@@ -2144,16 +2116,16 @@ namespace AutoSplitterCore
             this.btnDesactiveAllTiming.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesactiveAllTiming.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnDesactiveAllTiming.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDesactiveAllTiming.Image = null;
             this.btnDesactiveAllTiming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDesactiveAllTiming.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(483, 21);
+            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(502, 19);
             this.btnDesactiveAllTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDesactiveAllTiming.Name = "btnDesactiveAllTiming";
             this.btnDesactiveAllTiming.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnDesactiveAllTiming.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(89, 31);
+            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(95, 26);
             this.btnDesactiveAllTiming.TabIndex = 15;
             this.btnDesactiveAllTiming.Text = "Desactive All";
             this.btnDesactiveAllTiming.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -2372,7 +2344,25 @@ namespace AutoSplitterCore
             // comboBoxTGame
             // 
             this.comboBoxTGame.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.comboBoxTGame.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
+            this.comboBoxTGame.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
+            this.comboBoxTGame.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.comboBoxTGame.ColorD = System.Drawing.Color.Teal;
+            this.comboBoxTGame.ColorE = System.Drawing.Color.Aqua;
+            this.comboBoxTGame.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.comboBoxTGame.ColorG = System.Drawing.Color.Cyan;
+            this.comboBoxTGame.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.comboBoxTGame.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.comboBoxTGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxTGame.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTGame.DropDownHeight = 100;
+            this.comboBoxTGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTGame.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxTGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
             this.comboBoxTGame.FormattingEnabled = true;
+            this.comboBoxTGame.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.comboBoxTGame.IntegralHeight = false;
+            this.comboBoxTGame.ItemHeight = 20;
             this.comboBoxTGame.Items.AddRange(new object[] {
             "Sekiro Shadow Die Twice",
             "Dark Souls 1",
@@ -2383,26 +2373,92 @@ namespace AutoSplitterCore
             "Celeste",
             "Cuphead",
             "Dishonored"});
-            this.comboBoxTGame.Location = new System.Drawing.Point(89, 25);
-            this.comboBoxTGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxTGame.Location = new System.Drawing.Point(101, 19);
             this.comboBoxTGame.Name = "comboBoxTGame";
-            this.comboBoxTGame.Size = new System.Drawing.Size(379, 21);
+            this.comboBoxTGame.Size = new System.Drawing.Size(386, 26);
+            this.comboBoxTGame.StartIndex = -1;
             this.comboBoxTGame.TabIndex = 6;
             this.comboBoxTGame.SelectedIndexChanged += new System.EventHandler(this.comboBoxTGame_SelectedIndexChanged);
             // 
-            // label75
+            // tabInfo
             // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(51, 28);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(36, 13);
-            this.label75.TabIndex = 5;
-            this.label75.Text = "Game";
-            this.label75.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tabInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.tabInfo.BaseColor = System.Drawing.Color.White;
+            this.tabInfo.Controls.Add(this.TextboxManual);
+            this.tabInfo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabInfo.ImageKey = null;
+            this.tabInfo.IsDerivedStyle = true;
+            this.tabInfo.Location = new System.Drawing.Point(4, 42);
+            this.tabInfo.Name = "tabInfo";
+            this.tabInfo.Size = new System.Drawing.Size(609, 339);
+            this.tabInfo.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabInfo.StyleManager = null;
+            this.tabInfo.TabIndex = 2;
+            this.tabInfo.Text = "Info";
+            this.tabInfo.ThemeAuthor = "Taiizor";
+            this.tabInfo.ThemeName = "MetroLight";
+            this.tabInfo.ToolTipText = null;
+            // 
+            // TextboxManual
+            // 
+            this.TextboxManual.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TextboxManual.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.TextboxManual.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.TextboxManual.BorderColorB = System.Drawing.Color.DarkSlateGray;
+            this.TextboxManual.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextboxManual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.TextboxManual.Hint = "";
+            this.TextboxManual.Location = new System.Drawing.Point(1, 3);
+            this.TextboxManual.MaxLength = 32767;
+            this.TextboxManual.Multiline = true;
+            this.TextboxManual.Name = "TextboxManual";
+            this.TextboxManual.PasswordChar = '\0';
+            this.TextboxManual.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextboxManual.SelectedText = "";
+            this.TextboxManual.SelectionLength = 0;
+            this.TextboxManual.SelectionStart = 0;
+            this.TextboxManual.Size = new System.Drawing.Size(605, 333);
+            this.TextboxManual.TabIndex = 0;
+            this.TextboxManual.TabStop = false;
+            this.TextboxManual.Text = resources.GetString("TextboxManual.Text");
+            this.TextboxManual.UseSystemPasswordChar = false;
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BaseColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.ImageKey = null;
+            this.tabLicense.IsDerivedStyle = true;
+            this.tabLicense.Location = new System.Drawing.Point(4, 42);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 339);
+            this.tabLicense.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabLicense.StyleManager = null;
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.ThemeAuthor = "Taiizor";
+            this.tabLicense.ThemeName = "MetroLight";
+            this.tabLicense.ToolTipText = null;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 330);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
             // 
             // tabSekiro
             // 
-            this.tabSekiro.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSekiro.BaseColor = System.Drawing.Color.White;
             this.tabSekiro.Controls.Add(this.panelCfSekiro);
             this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelMiniBossSekiro);
@@ -2415,13 +2471,19 @@ namespace AutoSplitterCore
             this.tabSekiro.Controls.Add(this.SekiroNotRunning);
             this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
             this.tabSekiro.Controls.Add(this.label1);
+            this.tabSekiro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSekiro.ImageKey = null;
+            this.tabSekiro.IsDerivedStyle = true;
             this.tabSekiro.Location = new System.Drawing.Point(4, 42);
-            this.tabSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSekiro.Name = "tabSekiro";
-            this.tabSekiro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSekiro.Size = new System.Drawing.Size(609, 339);
-            this.tabSekiro.TabIndex = 2;
+            this.tabSekiro.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabSekiro.StyleManager = null;
+            this.tabSekiro.TabIndex = 5;
             this.tabSekiro.Text = "Sekiro";
+            this.tabSekiro.ThemeAuthor = "Taiizor";
+            this.tabSekiro.ThemeName = "MetroLight";
+            this.tabSekiro.ToolTipText = null;
             // 
             // panelCfSekiro
             // 
@@ -2445,7 +2507,7 @@ namespace AutoSplitterCore
             this.label91.AutoSize = true;
             this.label91.Location = new System.Drawing.Point(162, 77);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(59, 26);
+            this.label91.Size = new System.Drawing.Size(71, 34);
             this.label91.TabIndex = 24;
             this.label91.Text = "     Title\r\n(Optional)";
             // 
@@ -2454,7 +2516,7 @@ namespace AutoSplitterCore
             this.textBoxTitleCFS.Location = new System.Drawing.Point(219, 77);
             this.textBoxTitleCFS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitleCFS.Name = "textBoxTitleCFS";
-            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitleCFS.TabIndex = 23;
             // 
             // label7
@@ -2462,7 +2524,7 @@ namespace AutoSplitterCore
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(393, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(39, 17);
             this.label7.TabIndex = 21;
             this.label7.Text = "How:";
             // 
@@ -2476,17 +2538,18 @@ namespace AutoSplitterCore
             this.comboBoxHowCfS.Location = new System.Drawing.Point(276, 50);
             this.comboBoxHowCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowCfS.Name = "comboBoxHowCfS";
-            this.comboBoxHowCfS.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowCfS.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowCfS.TabIndex = 20;
             // 
             // listBoxCfS
             // 
             this.listBoxCfS.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfS.FormattingEnabled = true;
+            this.listBoxCfS.ItemHeight = 16;
             this.listBoxCfS.Location = new System.Drawing.Point(9, 138);
             this.listBoxCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxCfS.Name = "listBoxCfS";
-            this.listBoxCfS.Size = new System.Drawing.Size(487, 121);
+            this.listBoxCfS.Size = new System.Drawing.Size(487, 116);
             this.listBoxCfS.TabIndex = 19;
             this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
             // 
@@ -2539,7 +2602,7 @@ namespace AutoSplitterCore
             this.label59.AutoSize = true;
             this.label59.Location = new System.Drawing.Point(120, 53);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(21, 13);
+            this.label59.Size = new System.Drawing.Size(25, 17);
             this.label59.TabIndex = 1;
             this.label59.Text = "ID:";
             // 
@@ -2549,7 +2612,7 @@ namespace AutoSplitterCore
             this.textBoxCfIdS.Location = new System.Drawing.Point(151, 50);
             this.textBoxCfIdS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCfIdS.Name = "textBoxCfIdS";
-            this.textBoxCfIdS.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCfIdS.Size = new System.Drawing.Size(100, 23);
             this.textBoxCfIdS.TabIndex = 0;
             // 
             // panelPositionS
@@ -2579,7 +2642,7 @@ namespace AutoSplitterCore
             this.label85.AutoSize = true;
             this.label85.Location = new System.Drawing.Point(129, 60);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(59, 26);
+            this.label85.Size = new System.Drawing.Size(71, 34);
             this.label85.TabIndex = 14;
             this.label85.Text = "     Title\r\n(Optional)";
             // 
@@ -2588,7 +2651,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionS.Location = new System.Drawing.Point(189, 60);
             this.textBoxTitlePositionS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
-            this.textBoxTitlePositionS.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionS.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionS.TabIndex = 13;
             // 
             // label11
@@ -2596,7 +2659,7 @@ namespace AutoSplitterCore
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(219, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.Size = new System.Drawing.Size(88, 17);
             this.label11.TabIndex = 12;
             this.label11.Text = "Coordinates:";
             // 
@@ -2605,7 +2668,7 @@ namespace AutoSplitterCore
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(383, 19);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(51, 17);
             this.label10.TabIndex = 11;
             this.label10.Text = "Margin";
             // 
@@ -2614,7 +2677,7 @@ namespace AutoSplitterCore
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(185, 19);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 13);
+            this.label9.Size = new System.Drawing.Size(171, 17);
             this.label9.TabIndex = 10;
             this.label9.Text = "X                 Y                 Z";
             // 
@@ -2623,7 +2686,7 @@ namespace AutoSplitterCore
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(77, 19);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.Size = new System.Drawing.Size(39, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "How:";
             // 
@@ -2637,7 +2700,7 @@ namespace AutoSplitterCore
             this.comboBoxHowPosition.Location = new System.Drawing.Point(36, 34);
             this.comboBoxHowPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowPosition.Name = "comboBoxHowPosition";
-            this.comboBoxHowPosition.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowPosition.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowPosition.TabIndex = 8;
             // 
             // comboBoxMarginS
@@ -2659,7 +2722,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginS.Location = new System.Drawing.Point(351, 34);
             this.comboBoxMarginS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginS.Name = "comboBoxMarginS";
-            this.comboBoxMarginS.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxMarginS.Size = new System.Drawing.Size(109, 24);
             this.comboBoxMarginS.TabIndex = 7;
             this.comboBoxMarginS.SelectedIndexChanged += new System.EventHandler(this.comboBoxMargin_SelectedIndexChanged);
             // 
@@ -2667,10 +2730,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsS.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsS.FormattingEnabled = true;
+            this.listBoxPositionsS.ItemHeight = 16;
             this.listBoxPositionsS.Location = new System.Drawing.Point(3, 117);
             this.listBoxPositionsS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionsS.Name = "listBoxPositionsS";
-            this.listBoxPositionsS.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionsS.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionsS.TabIndex = 6;
             this.listBoxPositionsS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxPositions_MouseDoubleClick);
             // 
@@ -2723,7 +2787,7 @@ namespace AutoSplitterCore
             this.textBoxZ.Location = new System.Drawing.Point(279, 34);
             this.textBoxZ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxZ.Name = "textBoxZ";
-            this.textBoxZ.Size = new System.Drawing.Size(52, 22);
+            this.textBoxZ.Size = new System.Drawing.Size(52, 23);
             this.textBoxZ.TabIndex = 3;
             // 
             // textBoxY
@@ -2731,7 +2795,7 @@ namespace AutoSplitterCore
             this.textBoxY.Location = new System.Drawing.Point(222, 34);
             this.textBoxY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(52, 22);
+            this.textBoxY.Size = new System.Drawing.Size(52, 23);
             this.textBoxY.TabIndex = 2;
             // 
             // textBoxX
@@ -2739,7 +2803,7 @@ namespace AutoSplitterCore
             this.textBoxX.Location = new System.Drawing.Point(165, 34);
             this.textBoxX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxX.Name = "textBoxX";
-            this.textBoxX.Size = new System.Drawing.Size(52, 22);
+            this.textBoxX.Size = new System.Drawing.Size(52, 23);
             this.textBoxX.TabIndex = 0;
             // 
             // panelMiniBossSekiro
@@ -2799,7 +2863,7 @@ namespace AutoSplitterCore
             this.label79.AutoSize = true;
             this.label79.Location = new System.Drawing.Point(319, 14);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(56, 13);
+            this.label79.Size = new System.Drawing.Size(68, 17);
             this.label79.TabIndex = 19;
             this.label79.Text = "MiniBoss:";
             // 
@@ -2847,7 +2911,7 @@ namespace AutoSplitterCore
             this.comboBoxMiniBossSekiro.Location = new System.Drawing.Point(207, 28);
             this.comboBoxMiniBossSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMiniBossSekiro.Name = "comboBoxMiniBossSekiro";
-            this.comboBoxMiniBossSekiro.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxMiniBossSekiro.Size = new System.Drawing.Size(292, 24);
             this.comboBoxMiniBossSekiro.TabIndex = 18;
             this.comboBoxMiniBossSekiro.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiniBossSekiro_SelectedIndexChanged);
             // 
@@ -2856,7 +2920,7 @@ namespace AutoSplitterCore
             this.label80.AutoSize = true;
             this.label80.Location = new System.Drawing.Point(105, 28);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(34, 13);
+            this.label80.Size = new System.Drawing.Size(39, 17);
             this.label80.TabIndex = 17;
             this.label80.Text = "How:";
             // 
@@ -2870,17 +2934,18 @@ namespace AutoSplitterCore
             this.comboBoxHowMiniBoss.Location = new System.Drawing.Point(61, 46);
             this.comboBoxHowMiniBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowMiniBoss.Name = "comboBoxHowMiniBoss";
-            this.comboBoxHowMiniBoss.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowMiniBoss.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowMiniBoss.TabIndex = 16;
             // 
             // listBoxMiniBossesS
             // 
             this.listBoxMiniBossesS.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxMiniBossesS.FormattingEnabled = true;
+            this.listBoxMiniBossesS.ItemHeight = 16;
             this.listBoxMiniBossesS.Location = new System.Drawing.Point(11, 115);
             this.listBoxMiniBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxMiniBossesS.Name = "listBoxMiniBossesS";
-            this.listBoxMiniBossesS.Size = new System.Drawing.Size(539, 134);
+            this.listBoxMiniBossesS.Size = new System.Drawing.Size(539, 132);
             this.listBoxMiniBossesS.TabIndex = 15;
             this.listBoxMiniBossesS.DoubleClick += new System.EventHandler(this.listBoxMiniBossSekiro_DoubleClick);
             // 
@@ -2925,7 +2990,7 @@ namespace AutoSplitterCore
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(295, 2);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.Size = new System.Drawing.Size(43, 17);
             this.label13.TabIndex = 13;
             this.label13.Text = "Boss:";
             // 
@@ -2954,7 +3019,7 @@ namespace AutoSplitterCore
             this.comboBoxBoss.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBoss.Name = "comboBoxBoss";
-            this.comboBoxBoss.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBoss.Size = new System.Drawing.Size(292, 24);
             this.comboBoxBoss.TabIndex = 12;
             // 
             // label12
@@ -2962,7 +3027,7 @@ namespace AutoSplitterCore
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(87, 2);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.Size = new System.Drawing.Size(39, 17);
             this.label12.TabIndex = 11;
             this.label12.Text = "How:";
             // 
@@ -2976,17 +3041,18 @@ namespace AutoSplitterCore
             this.comboBoxHowBoss.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBoss.Name = "comboBoxHowBoss";
-            this.comboBoxHowBoss.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBoss.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBoss.TabIndex = 10;
             // 
             // listBoxBosses
             // 
             this.listBoxBosses.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBosses.FormattingEnabled = true;
+            this.listBoxBosses.ItemHeight = 16;
             this.listBoxBosses.Location = new System.Drawing.Point(9, 83);
             this.listBoxBosses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBosses.Name = "listBoxBosses";
-            this.listBoxBosses.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBosses.Size = new System.Drawing.Size(489, 132);
             this.listBoxBosses.TabIndex = 7;
             this.listBoxBosses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
             // 
@@ -4314,7 +4380,7 @@ namespace AutoSplitterCore
             this.comboBoxZoneSelectS.Location = new System.Drawing.Point(81, 5);
             this.comboBoxZoneSelectS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxZoneSelectS.Name = "comboBoxZoneSelectS";
-            this.comboBoxZoneSelectS.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxZoneSelectS.Size = new System.Drawing.Size(361, 24);
             this.comboBoxZoneSelectS.TabIndex = 5;
             this.comboBoxZoneSelectS.SelectedIndexChanged += new System.EventHandler(this.comboBoxZoneSelect_SelectedIndexChanged);
             // 
@@ -4323,7 +4389,7 @@ namespace AutoSplitterCore
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(35, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 13);
+            this.label14.Size = new System.Drawing.Size(46, 17);
             this.label14.TabIndex = 4;
             this.label14.Text = "where";
             // 
@@ -4377,7 +4443,7 @@ namespace AutoSplitterCore
             this.sekiroRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.sekiroRunning.Location = new System.Drawing.Point(357, 21);
             this.sekiroRunning.Name = "sekiroRunning";
-            this.sekiroRunning.Size = new System.Drawing.Size(98, 13);
+            this.sekiroRunning.Size = new System.Drawing.Size(119, 17);
             this.sekiroRunning.TabIndex = 7;
             this.sekiroRunning.Text = "Sekiro is Running";
             // 
@@ -4387,7 +4453,7 @@ namespace AutoSplitterCore
             this.SekiroNotRunning.ForeColor = System.Drawing.Color.Red;
             this.SekiroNotRunning.Location = new System.Drawing.Point(357, 21);
             this.SekiroNotRunning.Name = "SekiroNotRunning";
-            this.SekiroNotRunning.Size = new System.Drawing.Size(120, 13);
+            this.SekiroNotRunning.Size = new System.Drawing.Size(145, 17);
             this.SekiroNotRunning.TabIndex = 6;
             this.SekiroNotRunning.Text = "Sekiro is Not Running";
             // 
@@ -4405,7 +4471,7 @@ namespace AutoSplitterCore
             this.toSplitSelectSekiro.Location = new System.Drawing.Point(81, 54);
             this.toSplitSelectSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toSplitSelectSekiro.Name = "toSplitSelectSekiro";
-            this.toSplitSelectSekiro.Size = new System.Drawing.Size(445, 21);
+            this.toSplitSelectSekiro.Size = new System.Drawing.Size(445, 24);
             this.toSplitSelectSekiro.TabIndex = 4;
             this.toSplitSelectSekiro.SelectedIndexChanged += new System.EventHandler(this.toSplitSelectSekiro_SelectedIndexChanged);
             // 
@@ -4414,13 +4480,13 @@ namespace AutoSplitterCore
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(41, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "when";
             // 
             // tabDs1
             // 
-            this.tabDs1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDs1.BaseColor = System.Drawing.Color.White;
             this.tabDs1.Controls.Add(this.panelPositionDs1);
             this.tabDs1.Controls.Add(this.panelLvlDs1);
             this.tabDs1.Controls.Add(this.panelBonfireDs1);
@@ -4432,12 +4498,19 @@ namespace AutoSplitterCore
             this.tabDs1.Controls.Add(this.Ds1NotRunning);
             this.tabDs1.Controls.Add(this.comboBoxToSplitDs1);
             this.tabDs1.Controls.Add(this.label62);
+            this.tabDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs1.ImageKey = null;
+            this.tabDs1.IsDerivedStyle = true;
             this.tabDs1.Location = new System.Drawing.Point(4, 42);
-            this.tabDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDs1.Name = "tabDs1";
             this.tabDs1.Size = new System.Drawing.Size(609, 339);
-            this.tabDs1.TabIndex = 4;
+            this.tabDs1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabDs1.StyleManager = null;
+            this.tabDs1.TabIndex = 5;
             this.tabDs1.Text = "Dark Souls 1";
+            this.tabDs1.ThemeAuthor = "Taiizor";
+            this.tabDs1.ThemeName = "MetroLight";
+            this.tabDs1.ToolTipText = null;
             // 
             // panelPositionDs1
             // 
@@ -4466,7 +4539,7 @@ namespace AutoSplitterCore
             this.label86.AutoSize = true;
             this.label86.Location = new System.Drawing.Point(135, 60);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(59, 26);
+            this.label86.Size = new System.Drawing.Size(71, 34);
             this.label86.TabIndex = 16;
             this.label86.Text = "     Title\r\n(Optional)";
             // 
@@ -4475,7 +4548,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(195, 60);
             this.textBoxTitlePositionDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
-            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionDs1.TabIndex = 15;
             // 
             // label68
@@ -4483,7 +4556,7 @@ namespace AutoSplitterCore
             this.label68.AutoSize = true;
             this.label68.Location = new System.Drawing.Point(219, 1);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(73, 13);
+            this.label68.Size = new System.Drawing.Size(88, 17);
             this.label68.TabIndex = 12;
             this.label68.Text = "Coordinates:";
             // 
@@ -4492,7 +4565,7 @@ namespace AutoSplitterCore
             this.label69.AutoSize = true;
             this.label69.Location = new System.Drawing.Point(383, 19);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(44, 13);
+            this.label69.Size = new System.Drawing.Size(51, 17);
             this.label69.TabIndex = 11;
             this.label69.Text = "Margin";
             // 
@@ -4501,7 +4574,7 @@ namespace AutoSplitterCore
             this.label70.AutoSize = true;
             this.label70.Location = new System.Drawing.Point(185, 19);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(126, 13);
+            this.label70.Size = new System.Drawing.Size(171, 17);
             this.label70.TabIndex = 10;
             this.label70.Text = "X                 Y                 Z";
             // 
@@ -4510,7 +4583,7 @@ namespace AutoSplitterCore
             this.label71.AutoSize = true;
             this.label71.Location = new System.Drawing.Point(77, 19);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(34, 13);
+            this.label71.Size = new System.Drawing.Size(39, 17);
             this.label71.TabIndex = 9;
             this.label71.Text = "How:";
             // 
@@ -4524,7 +4597,7 @@ namespace AutoSplitterCore
             this.comboBoxHowPositionsDs1.Location = new System.Drawing.Point(36, 34);
             this.comboBoxHowPositionsDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowPositionsDs1.Name = "comboBoxHowPositionsDs1";
-            this.comboBoxHowPositionsDs1.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowPositionsDs1.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowPositionsDs1.TabIndex = 8;
             // 
             // comboBoxMarginDs1
@@ -4546,7 +4619,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginDs1.Location = new System.Drawing.Point(351, 34);
             this.comboBoxMarginDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginDs1.Name = "comboBoxMarginDs1";
-            this.comboBoxMarginDs1.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxMarginDs1.Size = new System.Drawing.Size(109, 24);
             this.comboBoxMarginDs1.TabIndex = 7;
             this.comboBoxMarginDs1.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs1_SelectedIndexChanged);
             // 
@@ -4554,10 +4627,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs1.FormattingEnabled = true;
+            this.listBoxPositionsDs1.ItemHeight = 16;
             this.listBoxPositionsDs1.Location = new System.Drawing.Point(3, 112);
             this.listBoxPositionsDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionsDs1.Name = "listBoxPositionsDs1";
-            this.listBoxPositionsDs1.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionsDs1.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionsDs1.TabIndex = 6;
             this.listBoxPositionsDs1.DoubleClick += new System.EventHandler(this.listBoxPositionDs1_DoubleClick);
             // 
@@ -4612,7 +4686,7 @@ namespace AutoSplitterCore
             this.textBoxZDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxZDs1.Name = "textBoxZDs1";
             this.textBoxZDs1.ReadOnly = true;
-            this.textBoxZDs1.Size = new System.Drawing.Size(52, 22);
+            this.textBoxZDs1.Size = new System.Drawing.Size(52, 23);
             this.textBoxZDs1.TabIndex = 3;
             // 
             // textBoxYDs1
@@ -4622,7 +4696,7 @@ namespace AutoSplitterCore
             this.textBoxYDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYDs1.Name = "textBoxYDs1";
             this.textBoxYDs1.ReadOnly = true;
-            this.textBoxYDs1.Size = new System.Drawing.Size(52, 22);
+            this.textBoxYDs1.Size = new System.Drawing.Size(52, 23);
             this.textBoxYDs1.TabIndex = 2;
             // 
             // textBoxXDs1
@@ -4632,7 +4706,7 @@ namespace AutoSplitterCore
             this.textBoxXDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxXDs1.Name = "textBoxXDs1";
             this.textBoxXDs1.ReadOnly = true;
-            this.textBoxXDs1.Size = new System.Drawing.Size(52, 22);
+            this.textBoxXDs1.Size = new System.Drawing.Size(52, 23);
             this.textBoxXDs1.TabIndex = 0;
             // 
             // panelLvlDs1
@@ -4656,7 +4730,7 @@ namespace AutoSplitterCore
             this.label65.AutoSize = true;
             this.label65.Location = new System.Drawing.Point(117, 34);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(34, 13);
+            this.label65.Size = new System.Drawing.Size(42, 17);
             this.label65.TabIndex = 24;
             this.label65.Text = "value";
             // 
@@ -4666,17 +4740,18 @@ namespace AutoSplitterCore
             this.textBoxValueDs1.Location = new System.Drawing.Point(159, 31);
             this.textBoxValueDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxValueDs1.Name = "textBoxValueDs1";
-            this.textBoxValueDs1.Size = new System.Drawing.Size(100, 22);
+            this.textBoxValueDs1.Size = new System.Drawing.Size(100, 23);
             this.textBoxValueDs1.TabIndex = 23;
             // 
             // listBoxAttributesDs1
             // 
             this.listBoxAttributesDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxAttributesDs1.FormattingEnabled = true;
+            this.listBoxAttributesDs1.ItemHeight = 16;
             this.listBoxAttributesDs1.Location = new System.Drawing.Point(7, 86);
             this.listBoxAttributesDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxAttributesDs1.Name = "listBoxAttributesDs1";
-            this.listBoxAttributesDs1.Size = new System.Drawing.Size(489, 147);
+            this.listBoxAttributesDs1.Size = new System.Drawing.Size(489, 132);
             this.listBoxAttributesDs1.TabIndex = 22;
             this.listBoxAttributesDs1.DoubleClick += new System.EventHandler(this.listBoxAttributeDs1_DoubleClick);
             // 
@@ -4707,7 +4782,7 @@ namespace AutoSplitterCore
             this.label66.AutoSize = true;
             this.label66.Location = new System.Drawing.Point(393, 34);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(30, 13);
+            this.label66.Size = new System.Drawing.Size(33, 17);
             this.label66.TabIndex = 20;
             this.label66.Text = "how";
             // 
@@ -4721,7 +4796,7 @@ namespace AutoSplitterCore
             this.comboBoxHowAttributesDs1.Location = new System.Drawing.Point(269, 31);
             this.comboBoxHowAttributesDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowAttributesDs1.Name = "comboBoxHowAttributesDs1";
-            this.comboBoxHowAttributesDs1.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxHowAttributesDs1.Size = new System.Drawing.Size(117, 24);
             this.comboBoxHowAttributesDs1.TabIndex = 19;
             // 
             // comboBoxAttributesDs1
@@ -4743,7 +4818,7 @@ namespace AutoSplitterCore
             this.comboBoxAttributesDs1.Location = new System.Drawing.Point(81, 5);
             this.comboBoxAttributesDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxAttributesDs1.Name = "comboBoxAttributesDs1";
-            this.comboBoxAttributesDs1.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxAttributesDs1.Size = new System.Drawing.Size(361, 24);
             this.comboBoxAttributesDs1.TabIndex = 18;
             // 
             // label67
@@ -4751,7 +4826,7 @@ namespace AutoSplitterCore
             this.label67.AutoSize = true;
             this.label67.Location = new System.Drawing.Point(35, 8);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(52, 13);
+            this.label67.Size = new System.Drawing.Size(60, 17);
             this.label67.TabIndex = 17;
             this.label67.Text = "attribute";
             // 
@@ -4776,7 +4851,7 @@ namespace AutoSplitterCore
             this.label74.AutoSize = true;
             this.label74.Location = new System.Drawing.Point(113, 37);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(32, 13);
+            this.label74.Size = new System.Drawing.Size(39, 17);
             this.label74.TabIndex = 18;
             this.label74.Text = "state";
             // 
@@ -4793,17 +4868,18 @@ namespace AutoSplitterCore
             this.comboBoxStateDs1.Location = new System.Drawing.Point(153, 34);
             this.comboBoxStateDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxStateDs1.Name = "comboBoxStateDs1";
-            this.comboBoxStateDs1.Size = new System.Drawing.Size(111, 21);
+            this.comboBoxStateDs1.Size = new System.Drawing.Size(111, 24);
             this.comboBoxStateDs1.TabIndex = 17;
             // 
             // listBoxBonfireDs1
             // 
             this.listBoxBonfireDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBonfireDs1.FormattingEnabled = true;
+            this.listBoxBonfireDs1.ItemHeight = 16;
             this.listBoxBonfireDs1.Location = new System.Drawing.Point(9, 89);
             this.listBoxBonfireDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBonfireDs1.Name = "listBoxBonfireDs1";
-            this.listBoxBonfireDs1.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBonfireDs1.Size = new System.Drawing.Size(489, 132);
             this.listBoxBonfireDs1.TabIndex = 16;
             this.listBoxBonfireDs1.DoubleClick += new System.EventHandler(this.listBoxBonfireDs1_DoubleClick);
             // 
@@ -4834,7 +4910,7 @@ namespace AutoSplitterCore
             this.label63.AutoSize = true;
             this.label63.Location = new System.Drawing.Point(387, 38);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(30, 13);
+            this.label63.Size = new System.Drawing.Size(33, 17);
             this.label63.TabIndex = 13;
             this.label63.Text = "how";
             // 
@@ -4848,7 +4924,7 @@ namespace AutoSplitterCore
             this.comboBoxHowBonfireDs1.Location = new System.Drawing.Point(271, 34);
             this.comboBoxHowBonfireDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBonfireDs1.Name = "comboBoxHowBonfireDs1";
-            this.comboBoxHowBonfireDs1.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBonfireDs1.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBonfireDs1.TabIndex = 12;
             // 
             // comboBoxBonfireDs1
@@ -4903,7 +4979,7 @@ namespace AutoSplitterCore
             this.comboBoxBonfireDs1.Location = new System.Drawing.Point(83, 6);
             this.comboBoxBonfireDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBonfireDs1.Name = "comboBoxBonfireDs1";
-            this.comboBoxBonfireDs1.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxBonfireDs1.Size = new System.Drawing.Size(361, 24);
             this.comboBoxBonfireDs1.TabIndex = 9;
             // 
             // label64
@@ -4911,7 +4987,7 @@ namespace AutoSplitterCore
             this.label64.AutoSize = true;
             this.label64.Location = new System.Drawing.Point(36, 11);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(45, 13);
+            this.label64.Size = new System.Drawing.Size(52, 17);
             this.label64.TabIndex = 8;
             this.label64.Text = "bonfire";
             // 
@@ -4956,7 +5032,7 @@ namespace AutoSplitterCore
             this.label72.AutoSize = true;
             this.label72.Location = new System.Drawing.Point(295, 2);
             this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(32, 13);
+            this.label72.Size = new System.Drawing.Size(38, 17);
             this.label72.TabIndex = 13;
             this.label72.Text = "Item:";
             // 
@@ -5654,7 +5730,7 @@ namespace AutoSplitterCore
             this.comboBoxItemDs1.Location = new System.Drawing.Point(183, 18);
             this.comboBoxItemDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxItemDs1.Name = "comboBoxItemDs1";
-            this.comboBoxItemDs1.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxItemDs1.Size = new System.Drawing.Size(292, 24);
             this.comboBoxItemDs1.TabIndex = 12;
             // 
             // label73
@@ -5662,7 +5738,7 @@ namespace AutoSplitterCore
             this.label73.AutoSize = true;
             this.label73.Location = new System.Drawing.Point(87, 2);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(34, 13);
+            this.label73.Size = new System.Drawing.Size(39, 17);
             this.label73.TabIndex = 11;
             this.label73.Text = "How:";
             // 
@@ -5676,17 +5752,18 @@ namespace AutoSplitterCore
             this.comboBoxHowItemDs1.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowItemDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowItemDs1.Name = "comboBoxHowItemDs1";
-            this.comboBoxHowItemDs1.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowItemDs1.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowItemDs1.TabIndex = 10;
             // 
             // listBoxItemDs1
             // 
             this.listBoxItemDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxItemDs1.FormattingEnabled = true;
+            this.listBoxItemDs1.ItemHeight = 16;
             this.listBoxItemDs1.Location = new System.Drawing.Point(9, 83);
             this.listBoxItemDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxItemDs1.Name = "listBoxItemDs1";
-            this.listBoxItemDs1.Size = new System.Drawing.Size(489, 147);
+            this.listBoxItemDs1.Size = new System.Drawing.Size(489, 132);
             this.listBoxItemDs1.TabIndex = 7;
             this.listBoxItemDs1.DoubleClick += new System.EventHandler(this.listBoxItemDs1_DoubleClick);
             // 
@@ -5731,7 +5808,7 @@ namespace AutoSplitterCore
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(295, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.Size = new System.Drawing.Size(43, 17);
             this.label5.TabIndex = 13;
             this.label5.Text = "Boss:";
             // 
@@ -5770,7 +5847,7 @@ namespace AutoSplitterCore
             this.comboBoxBossDs1.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBossDs1.Name = "comboBoxBossDs1";
-            this.comboBoxBossDs1.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBossDs1.Size = new System.Drawing.Size(292, 24);
             this.comboBoxBossDs1.TabIndex = 12;
             // 
             // label61
@@ -5778,7 +5855,7 @@ namespace AutoSplitterCore
             this.label61.AutoSize = true;
             this.label61.Location = new System.Drawing.Point(87, 2);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(34, 13);
+            this.label61.Size = new System.Drawing.Size(39, 17);
             this.label61.TabIndex = 11;
             this.label61.Text = "How:";
             // 
@@ -5792,17 +5869,18 @@ namespace AutoSplitterCore
             this.comboBoxHowBossDs1.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBossDs1.Name = "comboBoxHowBossDs1";
-            this.comboBoxHowBossDs1.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBossDs1.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBossDs1.TabIndex = 10;
             // 
             // listBoxBossDs1
             // 
             this.listBoxBossDs1.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBossDs1.FormattingEnabled = true;
+            this.listBoxBossDs1.ItemHeight = 16;
             this.listBoxBossDs1.Location = new System.Drawing.Point(9, 83);
             this.listBoxBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBossDs1.Name = "listBoxBossDs1";
-            this.listBoxBossDs1.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBossDs1.Size = new System.Drawing.Size(489, 132);
             this.listBoxBossDs1.TabIndex = 7;
             this.listBoxBossDs1.DoubleClick += new System.EventHandler(this.listBoxBossDs1_DoubleClick);
             // 
@@ -5856,7 +5934,7 @@ namespace AutoSplitterCore
             this.Ds1Running.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.Ds1Running.Location = new System.Drawing.Point(335, 21);
             this.Ds1Running.Name = "Ds1Running";
-            this.Ds1Running.Size = new System.Drawing.Size(130, 13);
+            this.Ds1Running.Size = new System.Drawing.Size(160, 17);
             this.Ds1Running.TabIndex = 21;
             this.Ds1Running.Text = "Dark Souls 1 is Running";
             // 
@@ -5866,7 +5944,7 @@ namespace AutoSplitterCore
             this.Ds1NotRunning.ForeColor = System.Drawing.Color.Red;
             this.Ds1NotRunning.Location = new System.Drawing.Point(327, 21);
             this.Ds1NotRunning.Name = "Ds1NotRunning";
-            this.Ds1NotRunning.Size = new System.Drawing.Size(152, 13);
+            this.Ds1NotRunning.Size = new System.Drawing.Size(186, 17);
             this.Ds1NotRunning.TabIndex = 20;
             this.Ds1NotRunning.Text = "Dark Souls 1 is Not Running";
             // 
@@ -5883,7 +5961,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitDs1.Location = new System.Drawing.Point(81, 54);
             this.comboBoxToSplitDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitDs1.Name = "comboBoxToSplitDs1";
-            this.comboBoxToSplitDs1.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitDs1.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitDs1.TabIndex = 19;
             this.comboBoxToSplitDs1.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitDs1_SelectedIndexChanged);
             // 
@@ -5892,13 +5970,13 @@ namespace AutoSplitterCore
             this.label62.AutoSize = true;
             this.label62.Location = new System.Drawing.Point(41, 57);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(36, 13);
+            this.label62.Size = new System.Drawing.Size(41, 17);
             this.label62.TabIndex = 18;
             this.label62.Text = "when";
             // 
             // tabDs2
             // 
-            this.tabDs2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDs2.BaseColor = System.Drawing.Color.White;
             this.tabDs2.Controls.Add(this.panelPositionDs2);
             this.tabDs2.Controls.Add(this.panelLvlDs2);
             this.tabDs2.Controls.Add(this.panelBossDS2);
@@ -5908,13 +5986,19 @@ namespace AutoSplitterCore
             this.tabDs2.Controls.Add(this.Ds2NotRunning);
             this.tabDs2.Controls.Add(this.comboBoxToSplitDs2);
             this.tabDs2.Controls.Add(this.label51);
+            this.tabDs2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs2.ImageKey = null;
+            this.tabDs2.IsDerivedStyle = true;
             this.tabDs2.Location = new System.Drawing.Point(4, 42);
-            this.tabDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDs2.Name = "tabDs2";
-            this.tabDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDs2.Size = new System.Drawing.Size(609, 339);
-            this.tabDs2.TabIndex = 0;
+            this.tabDs2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabDs2.StyleManager = null;
+            this.tabDs2.TabIndex = 6;
             this.tabDs2.Text = "Dark Souls 2";
+            this.tabDs2.ThemeAuthor = "Taiizor";
+            this.tabDs2.ThemeName = "MetroLight";
+            this.tabDs2.ToolTipText = null;
             // 
             // panelPositionDs2
             // 
@@ -5943,7 +6027,7 @@ namespace AutoSplitterCore
             this.label87.AutoSize = true;
             this.label87.Location = new System.Drawing.Point(139, 60);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(59, 26);
+            this.label87.Size = new System.Drawing.Size(71, 34);
             this.label87.TabIndex = 18;
             this.label87.Text = "     Title\r\n(Optional)";
             // 
@@ -5952,7 +6036,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(197, 60);
             this.textBoxTitlePositionDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
-            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionDs2.TabIndex = 17;
             // 
             // label55
@@ -5960,7 +6044,7 @@ namespace AutoSplitterCore
             this.label55.AutoSize = true;
             this.label55.Location = new System.Drawing.Point(219, 1);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(73, 13);
+            this.label55.Size = new System.Drawing.Size(88, 17);
             this.label55.TabIndex = 12;
             this.label55.Text = "Coordinates:";
             // 
@@ -5969,7 +6053,7 @@ namespace AutoSplitterCore
             this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(383, 19);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(44, 13);
+            this.label56.Size = new System.Drawing.Size(51, 17);
             this.label56.TabIndex = 11;
             this.label56.Text = "Margin";
             // 
@@ -5978,7 +6062,7 @@ namespace AutoSplitterCore
             this.label57.AutoSize = true;
             this.label57.Location = new System.Drawing.Point(185, 19);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(126, 13);
+            this.label57.Size = new System.Drawing.Size(171, 17);
             this.label57.TabIndex = 10;
             this.label57.Text = "X                 Y                 Z";
             // 
@@ -5987,7 +6071,7 @@ namespace AutoSplitterCore
             this.label58.AutoSize = true;
             this.label58.Location = new System.Drawing.Point(77, 19);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(34, 13);
+            this.label58.Size = new System.Drawing.Size(39, 17);
             this.label58.TabIndex = 9;
             this.label58.Text = "How:";
             // 
@@ -6001,7 +6085,7 @@ namespace AutoSplitterCore
             this.comboBoxHowPositionsDs2.Location = new System.Drawing.Point(36, 34);
             this.comboBoxHowPositionsDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowPositionsDs2.Name = "comboBoxHowPositionsDs2";
-            this.comboBoxHowPositionsDs2.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowPositionsDs2.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowPositionsDs2.TabIndex = 8;
             // 
             // comboBoxMarginDs2
@@ -6022,7 +6106,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginDs2.Location = new System.Drawing.Point(351, 34);
             this.comboBoxMarginDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginDs2.Name = "comboBoxMarginDs2";
-            this.comboBoxMarginDs2.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxMarginDs2.Size = new System.Drawing.Size(109, 24);
             this.comboBoxMarginDs2.TabIndex = 7;
             this.comboBoxMarginDs2.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs2_SelectedIndexChanged);
             // 
@@ -6030,10 +6114,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs2.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs2.FormattingEnabled = true;
+            this.listBoxPositionsDs2.ItemHeight = 16;
             this.listBoxPositionsDs2.Location = new System.Drawing.Point(3, 112);
             this.listBoxPositionsDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionsDs2.Name = "listBoxPositionsDs2";
-            this.listBoxPositionsDs2.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionsDs2.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionsDs2.TabIndex = 6;
             this.listBoxPositionsDs2.DoubleClick += new System.EventHandler(this.listBoxPositionsDs2_DoubleClick);
             // 
@@ -6088,7 +6173,7 @@ namespace AutoSplitterCore
             this.textBoxZDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxZDs2.Name = "textBoxZDs2";
             this.textBoxZDs2.ReadOnly = true;
-            this.textBoxZDs2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxZDs2.Size = new System.Drawing.Size(52, 23);
             this.textBoxZDs2.TabIndex = 3;
             // 
             // textBoxYDs2
@@ -6098,7 +6183,7 @@ namespace AutoSplitterCore
             this.textBoxYDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYDs2.Name = "textBoxYDs2";
             this.textBoxYDs2.ReadOnly = true;
-            this.textBoxYDs2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxYDs2.Size = new System.Drawing.Size(52, 23);
             this.textBoxYDs2.TabIndex = 2;
             // 
             // textBoxXDs2
@@ -6108,7 +6193,7 @@ namespace AutoSplitterCore
             this.textBoxXDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxXDs2.Name = "textBoxXDs2";
             this.textBoxXDs2.ReadOnly = true;
-            this.textBoxXDs2.Size = new System.Drawing.Size(52, 22);
+            this.textBoxXDs2.Size = new System.Drawing.Size(52, 23);
             this.textBoxXDs2.TabIndex = 0;
             // 
             // panelLvlDs2
@@ -6132,7 +6217,7 @@ namespace AutoSplitterCore
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(108, 34);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(34, 13);
+            this.label52.Size = new System.Drawing.Size(42, 17);
             this.label52.TabIndex = 24;
             this.label52.Text = "value";
             // 
@@ -6142,17 +6227,18 @@ namespace AutoSplitterCore
             this.textBoxValueDs2.Location = new System.Drawing.Point(150, 31);
             this.textBoxValueDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxValueDs2.Name = "textBoxValueDs2";
-            this.textBoxValueDs2.Size = new System.Drawing.Size(100, 22);
+            this.textBoxValueDs2.Size = new System.Drawing.Size(100, 23);
             this.textBoxValueDs2.TabIndex = 23;
             // 
             // listBoxAttributeDs2
             // 
             this.listBoxAttributeDs2.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxAttributeDs2.FormattingEnabled = true;
+            this.listBoxAttributeDs2.ItemHeight = 16;
             this.listBoxAttributeDs2.Location = new System.Drawing.Point(7, 86);
             this.listBoxAttributeDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxAttributeDs2.Name = "listBoxAttributeDs2";
-            this.listBoxAttributeDs2.Size = new System.Drawing.Size(489, 147);
+            this.listBoxAttributeDs2.Size = new System.Drawing.Size(489, 132);
             this.listBoxAttributeDs2.TabIndex = 22;
             this.listBoxAttributeDs2.DoubleClick += new System.EventHandler(this.listBoxAttributeDs2_DoubleClick);
             // 
@@ -6183,7 +6269,7 @@ namespace AutoSplitterCore
             this.label53.AutoSize = true;
             this.label53.Location = new System.Drawing.Point(385, 33);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(30, 13);
+            this.label53.Size = new System.Drawing.Size(33, 17);
             this.label53.TabIndex = 20;
             this.label53.Text = "how";
             // 
@@ -6197,7 +6283,7 @@ namespace AutoSplitterCore
             this.comboBoxHowAttributeDs2.Location = new System.Drawing.Point(255, 31);
             this.comboBoxHowAttributeDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowAttributeDs2.Name = "comboBoxHowAttributeDs2";
-            this.comboBoxHowAttributeDs2.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxHowAttributeDs2.Size = new System.Drawing.Size(117, 24);
             this.comboBoxHowAttributeDs2.TabIndex = 19;
             // 
             // comboBoxAttributeDs2
@@ -6219,7 +6305,7 @@ namespace AutoSplitterCore
             this.comboBoxAttributeDs2.Location = new System.Drawing.Point(81, 5);
             this.comboBoxAttributeDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxAttributeDs2.Name = "comboBoxAttributeDs2";
-            this.comboBoxAttributeDs2.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxAttributeDs2.Size = new System.Drawing.Size(361, 24);
             this.comboBoxAttributeDs2.TabIndex = 18;
             // 
             // label54
@@ -6227,7 +6313,7 @@ namespace AutoSplitterCore
             this.label54.AutoSize = true;
             this.label54.Location = new System.Drawing.Point(35, 8);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(52, 13);
+            this.label54.Size = new System.Drawing.Size(60, 17);
             this.label54.TabIndex = 17;
             this.label54.Text = "attribute";
             // 
@@ -6272,7 +6358,7 @@ namespace AutoSplitterCore
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(295, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Boss:";
             // 
@@ -6326,7 +6412,7 @@ namespace AutoSplitterCore
             this.comboBoxBossDs2.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBossDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBossDs2.Name = "comboBoxBossDs2";
-            this.comboBoxBossDs2.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBossDs2.Size = new System.Drawing.Size(292, 24);
             this.comboBoxBossDs2.TabIndex = 12;
             // 
             // label50
@@ -6334,7 +6420,7 @@ namespace AutoSplitterCore
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(87, 2);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(34, 13);
+            this.label50.Size = new System.Drawing.Size(39, 17);
             this.label50.TabIndex = 11;
             this.label50.Text = "How:";
             // 
@@ -6348,17 +6434,18 @@ namespace AutoSplitterCore
             this.comboBoxHowBossDs2.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowBossDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBossDs2.Name = "comboBoxHowBossDs2";
-            this.comboBoxHowBossDs2.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBossDs2.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBossDs2.TabIndex = 10;
             // 
             // listBoxBossDs2
             // 
             this.listBoxBossDs2.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBossDs2.FormattingEnabled = true;
+            this.listBoxBossDs2.ItemHeight = 16;
             this.listBoxBossDs2.Location = new System.Drawing.Point(9, 83);
             this.listBoxBossDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBossDs2.Name = "listBoxBossDs2";
-            this.listBoxBossDs2.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBossDs2.Size = new System.Drawing.Size(489, 132);
             this.listBoxBossDs2.TabIndex = 7;
             this.listBoxBossDs2.DoubleClick += new System.EventHandler(this.listBoxBossDs2_DoubleClick);
             // 
@@ -6412,7 +6499,7 @@ namespace AutoSplitterCore
             this.Ds2Running.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.Ds2Running.Location = new System.Drawing.Point(335, 21);
             this.Ds2Running.Name = "Ds2Running";
-            this.Ds2Running.Size = new System.Drawing.Size(130, 13);
+            this.Ds2Running.Size = new System.Drawing.Size(160, 17);
             this.Ds2Running.TabIndex = 21;
             this.Ds2Running.Text = "Dark Souls 2 is Running";
             // 
@@ -6422,7 +6509,7 @@ namespace AutoSplitterCore
             this.Ds2NotRunning.ForeColor = System.Drawing.Color.Red;
             this.Ds2NotRunning.Location = new System.Drawing.Point(327, 21);
             this.Ds2NotRunning.Name = "Ds2NotRunning";
-            this.Ds2NotRunning.Size = new System.Drawing.Size(152, 13);
+            this.Ds2NotRunning.Size = new System.Drawing.Size(186, 17);
             this.Ds2NotRunning.TabIndex = 20;
             this.Ds2NotRunning.Text = "Dark Souls 2 is Not Running";
             // 
@@ -6437,7 +6524,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitDs2.Location = new System.Drawing.Point(81, 54);
             this.comboBoxToSplitDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitDs2.Name = "comboBoxToSplitDs2";
-            this.comboBoxToSplitDs2.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitDs2.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitDs2.TabIndex = 19;
             this.comboBoxToSplitDs2.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitDs2_SelectedIndexChanged);
             // 
@@ -6446,13 +6533,13 @@ namespace AutoSplitterCore
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(41, 57);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(36, 13);
+            this.label51.Size = new System.Drawing.Size(41, 17);
             this.label51.TabIndex = 18;
             this.label51.Text = "when";
             // 
             // tabDs3
             // 
-            this.tabDs3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDs3.BaseColor = System.Drawing.Color.White;
             this.tabDs3.Controls.Add(this.panelCfDs3);
             this.tabDs3.Controls.Add(this.panelPositionsDs3);
             this.tabDs3.Controls.Add(this.panelLvlDs3);
@@ -6464,13 +6551,19 @@ namespace AutoSplitterCore
             this.tabDs3.Controls.Add(this.Ds3NotRunning);
             this.tabDs3.Controls.Add(this.comboBoxToSplitSelectDs3);
             this.tabDs3.Controls.Add(this.label38);
+            this.tabDs3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs3.ImageKey = null;
+            this.tabDs3.IsDerivedStyle = true;
             this.tabDs3.Location = new System.Drawing.Point(4, 42);
-            this.tabDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDs3.Name = "tabDs3";
-            this.tabDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDs3.Size = new System.Drawing.Size(609, 339);
-            this.tabDs3.TabIndex = 1;
+            this.tabDs3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabDs3.StyleManager = null;
+            this.tabDs3.TabIndex = 7;
             this.tabDs3.Text = "Dark Souls 3";
+            this.tabDs3.ThemeAuthor = "Taiizor";
+            this.tabDs3.ThemeName = "MetroLight";
+            this.tabDs3.ToolTipText = null;
             // 
             // panelCfDs3
             // 
@@ -6494,7 +6587,7 @@ namespace AutoSplitterCore
             this.label92.AutoSize = true;
             this.label92.Location = new System.Drawing.Point(167, 79);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(59, 26);
+            this.label92.Size = new System.Drawing.Size(71, 34);
             this.label92.TabIndex = 26;
             this.label92.Text = "     Title\r\n(Optional)";
             // 
@@ -6503,7 +6596,7 @@ namespace AutoSplitterCore
             this.textBoxTitleCFDs3.Location = new System.Drawing.Point(225, 79);
             this.textBoxTitleCFDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitleCFDs3.Name = "textBoxTitleCFDs3";
-            this.textBoxTitleCFDs3.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitleCFDs3.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitleCFDs3.TabIndex = 25;
             // 
             // label46
@@ -6511,7 +6604,7 @@ namespace AutoSplitterCore
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(393, 53);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(34, 13);
+            this.label46.Size = new System.Drawing.Size(39, 17);
             this.label46.TabIndex = 21;
             this.label46.Text = "How:";
             // 
@@ -6525,17 +6618,18 @@ namespace AutoSplitterCore
             this.comboBoxHowCfDs3.Location = new System.Drawing.Point(276, 50);
             this.comboBoxHowCfDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowCfDs3.Name = "comboBoxHowCfDs3";
-            this.comboBoxHowCfDs3.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowCfDs3.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowCfDs3.TabIndex = 20;
             // 
             // listBoxCfDs3
             // 
             this.listBoxCfDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfDs3.FormattingEnabled = true;
+            this.listBoxCfDs3.ItemHeight = 16;
             this.listBoxCfDs3.Location = new System.Drawing.Point(11, 142);
             this.listBoxCfDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxCfDs3.Name = "listBoxCfDs3";
-            this.listBoxCfDs3.Size = new System.Drawing.Size(487, 121);
+            this.listBoxCfDs3.Size = new System.Drawing.Size(487, 116);
             this.listBoxCfDs3.TabIndex = 19;
             this.listBoxCfDs3.DoubleClick += new System.EventHandler(this.listBoxCfDs3_DoubleClick);
             // 
@@ -6588,7 +6682,7 @@ namespace AutoSplitterCore
             this.label47.AutoSize = true;
             this.label47.Location = new System.Drawing.Point(120, 53);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(21, 13);
+            this.label47.Size = new System.Drawing.Size(25, 17);
             this.label47.TabIndex = 1;
             this.label47.Text = "ID:";
             // 
@@ -6598,7 +6692,7 @@ namespace AutoSplitterCore
             this.textBoxIdDs3.Location = new System.Drawing.Point(151, 50);
             this.textBoxIdDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxIdDs3.Name = "textBoxIdDs3";
-            this.textBoxIdDs3.Size = new System.Drawing.Size(100, 22);
+            this.textBoxIdDs3.Size = new System.Drawing.Size(100, 23);
             this.textBoxIdDs3.TabIndex = 0;
             // 
             // panelPositionsDs3
@@ -6628,7 +6722,7 @@ namespace AutoSplitterCore
             this.label88.AutoSize = true;
             this.label88.Location = new System.Drawing.Point(144, 63);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(59, 26);
+            this.label88.Size = new System.Drawing.Size(71, 34);
             this.label88.TabIndex = 20;
             this.label88.Text = "     Title\r\n(Optional)";
             // 
@@ -6637,7 +6731,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(201, 63);
             this.textBoxTitlePositionDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
-            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionDs3.TabIndex = 19;
             // 
             // label81
@@ -6645,7 +6739,7 @@ namespace AutoSplitterCore
             this.label81.AutoSize = true;
             this.label81.Location = new System.Drawing.Point(219, 1);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(73, 13);
+            this.label81.Size = new System.Drawing.Size(88, 17);
             this.label81.TabIndex = 12;
             this.label81.Text = "Coordinates:";
             // 
@@ -6654,7 +6748,7 @@ namespace AutoSplitterCore
             this.label82.AutoSize = true;
             this.label82.Location = new System.Drawing.Point(383, 19);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(44, 13);
+            this.label82.Size = new System.Drawing.Size(51, 17);
             this.label82.TabIndex = 11;
             this.label82.Text = "Margin";
             // 
@@ -6663,7 +6757,7 @@ namespace AutoSplitterCore
             this.label83.AutoSize = true;
             this.label83.Location = new System.Drawing.Point(185, 19);
             this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(126, 13);
+            this.label83.Size = new System.Drawing.Size(171, 17);
             this.label83.TabIndex = 10;
             this.label83.Text = "X                 Y                 Z";
             // 
@@ -6672,7 +6766,7 @@ namespace AutoSplitterCore
             this.label84.AutoSize = true;
             this.label84.Location = new System.Drawing.Point(77, 19);
             this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(34, 13);
+            this.label84.Size = new System.Drawing.Size(39, 17);
             this.label84.TabIndex = 9;
             this.label84.Text = "How:";
             // 
@@ -6686,7 +6780,7 @@ namespace AutoSplitterCore
             this.comboBoxHowPositionsDs3.Location = new System.Drawing.Point(36, 34);
             this.comboBoxHowPositionsDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowPositionsDs3.Name = "comboBoxHowPositionsDs3";
-            this.comboBoxHowPositionsDs3.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowPositionsDs3.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowPositionsDs3.TabIndex = 8;
             // 
             // comboBoxMarginDs3
@@ -6708,7 +6802,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginDs3.Location = new System.Drawing.Point(351, 34);
             this.comboBoxMarginDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginDs3.Name = "comboBoxMarginDs3";
-            this.comboBoxMarginDs3.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxMarginDs3.Size = new System.Drawing.Size(109, 24);
             this.comboBoxMarginDs3.TabIndex = 7;
             this.comboBoxMarginDs3.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs3_SelectedIndexChanged);
             // 
@@ -6716,10 +6810,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsDs3.FormattingEnabled = true;
+            this.listBoxPositionsDs3.ItemHeight = 16;
             this.listBoxPositionsDs3.Location = new System.Drawing.Point(3, 116);
             this.listBoxPositionsDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionsDs3.Name = "listBoxPositionsDs3";
-            this.listBoxPositionsDs3.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionsDs3.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionsDs3.TabIndex = 6;
             this.listBoxPositionsDs3.DoubleClick += new System.EventHandler(this.listBoxPositionDs3_DoubleClick);
             // 
@@ -6774,7 +6869,7 @@ namespace AutoSplitterCore
             this.textBoxZDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxZDs3.Name = "textBoxZDs3";
             this.textBoxZDs3.ReadOnly = true;
-            this.textBoxZDs3.Size = new System.Drawing.Size(52, 22);
+            this.textBoxZDs3.Size = new System.Drawing.Size(52, 23);
             this.textBoxZDs3.TabIndex = 3;
             // 
             // textBoxYDs3
@@ -6784,7 +6879,7 @@ namespace AutoSplitterCore
             this.textBoxYDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYDs3.Name = "textBoxYDs3";
             this.textBoxYDs3.ReadOnly = true;
-            this.textBoxYDs3.Size = new System.Drawing.Size(52, 22);
+            this.textBoxYDs3.Size = new System.Drawing.Size(52, 23);
             this.textBoxYDs3.TabIndex = 2;
             // 
             // textBoxXDs3
@@ -6794,7 +6889,7 @@ namespace AutoSplitterCore
             this.textBoxXDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxXDs3.Name = "textBoxXDs3";
             this.textBoxXDs3.ReadOnly = true;
-            this.textBoxXDs3.Size = new System.Drawing.Size(52, 22);
+            this.textBoxXDs3.Size = new System.Drawing.Size(52, 23);
             this.textBoxXDs3.TabIndex = 0;
             // 
             // panelLvlDs3
@@ -6818,7 +6913,7 @@ namespace AutoSplitterCore
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(109, 34);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(34, 13);
+            this.label45.Size = new System.Drawing.Size(42, 17);
             this.label45.TabIndex = 24;
             this.label45.Text = "value";
             // 
@@ -6828,17 +6923,18 @@ namespace AutoSplitterCore
             this.textBoxValueDs3.Location = new System.Drawing.Point(150, 31);
             this.textBoxValueDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxValueDs3.Name = "textBoxValueDs3";
-            this.textBoxValueDs3.Size = new System.Drawing.Size(109, 22);
+            this.textBoxValueDs3.Size = new System.Drawing.Size(109, 23);
             this.textBoxValueDs3.TabIndex = 23;
             // 
             // listBoxAttributesDs3
             // 
             this.listBoxAttributesDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxAttributesDs3.FormattingEnabled = true;
+            this.listBoxAttributesDs3.ItemHeight = 16;
             this.listBoxAttributesDs3.Location = new System.Drawing.Point(7, 86);
             this.listBoxAttributesDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxAttributesDs3.Name = "listBoxAttributesDs3";
-            this.listBoxAttributesDs3.Size = new System.Drawing.Size(489, 147);
+            this.listBoxAttributesDs3.Size = new System.Drawing.Size(489, 132);
             this.listBoxAttributesDs3.TabIndex = 22;
             this.listBoxAttributesDs3.DoubleClick += new System.EventHandler(this.listBoxAttributesDs3_DoubleClick);
             // 
@@ -6869,7 +6965,7 @@ namespace AutoSplitterCore
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(387, 34);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(30, 13);
+            this.label43.Size = new System.Drawing.Size(33, 17);
             this.label43.TabIndex = 20;
             this.label43.Text = "how";
             // 
@@ -6883,7 +6979,7 @@ namespace AutoSplitterCore
             this.comboBoxHowAttributeDs3.Location = new System.Drawing.Point(264, 31);
             this.comboBoxHowAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowAttributeDs3.Name = "comboBoxHowAttributeDs3";
-            this.comboBoxHowAttributeDs3.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxHowAttributeDs3.Size = new System.Drawing.Size(117, 24);
             this.comboBoxHowAttributeDs3.TabIndex = 19;
             // 
             // comboBoxAttributeDs3
@@ -6906,7 +7002,7 @@ namespace AutoSplitterCore
             this.comboBoxAttributeDs3.Location = new System.Drawing.Point(81, 5);
             this.comboBoxAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxAttributeDs3.Name = "comboBoxAttributeDs3";
-            this.comboBoxAttributeDs3.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxAttributeDs3.Size = new System.Drawing.Size(361, 24);
             this.comboBoxAttributeDs3.TabIndex = 18;
             // 
             // label44
@@ -6914,7 +7010,7 @@ namespace AutoSplitterCore
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(35, 8);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(52, 13);
+            this.label44.Size = new System.Drawing.Size(60, 17);
             this.label44.TabIndex = 17;
             this.label44.Text = "attribute";
             // 
@@ -6936,10 +7032,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxBonfireDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBonfireDs3.FormattingEnabled = true;
+            this.listBoxBonfireDs3.ItemHeight = 16;
             this.listBoxBonfireDs3.Location = new System.Drawing.Point(9, 89);
             this.listBoxBonfireDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBonfireDs3.Name = "listBoxBonfireDs3";
-            this.listBoxBonfireDs3.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBonfireDs3.Size = new System.Drawing.Size(489, 132);
             this.listBoxBonfireDs3.TabIndex = 16;
             this.listBoxBonfireDs3.DoubleClick += new System.EventHandler(this.listBoxBonfireDs3_DoubleClick);
             // 
@@ -6970,7 +7067,7 @@ namespace AutoSplitterCore
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(125, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 13;
             this.label3.Text = "how";
             // 
@@ -6984,7 +7081,7 @@ namespace AutoSplitterCore
             this.comboBoxHowBonfireDs3.Location = new System.Drawing.Point(171, 34);
             this.comboBoxHowBonfireDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBonfireDs3.Name = "comboBoxHowBonfireDs3";
-            this.comboBoxHowBonfireDs3.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxHowBonfireDs3.Size = new System.Drawing.Size(187, 24);
             this.comboBoxHowBonfireDs3.TabIndex = 12;
             // 
             // comboBoxBonfireDs3
@@ -7073,7 +7170,7 @@ namespace AutoSplitterCore
             this.comboBoxBonfireDs3.Location = new System.Drawing.Point(83, 7);
             this.comboBoxBonfireDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBonfireDs3.Name = "comboBoxBonfireDs3";
-            this.comboBoxBonfireDs3.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxBonfireDs3.Size = new System.Drawing.Size(361, 24);
             this.comboBoxBonfireDs3.TabIndex = 9;
             // 
             // label37
@@ -7081,7 +7178,7 @@ namespace AutoSplitterCore
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(36, 11);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(45, 13);
+            this.label37.Size = new System.Drawing.Size(52, 17);
             this.label37.TabIndex = 8;
             this.label37.Text = "bonfire";
             // 
@@ -7126,7 +7223,7 @@ namespace AutoSplitterCore
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(295, 2);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(33, 13);
+            this.label39.Size = new System.Drawing.Size(43, 17);
             this.label39.TabIndex = 13;
             this.label39.Text = "Boss:";
             // 
@@ -7164,7 +7261,7 @@ namespace AutoSplitterCore
             this.comboBoxBossDs3.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBossDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBossDs3.Name = "comboBoxBossDs3";
-            this.comboBoxBossDs3.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBossDs3.Size = new System.Drawing.Size(292, 24);
             this.comboBoxBossDs3.TabIndex = 12;
             // 
             // label40
@@ -7172,7 +7269,7 @@ namespace AutoSplitterCore
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(87, 2);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(34, 13);
+            this.label40.Size = new System.Drawing.Size(39, 17);
             this.label40.TabIndex = 11;
             this.label40.Text = "How:";
             // 
@@ -7186,17 +7283,18 @@ namespace AutoSplitterCore
             this.comboBoxHowBossDs3.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowBossDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBossDs3.Name = "comboBoxHowBossDs3";
-            this.comboBoxHowBossDs3.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBossDs3.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBossDs3.TabIndex = 10;
             // 
             // listBoxBossDs3
             // 
             this.listBoxBossDs3.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBossDs3.FormattingEnabled = true;
+            this.listBoxBossDs3.ItemHeight = 16;
             this.listBoxBossDs3.Location = new System.Drawing.Point(9, 83);
             this.listBoxBossDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBossDs3.Name = "listBoxBossDs3";
-            this.listBoxBossDs3.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBossDs3.Size = new System.Drawing.Size(489, 132);
             this.listBoxBossDs3.TabIndex = 7;
             this.listBoxBossDs3.DoubleClick += new System.EventHandler(this.listBoxBossDs3_DoubleClick);
             // 
@@ -7250,7 +7348,7 @@ namespace AutoSplitterCore
             this.Ds3Running.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.Ds3Running.Location = new System.Drawing.Point(335, 21);
             this.Ds3Running.Name = "Ds3Running";
-            this.Ds3Running.Size = new System.Drawing.Size(130, 13);
+            this.Ds3Running.Size = new System.Drawing.Size(160, 17);
             this.Ds3Running.TabIndex = 15;
             this.Ds3Running.Text = "Dark Souls 3 is Running";
             // 
@@ -7260,7 +7358,7 @@ namespace AutoSplitterCore
             this.Ds3NotRunning.ForeColor = System.Drawing.Color.Red;
             this.Ds3NotRunning.Location = new System.Drawing.Point(327, 21);
             this.Ds3NotRunning.Name = "Ds3NotRunning";
-            this.Ds3NotRunning.Size = new System.Drawing.Size(152, 13);
+            this.Ds3NotRunning.Size = new System.Drawing.Size(186, 17);
             this.Ds3NotRunning.TabIndex = 14;
             this.Ds3NotRunning.Text = "Dark Souls 3 is Not Running";
             // 
@@ -7277,7 +7375,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitSelectDs3.Location = new System.Drawing.Point(81, 54);
             this.comboBoxToSplitSelectDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitSelectDs3.Name = "comboBoxToSplitSelectDs3";
-            this.comboBoxToSplitSelectDs3.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitSelectDs3.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitSelectDs3.TabIndex = 13;
             this.comboBoxToSplitSelectDs3.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitSelectDs3_SelectedIndexChanged);
             // 
@@ -7286,13 +7384,13 @@ namespace AutoSplitterCore
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(41, 57);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(36, 13);
+            this.label38.Size = new System.Drawing.Size(41, 17);
             this.label38.TabIndex = 12;
             this.label38.Text = "when";
             // 
             // tabElden
             // 
-            this.tabElden.BackColor = System.Drawing.SystemColors.Control;
+            this.tabElden.BaseColor = System.Drawing.Color.White;
             this.tabElden.Controls.Add(this.panelBossER);
             this.tabElden.Controls.Add(this.panelGraceER);
             this.tabElden.Controls.Add(this.panelCfER);
@@ -7303,13 +7401,19 @@ namespace AutoSplitterCore
             this.tabElden.Controls.Add(this.btn_DesactiveAllElden);
             this.tabElden.Controls.Add(this.comboBoxToSplitEldenRing);
             this.tabElden.Controls.Add(this.label30);
+            this.tabElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabElden.ImageKey = null;
+            this.tabElden.IsDerivedStyle = true;
             this.tabElden.Location = new System.Drawing.Point(4, 42);
-            this.tabElden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabElden.Name = "tabElden";
-            this.tabElden.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabElden.Size = new System.Drawing.Size(609, 339);
-            this.tabElden.TabIndex = 3;
+            this.tabElden.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabElden.StyleManager = null;
+            this.tabElden.TabIndex = 8;
             this.tabElden.Text = "Elden Ring";
+            this.tabElden.ThemeAuthor = "Taiizor";
+            this.tabElden.ThemeName = "MetroLight";
+            this.tabElden.ToolTipText = null;
             // 
             // panelBossER
             // 
@@ -7378,7 +7482,7 @@ namespace AutoSplitterCore
             this.comboBoxBossER_DLC.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBossER_DLC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBossER_DLC.Name = "comboBoxBossER_DLC";
-            this.comboBoxBossER_DLC.Size = new System.Drawing.Size(277, 21);
+            this.comboBoxBossER_DLC.Size = new System.Drawing.Size(277, 24);
             this.comboBoxBossER_DLC.TabIndex = 16;
             // 
             // checkBoxDLCBoss
@@ -7387,7 +7491,7 @@ namespace AutoSplitterCore
             this.checkBoxDLCBoss.Location = new System.Drawing.Point(327, 47);
             this.checkBoxDLCBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxDLCBoss.Name = "checkBoxDLCBoss";
-            this.checkBoxDLCBoss.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxDLCBoss.Size = new System.Drawing.Size(122, 21);
             this.checkBoxDLCBoss.TabIndex = 15;
             this.checkBoxDLCBoss.Text = "View DLC Boss";
             this.checkBoxDLCBoss.UseVisualStyleBackColor = true;
@@ -7420,7 +7524,7 @@ namespace AutoSplitterCore
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(295, 2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Boss:";
             // 
@@ -7602,7 +7706,7 @@ namespace AutoSplitterCore
             this.comboBoxBossER.Location = new System.Drawing.Point(183, 18);
             this.comboBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBossER.Name = "comboBoxBossER";
-            this.comboBoxBossER.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxBossER.Size = new System.Drawing.Size(292, 24);
             this.comboBoxBossER.TabIndex = 12;
             // 
             // label28
@@ -7610,7 +7714,7 @@ namespace AutoSplitterCore
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(87, 2);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(34, 13);
+            this.label28.Size = new System.Drawing.Size(39, 17);
             this.label28.TabIndex = 11;
             this.label28.Text = "How:";
             // 
@@ -7624,17 +7728,18 @@ namespace AutoSplitterCore
             this.comboBoxHowBossER.Location = new System.Drawing.Point(45, 18);
             this.comboBoxHowBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowBossER.Name = "comboBoxHowBossER";
-            this.comboBoxHowBossER.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowBossER.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowBossER.TabIndex = 10;
             // 
             // listBoxBossER
             // 
             this.listBoxBossER.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxBossER.FormattingEnabled = true;
+            this.listBoxBossER.ItemHeight = 16;
             this.listBoxBossER.Location = new System.Drawing.Point(9, 83);
             this.listBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBossER.Name = "listBoxBossER";
-            this.listBoxBossER.Size = new System.Drawing.Size(489, 147);
+            this.listBoxBossER.Size = new System.Drawing.Size(489, 132);
             this.listBoxBossER.TabIndex = 7;
             this.listBoxBossER.DoubleClick += new System.EventHandler(this.listBoxBossER_DoubleClick);
             // 
@@ -7768,7 +7873,7 @@ namespace AutoSplitterCore
             this.comboBoxGraceDLC_ER.Location = new System.Drawing.Point(89, 7);
             this.comboBoxGraceDLC_ER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxGraceDLC_ER.Name = "comboBoxGraceDLC_ER";
-            this.comboBoxGraceDLC_ER.Size = new System.Drawing.Size(335, 21);
+            this.comboBoxGraceDLC_ER.Size = new System.Drawing.Size(335, 24);
             this.comboBoxGraceDLC_ER.TabIndex = 18;
             // 
             // checkBoxViewDlcGrace
@@ -7777,7 +7882,7 @@ namespace AutoSplitterCore
             this.checkBoxViewDlcGrace.Location = new System.Drawing.Point(369, 37);
             this.checkBoxViewDlcGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxViewDlcGrace.Name = "checkBoxViewDlcGrace";
-            this.checkBoxViewDlcGrace.Size = new System.Drawing.Size(101, 17);
+            this.checkBoxViewDlcGrace.Size = new System.Drawing.Size(120, 21);
             this.checkBoxViewDlcGrace.TabIndex = 17;
             this.checkBoxViewDlcGrace.Text = "View DLC Only";
             this.checkBoxViewDlcGrace.UseVisualStyleBackColor = true;
@@ -7787,10 +7892,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxGrace.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxGrace.FormattingEnabled = true;
+            this.listBoxGrace.ItemHeight = 16;
             this.listBoxGrace.Location = new System.Drawing.Point(9, 89);
             this.listBoxGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxGrace.Name = "listBoxGrace";
-            this.listBoxGrace.Size = new System.Drawing.Size(489, 147);
+            this.listBoxGrace.Size = new System.Drawing.Size(489, 132);
             this.listBoxGrace.TabIndex = 16;
             this.listBoxGrace.DoubleClick += new System.EventHandler(this.listBoxGrace_DoubleClick);
             // 
@@ -7821,7 +7927,7 @@ namespace AutoSplitterCore
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(125, 37);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(30, 13);
+            this.label31.Size = new System.Drawing.Size(33, 17);
             this.label31.TabIndex = 13;
             this.label31.Text = "how";
             // 
@@ -7835,7 +7941,7 @@ namespace AutoSplitterCore
             this.comboBoxHowGraceER.Location = new System.Drawing.Point(171, 34);
             this.comboBoxHowGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowGraceER.Name = "comboBoxHowGraceER";
-            this.comboBoxHowGraceER.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxHowGraceER.Size = new System.Drawing.Size(187, 24);
             this.comboBoxHowGraceER.TabIndex = 12;
             // 
             // comboBoxGraceER
@@ -8161,7 +8267,7 @@ namespace AutoSplitterCore
             this.comboBoxGraceER.Location = new System.Drawing.Point(83, 7);
             this.comboBoxGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxGraceER.Name = "comboBoxGraceER";
-            this.comboBoxGraceER.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxGraceER.Size = new System.Drawing.Size(361, 24);
             this.comboBoxGraceER.TabIndex = 9;
             // 
             // label33
@@ -8169,7 +8275,7 @@ namespace AutoSplitterCore
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(39, 11);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(35, 13);
+            this.label33.Size = new System.Drawing.Size(44, 17);
             this.label33.TabIndex = 8;
             this.label33.Text = "grace";
             // 
@@ -8195,7 +8301,7 @@ namespace AutoSplitterCore
             this.label93.AutoSize = true;
             this.label93.Location = new System.Drawing.Point(167, 83);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(59, 26);
+            this.label93.Size = new System.Drawing.Size(71, 34);
             this.label93.TabIndex = 28;
             this.label93.Text = "     Title\r\n(Optional)";
             // 
@@ -8204,7 +8310,7 @@ namespace AutoSplitterCore
             this.textBoxTitleCFER.Location = new System.Drawing.Point(225, 83);
             this.textBoxTitleCFER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitleCFER.Name = "textBoxTitleCFER";
-            this.textBoxTitleCFER.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitleCFER.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitleCFER.TabIndex = 27;
             // 
             // label42
@@ -8212,7 +8318,7 @@ namespace AutoSplitterCore
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(393, 53);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(34, 13);
+            this.label42.Size = new System.Drawing.Size(39, 17);
             this.label42.TabIndex = 21;
             this.label42.Text = "How:";
             // 
@@ -8226,17 +8332,18 @@ namespace AutoSplitterCore
             this.comboBoxHowCfER.Location = new System.Drawing.Point(276, 50);
             this.comboBoxHowCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowCfER.Name = "comboBoxHowCfER";
-            this.comboBoxHowCfER.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowCfER.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowCfER.TabIndex = 20;
             // 
             // listBoxCfER
             // 
             this.listBoxCfER.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxCfER.FormattingEnabled = true;
+            this.listBoxCfER.ItemHeight = 16;
             this.listBoxCfER.Location = new System.Drawing.Point(9, 141);
             this.listBoxCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxCfER.Name = "listBoxCfER";
-            this.listBoxCfER.Size = new System.Drawing.Size(487, 121);
+            this.listBoxCfER.Size = new System.Drawing.Size(487, 116);
             this.listBoxCfER.TabIndex = 19;
             this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
             // 
@@ -8289,7 +8396,7 @@ namespace AutoSplitterCore
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(120, 53);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(21, 13);
+            this.label41.Size = new System.Drawing.Size(25, 17);
             this.label41.TabIndex = 1;
             this.label41.Text = "ID:";
             // 
@@ -8299,7 +8406,7 @@ namespace AutoSplitterCore
             this.textBoxIdER.Location = new System.Drawing.Point(151, 50);
             this.textBoxIdER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxIdER.Name = "textBoxIdER";
-            this.textBoxIdER.Size = new System.Drawing.Size(100, 22);
+            this.textBoxIdER.Size = new System.Drawing.Size(100, 23);
             this.textBoxIdER.TabIndex = 0;
             // 
             // panelPositionsER
@@ -8329,7 +8436,7 @@ namespace AutoSplitterCore
             this.label89.AutoSize = true;
             this.label89.Location = new System.Drawing.Point(137, 63);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(59, 26);
+            this.label89.Size = new System.Drawing.Size(71, 34);
             this.label89.TabIndex = 22;
             this.label89.Text = "     Title\r\n(Optional)";
             // 
@@ -8338,7 +8445,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionER.Location = new System.Drawing.Point(195, 63);
             this.textBoxTitlePositionER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
-            this.textBoxTitlePositionER.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionER.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionER.TabIndex = 21;
             // 
             // label32
@@ -8346,7 +8453,7 @@ namespace AutoSplitterCore
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(219, 1);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(73, 13);
+            this.label32.Size = new System.Drawing.Size(88, 17);
             this.label32.TabIndex = 12;
             this.label32.Text = "Coordinates:";
             // 
@@ -8355,7 +8462,7 @@ namespace AutoSplitterCore
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(383, 19);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(44, 13);
+            this.label34.Size = new System.Drawing.Size(51, 17);
             this.label34.TabIndex = 11;
             this.label34.Text = "Margin";
             // 
@@ -8364,7 +8471,7 @@ namespace AutoSplitterCore
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(185, 19);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(126, 13);
+            this.label35.Size = new System.Drawing.Size(171, 17);
             this.label35.TabIndex = 10;
             this.label35.Text = "X                 Y                 Z";
             // 
@@ -8373,7 +8480,7 @@ namespace AutoSplitterCore
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(77, 19);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(34, 13);
+            this.label36.Size = new System.Drawing.Size(39, 17);
             this.label36.TabIndex = 9;
             this.label36.Text = "How:";
             // 
@@ -8387,7 +8494,7 @@ namespace AutoSplitterCore
             this.comboBoxHowPositionsER.Location = new System.Drawing.Point(36, 34);
             this.comboBoxHowPositionsER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxHowPositionsER.Name = "comboBoxHowPositionsER";
-            this.comboBoxHowPositionsER.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxHowPositionsER.Size = new System.Drawing.Size(109, 24);
             this.comboBoxHowPositionsER.TabIndex = 8;
             // 
             // comboBoxMarginER
@@ -8409,7 +8516,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginER.Location = new System.Drawing.Point(351, 34);
             this.comboBoxMarginER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginER.Name = "comboBoxMarginER";
-            this.comboBoxMarginER.Size = new System.Drawing.Size(109, 21);
+            this.comboBoxMarginER.Size = new System.Drawing.Size(109, 24);
             this.comboBoxMarginER.TabIndex = 7;
             this.comboBoxMarginER.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginER_SelectedIndexChanged);
             // 
@@ -8417,10 +8524,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionsER.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionsER.FormattingEnabled = true;
+            this.listBoxPositionsER.ItemHeight = 16;
             this.listBoxPositionsER.Location = new System.Drawing.Point(5, 119);
             this.listBoxPositionsER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionsER.Name = "listBoxPositionsER";
-            this.listBoxPositionsER.Size = new System.Drawing.Size(495, 147);
+            this.listBoxPositionsER.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionsER.TabIndex = 6;
             this.listBoxPositionsER.DoubleClick += new System.EventHandler(this.listBoxPositionsER_DoubleClick);
             // 
@@ -8475,7 +8583,7 @@ namespace AutoSplitterCore
             this.textBoxZEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxZEr.Name = "textBoxZEr";
             this.textBoxZEr.ReadOnly = true;
-            this.textBoxZEr.Size = new System.Drawing.Size(52, 22);
+            this.textBoxZEr.Size = new System.Drawing.Size(52, 23);
             this.textBoxZEr.TabIndex = 3;
             // 
             // textBoxYEr
@@ -8485,7 +8593,7 @@ namespace AutoSplitterCore
             this.textBoxYEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYEr.Name = "textBoxYEr";
             this.textBoxYEr.ReadOnly = true;
-            this.textBoxYEr.Size = new System.Drawing.Size(52, 22);
+            this.textBoxYEr.Size = new System.Drawing.Size(52, 23);
             this.textBoxYEr.TabIndex = 2;
             // 
             // textBoxXEr
@@ -8495,7 +8603,7 @@ namespace AutoSplitterCore
             this.textBoxXEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxXEr.Name = "textBoxXEr";
             this.textBoxXEr.ReadOnly = true;
-            this.textBoxXEr.Size = new System.Drawing.Size(52, 22);
+            this.textBoxXEr.Size = new System.Drawing.Size(52, 23);
             this.textBoxXEr.TabIndex = 0;
             // 
             // EldenRingRunning
@@ -8504,7 +8612,7 @@ namespace AutoSplitterCore
             this.EldenRingRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.EldenRingRunning.Location = new System.Drawing.Point(335, 21);
             this.EldenRingRunning.Name = "EldenRingRunning";
-            this.EldenRingRunning.Size = new System.Drawing.Size(122, 13);
+            this.EldenRingRunning.Size = new System.Drawing.Size(148, 17);
             this.EldenRingRunning.TabIndex = 19;
             this.EldenRingRunning.Text = "Elden Ring is Running";
             // 
@@ -8514,7 +8622,7 @@ namespace AutoSplitterCore
             this.EldenRingNotRunning.ForeColor = System.Drawing.Color.Red;
             this.EldenRingNotRunning.Location = new System.Drawing.Point(329, 21);
             this.EldenRingNotRunning.Name = "EldenRingNotRunning";
-            this.EldenRingNotRunning.Size = new System.Drawing.Size(144, 13);
+            this.EldenRingNotRunning.Size = new System.Drawing.Size(174, 17);
             this.EldenRingNotRunning.TabIndex = 18;
             this.EldenRingNotRunning.Text = "Elden Ring is Not Running";
             // 
@@ -8574,7 +8682,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitEldenRing.Location = new System.Drawing.Point(81, 54);
             this.comboBoxToSplitEldenRing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitEldenRing.Name = "comboBoxToSplitEldenRing";
-            this.comboBoxToSplitEldenRing.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitEldenRing.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitEldenRing.TabIndex = 13;
             this.comboBoxToSplitEldenRing.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
             // 
@@ -8583,13 +8691,13 @@ namespace AutoSplitterCore
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(41, 57);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(36, 13);
+            this.label30.Size = new System.Drawing.Size(41, 17);
             this.label30.TabIndex = 12;
             this.label30.Text = "when";
             // 
             // tabHollow
             // 
-            this.tabHollow.BackColor = System.Drawing.SystemColors.Control;
+            this.tabHollow.BaseColor = System.Drawing.Color.White;
             this.tabHollow.Controls.Add(this.panelPositionH);
             this.tabHollow.Controls.Add(this.panelBossH);
             this.tabHollow.Controls.Add(this.panelItemH);
@@ -8599,12 +8707,19 @@ namespace AutoSplitterCore
             this.tabHollow.Controls.Add(this.HollowNotRunning);
             this.tabHollow.Controls.Add(this.toSplitSelectHollow);
             this.tabHollow.Controls.Add(this.label24);
+            this.tabHollow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabHollow.ImageKey = null;
+            this.tabHollow.IsDerivedStyle = true;
             this.tabHollow.Location = new System.Drawing.Point(4, 42);
-            this.tabHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHollow.Name = "tabHollow";
             this.tabHollow.Size = new System.Drawing.Size(609, 339);
-            this.tabHollow.TabIndex = 5;
+            this.tabHollow.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabHollow.StyleManager = null;
+            this.tabHollow.TabIndex = 9;
             this.tabHollow.Text = "Hollow Knight";
+            this.tabHollow.ThemeAuthor = "Taiizor";
+            this.tabHollow.ThemeName = "MetroLight";
+            this.tabHollow.ToolTipText = null;
             // 
             // panelPositionH
             // 
@@ -8631,7 +8746,7 @@ namespace AutoSplitterCore
             this.label90.AutoSize = true;
             this.label90.Location = new System.Drawing.Point(141, 70);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(59, 26);
+            this.label90.Size = new System.Drawing.Size(71, 34);
             this.label90.TabIndex = 26;
             this.label90.Text = "     Title\r\n(Optional)";
             // 
@@ -8640,7 +8755,7 @@ namespace AutoSplitterCore
             this.textBoxTitlePositionHK.Location = new System.Drawing.Point(199, 70);
             this.textBoxTitlePositionHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitlePositionHK.Name = "textBoxTitlePositionHK";
-            this.textBoxTitlePositionHK.Size = new System.Drawing.Size(127, 22);
+            this.textBoxTitlePositionHK.Size = new System.Drawing.Size(127, 23);
             this.textBoxTitlePositionHK.TabIndex = 25;
             // 
             // label29
@@ -8648,7 +8763,7 @@ namespace AutoSplitterCore
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(135, 26);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(234, 13);
+            this.label29.Size = new System.Drawing.Size(314, 17);
             this.label29.TabIndex = 24;
             this.label29.Text = "X                                 Y                             Scene";
             // 
@@ -8657,7 +8772,7 @@ namespace AutoSplitterCore
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(222, 8);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(73, 13);
+            this.label26.Size = new System.Drawing.Size(88, 17);
             this.label26.TabIndex = 23;
             this.label26.Text = "Coordinates:";
             // 
@@ -8666,7 +8781,7 @@ namespace AutoSplitterCore
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(441, 50);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(44, 13);
+            this.label27.Size = new System.Drawing.Size(51, 17);
             this.label27.TabIndex = 22;
             this.label27.Text = "Margin";
             // 
@@ -8689,7 +8804,7 @@ namespace AutoSplitterCore
             this.comboBoxMarginH.Location = new System.Drawing.Point(425, 70);
             this.comboBoxMarginH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMarginH.Name = "comboBoxMarginH";
-            this.comboBoxMarginH.Size = new System.Drawing.Size(67, 21);
+            this.comboBoxMarginH.Size = new System.Drawing.Size(67, 24);
             this.comboBoxMarginH.TabIndex = 19;
             this.comboBoxMarginH.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginH_SelectedIndexChanged);
             // 
@@ -8697,10 +8812,11 @@ namespace AutoSplitterCore
             // 
             this.listBoxPositionH.BackColor = System.Drawing.SystemColors.Control;
             this.listBoxPositionH.FormattingEnabled = true;
+            this.listBoxPositionH.ItemHeight = 16;
             this.listBoxPositionH.Location = new System.Drawing.Point(3, 128);
             this.listBoxPositionH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPositionH.Name = "listBoxPositionH";
-            this.listBoxPositionH.Size = new System.Drawing.Size(495, 134);
+            this.listBoxPositionH.Size = new System.Drawing.Size(495, 132);
             this.listBoxPositionH.TabIndex = 18;
             this.listBoxPositionH.DoubleClick += new System.EventHandler(this.listBoxPositionH_DoubleClick);
             // 
@@ -8754,7 +8870,7 @@ namespace AutoSplitterCore
             this.textBoxXh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxXh.Name = "textBoxXh";
             this.textBoxXh.ReadOnly = true;
-            this.textBoxXh.Size = new System.Drawing.Size(100, 22);
+            this.textBoxXh.Size = new System.Drawing.Size(100, 23);
             this.textBoxXh.TabIndex = 15;
             // 
             // textBoxYh
@@ -8763,7 +8879,7 @@ namespace AutoSplitterCore
             this.textBoxYh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxYh.Name = "textBoxYh";
             this.textBoxYh.ReadOnly = true;
-            this.textBoxYh.Size = new System.Drawing.Size(100, 22);
+            this.textBoxYh.Size = new System.Drawing.Size(100, 23);
             this.textBoxYh.TabIndex = 14;
             // 
             // textBoxSh
@@ -8772,7 +8888,7 @@ namespace AutoSplitterCore
             this.textBoxSh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSh.Name = "textBoxSh";
             this.textBoxSh.ReadOnly = true;
-            this.textBoxSh.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSh.Size = new System.Drawing.Size(100, 23);
             this.textBoxSh.TabIndex = 13;
             // 
             // panelBossH
@@ -9068,7 +9184,7 @@ namespace AutoSplitterCore
             this.comboBoxSelectKindBoss.Location = new System.Drawing.Point(78, 2);
             this.comboBoxSelectKindBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxSelectKindBoss.Name = "comboBoxSelectKindBoss";
-            this.comboBoxSelectKindBoss.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxSelectKindBoss.Size = new System.Drawing.Size(361, 24);
             this.comboBoxSelectKindBoss.TabIndex = 7;
             this.comboBoxSelectKindBoss.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectKindBoss_SelectedIndexChanged);
             // 
@@ -9077,7 +9193,7 @@ namespace AutoSplitterCore
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(33, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(45, 17);
             this.label6.TabIndex = 6;
             this.label6.Text = "select";
             // 
@@ -9246,7 +9362,7 @@ namespace AutoSplitterCore
             this.comboBoxItemSelectH.Location = new System.Drawing.Point(78, 2);
             this.comboBoxItemSelectH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxItemSelectH.Name = "comboBoxItemSelectH";
-            this.comboBoxItemSelectH.Size = new System.Drawing.Size(361, 21);
+            this.comboBoxItemSelectH.Size = new System.Drawing.Size(361, 24);
             this.comboBoxItemSelectH.TabIndex = 9;
             this.comboBoxItemSelectH.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemSelectH_SelectedIndexChanged);
             // 
@@ -9255,7 +9371,7 @@ namespace AutoSplitterCore
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(33, 6);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(36, 13);
+            this.label25.Size = new System.Drawing.Size(45, 17);
             this.label25.TabIndex = 8;
             this.label25.Text = "select";
             // 
@@ -9309,7 +9425,7 @@ namespace AutoSplitterCore
             this.HollowRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.HollowRunning.Location = new System.Drawing.Point(323, 21);
             this.HollowRunning.Name = "HollowRunning";
-            this.HollowRunning.Size = new System.Drawing.Size(140, 13);
+            this.HollowRunning.Size = new System.Drawing.Size(164, 17);
             this.HollowRunning.TabIndex = 15;
             this.HollowRunning.Text = "Hollow Knight is Running";
             // 
@@ -9319,7 +9435,7 @@ namespace AutoSplitterCore
             this.HollowNotRunning.ForeColor = System.Drawing.Color.Red;
             this.HollowNotRunning.Location = new System.Drawing.Point(323, 21);
             this.HollowNotRunning.Name = "HollowNotRunning";
-            this.HollowNotRunning.Size = new System.Drawing.Size(162, 13);
+            this.HollowNotRunning.Size = new System.Drawing.Size(190, 17);
             this.HollowNotRunning.TabIndex = 14;
             this.HollowNotRunning.Text = "Hollow Knight is Not Running";
             // 
@@ -9334,7 +9450,7 @@ namespace AutoSplitterCore
             this.toSplitSelectHollow.Location = new System.Drawing.Point(81, 54);
             this.toSplitSelectHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toSplitSelectHollow.Name = "toSplitSelectHollow";
-            this.toSplitSelectHollow.Size = new System.Drawing.Size(445, 21);
+            this.toSplitSelectHollow.Size = new System.Drawing.Size(445, 24);
             this.toSplitSelectHollow.TabIndex = 13;
             this.toSplitSelectHollow.SelectedIndexChanged += new System.EventHandler(this.toSplitSelectHollow_SelectedIndexChanged);
             // 
@@ -9343,13 +9459,13 @@ namespace AutoSplitterCore
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(41, 57);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(36, 13);
+            this.label24.Size = new System.Drawing.Size(41, 17);
             this.label24.TabIndex = 12;
             this.label24.Text = "when";
             // 
             // tabCeleste
             // 
-            this.tabCeleste.BackColor = System.Drawing.SystemColors.Control;
+            this.tabCeleste.BaseColor = System.Drawing.Color.White;
             this.tabCeleste.Controls.Add(this.panelCassettesNHearts);
             this.tabCeleste.Controls.Add(this.panelCheckpointsCeleste);
             this.tabCeleste.Controls.Add(this.panelChapterCeleste);
@@ -9359,12 +9475,19 @@ namespace AutoSplitterCore
             this.tabCeleste.Controls.Add(this.btnRemoveAllCeleste);
             this.tabCeleste.Controls.Add(this.CelesteRunning);
             this.tabCeleste.Controls.Add(this.CelesteNotRunning);
+            this.tabCeleste.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCeleste.ImageKey = null;
+            this.tabCeleste.IsDerivedStyle = true;
             this.tabCeleste.Location = new System.Drawing.Point(4, 42);
-            this.tabCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCeleste.Name = "tabCeleste";
             this.tabCeleste.Size = new System.Drawing.Size(609, 339);
-            this.tabCeleste.TabIndex = 7;
+            this.tabCeleste.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabCeleste.StyleManager = null;
+            this.tabCeleste.TabIndex = 10;
             this.tabCeleste.Text = "Celeste";
+            this.tabCeleste.ThemeAuthor = "Taiizor";
+            this.tabCeleste.ThemeName = "MetroLight";
+            this.tabCeleste.ToolTipText = null;
             // 
             // panelCassettesNHearts
             // 
@@ -9401,7 +9524,7 @@ namespace AutoSplitterCore
             this.checkedListBoxCassettesNHearts.Location = new System.Drawing.Point(25, 14);
             this.checkedListBoxCassettesNHearts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBoxCassettesNHearts.Name = "checkedListBoxCassettesNHearts";
-            this.checkedListBoxCassettesNHearts.Size = new System.Drawing.Size(515, 225);
+            this.checkedListBoxCassettesNHearts.Size = new System.Drawing.Size(515, 220);
             this.checkedListBoxCassettesNHearts.TabIndex = 0;
             this.checkedListBoxCassettesNHearts.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCassettesNHearts_ItemCheck);
             // 
@@ -9459,7 +9582,7 @@ namespace AutoSplitterCore
             this.checkedListBoxCheckpointsCeleste.Location = new System.Drawing.Point(25, 14);
             this.checkedListBoxCheckpointsCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBoxCheckpointsCeleste.Name = "checkedListBoxCheckpointsCeleste";
-            this.checkedListBoxCheckpointsCeleste.Size = new System.Drawing.Size(515, 225);
+            this.checkedListBoxCheckpointsCeleste.Size = new System.Drawing.Size(515, 220);
             this.checkedListBoxCheckpointsCeleste.TabIndex = 0;
             this.checkedListBoxCheckpointsCeleste.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCheckpointsCeleste_ItemCheck);
             // 
@@ -9492,7 +9615,7 @@ namespace AutoSplitterCore
             this.checkedListBoxChapterCeleste.Location = new System.Drawing.Point(25, 14);
             this.checkedListBoxChapterCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBoxChapterCeleste.Name = "checkedListBoxChapterCeleste";
-            this.checkedListBoxChapterCeleste.Size = new System.Drawing.Size(515, 225);
+            this.checkedListBoxChapterCeleste.Size = new System.Drawing.Size(515, 220);
             this.checkedListBoxChapterCeleste.TabIndex = 0;
             this.checkedListBoxChapterCeleste.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxCeleste_ItemCheck);
             // 
@@ -9507,7 +9630,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitCeleste.Location = new System.Drawing.Point(89, 46);
             this.comboBoxToSplitCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitCeleste.Name = "comboBoxToSplitCeleste";
-            this.comboBoxToSplitCeleste.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitCeleste.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitCeleste.TabIndex = 24;
             this.comboBoxToSplitCeleste.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitCeleste_SelectedIndexChanged);
             // 
@@ -9516,7 +9639,7 @@ namespace AutoSplitterCore
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(51, 50);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(36, 13);
+            this.label49.Size = new System.Drawing.Size(41, 17);
             this.label49.TabIndex = 23;
             this.label49.Text = "when";
             // 
@@ -9570,7 +9693,7 @@ namespace AutoSplitterCore
             this.CelesteRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.CelesteRunning.Location = new System.Drawing.Point(357, 21);
             this.CelesteRunning.Name = "CelesteRunning";
-            this.CelesteRunning.Size = new System.Drawing.Size(103, 13);
+            this.CelesteRunning.Size = new System.Drawing.Size(126, 17);
             this.CelesteRunning.TabIndex = 19;
             this.CelesteRunning.Text = "Celeste is Running";
             // 
@@ -9580,13 +9703,13 @@ namespace AutoSplitterCore
             this.CelesteNotRunning.ForeColor = System.Drawing.Color.Red;
             this.CelesteNotRunning.Location = new System.Drawing.Point(345, 21);
             this.CelesteNotRunning.Name = "CelesteNotRunning";
-            this.CelesteNotRunning.Size = new System.Drawing.Size(125, 13);
+            this.CelesteNotRunning.Size = new System.Drawing.Size(152, 17);
             this.CelesteNotRunning.TabIndex = 18;
             this.CelesteNotRunning.Text = "Celeste is Not Running";
             // 
             // tabCuphead
             // 
-            this.tabCuphead.BackColor = System.Drawing.SystemColors.Control;
+            this.tabCuphead.BaseColor = System.Drawing.Color.White;
             this.tabCuphead.Controls.Add(this.panelBossCuphead);
             this.tabCuphead.Controls.Add(this.panelLevelCuphead);
             this.tabCuphead.Controls.Add(this.comboBoxToSplitCuphead);
@@ -9595,12 +9718,19 @@ namespace AutoSplitterCore
             this.tabCuphead.Controls.Add(this.btnRemoveAllCuphead);
             this.tabCuphead.Controls.Add(this.CupheadRunning);
             this.tabCuphead.Controls.Add(this.CupheadNotRunning);
+            this.tabCuphead.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCuphead.ImageKey = null;
+            this.tabCuphead.IsDerivedStyle = true;
             this.tabCuphead.Location = new System.Drawing.Point(4, 42);
-            this.tabCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCuphead.Name = "tabCuphead";
             this.tabCuphead.Size = new System.Drawing.Size(609, 339);
+            this.tabCuphead.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabCuphead.StyleManager = null;
             this.tabCuphead.TabIndex = 8;
             this.tabCuphead.Text = "Cuphead";
+            this.tabCuphead.ThemeAuthor = "Taiizor";
+            this.tabCuphead.ThemeName = "MetroLight";
+            this.tabCuphead.ToolTipText = null;
             // 
             // panelBossCuphead
             // 
@@ -9652,7 +9782,7 @@ namespace AutoSplitterCore
             this.checkedListBoxBossCuphead.Location = new System.Drawing.Point(25, 14);
             this.checkedListBoxBossCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBoxBossCuphead.Name = "checkedListBoxBossCuphead";
-            this.checkedListBoxBossCuphead.Size = new System.Drawing.Size(515, 225);
+            this.checkedListBoxBossCuphead.Size = new System.Drawing.Size(515, 220);
             this.checkedListBoxBossCuphead.TabIndex = 0;
             this.checkedListBoxBossCuphead.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxBossCuphead_ItemCheck);
             // 
@@ -9683,7 +9813,7 @@ namespace AutoSplitterCore
             this.checkedListLevelCuphead.Location = new System.Drawing.Point(25, 14);
             this.checkedListLevelCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListLevelCuphead.Name = "checkedListLevelCuphead";
-            this.checkedListLevelCuphead.Size = new System.Drawing.Size(515, 225);
+            this.checkedListLevelCuphead.Size = new System.Drawing.Size(515, 220);
             this.checkedListLevelCuphead.TabIndex = 0;
             this.checkedListLevelCuphead.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListLevelCuphead_ItemCheck);
             // 
@@ -9697,7 +9827,7 @@ namespace AutoSplitterCore
             this.comboBoxToSplitCuphead.Location = new System.Drawing.Point(89, 46);
             this.comboBoxToSplitCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxToSplitCuphead.Name = "comboBoxToSplitCuphead";
-            this.comboBoxToSplitCuphead.Size = new System.Drawing.Size(445, 21);
+            this.comboBoxToSplitCuphead.Size = new System.Drawing.Size(445, 24);
             this.comboBoxToSplitCuphead.TabIndex = 30;
             this.comboBoxToSplitCuphead.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitCuphead_SelectedIndexChanged);
             // 
@@ -9706,7 +9836,7 @@ namespace AutoSplitterCore
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(51, 50);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(36, 13);
+            this.label48.Size = new System.Drawing.Size(41, 17);
             this.label48.TabIndex = 29;
             this.label48.Text = "when";
             // 
@@ -9760,7 +9890,7 @@ namespace AutoSplitterCore
             this.CupheadRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.CupheadRunning.Location = new System.Drawing.Point(351, 21);
             this.CupheadRunning.Name = "CupheadRunning";
-            this.CupheadRunning.Size = new System.Drawing.Size(113, 13);
+            this.CupheadRunning.Size = new System.Drawing.Size(136, 17);
             this.CupheadRunning.TabIndex = 26;
             this.CupheadRunning.Text = "Cuphead is Running";
             // 
@@ -9770,25 +9900,31 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.ForeColor = System.Drawing.Color.Red;
             this.CupheadNotRunning.Location = new System.Drawing.Point(345, 21);
             this.CupheadNotRunning.Name = "CupheadNotRunning";
-            this.CupheadNotRunning.Size = new System.Drawing.Size(135, 13);
+            this.CupheadNotRunning.Size = new System.Drawing.Size(162, 17);
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
             // 
             // tabDishonored
             // 
-            this.tabDishonored.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDishonored.BaseColor = System.Drawing.Color.White;
             this.tabDishonored.Controls.Add(this.groupBoxEventsDishonored);
             this.tabDishonored.Controls.Add(this.btnRefreshDish);
             this.tabDishonored.Controls.Add(this.btnDesactiveAllDishonored);
             this.tabDishonored.Controls.Add(this.DishonoredRunning);
             this.tabDishonored.Controls.Add(this.DishonoredNotRunning);
+            this.tabDishonored.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDishonored.ImageKey = null;
+            this.tabDishonored.IsDerivedStyle = true;
             this.tabDishonored.Location = new System.Drawing.Point(4, 42);
-            this.tabDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDishonored.Name = "tabDishonored";
-            this.tabDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDishonored.Size = new System.Drawing.Size(609, 339);
-            this.tabDishonored.TabIndex = 13;
+            this.tabDishonored.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabDishonored.StyleManager = null;
+            this.tabDishonored.TabIndex = 14;
             this.tabDishonored.Text = "Dishonored";
+            this.tabDishonored.ThemeAuthor = "Taiizor";
+            this.tabDishonored.ThemeName = "MetroLight";
+            this.tabDishonored.ToolTipText = null;
             // 
             // groupBoxEventsDishonored
             // 
@@ -9881,7 +10017,7 @@ namespace AutoSplitterCore
             this.DishonoredRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.DishonoredRunning.Location = new System.Drawing.Point(341, 21);
             this.DishonoredRunning.Name = "DishonoredRunning";
-            this.DishonoredRunning.Size = new System.Drawing.Size(127, 13);
+            this.DishonoredRunning.Size = new System.Drawing.Size(152, 17);
             this.DishonoredRunning.TabIndex = 30;
             this.DishonoredRunning.Text = "Dishonored is Running";
             // 
@@ -9891,21 +10027,36 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.ForeColor = System.Drawing.Color.Red;
             this.DishonoredNotRunning.Location = new System.Drawing.Point(331, 21);
             this.DishonoredNotRunning.Name = "DishonoredNotRunning";
-            this.DishonoredNotRunning.Size = new System.Drawing.Size(149, 13);
+            this.DishonoredNotRunning.Size = new System.Drawing.Size(178, 17);
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.TabControlGeneral);
+            this.panel1.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel1.Location = new System.Drawing.Point(9, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(624, 393);
+            this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.panel1.TabIndex = 1;
+            this.panel1.Text = "panel1";
             // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 448);
-            this.Controls.Add(this.TabControlGeneral);
+            this.ClientSize = new System.Drawing.Size(649, 461);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "AutoSplitter";
             this.Padding = new System.Windows.Forms.Padding(21, 60, 21, 20);
+            this.Resizable = false;
             this.Text = "AutoSplitterCore";
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Default;
             this.TransparencyKey = System.Drawing.Color.Empty;
@@ -9918,10 +10069,6 @@ namespace AutoSplitterCore
             this.groupBoxUpdate.ResumeLayout(false);
             this.groupBoxUpdate.PerformLayout();
             this.groupBoxSplitters.ResumeLayout(false);
-            this.tabInfo.ResumeLayout(false);
-            this.tabInfo.PerformLayout();
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -9972,6 +10119,9 @@ namespace AutoSplitterCore
             this.groupBoxATDs1.PerformLayout();
             this.groupBoxTMDs1.ResumeLayout(false);
             this.groupBoxTMDs1.PerformLayout();
+            this.tabInfo.ResumeLayout(false);
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
             this.panelCfSekiro.ResumeLayout(false);
@@ -10080,16 +10230,17 @@ namespace AutoSplitterCore
             this.tabDishonored.ResumeLayout(false);
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabPage tabElden;
-        private System.Windows.Forms.TabPage tabDs3;
-        private System.Windows.Forms.TabPage tabDs2;
-        private System.Windows.Forms.TabPage tabSekiro;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabElden;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabDs3;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabDs2;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabSekiro;
         private System.Windows.Forms.ComboBox toSplitSelectSekiro;
         private System.Windows.Forms.Label label1;
         private ReaLTaiizor.Controls.MetroTabControl TabControlGeneral;
@@ -10097,8 +10248,8 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label SekiroNotRunning;
         private ReaLTaiizor.Controls.Button btnDesactiveSekiro;
         private ReaLTaiizor.Controls.Button btnRefreshSekiro;
-        private System.Windows.Forms.TabPage tabDs1;
-        private System.Windows.Forms.TabPage tabHollow;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabDs1;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabHollow;
         private System.Windows.Forms.Panel panelPositionS;
         private ReaLTaiizor.Controls.Button btnAddPosition;
         private ReaLTaiizor.Controls.Button btnGetPositionS;
@@ -10106,8 +10257,7 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TextBox textBoxY;
         private System.Windows.Forms.TextBox textBoxX;
         private System.Windows.Forms.ComboBox comboBoxMarginS;
-        private System.Windows.Forms.TabPage tabInfo;
-        internal System.Windows.Forms.TextBox TextBoxManual;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabInfo;
         private System.Windows.Forms.ComboBox comboBoxHowPosition;
         private System.Windows.Forms.ListBox listBoxPositionsS;
         private System.Windows.Forms.Panel panelBossS;
@@ -10311,14 +10461,14 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.Button btnGetListFlagDs3;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox textBoxIdDs3;
-        private System.Windows.Forms.TabPage tabCeleste;
-        private System.Windows.Forms.TabPage tabCuphead;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabCeleste;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabCuphead;
         private System.Windows.Forms.Label CelesteNotRunning;
         private System.Windows.Forms.Panel panelChapterCeleste;
         private System.Windows.Forms.CheckedListBox checkedListBoxChapterCeleste;
         private System.Windows.Forms.Panel panelCheckpointsCeleste;
         private System.Windows.Forms.CheckedListBox checkedListBoxCheckpointsCeleste;
-        private System.Windows.Forms.TabPage tabConfig;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabConfig;
         private ReaLTaiizor.Controls.GroupBox groupBoxSplitters;
         private ReaLTaiizor.Controls.Button btnCuphead;
         private ReaLTaiizor.Controls.Button btnCeleste;
@@ -10437,11 +10587,10 @@ namespace AutoSplitterCore
         private System.Windows.Forms.ListBox listBoxItemDs1;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.ComboBox comboBoxStateDs1;
-        private System.Windows.Forms.TabPage tabTiming;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabTiming;
         private ReaLTaiizor.Controls.GroupBox groupBoxTSekiro;
         private System.Windows.Forms.CheckBox checkBoxATS;
-        private System.Windows.Forms.ComboBox comboBoxTGame;
-        private System.Windows.Forms.Label label75;
+        private ReaLTaiizor.Controls.DungeonComboBox comboBoxTGame;
         private ReaLTaiizor.Controls.GroupBox groupBoxTMS;
         private System.Windows.Forms.RadioButton radioIGTSTimer;
         private System.Windows.Forms.RadioButton radioRealTimerS;
@@ -10494,7 +10643,7 @@ namespace AutoSplitterCore
         internal System.Windows.Forms.TextBox textBox1;
         private ReaLTaiizor.Controls.GroupBox groupBoxMJS;
         private System.Windows.Forms.CheckBox checkBoxMortalJourneyRun;
-        private System.Windows.Forms.TabPage tabLicense;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabLicense;
         internal System.Windows.Forms.TextBox textBoxLicenses;
         private ReaLTaiizor.Controls.Button btnAbout;
         private ReaLTaiizor.Controls.GroupBox groupBoxUpdate;
@@ -10510,7 +10659,7 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.Button btnHowSetup;
         private ReaLTaiizor.Controls.GroupBox groupBox1;
         private ReaLTaiizor.Controls.Button btnDishonored;
-        private System.Windows.Forms.TabPage tabDishonored;
+        private ReaLTaiizor.Child.Metro.MetroTabPage tabDishonored;
         private ReaLTaiizor.Controls.GroupBox groupBoxEventsDishonored;
         private System.Windows.Forms.CheckedListBox checkedListBoxDishonored;
         private ReaLTaiizor.Controls.Button btnRefreshDish;
@@ -10578,5 +10727,8 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxViewDlcGrace;
         private System.Windows.Forms.ComboBox comboBoxGraceDLC_ER;
         private ReaLTaiizor.Controls.Button btnSkyrim;
+        private ReaLTaiizor.Controls.Panel panel1;
+        private ReaLTaiizor.Controls.HopeTextBox TextboxManual;
+        private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
     }
 }

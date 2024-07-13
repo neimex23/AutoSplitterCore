@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TextBoxManual.Text" xml:space="preserve">
+  <data name="TextboxManual.Text" xml:space="preserve">
     <value>Notes:
 ===========================================
 AutoSplitting:
@@ -222,18 +222,18 @@ DLL Used:
         Title: LiveSplit
         Author: LiveSplit
         Source: https://github.com/LiveSplit/LiveSplit
-        Licence: MIT
-		   
-    - DLL Irony (Dependency of ScripteableAutoSplit)
-		Title: Irony — .NET Language Implementation Kit
-		Author: IronyProject 
-		Source: https://github.com/IronyProject/Irony.git
-		Licence: MIT
-		   
+        Licence: MIT		  
+		
     - DLL Newtonsoft.Json (Dependency of SoulsMemory)
 		Title: Newtonsoft.Json
 		Author: James Newton-King (JamesNK)
 		Source: https://github.com/JamesNK/Newtonsoft.Json.git
+		Licence: MIT
+		
+	- DLL ReaLTaiizor
+		Title: ReaLTaiizor
+		Author: Taiizor
+		Source: https://github.com/Taiizor/ReaLTaiizor
 		Licence: MIT
 
 Addon Developed for HitCounterManager:

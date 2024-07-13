@@ -72,8 +72,19 @@ namespace AutoSplitterCore
             }
             #endregion
             #region ControlTab
-            TabControlGeneral.TabPages.Clear();
-            TabControlGeneral.TabPages.Add(tabConfig);
+            this.TabControlGeneral.Controls.Remove(this.tabInfo);
+            this.TabControlGeneral.Controls.Remove(this.tabLicense);
+            this.TabControlGeneral.Controls.Remove(this.tabTiming);
+            this.TabControlGeneral.Controls.Remove(this.tabSekiro);
+            this.TabControlGeneral.Controls.Remove(this.tabDs1);
+            this.TabControlGeneral.Controls.Remove(this.tabDs2);
+            this.TabControlGeneral.Controls.Remove(this.tabDs3);
+            this.TabControlGeneral.Controls.Remove(this.tabElden);
+            this.TabControlGeneral.Controls.Remove(this.tabHollow);
+            this.TabControlGeneral.Controls.Remove(this.tabCeleste);
+            this.TabControlGeneral.Controls.Remove(this.tabCuphead);
+            this.TabControlGeneral.Controls.Remove(this.tabDishonored);
+            TabControlGeneral.SelectTab(tabConfig);
             #endregion
             #region SekiroTab       
             panelPositionS.Hide();
@@ -160,7 +171,7 @@ namespace AutoSplitterCore
 
         public void DarkMode() //Is horrible but is accuareate that dark mode in main Form :)
         {
-            this.BackColor = Color.FromArgb(50, 50, 50);
+            /*this.BackColor = Color.FromArgb(50, 50, 50);
             this.tabConfig.BackColor = Color.FromArgb(50, 50, 50);
             this.tabInfo.BackColor = Color.FromArgb(50, 50, 50);
             this.TextBoxManual.BackColor = Color.DarkSlateGray;
@@ -173,7 +184,7 @@ namespace AutoSplitterCore
             this.tabSekiro.BackColor = Color.FromArgb(50, 50, 50);
             this.tabCeleste.BackColor = Color.FromArgb(50, 50, 50);
             this.tabDishonored.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabLicense.BackColor = Color.FromArgb(50, 50, 50);
+            this.tabLicense.BackColor = Color.FromArgb(50, 50, 50);*/
         }
 
         private void AutoSplitter_Load(object sender, EventArgs e)
@@ -548,7 +559,6 @@ namespace AutoSplitterCore
             }
             #endregion
             #region Timming
-            comboBoxTGame.SelectedIndex = 0;
             checkBoxResetSplitNg.Checked = saveModule.dataAS.AutoResetSplit;
             if (sekiroData.autoTimer)
             {

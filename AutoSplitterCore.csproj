@@ -45,10 +45,6 @@
     <Reference Include="HitCounterManager">
       <HintPath>Sources\HitCounterManager.dll</HintPath>
     </Reference>
-    <Reference Include="Irony, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Sources\Irony.dll</HintPath>
-    </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
     </Reference>
@@ -185,6 +181,7 @@
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="PrepareReleaseAutoSplitter.bat" />
     <None Include="UpdateScriptASC.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

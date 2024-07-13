@@ -47,10 +47,6 @@
     <Reference Include="HitCounterManager.PCL">
       <HintPath>Sources\HitCounterManager.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="Irony, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Irony.1.5.1\lib\netstandard2.0\Irony.dll</HintPath>
-    </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
     </Reference>
