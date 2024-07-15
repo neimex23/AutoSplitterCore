@@ -31,6 +31,74 @@ namespace AutoSplitterCore
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.MetroTabControl();
+            this.tabLicense = new ReaLTaiizor.Child.Metro.MetroTabPage();
+            this.textBoxLicenses = new System.Windows.Forms.TextBox();
+            this.tabTiming = new ReaLTaiizor.Child.Metro.MetroTabPage();
+            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATS = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
+            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
+            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
+            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
+            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
+            this.radioIGTEr = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
+            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
+            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
+            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
+            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
+            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
             this.tabConfig = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
             this.btnTiming = new ReaLTaiizor.Controls.Button();
@@ -58,76 +126,8 @@ namespace AutoSplitterCore
             this.btnDs2 = new ReaLTaiizor.Controls.Button();
             this.btnDs1 = new ReaLTaiizor.Controls.Button();
             this.btnSekiro = new ReaLTaiizor.Controls.Button();
-            this.tabTiming = new ReaLTaiizor.Child.Metro.MetroTabPage();
-            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
-            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
-            this.label94 = new System.Windows.Forms.Label();
-            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
-            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
-            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
-            this.radioIGTEr = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
-            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATS = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
-            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label77 = new System.Windows.Forms.Label();
-            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
-            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
-            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
-            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
             this.tabInfo = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
-            this.tabLicense = new ReaLTaiizor.Child.Metro.MetroTabPage();
-            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabSekiro = new ReaLTaiizor.Child.Metro.MetroTabPage();
             this.panelCfSekiro = new System.Windows.Forms.Panel();
             this.label91 = new System.Windows.Forms.Label();
@@ -524,26 +524,8 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
             this.panel1 = new ReaLTaiizor.Controls.Panel();
             this.TabControlGeneral.SuspendLayout();
-            this.tabConfig.SuspendLayout();
-            this.groupBoxOtherS.SuspendLayout();
-            this.groupBoxMProfile.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBoxUpdate.SuspendLayout();
-            this.groupBoxSplitters.SuspendLayout();
+            this.tabLicense.SuspendLayout();
             this.tabTiming.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBoxTDs2.SuspendLayout();
-            this.groupBoxATDs2.SuspendLayout();
-            this.groupBoxTMDs2.SuspendLayout();
-            this.groupBoxTCeleste.SuspendLayout();
-            this.groupBoxATCeleste.SuspendLayout();
-            this.groupBoxTMCeleste.SuspendLayout();
-            this.groupBoxTDs3.SuspendLayout();
-            this.groupBoxATDs3.SuspendLayout();
-            this.groupBoxTMDs3.SuspendLayout();
-            this.groupBoxTEr.SuspendLayout();
-            this.groupBoxATEr.SuspendLayout();
-            this.groupBoxTMEr.SuspendLayout();
             this.groupBoxTSekiro.SuspendLayout();
             this.groupBoxATS.SuspendLayout();
             this.groupBoxTMS.SuspendLayout();
@@ -556,11 +538,29 @@ namespace AutoSplitterCore
             this.groupBoxTHK.SuspendLayout();
             this.groupBoxATHk.SuspendLayout();
             this.groupBoxTMHollow.SuspendLayout();
+            this.groupBoxTEr.SuspendLayout();
+            this.groupBoxATEr.SuspendLayout();
+            this.groupBoxTMEr.SuspendLayout();
+            this.groupBoxTDs3.SuspendLayout();
+            this.groupBoxATDs3.SuspendLayout();
+            this.groupBoxTMDs3.SuspendLayout();
+            this.groupBoxTDs2.SuspendLayout();
+            this.groupBoxATDs2.SuspendLayout();
+            this.groupBoxTMDs2.SuspendLayout();
             this.groupBoxTDs1.SuspendLayout();
             this.groupBoxATDs1.SuspendLayout();
             this.groupBoxTMDs1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBoxTCeleste.SuspendLayout();
+            this.groupBoxATCeleste.SuspendLayout();
+            this.groupBoxTMCeleste.SuspendLayout();
+            this.tabConfig.SuspendLayout();
+            this.groupBoxOtherS.SuspendLayout();
+            this.groupBoxMProfile.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxUpdate.SuspendLayout();
+            this.groupBoxSplitters.SuspendLayout();
             this.tabInfo.SuspendLayout();
-            this.tabLicense.SuspendLayout();
             this.tabSekiro.SuspendLayout();
             this.panelCfSekiro.SuspendLayout();
             this.panelPositionS.SuspendLayout();
@@ -629,13 +629,13 @@ namespace AutoSplitterCore
             // 
             // TabControlGeneral
             // 
-            this.TabControlGeneral.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.QuartOut;
+            this.TabControlGeneral.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.QuadIn;
             this.TabControlGeneral.AnimateTime = 200;
             this.TabControlGeneral.BackgroundColor = System.Drawing.Color.White;
             this.TabControlGeneral.Controls.Add(this.tabConfig);
-            this.TabControlGeneral.Controls.Add(this.tabTiming);
-            this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
+            this.TabControlGeneral.Controls.Add(this.tabInfo);
+            this.TabControlGeneral.Controls.Add(this.tabTiming);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
             this.TabControlGeneral.Controls.Add(this.tabDs2);
@@ -647,7 +647,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.Controls.Add(this.tabDishonored);
             this.TabControlGeneral.ControlsVisible = true;
             this.TabControlGeneral.IsDerivedStyle = true;
-            this.TabControlGeneral.ItemSize = new System.Drawing.Size(50, 38);
+            this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.MCursor = System.Windows.Forms.Cursors.Hand;
             this.TabControlGeneral.Name = "TabControlGeneral";
@@ -663,6 +663,1173 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ThemeName = "MetroLight";
             this.TabControlGeneral.UnselectedTextColor = System.Drawing.Color.Silver;
             // 
+            // tabLicense
+            // 
+            this.tabLicense.BaseColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.ImageIndex = 0;
+            this.tabLicense.ImageKey = null;
+            this.tabLicense.IsDerivedStyle = true;
+            this.tabLicense.Location = new System.Drawing.Point(4, 44);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 337);
+            this.tabLicense.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabLicense.StyleManager = null;
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.ThemeAuthor = "Taiizor";
+            this.tabLicense.ThemeName = "MetroLight";
+            this.tabLicense.ToolTipText = null;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 328);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
+            // 
+            // tabTiming
+            // 
+            this.tabTiming.BaseColor = System.Drawing.Color.White;
+            this.tabTiming.Controls.Add(this.groupBoxTSekiro);
+            this.tabTiming.Controls.Add(this.groupBoxTDishonored);
+            this.tabTiming.Controls.Add(this.groupBoxTCuphead);
+            this.tabTiming.Controls.Add(this.groupBoxTHK);
+            this.tabTiming.Controls.Add(this.groupBoxTEr);
+            this.tabTiming.Controls.Add(this.groupBoxTDs3);
+            this.tabTiming.Controls.Add(this.groupBoxTDs2);
+            this.tabTiming.Controls.Add(this.groupBoxTDs1);
+            this.tabTiming.Controls.Add(this.poisonLabel1);
+            this.tabTiming.Controls.Add(this.groupBox2);
+            this.tabTiming.Controls.Add(this.groupBoxTCeleste);
+            this.tabTiming.Controls.Add(this.btnDesactiveAllTiming);
+            this.tabTiming.Controls.Add(this.comboBoxTGame);
+            this.tabTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabTiming.ImageIndex = 0;
+            this.tabTiming.ImageKey = null;
+            this.tabTiming.IsDerivedStyle = true;
+            this.tabTiming.Location = new System.Drawing.Point(4, 42);
+            this.tabTiming.Name = "tabTiming";
+            this.tabTiming.Size = new System.Drawing.Size(609, 339);
+            this.tabTiming.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.tabTiming.StyleManager = null;
+            this.tabTiming.TabIndex = 4;
+            this.tabTiming.Text = "Timing";
+            this.tabTiming.ThemeAuthor = "Taiizor";
+            this.tabTiming.ThemeName = "MetroLight";
+            this.tabTiming.ToolTipText = null;
+            // 
+            // groupBoxTSekiro
+            // 
+            this.groupBoxTSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTSekiro.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTSekiro.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTSekiro.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTSekiro.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTSekiro.Controls.Add(this.groupBoxATS);
+            this.groupBoxTSekiro.Controls.Add(this.groupBoxTMS);
+            this.groupBoxTSekiro.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTSekiro.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTSekiro.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTSekiro.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTSekiro.Name = "groupBoxTSekiro";
+            this.groupBoxTSekiro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTSekiro.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTSekiro.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTSekiro.TabIndex = 0;
+            this.groupBoxTSekiro.Text = "Sekiro Timing";
+            // 
+            // groupBoxATS
+            // 
+            this.groupBoxATS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATS.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATS.Controls.Add(this.checkBoxATS);
+            this.groupBoxATS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATS.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATS.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATS.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATS.Name = "groupBoxATS";
+            this.groupBoxATS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATS.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATS.TabIndex = 4;
+            this.groupBoxATS.TabStop = false;
+            this.groupBoxATS.Text = "AutoTimer";
+            // 
+            // checkBoxATS
+            // 
+            this.checkBoxATS.AutoSize = true;
+            this.checkBoxATS.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxATS.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATS.Name = "checkBoxATS";
+            this.checkBoxATS.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATS.TabIndex = 1;
+            this.checkBoxATS.Text = "Enable";
+            this.checkBoxATS.UseVisualStyleBackColor = true;
+            this.checkBoxATS.CheckedChanged += new System.EventHandler(this.checkBoxATS_CheckedChanged);
+            // 
+            // groupBoxTMS
+            // 
+            this.groupBoxTMS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMS.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMS.Controls.Add(this.checkBoxResetIGTSekiro);
+            this.groupBoxTMS.Controls.Add(this.radioIGTSTimer);
+            this.groupBoxTMS.Controls.Add(this.radioRealTimerS);
+            this.groupBoxTMS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMS.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMS.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMS.Name = "groupBoxTMS";
+            this.groupBoxTMS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMS.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMS.TabIndex = 3;
+            this.groupBoxTMS.TabStop = false;
+            this.groupBoxTMS.Text = "Timing Method";
+            // 
+            // checkBoxResetIGTSekiro
+            // 
+            this.checkBoxResetIGTSekiro.AutoSize = true;
+            this.checkBoxResetIGTSekiro.Location = new System.Drawing.Point(21, 79);
+            this.checkBoxResetIGTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIGTSekiro.Name = "checkBoxResetIGTSekiro";
+            this.checkBoxResetIGTSekiro.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIGTSekiro.TabIndex = 0;
+            this.checkBoxResetIGTSekiro.Text = "Reset IGT on NG+";
+            this.checkBoxResetIGTSekiro.UseVisualStyleBackColor = true;
+            this.checkBoxResetIGTSekiro.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTSekiro_CheckedChanged);
+            // 
+            // radioIGTSTimer
+            // 
+            this.radioIGTSTimer.AutoSize = true;
+            this.radioIGTSTimer.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTSTimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTSTimer.Name = "radioIGTSTimer";
+            this.radioIGTSTimer.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTSTimer.TabIndex = 1;
+            this.radioIGTSTimer.Text = "Game Time";
+            this.radioIGTSTimer.UseVisualStyleBackColor = true;
+            this.radioIGTSTimer.CheckedChanged += new System.EventHandler(this.radioIGTSTimer_CheckedChanged);
+            // 
+            // radioRealTimerS
+            // 
+            this.radioRealTimerS.AutoSize = true;
+            this.radioRealTimerS.Checked = true;
+            this.radioRealTimerS.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerS.Name = "radioRealTimerS";
+            this.radioRealTimerS.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerS.TabIndex = 0;
+            this.radioRealTimerS.TabStop = true;
+            this.radioRealTimerS.Text = "Real Time";
+            this.radioRealTimerS.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDishonored
+            // 
+            this.groupBoxTDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDishonored.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxATDishonored);
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxTMDishonored);
+            this.groupBoxTDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDishonored.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDishonored.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDishonored.Name = "groupBoxTDishonored";
+            this.groupBoxTDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDishonored.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDishonored.TabIndex = 23;
+            this.groupBoxTDishonored.Text = "Dishonored Timing";
+            // 
+            // groupBoxATDishonored
+            // 
+            this.groupBoxATDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDishonored.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDishonored.Controls.Add(this.checkBoxATDishonored);
+            this.groupBoxATDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDishonored.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDishonored.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDishonored.Name = "groupBoxATDishonored";
+            this.groupBoxATDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDishonored.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDishonored.TabIndex = 0;
+            this.groupBoxATDishonored.Text = "AutoTimer";
+            // 
+            // checkBoxATDishonored
+            // 
+            this.checkBoxATDishonored.AutoSize = true;
+            this.checkBoxATDishonored.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDishonored.Name = "checkBoxATDishonored";
+            this.checkBoxATDishonored.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDishonored.TabIndex = 1;
+            this.checkBoxATDishonored.Text = "Enable";
+            this.checkBoxATDishonored.UseVisualStyleBackColor = true;
+            this.checkBoxATDishonored.CheckedChanged += new System.EventHandler(this.checkBoxATDishonored_CheckedChanged);
+            // 
+            // groupBoxTMDishonored
+            // 
+            this.groupBoxTMDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDishonored.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDishonored.Controls.Add(this.radioIGTDishonored);
+            this.groupBoxTMDishonored.Controls.Add(this.radioRealTimerDishonored);
+            this.groupBoxTMDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDishonored.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDishonored.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDishonored.Name = "groupBoxTMDishonored";
+            this.groupBoxTMDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDishonored.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDishonored.TabIndex = 1;
+            this.groupBoxTMDishonored.Text = "Timing Method";
+            // 
+            // radioIGTDishonored
+            // 
+            this.radioIGTDishonored.AutoSize = true;
+            this.radioIGTDishonored.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDishonored.Name = "radioIGTDishonored";
+            this.radioIGTDishonored.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDishonored.TabIndex = 1;
+            this.radioIGTDishonored.Text = "Game Time";
+            this.radioIGTDishonored.UseVisualStyleBackColor = true;
+            this.radioIGTDishonored.CheckedChanged += new System.EventHandler(this.radioIGTDishonored_CheckedChanged);
+            // 
+            // radioRealTimerDishonored
+            // 
+            this.radioRealTimerDishonored.AutoSize = true;
+            this.radioRealTimerDishonored.Checked = true;
+            this.radioRealTimerDishonored.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDishonored.Name = "radioRealTimerDishonored";
+            this.radioRealTimerDishonored.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDishonored.TabIndex = 0;
+            this.radioRealTimerDishonored.TabStop = true;
+            this.radioRealTimerDishonored.Text = "Real Time";
+            this.radioRealTimerDishonored.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTCuphead
+            // 
+            this.groupBoxTCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCuphead.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTCuphead.Controls.Add(this.label77);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
+            this.groupBoxTCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTCuphead.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTCuphead.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
+            this.groupBoxTCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTCuphead.TabIndex = 24;
+            this.groupBoxTCuphead.Text = "Cuphead Timing";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label77.Location = new System.Drawing.Point(57, 141);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(267, 14);
+            this.label77.TabIndex = 3;
+            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
+            // 
+            // groupBoxATCuphead
+            // 
+            this.groupBoxATCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCuphead.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
+            this.groupBoxATCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATCuphead.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
+            this.groupBoxATCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCuphead.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATCuphead.TabIndex = 4;
+            this.groupBoxATCuphead.Text = "AutoTimer";
+            // 
+            // checkBoxATCuphead
+            // 
+            this.checkBoxATCuphead.AutoSize = true;
+            this.checkBoxATCuphead.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
+            this.checkBoxATCuphead.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATCuphead.TabIndex = 1;
+            this.checkBoxATCuphead.Text = "Enable";
+            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
+            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
+            // 
+            // groupBoxTMCuphead
+            // 
+            this.groupBoxTMCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCuphead.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMCuphead.Controls.Add(this.label60);
+            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
+            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
+            this.groupBoxTMCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMCuphead.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
+            this.groupBoxTMCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMCuphead.TabIndex = 5;
+            this.groupBoxTMCuphead.Text = "Timing Method";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label60.Location = new System.Drawing.Point(51, 78);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(76, 14);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "(Level Time)";
+            // 
+            // radioIGTCuphead
+            // 
+            this.radioIGTCuphead.AutoSize = true;
+            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTCuphead.Name = "radioIGTCuphead";
+            this.radioIGTCuphead.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTCuphead.TabIndex = 1;
+            this.radioIGTCuphead.Text = "Game Time";
+            this.radioIGTCuphead.UseVisualStyleBackColor = true;
+            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
+            // 
+            // radioRealTimerCuphead
+            // 
+            this.radioRealTimerCuphead.AutoSize = true;
+            this.radioRealTimerCuphead.Checked = true;
+            this.radioRealTimerCuphead.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
+            this.radioRealTimerCuphead.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerCuphead.TabIndex = 0;
+            this.radioRealTimerCuphead.TabStop = true;
+            this.radioRealTimerCuphead.Text = "Real Time";
+            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTHK
+            // 
+            this.groupBoxTHK.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTHK.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTHK.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTHK.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTHK.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTHK.Controls.Add(this.groupBoxATHk);
+            this.groupBoxTHK.Controls.Add(this.groupBoxTMHollow);
+            this.groupBoxTHK.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTHK.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTHK.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTHK.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTHK.Name = "groupBoxTHK";
+            this.groupBoxTHK.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTHK.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTHK.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTHK.TabIndex = 21;
+            this.groupBoxTHK.Text = "Hollow Knight Timing";
+            // 
+            // groupBoxATHk
+            // 
+            this.groupBoxATHk.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATHk.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATHk.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATHk.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATHk.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATHk.Controls.Add(this.checkBoxATHollow);
+            this.groupBoxATHk.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATHk.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATHk.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATHk.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATHk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATHk.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATHk.Name = "groupBoxATHk";
+            this.groupBoxATHk.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATHk.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATHk.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATHk.TabIndex = 0;
+            this.groupBoxATHk.Text = "AutoTimer";
+            // 
+            // checkBoxATHollow
+            // 
+            this.checkBoxATHollow.AutoSize = true;
+            this.checkBoxATHollow.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATHollow.Name = "checkBoxATHollow";
+            this.checkBoxATHollow.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATHollow.TabIndex = 1;
+            this.checkBoxATHollow.Text = "Enable";
+            this.checkBoxATHollow.UseVisualStyleBackColor = true;
+            this.checkBoxATHollow.CheckedChanged += new System.EventHandler(this.checkBoxATHollow_CheckedChanged);
+            // 
+            // groupBoxTMHollow
+            // 
+            this.groupBoxTMHollow.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMHollow.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMHollow.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMHollow.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMHollow.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMHollow.Controls.Add(this.radioIGTHollow);
+            this.groupBoxTMHollow.Controls.Add(this.radioRealTimerHollow);
+            this.groupBoxTMHollow.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMHollow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMHollow.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMHollow.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMHollow.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMHollow.Name = "groupBoxTMHollow";
+            this.groupBoxTMHollow.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMHollow.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMHollow.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMHollow.TabIndex = 1;
+            this.groupBoxTMHollow.Text = "Timing Method";
+            // 
+            // radioIGTHollow
+            // 
+            this.radioIGTHollow.AutoSize = true;
+            this.radioIGTHollow.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTHollow.Name = "radioIGTHollow";
+            this.radioIGTHollow.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTHollow.TabIndex = 1;
+            this.radioIGTHollow.Text = "Game Time";
+            this.radioIGTHollow.UseVisualStyleBackColor = true;
+            this.radioIGTHollow.CheckedChanged += new System.EventHandler(this.radioIGTHollow_CheckedChanged);
+            // 
+            // radioRealTimerHollow
+            // 
+            this.radioRealTimerHollow.AutoSize = true;
+            this.radioRealTimerHollow.Checked = true;
+            this.radioRealTimerHollow.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerHollow.Name = "radioRealTimerHollow";
+            this.radioRealTimerHollow.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerHollow.TabIndex = 0;
+            this.radioRealTimerHollow.TabStop = true;
+            this.radioRealTimerHollow.Text = "Real Time";
+            this.radioRealTimerHollow.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTEr
+            // 
+            this.groupBoxTEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTEr.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTEr.Controls.Add(this.groupBoxATEr);
+            this.groupBoxTEr.Controls.Add(this.groupBoxTMEr);
+            this.groupBoxTEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTEr.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTEr.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTEr.Name = "groupBoxTEr";
+            this.groupBoxTEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTEr.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTEr.TabIndex = 22;
+            this.groupBoxTEr.Text = "Elden Timing";
+            // 
+            // groupBoxATEr
+            // 
+            this.groupBoxATEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATEr.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATEr.Controls.Add(this.checkBoxATEr);
+            this.groupBoxATEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATEr.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATEr.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATEr.Name = "groupBoxATEr";
+            this.groupBoxATEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATEr.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATEr.TabIndex = 0;
+            this.groupBoxATEr.Text = "AutoTimer";
+            // 
+            // checkBoxATEr
+            // 
+            this.checkBoxATEr.AutoSize = true;
+            this.checkBoxATEr.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATEr.Name = "checkBoxATEr";
+            this.checkBoxATEr.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATEr.TabIndex = 1;
+            this.checkBoxATEr.Text = "Enable";
+            this.checkBoxATEr.UseVisualStyleBackColor = true;
+            this.checkBoxATEr.CheckedChanged += new System.EventHandler(this.checkBoxATEr_CheckedChanged_1);
+            // 
+            // groupBoxTMEr
+            // 
+            this.groupBoxTMEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMEr.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMEr.Controls.Add(this.checkBoxResetIGTNGEr);
+            this.groupBoxTMEr.Controls.Add(this.radioIGTEr);
+            this.groupBoxTMEr.Controls.Add(this.radioRealTimerEr);
+            this.groupBoxTMEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMEr.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMEr.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMEr.Name = "groupBoxTMEr";
+            this.groupBoxTMEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMEr.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMEr.TabIndex = 1;
+            this.groupBoxTMEr.Text = "Timing Method";
+            // 
+            // checkBoxResetIGTNGEr
+            // 
+            this.checkBoxResetIGTNGEr.AutoSize = true;
+            this.checkBoxResetIGTNGEr.Location = new System.Drawing.Point(21, 80);
+            this.checkBoxResetIGTNGEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIGTNGEr.Name = "checkBoxResetIGTNGEr";
+            this.checkBoxResetIGTNGEr.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIGTNGEr.TabIndex = 0;
+            this.checkBoxResetIGTNGEr.Text = "Reset IGT on NG+";
+            this.checkBoxResetIGTNGEr.UseVisualStyleBackColor = true;
+            this.checkBoxResetIGTNGEr.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTNGEr_CheckedChanged);
+            // 
+            // radioIGTEr
+            // 
+            this.radioIGTEr.AutoSize = true;
+            this.radioIGTEr.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTEr.Name = "radioIGTEr";
+            this.radioIGTEr.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTEr.TabIndex = 1;
+            this.radioIGTEr.Text = "Game Time";
+            this.radioIGTEr.UseVisualStyleBackColor = true;
+            this.radioIGTEr.CheckedChanged += new System.EventHandler(this.radioIGTEr_CheckedChanged);
+            // 
+            // radioRealTimerEr
+            // 
+            this.radioRealTimerEr.AutoSize = true;
+            this.radioRealTimerEr.Checked = true;
+            this.radioRealTimerEr.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerEr.Name = "radioRealTimerEr";
+            this.radioRealTimerEr.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerEr.TabIndex = 0;
+            this.radioRealTimerEr.TabStop = true;
+            this.radioRealTimerEr.Text = "Real Time";
+            this.radioRealTimerEr.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs3
+            // 
+            this.groupBoxTDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs3.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs3.Controls.Add(this.groupBoxATDs3);
+            this.groupBoxTDs3.Controls.Add(this.groupBoxTMDs3);
+            this.groupBoxTDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs3.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs3.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs3.Name = "groupBoxTDs3";
+            this.groupBoxTDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs3.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs3.TabIndex = 9;
+            this.groupBoxTDs3.TabStop = false;
+            this.groupBoxTDs3.Text = "Ds3 Timing";
+            // 
+            // groupBoxATDs3
+            // 
+            this.groupBoxATDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs3.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs3.Controls.Add(this.checkBoxATDs3);
+            this.groupBoxATDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs3.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs3.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs3.Name = "groupBoxATDs3";
+            this.groupBoxATDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs3.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs3.TabIndex = 0;
+            this.groupBoxATDs3.Text = "AutoTimer";
+            // 
+            // checkBoxATDs3
+            // 
+            this.checkBoxATDs3.AutoSize = true;
+            this.checkBoxATDs3.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs3.Name = "checkBoxATDs3";
+            this.checkBoxATDs3.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs3.TabIndex = 1;
+            this.checkBoxATDs3.Text = "Enable";
+            this.checkBoxATDs3.UseVisualStyleBackColor = true;
+            this.checkBoxATDs3.CheckedChanged += new System.EventHandler(this.checkBoxATDs3_CheckedChanged_1);
+            // 
+            // groupBoxTMDs3
+            // 
+            this.groupBoxTMDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs3.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs3.Controls.Add(this.checkBoxResetIgtDs3);
+            this.groupBoxTMDs3.Controls.Add(this.radioIGTDs3);
+            this.groupBoxTMDs3.Controls.Add(this.radioRealTimerDs3);
+            this.groupBoxTMDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs3.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs3.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs3.Name = "groupBoxTMDs3";
+            this.groupBoxTMDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs3.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs3.TabIndex = 1;
+            this.groupBoxTMDs3.Text = "Timing Method";
+            // 
+            // checkBoxResetIgtDs3
+            // 
+            this.checkBoxResetIgtDs3.AutoSize = true;
+            this.checkBoxResetIgtDs3.Location = new System.Drawing.Point(21, 80);
+            this.checkBoxResetIgtDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIgtDs3.Name = "checkBoxResetIgtDs3";
+            this.checkBoxResetIgtDs3.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIgtDs3.TabIndex = 0;
+            this.checkBoxResetIgtDs3.Text = "Reset IGT on NG+";
+            this.checkBoxResetIgtDs3.UseVisualStyleBackColor = true;
+            this.checkBoxResetIgtDs3.CheckedChanged += new System.EventHandler(this.checkBoxResetIgtDs3_CheckedChanged);
+            // 
+            // radioIGTDs3
+            // 
+            this.radioIGTDs3.AutoSize = true;
+            this.radioIGTDs3.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs3.Name = "radioIGTDs3";
+            this.radioIGTDs3.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs3.TabIndex = 1;
+            this.radioIGTDs3.Text = "Game Time";
+            this.radioIGTDs3.UseVisualStyleBackColor = true;
+            this.radioIGTDs3.CheckedChanged += new System.EventHandler(this.radioIGTDs3_CheckedChanged);
+            // 
+            // radioRealTimerDs3
+            // 
+            this.radioRealTimerDs3.AutoSize = true;
+            this.radioRealTimerDs3.Checked = true;
+            this.radioRealTimerDs3.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs3.Name = "radioRealTimerDs3";
+            this.radioRealTimerDs3.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs3.TabIndex = 0;
+            this.radioRealTimerDs3.TabStop = true;
+            this.radioRealTimerDs3.Text = "Real Time";
+            this.radioRealTimerDs3.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs2
+            // 
+            this.groupBoxTDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs2.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
+            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
+            this.groupBoxTDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs2.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs2.Name = "groupBoxTDs2";
+            this.groupBoxTDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs2.TabIndex = 9;
+            this.groupBoxTDs2.TabStop = false;
+            this.groupBoxTDs2.Text = "Ds2 Timing";
+            // 
+            // groupBoxATDs2
+            // 
+            this.groupBoxATDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs2.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
+            this.groupBoxATDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs2.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs2.Name = "groupBoxATDs2";
+            this.groupBoxATDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs2.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs2.TabIndex = 0;
+            this.groupBoxATDs2.Text = "AutoTimer";
+            // 
+            // checkBoxATDs2
+            // 
+            this.checkBoxATDs2.AutoSize = true;
+            this.checkBoxATDs2.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs2.Name = "checkBoxATDs2";
+            this.checkBoxATDs2.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs2.TabIndex = 1;
+            this.checkBoxATDs2.Text = "Enable";
+            this.checkBoxATDs2.UseVisualStyleBackColor = true;
+            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
+            // 
+            // groupBoxTMDs2
+            // 
+            this.groupBoxTMDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs2.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
+            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
+            this.groupBoxTMDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs2.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
+            this.groupBoxTMDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs2.TabIndex = 1;
+            this.groupBoxTMDs2.Text = "Timing Method";
+            // 
+            // radioIGTDs2
+            // 
+            this.radioIGTDs2.AutoSize = true;
+            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs2.Name = "radioIGTDs2";
+            this.radioIGTDs2.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs2.TabIndex = 1;
+            this.radioIGTDs2.Text = "Game Time";
+            this.radioIGTDs2.UseVisualStyleBackColor = true;
+            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
+            // 
+            // radioRealTimerDs2
+            // 
+            this.radioRealTimerDs2.AutoSize = true;
+            this.radioRealTimerDs2.Checked = true;
+            this.radioRealTimerDs2.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
+            this.radioRealTimerDs2.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs2.TabIndex = 0;
+            this.radioRealTimerDs2.TabStop = true;
+            this.radioRealTimerDs2.Text = "Real Time";
+            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs1
+            // 
+            this.groupBoxTDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs1.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs1.Controls.Add(this.groupBoxATDs1);
+            this.groupBoxTDs1.Controls.Add(this.groupBoxTMDs1);
+            this.groupBoxTDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs1.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs1.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs1.Name = "groupBoxTDs1";
+            this.groupBoxTDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs1.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs1.TabIndex = 25;
+            this.groupBoxTDs1.Text = "Ds1 Timing";
+            // 
+            // groupBoxATDs1
+            // 
+            this.groupBoxATDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs1.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs1.Controls.Add(this.checkBoxATDs1);
+            this.groupBoxATDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs1.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs1.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs1.Name = "groupBoxATDs1";
+            this.groupBoxATDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs1.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs1.TabIndex = 0;
+            this.groupBoxATDs1.Text = "AutoTimer";
+            // 
+            // checkBoxATDs1
+            // 
+            this.checkBoxATDs1.AutoSize = true;
+            this.checkBoxATDs1.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs1.Name = "checkBoxATDs1";
+            this.checkBoxATDs1.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs1.TabIndex = 1;
+            this.checkBoxATDs1.Text = "Enable";
+            this.checkBoxATDs1.UseVisualStyleBackColor = true;
+            this.checkBoxATDs1.CheckedChanged += new System.EventHandler(this.checkBoxATDs1_CheckedChanged_1);
+            // 
+            // groupBoxTMDs1
+            // 
+            this.groupBoxTMDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs1.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs1.Controls.Add(this.radioIGTDs1);
+            this.groupBoxTMDs1.Controls.Add(this.radioRealTimerDs1);
+            this.groupBoxTMDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs1.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs1.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs1.Name = "groupBoxTMDs1";
+            this.groupBoxTMDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs1.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs1.TabIndex = 1;
+            this.groupBoxTMDs1.Text = "Timing Method";
+            // 
+            // radioIGTDs1
+            // 
+            this.radioIGTDs1.AutoSize = true;
+            this.radioIGTDs1.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs1.Name = "radioIGTDs1";
+            this.radioIGTDs1.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs1.TabIndex = 1;
+            this.radioIGTDs1.Text = "Game Time";
+            this.radioIGTDs1.UseVisualStyleBackColor = true;
+            this.radioIGTDs1.CheckedChanged += new System.EventHandler(this.radioIGTDs1_CheckedChanged);
+            // 
+            // radioRealTimerDs1
+            // 
+            this.radioRealTimerDs1.AutoSize = true;
+            this.radioRealTimerDs1.Checked = true;
+            this.radioRealTimerDs1.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs1.Name = "radioRealTimerDs1";
+            this.radioRealTimerDs1.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs1.TabIndex = 0;
+            this.radioRealTimerDs1.TabStop = true;
+            this.radioRealTimerDs1.Text = "Real Time";
+            this.radioRealTimerDs1.UseVisualStyleBackColor = true;
+            // 
+            // poisonLabel1
+            // 
+            this.poisonLabel1.AutoSize = true;
+            this.poisonLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.poisonLabel1.Location = new System.Drawing.Point(47, 21);
+            this.poisonLabel1.Name = "poisonLabel1";
+            this.poisonLabel1.Size = new System.Drawing.Size(44, 19);
+            this.poisonLabel1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            this.poisonLabel1.TabIndex = 19;
+            this.poisonLabel1.Text = "Game";
+            this.poisonLabel1.UseStyleColors = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BackGColor = System.Drawing.Color.LightBlue;
+            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.HeaderColor = System.Drawing.Color.Navy;
+            this.groupBox2.Location = new System.Drawing.Point(195, 239);
+            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(216, 79);
+            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "General";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label94.Location = new System.Drawing.Point(6, 46);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(151, 28);
+            this.label94.TabIndex = 18;
+            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
+            // 
+            // checkBoxResetSplitNg
+            // 
+            this.checkBoxResetSplitNg.AutoSize = true;
+            this.checkBoxResetSplitNg.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(29, 25);
+            this.checkBoxResetSplitNg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
+            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(166, 18);
+            this.checkBoxResetSplitNg.TabIndex = 17;
+            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
+            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
+            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
+            // 
+            // groupBoxTCeleste
+            // 
+            this.groupBoxTCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCeleste.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
+            this.groupBoxTCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTCeleste.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTCeleste.Location = new System.Drawing.Point(126, 63);
+            this.groupBoxTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
+            this.groupBoxTCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTCeleste.TabIndex = 20;
+            this.groupBoxTCeleste.Text = "Celeste Timing";
+            // 
+            // groupBoxATCeleste
+            // 
+            this.groupBoxATCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCeleste.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
+            this.groupBoxATCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATCeleste.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
+            this.groupBoxATCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCeleste.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATCeleste.TabIndex = 0;
+            this.groupBoxATCeleste.Text = "AutoTimer";
+            // 
+            // checkBoxATCeleste
+            // 
+            this.checkBoxATCeleste.AutoSize = true;
+            this.checkBoxATCeleste.Location = new System.Drawing.Point(45, 50);
+            this.checkBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
+            this.checkBoxATCeleste.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATCeleste.TabIndex = 1;
+            this.checkBoxATCeleste.Text = "Enable";
+            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
+            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
+            // 
+            // groupBoxTMCeleste
+            // 
+            this.groupBoxTMCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCeleste.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
+            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
+            this.groupBoxTMCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMCeleste.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
+            this.groupBoxTMCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMCeleste.TabIndex = 1;
+            this.groupBoxTMCeleste.Text = "Timing Method";
+            // 
+            // radioIGTCeleste
+            // 
+            this.radioIGTCeleste.AutoSize = true;
+            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTCeleste.Name = "radioIGTCeleste";
+            this.radioIGTCeleste.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTCeleste.TabIndex = 1;
+            this.radioIGTCeleste.Text = "Game Time";
+            this.radioIGTCeleste.UseVisualStyleBackColor = true;
+            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
+            // 
+            // radioRealTimerCeleste
+            // 
+            this.radioRealTimerCeleste.AutoSize = true;
+            this.radioRealTimerCeleste.Checked = true;
+            this.radioRealTimerCeleste.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
+            this.radioRealTimerCeleste.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerCeleste.TabIndex = 0;
+            this.radioRealTimerCeleste.TabStop = true;
+            this.radioRealTimerCeleste.Text = "Real Time";
+            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
+            // 
+            // btnDesactiveAllTiming
+            // 
+            this.btnDesactiveAllTiming.BackColor = System.Drawing.Color.Transparent;
+            this.btnDesactiveAllTiming.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesactiveAllTiming.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesactiveAllTiming.Image = null;
+            this.btnDesactiveAllTiming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDesactiveAllTiming.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(502, 19);
+            this.btnDesactiveAllTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDesactiveAllTiming.Name = "btnDesactiveAllTiming";
+            this.btnDesactiveAllTiming.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(95, 26);
+            this.btnDesactiveAllTiming.TabIndex = 15;
+            this.btnDesactiveAllTiming.Text = "Desactive All";
+            this.btnDesactiveAllTiming.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDesactiveAllTiming.Click += new System.EventHandler(this.btnDesactiveAllTiming_Click);
+            // 
+            // comboBoxTGame
+            // 
+            this.comboBoxTGame.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.comboBoxTGame.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
+            this.comboBoxTGame.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
+            this.comboBoxTGame.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.comboBoxTGame.ColorD = System.Drawing.Color.Teal;
+            this.comboBoxTGame.ColorE = System.Drawing.Color.Aqua;
+            this.comboBoxTGame.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.comboBoxTGame.ColorG = System.Drawing.Color.Cyan;
+            this.comboBoxTGame.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.comboBoxTGame.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.comboBoxTGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxTGame.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTGame.DropDownHeight = 100;
+            this.comboBoxTGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTGame.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxTGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
+            this.comboBoxTGame.FormattingEnabled = true;
+            this.comboBoxTGame.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.comboBoxTGame.IntegralHeight = false;
+            this.comboBoxTGame.ItemHeight = 20;
+            this.comboBoxTGame.Items.AddRange(new object[] {
+            "Sekiro Shadow Die Twice",
+            "Dark Souls 1",
+            "Dark Souls 2",
+            "Dark Souls 3",
+            "Elden Ring",
+            "Hollow Knight",
+            "Celeste",
+            "Cuphead",
+            "Dishonored"});
+            this.comboBoxTGame.Location = new System.Drawing.Point(101, 19);
+            this.comboBoxTGame.Name = "comboBoxTGame";
+            this.comboBoxTGame.Size = new System.Drawing.Size(386, 26);
+            this.comboBoxTGame.StartIndex = 0;
+            this.comboBoxTGame.TabIndex = 6;
+            this.comboBoxTGame.SelectedIndexChanged += new System.EventHandler(this.comboBoxTGame_SelectedIndexChanged);
+            // 
             // tabConfig
             // 
             this.tabConfig.BaseColor = System.Drawing.Color.White;
@@ -672,11 +1839,12 @@ namespace AutoSplitterCore
             this.tabConfig.Controls.Add(this.groupBoxUpdate);
             this.tabConfig.Controls.Add(this.groupBoxSplitters);
             this.tabConfig.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabConfig.ImageIndex = 0;
             this.tabConfig.ImageKey = null;
             this.tabConfig.IsDerivedStyle = true;
-            this.tabConfig.Location = new System.Drawing.Point(4, 42);
+            this.tabConfig.Location = new System.Drawing.Point(4, 44);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.Size = new System.Drawing.Size(609, 339);
+            this.tabConfig.Size = new System.Drawing.Size(609, 337);
             this.tabConfig.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             this.tabConfig.StyleManager = null;
             this.tabConfig.TabIndex = 1;
@@ -1227,1165 +2395,13 @@ namespace AutoSplitterCore
             this.btnSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnSekiro.Click += new System.EventHandler(this.btnSekiro_Click);
             // 
-            // tabTiming
-            // 
-            this.tabTiming.BaseColor = System.Drawing.Color.White;
-            this.tabTiming.Controls.Add(this.poisonLabel1);
-            this.tabTiming.Controls.Add(this.groupBox2);
-            this.tabTiming.Controls.Add(this.groupBoxTDs2);
-            this.tabTiming.Controls.Add(this.groupBoxTCeleste);
-            this.tabTiming.Controls.Add(this.groupBoxTDs3);
-            this.tabTiming.Controls.Add(this.groupBoxTEr);
-            this.tabTiming.Controls.Add(this.groupBoxTSekiro);
-            this.tabTiming.Controls.Add(this.groupBoxTDishonored);
-            this.tabTiming.Controls.Add(this.groupBoxTCuphead);
-            this.tabTiming.Controls.Add(this.btnDesactiveAllTiming);
-            this.tabTiming.Controls.Add(this.groupBoxTHK);
-            this.tabTiming.Controls.Add(this.groupBoxTDs1);
-            this.tabTiming.Controls.Add(this.comboBoxTGame);
-            this.tabTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabTiming.ImageKey = null;
-            this.tabTiming.IsDerivedStyle = true;
-            this.tabTiming.Location = new System.Drawing.Point(4, 42);
-            this.tabTiming.Name = "tabTiming";
-            this.tabTiming.Size = new System.Drawing.Size(609, 339);
-            this.tabTiming.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            this.tabTiming.StyleManager = null;
-            this.tabTiming.TabIndex = 4;
-            this.tabTiming.Text = "Timing";
-            this.tabTiming.ThemeAuthor = "Taiizor";
-            this.tabTiming.ThemeName = "MetroLight";
-            this.tabTiming.ToolTipText = null;
-            // 
-            // poisonLabel1
-            // 
-            this.poisonLabel1.AutoSize = true;
-            this.poisonLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.poisonLabel1.Location = new System.Drawing.Point(47, 21);
-            this.poisonLabel1.Name = "poisonLabel1";
-            this.poisonLabel1.Size = new System.Drawing.Size(44, 19);
-            this.poisonLabel1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
-            this.poisonLabel1.TabIndex = 19;
-            this.poisonLabel1.Text = "Game";
-            this.poisonLabel1.UseStyleColors = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox2.Controls.Add(this.label94);
-            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBox2.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBox2.Location = new System.Drawing.Point(177, 242);
-            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(216, 79);
-            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "General";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label94.Location = new System.Drawing.Point(6, 41);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(151, 28);
-            this.label94.TabIndex = 18;
-            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
-            // 
-            // checkBoxResetSplitNg
-            // 
-            this.checkBoxResetSplitNg.AutoSize = true;
-            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(36, 21);
-            this.checkBoxResetSplitNg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
-            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(166, 18);
-            this.checkBoxResetSplitNg.TabIndex = 17;
-            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
-            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
-            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
-            // 
-            // groupBoxTDs2
-            // 
-            this.groupBoxTDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs2.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
-            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
-            this.groupBoxTDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTDs2.Location = new System.Drawing.Point(125, 63);
-            this.groupBoxTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs2.Name = "groupBoxTDs2";
-            this.groupBoxTDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs2.TabIndex = 9;
-            this.groupBoxTDs2.TabStop = false;
-            this.groupBoxTDs2.Text = "Ds2 Timing";
-            // 
-            // groupBoxATDs2
-            // 
-            this.groupBoxATDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs2.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
-            this.groupBoxATDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs2.Name = "groupBoxATDs2";
-            this.groupBoxATDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs2.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs2.TabIndex = 4;
-            this.groupBoxATDs2.TabStop = false;
-            this.groupBoxATDs2.Text = "AutoTimer";
-            // 
-            // checkBoxATDs2
-            // 
-            this.checkBoxATDs2.AutoSize = true;
-            this.checkBoxATDs2.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs2.Name = "checkBoxATDs2";
-            this.checkBoxATDs2.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs2.TabIndex = 1;
-            this.checkBoxATDs2.Text = "Enable";
-            this.checkBoxATDs2.UseVisualStyleBackColor = true;
-            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
-            // 
-            // groupBoxTMDs2
-            // 
-            this.groupBoxTMDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs2.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
-            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
-            this.groupBoxTMDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
-            this.groupBoxTMDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs2.TabIndex = 3;
-            this.groupBoxTMDs2.TabStop = false;
-            this.groupBoxTMDs2.Text = "Timing Method";
-            // 
-            // radioIGTDs2
-            // 
-            this.radioIGTDs2.AutoSize = true;
-            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs2.Name = "radioIGTDs2";
-            this.radioIGTDs2.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs2.TabIndex = 1;
-            this.radioIGTDs2.Text = "Game Time";
-            this.radioIGTDs2.UseVisualStyleBackColor = true;
-            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
-            // 
-            // radioRealTimerDs2
-            // 
-            this.radioRealTimerDs2.AutoSize = true;
-            this.radioRealTimerDs2.Checked = true;
-            this.radioRealTimerDs2.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
-            this.radioRealTimerDs2.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs2.TabIndex = 0;
-            this.radioRealTimerDs2.TabStop = true;
-            this.radioRealTimerDs2.Text = "Real Time";
-            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCeleste
-            // 
-            this.groupBoxTCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCeleste.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
-            this.groupBoxTCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTCeleste.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
-            this.groupBoxTCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTCeleste.TabIndex = 12;
-            this.groupBoxTCeleste.TabStop = false;
-            this.groupBoxTCeleste.Text = "Celeste Timing";
-            // 
-            // groupBoxATCeleste
-            // 
-            this.groupBoxATCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCeleste.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
-            this.groupBoxATCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
-            this.groupBoxATCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCeleste.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATCeleste.TabIndex = 4;
-            this.groupBoxATCeleste.TabStop = false;
-            this.groupBoxATCeleste.Text = "AutoTimer";
-            // 
-            // checkBoxATCeleste
-            // 
-            this.checkBoxATCeleste.AutoSize = true;
-            this.checkBoxATCeleste.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
-            this.checkBoxATCeleste.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATCeleste.TabIndex = 1;
-            this.checkBoxATCeleste.Text = "Enable";
-            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
-            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
-            // 
-            // groupBoxTMCeleste
-            // 
-            this.groupBoxTMCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCeleste.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
-            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
-            this.groupBoxTMCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
-            this.groupBoxTMCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMCeleste.TabIndex = 3;
-            this.groupBoxTMCeleste.TabStop = false;
-            this.groupBoxTMCeleste.Text = "Timing Method";
-            // 
-            // radioIGTCeleste
-            // 
-            this.radioIGTCeleste.AutoSize = true;
-            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTCeleste.Name = "radioIGTCeleste";
-            this.radioIGTCeleste.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTCeleste.TabIndex = 1;
-            this.radioIGTCeleste.Text = "Game Time";
-            this.radioIGTCeleste.UseVisualStyleBackColor = true;
-            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
-            // 
-            // radioRealTimerCeleste
-            // 
-            this.radioRealTimerCeleste.AutoSize = true;
-            this.radioRealTimerCeleste.Checked = true;
-            this.radioRealTimerCeleste.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
-            this.radioRealTimerCeleste.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerCeleste.TabIndex = 0;
-            this.radioRealTimerCeleste.TabStop = true;
-            this.radioRealTimerCeleste.Text = "Real Time";
-            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDs3
-            // 
-            this.groupBoxTDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs3.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs3.Controls.Add(this.groupBoxATDs3);
-            this.groupBoxTDs3.Controls.Add(this.groupBoxTMDs3);
-            this.groupBoxTDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTDs3.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs3.Name = "groupBoxTDs3";
-            this.groupBoxTDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs3.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs3.TabIndex = 10;
-            this.groupBoxTDs3.TabStop = false;
-            this.groupBoxTDs3.Text = "Ds3 Timing";
-            // 
-            // groupBoxATDs3
-            // 
-            this.groupBoxATDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs3.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs3.Controls.Add(this.checkBoxATDs3);
-            this.groupBoxATDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs3.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs3.Name = "groupBoxATDs3";
-            this.groupBoxATDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs3.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs3.TabIndex = 4;
-            this.groupBoxATDs3.TabStop = false;
-            this.groupBoxATDs3.Text = "AutoTimer";
-            // 
-            // checkBoxATDs3
-            // 
-            this.checkBoxATDs3.AutoSize = true;
-            this.checkBoxATDs3.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs3.Name = "checkBoxATDs3";
-            this.checkBoxATDs3.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs3.TabIndex = 1;
-            this.checkBoxATDs3.Text = "Enable";
-            this.checkBoxATDs3.UseVisualStyleBackColor = true;
-            this.checkBoxATDs3.CheckedChanged += new System.EventHandler(this.checkBoxATDs3_CheckedChanged_1);
-            // 
-            // groupBoxTMDs3
-            // 
-            this.groupBoxTMDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs3.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs3.Controls.Add(this.checkBoxResetIgtDs3);
-            this.groupBoxTMDs3.Controls.Add(this.radioIGTDs3);
-            this.groupBoxTMDs3.Controls.Add(this.radioRealTimerDs3);
-            this.groupBoxTMDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMDs3.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs3.Name = "groupBoxTMDs3";
-            this.groupBoxTMDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs3.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs3.TabIndex = 3;
-            this.groupBoxTMDs3.TabStop = false;
-            this.groupBoxTMDs3.Text = "Timing Method";
-            // 
-            // checkBoxResetIgtDs3
-            // 
-            this.checkBoxResetIgtDs3.AutoSize = true;
-            this.checkBoxResetIgtDs3.Location = new System.Drawing.Point(21, 80);
-            this.checkBoxResetIgtDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIgtDs3.Name = "checkBoxResetIgtDs3";
-            this.checkBoxResetIgtDs3.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIgtDs3.TabIndex = 0;
-            this.checkBoxResetIgtDs3.Text = "Reset IGT on NG+";
-            this.checkBoxResetIgtDs3.UseVisualStyleBackColor = true;
-            this.checkBoxResetIgtDs3.CheckedChanged += new System.EventHandler(this.checkBoxResetIgtDs3_CheckedChanged);
-            // 
-            // radioIGTDs3
-            // 
-            this.radioIGTDs3.AutoSize = true;
-            this.radioIGTDs3.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs3.Name = "radioIGTDs3";
-            this.radioIGTDs3.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs3.TabIndex = 1;
-            this.radioIGTDs3.Text = "Game Time";
-            this.radioIGTDs3.UseVisualStyleBackColor = true;
-            this.radioIGTDs3.CheckedChanged += new System.EventHandler(this.radioIGTDs3_CheckedChanged);
-            // 
-            // radioRealTimerDs3
-            // 
-            this.radioRealTimerDs3.AutoSize = true;
-            this.radioRealTimerDs3.Checked = true;
-            this.radioRealTimerDs3.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs3.Name = "radioRealTimerDs3";
-            this.radioRealTimerDs3.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs3.TabIndex = 0;
-            this.radioRealTimerDs3.TabStop = true;
-            this.radioRealTimerDs3.Text = "Real Time";
-            this.radioRealTimerDs3.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTEr
-            // 
-            this.groupBoxTEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTEr.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTEr.Controls.Add(this.groupBoxATEr);
-            this.groupBoxTEr.Controls.Add(this.groupBoxTMEr);
-            this.groupBoxTEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTEr.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTEr.Name = "groupBoxTEr";
-            this.groupBoxTEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTEr.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTEr.TabIndex = 11;
-            this.groupBoxTEr.TabStop = false;
-            this.groupBoxTEr.Text = "Elden Timing";
-            // 
-            // groupBoxATEr
-            // 
-            this.groupBoxATEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATEr.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATEr.Controls.Add(this.checkBoxATEr);
-            this.groupBoxATEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATEr.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATEr.Name = "groupBoxATEr";
-            this.groupBoxATEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATEr.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATEr.TabIndex = 4;
-            this.groupBoxATEr.TabStop = false;
-            this.groupBoxATEr.Text = "AutoTimer";
-            // 
-            // checkBoxATEr
-            // 
-            this.checkBoxATEr.AutoSize = true;
-            this.checkBoxATEr.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATEr.Name = "checkBoxATEr";
-            this.checkBoxATEr.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATEr.TabIndex = 1;
-            this.checkBoxATEr.Text = "Enable";
-            this.checkBoxATEr.UseVisualStyleBackColor = true;
-            this.checkBoxATEr.CheckedChanged += new System.EventHandler(this.checkBoxATEr_CheckedChanged_1);
-            // 
-            // groupBoxTMEr
-            // 
-            this.groupBoxTMEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMEr.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMEr.Controls.Add(this.checkBoxResetIGTNGEr);
-            this.groupBoxTMEr.Controls.Add(this.radioIGTEr);
-            this.groupBoxTMEr.Controls.Add(this.radioRealTimerEr);
-            this.groupBoxTMEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMEr.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMEr.Name = "groupBoxTMEr";
-            this.groupBoxTMEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMEr.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMEr.TabIndex = 3;
-            this.groupBoxTMEr.TabStop = false;
-            this.groupBoxTMEr.Text = "Timing Method";
-            // 
-            // checkBoxResetIGTNGEr
-            // 
-            this.checkBoxResetIGTNGEr.AutoSize = true;
-            this.checkBoxResetIGTNGEr.Location = new System.Drawing.Point(21, 80);
-            this.checkBoxResetIGTNGEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIGTNGEr.Name = "checkBoxResetIGTNGEr";
-            this.checkBoxResetIGTNGEr.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIGTNGEr.TabIndex = 0;
-            this.checkBoxResetIGTNGEr.Text = "Reset IGT on NG+";
-            this.checkBoxResetIGTNGEr.UseVisualStyleBackColor = true;
-            this.checkBoxResetIGTNGEr.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTNGEr_CheckedChanged);
-            // 
-            // radioIGTEr
-            // 
-            this.radioIGTEr.AutoSize = true;
-            this.radioIGTEr.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTEr.Name = "radioIGTEr";
-            this.radioIGTEr.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTEr.TabIndex = 1;
-            this.radioIGTEr.Text = "Game Time";
-            this.radioIGTEr.UseVisualStyleBackColor = true;
-            this.radioIGTEr.CheckedChanged += new System.EventHandler(this.radioIGTEr_CheckedChanged);
-            // 
-            // radioRealTimerEr
-            // 
-            this.radioRealTimerEr.AutoSize = true;
-            this.radioRealTimerEr.Checked = true;
-            this.radioRealTimerEr.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerEr.Name = "radioRealTimerEr";
-            this.radioRealTimerEr.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerEr.TabIndex = 0;
-            this.radioRealTimerEr.TabStop = true;
-            this.radioRealTimerEr.Text = "Real Time";
-            this.radioRealTimerEr.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTSekiro
-            // 
-            this.groupBoxTSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTSekiro.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTSekiro.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTSekiro.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTSekiro.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTSekiro.Controls.Add(this.groupBoxATS);
-            this.groupBoxTSekiro.Controls.Add(this.groupBoxTMS);
-            this.groupBoxTSekiro.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTSekiro.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTSekiro.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTSekiro.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTSekiro.Name = "groupBoxTSekiro";
-            this.groupBoxTSekiro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTSekiro.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTSekiro.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTSekiro.TabIndex = 7;
-            this.groupBoxTSekiro.TabStop = false;
-            this.groupBoxTSekiro.Text = "Sekiro Timing";
-            // 
-            // groupBoxATS
-            // 
-            this.groupBoxATS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATS.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATS.Controls.Add(this.checkBoxATS);
-            this.groupBoxATS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATS.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATS.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATS.Name = "groupBoxATS";
-            this.groupBoxATS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATS.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATS.TabIndex = 4;
-            this.groupBoxATS.TabStop = false;
-            this.groupBoxATS.Text = "AutoTimer";
-            // 
-            // checkBoxATS
-            // 
-            this.checkBoxATS.AutoSize = true;
-            this.checkBoxATS.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATS.Name = "checkBoxATS";
-            this.checkBoxATS.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATS.TabIndex = 1;
-            this.checkBoxATS.Text = "Enable";
-            this.checkBoxATS.UseVisualStyleBackColor = true;
-            this.checkBoxATS.CheckedChanged += new System.EventHandler(this.checkBoxATS_CheckedChanged);
-            // 
-            // groupBoxTMS
-            // 
-            this.groupBoxTMS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMS.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMS.Controls.Add(this.checkBoxResetIGTSekiro);
-            this.groupBoxTMS.Controls.Add(this.radioIGTSTimer);
-            this.groupBoxTMS.Controls.Add(this.radioRealTimerS);
-            this.groupBoxTMS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMS.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMS.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMS.Name = "groupBoxTMS";
-            this.groupBoxTMS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMS.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMS.TabIndex = 3;
-            this.groupBoxTMS.TabStop = false;
-            this.groupBoxTMS.Text = "Timing Method";
-            // 
-            // checkBoxResetIGTSekiro
-            // 
-            this.checkBoxResetIGTSekiro.AutoSize = true;
-            this.checkBoxResetIGTSekiro.Location = new System.Drawing.Point(21, 79);
-            this.checkBoxResetIGTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIGTSekiro.Name = "checkBoxResetIGTSekiro";
-            this.checkBoxResetIGTSekiro.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIGTSekiro.TabIndex = 0;
-            this.checkBoxResetIGTSekiro.Text = "Reset IGT on NG+";
-            this.checkBoxResetIGTSekiro.UseVisualStyleBackColor = true;
-            this.checkBoxResetIGTSekiro.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTSekiro_CheckedChanged);
-            // 
-            // radioIGTSTimer
-            // 
-            this.radioIGTSTimer.AutoSize = true;
-            this.radioIGTSTimer.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTSTimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTSTimer.Name = "radioIGTSTimer";
-            this.radioIGTSTimer.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTSTimer.TabIndex = 1;
-            this.radioIGTSTimer.Text = "Game Time";
-            this.radioIGTSTimer.UseVisualStyleBackColor = true;
-            this.radioIGTSTimer.CheckedChanged += new System.EventHandler(this.radioIGTSTimer_CheckedChanged);
-            // 
-            // radioRealTimerS
-            // 
-            this.radioRealTimerS.AutoSize = true;
-            this.radioRealTimerS.Checked = true;
-            this.radioRealTimerS.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerS.Name = "radioRealTimerS";
-            this.radioRealTimerS.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerS.TabIndex = 0;
-            this.radioRealTimerS.TabStop = true;
-            this.radioRealTimerS.Text = "Real Time";
-            this.radioRealTimerS.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDishonored
-            // 
-            this.groupBoxTDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDishonored.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDishonored.Controls.Add(this.groupBoxATDishonored);
-            this.groupBoxTDishonored.Controls.Add(this.groupBoxTMDishonored);
-            this.groupBoxTDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTDishonored.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDishonored.Name = "groupBoxTDishonored";
-            this.groupBoxTDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDishonored.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDishonored.TabIndex = 16;
-            this.groupBoxTDishonored.TabStop = false;
-            this.groupBoxTDishonored.Text = "Dishonored Timing";
-            // 
-            // groupBoxATDishonored
-            // 
-            this.groupBoxATDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDishonored.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDishonored.Controls.Add(this.checkBoxATDishonored);
-            this.groupBoxATDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDishonored.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDishonored.Name = "groupBoxATDishonored";
-            this.groupBoxATDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDishonored.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDishonored.TabIndex = 4;
-            this.groupBoxATDishonored.TabStop = false;
-            this.groupBoxATDishonored.Text = "AutoTimer";
-            // 
-            // checkBoxATDishonored
-            // 
-            this.checkBoxATDishonored.AutoSize = true;
-            this.checkBoxATDishonored.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDishonored.Name = "checkBoxATDishonored";
-            this.checkBoxATDishonored.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDishonored.TabIndex = 1;
-            this.checkBoxATDishonored.Text = "Enable";
-            this.checkBoxATDishonored.UseVisualStyleBackColor = true;
-            this.checkBoxATDishonored.CheckedChanged += new System.EventHandler(this.checkBoxATDishonored_CheckedChanged);
-            // 
-            // groupBoxTMDishonored
-            // 
-            this.groupBoxTMDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDishonored.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDishonored.Controls.Add(this.radioIGTDishonored);
-            this.groupBoxTMDishonored.Controls.Add(this.radioRealTimerDishonored);
-            this.groupBoxTMDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMDishonored.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDishonored.Name = "groupBoxTMDishonored";
-            this.groupBoxTMDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDishonored.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDishonored.TabIndex = 3;
-            this.groupBoxTMDishonored.TabStop = false;
-            this.groupBoxTMDishonored.Text = "Timing Method";
-            // 
-            // radioIGTDishonored
-            // 
-            this.radioIGTDishonored.AutoSize = true;
-            this.radioIGTDishonored.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDishonored.Name = "radioIGTDishonored";
-            this.radioIGTDishonored.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDishonored.TabIndex = 1;
-            this.radioIGTDishonored.Text = "Game Time";
-            this.radioIGTDishonored.UseVisualStyleBackColor = true;
-            this.radioIGTDishonored.CheckedChanged += new System.EventHandler(this.radioIGTDishonored_CheckedChanged);
-            // 
-            // radioRealTimerDishonored
-            // 
-            this.radioRealTimerDishonored.AutoSize = true;
-            this.radioRealTimerDishonored.Checked = true;
-            this.radioRealTimerDishonored.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDishonored.Name = "radioRealTimerDishonored";
-            this.radioRealTimerDishonored.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDishonored.TabIndex = 0;
-            this.radioRealTimerDishonored.TabStop = true;
-            this.radioRealTimerDishonored.Text = "Real Time";
-            this.radioRealTimerDishonored.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCuphead
-            // 
-            this.groupBoxTCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCuphead.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTCuphead.Controls.Add(this.label77);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
-            this.groupBoxTCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTCuphead.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
-            this.groupBoxTCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTCuphead.TabIndex = 13;
-            this.groupBoxTCuphead.TabStop = false;
-            this.groupBoxTCuphead.Text = "Cuphead Timing";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label77.Location = new System.Drawing.Point(57, 141);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(267, 14);
-            this.label77.TabIndex = 3;
-            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
-            // 
-            // groupBoxATCuphead
-            // 
-            this.groupBoxATCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCuphead.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
-            this.groupBoxATCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
-            this.groupBoxATCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCuphead.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATCuphead.TabIndex = 4;
-            this.groupBoxATCuphead.TabStop = false;
-            this.groupBoxATCuphead.Text = "AutoTimer";
-            // 
-            // checkBoxATCuphead
-            // 
-            this.checkBoxATCuphead.AutoSize = true;
-            this.checkBoxATCuphead.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
-            this.checkBoxATCuphead.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATCuphead.TabIndex = 1;
-            this.checkBoxATCuphead.Text = "Enable";
-            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
-            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
-            // 
-            // groupBoxTMCuphead
-            // 
-            this.groupBoxTMCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCuphead.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMCuphead.Controls.Add(this.label60);
-            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
-            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
-            this.groupBoxTMCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
-            this.groupBoxTMCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMCuphead.TabIndex = 3;
-            this.groupBoxTMCuphead.TabStop = false;
-            this.groupBoxTMCuphead.Text = "Timing Method";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label60.Location = new System.Drawing.Point(51, 78);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(76, 14);
-            this.label60.TabIndex = 2;
-            this.label60.Text = "(Level Time)";
-            // 
-            // radioIGTCuphead
-            // 
-            this.radioIGTCuphead.AutoSize = true;
-            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTCuphead.Name = "radioIGTCuphead";
-            this.radioIGTCuphead.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTCuphead.TabIndex = 1;
-            this.radioIGTCuphead.Text = "Game Time";
-            this.radioIGTCuphead.UseVisualStyleBackColor = true;
-            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
-            // 
-            // radioRealTimerCuphead
-            // 
-            this.radioRealTimerCuphead.AutoSize = true;
-            this.radioRealTimerCuphead.Checked = true;
-            this.radioRealTimerCuphead.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
-            this.radioRealTimerCuphead.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerCuphead.TabIndex = 0;
-            this.radioRealTimerCuphead.TabStop = true;
-            this.radioRealTimerCuphead.Text = "Real Time";
-            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
-            // 
-            // btnDesactiveAllTiming
-            // 
-            this.btnDesactiveAllTiming.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactiveAllTiming.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactiveAllTiming.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactiveAllTiming.Image = null;
-            this.btnDesactiveAllTiming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesactiveAllTiming.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(502, 19);
-            this.btnDesactiveAllTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDesactiveAllTiming.Name = "btnDesactiveAllTiming";
-            this.btnDesactiveAllTiming.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(95, 26);
-            this.btnDesactiveAllTiming.TabIndex = 15;
-            this.btnDesactiveAllTiming.Text = "Desactive All";
-            this.btnDesactiveAllTiming.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDesactiveAllTiming.Click += new System.EventHandler(this.btnDesactiveAllTiming_Click);
-            // 
-            // groupBoxTHK
-            // 
-            this.groupBoxTHK.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTHK.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTHK.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTHK.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTHK.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTHK.Controls.Add(this.groupBoxATHk);
-            this.groupBoxTHK.Controls.Add(this.groupBoxTMHollow);
-            this.groupBoxTHK.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTHK.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTHK.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTHK.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTHK.Name = "groupBoxTHK";
-            this.groupBoxTHK.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTHK.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTHK.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTHK.TabIndex = 14;
-            this.groupBoxTHK.TabStop = false;
-            this.groupBoxTHK.Text = "Hollow Knight Timing";
-            // 
-            // groupBoxATHk
-            // 
-            this.groupBoxATHk.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATHk.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATHk.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATHk.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATHk.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATHk.Controls.Add(this.checkBoxATHollow);
-            this.groupBoxATHk.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATHk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATHk.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATHk.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATHk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATHk.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATHk.Name = "groupBoxATHk";
-            this.groupBoxATHk.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATHk.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATHk.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATHk.TabIndex = 4;
-            this.groupBoxATHk.TabStop = false;
-            this.groupBoxATHk.Text = "AutoTimer";
-            // 
-            // checkBoxATHollow
-            // 
-            this.checkBoxATHollow.AutoSize = true;
-            this.checkBoxATHollow.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATHollow.Name = "checkBoxATHollow";
-            this.checkBoxATHollow.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATHollow.TabIndex = 1;
-            this.checkBoxATHollow.Text = "Enable";
-            this.checkBoxATHollow.UseVisualStyleBackColor = true;
-            this.checkBoxATHollow.CheckedChanged += new System.EventHandler(this.checkBoxATHollow_CheckedChanged);
-            // 
-            // groupBoxTMHollow
-            // 
-            this.groupBoxTMHollow.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMHollow.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMHollow.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMHollow.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMHollow.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMHollow.Controls.Add(this.radioIGTHollow);
-            this.groupBoxTMHollow.Controls.Add(this.radioRealTimerHollow);
-            this.groupBoxTMHollow.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMHollow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMHollow.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMHollow.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMHollow.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMHollow.Name = "groupBoxTMHollow";
-            this.groupBoxTMHollow.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMHollow.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMHollow.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMHollow.TabIndex = 3;
-            this.groupBoxTMHollow.TabStop = false;
-            this.groupBoxTMHollow.Text = "Timing Method";
-            // 
-            // radioIGTHollow
-            // 
-            this.radioIGTHollow.AutoSize = true;
-            this.radioIGTHollow.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTHollow.Name = "radioIGTHollow";
-            this.radioIGTHollow.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTHollow.TabIndex = 1;
-            this.radioIGTHollow.Text = "Game Time";
-            this.radioIGTHollow.UseVisualStyleBackColor = true;
-            this.radioIGTHollow.CheckedChanged += new System.EventHandler(this.radioIGTHollow_CheckedChanged);
-            // 
-            // radioRealTimerHollow
-            // 
-            this.radioRealTimerHollow.AutoSize = true;
-            this.radioRealTimerHollow.Checked = true;
-            this.radioRealTimerHollow.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerHollow.Name = "radioRealTimerHollow";
-            this.radioRealTimerHollow.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerHollow.TabIndex = 0;
-            this.radioRealTimerHollow.TabStop = true;
-            this.radioRealTimerHollow.Text = "Real Time";
-            this.radioRealTimerHollow.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDs1
-            // 
-            this.groupBoxTDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs1.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs1.Controls.Add(this.groupBoxATDs1);
-            this.groupBoxTDs1.Controls.Add(this.groupBoxTMDs1);
-            this.groupBoxTDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTDs1.Location = new System.Drawing.Point(126, 63);
-            this.groupBoxTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs1.Name = "groupBoxTDs1";
-            this.groupBoxTDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs1.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs1.TabIndex = 8;
-            this.groupBoxTDs1.TabStop = false;
-            this.groupBoxTDs1.Text = "Ds1 Timing";
-            // 
-            // groupBoxATDs1
-            // 
-            this.groupBoxATDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs1.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxATDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs1.Controls.Add(this.checkBoxATDs1);
-            this.groupBoxATDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxATDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs1.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs1.Name = "groupBoxATDs1";
-            this.groupBoxATDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs1.Size = new System.Drawing.Size(153, 109);
-            this.groupBoxATDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs1.TabIndex = 4;
-            this.groupBoxATDs1.TabStop = false;
-            this.groupBoxATDs1.Text = "AutoTimer";
-            // 
-            // checkBoxATDs1
-            // 
-            this.checkBoxATDs1.AutoSize = true;
-            this.checkBoxATDs1.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs1.Name = "checkBoxATDs1";
-            this.checkBoxATDs1.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs1.TabIndex = 1;
-            this.checkBoxATDs1.Text = "Enable";
-            this.checkBoxATDs1.UseVisualStyleBackColor = true;
-            this.checkBoxATDs1.CheckedChanged += new System.EventHandler(this.checkBoxATDs1_CheckedChanged_1);
-            // 
-            // groupBoxTMDs1
-            // 
-            this.groupBoxTMDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs1.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxTMDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs1.Controls.Add(this.radioIGTDs1);
-            this.groupBoxTMDs1.Controls.Add(this.radioRealTimerDs1);
-            this.groupBoxTMDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxTMDs1.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs1.Name = "groupBoxTMDs1";
-            this.groupBoxTMDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs1.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs1.TabIndex = 3;
-            this.groupBoxTMDs1.TabStop = false;
-            this.groupBoxTMDs1.Text = "Timing Method";
-            // 
-            // radioIGTDs1
-            // 
-            this.radioIGTDs1.AutoSize = true;
-            this.radioIGTDs1.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs1.Name = "radioIGTDs1";
-            this.radioIGTDs1.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs1.TabIndex = 1;
-            this.radioIGTDs1.Text = "Game Time";
-            this.radioIGTDs1.UseVisualStyleBackColor = true;
-            this.radioIGTDs1.CheckedChanged += new System.EventHandler(this.radioIGTDs1_CheckedChanged);
-            // 
-            // radioRealTimerDs1
-            // 
-            this.radioRealTimerDs1.AutoSize = true;
-            this.radioRealTimerDs1.Checked = true;
-            this.radioRealTimerDs1.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs1.Name = "radioRealTimerDs1";
-            this.radioRealTimerDs1.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs1.TabIndex = 0;
-            this.radioRealTimerDs1.TabStop = true;
-            this.radioRealTimerDs1.Text = "Real Time";
-            this.radioRealTimerDs1.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxTGame
-            // 
-            this.comboBoxTGame.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.comboBoxTGame.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
-            this.comboBoxTGame.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
-            this.comboBoxTGame.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.comboBoxTGame.ColorD = System.Drawing.Color.Teal;
-            this.comboBoxTGame.ColorE = System.Drawing.Color.Aqua;
-            this.comboBoxTGame.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.comboBoxTGame.ColorG = System.Drawing.Color.Cyan;
-            this.comboBoxTGame.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
-            this.comboBoxTGame.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.comboBoxTGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxTGame.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxTGame.DropDownHeight = 100;
-            this.comboBoxTGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTGame.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxTGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
-            this.comboBoxTGame.FormattingEnabled = true;
-            this.comboBoxTGame.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.comboBoxTGame.IntegralHeight = false;
-            this.comboBoxTGame.ItemHeight = 20;
-            this.comboBoxTGame.Items.AddRange(new object[] {
-            "Sekiro Shadow Die Twice",
-            "Dark Souls 1",
-            "Dark Souls 2",
-            "Dark Souls 3",
-            "Elden Ring",
-            "Hollow Knight",
-            "Celeste",
-            "Cuphead",
-            "Dishonored"});
-            this.comboBoxTGame.Location = new System.Drawing.Point(101, 19);
-            this.comboBoxTGame.Name = "comboBoxTGame";
-            this.comboBoxTGame.Size = new System.Drawing.Size(386, 26);
-            this.comboBoxTGame.StartIndex = -1;
-            this.comboBoxTGame.TabIndex = 6;
-            this.comboBoxTGame.SelectedIndexChanged += new System.EventHandler(this.comboBoxTGame_SelectedIndexChanged);
-            // 
             // tabInfo
             // 
             this.tabInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.tabInfo.BaseColor = System.Drawing.Color.White;
             this.tabInfo.Controls.Add(this.TextboxManual);
             this.tabInfo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabInfo.ImageIndex = 0;
             this.tabInfo.ImageKey = null;
             this.tabInfo.IsDerivedStyle = true;
             this.tabInfo.Location = new System.Drawing.Point(4, 42);
@@ -2423,39 +2439,6 @@ namespace AutoSplitterCore
             this.TextboxManual.Text = resources.GetString("TextboxManual.Text");
             this.TextboxManual.UseSystemPasswordChar = false;
             // 
-            // tabLicense
-            // 
-            this.tabLicense.BaseColor = System.Drawing.Color.White;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabLicense.ImageKey = null;
-            this.tabLicense.IsDerivedStyle = true;
-            this.tabLicense.Location = new System.Drawing.Point(4, 42);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 339);
-            this.tabLicense.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            this.tabLicense.StyleManager = null;
-            this.tabLicense.TabIndex = 3;
-            this.tabLicense.Text = "License";
-            this.tabLicense.ThemeAuthor = "Taiizor";
-            this.tabLicense.ThemeName = "MetroLight";
-            this.tabLicense.ToolTipText = null;
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(600, 330);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
-            // 
             // tabSekiro
             // 
             this.tabSekiro.BaseColor = System.Drawing.Color.White;
@@ -2472,6 +2455,7 @@ namespace AutoSplitterCore
             this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
             this.tabSekiro.Controls.Add(this.label1);
             this.tabSekiro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSekiro.ImageIndex = 0;
             this.tabSekiro.ImageKey = null;
             this.tabSekiro.IsDerivedStyle = true;
             this.tabSekiro.Location = new System.Drawing.Point(4, 42);
@@ -4499,6 +4483,7 @@ namespace AutoSplitterCore
             this.tabDs1.Controls.Add(this.comboBoxToSplitDs1);
             this.tabDs1.Controls.Add(this.label62);
             this.tabDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs1.ImageIndex = 0;
             this.tabDs1.ImageKey = null;
             this.tabDs1.IsDerivedStyle = true;
             this.tabDs1.Location = new System.Drawing.Point(4, 42);
@@ -5987,6 +5972,7 @@ namespace AutoSplitterCore
             this.tabDs2.Controls.Add(this.comboBoxToSplitDs2);
             this.tabDs2.Controls.Add(this.label51);
             this.tabDs2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs2.ImageIndex = 0;
             this.tabDs2.ImageKey = null;
             this.tabDs2.IsDerivedStyle = true;
             this.tabDs2.Location = new System.Drawing.Point(4, 42);
@@ -6552,6 +6538,7 @@ namespace AutoSplitterCore
             this.tabDs3.Controls.Add(this.comboBoxToSplitSelectDs3);
             this.tabDs3.Controls.Add(this.label38);
             this.tabDs3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDs3.ImageIndex = 0;
             this.tabDs3.ImageKey = null;
             this.tabDs3.IsDerivedStyle = true;
             this.tabDs3.Location = new System.Drawing.Point(4, 42);
@@ -7402,6 +7389,7 @@ namespace AutoSplitterCore
             this.tabElden.Controls.Add(this.comboBoxToSplitEldenRing);
             this.tabElden.Controls.Add(this.label30);
             this.tabElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabElden.ImageIndex = 0;
             this.tabElden.ImageKey = null;
             this.tabElden.IsDerivedStyle = true;
             this.tabElden.Location = new System.Drawing.Point(4, 42);
@@ -8708,6 +8696,7 @@ namespace AutoSplitterCore
             this.tabHollow.Controls.Add(this.toSplitSelectHollow);
             this.tabHollow.Controls.Add(this.label24);
             this.tabHollow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabHollow.ImageIndex = 0;
             this.tabHollow.ImageKey = null;
             this.tabHollow.IsDerivedStyle = true;
             this.tabHollow.Location = new System.Drawing.Point(4, 42);
@@ -9476,6 +9465,7 @@ namespace AutoSplitterCore
             this.tabCeleste.Controls.Add(this.CelesteRunning);
             this.tabCeleste.Controls.Add(this.CelesteNotRunning);
             this.tabCeleste.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCeleste.ImageIndex = 0;
             this.tabCeleste.ImageKey = null;
             this.tabCeleste.IsDerivedStyle = true;
             this.tabCeleste.Location = new System.Drawing.Point(4, 42);
@@ -9719,6 +9709,7 @@ namespace AutoSplitterCore
             this.tabCuphead.Controls.Add(this.CupheadRunning);
             this.tabCuphead.Controls.Add(this.CupheadNotRunning);
             this.tabCuphead.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCuphead.ImageIndex = 0;
             this.tabCuphead.ImageKey = null;
             this.tabCuphead.IsDerivedStyle = true;
             this.tabCuphead.Location = new System.Drawing.Point(4, 42);
@@ -9913,6 +9904,7 @@ namespace AutoSplitterCore
             this.tabDishonored.Controls.Add(this.DishonoredRunning);
             this.tabDishonored.Controls.Add(this.DishonoredNotRunning);
             this.tabDishonored.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDishonored.ImageIndex = 0;
             this.tabDishonored.ImageKey = null;
             this.tabDishonored.IsDerivedStyle = true;
             this.tabDishonored.Location = new System.Drawing.Point(4, 42);
@@ -10062,37 +10054,10 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
-            this.tabConfig.ResumeLayout(false);
-            this.groupBoxOtherS.ResumeLayout(false);
-            this.groupBoxMProfile.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBoxUpdate.ResumeLayout(false);
-            this.groupBoxUpdate.PerformLayout();
-            this.groupBoxSplitters.ResumeLayout(false);
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
             this.tabTiming.ResumeLayout(false);
             this.tabTiming.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBoxTDs2.ResumeLayout(false);
-            this.groupBoxATDs2.ResumeLayout(false);
-            this.groupBoxATDs2.PerformLayout();
-            this.groupBoxTMDs2.ResumeLayout(false);
-            this.groupBoxTMDs2.PerformLayout();
-            this.groupBoxTCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.PerformLayout();
-            this.groupBoxTMCeleste.ResumeLayout(false);
-            this.groupBoxTMCeleste.PerformLayout();
-            this.groupBoxTDs3.ResumeLayout(false);
-            this.groupBoxATDs3.ResumeLayout(false);
-            this.groupBoxATDs3.PerformLayout();
-            this.groupBoxTMDs3.ResumeLayout(false);
-            this.groupBoxTMDs3.PerformLayout();
-            this.groupBoxTEr.ResumeLayout(false);
-            this.groupBoxATEr.ResumeLayout(false);
-            this.groupBoxATEr.PerformLayout();
-            this.groupBoxTMEr.ResumeLayout(false);
-            this.groupBoxTMEr.PerformLayout();
             this.groupBoxTSekiro.ResumeLayout(false);
             this.groupBoxATS.ResumeLayout(false);
             this.groupBoxATS.PerformLayout();
@@ -10114,14 +10079,41 @@ namespace AutoSplitterCore
             this.groupBoxATHk.PerformLayout();
             this.groupBoxTMHollow.ResumeLayout(false);
             this.groupBoxTMHollow.PerformLayout();
+            this.groupBoxTEr.ResumeLayout(false);
+            this.groupBoxATEr.ResumeLayout(false);
+            this.groupBoxATEr.PerformLayout();
+            this.groupBoxTMEr.ResumeLayout(false);
+            this.groupBoxTMEr.PerformLayout();
+            this.groupBoxTDs3.ResumeLayout(false);
+            this.groupBoxATDs3.ResumeLayout(false);
+            this.groupBoxATDs3.PerformLayout();
+            this.groupBoxTMDs3.ResumeLayout(false);
+            this.groupBoxTMDs3.PerformLayout();
+            this.groupBoxTDs2.ResumeLayout(false);
+            this.groupBoxATDs2.ResumeLayout(false);
+            this.groupBoxATDs2.PerformLayout();
+            this.groupBoxTMDs2.ResumeLayout(false);
+            this.groupBoxTMDs2.PerformLayout();
             this.groupBoxTDs1.ResumeLayout(false);
             this.groupBoxATDs1.ResumeLayout(false);
             this.groupBoxATDs1.PerformLayout();
             this.groupBoxTMDs1.ResumeLayout(false);
             this.groupBoxTMDs1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBoxTCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.PerformLayout();
+            this.groupBoxTMCeleste.ResumeLayout(false);
+            this.groupBoxTMCeleste.PerformLayout();
+            this.tabConfig.ResumeLayout(false);
+            this.groupBoxOtherS.ResumeLayout(false);
+            this.groupBoxMProfile.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBoxUpdate.ResumeLayout(false);
+            this.groupBoxUpdate.PerformLayout();
+            this.groupBoxSplitters.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
             this.panelCfSekiro.ResumeLayout(false);
@@ -10236,7 +10228,6 @@ namespace AutoSplitterCore
         }
 
         #endregion
-
         private ReaLTaiizor.Child.Metro.MetroTabPage tabElden;
         private ReaLTaiizor.Child.Metro.MetroTabPage tabDs3;
         private ReaLTaiizor.Child.Metro.MetroTabPage tabDs2;

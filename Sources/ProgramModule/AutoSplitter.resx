@@ -117,43 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TextboxManual.Text" xml:space="preserve">
-    <value>Notes:
-===========================================
-AutoSplitting:
-- If You have problems to setup Extencion visit: https://github.com/neimex23/HitCounterManager/wiki
-
-- To activate any autosplitting you should select in main program "Game to Split".
-
-- To Auto initialize Timer should select in main program "Game to Split" and check the game in Configuration AutoSplitter AutoTimer
-
-- Is recommended to configure everything before setting the game to spliter, to avoid autosplitting
-
--Depends on Configurable Autosplit, the addons autosplitting a split (+1 in the actually position), 
-regardless of what is written on them
-
-- When an event of autosplit happens, an internal variable is set, for evit that event is repit. 
-Use the "Reset Run" button, Shortcut or AutoReset Option, to reset this state.
-
-- AutoTimer with RealTime Method in Celeste only start timer when join into a level, don't stop after this.
-
-- Dark souls 2 don't have tracking game time to get exact values to give AutoSplitterCore and process it, failing that, the timer is controlled manually when there is a load event
-
-- Currently Elden Ring is only supported with Easy Anti-Cheat disabled.
-To disable Easy Anti-Cheat, visit this video
-https://youtu.be/nGlhoGcb8pI?si=sRLffw7AnMf3CgyE
-
-- Split by Attributes and some custom flags in DS3 dont work on versions previous to 1.15
-
-
-===========================================
-Sekiro Features:
-- No Intro
-- No Tutorials
-
-Elden Ring Features:
-- No Intro</value>
-  </data>
   <data name="textBoxLicenses.Text" xml:space="preserve">
     <value>Licence information:
 
@@ -308,6 +271,43 @@ d.any suggestion that there is an endorsement of products and services by depict
 Please be aware that while all Images and Videos on Pixabay are free to use for commercial and non-commercial purposes, depicted items in the Images or Videos, such as identifiable people, logos, brands, etc. may be subject to additional copyrights, property rights, privacy rights, trademarks etc. and may require the consent of a third party or the license of these rights - particularly for commercial applications. Pixabay does not represent or warrant that such consents or licenses have been obtained, and expressly disclaims any liability in this respect.
 
 URL: https://pixabay.com/de/service/license/</value>
+  </data>
+  <data name="TextboxManual.Text" xml:space="preserve">
+    <value>Notes:
+===========================================
+AutoSplitting:
+- If You have problems to setup Extencion visit: https://github.com/neimex23/HitCounterManager/wiki
+
+- To activate any autosplitting you should select in main program "Game to Split".
+
+- To Auto initialize Timer should select in main program "Game to Split" and check the game in Configuration AutoSplitter AutoTimer
+
+- Is recommended to configure everything before setting the game to spliter, to avoid autosplitting
+
+-Depends on Configurable Autosplit, the addons autosplitting a split (+1 in the actually position), 
+regardless of what is written on them
+
+- When an event of autosplit happens, an internal variable is set, for evit that event is repit. 
+Use the "Reset Run" button, Shortcut or AutoReset Option, to reset this state.
+
+- AutoTimer with RealTime Method in Celeste only start timer when join into a level, don't stop after this.
+
+- Dark souls 2 don't have tracking game time to get exact values to give AutoSplitterCore and process it, failing that, the timer is controlled manually when there is a load event
+
+- Currently Elden Ring is only supported with Easy Anti-Cheat disabled.
+To disable Easy Anti-Cheat, visit this video
+https://youtu.be/nGlhoGcb8pI?si=sRLffw7AnMf3CgyE
+
+- Split by Attributes and some custom flags in DS3 dont work on versions previous to 1.15
+
+
+===========================================
+Sekiro Features:
+- No Intro
+- No Tutorials
+
+Elden Ring Features:
+- No Intro</value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
     <value>Mortal Journey run should be activated if you run play this gauntlet,
