@@ -866,6 +866,10 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Config UI
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void cbCheckUpdatesOnStartup_CheckedChanged(object sender)
         {
             updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
@@ -1233,7 +1237,7 @@ namespace AutoSplitterCore
             }
         }
 
-        private void checkBoxMortalJourneyRun_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxMortalJourneyRun_CheckedChanged(object sender)
         {
             _ = checkBoxMortalJourneyRun.Checked ? sekiroSplitter.dataSekiro.mortalJourneyRun = true : sekiroSplitter.dataSekiro.mortalJourneyRun = false;
         }
@@ -3288,6 +3292,8 @@ namespace AutoSplitterCore
                 TabControlGeneral.SelectTab(tabDishonored);
             }
         }
+
+
 
 
         #endregion
