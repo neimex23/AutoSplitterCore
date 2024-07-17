@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using SoulMemory;
 using System.Globalization;
 using ReaLTaiizor;
+using ReaLTaiizor.Controls;
 
 namespace AutoSplitterCore
 {
@@ -88,7 +89,7 @@ namespace AutoSplitterCore
             #endregion
             #region SekiroTab       
             panelPositionS.Hide();
-            panelBossS.Hide();
+            panelKillBossS.Hide();
             panelCfSekiro.Hide();
             panelIdolsS.Hide();
             panelMortalJourney.Hide();
@@ -1209,7 +1210,7 @@ namespace AutoSplitterCore
         private void toSplitSelectSekiro_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.panelPositionS.Hide();
-            this.panelBossS.Hide();
+            this.panelKillBossS.Hide();
             this.panelIdolsS.Hide();
             this.panelCfSekiro.Hide();
             this.panelMortalJourney.Hide();
@@ -1219,7 +1220,7 @@ namespace AutoSplitterCore
             switch (toSplitSelectSekiro.SelectedIndex)
             {
                 case 0: //Kill a Boss
-                    this.panelBossS.Show();
+                    this.panelKillBossS.Show();
                     break;
                 case 1: //Kill a miniboss
                     this.panelMiniBossSekiro.Show();
@@ -1327,18 +1328,18 @@ namespace AutoSplitterCore
 
         private void btn_AddBoss_Click(object sender, EventArgs e)
         {
-            if (comboBoxBoss.SelectedIndex == -1 || comboBoxHowBoss.SelectedIndex == -1)
+            if (comboBoxBossS.SelectedIndex == -1 || comboBoxHowBossS.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select boss and 'How' do you want split  ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                var contains1 = !listBoxBosses.Items.Contains(comboBoxBoss.Text.ToString() + " - " + "Inmediatly");
-                var contains2 = !listBoxBosses.Items.Contains(comboBoxBoss.Text.ToString() + " - " + "Loading game after");
+                var contains1 = !listBoxBosses.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Inmediatly");
+                var contains2 = !listBoxBosses.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
-                    sekiroSplitter.AddBoss(comboBoxBoss.Text.ToString(), comboBoxHowBoss.Text.ToString());
-                    listBoxBosses.Items.Add(comboBoxBoss.Text.ToString() + " - " + comboBoxHowBoss.Text.ToString());
+                    sekiroSplitter.AddBoss(comboBoxBossS.Text.ToString(), comboBoxHowBossS.Text.ToString());
+                    listBoxBosses.Items.Add(comboBoxBossS.Text.ToString() + " - " + comboBoxHowBossS.Text.ToString());
                 }
                 else
                 {
