@@ -131,9 +131,8 @@ namespace AutoSplitterCore
             this.tabSekiro = new ReaLTaiizor.Controls.PoisonTabPage();
             this.panelKillBossS = new ReaLTaiizor.Controls.LostBorderPanel();
             this.panel2 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBosses = new System.Windows.Forms.ListBox();
+            this.listBoxBossesS = new System.Windows.Forms.ListBox();
             this.comboBoxHowBossS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.comboBoxBossS = new ReaLTaiizor.Controls.SkyComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btn_AddBoss = new ReaLTaiizor.Controls.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -482,16 +481,12 @@ namespace AutoSplitterCore
             this.btnDesactiveAllDishonored = new ReaLTaiizor.Controls.Button();
             this.DishonoredRunning = new System.Windows.Forms.Label();
             this.DishonoredNotRunning = new System.Windows.Forms.Label();
-            this.panelCfSekiro = new System.Windows.Forms.Panel();
             this.label91 = new System.Windows.Forms.Label();
-            this.textBoxTitleCFS = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxHowCfS = new System.Windows.Forms.ComboBox();
             this.listBoxCfS = new System.Windows.Forms.ListBox();
             this.btnAddCfS = new ReaLTaiizor.Controls.Button();
             this.btnGetListFlagsSekiro = new ReaLTaiizor.Controls.Button();
             this.label59 = new System.Windows.Forms.Label();
-            this.textBoxCfIdS = new System.Windows.Forms.TextBox();
             this.panel1 = new ReaLTaiizor.Controls.Panel();
             this.btnClose = new ReaLTaiizor.Controls.Button();
             this.materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
@@ -529,6 +524,12 @@ namespace AutoSplitterCore
             this.btnAddMiniBossSekiro = new ReaLTaiizor.Controls.Button();
             this.textBoxDescriptionMiniBoss = new System.Windows.Forms.TextBox();
             this.panelMiniBossSekiro = new System.Windows.Forms.Panel();
+            this.comboBoxBossS = new System.Windows.Forms.ComboBox();
+            this.comboBoxHowCfS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxCfIdS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.panel3 = new ReaLTaiizor.Controls.Panel();
+            this.textBoxTitleCFS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.panelCfSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
             this.TabControlGeneral.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -628,20 +629,21 @@ namespace AutoSplitterCore
             this.panelLevelCuphead.SuspendLayout();
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
-            this.panelCfSekiro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelPositionS.SuspendLayout();
             this.panelMiniBossSekiro.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panelCfSekiro.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
             this.TabControlGeneral.Controls.Add(this.tabTiming);
-            this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
             this.TabControlGeneral.Controls.Add(this.tabDs2);
             this.TabControlGeneral.Controls.Add(this.tabDs3);
@@ -2432,6 +2434,7 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabSekiro.Controls.Add(this.panelCfSekiro);
             this.tabSekiro.Controls.Add(this.panelKillBossS);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
             this.tabSekiro.Controls.Add(this.panelMortalJourney);
@@ -2458,9 +2461,9 @@ namespace AutoSplitterCore
             // 
             this.panelKillBossS.BackColor = System.Drawing.Color.White;
             this.panelKillBossS.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelKillBossS.Controls.Add(this.comboBoxBossS);
             this.panelKillBossS.Controls.Add(this.panel2);
             this.panelKillBossS.Controls.Add(this.comboBoxHowBossS);
-            this.panelKillBossS.Controls.Add(this.comboBoxBossS);
             this.panelKillBossS.Controls.Add(this.label17);
             this.panelKillBossS.Controls.Add(this.btn_AddBoss);
             this.panelKillBossS.Controls.Add(this.label15);
@@ -2477,7 +2480,7 @@ namespace AutoSplitterCore
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.listBoxBosses);
+            this.panel2.Controls.Add(this.listBoxBossesS);
             this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.panel2.Location = new System.Drawing.Point(15, 95);
             this.panel2.Name = "panel2";
@@ -2487,18 +2490,18 @@ namespace AutoSplitterCore
             this.panel2.TabIndex = 26;
             this.panel2.Text = "panel2";
             // 
-            // listBoxBosses
+            // listBoxBossesS
             // 
-            this.listBoxBosses.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxBosses.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxBosses.FormattingEnabled = true;
-            this.listBoxBosses.ItemHeight = 16;
-            this.listBoxBosses.Location = new System.Drawing.Point(3, 4);
-            this.listBoxBosses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxBosses.Name = "listBoxBosses";
-            this.listBoxBosses.Size = new System.Drawing.Size(502, 148);
-            this.listBoxBosses.TabIndex = 7;
-            this.listBoxBosses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
+            this.listBoxBossesS.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxBossesS.FormattingEnabled = true;
+            this.listBoxBossesS.ItemHeight = 16;
+            this.listBoxBossesS.Location = new System.Drawing.Point(3, 4);
+            this.listBoxBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxBossesS.Name = "listBoxBossesS";
+            this.listBoxBossesS.Size = new System.Drawing.Size(502, 148);
+            this.listBoxBossesS.TabIndex = 7;
+            this.listBoxBossesS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
             // 
             // comboBoxHowBossS
             // 
@@ -2538,67 +2541,13 @@ namespace AutoSplitterCore
             this.comboBoxHowBossS.TriangleColorA = System.Drawing.Color.Black;
             this.comboBoxHowBossS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
             // 
-            // comboBoxBossS
-            // 
-            this.comboBoxBossS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxBossS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxBossS.BGColorB = System.Drawing.Color.Gold;
-            this.comboBoxBossS.BorderColorA = System.Drawing.Color.LightSkyBlue;
-            this.comboBoxBossS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxBossS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxBossS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxBossS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxBossS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxBossS.DropDownHeight = 120;
-            this.comboBoxBossS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxBossS.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-            this.comboBoxBossS.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxBossS.FormattingEnabled = true;
-            this.comboBoxBossS.IntegralHeight = false;
-            this.comboBoxBossS.ItemHeight = 16;
-            this.comboBoxBossS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxBossS.Items.AddRange(new object[] {
-            "Genichiro Ashina - Tutorial",
-            "Gyoubu Masataka Oniwa",
-            "Lady Butterfly",
-            "Genichiro Ashina",
-            "Folding Screen Monkeys",
-            "Guardian Ape",
-            "Headless Ape",
-            "Corrupted Monk (ghost)",
-            "Emma, the Gentle Blade",
-            "Isshin Ashina",
-            "Great Shinobi Owl",
-            "True Corrupted Monk",
-            "Divine Dragon",
-            "Owl (Father)",
-            "Demon of Hatred",
-            "Isshin, the Sword Saint"});
-            this.comboBoxBossS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxBossS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxBossS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxBossS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxBossS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxBossS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.comboBoxBossS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxBossS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxBossS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxBossS.Location = new System.Drawing.Point(187, 32);
-            this.comboBoxBossS.Name = "comboBoxBossS";
-            this.comboBoxBossS.Size = new System.Drawing.Size(319, 22);
-            this.comboBoxBossS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxBossS.StartIndex = -1;
-            this.comboBoxBossS.TabIndex = 26;
-            this.comboBoxBossS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxBossS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(333, 11);
+            this.label17.Location = new System.Drawing.Point(333, 10);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(38, 16);
             this.label17.TabIndex = 15;
@@ -2615,7 +2564,7 @@ namespace AutoSplitterCore
             this.btn_AddBoss.Image = null;
             this.btn_AddBoss.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_AddBoss.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.Location = new System.Drawing.Point(214, 67);
+            this.btn_AddBoss.Location = new System.Drawing.Point(214, 66);
             this.btn_AddBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AddBoss.Name = "btn_AddBoss";
             this.btn_AddBoss.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -3967,7 +3916,7 @@ namespace AutoSplitterCore
             // 
             this.toSplitSelectSekiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.toSplitSelectSekiro.ColorA = System.Drawing.Color.Transparent;
-            this.toSplitSelectSekiro.ColorB = System.Drawing.Color.Aqua;
+            this.toSplitSelectSekiro.ColorB = System.Drawing.Color.DarkTurquoise;
             this.toSplitSelectSekiro.ColorC = System.Drawing.Color.Silver;
             this.toSplitSelectSekiro.ColorD = System.Drawing.Color.PaleTurquoise;
             this.toSplitSelectSekiro.ColorE = System.Drawing.Color.WhiteSmoke;
@@ -9617,61 +9566,27 @@ namespace AutoSplitterCore
             this.DishonoredNotRunning.TabIndex = 29;
             this.DishonoredNotRunning.Text = "Dishonored is Not Running";
             // 
-            // panelCfSekiro
-            // 
-            this.panelCfSekiro.Controls.Add(this.label91);
-            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
-            this.panelCfSekiro.Controls.Add(this.label7);
-            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
-            this.panelCfSekiro.Controls.Add(this.listBoxCfS);
-            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
-            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
-            this.panelCfSekiro.Controls.Add(this.label59);
-            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
-            this.panelCfSekiro.Location = new System.Drawing.Point(1473, 35);
-            this.panelCfSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelCfSekiro.Name = "panelCfSekiro";
-            this.panelCfSekiro.Size = new System.Drawing.Size(504, 266);
-            this.panelCfSekiro.TabIndex = 25;
-            // 
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(162, 77);
+            this.label91.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.ForeColor = System.Drawing.Color.Black;
+            this.label91.Location = new System.Drawing.Point(151, 73);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(59, 26);
+            this.label91.Size = new System.Drawing.Size(55, 26);
             this.label91.TabIndex = 24;
             this.label91.Text = "     Title\r\n(Optional)";
-            // 
-            // textBoxTitleCFS
-            // 
-            this.textBoxTitleCFS.Location = new System.Drawing.Point(219, 77);
-            this.textBoxTitleCFS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
-            this.textBoxTitleCFS.Size = new System.Drawing.Size(127, 22);
-            this.textBoxTitleCFS.TabIndex = 23;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(393, 53);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(407, 46);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(37, 16);
             this.label7.TabIndex = 21;
             this.label7.Text = "How:";
-            // 
-            // comboBoxHowCfS
-            // 
-            this.comboBoxHowCfS.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBoxHowCfS.FormattingEnabled = true;
-            this.comboBoxHowCfS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfS.Location = new System.Drawing.Point(276, 50);
-            this.comboBoxHowCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
-            this.comboBoxHowCfS.Size = new System.Drawing.Size(109, 21);
-            this.comboBoxHowCfS.TabIndex = 20;
             // 
             // listBoxCfS
             // 
@@ -9679,10 +9594,10 @@ namespace AutoSplitterCore
             this.listBoxCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxCfS.FormattingEnabled = true;
             this.listBoxCfS.ItemHeight = 16;
-            this.listBoxCfS.Location = new System.Drawing.Point(9, 138);
+            this.listBoxCfS.Location = new System.Drawing.Point(5, 4);
             this.listBoxCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxCfS.Name = "listBoxCfS";
-            this.listBoxCfS.Size = new System.Drawing.Size(487, 116);
+            this.listBoxCfS.Size = new System.Drawing.Size(503, 116);
             this.listBoxCfS.TabIndex = 19;
             this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
             // 
@@ -9693,11 +9608,11 @@ namespace AutoSplitterCore
             this.btnAddCfS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddCfS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnAddCfS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAddCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCfS.Image = null;
             this.btnAddCfS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCfS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Location = new System.Drawing.Point(201, 106);
+            this.btnAddCfS.Location = new System.Drawing.Point(222, 101);
             this.btnAddCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddCfS.Name = "btnAddCfS";
             this.btnAddCfS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -9715,16 +9630,16 @@ namespace AutoSplitterCore
             this.btnGetListFlagsSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGetListFlagsSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnGetListFlagsSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnGetListFlagsSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetListFlagsSekiro.Image = null;
             this.btnGetListFlagsSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGetListFlagsSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(201, 8);
+            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(223, 14);
             this.btnGetListFlagsSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetListFlagsSekiro.Name = "btnGetListFlagsSekiro";
             this.btnGetListFlagsSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnGetListFlagsSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(127, 24);
+            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(98, 24);
             this.btnGetListFlagsSekiro.TabIndex = 2;
             this.btnGetListFlagsSekiro.Text = "Get List Flags";
             this.btnGetListFlagsSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -9733,20 +9648,13 @@ namespace AutoSplitterCore
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(120, 53);
+            this.label59.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.Black;
+            this.label59.Location = new System.Drawing.Point(128, 46);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(21, 13);
+            this.label59.Size = new System.Drawing.Size(22, 13);
             this.label59.TabIndex = 1;
             this.label59.Text = "ID:";
-            // 
-            // textBoxCfIdS
-            // 
-            this.textBoxCfIdS.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxCfIdS.Location = new System.Drawing.Point(151, 50);
-            this.textBoxCfIdS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxCfIdS.Name = "textBoxCfIdS";
-            this.textBoxCfIdS.Size = new System.Drawing.Size(100, 22);
-            this.textBoxCfIdS.TabIndex = 0;
             // 
             // panel1
             // 
@@ -10342,6 +10250,152 @@ namespace AutoSplitterCore
             this.panelMiniBossSekiro.Size = new System.Drawing.Size(565, 265);
             this.panelMiniBossSekiro.TabIndex = 4;
             // 
+            // comboBoxBossS
+            // 
+            this.comboBoxBossS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxBossS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxBossS.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxBossS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBossS.FormattingEnabled = true;
+            this.comboBoxBossS.Items.AddRange(new object[] {
+            "Genichiro Ashina - Tutorial",
+            "Gyoubu Masataka Oniwa",
+            "Lady Butterfly",
+            "Genichiro Ashina",
+            "Folding Screen Monkeys",
+            "Guardian Ape",
+            "Headless Ape",
+            "Corrupted Monk (ghost)",
+            "Emma, the Gentle Blade",
+            "Isshin Ashina",
+            "Great Shinobi Owl",
+            "True Corrupted Monk",
+            "Divine Dragon",
+            "Owl (Father)",
+            "Demon of Hatred",
+            "Isshin, the Sword Saint"});
+            this.comboBoxBossS.Location = new System.Drawing.Point(192, 32);
+            this.comboBoxBossS.MaxDropDownItems = 2;
+            this.comboBoxBossS.Name = "comboBoxBossS";
+            this.comboBoxBossS.Size = new System.Drawing.Size(317, 22);
+            this.comboBoxBossS.TabIndex = 27;
+            // 
+            // comboBoxHowCfS
+            // 
+            this.comboBoxHowCfS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowCfS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowCfS.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowCfS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowCfS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowCfS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowCfS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowCfS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowCfS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowCfS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowCfS.FormattingEnabled = true;
+            this.comboBoxHowCfS.ItemHeight = 16;
+            this.comboBoxHowCfS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowCfS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowCfS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowCfS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowCfS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowCfS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.Location = new System.Drawing.Point(288, 43);
+            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
+            this.comboBoxHowCfS.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowCfS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowCfS.StartIndex = -1;
+            this.comboBoxHowCfS.TabIndex = 27;
+            this.comboBoxHowCfS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxCfIdS
+            // 
+            this.textBoxCfIdS.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxCfIdS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxCfIdS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxCfIdS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxCfIdS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxCfIdS.Location = new System.Drawing.Point(162, 43);
+            this.textBoxCfIdS.MaxLength = 32767;
+            this.textBoxCfIdS.MultiLine = false;
+            this.textBoxCfIdS.Name = "textBoxCfIdS";
+            this.textBoxCfIdS.Size = new System.Drawing.Size(110, 21);
+            this.textBoxCfIdS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxCfIdS.TabIndex = 22;
+            this.textBoxCfIdS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxCfIdS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxCfIdS.UseSystemPasswordChar = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel3.Controls.Add(this.listBoxCfS);
+            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel3.Location = new System.Drawing.Point(13, 130);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(5);
+            this.panel3.Size = new System.Drawing.Size(515, 125);
+            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel3.TabIndex = 27;
+            this.panel3.Text = "panel3";
+            // 
+            // textBoxTitleCFS
+            // 
+            this.textBoxTitleCFS.BackColor = System.Drawing.Color.White;
+            this.textBoxTitleCFS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitleCFS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitleCFS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitleCFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitleCFS.Location = new System.Drawing.Point(216, 73);
+            this.textBoxTitleCFS.MaxLength = 32767;
+            this.textBoxTitleCFS.MultiLine = false;
+            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
+            this.textBoxTitleCFS.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitleCFS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitleCFS.TabIndex = 26;
+            this.textBoxTitleCFS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxTitleCFS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitleCFS.UseSystemPasswordChar = false;
+            // 
+            // panelCfSekiro
+            // 
+            this.panelCfSekiro.BackColor = System.Drawing.Color.White;
+            this.panelCfSekiro.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
+            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
+            this.panelCfSekiro.Controls.Add(this.panel3);
+            this.panelCfSekiro.Controls.Add(this.label59);
+            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
+            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
+            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
+            this.panelCfSekiro.Controls.Add(this.label7);
+            this.panelCfSekiro.Controls.Add(this.label91);
+            this.panelCfSekiro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelCfSekiro.ForeColor = System.Drawing.Color.White;
+            this.panelCfSekiro.Location = new System.Drawing.Point(34, 85);
+            this.panelCfSekiro.Name = "panelCfSekiro";
+            this.panelCfSekiro.Padding = new System.Windows.Forms.Padding(5);
+            this.panelCfSekiro.ShowText = false;
+            this.panelCfSekiro.Size = new System.Drawing.Size(539, 262);
+            this.panelCfSekiro.TabIndex = 28;
+            this.panelCfSekiro.Text = "lostBorderPanel1";
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10350,10 +10404,9 @@ namespace AutoSplitterCore
             this.ControlBox = false;
             this.Controls.Add(this.panelMiniBossSekiro);
             this.Controls.Add(this.panelPositionS);
-            this.Controls.Add(this.panelCfSekiro);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -10527,13 +10580,14 @@ namespace AutoSplitterCore
             this.tabDishonored.ResumeLayout(false);
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
-            this.panelCfSekiro.ResumeLayout(false);
-            this.panelCfSekiro.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panelPositionS.ResumeLayout(false);
             this.panelPositionS.PerformLayout();
             this.panelMiniBossSekiro.ResumeLayout(false);
             this.panelMiniBossSekiro.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panelCfSekiro.ResumeLayout(false);
+            this.panelCfSekiro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10782,14 +10836,11 @@ namespace AutoSplitterCore
         private System.Windows.Forms.TextBox textBoxZDs2;
         private System.Windows.Forms.TextBox textBoxYDs2;
         private System.Windows.Forms.TextBox textBoxXDs2;
-        private System.Windows.Forms.Panel panelCfSekiro;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBoxHowCfS;
         private System.Windows.Forms.ListBox listBoxCfS;
         private ReaLTaiizor.Controls.Button btnAddCfS;
         private ReaLTaiizor.Controls.Button btnGetListFlagsSekiro;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox textBoxCfIdS;
         private System.Windows.Forms.ComboBox comboBoxToSplitCeleste;
         private System.Windows.Forms.Label label49;
         private ReaLTaiizor.Controls.Button button2;
@@ -10969,7 +11020,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.TextBox textBoxTitlePositionHK;
         private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.TextBox textBoxTitleCFS;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.TextBox textBoxTitleCFDs3;
         private System.Windows.Forms.Label label93;
@@ -11029,14 +11079,19 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.Button btnAddMiniBossSekiro;
         internal System.Windows.Forms.TextBox textBoxDescriptionMiniBoss;
         private System.Windows.Forms.Panel panelMiniBossSekiro;
-        private System.Windows.Forms.ListBox listBoxBosses;
+        private System.Windows.Forms.ListBox listBoxBossesS;
         private ReaLTaiizor.Controls.Button btn_AddBoss;
         private ReaLTaiizor.Controls.LostBorderPanel panelKillBossS;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private ReaLTaiizor.Controls.Button btnSekiro;
-        private ReaLTaiizor.Controls.SkyComboBox comboBoxBossS;
         private ReaLTaiizor.Controls.SkyComboBox comboBoxHowBossS;
         private ReaLTaiizor.Controls.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxBossS;
+        private ReaLTaiizor.Controls.SkyComboBox comboBoxHowCfS;
+        private ReaLTaiizor.Controls.Panel panel3;
+        private ReaLTaiizor.Controls.SkyTextBox textBoxCfIdS;
+        private ReaLTaiizor.Controls.LostBorderPanel panelCfSekiro;
+        private ReaLTaiizor.Controls.SkyTextBox textBoxTitleCFS;
     }
 }

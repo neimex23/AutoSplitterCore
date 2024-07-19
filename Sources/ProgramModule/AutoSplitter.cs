@@ -194,7 +194,7 @@ namespace AutoSplitterCore
             #region SekiroLoad.Bosses
             foreach (DefinitionsSekiro.BossS boss in sekiroData.getBossToSplit())
             {
-                listBoxBosses.Items.Add(boss.Title + " - " + boss.Mode);
+                listBoxBossesS.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region SekiroLoad.MiniBosses
@@ -1334,12 +1334,12 @@ namespace AutoSplitterCore
             }
             else
             {
-                var contains1 = !listBoxBosses.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Inmediatly");
-                var contains2 = !listBoxBosses.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Loading game after");
+                var contains1 = !listBoxBossesS.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Inmediatly");
+                var contains2 = !listBoxBossesS.Items.Contains(comboBoxBossS.Text.ToString() + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
                     sekiroSplitter.AddBoss(comboBoxBossS.Text.ToString(), comboBoxHowBossS.Text.ToString());
-                    listBoxBosses.Items.Add(comboBoxBossS.Text.ToString() + " - " + comboBoxHowBossS.Text.ToString());
+                    listBoxBossesS.Items.Add(comboBoxBossS.Text.ToString() + " - " + comboBoxHowBossS.Text.ToString());
                 }
                 else
                 {
@@ -1350,11 +1350,11 @@ namespace AutoSplitterCore
 
         private void listBoxBosses_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (this.listBoxBosses.SelectedItem != null)
+            if (this.listBoxBossesS.SelectedItem != null)
             {
-                int i = listBoxBosses.Items.IndexOf(listBoxBosses.SelectedItem);
+                int i = listBoxBossesS.Items.IndexOf(listBoxBossesS.SelectedItem);
                 sekiroSplitter.RemoveBoss(i);
-                listBoxBosses.Items.Remove(listBoxBosses.SelectedItem);
+                listBoxBossesS.Items.Remove(listBoxBossesS.SelectedItem);
             }
         }
 
