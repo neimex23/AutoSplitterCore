@@ -93,7 +93,7 @@ namespace AutoSplitterCore
             panelCfSekiro.Hide();
             panelIdolsS.Hide();
             panelMortalJourney.Hide();
-            panelMiniBossSekiro.Hide();
+            panelMinibossSekiro.Hide();
             groupBoxAshinaOutskirts.Hide();
             groupBoxHirataEstate.Hide();
             groupBoxAshinaCastle.Hide();
@@ -277,7 +277,7 @@ namespace AutoSplitterCore
             {
                 listBoxPositionsS.Items.Add(position.vector.X + "; " + position.vector.Y + "; " + position.vector.Z + " - " + position.Mode + position.Title);
             }
-            comboBoxMarginS.SelectedIndex = sekiroData.positionMargin;
+            comboBoxSizeS.SelectedIndex = sekiroData.positionMargin;
             #endregion
             #region SekiroLoad.MortalJourney
             if (sekiroData.mortalJourneyRun)
@@ -1214,7 +1214,7 @@ namespace AutoSplitterCore
             this.panelIdolsS.Hide();
             this.panelCfSekiro.Hide();
             this.panelMortalJourney.Hide();
-            this.panelMiniBossSekiro.Hide();
+            this.panelMinibossSekiro.Hide();
 
 
             switch (toSplitSelectSekiro.SelectedIndex)
@@ -1223,7 +1223,7 @@ namespace AutoSplitterCore
                     this.panelKillBossS.Show();
                     break;
                 case 1: //Kill a miniboss
-                    this.panelMiniBossSekiro.Show();
+                    this.panelMinibossSekiro.Show();
                     break;
                 case 2: // Is Activated a Idol
                     this.panelIdolsS.Show();
@@ -1247,20 +1247,20 @@ namespace AutoSplitterCore
         private void btnGetPosition_Click(object sender, EventArgs e)
         {
             var Vector = sekiroSplitter.getCurrentPosition();
-            this.textBoxX.Clear();
-            this.textBoxY.Clear();
-            this.textBoxZ.Clear();
-            this.textBoxX.Paste(Vector.X.ToString("0.00"));
-            this.textBoxY.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxZ.Paste(Vector.Z.ToString("0.00"));
+            this.textBoxXS.Text = string.Empty;
+            this.textBoxYS.Text = string.Empty;
+            this.textBoxZS.Text = string.Empty;
+            this.textBoxXS.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYS.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxZS.Text = (Vector.Z.ToString("0.00"));
 
         }
 
         private void btnAddPosition_Click(object sender, EventArgs e)
         {
-            if (textBoxX.Text != null || textBoxY.Text != null || textBoxZ.Text != null)
+            if (textBoxXS.Text != null || textBoxYS.Text != null || textBoxZS.Text != null)
             {
-                if (comboBoxHowPosition.SelectedIndex == -1)
+                if (comboBoxHowPositionS.SelectedIndex == -1)
                 {
                     MessageBox.Show("Select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -1268,9 +1268,9 @@ namespace AutoSplitterCore
                 {
                     try
                     {
-                        var X = float.Parse(textBoxX.Text, new CultureInfo("en-US"));
-                        var Y = float.Parse(textBoxY.Text, new CultureInfo("en-US"));
-                        var Z = float.Parse(textBoxZ.Text, new CultureInfo("en-US"));
+                        var X = float.Parse(textBoxXS.Text, new CultureInfo("en-US"));
+                        var Y = float.Parse(textBoxYS.Text, new CultureInfo("en-US"));
+                        var Z = float.Parse(textBoxZS.Text, new CultureInfo("en-US"));
                         var contains1 = !listBoxPositionsS.Items.Contains(X + "; " + Y + "; " + Z + " - " + "Inmediatly");
                         var contains2 = !listBoxPositionsS.Items.Contains(X + "; " + Y + "; " + Z + " - " + "Loading game after");
                         if (contains1 && contains2)
@@ -1285,11 +1285,11 @@ namespace AutoSplitterCore
                                 if (textBoxTitlePositionS.Text != string.Empty)
                                 {
                                     title = " - " + textBoxTitlePositionS.Text;
-                                    textBoxTitlePositionS.Clear();
+                                    textBoxTitlePositionS.Text = string.Empty;
                                 }
 
-                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPosition.Text.ToString() + title);                                
-                                sekiroSplitter.AddPosition(X, Y, Z, comboBoxHowPosition.Text.ToString(), title);
+                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPositionS.Text.ToString() + title);                                
+                                sekiroSplitter.AddPosition(X, Y, Z, comboBoxHowPositionS.Text.ToString(), title);
                             }
                         }
                         else
@@ -1322,7 +1322,7 @@ namespace AutoSplitterCore
 
         private void comboBoxMargin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int select = comboBoxMarginS.SelectedIndex;
+            int select = comboBoxSizeS.SelectedIndex;
             sekiroSplitter.setPositionMargin(select);
         }
 
@@ -1840,7 +1840,7 @@ namespace AutoSplitterCore
                         if (textBoxTitleCFS.Text != string.Empty)
                         {
                             title = " - " + textBoxTitleCFS.Text;
-                            textBoxTitleCFS.Clear();
+                            textBoxTitleCFS.Text = string.Empty;
                         }
 
                         sekiroSplitter.AddCustomFlag(id, comboBoxHowCfS.Text.ToString(), title);

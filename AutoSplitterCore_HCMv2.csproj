@@ -61,12 +61,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ReaLTaiizor">
-      <HintPath>packages\ReaLTaiizor.3.8.0.5\lib\net481\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor, Version=3.8.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReaLTaiizor.3.8.0.6\lib\net481\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -74,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.Compression" />
@@ -100,6 +102,7 @@
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
+    <None Include="packages.config" />
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>

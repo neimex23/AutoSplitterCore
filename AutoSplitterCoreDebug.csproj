@@ -67,8 +67,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="ReaLTaiizor">
-      <HintPath>packages\ReaLTaiizor.3.8.0.5\lib\net481\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ReaLTaiizor.3.8.0.6\lib\net481\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="SoulMemory, Version=1.2.1.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
