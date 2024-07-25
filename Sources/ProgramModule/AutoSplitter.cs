@@ -89,7 +89,7 @@ namespace AutoSplitterCore
             #endregion
             #region SekiroTab       
             panelPositionS.Hide();
-            panelKillBossS.Hide();
+            panelBossS.Hide();
             panelCfSekiro.Hide();
             panelIdolsS.Hide();
             panelMortalJourney.Hide();
@@ -535,7 +535,7 @@ namespace AutoSplitterCore
             {
                 listBoxPositionsDs1.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
-            comboBoxMarginDs1.SelectedIndex = ds1Data.positionMargin;
+            comboBoxSizeDs1.SelectedIndex = ds1Data.positionMargin;
             #endregion
             #region Ds1Load.Items
             foreach (DefinitionsDs1.ItemDs1 Item in ds1Data.getItemsToSplit())
@@ -1210,7 +1210,7 @@ namespace AutoSplitterCore
         private void toSplitSelectSekiro_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.panelPositionS.Hide();
-            this.panelKillBossS.Hide();
+            this.panelBossS.Hide();
             this.panelIdolsS.Hide();
             this.panelCfSekiro.Hide();
             this.panelMortalJourney.Hide();
@@ -1220,7 +1220,7 @@ namespace AutoSplitterCore
             switch (toSplitSelectSekiro.SelectedIndex)
             {
                 case 0: //Kill a Boss
-                    this.panelKillBossS.Show();
+                    this.panelBossS.Show();
                     break;
                 case 1: //Kill a miniboss
                     this.panelMinibossSekiro.Show();
@@ -2049,12 +2049,12 @@ namespace AutoSplitterCore
         {
             var Vector = ds1Splitter.getCurrentPosition();
             this.VectorDs1 = Vector;
-            this.textBoxXDs1.Clear();
-            this.textBoxYDs1.Clear();
-            this.textBoxZDs1.Clear();
-            this.textBoxXDs1.Paste(Vector.X.ToString("0.00"));
-            this.textBoxYDs1.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxZDs1.Paste(Vector.Z.ToString("0.00"));
+            this.textBoxXDs1.Text = string.Empty;
+            this.textBoxYDs1.Text = string.Empty;
+            this.textBoxZDs1.Text = string.Empty;
+            this.textBoxXDs1.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYDs1.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxZDs1.Text = (Vector.Z.ToString("0.00"));
         }
 
         private void listBoxPositionDs1_DoubleClick(object sender, EventArgs e)
@@ -2069,50 +2069,47 @@ namespace AutoSplitterCore
 
         private void comboBoxMarginDs1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ds1Splitter.dataDs1.positionMargin = comboBoxMarginDs1.SelectedIndex;
+            ds1Splitter.dataDs1.positionMargin = comboBoxSizeDs1.SelectedIndex;
         }
 
         private void btnAddPositionDs1_Click(object sender, EventArgs e)
         {
-            if (this.VectorDs1 != null)
+            var X = float.Parse(textBoxXDs1.Text, new CultureInfo("en-US"));
+            var Y = float.Parse(textBoxYDs1.Text, new CultureInfo("en-US"));
+            var Z = float.Parse(textBoxZDs1.Text, new CultureInfo("en-US"));
+            VectorDs1 = new Vector3f(X, Y, Z); 
+            var contains1 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Inmediatly");
+            var contains2 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Loading game after");
+            if (contains1 && contains2)
             {
-                var contains1 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Inmediatly");
-                var contains2 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Loading game after");
-                if (contains1 && contains2)
+                if (comboBoxHowPositionsDs1.SelectedIndex == -1)
                 {
-                    if (comboBoxHowPositionsDs1.SelectedIndex == -1)
-                    {
-                        MessageBox.Show("Select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        if (this.VectorDs1.X == 0 && this.VectorDs1.Y == 0 && this.VectorDs1.Z == 0)
-                        {
-                            MessageBox.Show("Dont use cords 0,0,0", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            string title = string.Empty;
-                            if (textBoxTitlePositionDs1.Text != string.Empty)
-                            {
-                                title = " - " + textBoxTitlePositionDs1.Text;
-                                textBoxTitlePositionDs1.Clear();
-                            }
-
-                            listBoxPositionsDs1.Items.Add(this.VectorDs1 + " - " + comboBoxHowPositionsDs1.Text.ToString() + title);
-                            ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString(),title);
-                        }
-                    }
+                    MessageBox.Show("Select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("You have already added this trigger", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (this.VectorDs1.X == 0 && this.VectorDs1.Y == 0 && this.VectorDs1.Z == 0)
+                    {
+                        MessageBox.Show("Dont use cords 0,0,0", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string title = string.Empty;
+                        if (textBoxTitlePositionDs1.Text != string.Empty)
+                        {
+                            title = " - " + textBoxTitlePositionDs1.Text;
+                            textBoxTitlePositionDs1.Text = string.Empty;
+                        }
+
+                        listBoxPositionsDs1.Items.Add(this.VectorDs1 + " - " + comboBoxHowPositionsDs1.Text.ToString() + title);
+                        ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString(),title);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Plase get a position ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("You have already added this trigger", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }           
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
