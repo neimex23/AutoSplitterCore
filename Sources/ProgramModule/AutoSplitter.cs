@@ -27,6 +27,7 @@ using SoulMemory;
 using System.Globalization;
 using ReaLTaiizor;
 using ReaLTaiizor.Controls;
+using System.Security.Principal;
 
 namespace AutoSplitterCore
 {
@@ -190,6 +191,19 @@ namespace AutoSplitterCore
 
         private void AutoSplitter_Load(object sender, EventArgs e)
         {
+            #region AdminCheck
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal main = new WindowsPrincipal(identity);
+            if (main.IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                labelWarning.Hide();
+            }
+            else
+            {
+                 labelWarning.Show();
+            }
+            #endregion
+
             DTSekiro sekiroData = sekiroSplitter.getDataSekiro();
             #region SekiroLoad.Bosses
             foreach (DefinitionsSekiro.BossS boss in sekiroData.getBossToSplit())
@@ -489,7 +503,7 @@ namespace AutoSplitterCore
             {
                 listBoxPositionsDs2.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
-            comboBoxMarginDs2.SelectedIndex = ds2Data.positionMargin;
+            comboBoxSizeDs2.SelectedIndex = ds2Data.positionMargin;
             #endregion
             DTCuphead cupData = cupSplitter.getDataCuphead();
             #region CupheadLoad.Boss&Level
@@ -2253,21 +2267,25 @@ namespace AutoSplitterCore
         {
             var Vector = ds2Splitter.getCurrentPosition();
             this.VectorDs2 = Vector;
-            this.textBoxXDs2.Clear();
-            this.textBoxYDs2.Clear();
-            this.textBoxZDs2.Clear();
-            this.textBoxXDs2.Paste(Vector.X.ToString("0.00"));
-            this.textBoxYDs2.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxZDs2.Paste(Vector.Z.ToString("0.00"));
+            this.textBoxXDs2.Text = string.Empty;
+            this.textBoxYDs2.Text = string.Empty; ;
+            this.textBoxZDs2.Text = string.Empty; ;
+            this.textBoxXDs2.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYDs2.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxZDs2.Text = (Vector.Z.ToString("0.00"));
         }
 
         private void comboBoxMarginDs2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ds2Splitter.dataDs2.positionMargin = comboBoxMarginDs2.SelectedIndex;
+            ds2Splitter.dataDs2.positionMargin = comboBoxSizeDs2.SelectedIndex;
         }
 
         private void btnAddPositionDs2_Click(object sender, EventArgs e)
         {
+            var X = float.Parse(textBoxXDs2.Text, new CultureInfo("en-US"));
+            var Y = float.Parse(textBoxYDs2.Text, new CultureInfo("en-US"));
+            var Z = float.Parse(textBoxZDs2.Text, new CultureInfo("en-US"));
+            VectorDs1 = new Vector3f(X, Y, Z);
             if (this.VectorDs2 != null)
             {
                 var contains1 = !listBoxPositionsDs2.Items.Contains(this.VectorDs2 + " - " + "Inmediatly");
@@ -2291,7 +2309,7 @@ namespace AutoSplitterCore
                             if (textBoxTitlePositionDs2.Text != string.Empty)
                             {
                                 title = " - " + textBoxTitlePositionDs2.Text;
-                                textBoxTitlePositionDs2.Clear();
+                                textBoxTitlePositionDs2.Text = string.Empty;
                             }
                             listBoxPositionsDs2.Items.Add(this.VectorDs2 + " - " + comboBoxHowPositionsDs2.Text.ToString() + title);
                             ds2Splitter.AddPosition(this.VectorDs2, comboBoxHowPositionsDs2.Text.ToString(), title);

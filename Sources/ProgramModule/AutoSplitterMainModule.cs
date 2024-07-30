@@ -43,9 +43,9 @@ namespace AutoSplitterCore
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
         public UpdateModule updateModule = new UpdateModule();
-#if !HCMv2
+        #if !HCMv2
         public Debug debugForm;
-#endif
+        #endif
         public bool DebugMode = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
@@ -75,7 +75,7 @@ namespace AutoSplitterCore
         public void AutoSplitterForm(bool darkMode)
         {
             SetShowSettings(true);
-            Form form = new AutoSplitter
+            ReaLTaiizor.Forms.PoisonForm form = new AutoSplitter
                    (sekiroSplitter, 
                     hollowSplitter, 
                     eldenSplitter, 

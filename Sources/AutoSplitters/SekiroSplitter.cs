@@ -25,8 +25,10 @@ using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -339,118 +341,53 @@ namespace AutoSplitterCore
             dataSekiro.miniBossToSplit.Add(mBoss);
         }
 
-        public string GetMiniBossDescription(string Game)
+        public string GetMiniBossDescription(string mBoss)
         {
-            switch (Game)
+            var mappingMiniboss = new Dictionary<string, string>()
             {
-                case "Leader Shigenori Yamauchi":
-                    return "Split when obtain Fistful of Ash in Genichiro path";
+                { "Leader Shigenori Yamauchi","Split when obtain Fistful of Ash in Genichiro path" },
+                { "General Naomori Kawarada", "Split when kill General Naomori Kawarada" },     
+                { "Ogre - Ashina Outskirts", "Split when trigger window position after kill Ogre\r\n X= 124.60, Y= -35.50, Z= 140.20" },
+                { "General Tenzen Yamauchi", "Split shen trigger position near mini house\r\nPath of Headless Ako \r\n X= 1134.60, Y= -57.50, Z= 220.10" },
+                { "Headless Ako", "Split when kill Headless Ako" },
+                { "Blazing Bull", "Split when idol: Ashina Castle is automatically activate after kill Blazing Bull" },
+                { "Shigekichi of the Red Guard", "Split when idol: Flames of Hatred is manual activated" },
+                { "Shinobi Hunter Enshin of Misen", "Split when obtain Hidden Temple Key with Owl" },
+                { "Juzou the Drunkard", "Split when idol: Hirata Audience Chamber is manual activated" },
+                { "Lone Shadow Masanaga the Spear-Bearer", "Split when trigger position near Gokan path grapple\r\n X=74.50, Y=-37.65, Z=385.25" },
+                { "Juzou the Drunkard 2", "Split when kill Juzou the Drunkard 2" },
+                { "General Kuranosuke Matsumoto", "Split when kill General Kuranosuke Matsumoto" },
+                { "Seven Achina Spears â€“ Shikibu Toshikatsu Yamauchi", "Split when kill Shikibu Toshikatsu Yamauchi" },
+                { "Lone Shadow Longswordsman", "Split when trigger position after water grapple\r\nPath to Shichimen Warrior\r\n X= -323.20, Y= -48.30, Z= 344.35" },
+                { "Headless Ungo", "Split when trigger position grapple\r\nExit of Ungo Boss Fight arena near of Bridge \r\n X= -27.80, Y= 0.25, Z= 252.0" },
+                { "Ashina Elite â€“ Jinsuke Saze", "Split when kill Jinsuke Saze" },
+                { "Ogre - Ashina Castle", "Split when trigger position on the beam above ogre\r\n X= -111.20, Y= 25.00 237.90 \r\nRecommend: Loading Game After" },
+                { "Lone Shadow Vilehand", "Splits when opening the door leading to Ogre 2" },
+                { "Seven Ashina Spears - Shume Masaji Oniwa", "Split when open SSIshin door" },
+                { "Ashina Elite - Ujinari Mizuo", "Split when kill Ashina Elite Ujinari Mizuo" },
+                { "Shichimen Warrior - Abandoned Dungeon", "Split when idol: Bottomless Hole is manual activated" },
+                { "Armored Warrior", "Split when kill Armored Warrior" },
+                { "Long-arm Centipede Senâ€™un", "Split when kill Long-arm Centipede Senâ€™un" },
+                { "Headless Gokan", "Split when kill Headless Gokan" },
+                { "Long-arm Centipede Giraffe", "Split when use key on door after Centipede" },
+                { "Snake Eyes Shirahagi", "Split when idol: Hidden Forest is manual activated" },
+                { "Shichimen Warrior - Ashina Depths", "Split when kill Shichimen Warrior" },
+                { "Headless Gacchin", "Split when kill Headless Gacchin" },
+                { "Tokujiro the Glutton", "Split when kill Tokujiro the Glutton" },
+                { "Mist Noble", "Split when kill Mist Noble" },
+                { "O'rin of the Water", "Split when kill O'rin" },
+                { "Sakura Bull of the Palace", "Split when kill Sakura Bull" },
+                { "Leader Okami", "Split when kill Leader Okami" },
+                { "Headless Yashariku", "Split when idol: Flower Viewing Stage is manually activated\r\nRoute Recommended: Okami, Yashariku, go to idol" },
+                { "Shichimen Warrior - Fountainhead Palace", "Split when kill Shichimen Warrior" }
+             };
 
-                case "General Naomori Kawarada":
-                    return "Split when kill General Naomori Kawarada";
-
-                case "Ogre - Ashina Outskirts":
-                    return "Split when trigger window position after kill Ogre\r\n X= 124.60, Y= -35.50, Z= 140.20";
-
-                case "General Tenzen Yamauchi":
-                    return "Split shen trigger position near mini hose\r\nPath of Headless Ako \r\n X= 1134.60, Y= -57.50, Z= 220.10";
-
-                case "Headless Ako":
-                    return "Split when kill Headless Ako";
-
-                case "Blazing Bull":
-                    return "Split when idol: Ashina Castle is automatically activate after kill Blazing Bull";
-
-                case "Shigekichi of the Red Guard":
-                    return "Split when idol: Flames of Hatred is manual activated";
-
-                case "Shinobi Hunter Enshin of Misen":
-                    return "Split when obtain Hidden Temple Key with Owl";
-
-                case "Juzou the Drunkard":
-                    return "Split when idol: Hirata Audience Chamber is manual activated";
-
-                case "Lone Shadow Masanaga the Spear-Bearer":
-                    return "Split when trigger psition near Gokan path grapple \r\n X=74.50, Y=-37.65, Z=385.25";
-
-                case "Juzou the Drunkard 2":
-                    return "Split when kill Juzou the Drunkard 2";
-
-                case "General Kuranosuke Matsumoto":
-                    return "Split when kill General Kuranosuke Matsumoto";
-
-                case "Seven Achina Spears – Shikibu Toshikatsu Yamauchi":
-                    return "Split when kill Shikibu Toshikatsu Yamauchi";
-
-                case "Lone Shadow Longswordsman":
-                    return "Split when trigger position after water grapple\r\nPath to Shichimen Warrior\r\n X= -323.20, Y= -48.30, Z= 344.35";
-
-                case "Headless Ungo":
-                    return "Split when trigger position grapple\r\nExit of Ungo Boss Fight arena near of Bridge \r\n X= -27.80, Y= 0.25, Z= 252.0";
-
-                case "Ashina Elite – Jinsuke Saze":
-                    return "Split when kill Jinsuke Saze";
-
-                case "Ogre - Ashina Castle":
-                    return "Split when trigger position on the beam above ogre\r\n X= -111.20, Y= 25.00 237.90 \r\nRecommend: Loading Game After";
-
-                case "Lone Shadow Vilehand":
-                    return "Splits when opening the door leading to Ogre 2";
-
-                case "Seven Ashina Spears - Shume Masaji Oniwa":
-                    return "Split when open SSIshin door";
-
-                case "Ashina Elite - Ujinari Mizuo":
-                    return "Split when kill Ashina Elite Ujinari Mizuo";
-
-                case "Shichimen Warrior - Abandoned Dungeon":
-                    return "Split when idol: Bottomless Hole is manual activated";
-
-                case "Armored Warrior":
-                    return "Split when kill Armored Warrior";
-
-                case "Long-arm Centipede Sen’un":
-                    return "Split when kill Long-arm Centipede Sen’un";
-
-                case "Headless Gokan":
-                    return "Split when kill Headless Gokan";
-
-                case "Long-arm Centipede Giraffe":
-                    return "Split when use key on door after Centipede";
-
-                case "Snake Eyes Shirahagi":
-                    return "Split when idol: Hidden Forest is manual activated";
-
-                case "Shichimen Warrior - Ashina Depths":
-                    return "Split when kill Shichimen Warrior";
-
-                case "Headless Gacchin":
-                    return "Split when kill Headless Gacchin";
-
-                case "Tokujiro the Glutton":
-                    return "Split when kill Tokujiro the Glutton";
-
-                case "Mist Noble":
-                    return "Split when kill Mist Noble";
-
-                case "O'rin of the Water":
-                    return "Split when kill O'rin";
-
-                case "Sakura Bull of the Palace":
-                    return "Split when kill Sakura Bull";
-
-                case "Leader Okami":
-                    return "Split when kill Leader Okami";
-
-                case "Headless Yashariku":
-                    return "Split when idol: Flower Viewing Stage is manually activated\r\nRute Recomended: Okami,Yashariku,go to idol";
-
-                case "Shichimen Warrior - Fountainhead Palace":
-                    return "Split when kill Shichimen Warrior";
-
-                default:
-                    return "None";
-            }
+            try
+            {
+                mappingMiniboss.TryGetValue(mBoss, out string description);
+                return description;
+            }catch (Exception) { MessageBox.Show("Error miniboss String"); return string.Empty; }
+     
         }
 
         public void RemoveMiniBoss(int position)
