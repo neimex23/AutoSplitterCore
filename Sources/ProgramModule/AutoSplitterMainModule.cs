@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 //Copyright (c) 2024 Peter Kirmeier (Update new HCM interface)
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy

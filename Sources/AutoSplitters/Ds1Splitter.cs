@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -257,8 +257,7 @@ namespace AutoSplitterCore
             if (!_StatusDs1) getDs1StatusProcess(0);
             if (!_StatusDs1)
             {
-                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
-                return vector;
+                return new Vector3f() { X = 0, Y = 0, Z = 0 };
             }
             return Ds1.GetPosition();
         }
