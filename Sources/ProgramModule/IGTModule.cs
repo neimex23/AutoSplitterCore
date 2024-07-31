@@ -36,17 +36,17 @@ namespace AutoSplitterCore
             switch (gameSelect)
             {
                 case GameConstruction.SekiroSplitterIndex:
-                    return sekiroSplitter.getTimeInGame();
+                    return sekiroSplitter.GetTimeInGame();
                 case GameConstruction.Ds1SplitterIndex:
-                    return ds1Splitter.getTimeInGame();
+                    return ds1Splitter.GetTimeInGame();
                 case GameConstruction.Ds3SplitterIndex:
-                    return ds3Splitter.getTimeInGame();
+                    return ds3Splitter.GetTimeInGame();
                 case GameConstruction.EldenSplitterIndex:
-                    return eldenSplitter.getTimeInGame();
+                    return eldenSplitter.GetTimeInGame();
                 case GameConstruction.CelesteSplitterIndex:
-                    return celesteSplitter.getTimeInGame();
+                    return celesteSplitter.GetTimeInGame();
                 case GameConstruction.CupheadSplitterIndex:
-                    return cupSplitter.getTimeInGame();
+                    return cupSplitter.GetTimeInGame();
 
                 case GameConstruction.Ds2SplitterIndex:
                 case GameConstruction.HollowSplitterIndex:
@@ -57,7 +57,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public void setSplitterPointers(SekiroSplitter sekiroSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter)
+        public void SetSplitterPointers(SekiroSplitter sekiroSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter)
         {
             this.sekiroSplitter = sekiroSplitter;
             this.eldenSplitter = eldenSplitter;

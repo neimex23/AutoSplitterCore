@@ -2522,7 +2522,7 @@ namespace AutoSplitterCore
             this.btnRefreshDs1.TabIndex = 23;
             this.btnRefreshDs1.Text = "Refresh";
             this.btnRefreshDs1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshDs1.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshDs1.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnDesactiveAllDs1
             // 
@@ -6658,7 +6658,7 @@ namespace AutoSplitterCore
             this.btnRefreshSekiro.TabIndex = 11;
             this.btnRefreshSekiro.Text = "Refresh";
             this.btnRefreshSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshSekiro.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshSekiro.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnDesactiveSekiro
             // 
@@ -7493,7 +7493,7 @@ namespace AutoSplitterCore
             this.btnRefreshDs2.TabIndex = 23;
             this.btnRefreshDs2.Text = "Refresh";
             this.btnRefreshDs2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshDs2.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshDs2.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnDesactiveAllDs2
             // 
@@ -7583,7 +7583,7 @@ namespace AutoSplitterCore
             this.btnRefreshDS3.TabIndex = 17;
             this.btnRefreshDS3.Text = "Refresh";
             this.btnRefreshDS3.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshDS3.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshDS3.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnDesactiveAllDs3
             // 
@@ -8910,7 +8910,7 @@ namespace AutoSplitterCore
             this.btnRefreshE.TabIndex = 17;
             this.btnRefreshE.Text = "Refresh";
             this.btnRefreshE.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshE.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshE.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btn_DesactiveAllElden
             // 
@@ -9658,7 +9658,7 @@ namespace AutoSplitterCore
             this.refreshHollow.TabIndex = 17;
             this.refreshHollow.Text = "Refresh";
             this.refreshHollow.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.refreshHollow.Click += new System.EventHandler(this.refresh_Btn);
+            this.refreshHollow.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btn_DesactiveAllH
             // 
@@ -9925,7 +9925,7 @@ namespace AutoSplitterCore
             this.button2.TabIndex = 21;
             this.button2.Text = "Refresh";
             this.button2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.button2.Click += new System.EventHandler(this.refresh_Btn);
+            this.button2.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnRemoveAllCeleste
             // 
@@ -10121,7 +10121,7 @@ namespace AutoSplitterCore
             this.btnRefreshCuphead.TabIndex = 28;
             this.btnRefreshCuphead.Text = "Refresh";
             this.btnRefreshCuphead.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshCuphead.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshCuphead.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnRemoveAllCuphead
             // 
@@ -10247,7 +10247,7 @@ namespace AutoSplitterCore
             this.btnRefreshDish.TabIndex = 32;
             this.btnRefreshDish.Text = "Refresh";
             this.btnRefreshDish.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshDish.Click += new System.EventHandler(this.refresh_Btn);
+            this.btnRefreshDish.Click += new System.EventHandler(this.Refresh_Btn);
             // 
             // btnDesactiveAllDishonored
             // 

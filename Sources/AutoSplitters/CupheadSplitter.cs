@@ -44,18 +44,18 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTCuphead getDataCuphead()
+        public DTCuphead GetDataCuphead()
         {
             return this.dataCuphead;
         }
-        public void setDataCuphead(DTCuphead data, IAutoSplitterCoreInterface profile)
+        public void SetDataCuphead(DTCuphead data, IAutoSplitterCoreInterface profile)
         {
             this.dataCuphead = data;
             this._profile = profile;
             _update_timer.Tick += (sender, args) => SplitGo();
         }
 
-        public bool getCupheadStatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetCupheadStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try
@@ -91,17 +91,17 @@ namespace AutoSplitterCore
             }
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataCuphead.enableSplitting = status;
             if (status) {LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
-            if (dataCuphead.getElementToSplit().Count > 0)
+            if (dataCuphead.GetElementToSplit().Count > 0)
             {
-                foreach (var b in dataCuphead.getElementToSplit())
+                foreach (var b in dataCuphead.GetElementToSplit())
                 {
                     b.IsSplited = false;
                 }
@@ -126,13 +126,13 @@ namespace AutoSplitterCore
             dataCuphead.elementToSplit.RemoveAll(i => i.Title == element);
         }
 
-        public void clearData()
+        public void ClearData()
         {
             dataCuphead.elementToSplit.Clear();
         }
         #endregion
         #region Checking
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
             //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
             //Warning Return Time per Level and is seted to 0 after finish.
@@ -141,19 +141,19 @@ namespace AutoSplitterCore
 
         public string GetSceneName()
         {
-            if (!_StatusCuphead) getCupheadStatusProcess(0);
+            if (!_StatusCuphead) GetCupheadStatusProcess(0);
             return cup.SceneName();
         }
 
-        public bool levelCompleted()
+        public bool LevelCompleted()
         {
-            if (!_StatusCuphead) getCupheadStatusProcess(0);
+            if (!_StatusCuphead) GetCupheadStatusProcess(0);
             return _StatusCuphead && cup.LevelEnding();
         }
 
         public bool IsInGame()
         {
-            if (!_StatusCuphead) getCupheadStatusProcess(0);
+            if (!_StatusCuphead) GetCupheadStatusProcess(0);
             return _StatusCuphead && cup.InGame();
         }
         #endregion
@@ -166,7 +166,7 @@ namespace AutoSplitterCore
             });
             var task1 = new Task(() =>
             {
-                elementToSplit();
+                ElementToSplit();
             });
             taskRefresh.Start();
             task1.Start();
@@ -176,11 +176,11 @@ namespace AutoSplitterCore
         private void RefreshCuphead()
         {
             int delay = 2000;
-            getCupheadStatusProcess(0);
+            GetCupheadStatusProcess(0);
             while (dataCuphead.enableSplitting)
             {
                 Thread.Sleep(10);
-                getCupheadStatusProcess(delay);
+                GetCupheadStatusProcess(delay);
                 if (!_StatusCuphead) { delay = 2000; } else { delay = 5000; }
             }
         }
@@ -280,15 +280,15 @@ namespace AutoSplitterCore
             return shouldSplit;
         }
 
-        private void elementToSplit()
+        private void ElementToSplit()
         {
-            var ElementToSplit = dataCuphead.getElementToSplit();
+            var ElementToSplit = dataCuphead.GetElementToSplit();
             while (dataCuphead.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusCuphead && !_PracticeMode && !_ShowSettings)
                 {
-                    if (ElementToSplit != dataCuphead.getElementToSplit()) ElementToSplit = dataCuphead.getElementToSplit();
+                    if (ElementToSplit != dataCuphead.GetElementToSplit()) ElementToSplit = dataCuphead.GetElementToSplit();
                     foreach (var element in ElementToSplit)
                     {
                         if (!element.IsSplited && ElementCase(element.Title))

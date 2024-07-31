@@ -47,12 +47,12 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTDs3 getDataDs3()
+        public DTDs3 GetDataDs3()
         {
             return this.dataDs3;
         }
 
-        public void setDataDs3(DTDs3 data, IAutoSplitterCoreInterface profile)
+        public void SetDataDs3(DTDs3 data, IAutoSplitterCoreInterface profile)
         {
             this.dataDs3 = data;
             this._profile = profile;
@@ -83,7 +83,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try {
@@ -92,13 +92,13 @@ namespace AutoSplitterCore
             return _StatusDs3;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataDs3.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
             listPendingB.Clear();
             listPendingBon.Clear();
@@ -106,41 +106,41 @@ namespace AutoSplitterCore
             listPendingCf.Clear();
             listPendingP.Clear();
 
-            if (dataDs3.getBossToSplit().Count > 0)
+            if (dataDs3.GetBossToSplit().Count > 0)
             {
-                foreach (var b in dataDs3.getBossToSplit())
+                foreach (var b in dataDs3.GetBossToSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataDs3.getBonfireToSplit().Count > 0)
+            if (dataDs3.GetBonfireToSplit().Count > 0)
             {
-                foreach (var bf in dataDs3.getBonfireToSplit())
+                foreach (var bf in dataDs3.GetBonfireToSplit())
                 {
                     bf.IsSplited = false;
                 }
             }
 
-            if (dataDs3.getLvlToSplit().Count > 0)
+            if (dataDs3.GetLvlToSplit().Count > 0)
             {
-                foreach (var l in dataDs3.getLvlToSplit())
+                foreach (var l in dataDs3.GetLvlToSplit())
                 {
                     l.IsSplited = false;
                 }
             }
 
-            if (dataDs3.getFlagToSplit().Count > 0)
+            if (dataDs3.GetFlagToSplit().Count > 0)
             {
-                foreach (var cf in dataDs3.getFlagToSplit())
+                foreach (var cf in dataDs3.GetFlagToSplit())
                 {
                     cf.IsSplited = false;
                 }
             }
 
-            if (dataDs3.getPositionsToSplit().Count > 0)
+            if (dataDs3.GetPositionsToSplit().Count > 0)
             {
-                foreach (var p in dataDs3.getPositionsToSplit())
+                foreach (var p in dataDs3.GetPositionsToSplit())
                 {
                     p.IsSplited = false;
                 }
@@ -150,7 +150,7 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddBoss(string boss, string mode)
         {
-            DefinitionsDs3.BossDs3 cBoss = defD3.stringToEnumBoss(boss);
+            DefinitionsDs3.BossDs3 cBoss = defD3.StringToEnumBoss(boss);
             cBoss.Mode = mode;
             dataDs3.bossToSplit.Add(cBoss);
         }
@@ -163,7 +163,7 @@ namespace AutoSplitterCore
 
         public void AddBonfire(string Bonfire, string mode)
         {
-            DefinitionsDs3.BonfireDs3 cBonfire = defD3.stringToEnumBonfire(Bonfire);
+            DefinitionsDs3.BonfireDs3 cBonfire = defD3.StringToEnumBonfire(Bonfire);
             cBonfire.Mode = mode;
             dataDs3.bonfireToSplit.Add(cBonfire);
         }
@@ -178,7 +178,7 @@ namespace AutoSplitterCore
         {
             DefinitionsDs3.LvlDs3 cLvl = new DefinitionsDs3.LvlDs3()
             {
-                Attribute = defD3.stringToEnumAttribute(attribute),
+                Attribute = defD3.StringToEnumAttribute(attribute),
                 Mode = mode,
                 Value = value
             };
@@ -220,7 +220,7 @@ namespace AutoSplitterCore
             listPendingP.RemoveAll(iposition => iposition.vector == dataDs3.positionsToSplit[position].vector);
             dataDs3.positionsToSplit.RemoveAt(position);
         }
-        public void clearData()
+        public void ClearData()
         {
             listPendingB.Clear();
             listPendingBon.Clear();
@@ -237,19 +237,19 @@ namespace AutoSplitterCore
         #region Checking
         public bool CheckFlag(uint id)
         {
-            if (!_StatusDs3) getDs3StatusProcess(0);
+            if (!_StatusDs3) GetDs3StatusProcess(0);
             return _StatusDs3 && Ds3.ReadEventFlag(id);
         }
 
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
-            if (!_StatusDs3) getDs3StatusProcess(0);
+            if (!_StatusDs3) GetDs3StatusProcess(0);
             return Ds3.GetInGameTimeMilliseconds();
         }
 
-        public Vector3f getCurrentPosition()
+        public Vector3f GetCurrentPosition()
         {
-            if(!_StatusDs3) getDs3StatusProcess(0);
+            if(!_StatusDs3) GetDs3StatusProcess(0);
             if (!_StatusDs3)
             {
                 Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
@@ -267,30 +267,30 @@ namespace AutoSplitterCore
             });
             var taskCheckload = new Task(() =>
             {
-                checkLoad();
+                CheckLoad();
             });
             var task1 = new Task(() =>
             {
-                bossToSplit();
+                BossToSplit();
             });
             var task2 = new Task(() =>
             {
-                bonfireToSplit();
+                BonfireToSplit();
             });
 
             var task3 = new Task(() =>
             {
-                lvlToSplit();
+                LvlToSplit();
             });
 
             var task4 = new Task(() =>
             {
-                customFlagToSplit();
+                CustomFlagToSplit();
             });
 
             var task5 = new Task(() =>
             {
-                positionToSplit();
+                PositionToSplit();
             });
 
             taskRefresh.Start();
@@ -306,11 +306,11 @@ namespace AutoSplitterCore
         private void RefreshDs3()
         {           
             int delay = 2000;
-            _StatusDs3 = getDs3StatusProcess(delay);
+            _StatusDs3 = GetDs3StatusProcess(delay);
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(10);
-                getDs3StatusProcess(delay);
+                GetDs3StatusProcess(delay);
                 if (!_StatusDs3)
                 {
                     _writeMemory = false;
@@ -338,7 +338,7 @@ namespace AutoSplitterCore
         List<DefinitionsDs3.CfDs3> listPendingCf = new List<DefinitionsDs3.CfDs3>();
         List<DefinitionsDs3.PositionDs3> listPendingP = new List<DefinitionsDs3.PositionDs3>();
 
-        private void checkLoad()
+        private void CheckLoad()
         {
             while (dataDs3.enableSplitting)
             {
@@ -396,15 +396,15 @@ namespace AutoSplitterCore
             }
         }
        
-        private void bossToSplit()
+        private void BossToSplit()
         {
-            var BossToSplit = dataDs3.getBossToSplit();
+            var BossToSplit = dataDs3.GetBossToSplit();
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataDs3.getBossToSplit()) BossToSplit = dataDs3.getBossToSplit();
+                    if (BossToSplit != dataDs3.GetBossToSplit()) BossToSplit = dataDs3.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds3.ReadEventFlag(b.Id))
@@ -428,15 +428,15 @@ namespace AutoSplitterCore
         }
 
 
-        private void bonfireToSplit()
+        private void BonfireToSplit()
         {
-            var BonfireToSplit = dataDs3.getBonfireToSplit();
+            var BonfireToSplit = dataDs3.GetBonfireToSplit();
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BonfireToSplit != dataDs3.getBonfireToSplit()) BonfireToSplit = dataDs3.getBonfireToSplit();
+                    if (BonfireToSplit != dataDs3.GetBonfireToSplit()) BonfireToSplit = dataDs3.GetBonfireToSplit();
                     foreach (var bonfire in BonfireToSplit)
                     {
                         if (!bonfire.IsSplited && Ds3.ReadEventFlag(bonfire.Id))
@@ -459,15 +459,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void lvlToSplit()
+        private void LvlToSplit()
         {
-            var LvlToSplit = dataDs3.getLvlToSplit();
+            var LvlToSplit = dataDs3.GetLvlToSplit();
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (LvlToSplit != dataDs3.getLvlToSplit()) LvlToSplit = dataDs3.getLvlToSplit();
+                    if (LvlToSplit != dataDs3.GetLvlToSplit()) LvlToSplit = dataDs3.GetLvlToSplit();
                     foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds3.ReadAttribute(lvl.Attribute) >= lvl.Value)
@@ -490,15 +490,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void customFlagToSplit()
+        private void CustomFlagToSplit()
         {
-            var FlagToSplit = dataDs3.getFlagToSplit();
+            var FlagToSplit = dataDs3.GetFlagToSplit();
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (FlagToSplit != dataDs3.getFlagToSplit()) FlagToSplit = dataDs3.getFlagToSplit();
+                    if (FlagToSplit != dataDs3.GetFlagToSplit()) FlagToSplit = dataDs3.GetFlagToSplit();
                     foreach (var cf in FlagToSplit)
                     {
                         if (!cf.IsSplited && Ds3.ReadEventFlag(cf.Id))
@@ -521,15 +521,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void positionToSplit()
+        private void PositionToSplit()
         {
-            var PositionsToSplit = dataDs3.getPositionsToSplit();
+            var PositionsToSplit = dataDs3.GetPositionsToSplit();
             while (dataDs3.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusDs3 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataDs3.getPositionsToSplit()) PositionsToSplit = dataDs3.getPositionsToSplit();
+                    if (PositionsToSplit != dataDs3.GetPositionsToSplit()) PositionsToSplit = dataDs3.GetPositionsToSplit();
                     foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)

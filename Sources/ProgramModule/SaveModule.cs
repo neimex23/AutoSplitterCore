@@ -98,15 +98,15 @@ namespace AutoSplitterCore
         /// </summary>
         public void UpdateAutoSplitterData()
         {
-            dataAS.DataSekiro = sekiroSplitter.getDataSekiro();
-            dataAS.DataHollow = hollowSplitter.getDataHollow();
-            dataAS.DataElden = eldenSplitter.getDataElden();
-            dataAS.DataDs3 = ds3Splitter.getDataDs3();
-            dataAS.DataDs2 = ds2Splitter.getDataDs2();
-            dataAS.DataDs1 = ds1Splitter.getDataDs1();
-            dataAS.DataCeleste = celesteSplitter.getDataCeleste();
-            dataAS.DataCuphead = cupSplitter.getDataCuphead();
-            dataAS.DataDishonored = dishonoredSplitter.getDataDishonored();
+            dataAS.DataSekiro = sekiroSplitter.GetDataSekiro();
+            dataAS.DataHollow = hollowSplitter.GetDataHollow();
+            dataAS.DataElden = eldenSplitter.GetDataElden();
+            dataAS.DataDs3 = ds3Splitter.GetDataDs3();
+            dataAS.DataDs2 = ds2Splitter.GetDataDs2();
+            dataAS.DataDs1 = ds1Splitter.GetDataDs1();
+            dataAS.DataCeleste = celesteSplitter.GetDataCeleste();
+            dataAS.DataCuphead = cupSplitter.GetDataCuphead();
+            dataAS.DataDishonored = dishonoredSplitter.GetDataDishonored();
             dataAS.PracticeMode = _PracticeMode;
             dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
         }
@@ -186,15 +186,15 @@ namespace AutoSplitterCore
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
-            sekiroSplitter.setDataSekiro(dataSekiro, profiles);
-            hollowSplitter.setDataHollow(dataHollow, profiles);
-            eldenSplitter.setDataElden(dataElden, profiles);
-            ds3Splitter.setDataDs3(dataDs3, profiles);
-            ds2Splitter.setDataDs2(dataDs2, profiles);
-            ds1Splitter.setDataDs1(dataDs1, profiles);
-            celesteSplitter.setDataCeleste(dataCeleste, profiles);
-            cupSplitter.setDataCuphead(dataCuphead, profiles);
-            dishonoredSplitter.setDataDishonored(dataDishonored, profiles);
+            sekiroSplitter.SetDataSekiro(dataSekiro, profiles);
+            hollowSplitter.SetDataHollow(dataHollow, profiles);
+            eldenSplitter.SetDataElden(dataElden, profiles);
+            ds3Splitter.SetDataDs3(dataDs3, profiles);
+            ds2Splitter.SetDataDs2(dataDs2, profiles);
+            ds1Splitter.SetDataDs1(dataDs1, profiles);
+            celesteSplitter.SetDataCeleste(dataCeleste, profiles);
+            cupSplitter.SetDataCuphead(dataCuphead, profiles);
+            dishonoredSplitter.SetDataDishonored(dataDishonored, profiles);
           
         }
 

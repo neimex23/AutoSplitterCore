@@ -52,9 +52,6 @@ namespace AutoSplitterCore
         //Flags to Split
         public List<DefinitionsCeleste.ElementToSplitCeleste> chapterToSplit = new List<DefinitionsCeleste.ElementToSplitCeleste>();
 
-        public List<DefinitionsCeleste.ElementToSplitCeleste> getChapterToSplit()
-        {
-            return this.chapterToSplit;
-        }
+        public List<DefinitionsCeleste.ElementToSplitCeleste> GetChapterToSplit() => this.chapterToSplit;
     }
 }

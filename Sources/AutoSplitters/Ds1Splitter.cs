@@ -47,12 +47,12 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTDs1 getDataDs1()
+        public DTDs1 GetDataDs1()
         {
             return this.dataDs1;
         }
 
-        public void setDataDs1(DTDs1 data, IAutoSplitterCoreInterface profile)
+        public void SetDataDs1(DTDs1 data, IAutoSplitterCoreInterface profile)
         {
             this.dataDs1 = data;
             this._profile = profile;
@@ -83,7 +83,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try
@@ -94,13 +94,13 @@ namespace AutoSplitterCore
             return _StatusDs1;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataDs1.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
             listPendingB.Clear();
             listPendingBon.Clear();
@@ -108,41 +108,41 @@ namespace AutoSplitterCore
             listPendingP.Clear();
             listPendingItem.Clear();
 
-            if (dataDs1.getBossToSplit().Count > 0)
+            if (dataDs1.GetBossToSplit().Count > 0)
             {
-                foreach (var b in dataDs1.getBossToSplit())
+                foreach (var b in dataDs1.GetBossToSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataDs1.getBonfireToSplit().Count > 0)
+            if (dataDs1.GetBonfireToSplit().Count > 0)
             {
-                foreach (var bf in dataDs1.getBonfireToSplit())
+                foreach (var bf in dataDs1.GetBonfireToSplit())
                 {
                     bf.IsSplited = false;
                 }
             }
 
-            if (dataDs1.getLvlToSplit().Count > 0)
+            if (dataDs1.GetLvlToSplit().Count > 0)
             {
-                foreach (var l in dataDs1.getLvlToSplit())
+                foreach (var l in dataDs1.GetLvlToSplit())
                 {
                     l.IsSplited = false;
                 }
             }
 
-            if (dataDs1.getPositionsToSplit().Count > 0)
+            if (dataDs1.GetPositionsToSplit().Count > 0)
             {
-                foreach (var p in dataDs1.getPositionsToSplit())
+                foreach (var p in dataDs1.GetPositionsToSplit())
                 {
                     p.IsSplited = false;
                 }
             }
 
-            if (dataDs1.getItemsToSplit().Count > 0)
+            if (dataDs1.GetItemsToSplit().Count > 0)
             {
-                foreach (var i in dataDs1.getItemsToSplit())
+                foreach (var i in dataDs1.GetItemsToSplit())
                 {
                     i.IsSplited = false;
                 }
@@ -152,7 +152,7 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddBoss(string boss, string mode)
         {
-            DefinitionsDs1.BossDs1 cBoss = defDs1.stringToEnumBoss(boss);
+            DefinitionsDs1.BossDs1 cBoss = defDs1.StringToEnumBoss(boss);
             cBoss.Mode = mode;
             dataDs1.bossToSplit.Add(cBoss);
         }
@@ -165,15 +165,15 @@ namespace AutoSplitterCore
 
         public void AddBonfire(string Bonfire, string mode,string state)
         {
-            DefinitionsDs1.BonfireDs1 cBonfire = defDs1.stringToEnumBonfire(Bonfire);
+            DefinitionsDs1.BonfireDs1 cBonfire = defDs1.StringToEnumBonfire(Bonfire);
             cBonfire.Mode = mode;
-            cBonfire.Value = defDs1.stringtoEnumBonfireState(state);
+            cBonfire.Value = defDs1.StringtoEnumBonfireState(state);
             dataDs1.bonfireToSplit.Add(cBonfire);
         }
 
-        public BonfireState convertStringToState(string state)
+        public BonfireState ConvertStringToState(string state)
         {
-            return defDs1.stringtoEnumBonfireState(state);
+            return defDs1.StringtoEnumBonfireState(state);
         }
 
         public void RemoveBonfire(int position)
@@ -186,7 +186,7 @@ namespace AutoSplitterCore
         {
             DefinitionsDs1.LvlDs1 cLvl = new DefinitionsDs1.LvlDs1()
             {
-                Attribute = defDs1.stringToEnumAttribute(attribute),
+                Attribute = defDs1.StringToEnumAttribute(attribute),
                 Mode = mode,
                 Value = value
             };
@@ -218,7 +218,7 @@ namespace AutoSplitterCore
 
         public void AddItem(string item, string mode)
         {
-            DefinitionsDs1.ItemDs1 cItem = defDs1.stringToEnumItem(item);
+            DefinitionsDs1.ItemDs1 cItem = defDs1.StringToEnumItem(item);
             cItem.Mode = mode;
             dataDs1.itemToSplit.Add(cItem);
         }
@@ -229,7 +229,7 @@ namespace AutoSplitterCore
             dataDs1.itemToSplit.RemoveAt(position);
         }
 
-        public void clearData()
+        public void ClearData()
         {
             listPendingB.Clear();
             listPendingBon.Clear();
@@ -246,15 +246,15 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Checking
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
-            if (!_StatusDs1) getDs1StatusProcess(0);
+            if (!_StatusDs1) GetDs1StatusProcess(0);
             return Ds1.GetInGameTimeMilliseconds();
         }
 
-        public Vector3f getCurrentPosition()
+        public Vector3f GetCurrentPosition()
         {
-            if (!_StatusDs1) getDs1StatusProcess(0);
+            if (!_StatusDs1) GetDs1StatusProcess(0);
             if (!_StatusDs1)
             {
                 return new Vector3f() { X = 0, Y = 0, Z = 0 };
@@ -264,7 +264,7 @@ namespace AutoSplitterCore
 
         public bool CheckFlag(uint id)
         {
-            if (!_StatusDs1) getDs1StatusProcess(0);
+            if (!_StatusDs1) GetDs1StatusProcess(0);
             return _StatusDs1 && Ds1.ReadEventFlag(id);
         }
         #endregion
@@ -277,34 +277,34 @@ namespace AutoSplitterCore
             });
             var taskCheckload = new Task(() =>
             {
-                checkLoad();
+                CheckLoad();
             });
             var taskInventorySee = new Task(() =>
             {
-                inventorySee();
+                InventorySee();
             });
             var task1 = new Task(() =>
             {
-                bossToSplit();
+                BossToSplit();
             });
             var task2 = new Task(() =>
             {
-                bonfireToSplit();
+                BonfireToSplit();
             });
 
             var task3 = new Task(() =>
             {
-                lvlToSplit();
+                LvlToSplit();
             });
 
             var task4 = new Task(() =>
             {
-                positionToSplit();
+                PositionToSplit();
             });
 
             var task5 = new Task(() =>
             {
-                itemToSplit();
+                ItemToSplit();
             });
 
 
@@ -323,11 +323,11 @@ namespace AutoSplitterCore
         private void RefreshDs1()
         {
             int delay = 2000;
-            getDs1StatusProcess(delay);
+            GetDs1StatusProcess(delay);
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(10);
-                getDs1StatusProcess(delay);
+                GetDs1StatusProcess(delay);
                 if (!_StatusDs1)
                 {
                     delay = 2000;
@@ -339,7 +339,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public void inventorySee()
+        public void InventorySee()
         {
             while (dataDs1.enableSplitting)
             {
@@ -354,7 +354,7 @@ namespace AutoSplitterCore
         List<DefinitionsDs1.PositionDs1> listPendingP = new List<DefinitionsDs1.PositionDs1>();
         List<DefinitionsDs1.ItemDs1> listPendingItem = new List<DefinitionsDs1.ItemDs1>();
 
-        private void checkLoad()
+        private void CheckLoad()
         {
             while (dataDs1.enableSplitting)
             {
@@ -411,15 +411,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void bossToSplit()
+        private void BossToSplit()
         {
-            var BossToSplit = dataDs1.getBossToSplit();
+            var BossToSplit = dataDs1.GetBossToSplit();
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if(BossToSplit != dataDs1.getBossToSplit()) BossToSplit = dataDs1.getBossToSplit();
+                    if(BossToSplit != dataDs1.GetBossToSplit()) BossToSplit = dataDs1.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds1.ReadEventFlag(b.Id))
@@ -442,15 +442,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void bonfireToSplit()
+        private void BonfireToSplit()
         {
-            var BonfireToSplit = dataDs1.getBonfireToSplit();
+            var BonfireToSplit = dataDs1.GetBonfireToSplit();
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BonfireToSplit != dataDs1.getBonfireToSplit()) BonfireToSplit = dataDs1.getBonfireToSplit();
+                    if (BonfireToSplit != dataDs1.GetBonfireToSplit()) BonfireToSplit = dataDs1.GetBonfireToSplit();
                     foreach (var bonfire in BonfireToSplit)
                     {
                         Bonfire aux = bonfire.Id;
@@ -474,15 +474,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void lvlToSplit()
+        private void LvlToSplit()
         {
-            var LvlToSplit = dataDs1.getLvlToSplit();
+            var LvlToSplit = dataDs1.GetLvlToSplit();
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (LvlToSplit != dataDs1.getLvlToSplit()) LvlToSplit = dataDs1.getLvlToSplit();
+                    if (LvlToSplit != dataDs1.GetLvlToSplit()) LvlToSplit = dataDs1.GetLvlToSplit();
                     foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds1.GetAttribute(lvl.Attribute) >= lvl.Value)
@@ -505,15 +505,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void positionToSplit()
+        private void PositionToSplit()
         {
-            var PositionsToSplit = dataDs1.getPositionsToSplit();
+            var PositionsToSplit = dataDs1.GetPositionsToSplit();
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataDs1.getPositionsToSplit()) PositionsToSplit = dataDs1.getPositionsToSplit();
+                    if (PositionsToSplit != dataDs1.GetPositionsToSplit()) PositionsToSplit = dataDs1.GetPositionsToSplit();
                     foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)
@@ -1244,15 +1244,15 @@ namespace AutoSplitterCore
             new Item("Help me! Carving"                                 ,      514, ItemType.HelpmeCarving                         , ItemCategory.UsableItems     ,   1, ItemUpgrade.None               )
         };
         #endregion
-        private void itemToSplit()
+        private void ItemToSplit()
         {
-            var ItemsToSplit = dataDs1.getItemsToSplit();
+            var ItemsToSplit = dataDs1.GetItemsToSplit();
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (ItemsToSplit != dataDs1.getItemsToSplit()) ItemsToSplit = dataDs1.getItemsToSplit();
+                    if (ItemsToSplit != dataDs1.GetItemsToSplit()) ItemsToSplit = dataDs1.GetItemsToSplit();
                     foreach (var item in ItemsToSplit)
                     {
                         Item aux = allItems.Find(i => i.Id == item.Id);

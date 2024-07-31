@@ -38,7 +38,7 @@ namespace AutoSplitterCore
 
         }
 
-        public BossER stringToEnumBoss(string boss)
+        public BossER StringToEnumBoss(string boss)
         {
             var bossMapping = new Dictionary<string, (string Title, uint Id)>
             {
@@ -276,7 +276,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public GraceER stringToGraceEnum(string grace)
+        public GraceER StringToGraceEnum(string grace)
         {
             var graceMapping = new Dictionary<string, (string Title, uint Id)>
             {
@@ -751,24 +751,12 @@ namespace AutoSplitterCore
         public List<DefinitionsElden.CustomFlagER> flagsToSplit = new List<DefinitionsElden.CustomFlagER>();
 
 
-        public List<DefinitionsElden.BossER> getBossToSplit()
-        {
-            return this.bossToSplit;
-        }
+        public List<DefinitionsElden.BossER> GetBossToSplit() => this.bossToSplit;
 
-        public List<DefinitionsElden.GraceER> getGraceToSplit()
-        {
-            return this.graceToSplit;
-        }
+        public List<DefinitionsElden.GraceER> GetGraceToSplit() => this.graceToSplit;
 
-        public List<DefinitionsElden.PositionER> getPositionToSplit()
-        {
-            return this.positionToSplit;
-        }
+        public List<DefinitionsElden.PositionER> GetPositionToSplit() => this.positionToSplit;
 
-        public List<DefinitionsElden.CustomFlagER> getFlagsToSplit()
-        {
-            return this.flagsToSplit;
-        }
+        public List<DefinitionsElden.CustomFlagER> GetFlagsToSplit() => this.flagsToSplit;
     }
 }

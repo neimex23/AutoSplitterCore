@@ -38,7 +38,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public BossDs3 stringToEnumBoss(string boss)
+        public BossDs3 StringToEnumBoss(string boss)
         {
             var bossMapping = new Dictionary<string, (string Title, uint Id)> 
             {
@@ -89,7 +89,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public BonfireDs3 stringToEnumBonfire(string Bonfire)
+        public BonfireDs3 StringToEnumBonfire(string Bonfire)
         {
             var bonfireMapping = new Dictionary<string, (string Title, uint Id)> 
             {
@@ -192,7 +192,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public SoulMemory.DarkSouls3.Attribute stringToEnumAttribute(string attribute)
+        public SoulMemory.DarkSouls3.Attribute StringToEnumAttribute(string attribute)
         {
             switch (attribute)
             {
@@ -258,29 +258,14 @@ namespace AutoSplitterCore
         public List<DefinitionsDs3.CfDs3> flagToSplit = new List<DefinitionsDs3.CfDs3>();
         public List<DefinitionsDs3.PositionDs3> positionsToSplit = new List<DefinitionsDs3.PositionDs3>();
 
-        public List<DefinitionsDs3.BossDs3> getBossToSplit()
-        {
-            return this.bossToSplit;
-        }
+        public List<DefinitionsDs3.BossDs3> GetBossToSplit() => this.bossToSplit;
 
-        public List<DefinitionsDs3.BonfireDs3> getBonfireToSplit()
-        {
-            return this.bonfireToSplit;
-        }
+        public List<DefinitionsDs3.BonfireDs3> GetBonfireToSplit() => this.bonfireToSplit;
 
-        public List<DefinitionsDs3.LvlDs3> getLvlToSplit()
-        {
-            return this.lvlToSplit;
-        }
+        public List<DefinitionsDs3.LvlDs3> GetLvlToSplit() => this.lvlToSplit;
 
-        public List<DefinitionsDs3.CfDs3> getFlagToSplit()
-        {
-            return this.flagToSplit;
-        }
+        public List<DefinitionsDs3.CfDs3> GetFlagToSplit() => this.flagToSplit;
 
-        public List<DefinitionsDs3.PositionDs3> getPositionsToSplit()
-        {
-            return this.positionsToSplit;
-        }
+        public List<DefinitionsDs3.PositionDs3> GetPositionsToSplit() => this.positionsToSplit;
     }
 }

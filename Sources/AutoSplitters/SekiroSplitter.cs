@@ -48,12 +48,12 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTSekiro getDataSekiro()
+        public DTSekiro GetDataSekiro()
         {
             return this.dataSekiro;
         }
 
-        public void setDataSekiro(DTSekiro data, IAutoSplitterCoreInterface profile)
+        public void SetDataSekiro(DTSekiro data, IAutoSplitterCoreInterface profile)
         {
             this.dataSekiro = data;
             this._profile = profile;
@@ -84,7 +84,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try
@@ -94,13 +94,13 @@ namespace AutoSplitterCore
             return _StatusSekiro;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataSekiro.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
             listPendingB.Clear();
             listPendingI.Clear();
@@ -108,54 +108,54 @@ namespace AutoSplitterCore
             listPendingCf.Clear();
             listPendingMb.Clear();
 
-            if (dataSekiro.getBossToSplit().Count > 0)
+            if (dataSekiro.GetBossToSplit().Count > 0)
             {
-                foreach (var b in dataSekiro.getBossToSplit())
+                foreach (var b in dataSekiro.GetBossToSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataSekiro.getidolsTosplit().Count > 0)
+            if (dataSekiro.GetidolsTosplit().Count > 0)
             {
-                foreach (var b in dataSekiro.getidolsTosplit())
+                foreach (var b in dataSekiro.GetidolsTosplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataSekiro.getPositionsToSplit().Count > 0)
+            if (dataSekiro.GetPositionsToSplit().Count > 0)
             {
-                foreach (var p in dataSekiro.getPositionsToSplit())
+                foreach (var p in dataSekiro.GetPositionsToSplit())
                 {
                     p.IsSplited = false;
                 }
             }
 
-            if (dataSekiro.getFlagToSplit().Count > 0)
+            if (dataSekiro.GetFlagToSplit().Count > 0)
             {
-                foreach (var cf in dataSekiro.getFlagToSplit())
+                foreach (var cf in dataSekiro.GetFlagToSplit())
                 {
                     cf.IsSplited = false;
                 }
             }
 
-            if (dataSekiro.getMiniBossToSplit().Count > 0)
+            if (dataSekiro.GetMiniBossToSplit().Count > 0)
             {
-                foreach (var mb in dataSekiro.getMiniBossToSplit())
+                foreach (var mb in dataSekiro.GetMiniBossToSplit())
                 {
                     mb.IsSplited = false;
                 }
             }
             index = 0;
-            notSplited(ref MortalJourneyData);
+            NotSplited(ref MortalJourneyData);
             PendingMortal.Clear();
         }
         #endregion
         #region Object Management
         public void AddIdol(string idol,string mode)
         {
-            DefinitionsSekiro.Idol cIdol = defS.idolToEnum(idol);
+            DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(idol);
             cIdol.Mode = mode;
             dataSekiro.idolsTosplit.Add(cIdol);
         }
@@ -171,7 +171,7 @@ namespace AutoSplitterCore
         public void AddPosition(float X, float Y, float Z , string mode, string title)
         {
             var position = new DefinitionsSekiro.PositionS();
-            position.setVector(new Vector3f(X,Y,Z));
+            position.SetVector(new Vector3f(X,Y,Z));
             position.Mode = mode;
             position.Title = title;
             dataSekiro.positionsToSplit.Add(position);
@@ -214,11 +214,11 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Blazing Bull":
-                    mBoss.Id = defS.idolToEnum("Ashina Castle").Id;
+                    mBoss.Id = defS.IdolToEnum("Ashina Castle").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Shigekichi of the Red Guard":
-                    mBoss.Id = defS.idolToEnum("Flames of Hatred").Id;
+                    mBoss.Id = defS.IdolToEnum("Flames of Hatred").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Shinobi Hunter Enshin of Misen":
@@ -226,7 +226,7 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Juzou the Drunkard":
-                    mBoss.Id = defS.idolToEnum("Hirata Audience Chamber").Id;
+                    mBoss.Id = defS.IdolToEnum("Hirata Audience Chamber").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Lone Shadow Masanaga the Spear-Bearer":
@@ -274,7 +274,7 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Shichimen Warrior - Abandoned Dungeon":
-                    mBoss.Id = defS.idolToEnum("Bottomless Hole").Id;
+                    mBoss.Id = defS.IdolToEnum("Bottomless Hole").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Armored Warrior":
@@ -294,7 +294,7 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Snake Eyes Shirahagi":
-                    mBoss.Id = defS.idolToEnum("Hidden Forest").Id;
+                    mBoss.Id = defS.IdolToEnum("Hidden Forest").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Shichimen Warrior - Ashina Depths":
@@ -326,7 +326,7 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Headless Yashariku":
-                    mBoss.Id = defS.idolToEnum("Flower Viewing Stage").Id;
+                    mBoss.Id = defS.IdolToEnum("Flower Viewing Stage").Id;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Shichimen Warrior - Fountainhead Palace":
@@ -416,7 +416,7 @@ namespace AutoSplitterCore
         
         public void RemoveIdol (string fidol)
         {
-            DefinitionsSekiro.Idol cIdol = defS.idolToEnum(fidol);
+            DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(fidol);
             listPendingI.RemoveAll(idol => idol.Id == cIdol.Id);
             dataSekiro.idolsTosplit.RemoveAll(idol => idol.Id == cIdol.Id);
                       
@@ -424,7 +424,7 @@ namespace AutoSplitterCore
 
         public string FindIdol(string fidol)
         {
-            DefinitionsSekiro.Idol cIdol = defS.idolToEnum(fidol);
+            DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(fidol);
             var idolReturn = dataSekiro.idolsTosplit.Find(idol => idol.Id == cIdol.Id);
             if (idolReturn == null)
             {
@@ -433,12 +433,12 @@ namespace AutoSplitterCore
             else { return idolReturn.Mode; }         
         }
 
-        public void setPositionMargin(int select)
+        public void SetPositionMargin(int select)
         {
             dataSekiro.positionMargin = select;
         }
 
-        public void clearData()
+        public void ClearData()
         {
             listPendingB.Clear();
             listPendingI.Clear();
@@ -451,16 +451,16 @@ namespace AutoSplitterCore
             dataSekiro.positionsToSplit.Clear();
             dataSekiro.flagToSplit.Clear();
             dataSekiro.miniBossToSplit.Clear();
-            notSplited(ref MortalJourneyData);
+            NotSplited(ref MortalJourneyData);
             dataSekiro.positionMargin = 3;
             dataSekiro.mortalJourneyRun = false;
             index = 0;
         }
         #endregion
         #region Checking
-        public Vector3f getCurrentPosition()
+        public Vector3f GetCurrentPosition()
         {
-            if (!_StatusSekiro) getSekiroStatusProcess(0);
+            if (!_StatusSekiro) GetSekiroStatusProcess(0);
             if (!_StatusSekiro)
             {
                 Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
@@ -469,15 +469,15 @@ namespace AutoSplitterCore
             return sekiro.GetPlayerPosition();
         }
 
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
-            if (!_StatusSekiro) getSekiroStatusProcess(0);
+            if (!_StatusSekiro) GetSekiroStatusProcess(0);
             return sekiro.GetInGameTimeMilliseconds();
         }
 
         public bool CheckFlag(uint id)
         {
-            if(!_StatusSekiro) getSekiroStatusProcess(0);
+            if(!_StatusSekiro) GetSekiroStatusProcess(0);
             return _StatusSekiro && sekiro.ReadEventFlag(id);
         }
         #endregion
@@ -490,7 +490,7 @@ namespace AutoSplitterCore
             });
             var taskCheckload = new Task(() =>
             {
-                checkLoad();
+                CheckLoad();
             });
             var task1 = new Task(() =>
             {
@@ -506,7 +506,7 @@ namespace AutoSplitterCore
             });
             var task4 = new Task(() =>
             {
-                customFlagToSplit();
+                CustomFlagToSplit();
             });
             var task5 = new Task(() =>
             {
@@ -531,11 +531,11 @@ namespace AutoSplitterCore
         private void RefreshSekiro()
         {
             int delay = 2000;
-            getSekiroStatusProcess(delay);
+            GetSekiroStatusProcess(delay);
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(10);
-               getSekiroStatusProcess(delay);
+               GetSekiroStatusProcess(delay);
                 if (!_StatusSekiro)
                 {
                     _writeMemory = false;
@@ -564,7 +564,7 @@ namespace AutoSplitterCore
         List<DefinitionsSekiro.MiniBossS> listPendingMb = new List<DefinitionsSekiro.MiniBossS>();
 
 
-        private void checkLoad()
+        private void CheckLoad()
         {
             while (dataSekiro.enableSplitting)
             {
@@ -623,13 +623,13 @@ namespace AutoSplitterCore
 
         private void BossSplit()
         {
-            var BossToSplit = dataSekiro.getBossToSplit();
+            var BossToSplit = dataSekiro.GetBossToSplit();
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if(BossToSplit != dataSekiro.getBossToSplit()) BossToSplit = dataSekiro.getBossToSplit();
+                    if(BossToSplit != dataSekiro.GetBossToSplit()) BossToSplit = dataSekiro.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && sekiro.ReadEventFlag(b.Id))
@@ -654,13 +654,13 @@ namespace AutoSplitterCore
 
         private void MiniBossSplit()
         {
-            var MiniBossToSplit = dataSekiro.getMiniBossToSplit();
+            var MiniBossToSplit = dataSekiro.GetMiniBossToSplit();
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (MiniBossToSplit != dataSekiro.getMiniBossToSplit()) MiniBossToSplit = dataSekiro.getMiniBossToSplit();
+                    if (MiniBossToSplit != dataSekiro.GetMiniBossToSplit()) MiniBossToSplit = dataSekiro.GetMiniBossToSplit();
                     foreach (var mb in MiniBossToSplit)
                     {
                         if (!mb.IsSplited)
@@ -732,7 +732,7 @@ namespace AutoSplitterCore
             new DefinitionsSekiro.PositionS(){vector = new Vector3f((float)-372.1677, (float)-46.28377, (float)184.5305)}, //Inner Isshin
         };
 
-        private void notSplited(ref List<DefinitionsSekiro.PositionS> p)
+        private void NotSplited(ref List<DefinitionsSekiro.PositionS> p)
         {
             foreach (var i in p)
             {
@@ -791,7 +791,7 @@ namespace AutoSplitterCore
                     else
                     {
                         index = 0;
-                        notSplited(ref MortalJourneyData);
+                        NotSplited(ref MortalJourneyData);
                     }
                 }
             }
@@ -799,13 +799,13 @@ namespace AutoSplitterCore
 
         private void IdolSplit()
         {
-            var IdolsToSplit = dataSekiro.getidolsTosplit();
+            var IdolsToSplit = dataSekiro.GetidolsTosplit();
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (IdolsToSplit != dataSekiro.getidolsTosplit()) IdolsToSplit = dataSekiro.getidolsTosplit();
+                    if (IdolsToSplit != dataSekiro.GetidolsTosplit()) IdolsToSplit = dataSekiro.GetidolsTosplit();
                     foreach (var i in IdolsToSplit)
                     {
                         if (!i.IsSplited && sekiro.ReadEventFlag(i.Id))
@@ -829,13 +829,13 @@ namespace AutoSplitterCore
         }
 
         private void PositionSplit() {
-            var PositionsToSplit = dataSekiro.getPositionsToSplit();
+            var PositionsToSplit = dataSekiro.GetPositionsToSplit();
             while (dataSekiro.enableSplitting)
             {              
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataSekiro.getPositionsToSplit()) PositionsToSplit = dataSekiro.getPositionsToSplit();
+                    if (PositionsToSplit != dataSekiro.GetPositionsToSplit()) PositionsToSplit = dataSekiro.GetPositionsToSplit();
                     foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)
@@ -865,15 +865,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void customFlagToSplit()
+        private void CustomFlagToSplit()
         {
-            var FlagToSplit = dataSekiro.getFlagToSplit();
+            var FlagToSplit = dataSekiro.GetFlagToSplit();
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (FlagToSplit != dataSekiro.getFlagToSplit()) FlagToSplit = dataSekiro.getFlagToSplit();
+                    if (FlagToSplit != dataSekiro.GetFlagToSplit()) FlagToSplit = dataSekiro.GetFlagToSplit();
                     foreach (var cf in FlagToSplit)
                     {
                         if (!cf.IsSplited && sekiro.ReadEventFlag(cf.Id))

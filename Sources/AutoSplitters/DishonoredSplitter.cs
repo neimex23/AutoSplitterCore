@@ -45,24 +45,24 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTDishonored getDataDishonored()
+        public DTDishonored GetDataDishonored()
         {
             return this.dataDish;
         }
 
-        public void setDataDishonored(DTDishonored data, IAutoSplitterCoreInterface profile)
+        public void SetDataDishonored(DTDishonored data, IAutoSplitterCoreInterface profile)
         {
             this.dataDish = data;
             this._profile = profile;
             _update_timer.Tick += (sender, args) => SplitGo();
-            _update_timer.Tick += (sender, args) => getDishonoredStatusProcess();
+            _update_timer.Tick += (sender, args) => GetDishonoredStatusProcess();
             Dish.OnFirstLevelLoading += Dish_OnFirstLevelLoading;
             Dish.OnPlayerGainedControl += Dish_OnPlayerGainedControl;
             Dish.OnLoadStarted += Dish_OnLoadStarted;
             Dish.OnAreaCompleted += Dish_OnAreaCompleted;
         }
 
-        public bool getDishonoredStatusProcess()
+        public bool GetDishonoredStatusProcess()
         {
             try
             {
@@ -94,7 +94,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataDish.enableSplitting = status;
             if (status) { _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
@@ -103,19 +103,19 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddElement(string Element)
         {
-            int index = dataDish.getOptionToSplit().FindIndex(i => Element == i.Option);
-            dataDish.getOptionToSplit()[index].Enable = true;
+            int index = dataDish.GetOptionToSplit().FindIndex(i => Element == i.Option);
+            dataDish.GetOptionToSplit()[index].Enable = true;
         }
 
         public void RemoveElement(string Element)
         {
-            int index = dataDish.getOptionToSplit().FindIndex(i => Element == i.Option);
-            dataDish.getOptionToSplit()[index].Enable = false;
+            int index = dataDish.GetOptionToSplit().FindIndex(i => Element == i.Option);
+            dataDish.GetOptionToSplit()[index].Enable = false;
         }
 
-        public void clearData()
+        public void ClearData()
         {
-            foreach (var i in dataDish.getOptionToSplit())
+            foreach (var i in dataDish.GetOptionToSplit())
             {
                 i.Enable = false;
             }

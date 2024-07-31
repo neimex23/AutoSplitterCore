@@ -121,7 +121,7 @@ namespace AutoSplitterCore
                 this.IsSplited = false;
             }
         }
-        public Idol idolToEnum(string NIdol)
+        public Idol IdolToEnum(string NIdol)
         {
             Idol idol = new Idol();
             switch (NIdol)
@@ -311,10 +311,7 @@ namespace AutoSplitterCore
             public bool IsSplited = false;
             public string Mode;
             public string Title;
-            public void setVector(Vector3f vector)
-            {
-                this.vector = vector;
-            }
+            public void SetVector(Vector3f vector) => this.vector = vector;
         }
 
 
@@ -369,29 +366,14 @@ namespace AutoSplitterCore
 
 
 
-        public List<DefinitionsSekiro.BossS> getBossToSplit()
-        {
-            return this.bossToSplit;
-        }
+        public List<DefinitionsSekiro.BossS> GetBossToSplit() => this.bossToSplit;
 
-        public List<DefinitionsSekiro.Idol> getidolsTosplit()
-        {
-            return this.idolsTosplit;
-        }
+        public List<DefinitionsSekiro.Idol> GetidolsTosplit() => this.idolsTosplit;
 
-        public List<DefinitionsSekiro.PositionS> getPositionsToSplit()
-        {
-            return this.positionsToSplit;
-        }
+        public List<DefinitionsSekiro.PositionS> GetPositionsToSplit() => this.positionsToSplit;
 
-        public List<DefinitionsSekiro.CfSk> getFlagToSplit()
-        {
-            return this.flagToSplit;
-        }
+        public List<DefinitionsSekiro.CfSk> GetFlagToSplit() => this.flagToSplit;
 
-        public List<DefinitionsSekiro.MiniBossS> getMiniBossToSplit()
-        {
-            return this.miniBossToSplit;
-        }
+        public List<DefinitionsSekiro.MiniBossS> GetMiniBossToSplit() => this.miniBossToSplit;
     }
 }

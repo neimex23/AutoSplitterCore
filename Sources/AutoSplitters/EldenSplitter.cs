@@ -46,12 +46,12 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTElden getDataElden()
+        public DTElden GetDataElden()
         {
             return this.dataElden;
         }
 
-        public void setDataElden(DTElden data, IAutoSplitterCoreInterface profile)
+        public void SetDataElden(DTElden data, IAutoSplitterCoreInterface profile)
         {
             this.dataElden = data;
             this._profile = profile;
@@ -81,7 +81,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try { 
@@ -90,51 +90,51 @@ namespace AutoSplitterCore
             return _StatusElden;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataElden.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void setPositionMargin(int select)
+        public void SetPositionMargin(int select)
         {
             dataElden.positionMargin = select;
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
             listPendingB.Clear();
             listPendingG.Clear();
             listPendingP.Clear();
             listPendingCf.Clear();
 
-            if (dataElden.getBossToSplit().Count > 0)
+            if (dataElden.GetBossToSplit().Count > 0)
             {
-                foreach (var b in dataElden.getBossToSplit())
+                foreach (var b in dataElden.GetBossToSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataElden.getGraceToSplit().Count > 0)
+            if (dataElden.GetGraceToSplit().Count > 0)
             {
-                foreach (var g in dataElden.getGraceToSplit())
+                foreach (var g in dataElden.GetGraceToSplit())
                 {
                     g.IsSplited = false;
                 }
             }
 
-            if (dataElden.getPositionToSplit().Count > 0)
+            if (dataElden.GetPositionToSplit().Count > 0)
             {
-                foreach (var p in dataElden.getPositionToSplit())
+                foreach (var p in dataElden.GetPositionToSplit())
                 {
                     p.IsSplited = false;
                 }
             }
 
-            if (dataElden.getFlagsToSplit().Count > 0)
+            if (dataElden.GetFlagsToSplit().Count > 0)
             {
-                foreach (var cf in dataElden.getFlagsToSplit())
+                foreach (var cf in dataElden.GetFlagsToSplit())
                 {
                     cf.IsSplited = false;
                 }
@@ -144,14 +144,14 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddBoss(string boss, string mode)
         {
-            DefinitionsElden.BossER cBoss = defE.stringToEnumBoss(boss);
+            DefinitionsElden.BossER cBoss = defE.StringToEnumBoss(boss);
             cBoss.Mode = mode;
             dataElden.bossToSplit.Add(cBoss);
         }
 
         public void AddGrace (string grace, string mode)
         {
-            DefinitionsElden.GraceER cGrace = defE.stringToGraceEnum(grace);
+            DefinitionsElden.GraceER cGrace = defE.StringToGraceEnum(grace);
             cGrace.Mode = mode;
             dataElden.graceToSplit.Add(cGrace);
         }
@@ -192,7 +192,7 @@ namespace AutoSplitterCore
             listPendingCf.RemoveAll(iCf => iCf.Id == dataElden.flagsToSplit[position].Id);
             dataElden.flagsToSplit.RemoveAt(position);
         }
-        public void clearData()
+        public void ClearData()
         {
             listPendingB.Clear();
             listPendingG.Clear();
@@ -206,9 +206,9 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Checking
-        public SoulMemory.EldenRing.Position getCurrentPosition()
+        public SoulMemory.EldenRing.Position GetCurrentPosition()
         {
-            if (!_StatusElden) getEldenStatusProcess(0);
+            if (!_StatusElden) GetEldenStatusProcess(0);
             if (!_StatusElden)
             {
                 SoulMemory.EldenRing.Position vector = new SoulMemory.EldenRing.Position() { X = 0, Y = 0, Z = 0 };
@@ -217,15 +217,15 @@ namespace AutoSplitterCore
             return elden.GetPosition();
         }
 
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
-            if (!_StatusElden) getEldenStatusProcess(0);
+            if (!_StatusElden) GetEldenStatusProcess(0);
             return elden.GetInGameTimeMilliseconds();
         }
 
         public bool CheckFlag(uint id)
         {
-            if(!_StatusElden) getEldenStatusProcess(0);
+            if(!_StatusElden) GetEldenStatusProcess(0);
             return _StatusElden && elden.ReadEventFlag(id);
         }
         #endregion
@@ -238,24 +238,24 @@ namespace AutoSplitterCore
             });
             var taskCheckload = new Task(() =>
             {
-                checkLoad();
+                CheckLoad();
             });
             var task1 = new Task(() =>
             {
-                bossToSplit();
+                BossToSplit();
             });
             var task2 = new Task(() =>
             {
-                graceToSplit();
+                GraceToSplit();
             });
 
             var task3 = new Task(() =>
             {
-                positionToSplit();
+                PositionToSplit();
             });
             var task4 = new Task(() =>
             {
-                flagsToSplit();
+                FlagsToSplit();
             });
 
             taskRefresh.Start();
@@ -270,11 +270,11 @@ namespace AutoSplitterCore
         private void RefreshElden()
         {
             int delay = 2000;
-            getEldenStatusProcess(delay);
+            GetEldenStatusProcess(delay);
             while (dataElden.enableSplitting)
             {
                 Thread.Sleep(10);
-                getEldenStatusProcess(20000);
+                GetEldenStatusProcess(2000);
                 if (!_StatusElden)
                 {
                     _writeMemory = false;
@@ -302,7 +302,7 @@ namespace AutoSplitterCore
         List<DefinitionsElden.CustomFlagER> listPendingCf = new List<DefinitionsElden.CustomFlagER>();
 
       
-        private void checkLoad()
+        private void CheckLoad()
         {
             while (dataElden.enableSplitting)
             {
@@ -351,15 +351,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void bossToSplit()
+        private void BossToSplit()
         {
-            var BossToSplit = dataElden.getBossToSplit();
+            var BossToSplit = dataElden.GetBossToSplit();
             while (dataElden.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataElden.getBossToSplit()) BossToSplit = dataElden.getBossToSplit();
+                    if (BossToSplit != dataElden.GetBossToSplit()) BossToSplit = dataElden.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && elden.ReadEventFlag(b.Id))
@@ -382,15 +382,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void graceToSplit()
+        private void GraceToSplit()
         {
-            var GraceToSplit = dataElden.getGraceToSplit();
+            var GraceToSplit = dataElden.GetGraceToSplit();
             while (dataElden.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (GraceToSplit != dataElden.getGraceToSplit()) GraceToSplit = dataElden.getGraceToSplit();
+                    if (GraceToSplit != dataElden.GetGraceToSplit()) GraceToSplit = dataElden.GetGraceToSplit();
                     foreach (var i in GraceToSplit)
                     {
                         if (!i.IsSplited && elden.ReadEventFlag(i.Id))
@@ -413,15 +413,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void flagsToSplit()
+        private void FlagsToSplit()
         {
-            var FlagsToSplit = dataElden.getFlagsToSplit();
+            var FlagsToSplit = dataElden.GetFlagsToSplit();
             while (dataElden.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (FlagsToSplit != dataElden.getFlagsToSplit()) FlagsToSplit = dataElden.getFlagsToSplit();
+                    if (FlagsToSplit != dataElden.GetFlagsToSplit()) FlagsToSplit = dataElden.GetFlagsToSplit();
                     foreach (var cf in FlagsToSplit)
                     {
 
@@ -445,15 +445,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void positionToSplit()
+        private void PositionToSplit()
         {
-            var PositionToSplit = dataElden.getPositionToSplit();
+            var PositionToSplit = dataElden.GetPositionToSplit();
             while (dataElden.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionToSplit != dataElden.getPositionToSplit()) PositionToSplit = dataElden.getPositionToSplit();
+                    if (PositionToSplit != dataElden.GetPositionToSplit()) PositionToSplit = dataElden.GetPositionToSplit();
                     foreach (var p in PositionToSplit)
                     {
                         if (!p.IsSplited)

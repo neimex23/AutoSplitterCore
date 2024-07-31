@@ -106,21 +106,21 @@ namespace AutoSplitterCore
             switch (GameActive)
             {
                 case GameConstruction.SekiroSplitterIndex:
-                    var Vector1 = mainModule.sekiroSplitter.getCurrentPosition();
+                    var Vector1 = mainModule.sekiroSplitter.GetCurrentPosition();
                     this.textBoxX.Paste(Vector1.X.ToString("0.00"));
                     this.textBoxY.Paste(Vector1.Y.ToString("0.00"));
                     this.textBoxZ.Paste(Vector1.Z.ToString("0.00"));
                     status = mainModule.sekiroSplitter._StatusSekiro;
                     break;
                 case GameConstruction.Ds1SplitterIndex:
-                    var Vector2 = mainModule.ds1Splitter.getCurrentPosition();
+                    var Vector2 = mainModule.ds1Splitter.GetCurrentPosition();
                     this.textBoxX.Paste(Vector2.X.ToString("0.00"));
                     this.textBoxY.Paste(Vector2.Y.ToString("0.00"));
                     this.textBoxZ.Paste(Vector2.Z.ToString("0.00"));
                     status = mainModule.ds1Splitter._StatusDs1;
                     break;
                 case GameConstruction.Ds2SplitterIndex:
-                    var Vector3 = mainModule.ds2Splitter.getCurrentPosition();
+                    var Vector3 = mainModule.ds2Splitter.GetCurrentPosition();
                     this.textBoxX.Paste(Vector3.X.ToString("0.00"));
                     this.textBoxY.Paste(Vector3.Y.ToString("0.00"));
                     this.textBoxZ.Paste(Vector3.Z.ToString("0.00"));
@@ -128,27 +128,27 @@ namespace AutoSplitterCore
                     break;
                 case GameConstruction.Ds3SplitterIndex: 
                     status = mainModule.ds3Splitter._StatusDs3;
-                    var VectorF = mainModule.ds3Splitter.getCurrentPosition();
+                    var VectorF = mainModule.ds3Splitter.GetCurrentPosition();
                     this.textBoxX.Paste(VectorF.X.ToString("0.00"));
                     this.textBoxY.Paste(VectorF.Y.ToString("0.00"));
                     this.textBoxZ.Paste(VectorF.Z.ToString("0.00"));
                     break;
                 case GameConstruction.EldenSplitterIndex:
-                   var Vector5 = mainModule.eldenSplitter.getCurrentPosition(); 
+                   var Vector5 = mainModule.eldenSplitter.GetCurrentPosition(); 
                     this.textBoxX.Paste(Vector5.X.ToString("0.00"));
                     this.textBoxY.Paste(Vector5.Y.ToString("0.00"));
                     this.textBoxZ.Paste(Vector5.Z.ToString("0.00"));
                     status = mainModule.eldenSplitter._StatusElden;
                     break;
                 case GameConstruction.HollowSplitterIndex: 
-                    var Vector6 = mainModule.hollowSplitter.getCurrentPosition();
+                    var Vector6 = mainModule.hollowSplitter.GetCurrentPosition();
                     this.textBoxX.Paste(Vector6.X.ToString("0.00"));
                     this.textBoxY.Paste(Vector6.Y.ToString("0.00"));
                     this.textBoxSceneName.Paste(mainModule.hollowSplitter.currentPosition.sceneName.ToString());
                     status = mainModule.hollowSplitter._StatusHollow;
                     break;
                 case GameConstruction.CelesteSplitterIndex:
-                    this.textBoxSceneName.Paste(mainModule.celesteSplitter.getLevelName());
+                    this.textBoxSceneName.Paste(mainModule.celesteSplitter.GetLevelName());
                     status = mainModule.celesteSplitter._StatusCeleste;
                     break;
                 case GameConstruction.CupheadSplitterIndex:
@@ -221,31 +221,31 @@ namespace AutoSplitterCore
             switch (GameActive)
             {
                 case GameConstruction.SekiroSplitterIndex:
-                    mainModule.sekiroSplitter.getSekiroStatusProcess(0);
+                    mainModule.sekiroSplitter.GetSekiroStatusProcess(0);
                     break;
                 case GameConstruction.Ds1SplitterIndex:
-                    mainModule.ds1Splitter.getDs1StatusProcess(0);
+                    mainModule.ds1Splitter.GetDs1StatusProcess(0);
                     break;
                 case GameConstruction.Ds2SplitterIndex:
-                    mainModule.ds2Splitter.getDs2StatusProcess(0);
+                    mainModule.ds2Splitter.GetDs2StatusProcess(0);
                     break;
                 case GameConstruction.Ds3SplitterIndex:
-                    mainModule.ds3Splitter.getDs3StatusProcess(0);
+                    mainModule.ds3Splitter.GetDs3StatusProcess(0);
                     break;
                 case GameConstruction.EldenSplitterIndex:
-                    mainModule.eldenSplitter.getEldenStatusProcess(0);
+                    mainModule.eldenSplitter.GetEldenStatusProcess(0);
                     break;
                 case GameConstruction.HollowSplitterIndex:
-                    mainModule.hollowSplitter.getHollowStatusProcess(0);
+                    mainModule.hollowSplitter.GetHollowStatusProcess(0);
                     break;
                 case GameConstruction.CelesteSplitterIndex:
-                    mainModule.celesteSplitter.getCelesteStatusProcess(0);
+                    mainModule.celesteSplitter.GetCelesteStatusProcess(0);
                     break;
                 case GameConstruction.CupheadSplitterIndex:
-                    mainModule.cupSplitter.getCupheadStatusProcess(0);
+                    mainModule.cupSplitter.GetCupheadStatusProcess(0);
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
-                    mainModule.dishonoredSplitter.getDishonoredStatusProcess();
+                    mainModule.dishonoredSplitter.GetDishonoredStatusProcess();
                     break;
                 case GameConstruction.NoneSplitterIndex:
                 default: break;

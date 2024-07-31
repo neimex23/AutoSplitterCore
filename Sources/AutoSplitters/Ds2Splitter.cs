@@ -48,12 +48,12 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTDs2 getDataDs2()
+        public DTDs2 GetDataDs2()
         {
             return this.dataDs2;
         }
 
-        public void setDataDs2(DTDs2 data, IAutoSplitterCoreInterface profile)
+        public void SetDataDs2(DTDs2 data, IAutoSplitterCoreInterface profile)
         {
             this.dataDs2 = data;
             this._profile = profile;
@@ -84,7 +84,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try 
@@ -95,28 +95,28 @@ namespace AutoSplitterCore
             return _StatusDs2;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataDs2.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
             listPendingB.Clear();
             listPendingP.Clear();
             listPendingLvl.Clear();
-            if (dataDs2.getBossToSplit().Count > 0)
+            if (dataDs2.GetBossToSplit().Count > 0)
             {
-                foreach (var b in dataDs2.getBossToSplit())
+                foreach (var b in dataDs2.GetBossToSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataDs2.getLvlToSplit().Count > 0)
+            if (dataDs2.GetLvlToSplit().Count > 0)
             {
-                foreach (var l in dataDs2.getLvlToSplit())
+                foreach (var l in dataDs2.GetLvlToSplit())
                 {
                     l.IsSplited = false;
                 }
@@ -127,7 +127,7 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddBoss(string boss, string mode)
         {
-            DefinitionsDs2.BossDs2 cBoss = defD2.stringToEnumBoss(boss);
+            DefinitionsDs2.BossDs2 cBoss = defD2.StringToEnumBoss(boss);
             cBoss.Mode = mode;
             dataDs2.bossToSplit.Add(cBoss);
         }
@@ -156,7 +156,7 @@ namespace AutoSplitterCore
         {
             DefinitionsDs2.LvlDs2 cLvl = new DefinitionsDs2.LvlDs2()
             {
-                Attribute = defD2.stringToEnumAttribute(attribute),
+                Attribute = defD2.StringToEnumAttribute(attribute),
                 Mode = mode,
                 Value = value
             };
@@ -169,7 +169,7 @@ namespace AutoSplitterCore
             dataDs2.lvlToSplit.RemoveAt(position);
         }
 
-        public void clearData()
+        public void ClearData()
         {
             listPendingB.Clear();
             listPendingP.Clear();
@@ -182,9 +182,9 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Checking
-        public Vector3f getCurrentPosition()
+        public Vector3f GetCurrentPosition()
         {
-            if (!_StatusDs2) getDs2StatusProcess(0);
+            if (!_StatusDs2) GetDs2StatusProcess(0);
             if (!_StatusDs2)
             {
                 Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
@@ -195,13 +195,13 @@ namespace AutoSplitterCore
 
         public bool CheckFlag(uint id)
         {
-            if (!_StatusDs2) getDs2StatusProcess(0);
+            if (!_StatusDs2) GetDs2StatusProcess(0);
             return _StatusDs2 && Ds2.ReadEventFlag(id);
         }
 
         public bool Ds2IsLoading()
         {
-            if (!_StatusDs2) getDs2StatusProcess(0);
+            if (!_StatusDs2) GetDs2StatusProcess(0);
             return Ds2.IsLoading();
         }
         #endregion
@@ -214,25 +214,25 @@ namespace AutoSplitterCore
             });
             var taskCheckload = new Task(() =>
             {
-                checkLoad();
+                CheckLoad();
             });
             var taskCheckStart = new Task(() =>
             {
-                checkStart();
+                CheckStart();
             });
 
             var task1 = new Task(() =>
             {
-                bossToSplit();
+                BossToSplit();
             });
             var task2 = new Task(() =>
             {
-                positionToSplit();
+                PositionToSplit();
             });
 
             var task3 = new Task(() =>
             {
-                lvlToSplit();
+                LvlToSplit();
             });
 
             taskRefresh.Start();
@@ -247,16 +247,16 @@ namespace AutoSplitterCore
         private void RefreshDs2()
         {
             int delay = 2000;
-            getDs2StatusProcess(delay);
+            GetDs2StatusProcess(delay);
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(10);
-                getDs2StatusProcess(delay);
+                GetDs2StatusProcess(delay);
                 if (!_StatusDs2) { delay = 2000; }else { delay = 5000; }
             }
         }
 
-        private void checkStart()
+        private void CheckStart()
         {
             while (dataDs2.enableSplitting)
             {
@@ -290,7 +290,7 @@ namespace AutoSplitterCore
         List<DefinitionsDs2.PositionDs2> listPendingP = new List<DefinitionsDs2.PositionDs2>();
         List<DefinitionsDs2.LvlDs2> listPendingLvl = new List<DefinitionsDs2.LvlDs2>();
 
-        private void checkLoad()
+        private void CheckLoad()
         {
             while (dataDs2.enableSplitting)
             {
@@ -331,15 +331,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void bossToSplit()
+        private void BossToSplit()
         {
-            var BossToSplit = dataDs2.getBossToSplit();
+            var BossToSplit = dataDs2.GetBossToSplit();
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataDs2.getBossToSplit()) BossToSplit = dataDs2.getBossToSplit();
+                    if (BossToSplit != dataDs2.GetBossToSplit()) BossToSplit = dataDs2.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds2.GetBossKillCount(b.Id) > 0)
@@ -362,15 +362,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void lvlToSplit()
+        private void LvlToSplit()
         {
-            var LvlToSplit = dataDs2.getLvlToSplit();
+            var LvlToSplit = dataDs2.GetLvlToSplit();
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (LvlToSplit != dataDs2.getLvlToSplit()) LvlToSplit = dataDs2.getLvlToSplit();
+                    if (LvlToSplit != dataDs2.GetLvlToSplit()) LvlToSplit = dataDs2.GetLvlToSplit();
                     foreach (var lvl in LvlToSplit)
                     {
                         if (!lvl.IsSplited && Ds2.GetAttribute(lvl.Attribute) >= lvl.Value)
@@ -393,15 +393,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void positionToSplit()
+        private void PositionToSplit()
         {
-            var PositionsToSplit = dataDs2.getPositionsToSplit();
+            var PositionsToSplit = dataDs2.GetPositionsToSplit();
             while (dataDs2.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataDs2.getPositionsToSplit()) PositionsToSplit = dataDs2.getPositionsToSplit();
+                    if (PositionsToSplit != dataDs2.GetPositionsToSplit()) PositionsToSplit = dataDs2.GetPositionsToSplit();
                     foreach (var p in PositionsToSplit)
                     {
                         if (!p.IsSplited)

@@ -62,10 +62,10 @@ namespace AutoSplitterCore
             this.updateModule = updateModule;
             this.saveModule = saveModule;
             this.darkMode = darkMode;
-            refreshForm();
+            RefreshForm();
         }
 
-        public void refreshForm()
+        public void RefreshForm()
         {
             #region GeneralUI
             if (darkMode)
@@ -204,21 +204,21 @@ namespace AutoSplitterCore
             }
             #endregion
 
-            DTSekiro sekiroData = sekiroSplitter.getDataSekiro();
+            DTSekiro sekiroData = sekiroSplitter.GetDataSekiro();
             #region SekiroLoad.Bosses
-            foreach (DefinitionsSekiro.BossS boss in sekiroData.getBossToSplit())
+            foreach (DefinitionsSekiro.BossS boss in sekiroData.GetBossToSplit())
             {
                 listBoxBossesS.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region SekiroLoad.MiniBosses
-            foreach (DefinitionsSekiro.MiniBossS boss in sekiroData.getMiniBossToSplit())
+            foreach (DefinitionsSekiro.MiniBossS boss in sekiroData.GetMiniBossToSplit())
             {
                 listBoxMiniBossesS.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region SekiroLoad.Idols
-            foreach (DefinitionsSekiro.Idol idols in sekiroData.getidolsTosplit())
+            foreach (DefinitionsSekiro.Idol idols in sekiroData.GetidolsTosplit())
             {
                 for (int i = 0; i < checkedListBoxAshina.Items.Count; i++)
                 {
@@ -287,7 +287,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region SekiroLoad.Position
-            foreach (DefinitionsSekiro.PositionS position in sekiroData.getPositionsToSplit())
+            foreach (DefinitionsSekiro.PositionS position in sekiroData.GetPositionsToSplit())
             {
                 listBoxPositionsS.Items.Add(position.vector.X + "; " + position.vector.Y + "; " + position.vector.Z + " - " + position.Mode + position.Title);
             }
@@ -304,14 +304,14 @@ namespace AutoSplitterCore
             }
             #endregion
             #region SekiroLoad.CustomFlag
-            foreach (DefinitionsSekiro.CfSk cf in sekiroData.getFlagToSplit())
+            foreach (DefinitionsSekiro.CfSk cf in sekiroData.GetFlagToSplit())
             {
                 listBoxCfS.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
-            DTHollow hollowData = hollowSplitter.getDataHollow();
+            DTHollow hollowData = hollowSplitter.GetDataHollow();
             #region HollowLoad.Boss
-            foreach (var b in hollowData.getBosstoSplit())
+            foreach (var b in hollowData.GetBosstoSplit())
             {
                 for (int i = 0; i < checkedListBoxBossH.Items.Count; i++)
                 {
@@ -323,7 +323,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region HollowLoad.MiniBoss
-            foreach (var mb in hollowData.getMiniBossToSplit())
+            foreach (var mb in hollowData.GetMiniBossToSplit())
             {
                 for (int i = 0; i < checkedListBoxHMB.Items.Count; i++)
                 {
@@ -335,7 +335,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region HollowLoad.Pantheon
-            foreach (var p in hollowData.getPhanteonToSplit())
+            foreach (var p in hollowData.GetPhanteonToSplit())
             {
                 for (int i = 0; i < checkedListBoxPantheon.Items.Count; i++)
                 {
@@ -358,7 +358,7 @@ namespace AutoSplitterCore
 
             #endregion
             #region HollowLoad.Charm
-            foreach (var c in hollowData.getCharmToSplit())
+            foreach (var c in hollowData.GetCharmToSplit())
             {
                 for (int i = 0; i < checkedListBoxCharms.Items.Count; i++)
                 {
@@ -370,7 +370,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region HollowLoad.Skill
-            foreach (var c in hollowData.getSkillsToSplit())
+            foreach (var c in hollowData.GetSkillsToSplit())
             {
                 for (int i = 0; i < checkedListBoxSkillsH.Items.Count; i++)
                 {
@@ -382,75 +382,75 @@ namespace AutoSplitterCore
             }
             #endregion
             #region HollowLoad.Position
-            foreach (var p in hollowData.getPositionToSplit())
+            foreach (var p in hollowData.GetPositionToSplit())
             {
                 listBoxPositionH.Items.Add(p.position + " - " + p.sceneName + p.Title);
             }
             comboBoxMarginH.SelectedIndex = hollowData.positionMargin;
             #endregion
-            DTElden eldenData = eldenSplitter.getDataElden();
+            DTElden eldenData = eldenSplitter.GetDataElden();
             #region EldenLoad.Boss
             comboBoxBossER_DLC.Hide();  
-            foreach (DefinitionsElden.BossER boss in eldenData.getBossToSplit())
+            foreach (DefinitionsElden.BossER boss in eldenData.GetBossToSplit())
             {
                 listBoxBossER.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region EldenLoad.Grace
             comboBoxGraceDLC_ER.Hide();
-            foreach (DefinitionsElden.GraceER grace in eldenData.getGraceToSplit())
+            foreach (DefinitionsElden.GraceER grace in eldenData.GetGraceToSplit())
             {
                 listBoxGrace.Items.Add(grace.Title + " - " + grace.Mode);
             }
             #endregion
             #region EldenLoad.Positions
-            foreach (DefinitionsElden.PositionER position in eldenData.getPositionToSplit())
+            foreach (DefinitionsElden.PositionER position in eldenData.GetPositionToSplit())
             {
                 listBoxPositionsER.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginER.SelectedIndex = eldenData.positionMargin;
             #endregion
             #region EldenLoad.CustomFlags
-            foreach (DefinitionsElden.CustomFlagER cf in eldenData.getFlagsToSplit())
+            foreach (DefinitionsElden.CustomFlagER cf in eldenData.GetFlagsToSplit())
             {
                 listBoxCfER.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
-            DTDs3 ds3Data = ds3Splitter.getDataDs3();
+            DTDs3 ds3Data = ds3Splitter.GetDataDs3();
             #region Ds3Load.Boss
-            foreach (DefinitionsDs3.BossDs3 boss in ds3Data.getBossToSplit())
+            foreach (DefinitionsDs3.BossDs3 boss in ds3Data.GetBossToSplit())
             {
                 listBoxBossDs3.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region Ds3Load.Bonfire
-            foreach (DefinitionsDs3.BonfireDs3 bon in ds3Data.getBonfireToSplit())
+            foreach (DefinitionsDs3.BonfireDs3 bon in ds3Data.GetBonfireToSplit())
             {
                 listBoxBonfireDs3.Items.Add(bon.Title + " - " + bon.Mode);
             }
             #endregion
             #region Ds3Load.Lvl
-            foreach (DefinitionsDs3.LvlDs3 lvl in ds3Data.getLvlToSplit())
+            foreach (DefinitionsDs3.LvlDs3 lvl in ds3Data.GetLvlToSplit())
             {
                 listBoxAttributesDs3.Items.Add(lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode);
             }
             #endregion
             #region Ds3Load.CustomFlags
-            foreach (DefinitionsDs3.CfDs3 cf in ds3Data.getFlagToSplit())
+            foreach (DefinitionsDs3.CfDs3 cf in ds3Data.GetFlagToSplit())
             {
                 listBoxCfDs3.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
             }
             #endregion
             #region Ds3Load.Position
-            foreach (DefinitionsDs3.PositionDs3 position in ds3Data.getPositionsToSplit())
+            foreach (DefinitionsDs3.PositionDs3 position in ds3Data.GetPositionsToSplit())
             {
                 listBoxPositionsDs3.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxMarginDs3.SelectedIndex = ds3Data.positionMargin;
             #endregion
-            DTCeleste celesteData = celesteSplitter.getDataCeleste();
+            DTCeleste celesteData = celesteSplitter.GetDataCeleste();
             #region CelesteLoad.Chapters
-            foreach (var c in celesteData.getChapterToSplit())
+            foreach (var c in celesteData.GetChapterToSplit())
             {
                 for (int i = 0; i < checkedListBoxChapterCeleste.Items.Count; i++)
                 {
@@ -462,7 +462,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region CelesteLoad.Checkpoints
-            foreach (var c in celesteData.getChapterToSplit())
+            foreach (var c in celesteData.GetChapterToSplit())
             {
                 for (int i = 0; i < checkedListBoxCheckpointsCeleste.Items.Count; i++)
                 {
@@ -474,7 +474,7 @@ namespace AutoSplitterCore
             }
             #endregion
             #region CelesteLoad.CassettesNHearts
-            foreach (var c in celesteData.getChapterToSplit())
+            foreach (var c in celesteData.GetChapterToSplit())
             {
                 for (int i = 0; i < checkedListBoxCassettesNHearts.Items.Count; i++)
                 {
@@ -485,29 +485,29 @@ namespace AutoSplitterCore
                 }
             }
             #endregion
-            DTDs2 ds2Data = ds2Splitter.getDataDs2();
+            DTDs2 ds2Data = ds2Splitter.GetDataDs2();
             #region Ds2Load.Boss
-            foreach (DefinitionsDs2.BossDs2 boss in ds2Data.getBossToSplit())
+            foreach (DefinitionsDs2.BossDs2 boss in ds2Data.GetBossToSplit())
             {
                 listBoxBossDs2.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region Ds2Load.Lvl
-            foreach (DefinitionsDs2.LvlDs2 lvl in ds2Data.getLvlToSplit())
+            foreach (DefinitionsDs2.LvlDs2 lvl in ds2Data.GetLvlToSplit())
             {
                 listBoxAttributeDs2.Items.Add(lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode);
             }
             #endregion
             #region Ds2Load.Position
-            foreach (DefinitionsDs2.PositionDs2 position in ds2Data.getPositionsToSplit())
+            foreach (DefinitionsDs2.PositionDs2 position in ds2Data.GetPositionsToSplit())
             {
                 listBoxPositionsDs2.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxSizeDs2.SelectedIndex = ds2Data.positionMargin;
             #endregion
-            DTCuphead cupData = cupSplitter.getDataCuphead();
+            DTCuphead cupData = cupSplitter.GetDataCuphead();
             #region CupheadLoad.Boss&Level
-            foreach (var c in cupData.getElementToSplit())
+            foreach (var c in cupData.GetElementToSplit())
             {
                 for (int i = 0; i < checkedListBoxBossCuphead.Items.Count; i++)
                 {
@@ -525,41 +525,41 @@ namespace AutoSplitterCore
                 }
             }
             #endregion
-            DTDs1 ds1Data = ds1Splitter.getDataDs1();
+            DTDs1 ds1Data = ds1Splitter.GetDataDs1();
             #region Ds1Load.Boss
-            foreach (DefinitionsDs1.BossDs1 boss in ds1Data.getBossToSplit())
+            foreach (DefinitionsDs1.BossDs1 boss in ds1Data.GetBossToSplit())
             {
                 listBoxBossDs1.Items.Add(boss.Title + " - " + boss.Mode);
             }
             #endregion
             #region Ds1Load.Bonfire
-            foreach (DefinitionsDs1.BonfireDs1 bon in ds1Data.getBonfireToSplit())
+            foreach (DefinitionsDs1.BonfireDs1 bon in ds1Data.GetBonfireToSplit())
             {
                 listBoxBonfireDs1.Items.Add(bon.Title + " - " + bon.Value + " - " + bon.Mode);
             }
             #endregion
             #region Ds1Load.Lvl
-            foreach (DefinitionsDs1.LvlDs1 lvl in ds1Data.getLvlToSplit())
+            foreach (DefinitionsDs1.LvlDs1 lvl in ds1Data.GetLvlToSplit())
             {
                 listBoxAttributesDs1.Items.Add(lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode);
             }
             #endregion
             #region Ds1Load.Position
-            foreach (DefinitionsDs1.PositionDs1 position in ds1Data.getPositionsToSplit())
+            foreach (DefinitionsDs1.PositionDs1 position in ds1Data.GetPositionsToSplit())
             {
                 listBoxPositionsDs1.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
             comboBoxSizeDs1.SelectedIndex = ds1Data.positionMargin;
             #endregion
             #region Ds1Load.Items
-            foreach (DefinitionsDs1.ItemDs1 Item in ds1Data.getItemsToSplit())
+            foreach (DefinitionsDs1.ItemDs1 Item in ds1Data.GetItemsToSplit())
             {
                 listBoxItemDs1.Items.Add(Item.Title + " - " + Item.Mode);
             }
             #endregion
-            DTDishonored dishData = dishonoredSplitter.getDataDishonored();
+            DTDishonored dishData = dishonoredSplitter.GetDataDishonored();
             #region DishonoredLoad.Options
-            foreach (var o in dishData.getOptionToSplit())
+            foreach (var o in dishData.GetOptionToSplit())
             {
                 for (int i = 0; i < checkedListBoxDishonored.Items.Count; i++)
                 {
@@ -780,7 +780,7 @@ namespace AutoSplitterCore
             #endregion
         }
 
-        private void refresh_Btn(object sender, EventArgs e)
+        private void Refresh_Btn(object sender, EventArgs e)
         {
             checkStatusGames();
         }
@@ -788,7 +788,7 @@ namespace AutoSplitterCore
         #region checkStatusGames
         public void checkStatusGames()
         {
-            if (sekiroSplitter.getSekiroStatusProcess(0))
+            if (sekiroSplitter.GetSekiroStatusProcess(0))
             {
                 sekiroRunning.Show();
                 SekiroNotRunning.Hide();
@@ -798,7 +798,7 @@ namespace AutoSplitterCore
                 SekiroNotRunning.Show();
                 sekiroRunning.Hide();
             }
-            if (hollowSplitter.getHollowStatusProcess(0))
+            if (hollowSplitter.GetHollowStatusProcess(0))
             {
                 HollowRunning.Show();
                 HollowNotRunning.Hide();
@@ -808,7 +808,7 @@ namespace AutoSplitterCore
                 HollowRunning.Hide();
                 HollowNotRunning.Show();
             }
-            if (eldenSplitter.getEldenStatusProcess(0))
+            if (eldenSplitter.GetEldenStatusProcess(0))
             {
                 EldenRingRunning.Show();
                 EldenRingNotRunning.Hide();
@@ -818,7 +818,7 @@ namespace AutoSplitterCore
                 EldenRingRunning.Hide();
                 EldenRingNotRunning.Show();
             }
-            if (ds3Splitter.getDs3StatusProcess(0))
+            if (ds3Splitter.GetDs3StatusProcess(0))
             {
                 Ds3Running.Show();
                 Ds3NotRunning.Hide();
@@ -828,7 +828,7 @@ namespace AutoSplitterCore
                 Ds3Running.Hide();
                 Ds3NotRunning.Show();
             }
-            if (celesteSplitter.getCelesteStatusProcess(0))
+            if (celesteSplitter.GetCelesteStatusProcess(0))
             {
                 CelesteRunning.Show();
                 CelesteNotRunning.Hide();
@@ -838,7 +838,7 @@ namespace AutoSplitterCore
                 CelesteNotRunning.Show();
                 CelesteRunning.Hide();
             }
-            if (ds2Splitter.getDs2StatusProcess(0))
+            if (ds2Splitter.GetDs2StatusProcess(0))
             {
                 Ds2Running.Show();
                 Ds2NotRunning.Hide();
@@ -848,7 +848,7 @@ namespace AutoSplitterCore
                 Ds2NotRunning.Show();
                 Ds2Running.Hide();
             }
-            if (cupSplitter.getCupheadStatusProcess(0))
+            if (cupSplitter.GetCupheadStatusProcess(0))
             {
                 CupheadRunning.Show();
                 CupheadNotRunning.Hide();
@@ -858,7 +858,7 @@ namespace AutoSplitterCore
                 CupheadNotRunning.Show();
                 CupheadRunning.Hide();
             }
-            if (ds1Splitter.getDs1StatusProcess(0))
+            if (ds1Splitter.GetDs1StatusProcess(0))
             {
                 Ds1Running.Show();
                 Ds1NotRunning.Hide();
@@ -868,7 +868,7 @@ namespace AutoSplitterCore
                 Ds1NotRunning.Show();
                 Ds1Running.Hide();
             }
-            if (dishonoredSplitter.getDishonoredStatusProcess())
+            if (dishonoredSplitter.GetDishonoredStatusProcess())
             {
                 DishonoredRunning.Show();
                 DishonoredNotRunning.Hide();
@@ -1184,7 +1184,7 @@ namespace AutoSplitterCore
             form.ShowDialog();
             this.Controls.Clear();
             this.InitializeComponent();
-            refreshForm();
+            RefreshForm();
             this.AutoSplitter_Load(null, null);//Load Others Games Settings
         }
 
@@ -1213,7 +1213,7 @@ namespace AutoSplitterCore
                 dishonoredSplitter.dataDish.gameTimer = false;
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabTiming);
                 TabControlGeneral.SelectTab(tabTiming);
@@ -1260,7 +1260,7 @@ namespace AutoSplitterCore
 
         private void btnGetPosition_Click(object sender, EventArgs e)
         {
-            var Vector = sekiroSplitter.getCurrentPosition();
+            var Vector = sekiroSplitter.GetCurrentPosition();
             this.textBoxXS.Text = string.Empty;
             this.textBoxYS.Text = string.Empty;
             this.textBoxZS.Text = string.Empty;
@@ -1337,7 +1337,7 @@ namespace AutoSplitterCore
         private void comboBoxMargin_SelectedIndexChanged(object sender, EventArgs e)
         {
             int select = comboBoxSizeS.SelectedIndex;
-            sekiroSplitter.setPositionMargin(select);
+            sekiroSplitter.SetPositionMargin(select);
         }
 
         private void btn_AddBoss_Click(object sender, EventArgs e)
@@ -1925,10 +1925,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                sekiroSplitter.clearData();
+                sekiroSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabSekiro);
                 TabControlGeneral.SelectTab(tabSekiro);
@@ -1994,12 +1994,12 @@ namespace AutoSplitterCore
             }
             else
             {
-                var contains1 = !listBoxBonfireDs1.Items.Contains(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.convertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + "Inmediatly");
-                var contains2 = !listBoxBonfireDs1.Items.Contains(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.convertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + "Loading game after");
+                var contains1 = !listBoxBonfireDs1.Items.Contains(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.ConvertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + "Inmediatly");
+                var contains2 = !listBoxBonfireDs1.Items.Contains(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.ConvertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
                     ds1Splitter.AddBonfire(comboBoxBonfireDs1.Text.ToString(), comboBoxHowBonfireDs1.Text.ToString(), comboBoxStateDs1.Text.ToString());
-                    listBoxBonfireDs1.Items.Add(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.convertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + comboBoxHowBonfireDs1.Text.ToString());
+                    listBoxBonfireDs1.Items.Add(comboBoxBonfireDs1.Text.ToString() + " - " + ds1Splitter.ConvertStringToState(comboBoxStateDs1.Text.ToString()) + " - " + comboBoxHowBonfireDs1.Text.ToString());
                 }
                 else
                 {
@@ -2061,7 +2061,7 @@ namespace AutoSplitterCore
         Vector3f VectorDs1;
         private void btnGetPositionDs1_Click(object sender, EventArgs e)
         {
-            var Vector = ds1Splitter.getCurrentPosition();
+            var Vector = ds1Splitter.GetCurrentPosition();
             this.VectorDs1 = Vector;
             this.textBoxXDs1.Text = string.Empty;
             this.textBoxYDs1.Text = string.Empty;
@@ -2164,10 +2164,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                ds1Splitter.clearData();
+                ds1Splitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabDs1);
                 TabControlGeneral.SelectTab(tabDs1);
@@ -2265,7 +2265,7 @@ namespace AutoSplitterCore
         Vector3f VectorDs2;
         private void btnGetPositionDs2_Click(object sender, EventArgs e)
         {
-            var Vector = ds2Splitter.getCurrentPosition();
+            var Vector = ds2Splitter.GetCurrentPosition();
             this.VectorDs2 = Vector;
             this.textBoxXDs2.Text = string.Empty;
             this.textBoxYDs2.Text = string.Empty; ;
@@ -2342,10 +2342,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                ds2Splitter.clearData();
+                ds2Splitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabDs2);
                 TabControlGeneral.SelectTab(tabDs2);
@@ -2545,7 +2545,7 @@ namespace AutoSplitterCore
         Vector3f VectorDs3;
         private void btnGetPositionDs3_Click(object sender, EventArgs e)
         {
-            var Vector = ds3Splitter.getCurrentPosition();
+            var Vector = ds3Splitter.GetCurrentPosition();
             this.VectorDs3 = Vector;
             this.textBoxXDs3.Clear();
             this.textBoxYDs3.Clear();
@@ -2617,10 +2617,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                ds3Splitter.clearData();
+                ds3Splitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabDs3);
                 TabControlGeneral.SelectTab(tabDs3);
@@ -2755,7 +2755,7 @@ namespace AutoSplitterCore
 
         private void btnGetPosition_Click_1(object sender, EventArgs e)
         {
-            var Vector = eldenSplitter.getCurrentPosition();
+            var Vector = eldenSplitter.GetCurrentPosition();
             this.VectorER = Vector;
             this.textBoxXEr.Clear();
             this.textBoxYEr.Clear();
@@ -2877,10 +2877,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                eldenSplitter.clearData();
+                eldenSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabElden);
                 TabControlGeneral.SelectTab(tabElden);
@@ -3064,7 +3064,7 @@ namespace AutoSplitterCore
         private void btn_getPositionH_Click(object sender, EventArgs e)
         {
 
-            var Vector = hollowSplitter.getCurrentPosition();
+            var Vector = hollowSplitter.GetCurrentPosition();
             this.VectorH = Vector;
             this.textBoxXh.Clear();
             this.textBoxYh.Clear();
@@ -3130,10 +3130,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                hollowSplitter.clearData();
+                hollowSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabHollow);
                 TabControlGeneral.SelectTab(tabHollow);
@@ -3209,10 +3209,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                celesteSplitter.clearData();
+                celesteSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabCeleste);
                 TabControlGeneral.SelectTab(tabCeleste);
@@ -3268,10 +3268,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                cupSplitter.clearData();
+                cupSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabCuphead);
                 TabControlGeneral.SelectTab(tabCuphead);
@@ -3299,10 +3299,10 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                dishonoredSplitter.clearData();
+                dishonoredSplitter.ClearData();
                 this.Controls.Clear();
                 this.InitializeComponent();
-                refreshForm();
+                RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
                 TabControlGeneral.TabPages.Add(tabDishonored);
                 TabControlGeneral.SelectTab(tabDishonored);

@@ -95,7 +95,7 @@ namespace AutoSplitterCore
         public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)
         {
             //SetPointers
-            igtModule.setSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
+            igtModule.SetSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
             saveModule.SetPointers
                     (sekiroSplitter,
                     ds1Splitter,
@@ -217,29 +217,29 @@ namespace AutoSplitterCore
             anyGameTime = false;
             if (splitter == GameConstruction.NoneSplitterIndex)
             {
-                sekiroSplitter.setStatusSplitting(false);
-                ds1Splitter.setStatusSplitting(false);
-                ds2Splitter.setStatusSplitting(false);
-                ds3Splitter.setStatusSplitting(false);
-                eldenSplitter.setStatusSplitting(false);
-                hollowSplitter.setStatusSplitting(false);
-                celesteSplitter.setStatusSplitting(false);
-                dishonoredSplitter.setStatusSplitting(false);
-                cupSplitter.setStatusSplitting(false);
+                sekiroSplitter.SetStatusSplitting(false);
+                ds1Splitter.SetStatusSplitting(false);
+                ds2Splitter.SetStatusSplitting(false);
+                ds3Splitter.SetStatusSplitting(false);
+                eldenSplitter.SetStatusSplitting(false);
+                hollowSplitter.SetStatusSplitting(false);
+                celesteSplitter.SetStatusSplitting(false);
+                dishonoredSplitter.SetStatusSplitting(false);
+                cupSplitter.SetStatusSplitting(false);
             }
             else
             {
                 switch (splitter)
                 {
-                    case GameConstruction.SekiroSplitterIndex: sekiroSplitter.setStatusSplitting(true); break;
-                    case GameConstruction.Ds1SplitterIndex: ds1Splitter.setStatusSplitting(true); break;
-                    case GameConstruction.Ds2SplitterIndex: ds2Splitter.setStatusSplitting(true); break;
-                    case GameConstruction.Ds3SplitterIndex: ds3Splitter.setStatusSplitting(true); break;
-                    case GameConstruction.EldenSplitterIndex: eldenSplitter.setStatusSplitting(true); break;
-                    case GameConstruction.HollowSplitterIndex: hollowSplitter.setStatusSplitting(true); break;
-                    case GameConstruction.CelesteSplitterIndex: celesteSplitter.setStatusSplitting(true); break;
-                    case GameConstruction.DishonoredSplitterIndex: dishonoredSplitter.setStatusSplitting(true); break;
-                    case GameConstruction.CupheadSplitterIndex: cupSplitter.setStatusSplitting(true); break;
+                    case GameConstruction.SekiroSplitterIndex: sekiroSplitter.SetStatusSplitting(true); break;
+                    case GameConstruction.Ds1SplitterIndex: ds1Splitter.SetStatusSplitting(true); break;
+                    case GameConstruction.Ds2SplitterIndex: ds2Splitter.SetStatusSplitting(true); break;
+                    case GameConstruction.Ds3SplitterIndex: ds3Splitter.SetStatusSplitting(true); break;
+                    case GameConstruction.EldenSplitterIndex: eldenSplitter.SetStatusSplitting(true); break;
+                    case GameConstruction.HollowSplitterIndex: hollowSplitter.SetStatusSplitting(true); break;
+                    case GameConstruction.CelesteSplitterIndex: celesteSplitter.SetStatusSplitting(true); break;
+                    case GameConstruction.DishonoredSplitterIndex: dishonoredSplitter.SetStatusSplitting(true); break;
+                    case GameConstruction.CupheadSplitterIndex: cupSplitter.SetStatusSplitting(true); break;
                     default: EnableSplitting(0); break;
                 }
             }
@@ -247,14 +247,14 @@ namespace AutoSplitterCore
 
         public void ResetSplitterFlags()
         {
-            sekiroSplitter.resetSplited();
-            ds1Splitter.resetSplited();
-            ds2Splitter.resetSplited();
-            ds3Splitter.resetSplited();
-            eldenSplitter.resetSplited();
-            hollowSplitter.resetSplited();
-            celesteSplitter.resetSplited();
-            cupSplitter.resetSplited();
+            sekiroSplitter.ResetSplited();
+            ds1Splitter.ResetSplited();
+            ds2Splitter.ResetSplited();
+            ds3Splitter.ResetSplited();
+            eldenSplitter.ResetSplited();
+            hollowSplitter.ResetSplited();
+            celesteSplitter.ResetSplited();
+            cupSplitter.ResetSplited();
         }
         #endregion
         #region IGT & Timmer 
@@ -348,7 +348,7 @@ namespace AutoSplitterCore
                         else
                         {
                             anyGameTime = true;
-                            var currentCelesteTime = celesteSplitter.getTimeInGame();
+                            var currentCelesteTime = celesteSplitter.GetTimeInGame();
                             if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame() && GameOn())
                             {
                                 if (!profCtrl.TimerRunning)
@@ -385,7 +385,7 @@ namespace AutoSplitterCore
                         else
                         {
                             anyGameTime = true;
-                            if (!cupSplitter.IsInGame() || cupSplitter.levelCompleted() || !GameOn())
+                            if (!cupSplitter.IsInGame() || cupSplitter.LevelCompleted() || !GameOn())
                             {
                                 if (profCtrl.TimerRunning)
                                     main.StartStopTimer(false);
@@ -518,7 +518,7 @@ namespace AutoSplitterCore
                         var loading = ds2Splitter.Ds2IsLoading();
                         if (!loading)
                         {
-                            var position = ds2Splitter.getCurrentPosition();
+                            var position = ds2Splitter.GetCurrentPosition();
                             if (
                                 position.Y < -322.0f && position.Y > -323.0f &&
                                 position.X < -213.0f && position.X > -214.0f)

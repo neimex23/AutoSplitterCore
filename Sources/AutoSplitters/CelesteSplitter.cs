@@ -45,18 +45,18 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
 
         #region Control Management
-        public DTCeleste getDataCeleste()
+        public DTCeleste GetDataCeleste()
         {
             return this.dataCeleste;
         }
-        public void setDataCeleste(DTCeleste data, IAutoSplitterCoreInterface profile)
+        public void SetDataCeleste(DTCeleste data, IAutoSplitterCoreInterface profile)
         {
             this.dataCeleste = data;
             this._profile = profile;
             _update_timer.Tick += (sender, args) => SplitGo();
         }
 
-        public bool getCelesteStatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetCelesteStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try
@@ -90,17 +90,17 @@ namespace AutoSplitterCore
             }
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataCeleste.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
-            if (dataCeleste.getChapterToSplit().Count > 0)
+            if (dataCeleste.GetChapterToSplit().Count > 0)
             {
-                foreach (var c in dataCeleste.getChapterToSplit())
+                foreach (var c in dataCeleste.GetChapterToSplit())
                 {
                     c.IsSplited = false;
                 }
@@ -123,23 +123,23 @@ namespace AutoSplitterCore
             dataCeleste.chapterToSplit.RemoveAll(ichapter => ichapter.Title == chapter);
         }
 
-        public void clearData()
+        public void ClearData()
         {
             dataCeleste.chapterToSplit.Clear();
             _runStarted = false;
         }
         #endregion
         #region Checking
-        public int getTimeInGame()
+        public int GetTimeInGame()
         {
             //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
-            if (!_StatusCeleste) getCelesteStatusProcess(0);
+            if (!_StatusCeleste) GetCelesteStatusProcess(0);
             return (int)celeste.GameTime()*1000+1; 
         }
 
-        public string getLevelName()
+        public string GetLevelName()
         {
-            if (!_StatusCeleste) getCelesteStatusProcess(0);
+            if (!_StatusCeleste) GetCelesteStatusProcess(0);
             if (_StatusCeleste)
             {
                 string AreaID;
@@ -169,7 +169,7 @@ namespace AutoSplitterCore
 
         public bool IsInGame()
         {
-            if (!_StatusCeleste) getCelesteStatusProcess(0);
+            if (!_StatusCeleste) GetCelesteStatusProcess(0);
             return _StatusCeleste && infoPlayer.areaID != Area.Menu;
         }
         #endregion
@@ -182,11 +182,11 @@ namespace AutoSplitterCore
             });
             var taskRefreshInfo = new Task(() =>
             {
-                checkInfoPlayer();
+                CheckInfoPlayer();
             });
             var task1 = new Task(() =>
             {
-                chapterToSplit();
+                ChapterToSplit();
             });
             taskRefresh.Start();
             taskRefreshInfo.Start();
@@ -197,16 +197,16 @@ namespace AutoSplitterCore
         private void RefreshCeleste()
         {
             int delay = 2000;
-            getCelesteStatusProcess(delay);
+            GetCelesteStatusProcess(delay);
             while (dataCeleste.enableSplitting)
             {
                 Thread.Sleep(10);
-                getCelesteStatusProcess(delay);
+                GetCelesteStatusProcess(delay);
                 if (!_StatusCeleste) { delay = 2000; } else { delay = 5000; }
             }
         }
 
-        public void checkInfoPlayer()
+        public void CheckInfoPlayer()
         {
             while (dataCeleste.enableSplitting)
             {
@@ -278,16 +278,16 @@ namespace AutoSplitterCore
             return shouldSplit;
         }
 
-        private void chapterToSplit()
+        private void ChapterToSplit()
         {
             bool shouldSplit = false;
-            var ChapterToSplit = dataCeleste.getChapterToSplit();
+            var ChapterToSplit = dataCeleste.GetChapterToSplit();
             while (dataCeleste.enableSplitting)
             {
                 Thread.Sleep(10);
                 if (_StatusCeleste && !_PracticeMode && !_ShowSettings)
                 {
-                    if (ChapterToSplit != dataCeleste.getChapterToSplit()) ChapterToSplit = dataCeleste.getChapterToSplit();
+                    if (ChapterToSplit != dataCeleste.GetChapterToSplit()) ChapterToSplit = dataCeleste.GetChapterToSplit();
                     foreach (var element in ChapterToSplit)
                     {
                         if (!element.IsSplited)

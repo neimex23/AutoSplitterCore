@@ -50,10 +50,7 @@ namespace AutoSplitterCore
             new DefinitionDishonored.DishonoredOptions() { Option = "Weepers"}
         };
 
-        public List<DefinitionDishonored.DishonoredOptions> getOptionToSplit()
-        {
-            return this.DishonoredOptions;
-        }
+        public List<DefinitionDishonored.DishonoredOptions> GetOptionToSplit() => this.DishonoredOptions;
 
     }
 }

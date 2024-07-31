@@ -48,12 +48,12 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
 
         #region Control Management
-        public DTHollow getDataHollow()
+        public DTHollow GetDataHollow()
         {
             return this.dataHollow;
         }
 
-        public void setDataHollow(DTHollow data, IAutoSplitterCoreInterface profile)
+        public void SetDataHollow(DTHollow data, IAutoSplitterCoreInterface profile)
         {
             this.dataHollow = data;
             this._profile = profile;
@@ -83,7 +83,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public bool getHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
+        public bool GetHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
             try
@@ -93,57 +93,57 @@ namespace AutoSplitterCore
             return _StatusHollow;
         }
 
-        public void setStatusSplitting(bool status)
+        public void SetStatusSplitting(bool status)
         {
             dataHollow.enableSplitting = status;
             if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
         }
 
-        public void resetSplited()
+        public void ResetSplited()
         {
-            if (dataHollow.getBosstoSplit().Count > 0)
+            if (dataHollow.GetBosstoSplit().Count > 0)
             {
-                foreach (var b in dataHollow.getBosstoSplit())
+                foreach (var b in dataHollow.GetBosstoSplit())
                 {
                     b.IsSplited = false;
                 }
             }
 
-            if (dataHollow.getMiniBossToSplit().Count > 0)
+            if (dataHollow.GetMiniBossToSplit().Count > 0)
             {
-                foreach (var mb in dataHollow.getMiniBossToSplit())
+                foreach (var mb in dataHollow.GetMiniBossToSplit())
                 {
                     mb.IsSplited = false;
                 }
             }
 
-            if (dataHollow.getPhanteonToSplit().Count > 0)
+            if (dataHollow.GetPhanteonToSplit().Count > 0)
             {
-                foreach (var p in dataHollow.getPhanteonToSplit())
+                foreach (var p in dataHollow.GetPhanteonToSplit())
                 {
                     p.IsSplited = false;
                 }
             }
 
-            if (dataHollow.getCharmToSplit().Count > 0)
+            if (dataHollow.GetCharmToSplit().Count > 0)
             {
-                foreach (var c in dataHollow.getCharmToSplit())
+                foreach (var c in dataHollow.GetCharmToSplit())
                 {
                     c.IsSplited = false;
                 }
             }
 
-            if (dataHollow.getSkillsToSplit().Count > 0)
+            if (dataHollow.GetSkillsToSplit().Count > 0)
             {
-                foreach (var s in dataHollow.getSkillsToSplit())
+                foreach (var s in dataHollow.GetSkillsToSplit())
                 {
                     s.IsSplited = false;
                 }
             }
 
-            if (dataHollow.getPositionToSplit().Count > 0)
+            if (dataHollow.GetPositionToSplit().Count > 0)
             {
-                foreach (var p in dataHollow.getPositionToSplit())
+                foreach (var p in dataHollow.GetPositionToSplit())
                 {
                     p.IsSplited = false;
                 }
@@ -154,13 +154,13 @@ namespace AutoSplitterCore
         #region Object Management
         public void AddBoss(string boss)
         {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
+            DefinitionHollow.ElementToSplitH element = defH.StringToEnum(boss);
             dataHollow.bossToSplit.Add(element);
 
         }
         public void AddMiniBoss(string boss)
         {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(boss);
+            DefinitionHollow.ElementToSplitH element = defH.StringToEnum(boss);
             dataHollow.miniBossToSplit.Add(element);
         }
 
@@ -173,14 +173,14 @@ namespace AutoSplitterCore
 
         public void AddCharm(string charm)
         {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(charm);
+            DefinitionHollow.ElementToSplitH element = defH.StringToEnum(charm);
             dataHollow.charmToSplit.Add(element);
 
         }
 
         public void AddSkill(string skill)
         {
-            DefinitionHollow.ElementToSplitH element = defH.stringToEnum(skill);
+            DefinitionHollow.ElementToSplitH element = defH.StringToEnum(skill);
             dataHollow.skillsToSplit.Add(element);
 
         }
@@ -226,7 +226,7 @@ namespace AutoSplitterCore
             dataHollow.positionToSplit.RemoveAt(position);
         }
 
-        public void clearData()
+        public void ClearData()
         {
             dataHollow.bossToSplit.Clear();
             dataHollow.miniBossToSplit.Clear();
@@ -239,15 +239,15 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Checking
-        public PointF getCurrentPosition()
+        public PointF GetCurrentPosition()
         {
-            manualRefreshPosition();
+            ManualRefreshPosition();
             return this.currentPosition.position;
         }
 
         public bool IsNewgame()
         {
-            if (!_StatusHollow) getHollowStatusProcess(0);
+            if (!_StatusHollow) GetHollowStatusProcess(0);
             return currentPosition.sceneName.StartsWith("Opening_Sequence");
         }
         #endregion
@@ -266,37 +266,37 @@ namespace AutoSplitterCore
 
             var taskCheckStart = new Task(() =>
             {
-                checkStart();
+                CheckStart();
             });
 
             var task1 = new Task(() =>
             {
-                bossToSplit();
+                BossToSplit();
             });
 
             var task2 = new Task(() =>
             {
-                miniBossToSplit();
+                MiniBossToSplit();
             });
 
             var task3 = new Task(() =>
             {
-                pantheonToSplit();
+                PantheonToSplit();
             });
 
             var task4 = new Task(() =>
             {
-                charmToSplit();
+                CharmToSplit();
             });
 
             var task5 = new Task(() =>
             {
-                skillsToSplit();
+                SkillsToSplit();
             });
 
             var task6 = new Task(() =>
             {
-                positionToSplit();
+                PositionToSplit();
             });
 
             taskRefresh.Start();
@@ -314,16 +314,16 @@ namespace AutoSplitterCore
         private void RefreshHollow()
         {
             int delay = 2000;
-            getHollowStatusProcess(0);
+            GetHollowStatusProcess(0);
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
-                getHollowStatusProcess(delay);
+                GetHollowStatusProcess(delay);
                 if (!_StatusHollow) { delay = 2000; } else { delay = 5000; }
             }
         }
 
-        private void checkStart()
+        private void CheckStart()
         {
             while (dataHollow.enableSplitting)
             {
@@ -368,23 +368,23 @@ namespace AutoSplitterCore
             }
         }
 
-        private void manualRefreshPosition()
+        private void ManualRefreshPosition()
         {
-            getHollowStatusProcess(0);
+            GetHollowStatusProcess(0);
             currentPosition.position = hollow.Memory.GetCameraTarget();
             currentPosition.sceneName = hollow.Memory.SceneName();
         }
 
        
-        private void bossToSplit()
+        private void BossToSplit()
         {
-            var BossToSplit = dataHollow.getBosstoSplit();
+            var BossToSplit = dataHollow.GetBosstoSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataHollow.getBosstoSplit()) BossToSplit = dataHollow.getBosstoSplit();
+                    if (BossToSplit != dataHollow.GetBosstoSplit()) BossToSplit = dataHollow.GetBosstoSplit();
                     foreach (var element in BossToSplit)
                     {
                         if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
@@ -397,15 +397,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void miniBossToSplit()
+        private void MiniBossToSplit()
         {
-            var MiniBossToSplit = dataHollow.getMiniBossToSplit();
+            var MiniBossToSplit = dataHollow.GetMiniBossToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (MiniBossToSplit != dataHollow.getMiniBossToSplit()) MiniBossToSplit = dataHollow.getMiniBossToSplit();
+                    if (MiniBossToSplit != dataHollow.GetMiniBossToSplit()) MiniBossToSplit = dataHollow.GetMiniBossToSplit();
                     foreach (var element in MiniBossToSplit)
                     {
                         if (!element.IsSplited)
@@ -432,15 +432,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void charmToSplit()
+        private void CharmToSplit()
         {
-            var CharmToSplit = dataHollow.getCharmToSplit();
+            var CharmToSplit = dataHollow.GetCharmToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (CharmToSplit != dataHollow.getCharmToSplit()) CharmToSplit = dataHollow.getCharmToSplit();
+                    if (CharmToSplit != dataHollow.GetCharmToSplit()) CharmToSplit = dataHollow.GetCharmToSplit();
                     foreach (var element in CharmToSplit)
                     {
                         if (!element.IsSplited)
@@ -475,15 +475,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void skillsToSplit()
+        private void SkillsToSplit()
         {
-            var SkillsToSplit = dataHollow.getSkillsToSplit();
+            var SkillsToSplit = dataHollow.GetSkillsToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(1000);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (SkillsToSplit != dataHollow.getSkillsToSplit()) SkillsToSplit = dataHollow.getSkillsToSplit();
+                    if (SkillsToSplit != dataHollow.GetSkillsToSplit()) SkillsToSplit = dataHollow.GetSkillsToSplit();
                     foreach (var element in SkillsToSplit)
                     {
                         if (!element.IsSplited)
@@ -510,15 +510,15 @@ namespace AutoSplitterCore
             }
         }
 
-        private void positionToSplit()
+        private void PositionToSplit()
         {
-            var PositionToSplit = dataHollow.getPositionToSplit();
+            var PositionToSplit = dataHollow.GetPositionToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(100);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionToSplit != dataHollow.getPositionToSplit()) PositionToSplit = dataHollow.getPositionToSplit();
+                    if (PositionToSplit != dataHollow.GetPositionToSplit()) PositionToSplit = dataHollow.GetPositionToSplit();
                     foreach (var p in PositionToSplit)
                     {
                         if (!p.IsSplited)
@@ -635,15 +635,15 @@ namespace AutoSplitterCore
             return shouldSplit;
         }
 
-        private void pantheonToSplit()
+        private void PantheonToSplit()
         {
-            List <DefinitionHollow.Pantheon> PantheonToSplit = dataHollow.getPhanteonToSplit();
+            List <DefinitionHollow.Pantheon> PantheonToSplit = dataHollow.GetPhanteonToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PantheonToSplit != dataHollow.getPhanteonToSplit()) PantheonToSplit = dataHollow.getPhanteonToSplit();
+                    if (PantheonToSplit != dataHollow.GetPhanteonToSplit()) PantheonToSplit = dataHollow.GetPhanteonToSplit();
                     if (dataHollow.PantheonMode == 0)
                     {
                         foreach (var element in PantheonToSplit)

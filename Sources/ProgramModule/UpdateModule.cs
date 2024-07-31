@@ -102,8 +102,7 @@ namespace AutoSplitterCore
                 {
                     if (aux.TryGetValue("tag_name", out var tagValue) && tagValue is string ver)
                     {
-                        Version outVer = null;
-                        Version.TryParse(ver, out outVer);
+                        Version.TryParse(ver, out Version outVer);
                         if (outVer != null) 
                             SoulsMemoryRelease.Add(outVer);
                     }                        

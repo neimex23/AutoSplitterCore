@@ -39,7 +39,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public BossDs1 stringToEnumBoss(string boss)
+        public BossDs1 StringToEnumBoss(string boss)
         {
             var bossMapping = new Dictionary<string, (string Title, uint Id)>
             {
@@ -91,7 +91,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public BonfireState stringtoEnumBonfireState(string state)
+        public BonfireState StringtoEnumBonfireState(string state)
         {
             switch (state)
             {
@@ -103,7 +103,7 @@ namespace AutoSplitterCore
                 default: return BonfireState.Unknown;
             }
         }
-        public BonfireDs1 stringToEnumBonfire(string bonfire)
+        public BonfireDs1 StringToEnumBonfire(string bonfire)
         {
             var bonfireMapping = new Dictionary<string, (string Title, Bonfire Id)>
             {
@@ -172,7 +172,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
         
-        public SoulMemory.DarkSouls1.Attribute stringToEnumAttribute(string attribute)
+        public SoulMemory.DarkSouls1.Attribute StringToEnumAttribute(string attribute)
         {
             LvlDs1 cLvl = new LvlDs1();
             switch (attribute)
@@ -220,7 +220,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public ItemDs1 stringToEnumItem(string item)
+        public ItemDs1 StringToEnumItem(string item)
         {
            var itemMapping = new Dictionary<string, (string Title, uint Id)> 
            {
@@ -939,29 +939,14 @@ namespace AutoSplitterCore
         public List<DefinitionsDs1.ItemDs1> itemToSplit = new List<DefinitionsDs1.ItemDs1>();
 
 
-        public List<DefinitionsDs1.BossDs1> getBossToSplit()
-        {
-            return this.bossToSplit;
-        }
+        public List<DefinitionsDs1.BossDs1> GetBossToSplit() => this.bossToSplit;
 
-        public List<DefinitionsDs1.BonfireDs1> getBonfireToSplit()
-        {
-            return this.bonfireToSplit;
-        }
+        public List<DefinitionsDs1.BonfireDs1> GetBonfireToSplit() => this.bonfireToSplit;
 
-        public List<DefinitionsDs1.LvlDs1> getLvlToSplit()
-        {
-            return this.lvlToSplit;
-        }
+        public List<DefinitionsDs1.LvlDs1> GetLvlToSplit() => this.lvlToSplit;
 
-        public List<DefinitionsDs1.PositionDs1> getPositionsToSplit()
-        {
-            return this.positionsToSplit;
-        }
+        public List<DefinitionsDs1.PositionDs1> GetPositionsToSplit() => this.positionsToSplit;
 
-        public List<DefinitionsDs1.ItemDs1> getItemsToSplit()
-        {
-            return this.itemToSplit;
-        }
+        public List<DefinitionsDs1.ItemDs1> GetItemsToSplit() => this.itemToSplit;
     }
 }

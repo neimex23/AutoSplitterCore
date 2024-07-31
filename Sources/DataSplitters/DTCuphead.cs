@@ -48,9 +48,6 @@ namespace AutoSplitterCore
         //Flags to Split
         public List<DefinitionCuphead.ElementsToSplitCup> elementToSplit = new List<DefinitionCuphead.ElementsToSplitCup>();
 
-        public List<DefinitionCuphead.ElementsToSplitCup> getElementToSplit()
-        {
-            return this.elementToSplit;
-        }
+        public List<DefinitionCuphead.ElementsToSplitCup> GetElementToSplit() => this.elementToSplit;
     }
 }

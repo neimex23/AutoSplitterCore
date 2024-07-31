@@ -42,7 +42,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public BossDs2 stringToEnumBoss(string boss)
+        public BossDs2 StringToEnumBoss(string boss)
         {
             var bossMapping = new Dictionary<string, (string Title, BossType Id)> 
             {
@@ -109,7 +109,7 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public SoulMemory.DarkSouls2.Attribute stringToEnumAttribute(string attribute)
+        public SoulMemory.DarkSouls2.Attribute StringToEnumAttribute(string attribute)
         {
             switch (attribute)
             {
@@ -162,19 +162,10 @@ namespace AutoSplitterCore
         public List<DefinitionsDs2.LvlDs2> lvlToSplit = new List<DefinitionsDs2.LvlDs2>();
         public List<DefinitionsDs2.PositionDs2> positionsToSplit = new List<DefinitionsDs2.PositionDs2>();
 
-        public List<DefinitionsDs2.BossDs2> getBossToSplit()
-        {
-            return this.bossToSplit;
-        }
-        public List<DefinitionsDs2.LvlDs2> getLvlToSplit()
-        {
-            return this.lvlToSplit;
-        }
+        public List<DefinitionsDs2.BossDs2> GetBossToSplit() => this.bossToSplit;
+        public List<DefinitionsDs2.LvlDs2> GetLvlToSplit() => this.lvlToSplit;
 
-        public List<DefinitionsDs2.PositionDs2> getPositionsToSplit()
-        {
-            return this.positionsToSplit;
-        }
+        public List<DefinitionsDs2.PositionDs2> GetPositionsToSplit() => this.positionsToSplit;
 
     }
 }
