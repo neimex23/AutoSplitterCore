@@ -2513,7 +2513,7 @@ namespace AutoSplitterCore
                         if (textBoxTitleCFDs3.Text != string.Empty)
                         {
                             title = " - " + textBoxTitleCFDs3.Text;
-                            textBoxTitleCFDs3.Clear();
+                            textBoxTitleCFDs3.Text = string.Empty;
                         }
 
                         ds3Splitter.AddCustomFlag(id, comboBoxHowCfDs3.Text.ToString(),title);
@@ -2547,16 +2547,20 @@ namespace AutoSplitterCore
         {
             var Vector = ds3Splitter.GetCurrentPosition();
             this.VectorDs3 = Vector;
-            this.textBoxXDs3.Clear();
-            this.textBoxYDs3.Clear();
-            this.textBoxZDs3.Clear();
-            this.textBoxXDs3.Paste(Vector.X.ToString("0.00"));
-            this.textBoxYDs3.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxZDs3.Paste(Vector.Z.ToString("0.00"));
+            this.textBoxXDs3.Text = string.Empty;
+            this.textBoxYDs3.Text = string.Empty;
+            this.textBoxZDs3.Text = string.Empty;
+            this.textBoxXDs3.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYDs3.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxZDs3.Text = (Vector.Z.ToString("0.00"));
         }
 
         private void btnAddPositionDs3_Click(object sender, EventArgs e)
         {
+            var X = float.Parse(textBoxXDs3.Text, new CultureInfo("en-US"));
+            var Y = float.Parse(textBoxYDs3.Text, new CultureInfo("en-US"));
+            var Z = float.Parse(textBoxZDs3.Text, new CultureInfo("en-US"));
+            VectorDs1 = new Vector3f(X, Y, Z);
             if (this.VectorDs3 != null)
             {
                 var contains1 = !listBoxPositionsDs3.Items.Contains(this.VectorDs3 + " - " + "Inmediatly");
@@ -2579,7 +2583,7 @@ namespace AutoSplitterCore
                             if (textBoxTitlePositionDs3.Text != string.Empty)
                             {
                                 title = " - " + textBoxTitlePositionDs3.Text;
-                                textBoxTitlePositionDs3.Clear();
+                                textBoxTitlePositionDs3.Text = string.Empty;
                             }
                             listBoxPositionsDs3.Items.Add(this.VectorDs3 + " - " + comboBoxHowPositionsDs3.Text.ToString() + title);
                             ds3Splitter.AddPosition(this.VectorDs3, comboBoxHowPositionsDs3.Text.ToString(), title);
@@ -3312,8 +3316,7 @@ namespace AutoSplitterCore
 
 
 
+
         #endregion
-
-
     }
 }
