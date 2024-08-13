@@ -408,7 +408,7 @@ namespace AutoSplitterCore
             {
                 listBoxPositionsER.Items.Add(position.vector + " - " + position.Mode + position.Title);
             }
-            comboBoxMarginER.SelectedIndex = eldenData.positionMargin;
+            comboBoxSizeER.SelectedIndex = eldenData.positionMargin;
             #endregion
             #region EldenLoad.CustomFlags
             foreach (DefinitionsElden.CustomFlagER cf in eldenData.GetFlagsToSplit())
@@ -1258,7 +1258,7 @@ namespace AutoSplitterCore
         }
 
 
-        private void btnGetPosition_Click(object sender, EventArgs e)
+        private void btnGetPositionS_Click(object sender, EventArgs e)
         {
             var Vector = sekiroSplitter.GetCurrentPosition();
             this.textBoxXS.Text = string.Empty;
@@ -2177,17 +2177,7 @@ namespace AutoSplitterCore
         #region Ds2 UI
         private void comboBoxToSplitDs2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            panelBossDS2.Hide();
-            panelLvlDs2.Hide();
-            panelPositionDs2.Hide();
 
-
-            switch (comboBoxToSplitDs2.SelectedIndex)
-            {
-                case 0: panelBossDS2.Show(); break;
-                case 1: panelLvlDs2.Show(); break;
-                case 2: panelPositionDs2.Show(); break;
-            }
         }
 
         private void btnAddBossDS2_Click(object sender, EventArgs e)
@@ -2754,24 +2744,23 @@ namespace AutoSplitterCore
         SoulMemory.EldenRing.Position VectorER;
         private void comboBoxMarginER_SelectedIndexChanged(object sender, EventArgs e)
         {
-            eldenSplitter.dataElden.positionMargin = comboBoxMarginER.SelectedIndex; ;
+            eldenSplitter.dataElden.positionMargin = comboBoxSizeER.SelectedIndex; ;
         }
 
-        private void btnGetPosition_Click_1(object sender, EventArgs e)
+        private void btnGetPositionER_Click(object sender, EventArgs e)
         {
             var Vector = eldenSplitter.GetCurrentPosition();
             this.VectorER = Vector;
-            this.textBoxXEr.Clear();
-            this.textBoxYEr.Clear();
-            this.textBoxZEr.Clear();
-            this.textBoxXEr.Paste(Vector.X.ToString("0.00"));
-            this.textBoxYEr.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxZEr.Paste(Vector.Z.ToString("0.00"));
+            this.textBoxXEr.Text = string.Empty;
+            this.textBoxYEr.Text = string.Empty;
+            this.textBoxZEr.Text = string.Empty;
+            this.textBoxXEr.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYEr.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxZEr.Text = (Vector.Z.ToString("0.00"));
         }
 
         private void btnAddPositionER_Click(object sender, EventArgs e)
         {
-
             if (this.VectorER != null)
             {
                 var contains1 = !listBoxPositionsER.Items.Contains(this.VectorER + " - " + "Inmediatly");
@@ -2795,7 +2784,7 @@ namespace AutoSplitterCore
                             if (textBoxTitlePositionER.Text != string.Empty)
                             {
                                 title = " - " + textBoxTitlePositionER.Text;
-                                textBoxTitlePositionER.Clear();
+                                textBoxTitlePositionER.Text = string.Empty;
                             }
                             listBoxPositionsER.Items.Add(this.VectorER + " - " + comboBoxHowPositionsER.Text.ToString() + title);
                             eldenSplitter.AddPosition(this.VectorER, comboBoxHowPositionsER.Text.ToString(), title);
@@ -2809,7 +2798,7 @@ namespace AutoSplitterCore
             }
             else
             {
-                MessageBox.Show("Plase get a position ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Plase get a position", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -3318,5 +3307,6 @@ namespace AutoSplitterCore
 
 
         #endregion
+
     }
 }
