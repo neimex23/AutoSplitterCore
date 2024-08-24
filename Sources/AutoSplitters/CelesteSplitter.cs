@@ -176,21 +176,9 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshCeleste();
-            });
-            var taskRefreshInfo = new Task(() =>
-            {
-                CheckInfoPlayer();
-            });
-            var task1 = new Task(() =>
-            {
-                ChapterToSplit();
-            });
-            taskRefresh.Start();
-            taskRefreshInfo.Start();
-            task1.Start();
+            Task.Run(() => RefreshCeleste());
+            Task.Run(() => CheckInfoPlayer());
+            Task.Run(() => ChapterToSplit());
         }
         #endregion
         #region CheckFlag Init()   

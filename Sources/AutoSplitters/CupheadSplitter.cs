@@ -160,16 +160,8 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshCuphead();
-            });
-            var task1 = new Task(() =>
-            {
-                ElementToSplit();
-            });
-            taskRefresh.Start();
-            task1.Start();
+            Task.Run(() => RefreshCuphead());
+            Task.Run(() => ElementToSplit());
         }
         #endregion
         #region CheckFlag Init()

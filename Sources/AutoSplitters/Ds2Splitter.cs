@@ -208,39 +208,12 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshDs2();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                CheckLoad();
-            });
-            var taskCheckStart = new Task(() =>
-            {
-                CheckStart();
-            });
-
-            var task1 = new Task(() =>
-            {
-                BossToSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                PositionToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                LvlToSplit();
-            });
-
-            taskRefresh.Start();
-            taskCheckload.Start();
-            taskCheckStart.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
+            Task.Run(() => RefreshDs2());
+            Task.Run(() => CheckLoad());
+            Task.Run(() => CheckStart());
+            Task.Run(() => BossToSplit());
+            Task.Run(() => PositionToSplit());
+            Task.Run(() => LvlToSplit());
         }
         #endregion
         #region CheckFlag Init()

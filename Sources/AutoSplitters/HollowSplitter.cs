@@ -254,60 +254,15 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshHollow();
-            });
-
-            var taskRefreshPosition = new Task(() =>
-            {
-                RefreshPosition();
-            });
-
-            var taskCheckStart = new Task(() =>
-            {
-                CheckStart();
-            });
-
-            var task1 = new Task(() =>
-            {
-                BossToSplit();
-            });
-
-            var task2 = new Task(() =>
-            {
-                MiniBossToSplit();
-            });
-
-            var task3 = new Task(() =>
-            {
-                PantheonToSplit();
-            });
-
-            var task4 = new Task(() =>
-            {
-                CharmToSplit();
-            });
-
-            var task5 = new Task(() =>
-            {
-                SkillsToSplit();
-            });
-
-            var task6 = new Task(() =>
-            {
-                PositionToSplit();
-            });
-
-            taskRefresh.Start();
-            taskRefreshPosition.Start();
-            taskCheckStart.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task4.Start();
-            task5.Start();
-            task6.Start();
+            Task.Run(() => RefreshHollow());
+            Task.Run(() => RefreshPosition());
+            Task.Run(() => CheckStart());
+            Task.Run(() => BossToSplit());
+            Task.Run(() => MiniBossToSplit());
+            Task.Run(() => PantheonToSplit());
+            Task.Run(() => CharmToSplit());
+            Task.Run(() => SkillsToSplit());
+            Task.Run(() => PositionToSplit());
         }
         #endregion
         #region CheckFlag Init()   
