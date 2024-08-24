@@ -2227,7 +2227,17 @@ namespace AutoSplitterCore
         #region Ds2 UI
         private void comboBoxToSplitDs2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            panelBossDS2.Hide();
+            panelLvlDs2.Hide();
+            panelPositionDs2.Hide();
 
+
+            switch (comboBoxToSplitDs2.SelectedIndex)
+            {
+                case 0: panelBossDS2.Show(); break;
+                case 1: panelLvlDs2.Show(); break;
+                case 2: panelPositionDs2.Show(); break;
+            }
         }
 
         private void btnAddBossDS2_Click(object sender, EventArgs e)
@@ -2886,7 +2896,7 @@ namespace AutoSplitterCore
                         if (textBoxTitleCFER.Text != string.Empty)
                         {
                             title = " - " + textBoxTitleCFER.Text;
-                            textBoxTitleCFER.Clear();
+                            textBoxTitleCFER.Text = string.Empty;
                         }
 
                         eldenSplitter.AddCustomFlag(id, comboBoxHowCfER.Text.ToString(), title);
