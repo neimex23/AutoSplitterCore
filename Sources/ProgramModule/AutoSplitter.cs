@@ -95,6 +95,7 @@ namespace AutoSplitterCore
             panelIdolsS.Hide();
             panelMortalJourney.Hide();
             panelMinibossSekiro.Hide();
+            panelLevelSekiro.Hide();
             groupBoxAshinaOutskirts.Hide();
             groupBoxHirataEstate.Hide();
             groupBoxAshinaCastle.Hide();
@@ -307,6 +308,12 @@ namespace AutoSplitterCore
             foreach (DefinitionsSekiro.CfSk cf in sekiroData.GetFlagToSplit())
             {
                 listBoxCfS.Items.Add(cf.Id + " - " + cf.Mode + cf.Title);
+            }
+            #endregion
+            #region SekiroLoad.Level
+            foreach (DefinitionsSekiro.LevelS lvl in sekiroData.GetLvlToSplit())
+            {
+                listBoxAttributeS.Items.Add(lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode);
             }
             #endregion
             DTHollow hollowData = hollowSplitter.GetDataHollow();
@@ -1229,7 +1236,7 @@ namespace AutoSplitterCore
             this.panelCfSekiro.Hide();
             this.panelMortalJourney.Hide();
             this.panelMinibossSekiro.Hide();
-
+            this.panelLevelSekiro.Hide();
 
             switch (toSplitSelectSekiro.SelectedIndex)
             {
@@ -1247,7 +1254,9 @@ namespace AutoSplitterCore
                     break;
                 case 4://Mortal Journey
                     this.panelMortalJourney.Show(); break;
-                case 5: //CustomFlags
+                case 5:
+                    this.panelLevelSekiro.Show(); break;
+                case 6: //CustomFlags
                     this.panelCfSekiro.Show(); break;
             }
         }
@@ -1339,6 +1348,47 @@ namespace AutoSplitterCore
             int select = comboBoxSizeS.SelectedIndex;
             sekiroSplitter.SetPositionMargin(select);
         }
+
+        private void btnAddAttributeS_Click(object sender, EventArgs e)
+        {
+            if (comboBoxAttributeS.SelectedIndex == -1 || comboBoxAttributeS.SelectedIndex == -1 || textBoxValueS.Text == null)
+            {
+                MessageBox.Show("Plase select Attribute, Value and 'How' do you want split  ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    var value = uint.Parse(textBoxValueS.Text);
+                    var contains1 = !listBoxAttributeS.Items.Contains(comboBoxAttributeS.Text.ToString() + ": " + value + " - " + "Inmediatly");
+                    var contains2 = !listBoxAttributeS.Items.Contains(comboBoxAttributeS.Text.ToString() + ": " + value + " - " + "Loading game after");
+                    if (contains1 && contains2)
+                    {
+                        sekiroSplitter.AddAttribute(comboBoxAttributeS.Text.ToString(), comboBoxHowAttributeS.Text.ToString(), value);
+                        listBoxAttributeS.Items.Add(comboBoxAttributeS.Text.ToString() + ": " + value + " - " + comboBoxHowAttributeS.Text.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have already added this trigger", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Check Value and try again", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void listBoxAttributeS_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.listBoxAttributeS.SelectedItem != null)
+            {
+                int i = listBoxAttributeS.Items.IndexOf(listBoxAttributeS.SelectedItem);
+                sekiroSplitter.RemoveAttribute(i);
+                listBoxAttributeS.Items.Remove(listBoxAttributeS.SelectedItem);
+            }
+        }
+
 
         private void btn_AddBoss_Click(object sender, EventArgs e)
         {
@@ -3308,5 +3358,6 @@ namespace AutoSplitterCore
 
         #endregion
 
+        
     }
 }

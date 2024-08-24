@@ -25,6 +25,8 @@ using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -187,6 +189,24 @@ namespace AutoSplitterCore
             };
             dataSekiro.flagToSplit.Add(cFlag);
         }
+
+        public void AddAttribute(string attribute, string mode, uint value)
+        {
+            DefinitionsSekiro.LevelS cLvl = new DefinitionsSekiro.LevelS()
+            {
+                Attribute = defS.StringToEnumAttribute(attribute),
+                Mode = mode,
+                Value = value
+            };
+            dataSekiro.lvlToSplit.Add(cLvl);
+        }
+
+        public void RemoveAttribute(int position)
+        {
+            listPendingLevel.RemoveAll(ilvl => ilvl.Attribute == dataSekiro.lvlToSplit[position].Attribute && ilvl.Value == dataSekiro.lvlToSplit[position].Value);
+            dataSekiro.lvlToSplit.RemoveAt(position);
+        }
+
 
         public void AddMiniBoss (string miniboss, string mode)
         {
@@ -445,12 +465,14 @@ namespace AutoSplitterCore
             listPendingP.Clear();
             listPendingCf.Clear();
             listPendingMb.Clear();
+            listPendingLevel.Clear();
             PendingMortal.Clear();
             dataSekiro.bossToSplit.Clear();
             dataSekiro.idolsTosplit.Clear();
             dataSekiro.positionsToSplit.Clear();
             dataSekiro.flagToSplit.Clear();
             dataSekiro.miniBossToSplit.Clear();
+            dataSekiro.lvlToSplit.Clear();
             NotSplited(ref MortalJourneyData);
             dataSekiro.positionMargin = 3;
             dataSekiro.mortalJourneyRun = false;
@@ -484,47 +506,15 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            var taskRefresh = new Task(() =>
-            {
-                RefreshSekiro();
-            });
-            var taskCheckload = new Task(() =>
-            {
-                CheckLoad();
-            });
-            var task1 = new Task(() =>
-            {
-                BossSplit();
-            });
-            var task2 = new Task(() =>
-            {
-                IdolSplit();
-            });
-            var task3 = new Task(() =>
-            {
-                PositionSplit();
-            });
-            var task4 = new Task(() =>
-            {
-                CustomFlagToSplit();
-            });
-            var task5 = new Task(() =>
-            {
-                MortalJourney();
-            });
-            var task6 = new Task(() =>
-            {
-                MiniBossSplit();
-            });
-
-            taskRefresh.Start();
-            taskCheckload.Start();
-            task1.Start();
-            task2.Start();
-            task3.Start();
-            task4.Start();
-            task5.Start();
-            task6.Start();
+            Task.Run(() => RefreshSekiro());
+            Task.Run(() => CheckLoad());
+            Task.Run(() => BossSplit());
+            Task.Run(() => IdolSplit());
+            Task.Run(() => PositionSplit());
+            Task.Run(() => CustomFlagToSplit());
+            Task.Run(() => MortalJourney());
+            Task.Run(() => MiniBossSplit());
+            Task.Run(() => LevelSplit());
         }
         #endregion
         #region CheckFlag Init()   
@@ -562,6 +552,7 @@ namespace AutoSplitterCore
         List<DefinitionsSekiro.Idol> listPendingI = new List<DefinitionsSekiro.Idol>();
         List<DefinitionsSekiro.CfSk> listPendingCf = new List<DefinitionsSekiro.CfSk>();
         List<DefinitionsSekiro.MiniBossS> listPendingMb = new List<DefinitionsSekiro.MiniBossS>();
+        List<DefinitionsSekiro.LevelS> listPendingLevel = new List<DefinitionsSekiro.LevelS>();
 
 
         private void CheckLoad()
@@ -611,10 +602,18 @@ namespace AutoSplitterCore
                                 dataSekiro.miniBossToSplit[mbo].IsSplited = true;
                             }
 
+                            foreach (var lvl in listPendingLevel)
+                            {
+                                SplitCheck();
+                                var l = dataSekiro.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                dataSekiro.lvlToSplit[l].IsSplited = true;
+                            }
+
                             listPendingB.Clear();
                             listPendingI.Clear();
                             listPendingP.Clear();
                             listPendingCf.Clear();
+                            listPendingLevel.Clear();
                         }
                     }
                 }
@@ -858,6 +857,37 @@ namespace AutoSplitterCore
                                     SplitCheck();
                                     p.IsSplited = PK;
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void LevelSplit()
+        {
+            var LvlToSplit = dataSekiro.GetLvlToSplit();
+            while (dataSekiro.enableSplitting)
+            {
+                Thread.Sleep(1000);
+                if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
+                {
+                    if (LvlToSplit != dataSekiro.GetLvlToSplit()) LvlToSplit = dataSekiro.GetLvlToSplit();
+                    foreach (var lvl in LvlToSplit)
+                    {
+                        if (!lvl.IsSplited && sekiro.GetAttribute(lvl.Attribute) >= lvl.Value)
+                        {
+                            if (lvl.Mode == "Loading game after")
+                            {
+                                if (!listPendingLevel.Contains(lvl))
+                                {
+                                    listPendingLevel.Add(lvl);
+                                }
+                            }
+                            else
+                            {
+                                SplitCheck();
+                                lvl.IsSplited = PK;
                             }
                         }
                     }

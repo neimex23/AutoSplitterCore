@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using SoulMemory;
 
 
@@ -340,6 +341,21 @@ namespace AutoSplitterCore
         }
 
         #endregion
+        #region Level.Sekiro
+        [Serializable]
+        public class LevelS
+        {
+            public SoulMemory.Sekiro.Attribute Attribute;
+            public uint Value;
+            public bool IsSplited = false;
+            public string Mode;
+        }
+
+        public SoulMemory.Sekiro.Attribute StringToEnumAttribute (string Attribute)
+        {
+            return (SoulMemory.Sekiro.Attribute)Enum.Parse(typeof(SoulMemory.Sekiro.Attribute), Attribute);
+        }
+        #endregion
         public enum KindSplit
         {
             ID,Position
@@ -362,8 +378,8 @@ namespace AutoSplitterCore
         public List<DefinitionsSekiro.MiniBossS> miniBossToSplit = new List<DefinitionsSekiro.MiniBossS>();
         public List<DefinitionsSekiro.Idol> idolsTosplit = new List<DefinitionsSekiro.Idol>();
         public List<DefinitionsSekiro.PositionS> positionsToSplit = new List<DefinitionsSekiro.PositionS>();
+        public List<DefinitionsSekiro.LevelS> lvlToSplit = new List<DefinitionsSekiro.LevelS>();
         public List<DefinitionsSekiro.CfSk> flagToSplit = new List<DefinitionsSekiro.CfSk>();
-
 
 
         public List<DefinitionsSekiro.BossS> GetBossToSplit() => this.bossToSplit;
@@ -375,5 +391,8 @@ namespace AutoSplitterCore
         public List<DefinitionsSekiro.CfSk> GetFlagToSplit() => this.flagToSplit;
 
         public List<DefinitionsSekiro.MiniBossS> GetMiniBossToSplit() => this.miniBossToSplit;
+
+        public List<DefinitionsSekiro.LevelS> GetLvlToSplit() => this.lvlToSplit;
+
     }
 }

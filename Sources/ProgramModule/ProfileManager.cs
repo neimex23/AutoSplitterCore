@@ -25,6 +25,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AutoSplitterCore
 {
@@ -213,6 +214,15 @@ namespace AutoSplitterCore
             Summary += "Mortal Journey: " + Line;
             Summary += Space + "Enable: " + saveModule.dataAS.DataSekiro.mortalJourneyRun + Line;
             Summary += Line;
+
+            Summary += "Attributes: " + Line;
+            if (saveModule.dataAS.DataSekiro.lvlToSplit.Count > 0)
+            {
+                foreach (var lvl in saveModule.dataAS.DataSekiro.lvlToSplit)
+                {
+                    Summary += Space + lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode + Line;
+                }
+            }
 
             Summary += "Custom Flags: " + Line;
             if (saveModule.dataAS.DataSekiro.flagToSplit.Count > 0)
