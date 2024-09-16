@@ -3368,15 +3368,5 @@ namespace AutoSplitterCore
 
 
         #endregion
-
-        private void label92_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelItemH_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
