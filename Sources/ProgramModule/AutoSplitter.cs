@@ -393,7 +393,7 @@ namespace AutoSplitterCore
             {
                 listBoxPositionH.Items.Add(p.position + " - " + p.sceneName + p.Title);
             }
-            comboBoxMarginH.SelectedIndex = hollowData.positionMargin;
+            comboBoxSizeH.SelectedIndex = hollowData.positionMargin;
             #endregion
             DTElden eldenData = eldenSplitter.GetDataElden();
             #region EldenLoad.Boss
@@ -3119,17 +3119,17 @@ namespace AutoSplitterCore
 
             var Vector = hollowSplitter.GetCurrentPosition();
             this.VectorH = Vector;
-            this.textBoxXh.Clear();
-            this.textBoxYh.Clear();
-            this.textBoxSh.Clear();
-            this.textBoxXh.Paste(Vector.X.ToString("0.00"));
-            this.textBoxYh.Paste(Vector.Y.ToString("0.00"));
-            this.textBoxSh.Paste(hollowSplitter.currentPosition.sceneName == String.Empty ? "NULL" : hollowSplitter.currentPosition.sceneName);
+            this.textBoxXh.Text = string.Empty;
+            this.textBoxYh.Text = string.Empty;
+            this.textBoxSh.Text = string.Empty;
+            this.textBoxXh.Text = (Vector.X.ToString("0.00"));
+            this.textBoxYh.Text = (Vector.Y.ToString("0.00"));
+            this.textBoxSh.Text = (hollowSplitter.currentPosition.sceneName == String.Empty ? "NULL" : hollowSplitter.currentPosition.sceneName);
         }
 
         private void comboBoxMarginH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int select = comboBoxMarginH.SelectedIndex;
+            int select = comboBoxSizeH.SelectedIndex;
             hollowSplitter.dataHollow.positionMargin = select;
         }
 
@@ -3150,7 +3150,7 @@ namespace AutoSplitterCore
                         if (textBoxTitlePositionHK.Text != string.Empty)
                         {
                             title = " - " + textBoxTitlePositionHK.Text;
-                            textBoxTitlePositionHK.Clear();
+                            textBoxTitlePositionHK.Text = string.Empty; ;
                         }
                         listBoxPositionH.Items.Add(this.VectorH + " - " + textBoxSh.Text + title);
                         hollowSplitter.AddPosition(this.VectorH, textBoxSh.Text, title);
@@ -3366,8 +3366,17 @@ namespace AutoSplitterCore
 
 
 
+
         #endregion
 
-        
+        private void label92_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelItemH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
