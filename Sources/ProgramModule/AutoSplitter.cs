@@ -28,6 +28,7 @@ using System.Globalization;
 using ReaLTaiizor;
 using ReaLTaiizor.Controls;
 using System.Security.Principal;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace AutoSplitterCore
 {
@@ -172,22 +173,44 @@ namespace AutoSplitterCore
             checkStatusGames();
         }
 
-        public void DarkMode() //Is horrible but is accuareate that dark mode in main Form :)
+        public void DarkMode()
         {
-            /*this.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabConfig.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabInfo.BackColor = Color.FromArgb(50, 50, 50);
-            this.TextBoxManual.BackColor = Color.DarkSlateGray;
-            this.tabTiming.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabDs1.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabDs2.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabDs3.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabElden.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabHollow.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabSekiro.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabCeleste.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabDishonored.BackColor = Color.FromArgb(50, 50, 50);
-            this.tabLicense.BackColor = Color.FromArgb(50, 50, 50);*/
+            Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+
+            TabControlGeneral.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+
+            this.tabConfig.BackColor = Color.Teal;
+            this.tabInfo.BackColor = Color.Teal;
+            this.tabLicense.BackColor = Color.Teal;
+            this.tabTiming.BackColor = Color.Teal;
+            this.tabSekiro.BackColor = Color.Teal;
+            this.tabDs1.BackColor = Color.Teal;
+            this.tabDs2.BackColor = Color.Teal;
+            this.tabDs3.BackColor = Color.Teal;
+            this.tabCuphead.BackColor = Color.Teal;
+            this.tabElden.BackColor = Color.Teal;
+            this.tabHollow.BackColor = Color.Teal;
+            this.tabCeleste.BackColor = Color.Teal;
+            this.tabDishonored.BackColor = Color.Teal;
+
+            labelWarning.ForeColor = Color.Gold;
+            ChangeColorLostBorderPanels(this);
+        }
+
+        private void ChangeColorLostBorderPanels(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.LostBorderPanel lostPanel)
+                {
+                    lostPanel.BackColor = Color.LightBlue;
+                }
+
+                if (control.HasChildren)
+                {
+                    ChangeColorLostBorderPanels(control);
+                }
+            }
         }
 
         private void AutoSplitter_Load(object sender, EventArgs e)
