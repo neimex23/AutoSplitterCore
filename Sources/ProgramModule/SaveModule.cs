@@ -29,6 +29,7 @@ using HitCounterManager;
 
 namespace AutoSplitterCore
 {
+    public enum StyleMode { Default, Light ,Dark};
     #region DataAutoSplitter
     /// <summary>
     /// Class Contains All Settings of AutoSplitterCore
@@ -42,8 +43,8 @@ namespace AutoSplitterCore
         //Settings
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
-        public bool ASLMethod = false;
         public bool AutoResetSplit = false;
+        public StyleMode StyleMode = StyleMode.Default;
         //AutoSplitters Config
         public DTSekiro DataSekiro;
         public DTHollow DataHollow;

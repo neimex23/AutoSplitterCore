@@ -34,7 +34,8 @@ namespace AutoSplitterCore
 {
     public partial class AutoSplitter : ReaLTaiizor.Forms.PoisonForm
     {
-        bool darkMode = false;
+        bool isInitializing = false;
+        bool darkModeHCM = false;
         SekiroSplitter sekiroSplitter;
         HollowSplitter hollowSplitter;
         EldenSplitter eldenSplitter;
@@ -62,22 +63,15 @@ namespace AutoSplitterCore
             this.dishonoredSplitter = dishonoredSplitter;
             this.updateModule = updateModule;
             this.saveModule = saveModule;
-            this.darkMode = darkMode;
-            RefreshForm();
+            this.darkModeHCM = darkMode;
         }
 
         public void RefreshForm()
         {
-            #region GeneralUI
-            if (darkMode)
-            {
-                DarkMode();
-            }
-            #endregion
             #region ControlTab
             this.TabControlGeneral.Controls.Remove(this.tabInfo);
             this.TabControlGeneral.Controls.Remove(this.tabLicense);
-            this.TabControlGeneral.Controls.Remove(this.tabTiming);
+            this.TabControlGeneral.Controls.Remove(this.tabGeneral);
             this.TabControlGeneral.Controls.Remove(this.tabSekiro);
             this.TabControlGeneral.Controls.Remove(this.tabDs1);
             this.TabControlGeneral.Controls.Remove(this.tabDs2);
@@ -170,51 +164,77 @@ namespace AutoSplitterCore
             LabelVersion.Text = updateModule.currentVer;
             labelCloudVer.Text = updateModule.cloudVer;
             #endregion
+            //Override StyleMode
+            switch (saveModule.dataAS.StyleMode)
+            {
+                case StyleMode.Light: //Light by Default
+                    break;
+                case StyleMode.Dark:
+                    DarkMode(true);
+                    break;
+                case StyleMode.Default:
+                default:
+                    DarkMode(darkModeHCM);
+                    break;
+            }
             checkStatusGames();
         }
 
-        public void DarkMode()
+        public void DarkMode(bool status)
         {
-            Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            if (status)
+            {
+                Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
 
-            TabControlGeneral.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+                //Tabpages
+                TabControlGeneral.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
 
-            this.tabConfig.BackColor = Color.Teal;
-            this.tabInfo.BackColor = Color.Teal;
-            this.tabLicense.BackColor = Color.Teal;
-            this.tabTiming.BackColor = Color.Teal;
-            this.tabSekiro.BackColor = Color.Teal;
-            this.tabDs1.BackColor = Color.Teal;
-            this.tabDs2.BackColor = Color.Teal;
-            this.tabDs3.BackColor = Color.Teal;
-            this.tabCuphead.BackColor = Color.Teal;
-            this.tabElden.BackColor = Color.Teal;
-            this.tabHollow.BackColor = Color.Teal;
-            this.tabCeleste.BackColor = Color.Teal;
-            this.tabDishonored.BackColor = Color.Teal;
+                this.tabConfig.BackColor = Color.Teal;
+                this.tabInfo.BackColor = Color.Teal;
+                this.tabLicense.BackColor = Color.Teal;
+                this.tabGeneral.BackColor = Color.Teal;
+                this.tabSekiro.BackColor = Color.Teal;
+                this.tabDs1.BackColor = Color.Teal;
+                this.tabDs2.BackColor = Color.Teal;
+                this.tabDs3.BackColor = Color.Teal;
+                this.tabCuphead.BackColor = Color.Teal;
+                this.tabElden.BackColor = Color.Teal;
+                this.tabHollow.BackColor = Color.Teal;
+                this.tabCeleste.BackColor = Color.Teal;
+                this.tabDishonored.BackColor = Color.Teal;
 
-            labelWarning.ForeColor = Color.Gold;
-            ChangeColorLostBorderPanels(this);
+                labelWarning.ForeColor = Color.Gold;
+
+                //Panels
+                ChangeBackColorPanels();
+            }
         }
 
-        private void ChangeColorLostBorderPanels(Control parent)
+        private void ChangeBackColorPanels()
         {
-            foreach (Control control in parent.Controls)
+            // Recorrer todos los controles
+            foreach (Control control in co)
             {
-                if (control is ReaLTaiizor.Controls.LostBorderPanel lostPanel)
+                // Si el control es de tipo LostPanelBorder
+                if (control is LostBorderPanel panel)
                 {
-                    lostPanel.BackColor = Color.LightBlue;
+                    // Cambiar el BackColor a LightBlue
+                    panel.BackColor = Color.LightBlue;
                 }
 
+                // Si el control contiene otros controles (es un contenedor como un Panel)
                 if (control.HasChildren)
                 {
-                    ChangeColorLostBorderPanels(control);
+                    // Llamar recursivamente a la función para los controles hijos
+                    ChangeBackColorPanels(control.Controls);
                 }
             }
         }
 
+
         private void AutoSplitter_Load(object sender, EventArgs e)
         {
+            isInitializing = true;
             #region AdminCheck
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
             WindowsPrincipal main = new WindowsPrincipal(identity);
@@ -603,8 +623,16 @@ namespace AutoSplitterCore
                 }
             }
             #endregion
-            #region Timming
+
+            #region GeneralSettings
             checkBoxResetSplitNg.Checked = saveModule.dataAS.AutoResetSplit;
+            skyComboBoxOverrideStyleMode.SelectedItem = saveModule.dataAS.StyleMode.ToString();
+            
+
+            #endregion
+
+            #region Timming
+
             if (sekiroData.autoTimer)
             {
                 checkBoxATS.Checked = true;
@@ -808,6 +836,9 @@ namespace AutoSplitterCore
             LabelVersion.Text = updateModule.currentVer;
             labelCloudVer.Text = updateModule.cloudVer;
             #endregion
+
+            RefreshForm();
+            isInitializing = false;
         }
 
         private void Refresh_Btn(object sender, EventArgs e)
@@ -1201,11 +1232,11 @@ namespace AutoSplitterCore
 
         private void btnTiming_Click(object sender, EventArgs e)
         {
-            if (!TabControlGeneral.TabPages.Contains(tabTiming))
+            if (!TabControlGeneral.TabPages.Contains(tabGeneral))
             {
-                TabControlGeneral.TabPages.Add(tabTiming);
+                TabControlGeneral.TabPages.Add(tabGeneral);
             }
-            TabControlGeneral.SelectTab(tabTiming);
+            TabControlGeneral.SelectTab(tabGeneral);
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -1245,8 +1276,8 @@ namespace AutoSplitterCore
                 this.InitializeComponent();
                 RefreshForm();
                 this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControlGeneral.TabPages.Add(tabTiming);
-                TabControlGeneral.SelectTab(tabTiming);
+                TabControlGeneral.TabPages.Add(tabGeneral);
+                TabControlGeneral.SelectTab(tabGeneral);
             }
         }
         #endregion
@@ -3391,5 +3422,26 @@ namespace AutoSplitterCore
 
 
         #endregion
+
+        private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isInitializing) return;
+
+            if (Enum.TryParse(skyComboBoxOverrideStyleMode.SelectedItem.ToString(), out StyleMode selectedStyleMode))
+            {
+                saveModule.dataAS.StyleMode = selectedStyleMode;
+
+                DialogResult result = MessageBox.Show("Do you want update Interface?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Controls.Clear();
+                    this.InitializeComponent();
+                    RefreshForm();
+                    this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                    TabControlGeneral.TabPages.Add(tabGeneral);
+                    TabControlGeneral.SelectTab(tabGeneral);
+                }
+            }      
+        }
     }
 }
