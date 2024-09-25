@@ -31,180 +31,11 @@ namespace AutoSplitterCore
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.PoisonTabControl();
-            this.tabGeneral = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.TabPageGeneral = new ReaLTaiizor.Controls.AirTabPage();
-            this.tabPageControl = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.skyComboBoxOverrideStyleMode = new ReaLTaiizor.Controls.SkyComboBox();
-            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
-            this.label94 = new System.Windows.Forms.Label();
-            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
-            this.tabPageShortcuts = new System.Windows.Forms.TabPage();
-            this.tabPageTimming = new System.Windows.Forms.TabPage();
-            this.lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
-            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATS = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
-            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
-            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
-            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label77 = new System.Windows.Forms.Label();
-            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
-            this.radioIGTEr = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
-            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
-            this.tabPageHitCounter = new System.Windows.Forms.TabPage();
-            this.tabConfig = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.labelWarning = new System.Windows.Forms.Label();
-            this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
-            this.btnGeneral = new ReaLTaiizor.Controls.Button();
-            this.groupBoxMProfile = new ReaLTaiizor.Controls.GroupBox();
-            this.btnProfile = new ReaLTaiizor.Controls.Button();
-            this.groupBoxHelp = new ReaLTaiizor.Controls.GroupBox();
-            this.btnHowSetup = new ReaLTaiizor.Controls.Button();
-            this.btnAbout = new ReaLTaiizor.Controls.Button();
-            this.groupBoxUpdate = new ReaLTaiizor.Controls.GroupBox();
-            this.btnCheckVersion = new ReaLTaiizor.Controls.Button();
-            this.btnGoToDownloadPage = new ReaLTaiizor.Controls.Button();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.labelCloudVer = new System.Windows.Forms.Label();
-            this.LabelVersion = new System.Windows.Forms.Label();
-            this.cbCheckUpdatesOnStartup = new ReaLTaiizor.Controls.MetroCheckBox();
-            this.groupBoxSplitters = new ReaLTaiizor.Controls.GroupBox();
-            this.btnSekiro = new ReaLTaiizor.Controls.Button();
-            this.btnSkyrim = new ReaLTaiizor.Controls.Button();
-            this.btnDishonored = new ReaLTaiizor.Controls.Button();
-            this.btnCuphead = new ReaLTaiizor.Controls.Button();
-            this.btnCeleste = new ReaLTaiizor.Controls.Button();
-            this.btnHollow = new ReaLTaiizor.Controls.Button();
-            this.btnElden = new ReaLTaiizor.Controls.Button();
-            this.btnDs3 = new ReaLTaiizor.Controls.Button();
-            this.btnDs2 = new ReaLTaiizor.Controls.Button();
-            this.btnDs1 = new ReaLTaiizor.Controls.Button();
-            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
             this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabSekiro = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.panelCfER = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.textBoxTitleCFER = new ReaLTaiizor.Controls.SkyTextBox();
-            this.btnGetListER = new ReaLTaiizor.Controls.Button();
-            this.panel23 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxCfER = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxIdER = new ReaLTaiizor.Controls.SkyTextBox();
-            this.btnAddCfER = new ReaLTaiizor.Controls.Button();
-            this.comboBoxHowCfER = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.panelCfSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.textBoxTitleCFS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.btnGetListFlagsSekiro = new ReaLTaiizor.Controls.Button();
-            this.panel3 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxCfS = new System.Windows.Forms.ListBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.textBoxCfIdS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.btnAddCfS = new ReaLTaiizor.Controls.Button();
-            this.comboBoxHowCfS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.panelLevelSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.textBoxValueS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.panel21 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxAttributeS = new System.Windows.Forms.ListBox();
-            this.comboBoxHowAttributeS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.btnAddAttributeS = new ReaLTaiizor.Controls.Button();
-            this.label35 = new System.Windows.Forms.Label();
-            this.comboBoxAttributeS = new System.Windows.Forms.ComboBox();
-            this.panelPositionS = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.btnGetPositionS = new ReaLTaiizor.Controls.Button();
-            this.comboBoxSizeS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxZS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.comboBoxHowPositionS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxYS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxTitlePositionS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxXS = new ReaLTaiizor.Controls.SkyTextBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.panel4 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxPositionsS = new System.Windows.Forms.ListBox();
-            this.btnAddPosition = new ReaLTaiizor.Controls.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panelMinibossSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label79 = new System.Windows.Forms.Label();
-            this.panel6 = new ReaLTaiizor.Controls.Panel();
-            this.textBoxDescriptionMiniBoss = new System.Windows.Forms.TextBox();
-            this.comboBoxMiniBossSekiro = new System.Windows.Forms.ComboBox();
-            this.comboBoxHowMiniBoss = new ReaLTaiizor.Controls.SkyComboBox();
-            this.btnAddMiniBossSekiro = new ReaLTaiizor.Controls.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel5 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxMiniBossesS = new System.Windows.Forms.ListBox();
-            this.panelBossS = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.comboBoxBossS = new System.Windows.Forms.ComboBox();
-            this.panel2 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBossesS = new System.Windows.Forms.ListBox();
-            this.comboBoxHowBossS = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btn_AddBoss = new ReaLTaiizor.Controls.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.panelIdolsS = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnAddAllIdolsS = new ReaLTaiizor.Controls.Button();
             this.groupBoxAbandonedDungeon = new ReaLTaiizor.Controls.GroupBox();
             this.listBoxAbandonedDungeon = new System.Windows.Forms.ListBox();
             this.checkedListBoxAbandonedDungeon = new System.Windows.Forms.CheckedListBox();
@@ -271,17 +102,202 @@ namespace AutoSplitterCore
             this.radioImmADe = new System.Windows.Forms.RadioButton();
             this.comboBoxZoneSelectS = new ReaLTaiizor.Controls.DungeonComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.panelBossS = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnAddAllBossesS = new ReaLTaiizor.Controls.Button();
+            this.comboBoxBossS = new System.Windows.Forms.ComboBox();
+            this.panel2 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxBossesS = new System.Windows.Forms.ListBox();
+            this.comboBoxHowBossS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btn_AddBoss = new ReaLTaiizor.Controls.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panelPositionS = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnGetPositionS = new ReaLTaiizor.Controls.Button();
+            this.comboBoxSizeS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxZS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.comboBoxHowPositionS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxYS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxTitlePositionS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxXS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxPositionsS = new System.Windows.Forms.ListBox();
+            this.btnAddPosition = new ReaLTaiizor.Controls.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panelMortalJourney = new ReaLTaiizor.Controls.LostBorderPanel();
             this.hopeTextBoxMortal = new ReaLTaiizor.Controls.HopeTextBox();
             this.groupBoxMJS = new ReaLTaiizor.Controls.GroupBox();
             this.checkBoxMortalJourneyRun = new ReaLTaiizor.Controls.MetroCheckBox();
+            this.panelLevelSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textBoxValueS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.panel21 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxAttributeS = new System.Windows.Forms.ListBox();
+            this.comboBoxHowAttributeS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.btnAddAttributeS = new ReaLTaiizor.Controls.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.comboBoxAttributeS = new System.Windows.Forms.ComboBox();
+            this.panelCfSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.textBoxTitleCFS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.btnGetListFlagsSekiro = new ReaLTaiizor.Controls.Button();
+            this.panel3 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxCfS = new System.Windows.Forms.ListBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.textBoxCfIdS = new ReaLTaiizor.Controls.SkyTextBox();
+            this.btnAddCfS = new ReaLTaiizor.Controls.Button();
+            this.comboBoxHowCfS = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.panelMinibossSekiro = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnAddAllMiniBossesS = new ReaLTaiizor.Controls.Button();
+            this.label79 = new System.Windows.Forms.Label();
+            this.panel6 = new ReaLTaiizor.Controls.Panel();
+            this.textBoxDescriptionMiniBoss = new System.Windows.Forms.TextBox();
+            this.comboBoxMiniBossSekiro = new System.Windows.Forms.ComboBox();
+            this.comboBoxHowMiniBoss = new ReaLTaiizor.Controls.SkyComboBox();
+            this.btnAddMiniBossSekiro = new ReaLTaiizor.Controls.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel5 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxMiniBossesS = new System.Windows.Forms.ListBox();
+            this.panelCfER = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.textBoxTitleCFER = new ReaLTaiizor.Controls.SkyTextBox();
+            this.btnGetListER = new ReaLTaiizor.Controls.Button();
+            this.panel23 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxCfER = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxIdER = new ReaLTaiizor.Controls.SkyTextBox();
+            this.btnAddCfER = new ReaLTaiizor.Controls.Button();
+            this.comboBoxHowCfER = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
             this.toSplitSelectSekiro = new ReaLTaiizor.Controls.DungeonComboBox();
             this.btnRefreshSekiro = new ReaLTaiizor.Controls.Button();
             this.btnDesactiveSekiro = new ReaLTaiizor.Controls.Button();
             this.sekiroRunning = new System.Windows.Forms.Label();
             this.SekiroNotRunning = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabConfig = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.labelWarning = new System.Windows.Forms.Label();
+            this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
+            this.btnGeneral = new ReaLTaiizor.Controls.Button();
+            this.groupBoxMProfile = new ReaLTaiizor.Controls.GroupBox();
+            this.btnProfile = new ReaLTaiizor.Controls.Button();
+            this.groupBoxHelp = new ReaLTaiizor.Controls.GroupBox();
+            this.btnHowSetup = new ReaLTaiizor.Controls.Button();
+            this.btnAbout = new ReaLTaiizor.Controls.Button();
+            this.groupBoxUpdate = new ReaLTaiizor.Controls.GroupBox();
+            this.btnCheckVersion = new ReaLTaiizor.Controls.Button();
+            this.btnGoToDownloadPage = new ReaLTaiizor.Controls.Button();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.labelCloudVer = new System.Windows.Forms.Label();
+            this.LabelVersion = new System.Windows.Forms.Label();
+            this.cbCheckUpdatesOnStartup = new ReaLTaiizor.Controls.MetroCheckBox();
+            this.groupBoxSplitters = new ReaLTaiizor.Controls.GroupBox();
+            this.btnSekiro = new ReaLTaiizor.Controls.Button();
+            this.btnSkyrim = new ReaLTaiizor.Controls.Button();
+            this.btnDishonored = new ReaLTaiizor.Controls.Button();
+            this.btnCuphead = new ReaLTaiizor.Controls.Button();
+            this.btnCeleste = new ReaLTaiizor.Controls.Button();
+            this.btnHollow = new ReaLTaiizor.Controls.Button();
+            this.btnElden = new ReaLTaiizor.Controls.Button();
+            this.btnDs3 = new ReaLTaiizor.Controls.Button();
+            this.btnDs2 = new ReaLTaiizor.Controls.Button();
+            this.btnDs1 = new ReaLTaiizor.Controls.Button();
+            this.tabGeneral = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.TabPageGeneral = new ReaLTaiizor.Controls.AirTabPage();
+            this.tabPageControl = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel2 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.skyComboBoxOverrideStyleMode = new ReaLTaiizor.Controls.SkyComboBox();
+            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
+            this.tabPageShortcuts = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel4 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.tabPageTimming = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
+            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATS = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
+            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
+            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
+            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
+            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
+            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
+            this.radioIGTEr = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
+            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
+            this.tabPageHitCounter = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
             this.tabDs1 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.panelBossDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnAddAllBossesDs1 = new ReaLTaiizor.Controls.Button();
+            this.comboBoxBossDs1 = new System.Windows.Forms.ComboBox();
+            this.panel8 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxBossDs1 = new System.Windows.Forms.ListBox();
+            this.comboBoxHowBossDs1 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnAddBossDs1 = new ReaLTaiizor.Controls.Button();
+            this.label62 = new System.Windows.Forms.Label();
             this.panelBonfireDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.comboBoxStateDs1 = new ReaLTaiizor.Controls.SkyComboBox();
             this.label65 = new System.Windows.Forms.Label();
@@ -292,14 +308,6 @@ namespace AutoSplitterCore
             this.comboBoxBonfireDs1 = new System.Windows.Forms.ComboBox();
             this.btnAddBonfireDs1 = new ReaLTaiizor.Controls.Button();
             this.label67 = new System.Windows.Forms.Label();
-            this.panelBossDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.comboBoxBossDs1 = new System.Windows.Forms.ComboBox();
-            this.panel8 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBossDs1 = new System.Windows.Forms.ListBox();
-            this.comboBoxHowBossDs1 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnAddBossDs1 = new ReaLTaiizor.Controls.Button();
-            this.label62 = new System.Windows.Forms.Label();
             this.panelLvlDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.label70 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
@@ -576,14 +584,53 @@ namespace AutoSplitterCore
             this.materialCheckBox10 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.lostBorderPanel2 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.lostBorderPanel4 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label26 = new System.Windows.Forms.Label();
+            this.btnRemoveAllIdolsS = new ReaLTaiizor.Controls.Button();
+            this.groupBox3 = new ReaLTaiizor.Controls.GroupBox();
             this.TabControlGeneral.SuspendLayout();
+            this.tabLicense.SuspendLayout();
+            this.tabSekiro.SuspendLayout();
+            this.panelIdolsS.SuspendLayout();
+            this.groupBoxAbandonedDungeon.SuspendLayout();
+            this.groupBoxRadioAbandonedDungeon.SuspendLayout();
+            this.groupBoxAshinaCastle.SuspendLayout();
+            this.groupBoxRadioAshinaCastle.SuspendLayout();
+            this.groupBoxAshinaOutskirts.SuspendLayout();
+            this.groupBoxRadiosAshinaOutskirts.SuspendLayout();
+            this.groupBoxFountainhead.SuspendLayout();
+            this.groupBoxRadioFountainhead.SuspendLayout();
+            this.groupBoxSenpouTemple.SuspendLayout();
+            this.groupBoxRadioSenpouTemple.SuspendLayout();
+            this.groupBoxSunkenValley.SuspendLayout();
+            this.groupBoxRadioSunkenValley.SuspendLayout();
+            this.groupBoxHirataEstate.SuspendLayout();
+            this.groupBoxRadioHirataEstate.SuspendLayout();
+            this.groupBoxAshinaDepths.SuspendLayout();
+            this.groupBoxRadioAshinaDepths.SuspendLayout();
+            this.panelBossS.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelPositionS.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panelMortalJourney.SuspendLayout();
+            this.groupBoxMJS.SuspendLayout();
+            this.panelLevelSekiro.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panelCfSekiro.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panelMinibossSekiro.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panelCfER.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.tabConfig.SuspendLayout();
+            this.groupBoxOtherS.SuspendLayout();
+            this.groupBoxMProfile.SuspendLayout();
+            this.groupBoxHelp.SuspendLayout();
+            this.groupBoxUpdate.SuspendLayout();
+            this.groupBoxSplitters.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.TabPageGeneral.SuspendLayout();
             this.tabPageControl.SuspendLayout();
+            this.lostBorderPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPageShortcuts.SuspendLayout();
@@ -617,52 +664,12 @@ namespace AutoSplitterCore
             this.groupBoxATDs3.SuspendLayout();
             this.groupBoxTMDs3.SuspendLayout();
             this.tabPageHitCounter.SuspendLayout();
-            this.tabConfig.SuspendLayout();
-            this.groupBoxOtherS.SuspendLayout();
-            this.groupBoxMProfile.SuspendLayout();
-            this.groupBoxHelp.SuspendLayout();
-            this.groupBoxUpdate.SuspendLayout();
-            this.groupBoxSplitters.SuspendLayout();
             this.tabInfo.SuspendLayout();
-            this.tabLicense.SuspendLayout();
-            this.tabSekiro.SuspendLayout();
-            this.panelCfER.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panelCfSekiro.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panelLevelSekiro.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panelPositionS.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panelMinibossSekiro.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panelBossS.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panelIdolsS.SuspendLayout();
-            this.groupBoxAbandonedDungeon.SuspendLayout();
-            this.groupBoxRadioAbandonedDungeon.SuspendLayout();
-            this.groupBoxAshinaCastle.SuspendLayout();
-            this.groupBoxRadioAshinaCastle.SuspendLayout();
-            this.groupBoxAshinaOutskirts.SuspendLayout();
-            this.groupBoxRadiosAshinaOutskirts.SuspendLayout();
-            this.groupBoxFountainhead.SuspendLayout();
-            this.groupBoxRadioFountainhead.SuspendLayout();
-            this.groupBoxSenpouTemple.SuspendLayout();
-            this.groupBoxRadioSenpouTemple.SuspendLayout();
-            this.groupBoxSunkenValley.SuspendLayout();
-            this.groupBoxRadioSunkenValley.SuspendLayout();
-            this.groupBoxHirataEstate.SuspendLayout();
-            this.groupBoxRadioHirataEstate.SuspendLayout();
-            this.groupBoxAshinaDepths.SuspendLayout();
-            this.groupBoxRadioAshinaDepths.SuspendLayout();
-            this.panelMortalJourney.SuspendLayout();
-            this.groupBoxMJS.SuspendLayout();
             this.tabDs1.SuspendLayout();
-            this.panelBonfireDs1.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panelBossDs1.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panelBonfireDs1.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panelLvlDs1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panelPositionDs1.SuspendLayout();
@@ -719,7 +726,7 @@ namespace AutoSplitterCore
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.lostBorderPanel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControlGeneral
@@ -727,8 +734,8 @@ namespace AutoSplitterCore
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabGeneral);
-            this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
+            this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
             this.TabControlGeneral.Controls.Add(this.tabDs2);
@@ -741,11 +748,3452 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 4;
+            this.TabControlGeneral.SelectedIndex = 0;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
             this.TabControlGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BackColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.HorizontalScrollbarBarColor = true;
+            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabLicense.HorizontalScrollbarSize = 10;
+            this.tabLicense.Location = new System.Drawing.Point(4, 44);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 352);
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.UseCustomBackColor = true;
+            this.tabLicense.VerticalScrollbarBarColor = true;
+            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
+            this.tabLicense.VerticalScrollbarSize = 10;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
+            // 
+            // tabSekiro
+            // 
+            this.tabSekiro.BackColor = System.Drawing.Color.White;
+            this.tabSekiro.Controls.Add(this.panelIdolsS);
+            this.tabSekiro.Controls.Add(this.panelBossS);
+            this.tabSekiro.Controls.Add(this.panelPositionS);
+            this.tabSekiro.Controls.Add(this.panelMortalJourney);
+            this.tabSekiro.Controls.Add(this.panelLevelSekiro);
+            this.tabSekiro.Controls.Add(this.panelCfSekiro);
+            this.tabSekiro.Controls.Add(this.panelMinibossSekiro);
+            this.tabSekiro.Controls.Add(this.panelCfER);
+            this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
+            this.tabSekiro.Controls.Add(this.btnRefreshSekiro);
+            this.tabSekiro.Controls.Add(this.btnDesactiveSekiro);
+            this.tabSekiro.Controls.Add(this.sekiroRunning);
+            this.tabSekiro.Controls.Add(this.SekiroNotRunning);
+            this.tabSekiro.Controls.Add(this.label1);
+            this.tabSekiro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSekiro.HorizontalScrollbarBarColor = true;
+            this.tabSekiro.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabSekiro.HorizontalScrollbarSize = 10;
+            this.tabSekiro.Location = new System.Drawing.Point(4, 44);
+            this.tabSekiro.Name = "tabSekiro";
+            this.tabSekiro.Size = new System.Drawing.Size(609, 352);
+            this.tabSekiro.TabIndex = 5;
+            this.tabSekiro.Text = "Sekiro";
+            this.tabSekiro.UseCustomBackColor = true;
+            this.tabSekiro.VerticalScrollbarBarColor = true;
+            this.tabSekiro.VerticalScrollbarHighlightOnWheel = false;
+            this.tabSekiro.VerticalScrollbarSize = 10;
+            // 
+            // panelIdolsS
+            // 
+            this.panelIdolsS.BackColor = System.Drawing.Color.White;
+            this.panelIdolsS.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelIdolsS.Controls.Add(this.groupBox3);
+            this.panelIdolsS.Controls.Add(this.groupBoxAbandonedDungeon);
+            this.panelIdolsS.Controls.Add(this.groupBoxAshinaCastle);
+            this.panelIdolsS.Controls.Add(this.groupBoxAshinaOutskirts);
+            this.panelIdolsS.Controls.Add(this.groupBoxFountainhead);
+            this.panelIdolsS.Controls.Add(this.groupBoxSenpouTemple);
+            this.panelIdolsS.Controls.Add(this.groupBoxSunkenValley);
+            this.panelIdolsS.Controls.Add(this.groupBoxHirataEstate);
+            this.panelIdolsS.Controls.Add(this.groupBoxAshinaDepths);
+            this.panelIdolsS.Controls.Add(this.comboBoxZoneSelectS);
+            this.panelIdolsS.Controls.Add(this.label14);
+            this.panelIdolsS.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelIdolsS.ForeColor = System.Drawing.Color.White;
+            this.panelIdolsS.Location = new System.Drawing.Point(34, 85);
+            this.panelIdolsS.Name = "panelIdolsS";
+            this.panelIdolsS.Padding = new System.Windows.Forms.Padding(5);
+            this.panelIdolsS.ShowText = false;
+            this.panelIdolsS.Size = new System.Drawing.Size(539, 262);
+            this.panelIdolsS.TabIndex = 26;
+            this.panelIdolsS.Text = "lostBorderPanel1";
+            // 
+            // btnAddAllIdolsS
+            // 
+            this.btnAddAllIdolsS.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAllIdolsS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllIdolsS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAllIdolsS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllIdolsS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllIdolsS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAllIdolsS.Image = null;
+            this.btnAddAllIdolsS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAllIdolsS.InactiveColor = System.Drawing.Color.Chocolate;
+            this.btnAddAllIdolsS.Location = new System.Drawing.Point(8, 32);
+            this.btnAddAllIdolsS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAllIdolsS.Name = "btnAddAllIdolsS";
+            this.btnAddAllIdolsS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllIdolsS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllIdolsS.Size = new System.Drawing.Size(55, 40);
+            this.btnAddAllIdolsS.TabIndex = 29;
+            this.btnAddAllIdolsS.Text = "Add All";
+            this.btnAddAllIdolsS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddAllIdolsS.Click += new System.EventHandler(this.btnAddAllIdolsS_Click);
+            // 
+            // groupBoxAbandonedDungeon
+            // 
+            this.groupBoxAbandonedDungeon.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxAbandonedDungeon.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxAbandonedDungeon.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxAbandonedDungeon.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxAbandonedDungeon.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxAbandonedDungeon.Controls.Add(this.listBoxAbandonedDungeon);
+            this.groupBoxAbandonedDungeon.Controls.Add(this.checkedListBoxAbandonedDungeon);
+            this.groupBoxAbandonedDungeon.Controls.Add(this.groupBoxRadioAbandonedDungeon);
+            this.groupBoxAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxAbandonedDungeon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxAbandonedDungeon.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxAbandonedDungeon.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAbandonedDungeon.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxAbandonedDungeon.Name = "groupBoxAbandonedDungeon";
+            this.groupBoxAbandonedDungeon.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAbandonedDungeon.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxAbandonedDungeon.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxAbandonedDungeon.TabIndex = 8;
+            this.groupBoxAbandonedDungeon.TabStop = false;
+            this.groupBoxAbandonedDungeon.Text = "Idols - Abandoned Dungeon ";
+            // 
+            // listBoxAbandonedDungeon
+            // 
+            this.listBoxAbandonedDungeon.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxAbandonedDungeon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAbandonedDungeon.FormattingEnabled = true;
+            this.listBoxAbandonedDungeon.ItemHeight = 15;
+            this.listBoxAbandonedDungeon.Items.AddRange(new object[] {
+            "Underground Waterway",
+            "Bottomless Hole"});
+            this.listBoxAbandonedDungeon.Location = new System.Drawing.Point(61, 91);
+            this.listBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAbandonedDungeon.Name = "listBoxAbandonedDungeon";
+            this.listBoxAbandonedDungeon.Size = new System.Drawing.Size(169, 34);
+            this.listBoxAbandonedDungeon.TabIndex = 4;
+            this.listBoxAbandonedDungeon.SelectedIndexChanged += new System.EventHandler(this.listBoxAbandonedDungeon_SelectedIndexChanged);
+            // 
+            // checkedListBoxAbandonedDungeon
+            // 
+            this.checkedListBoxAbandonedDungeon.BackColor = System.Drawing.Color.DodgerBlue;
+            this.checkedListBoxAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.checkedListBoxAbandonedDungeon.FormattingEnabled = true;
+            this.checkedListBoxAbandonedDungeon.Items.AddRange(new object[] {
+            "Underground Waterway",
+            "Bottomless Hole"});
+            this.checkedListBoxAbandonedDungeon.Location = new System.Drawing.Point(32, 91);
+            this.checkedListBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxAbandonedDungeon.Name = "checkedListBoxAbandonedDungeon";
+            this.checkedListBoxAbandonedDungeon.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxAbandonedDungeon.Size = new System.Drawing.Size(21, 34);
+            this.checkedListBoxAbandonedDungeon.TabIndex = 3;
+            // 
+            // groupBoxRadioAbandonedDungeon
+            // 
+            this.groupBoxRadioAbandonedDungeon.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAbandonedDungeon.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioAbandonedDungeon.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAbandonedDungeon.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioAbandonedDungeon.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.btn_AddAD);
+            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.labelIdolSelectedAD);
+            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.radioLagAD);
+            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.radioImmAD);
+            this.groupBoxRadioAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioAbandonedDungeon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioAbandonedDungeon.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioAbandonedDungeon.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAbandonedDungeon.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioAbandonedDungeon.Name = "groupBoxRadioAbandonedDungeon";
+            this.groupBoxRadioAbandonedDungeon.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAbandonedDungeon.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioAbandonedDungeon.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioAbandonedDungeon.TabIndex = 1;
+            this.groupBoxRadioAbandonedDungeon.TabStop = false;
+            this.groupBoxRadioAbandonedDungeon.Text = "Select";
+            // 
+            // btn_AddAD
+            // 
+            this.btn_AddAD.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddAD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddAD.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddAD.Image = null;
+            this.btn_AddAD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddAD.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddAD.Name = "btn_AddAD";
+            this.btn_AddAD.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAD.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddAD.TabIndex = 24;
+            this.btn_AddAD.Text = "Add/Remove";
+            this.btn_AddAD.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddAD.Click += new System.EventHandler(this.btn_AddAD_Click);
+            // 
+            // labelIdolSelectedAD
+            // 
+            this.labelIdolSelectedAD.AutoSize = true;
+            this.labelIdolSelectedAD.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedAD.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedAD.Name = "labelIdolSelectedAD";
+            this.labelIdolSelectedAD.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedAD.TabIndex = 23;
+            this.labelIdolSelectedAD.Text = "???";
+            // 
+            // radioLagAD
+            // 
+            this.radioLagAD.AutoSize = true;
+            this.radioLagAD.Location = new System.Drawing.Point(37, 83);
+            this.radioLagAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagAD.Name = "radioLagAD";
+            this.radioLagAD.Size = new System.Drawing.Size(131, 18);
+            this.radioLagAD.TabIndex = 20;
+            this.radioLagAD.Text = "Loading game after";
+            this.radioLagAD.UseVisualStyleBackColor = true;
+            // 
+            // radioImmAD
+            // 
+            this.radioImmAD.AutoSize = true;
+            this.radioImmAD.Checked = true;
+            this.radioImmAD.Location = new System.Drawing.Point(51, 60);
+            this.radioImmAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmAD.Name = "radioImmAD";
+            this.radioImmAD.Size = new System.Drawing.Size(81, 18);
+            this.radioImmAD.TabIndex = 21;
+            this.radioImmAD.TabStop = true;
+            this.radioImmAD.Text = "Inmediatly";
+            this.radioImmAD.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxAshinaCastle
+            // 
+            this.groupBoxAshinaCastle.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaCastle.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxAshinaCastle.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaCastle.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxAshinaCastle.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxAshinaCastle.Controls.Add(this.listBoxAshinaCastle);
+            this.groupBoxAshinaCastle.Controls.Add(this.checkedListBoxAshinaCastle);
+            this.groupBoxAshinaCastle.Controls.Add(this.groupBoxRadioAshinaCastle);
+            this.groupBoxAshinaCastle.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxAshinaCastle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxAshinaCastle.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxAshinaCastle.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaCastle.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxAshinaCastle.Name = "groupBoxAshinaCastle";
+            this.groupBoxAshinaCastle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaCastle.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxAshinaCastle.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxAshinaCastle.TabIndex = 7;
+            this.groupBoxAshinaCastle.TabStop = false;
+            this.groupBoxAshinaCastle.Text = "Idols - Ashina Castle";
+            // 
+            // listBoxAshinaCastle
+            // 
+            this.listBoxAshinaCastle.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxAshinaCastle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAshinaCastle.FormattingEnabled = true;
+            this.listBoxAshinaCastle.ItemHeight = 15;
+            this.listBoxAshinaCastle.Items.AddRange(new object[] {
+            "Ashina Castle",
+            "Upper Tower - Antechamber",
+            "Upper Tower - Ashina Dojo",
+            "Castle Tower Lookout",
+            "Upper Tower - Kuro\'s Room",
+            "Old Grave",
+            "Great Serpent Shrine",
+            "Abandoned Dungeon Entrance",
+            "Ashina Reservoir",
+            "Near Secret Passage"});
+            this.listBoxAshinaCastle.Location = new System.Drawing.Point(58, 32);
+            this.listBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAshinaCastle.Name = "listBoxAshinaCastle";
+            this.listBoxAshinaCastle.Size = new System.Drawing.Size(178, 154);
+            this.listBoxAshinaCastle.TabIndex = 4;
+            this.listBoxAshinaCastle.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaCastle_SelectedIndexChanged);
+            // 
+            // checkedListBoxAshinaCastle
+            // 
+            this.checkedListBoxAshinaCastle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.checkedListBoxAshinaCastle.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxAshinaCastle.FormattingEnabled = true;
+            this.checkedListBoxAshinaCastle.Items.AddRange(new object[] {
+            "Ashina Castle",
+            "Upper Tower - Antechamber",
+            "Upper Tower - Ashina Dojo",
+            "Castle Tower Lookout",
+            "Upper Tower - Kuro\'s Room",
+            "Old Grave",
+            "Great Serpent Shrine",
+            "Abandoned Dungeon Entrance",
+            "Ashina Reservoir",
+            "Near Secret Passage"});
+            this.checkedListBoxAshinaCastle.Location = new System.Drawing.Point(24, 33);
+            this.checkedListBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxAshinaCastle.Name = "checkedListBoxAshinaCastle";
+            this.checkedListBoxAshinaCastle.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxAshinaCastle.Size = new System.Drawing.Size(21, 154);
+            this.checkedListBoxAshinaCastle.TabIndex = 3;
+            // 
+            // groupBoxRadioAshinaCastle
+            // 
+            this.groupBoxRadioAshinaCastle.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAshinaCastle.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioAshinaCastle.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAshinaCastle.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioAshinaCastle.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioAshinaCastle.Controls.Add(this.btn_AddAC);
+            this.groupBoxRadioAshinaCastle.Controls.Add(this.labelIdolSelectedAC);
+            this.groupBoxRadioAshinaCastle.Controls.Add(this.radioLagAC);
+            this.groupBoxRadioAshinaCastle.Controls.Add(this.radioImmAC);
+            this.groupBoxRadioAshinaCastle.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioAshinaCastle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioAshinaCastle.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioAshinaCastle.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAshinaCastle.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioAshinaCastle.Name = "groupBoxRadioAshinaCastle";
+            this.groupBoxRadioAshinaCastle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAshinaCastle.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioAshinaCastle.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioAshinaCastle.TabIndex = 1;
+            this.groupBoxRadioAshinaCastle.TabStop = false;
+            this.groupBoxRadioAshinaCastle.Text = "Select";
+            // 
+            // btn_AddAC
+            // 
+            this.btn_AddAC.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddAC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddAC.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddAC.Image = null;
+            this.btn_AddAC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddAC.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddAC.Name = "btn_AddAC";
+            this.btn_AddAC.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddAC.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddAC.TabIndex = 24;
+            this.btn_AddAC.Text = "Add/Remove";
+            this.btn_AddAC.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddAC.Click += new System.EventHandler(this.btn_AddAC_Click);
+            // 
+            // labelIdolSelectedAC
+            // 
+            this.labelIdolSelectedAC.AutoSize = true;
+            this.labelIdolSelectedAC.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedAC.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedAC.Name = "labelIdolSelectedAC";
+            this.labelIdolSelectedAC.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedAC.TabIndex = 23;
+            this.labelIdolSelectedAC.Text = "???";
+            // 
+            // radioLagAC
+            // 
+            this.radioLagAC.AutoSize = true;
+            this.radioLagAC.Location = new System.Drawing.Point(37, 83);
+            this.radioLagAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagAC.Name = "radioLagAC";
+            this.radioLagAC.Size = new System.Drawing.Size(131, 18);
+            this.radioLagAC.TabIndex = 20;
+            this.radioLagAC.Text = "Loading game after";
+            this.radioLagAC.UseVisualStyleBackColor = true;
+            // 
+            // radioImmAC
+            // 
+            this.radioImmAC.AutoSize = true;
+            this.radioImmAC.Checked = true;
+            this.radioImmAC.Location = new System.Drawing.Point(51, 60);
+            this.radioImmAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmAC.Name = "radioImmAC";
+            this.radioImmAC.Size = new System.Drawing.Size(81, 18);
+            this.radioImmAC.TabIndex = 21;
+            this.radioImmAC.TabStop = true;
+            this.radioImmAC.Text = "Inmediatly";
+            this.radioImmAC.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxAshinaOutskirts
+            // 
+            this.groupBoxAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaOutskirts.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxAshinaOutskirts.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaOutskirts.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxAshinaOutskirts.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxAshinaOutskirts.Controls.Add(this.listBoxAshinaOutskirts);
+            this.groupBoxAshinaOutskirts.Controls.Add(this.checkedListBoxAshina);
+            this.groupBoxAshinaOutskirts.Controls.Add(this.groupBoxRadiosAshinaOutskirts);
+            this.groupBoxAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxAshinaOutskirts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxAshinaOutskirts.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxAshinaOutskirts.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaOutskirts.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxAshinaOutskirts.Name = "groupBoxAshinaOutskirts";
+            this.groupBoxAshinaOutskirts.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaOutskirts.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxAshinaOutskirts.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxAshinaOutskirts.TabIndex = 6;
+            this.groupBoxAshinaOutskirts.TabStop = false;
+            this.groupBoxAshinaOutskirts.Text = "Idols - Ashina Outskirts";
+            // 
+            // listBoxAshinaOutskirts
+            // 
+            this.listBoxAshinaOutskirts.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxAshinaOutskirts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAshinaOutskirts.FormattingEnabled = true;
+            this.listBoxAshinaOutskirts.ItemHeight = 15;
+            this.listBoxAshinaOutskirts.Items.AddRange(new object[] {
+            "Dilapidated Temple",
+            "Ashina Outskirts",
+            "Outskirts Wall - Gate Path",
+            "Outskirts Wall - Stairway",
+            "Underbridge Valley",
+            "Ashina Castle Fortress",
+            "Ashina Castle Gate",
+            "Flames of Hatred"});
+            this.listBoxAshinaOutskirts.Location = new System.Drawing.Point(62, 43);
+            this.listBoxAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAshinaOutskirts.Name = "listBoxAshinaOutskirts";
+            this.listBoxAshinaOutskirts.Size = new System.Drawing.Size(169, 139);
+            this.listBoxAshinaOutskirts.TabIndex = 4;
+            this.listBoxAshinaOutskirts.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaOutskirts_SelectedIndexChanged);
+            // 
+            // checkedListBoxAshina
+            // 
+            this.checkedListBoxAshina.BackColor = System.Drawing.Color.DodgerBlue;
+            this.checkedListBoxAshina.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.checkedListBoxAshina.FormattingEnabled = true;
+            this.checkedListBoxAshina.Items.AddRange(new object[] {
+            "Dilapidated Temple",
+            "Ashina Outskirts",
+            "Outskirts Wall - Gate Path",
+            "Outskirts Wall - Stairway",
+            "Underbridge Valley",
+            "Ashina Castle Fortress",
+            "Ashina Castle Gate",
+            "Flames of Hatred"});
+            this.checkedListBoxAshina.Location = new System.Drawing.Point(23, 46);
+            this.checkedListBoxAshina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxAshina.Name = "checkedListBoxAshina";
+            this.checkedListBoxAshina.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxAshina.Size = new System.Drawing.Size(21, 124);
+            this.checkedListBoxAshina.TabIndex = 3;
+            // 
+            // groupBoxRadiosAshinaOutskirts
+            // 
+            this.groupBoxRadiosAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadiosAshinaOutskirts.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadiosAshinaOutskirts.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadiosAshinaOutskirts.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadiosAshinaOutskirts.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.btnAddAshinaOutskirts);
+            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.labelIdolSelectedAO);
+            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.radioLagAO);
+            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.radioImmAO);
+            this.groupBoxRadiosAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadiosAshinaOutskirts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadiosAshinaOutskirts.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadiosAshinaOutskirts.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadiosAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadiosAshinaOutskirts.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadiosAshinaOutskirts.Name = "groupBoxRadiosAshinaOutskirts";
+            this.groupBoxRadiosAshinaOutskirts.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadiosAshinaOutskirts.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadiosAshinaOutskirts.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadiosAshinaOutskirts.TabIndex = 1;
+            this.groupBoxRadiosAshinaOutskirts.TabStop = false;
+            this.groupBoxRadiosAshinaOutskirts.Text = "Select";
+            // 
+            // btnAddAshinaOutskirts
+            // 
+            this.btnAddAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAshinaOutskirts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAshinaOutskirts.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAshinaOutskirts.Image = null;
+            this.btnAddAshinaOutskirts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAshinaOutskirts.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.Location = new System.Drawing.Point(48, 110);
+            this.btnAddAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAshinaOutskirts.Name = "btnAddAshinaOutskirts";
+            this.btnAddAshinaOutskirts.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAshinaOutskirts.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAshinaOutskirts.TabIndex = 24;
+            this.btnAddAshinaOutskirts.Text = "Add/Remove";
+            this.btnAddAshinaOutskirts.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddAshinaOutskirts.Click += new System.EventHandler(this.btnAddAshinaOutskirts_Click);
+            // 
+            // labelIdolSelectedAO
+            // 
+            this.labelIdolSelectedAO.AutoSize = true;
+            this.labelIdolSelectedAO.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedAO.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedAO.Name = "labelIdolSelectedAO";
+            this.labelIdolSelectedAO.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedAO.TabIndex = 23;
+            this.labelIdolSelectedAO.Text = "???";
+            // 
+            // radioLagAO
+            // 
+            this.radioLagAO.AutoSize = true;
+            this.radioLagAO.Location = new System.Drawing.Point(37, 83);
+            this.radioLagAO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagAO.Name = "radioLagAO";
+            this.radioLagAO.Size = new System.Drawing.Size(131, 18);
+            this.radioLagAO.TabIndex = 20;
+            this.radioLagAO.Text = "Loading game after";
+            this.radioLagAO.UseVisualStyleBackColor = true;
+            // 
+            // radioImmAO
+            // 
+            this.radioImmAO.AutoSize = true;
+            this.radioImmAO.Checked = true;
+            this.radioImmAO.Location = new System.Drawing.Point(51, 60);
+            this.radioImmAO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmAO.Name = "radioImmAO";
+            this.radioImmAO.Size = new System.Drawing.Size(81, 18);
+            this.radioImmAO.TabIndex = 21;
+            this.radioImmAO.TabStop = true;
+            this.radioImmAO.Text = "Inmediatly";
+            this.radioImmAO.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxFountainhead
+            // 
+            this.groupBoxFountainhead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxFountainhead.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxFountainhead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxFountainhead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxFountainhead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxFountainhead.Controls.Add(this.listBoxFountainhead);
+            this.groupBoxFountainhead.Controls.Add(this.checkedListBoxFountainhead);
+            this.groupBoxFountainhead.Controls.Add(this.groupBoxRadioFountainhead);
+            this.groupBoxFountainhead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxFountainhead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxFountainhead.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxFountainhead.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxFountainhead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxFountainhead.Name = "groupBoxFountainhead";
+            this.groupBoxFountainhead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxFountainhead.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxFountainhead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxFountainhead.TabIndex = 12;
+            this.groupBoxFountainhead.TabStop = false;
+            this.groupBoxFountainhead.Text = "Idols - Fountainhead";
+            // 
+            // listBoxFountainhead
+            // 
+            this.listBoxFountainhead.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxFountainhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxFountainhead.FormattingEnabled = true;
+            this.listBoxFountainhead.ItemHeight = 15;
+            this.listBoxFountainhead.Items.AddRange(new object[] {
+            "Fountainhead Palace",
+            "Vermilion Bridge",
+            "Mibu Manor",
+            "Flower Viewing Stage",
+            "Great Sakura",
+            "Palace Grounds",
+            "Feeding Grounds",
+            "Near Pot Noble",
+            "Sanctuary"});
+            this.listBoxFountainhead.Location = new System.Drawing.Point(64, 43);
+            this.listBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxFountainhead.Name = "listBoxFountainhead";
+            this.listBoxFountainhead.Size = new System.Drawing.Size(169, 139);
+            this.listBoxFountainhead.TabIndex = 4;
+            this.listBoxFountainhead.SelectedIndexChanged += new System.EventHandler(this.listBoxFountainhead_SelectedIndexChanged);
+            // 
+            // checkedListBoxFountainhead
+            // 
+            this.checkedListBoxFountainhead.BackColor = System.Drawing.Color.DodgerBlue;
+            this.checkedListBoxFountainhead.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.checkedListBoxFountainhead.FormattingEnabled = true;
+            this.checkedListBoxFountainhead.Items.AddRange(new object[] {
+            "Fountainhead Palace",
+            "Vermilion Bridge",
+            "Mibu Manor",
+            "Flower Viewing Stage",
+            "Great Sakura",
+            "Palace Grounds",
+            "Feeding Grounds",
+            "Near Pot Noble",
+            "Sanctuary"});
+            this.checkedListBoxFountainhead.Location = new System.Drawing.Point(23, 43);
+            this.checkedListBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxFountainhead.Name = "checkedListBoxFountainhead";
+            this.checkedListBoxFountainhead.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxFountainhead.Size = new System.Drawing.Size(20, 139);
+            this.checkedListBoxFountainhead.TabIndex = 3;
+            // 
+            // groupBoxRadioFountainhead
+            // 
+            this.groupBoxRadioFountainhead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioFountainhead.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioFountainhead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioFountainhead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioFountainhead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioFountainhead.Controls.Add(this.btn_AddF);
+            this.groupBoxRadioFountainhead.Controls.Add(this.labelIdolSelectedF);
+            this.groupBoxRadioFountainhead.Controls.Add(this.radioLagF);
+            this.groupBoxRadioFountainhead.Controls.Add(this.radioImmF);
+            this.groupBoxRadioFountainhead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioFountainhead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioFountainhead.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioFountainhead.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioFountainhead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioFountainhead.Name = "groupBoxRadioFountainhead";
+            this.groupBoxRadioFountainhead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioFountainhead.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioFountainhead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioFountainhead.TabIndex = 1;
+            this.groupBoxRadioFountainhead.TabStop = false;
+            this.groupBoxRadioFountainhead.Text = "Select";
+            // 
+            // btn_AddF
+            // 
+            this.btn_AddF.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddF.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddF.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddF.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddF.Image = null;
+            this.btn_AddF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddF.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddF.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddF.Name = "btn_AddF";
+            this.btn_AddF.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddF.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddF.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddF.TabIndex = 24;
+            this.btn_AddF.Text = "Add/Remove";
+            this.btn_AddF.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddF.Click += new System.EventHandler(this.btn_AddF_Click);
+            // 
+            // labelIdolSelectedF
+            // 
+            this.labelIdolSelectedF.AutoSize = true;
+            this.labelIdolSelectedF.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedF.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedF.Name = "labelIdolSelectedF";
+            this.labelIdolSelectedF.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedF.TabIndex = 23;
+            this.labelIdolSelectedF.Text = "???";
+            // 
+            // radioLagF
+            // 
+            this.radioLagF.AutoSize = true;
+            this.radioLagF.Location = new System.Drawing.Point(37, 83);
+            this.radioLagF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagF.Name = "radioLagF";
+            this.radioLagF.Size = new System.Drawing.Size(131, 18);
+            this.radioLagF.TabIndex = 20;
+            this.radioLagF.Text = "Loading game after";
+            this.radioLagF.UseVisualStyleBackColor = true;
+            // 
+            // radioImmF
+            // 
+            this.radioImmF.AutoSize = true;
+            this.radioImmF.Checked = true;
+            this.radioImmF.Location = new System.Drawing.Point(51, 60);
+            this.radioImmF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmF.Name = "radioImmF";
+            this.radioImmF.Size = new System.Drawing.Size(81, 18);
+            this.radioImmF.TabIndex = 21;
+            this.radioImmF.TabStop = true;
+            this.radioImmF.Text = "Inmediatly";
+            this.radioImmF.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSenpouTemple
+            // 
+            this.groupBoxSenpouTemple.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxSenpouTemple.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxSenpouTemple.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxSenpouTemple.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxSenpouTemple.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxSenpouTemple.Controls.Add(this.listBoxSenpouTemple);
+            this.groupBoxSenpouTemple.Controls.Add(this.checkedListBoxSenpouTemple);
+            this.groupBoxSenpouTemple.Controls.Add(this.groupBoxRadioSenpouTemple);
+            this.groupBoxSenpouTemple.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxSenpouTemple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxSenpouTemple.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxSenpouTemple.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSenpouTemple.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxSenpouTemple.Name = "groupBoxSenpouTemple";
+            this.groupBoxSenpouTemple.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSenpouTemple.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxSenpouTemple.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxSenpouTemple.TabIndex = 9;
+            this.groupBoxSenpouTemple.TabStop = false;
+            this.groupBoxSenpouTemple.Text = "Idols - Senpou Temple";
+            // 
+            // listBoxSenpouTemple
+            // 
+            this.listBoxSenpouTemple.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxSenpouTemple.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxSenpouTemple.FormattingEnabled = true;
+            this.listBoxSenpouTemple.ItemHeight = 15;
+            this.listBoxSenpouTemple.Items.AddRange(new object[] {
+            "Senpou Temple, Mt. Kongo",
+            "Shugendo",
+            "Temple Grounds",
+            "Main Hall",
+            "Inner Sanctum",
+            "Sunken Valley Cavern",
+            "Bell Demon\'s Temple"});
+            this.listBoxSenpouTemple.Location = new System.Drawing.Point(67, 48);
+            this.listBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxSenpouTemple.Name = "listBoxSenpouTemple";
+            this.listBoxSenpouTemple.Size = new System.Drawing.Size(169, 124);
+            this.listBoxSenpouTemple.TabIndex = 4;
+            this.listBoxSenpouTemple.SelectedIndexChanged += new System.EventHandler(this.listBoxSenpouTemple_SelectedIndexChanged);
+            // 
+            // checkedListBoxSenpouTemple
+            // 
+            this.checkedListBoxSenpouTemple.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.checkedListBoxSenpouTemple.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxSenpouTemple.FormattingEnabled = true;
+            this.checkedListBoxSenpouTemple.Items.AddRange(new object[] {
+            "Senpou Temple, Mt. Kongo",
+            "Shugendo",
+            "Temple Grounds",
+            "Main Hall",
+            "Inner Sanctum",
+            "Sunken Valley Cavern",
+            "Bell Demon\'s Temple"});
+            this.checkedListBoxSenpouTemple.Location = new System.Drawing.Point(28, 49);
+            this.checkedListBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxSenpouTemple.Name = "checkedListBoxSenpouTemple";
+            this.checkedListBoxSenpouTemple.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxSenpouTemple.Size = new System.Drawing.Size(21, 109);
+            this.checkedListBoxSenpouTemple.TabIndex = 3;
+            // 
+            // groupBoxRadioSenpouTemple
+            // 
+            this.groupBoxRadioSenpouTemple.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioSenpouTemple.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioSenpouTemple.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioSenpouTemple.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioSenpouTemple.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioSenpouTemple.Controls.Add(this.btn_AddTS);
+            this.groupBoxRadioSenpouTemple.Controls.Add(this.labelIdolSelectedTS);
+            this.groupBoxRadioSenpouTemple.Controls.Add(this.radioLagTS);
+            this.groupBoxRadioSenpouTemple.Controls.Add(this.radioImmTS);
+            this.groupBoxRadioSenpouTemple.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioSenpouTemple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioSenpouTemple.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioSenpouTemple.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioSenpouTemple.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioSenpouTemple.Name = "groupBoxRadioSenpouTemple";
+            this.groupBoxRadioSenpouTemple.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioSenpouTemple.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioSenpouTemple.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioSenpouTemple.TabIndex = 1;
+            this.groupBoxRadioSenpouTemple.TabStop = false;
+            this.groupBoxRadioSenpouTemple.Text = "Select";
+            // 
+            // btn_AddTS
+            // 
+            this.btn_AddTS.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddTS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddTS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddTS.Image = null;
+            this.btn_AddTS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddTS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddTS.Name = "btn_AddTS";
+            this.btn_AddTS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddTS.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddTS.TabIndex = 24;
+            this.btn_AddTS.Text = "Add/Remove";
+            this.btn_AddTS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddTS.Click += new System.EventHandler(this.btn_AddTS_Click);
+            // 
+            // labelIdolSelectedTS
+            // 
+            this.labelIdolSelectedTS.AutoSize = true;
+            this.labelIdolSelectedTS.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedTS.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedTS.Name = "labelIdolSelectedTS";
+            this.labelIdolSelectedTS.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedTS.TabIndex = 23;
+            this.labelIdolSelectedTS.Text = "???";
+            // 
+            // radioLagTS
+            // 
+            this.radioLagTS.AutoSize = true;
+            this.radioLagTS.Location = new System.Drawing.Point(37, 83);
+            this.radioLagTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagTS.Name = "radioLagTS";
+            this.radioLagTS.Size = new System.Drawing.Size(131, 18);
+            this.radioLagTS.TabIndex = 20;
+            this.radioLagTS.Text = "Loading game after";
+            this.radioLagTS.UseVisualStyleBackColor = true;
+            // 
+            // radioImmTS
+            // 
+            this.radioImmTS.AutoSize = true;
+            this.radioImmTS.Checked = true;
+            this.radioImmTS.Location = new System.Drawing.Point(51, 60);
+            this.radioImmTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmTS.Name = "radioImmTS";
+            this.radioImmTS.Size = new System.Drawing.Size(81, 18);
+            this.radioImmTS.TabIndex = 21;
+            this.radioImmTS.TabStop = true;
+            this.radioImmTS.Text = "Inmediatly";
+            this.radioImmTS.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSunkenValley
+            // 
+            this.groupBoxSunkenValley.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxSunkenValley.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxSunkenValley.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxSunkenValley.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxSunkenValley.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxSunkenValley.Controls.Add(this.listBoxSunkenValley);
+            this.groupBoxSunkenValley.Controls.Add(this.checkedListBoxSunkenValley);
+            this.groupBoxSunkenValley.Controls.Add(this.groupBoxRadioSunkenValley);
+            this.groupBoxSunkenValley.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxSunkenValley.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxSunkenValley.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxSunkenValley.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSunkenValley.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxSunkenValley.Name = "groupBoxSunkenValley";
+            this.groupBoxSunkenValley.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSunkenValley.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxSunkenValley.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxSunkenValley.TabIndex = 10;
+            this.groupBoxSunkenValley.TabStop = false;
+            this.groupBoxSunkenValley.Text = "Idols - Sunken Valley";
+            // 
+            // listBoxSunkenValley
+            // 
+            this.listBoxSunkenValley.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxSunkenValley.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxSunkenValley.FormattingEnabled = true;
+            this.listBoxSunkenValley.ItemHeight = 15;
+            this.listBoxSunkenValley.Items.AddRange(new object[] {
+            "Under-Shrine Valley",
+            "Sunken Valley",
+            "Gun Fort",
+            "Riven Cave",
+            "Bodhisattva Valley",
+            "Guardian Ape\'s Watering Hole"});
+            this.listBoxSunkenValley.Location = new System.Drawing.Point(60, 56);
+            this.listBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxSunkenValley.Name = "listBoxSunkenValley";
+            this.listBoxSunkenValley.Size = new System.Drawing.Size(178, 109);
+            this.listBoxSunkenValley.TabIndex = 4;
+            this.listBoxSunkenValley.SelectedIndexChanged += new System.EventHandler(this.listBoxSunkenValley_SelectedIndexChanged);
+            // 
+            // checkedListBoxSunkenValley
+            // 
+            this.checkedListBoxSunkenValley.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.checkedListBoxSunkenValley.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxSunkenValley.FormattingEnabled = true;
+            this.checkedListBoxSunkenValley.Items.AddRange(new object[] {
+            "Under-Shrine Valley",
+            "Sunken Valley",
+            "Gun Fort",
+            "Riven Cave",
+            "Bodhisattva Valley",
+            "Guardian Ape\'s Watering Hole"});
+            this.checkedListBoxSunkenValley.Location = new System.Drawing.Point(25, 57);
+            this.checkedListBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxSunkenValley.Name = "checkedListBoxSunkenValley";
+            this.checkedListBoxSunkenValley.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxSunkenValley.Size = new System.Drawing.Size(21, 94);
+            this.checkedListBoxSunkenValley.TabIndex = 3;
+            // 
+            // groupBoxRadioSunkenValley
+            // 
+            this.groupBoxRadioSunkenValley.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioSunkenValley.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioSunkenValley.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioSunkenValley.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioSunkenValley.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioSunkenValley.Controls.Add(this.btn_AddSV);
+            this.groupBoxRadioSunkenValley.Controls.Add(this.labelIdolSelectedSV);
+            this.groupBoxRadioSunkenValley.Controls.Add(this.radioLagSV);
+            this.groupBoxRadioSunkenValley.Controls.Add(this.radioImmSV);
+            this.groupBoxRadioSunkenValley.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioSunkenValley.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioSunkenValley.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioSunkenValley.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioSunkenValley.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioSunkenValley.Name = "groupBoxRadioSunkenValley";
+            this.groupBoxRadioSunkenValley.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioSunkenValley.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioSunkenValley.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioSunkenValley.TabIndex = 1;
+            this.groupBoxRadioSunkenValley.TabStop = false;
+            this.groupBoxRadioSunkenValley.Text = "Select";
+            // 
+            // btn_AddSV
+            // 
+            this.btn_AddSV.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddSV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddSV.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddSV.Image = null;
+            this.btn_AddSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddSV.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddSV.Name = "btn_AddSV";
+            this.btn_AddSV.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddSV.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddSV.TabIndex = 24;
+            this.btn_AddSV.Text = "Add/Remove";
+            this.btn_AddSV.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddSV.Click += new System.EventHandler(this.btn_AddSV_Click);
+            // 
+            // labelIdolSelectedSV
+            // 
+            this.labelIdolSelectedSV.AutoSize = true;
+            this.labelIdolSelectedSV.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedSV.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedSV.Name = "labelIdolSelectedSV";
+            this.labelIdolSelectedSV.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedSV.TabIndex = 23;
+            this.labelIdolSelectedSV.Text = "???";
+            // 
+            // radioLagSV
+            // 
+            this.radioLagSV.AutoSize = true;
+            this.radioLagSV.Location = new System.Drawing.Point(37, 83);
+            this.radioLagSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagSV.Name = "radioLagSV";
+            this.radioLagSV.Size = new System.Drawing.Size(131, 18);
+            this.radioLagSV.TabIndex = 20;
+            this.radioLagSV.Text = "Loading game after";
+            this.radioLagSV.UseVisualStyleBackColor = true;
+            // 
+            // radioImmSV
+            // 
+            this.radioImmSV.AutoSize = true;
+            this.radioImmSV.Checked = true;
+            this.radioImmSV.Location = new System.Drawing.Point(51, 60);
+            this.radioImmSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmSV.Name = "radioImmSV";
+            this.radioImmSV.Size = new System.Drawing.Size(81, 18);
+            this.radioImmSV.TabIndex = 21;
+            this.radioImmSV.TabStop = true;
+            this.radioImmSV.Text = "Inmediatly";
+            this.radioImmSV.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxHirataEstate
+            // 
+            this.groupBoxHirataEstate.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxHirataEstate.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxHirataEstate.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxHirataEstate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxHirataEstate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxHirataEstate.Controls.Add(this.listBoxHirataEstate);
+            this.groupBoxHirataEstate.Controls.Add(this.checkedListBoxHirataEstate);
+            this.groupBoxHirataEstate.Controls.Add(this.groupBoxRadioHirataEstate);
+            this.groupBoxHirataEstate.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxHirataEstate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxHirataEstate.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxHirataEstate.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxHirataEstate.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxHirataEstate.Name = "groupBoxHirataEstate";
+            this.groupBoxHirataEstate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxHirataEstate.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxHirataEstate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxHirataEstate.TabIndex = 7;
+            this.groupBoxHirataEstate.Text = "Idols  - Hirata Estate";
+            // 
+            // listBoxHirataEstate
+            // 
+            this.listBoxHirataEstate.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxHirataEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxHirataEstate.FormattingEnabled = true;
+            this.listBoxHirataEstate.ItemHeight = 15;
+            this.listBoxHirataEstate.Items.AddRange(new object[] {
+            "Dragonspring - Hirata Estate",
+            "Estate Path",
+            "Bamboo Thicket Slope",
+            "Hirata Estate - Main Hal",
+            "Hirata Estate - Hidden Temple",
+            "Hirata Audience Chamber"});
+            this.listBoxHirataEstate.Location = new System.Drawing.Point(58, 56);
+            this.listBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxHirataEstate.Name = "listBoxHirataEstate";
+            this.listBoxHirataEstate.Size = new System.Drawing.Size(178, 109);
+            this.listBoxHirataEstate.TabIndex = 4;
+            this.listBoxHirataEstate.SelectedIndexChanged += new System.EventHandler(this.listBoxHirataEstate_SelectedIndexChanged);
+            // 
+            // checkedListBoxHirataEstate
+            // 
+            this.checkedListBoxHirataEstate.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.checkedListBoxHirataEstate.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxHirataEstate.FormattingEnabled = true;
+            this.checkedListBoxHirataEstate.Items.AddRange(new object[] {
+            "Dragonspring - Hirata Estate",
+            "Estate Path",
+            "Bamboo Thicket Slope",
+            "Hirata Estate - Main Hal",
+            "Hirata Estate - Hidden Temple",
+            "Hirata Audience Chamber"});
+            this.checkedListBoxHirataEstate.Location = new System.Drawing.Point(22, 59);
+            this.checkedListBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxHirataEstate.Name = "checkedListBoxHirataEstate";
+            this.checkedListBoxHirataEstate.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxHirataEstate.Size = new System.Drawing.Size(21, 94);
+            this.checkedListBoxHirataEstate.TabIndex = 3;
+            // 
+            // groupBoxRadioHirataEstate
+            // 
+            this.groupBoxRadioHirataEstate.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioHirataEstate.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioHirataEstate.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioHirataEstate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioHirataEstate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioHirataEstate.Controls.Add(this.btnAddHirata);
+            this.groupBoxRadioHirataEstate.Controls.Add(this.labelIdolSelectedHE);
+            this.groupBoxRadioHirataEstate.Controls.Add(this.radioLagHE);
+            this.groupBoxRadioHirataEstate.Controls.Add(this.radioImmHE);
+            this.groupBoxRadioHirataEstate.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioHirataEstate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioHirataEstate.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioHirataEstate.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioHirataEstate.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioHirataEstate.Name = "groupBoxRadioHirataEstate";
+            this.groupBoxRadioHirataEstate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioHirataEstate.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioHirataEstate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioHirataEstate.TabIndex = 1;
+            this.groupBoxRadioHirataEstate.TabStop = false;
+            this.groupBoxRadioHirataEstate.Text = "Select";
+            // 
+            // btnAddHirata
+            // 
+            this.btnAddHirata.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddHirata.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddHirata.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHirata.Image = null;
+            this.btnAddHirata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddHirata.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.Location = new System.Drawing.Point(48, 110);
+            this.btnAddHirata.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddHirata.Name = "btnAddHirata";
+            this.btnAddHirata.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddHirata.Size = new System.Drawing.Size(99, 21);
+            this.btnAddHirata.TabIndex = 24;
+            this.btnAddHirata.Text = "Add/Remove";
+            this.btnAddHirata.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddHirata.Click += new System.EventHandler(this.btnAddHirata_Click);
+            // 
+            // labelIdolSelectedHE
+            // 
+            this.labelIdolSelectedHE.AutoSize = true;
+            this.labelIdolSelectedHE.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedHE.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedHE.Name = "labelIdolSelectedHE";
+            this.labelIdolSelectedHE.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedHE.TabIndex = 23;
+            this.labelIdolSelectedHE.Text = "???";
+            // 
+            // radioLagHE
+            // 
+            this.radioLagHE.AutoSize = true;
+            this.radioLagHE.Location = new System.Drawing.Point(37, 83);
+            this.radioLagHE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagHE.Name = "radioLagHE";
+            this.radioLagHE.Size = new System.Drawing.Size(131, 18);
+            this.radioLagHE.TabIndex = 20;
+            this.radioLagHE.Text = "Loading game after";
+            this.radioLagHE.UseVisualStyleBackColor = true;
+            // 
+            // radioImmHE
+            // 
+            this.radioImmHE.AutoSize = true;
+            this.radioImmHE.Checked = true;
+            this.radioImmHE.Location = new System.Drawing.Point(51, 60);
+            this.radioImmHE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmHE.Name = "radioImmHE";
+            this.radioImmHE.Size = new System.Drawing.Size(81, 18);
+            this.radioImmHE.TabIndex = 21;
+            this.radioImmHE.TabStop = true;
+            this.radioImmHE.Text = "Inmediatly";
+            this.radioImmHE.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxAshinaDepths
+            // 
+            this.groupBoxAshinaDepths.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaDepths.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxAshinaDepths.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxAshinaDepths.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxAshinaDepths.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxAshinaDepths.Controls.Add(this.listBoxAshinaDepths);
+            this.groupBoxAshinaDepths.Controls.Add(this.checkedListBoxAshinaDepths);
+            this.groupBoxAshinaDepths.Controls.Add(this.groupBoxRadioAshinaDepths);
+            this.groupBoxAshinaDepths.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxAshinaDepths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxAshinaDepths.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxAshinaDepths.Location = new System.Drawing.Point(13, 49);
+            this.groupBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaDepths.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxAshinaDepths.Name = "groupBoxAshinaDepths";
+            this.groupBoxAshinaDepths.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxAshinaDepths.Size = new System.Drawing.Size(450, 200);
+            this.groupBoxAshinaDepths.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxAshinaDepths.TabIndex = 11;
+            this.groupBoxAshinaDepths.TabStop = false;
+            this.groupBoxAshinaDepths.Text = "Idols - Ashina Depths";
+            // 
+            // listBoxAshinaDepths
+            // 
+            this.listBoxAshinaDepths.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxAshinaDepths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAshinaDepths.FormattingEnabled = true;
+            this.listBoxAshinaDepths.ItemHeight = 15;
+            this.listBoxAshinaDepths.Items.AddRange(new object[] {
+            "Ashina Depths",
+            "Poison Pool",
+            "Guardian Ape\'s Burrow",
+            "Hidden Forest",
+            "Mibu Village",
+            "Water Mill",
+            "Wedding Cave Door"});
+            this.listBoxAshinaDepths.Location = new System.Drawing.Point(62, 60);
+            this.listBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAshinaDepths.Name = "listBoxAshinaDepths";
+            this.listBoxAshinaDepths.Size = new System.Drawing.Size(169, 109);
+            this.listBoxAshinaDepths.TabIndex = 4;
+            this.listBoxAshinaDepths.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaDepths_SelectedIndexChanged);
+            // 
+            // checkedListBoxAshinaDepths
+            // 
+            this.checkedListBoxAshinaDepths.BackColor = System.Drawing.Color.DodgerBlue;
+            this.checkedListBoxAshinaDepths.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.checkedListBoxAshinaDepths.FormattingEnabled = true;
+            this.checkedListBoxAshinaDepths.Items.AddRange(new object[] {
+            "Ashina Depths",
+            "Poison Pool",
+            "Guardian Ape\'s Burrow",
+            "Hidden Forest",
+            "Mibu Village",
+            "Water Mill",
+            "Wedding Cave Door"});
+            this.checkedListBoxAshinaDepths.Location = new System.Drawing.Point(24, 60);
+            this.checkedListBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkedListBoxAshinaDepths.Name = "checkedListBoxAshinaDepths";
+            this.checkedListBoxAshinaDepths.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxAshinaDepths.Size = new System.Drawing.Size(21, 109);
+            this.checkedListBoxAshinaDepths.TabIndex = 3;
+            // 
+            // groupBoxRadioAshinaDepths
+            // 
+            this.groupBoxRadioAshinaDepths.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAshinaDepths.BackGColor = System.Drawing.Color.PaleTurquoise;
+            this.groupBoxRadioAshinaDepths.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxRadioAshinaDepths.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxRadioAshinaDepths.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxRadioAshinaDepths.Controls.Add(this.btn_AddADe);
+            this.groupBoxRadioAshinaDepths.Controls.Add(this.labelIdolSelectedADe);
+            this.groupBoxRadioAshinaDepths.Controls.Add(this.radioLagADe);
+            this.groupBoxRadioAshinaDepths.Controls.Add(this.radioImmADe);
+            this.groupBoxRadioAshinaDepths.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxRadioAshinaDepths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxRadioAshinaDepths.HeaderColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBoxRadioAshinaDepths.Location = new System.Drawing.Point(246, 24);
+            this.groupBoxRadioAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAshinaDepths.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxRadioAshinaDepths.Name = "groupBoxRadioAshinaDepths";
+            this.groupBoxRadioAshinaDepths.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxRadioAshinaDepths.Size = new System.Drawing.Size(189, 161);
+            this.groupBoxRadioAshinaDepths.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxRadioAshinaDepths.TabIndex = 1;
+            this.groupBoxRadioAshinaDepths.TabStop = false;
+            this.groupBoxRadioAshinaDepths.Text = "Select";
+            // 
+            // btn_AddADe
+            // 
+            this.btn_AddADe.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddADe.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddADe.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddADe.Image = null;
+            this.btn_AddADe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddADe.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.Location = new System.Drawing.Point(48, 110);
+            this.btn_AddADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddADe.Name = "btn_AddADe";
+            this.btn_AddADe.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddADe.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddADe.TabIndex = 24;
+            this.btn_AddADe.Text = "Add/Remove";
+            this.btn_AddADe.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddADe.Click += new System.EventHandler(this.btn_AddADe_Click);
+            // 
+            // labelIdolSelectedADe
+            // 
+            this.labelIdolSelectedADe.AutoSize = true;
+            this.labelIdolSelectedADe.ForeColor = System.Drawing.Color.Red;
+            this.labelIdolSelectedADe.Location = new System.Drawing.Point(15, 30);
+            this.labelIdolSelectedADe.Name = "labelIdolSelectedADe";
+            this.labelIdolSelectedADe.Size = new System.Drawing.Size(25, 14);
+            this.labelIdolSelectedADe.TabIndex = 23;
+            this.labelIdolSelectedADe.Text = "???";
+            // 
+            // radioLagADe
+            // 
+            this.radioLagADe.AutoSize = true;
+            this.radioLagADe.Location = new System.Drawing.Point(37, 83);
+            this.radioLagADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioLagADe.Name = "radioLagADe";
+            this.radioLagADe.Size = new System.Drawing.Size(131, 18);
+            this.radioLagADe.TabIndex = 20;
+            this.radioLagADe.Text = "Loading game after";
+            this.radioLagADe.UseVisualStyleBackColor = true;
+            // 
+            // radioImmADe
+            // 
+            this.radioImmADe.AutoSize = true;
+            this.radioImmADe.Checked = true;
+            this.radioImmADe.Location = new System.Drawing.Point(51, 60);
+            this.radioImmADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioImmADe.Name = "radioImmADe";
+            this.radioImmADe.Size = new System.Drawing.Size(81, 18);
+            this.radioImmADe.TabIndex = 21;
+            this.radioImmADe.TabStop = true;
+            this.radioImmADe.Text = "Inmediatly";
+            this.radioImmADe.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxZoneSelectS
+            // 
+            this.comboBoxZoneSelectS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.comboBoxZoneSelectS.ColorA = System.Drawing.Color.Transparent;
+            this.comboBoxZoneSelectS.ColorB = System.Drawing.Color.Silver;
+            this.comboBoxZoneSelectS.ColorC = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxZoneSelectS.ColorD = System.Drawing.Color.Gold;
+            this.comboBoxZoneSelectS.ColorE = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxZoneSelectS.ColorF = System.Drawing.Color.LightSeaGreen;
+            this.comboBoxZoneSelectS.ColorG = System.Drawing.Color.ForestGreen;
+            this.comboBoxZoneSelectS.ColorH = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxZoneSelectS.ColorI = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxZoneSelectS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxZoneSelectS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxZoneSelectS.DropDownHeight = 100;
+            this.comboBoxZoneSelectS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxZoneSelectS.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxZoneSelectS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
+            this.comboBoxZoneSelectS.FormattingEnabled = true;
+            this.comboBoxZoneSelectS.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.comboBoxZoneSelectS.IntegralHeight = false;
+            this.comboBoxZoneSelectS.ItemHeight = 20;
+            this.comboBoxZoneSelectS.Items.AddRange(new object[] {
+            "Ashina Outskirts",
+            "Hirata Estate",
+            "Ashina Castle",
+            "Abandoned Dungeon",
+            "Senpou Temple",
+            "Sunken Valley",
+            "Ashina Depths",
+            "Fountainhead Palace"});
+            this.comboBoxZoneSelectS.Location = new System.Drawing.Point(94, 15);
+            this.comboBoxZoneSelectS.Name = "comboBoxZoneSelectS";
+            this.comboBoxZoneSelectS.Size = new System.Drawing.Size(370, 26);
+            this.comboBoxZoneSelectS.StartIndex = -1;
+            this.comboBoxZoneSelectS.TabIndex = 27;
+            this.comboBoxZoneSelectS.SelectedIndexChanged += new System.EventHandler(this.comboBoxZoneSelect_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(31, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 17);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Location";
+            // 
+            // panelBossS
+            // 
+            this.panelBossS.BackColor = System.Drawing.Color.White;
+            this.panelBossS.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelBossS.Controls.Add(this.btnAddAllBossesS);
+            this.panelBossS.Controls.Add(this.comboBoxBossS);
+            this.panelBossS.Controls.Add(this.panel2);
+            this.panelBossS.Controls.Add(this.comboBoxHowBossS);
+            this.panelBossS.Controls.Add(this.label17);
+            this.panelBossS.Controls.Add(this.btn_AddBoss);
+            this.panelBossS.Controls.Add(this.label15);
+            this.panelBossS.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelBossS.ForeColor = System.Drawing.Color.White;
+            this.panelBossS.Location = new System.Drawing.Point(34, 85);
+            this.panelBossS.Name = "panelBossS";
+            this.panelBossS.Padding = new System.Windows.Forms.Padding(5);
+            this.panelBossS.ShowText = false;
+            this.panelBossS.Size = new System.Drawing.Size(539, 262);
+            this.panelBossS.TabIndex = 27;
+            this.panelBossS.Text = "lostBorderPanel1";
+            // 
+            // btnAddAllBossesS
+            // 
+            this.btnAddAllBossesS.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAllBossesS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAllBossesS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAllBossesS.Image = null;
+            this.btnAddAllBossesS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAllBossesS.InactiveColor = System.Drawing.Color.Chocolate;
+            this.btnAddAllBossesS.Location = new System.Drawing.Point(271, 67);
+            this.btnAddAllBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAllBossesS.Name = "btnAddAllBossesS";
+            this.btnAddAllBossesS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesS.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAllBossesS.TabIndex = 28;
+            this.btnAddAllBossesS.Text = "Add All";
+            this.btnAddAllBossesS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddAllBossesS.Click += new System.EventHandler(this.btnAddAllBossesS_Click);
+            // 
+            // comboBoxBossS
+            // 
+            this.comboBoxBossS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxBossS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxBossS.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxBossS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBossS.FormattingEnabled = true;
+            this.comboBoxBossS.Items.AddRange(new object[] {
+            "Genichiro Ashina - Tutorial",
+            "Gyoubu Masataka Oniwa",
+            "Lady Butterfly",
+            "Genichiro Ashina",
+            "Folding Screen Monkeys",
+            "Guardian Ape",
+            "Headless Ape",
+            "Corrupted Monk (ghost)",
+            "Emma, the Gentle Blade",
+            "Isshin Ashina",
+            "Great Shinobi Owl",
+            "True Corrupted Monk",
+            "Divine Dragon",
+            "Owl (Father)",
+            "Demon of Hatred",
+            "Isshin, the Sword Saint"});
+            this.comboBoxBossS.Location = new System.Drawing.Point(192, 32);
+            this.comboBoxBossS.MaxDropDownItems = 2;
+            this.comboBoxBossS.Name = "comboBoxBossS";
+            this.comboBoxBossS.Size = new System.Drawing.Size(317, 22);
+            this.comboBoxBossS.TabIndex = 27;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.listBoxBossesS);
+            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel2.Location = new System.Drawing.Point(15, 95);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.panel2.Size = new System.Drawing.Size(508, 156);
+            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel2.TabIndex = 26;
+            this.panel2.Text = "panel2";
+            // 
+            // listBoxBossesS
+            // 
+            this.listBoxBossesS.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxBossesS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxBossesS.FormattingEnabled = true;
+            this.listBoxBossesS.ItemHeight = 16;
+            this.listBoxBossesS.Location = new System.Drawing.Point(3, 4);
+            this.listBoxBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxBossesS.Name = "listBoxBossesS";
+            this.listBoxBossesS.Size = new System.Drawing.Size(502, 146);
+            this.listBoxBossesS.TabIndex = 7;
+            this.listBoxBossesS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
+            // 
+            // comboBoxHowBossS
+            // 
+            this.comboBoxHowBossS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowBossS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowBossS.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowBossS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowBossS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowBossS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowBossS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowBossS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowBossS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowBossS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowBossS.FormattingEnabled = true;
+            this.comboBoxHowBossS.ItemHeight = 16;
+            this.comboBoxHowBossS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowBossS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowBossS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowBossS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowBossS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowBossS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowBossS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowBossS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossS.Location = new System.Drawing.Point(20, 32);
+            this.comboBoxHowBossS.Name = "comboBoxHowBossS";
+            this.comboBoxHowBossS.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowBossS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowBossS.StartIndex = -1;
+            this.comboBoxHowBossS.TabIndex = 26;
+            this.comboBoxHowBossS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(333, 10);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 16);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Boss:";
+            // 
+            // btn_AddBoss
+            // 
+            this.btn_AddBoss.BackColor = System.Drawing.Color.Transparent;
+            this.btn_AddBoss.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddBoss.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddBoss.Image = null;
+            this.btn_AddBoss.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddBoss.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.Location = new System.Drawing.Point(162, 67);
+            this.btn_AddBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddBoss.Name = "btn_AddBoss";
+            this.btn_AddBoss.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_AddBoss.Size = new System.Drawing.Size(99, 21);
+            this.btn_AddBoss.TabIndex = 14;
+            this.btn_AddBoss.Text = "Add";
+            this.btn_AddBoss.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_AddBoss.Click += new System.EventHandler(this.btn_AddBoss_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(73, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(37, 16);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "How:";
+            // 
+            // panelPositionS
+            // 
+            this.panelPositionS.BackColor = System.Drawing.Color.White;
+            this.panelPositionS.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelPositionS.Controls.Add(this.btnGetPositionS);
+            this.panelPositionS.Controls.Add(this.comboBoxSizeS);
+            this.panelPositionS.Controls.Add(this.textBoxZS);
+            this.panelPositionS.Controls.Add(this.comboBoxHowPositionS);
+            this.panelPositionS.Controls.Add(this.textBoxYS);
+            this.panelPositionS.Controls.Add(this.textBoxTitlePositionS);
+            this.panelPositionS.Controls.Add(this.textBoxXS);
+            this.panelPositionS.Controls.Add(this.label85);
+            this.panelPositionS.Controls.Add(this.panel4);
+            this.panelPositionS.Controls.Add(this.btnAddPosition);
+            this.panelPositionS.Controls.Add(this.label11);
+            this.panelPositionS.Controls.Add(this.label10);
+            this.panelPositionS.Controls.Add(this.label9);
+            this.panelPositionS.Controls.Add(this.label8);
+            this.panelPositionS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPositionS.ForeColor = System.Drawing.Color.White;
+            this.panelPositionS.Location = new System.Drawing.Point(34, 85);
+            this.panelPositionS.Name = "panelPositionS";
+            this.panelPositionS.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPositionS.ShowText = false;
+            this.panelPositionS.Size = new System.Drawing.Size(539, 262);
+            this.panelPositionS.TabIndex = 29;
+            this.panelPositionS.Text = "lostBorderPanel1";
+            // 
+            // btnGetPositionS
+            // 
+            this.btnGetPositionS.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetPositionS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetPositionS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetPositionS.Image = null;
+            this.btnGetPositionS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPositionS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.Location = new System.Drawing.Point(335, 75);
+            this.btnGetPositionS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetPositionS.Name = "btnGetPositionS";
+            this.btnGetPositionS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionS.Size = new System.Drawing.Size(99, 21);
+            this.btnGetPositionS.TabIndex = 4;
+            this.btnGetPositionS.Text = "Get Position";
+            this.btnGetPositionS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetPositionS.Click += new System.EventHandler(this.btnGetPositionS_Click);
+            // 
+            // comboBoxSizeS
+            // 
+            this.comboBoxSizeS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxSizeS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSizeS.BGColorB = System.Drawing.Color.MediumSlateBlue;
+            this.comboBoxSizeS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxSizeS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxSizeS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxSizeS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxSizeS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSizeS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxSizeS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeS.FormattingEnabled = true;
+            this.comboBoxSizeS.ItemHeight = 16;
+            this.comboBoxSizeS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxSizeS.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxSizeS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxSizeS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxSizeS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxSizeS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxSizeS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxSizeS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeS.Location = new System.Drawing.Point(357, 47);
+            this.comboBoxSizeS.Name = "comboBoxSizeS";
+            this.comboBoxSizeS.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxSizeS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxSizeS.StartIndex = -1;
+            this.comboBoxSizeS.TabIndex = 30;
+            this.comboBoxSizeS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxZS
+            // 
+            this.textBoxZS.BackColor = System.Drawing.Color.White;
+            this.textBoxZS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxZS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxZS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxZS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxZS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxZS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxZS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxZS.Location = new System.Drawing.Point(297, 47);
+            this.textBoxZS.MaxLength = 32767;
+            this.textBoxZS.MultiLine = false;
+            this.textBoxZS.Name = "textBoxZS";
+            this.textBoxZS.Size = new System.Drawing.Size(51, 21);
+            this.textBoxZS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxZS.TabIndex = 32;
+            this.textBoxZS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxZS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxZS.UseSystemPasswordChar = false;
+            // 
+            // comboBoxHowPositionS
+            // 
+            this.comboBoxHowPositionS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowPositionS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowPositionS.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowPositionS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowPositionS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowPositionS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowPositionS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowPositionS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowPositionS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowPositionS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowPositionS.FormattingEnabled = true;
+            this.comboBoxHowPositionS.ItemHeight = 16;
+            this.comboBoxHowPositionS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowPositionS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowPositionS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowPositionS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowPositionS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowPositionS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowPositionS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowPositionS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionS.Location = new System.Drawing.Point(57, 47);
+            this.comboBoxHowPositionS.Name = "comboBoxHowPositionS";
+            this.comboBoxHowPositionS.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowPositionS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowPositionS.StartIndex = -1;
+            this.comboBoxHowPositionS.TabIndex = 29;
+            this.comboBoxHowPositionS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxYS
+            // 
+            this.textBoxYS.BackColor = System.Drawing.Color.White;
+            this.textBoxYS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxYS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxYS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxYS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxYS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxYS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxYS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxYS.Location = new System.Drawing.Point(240, 47);
+            this.textBoxYS.MaxLength = 32767;
+            this.textBoxYS.MultiLine = false;
+            this.textBoxYS.Name = "textBoxYS";
+            this.textBoxYS.Size = new System.Drawing.Size(51, 21);
+            this.textBoxYS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxYS.TabIndex = 31;
+            this.textBoxYS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxYS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxYS.UseSystemPasswordChar = false;
+            // 
+            // textBoxTitlePositionS
+            // 
+            this.textBoxTitlePositionS.BackColor = System.Drawing.Color.White;
+            this.textBoxTitlePositionS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitlePositionS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitlePositionS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitlePositionS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitlePositionS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitlePositionS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitlePositionS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitlePositionS.Location = new System.Drawing.Point(196, 75);
+            this.textBoxTitlePositionS.MaxLength = 32767;
+            this.textBoxTitlePositionS.MultiLine = false;
+            this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
+            this.textBoxTitlePositionS.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitlePositionS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitlePositionS.TabIndex = 28;
+            this.textBoxTitlePositionS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTitlePositionS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitlePositionS.UseSystemPasswordChar = false;
+            // 
+            // textBoxXS
+            // 
+            this.textBoxXS.BackColor = System.Drawing.Color.White;
+            this.textBoxXS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxXS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxXS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxXS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxXS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxXS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxXS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxXS.Location = new System.Drawing.Point(181, 47);
+            this.textBoxXS.MaxLength = 32767;
+            this.textBoxXS.MultiLine = false;
+            this.textBoxXS.Name = "textBoxXS";
+            this.textBoxXS.Size = new System.Drawing.Size(51, 21);
+            this.textBoxXS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxXS.TabIndex = 30;
+            this.textBoxXS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxXS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxXS.UseSystemPasswordChar = false;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.ForeColor = System.Drawing.Color.Black;
+            this.label85.Location = new System.Drawing.Point(122, 72);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(64, 32);
+            this.label85.TabIndex = 14;
+            this.label85.Text = "     Title\r\n(Optional)";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel4.Controls.Add(this.listBoxPositionsS);
+            this.panel4.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel4.Location = new System.Drawing.Point(13, 130);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(515, 125);
+            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel4.TabIndex = 27;
+            this.panel4.Text = "panel4";
+            // 
+            // listBoxPositionsS
+            // 
+            this.listBoxPositionsS.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxPositionsS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxPositionsS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPositionsS.FormattingEnabled = true;
+            this.listBoxPositionsS.ItemHeight = 16;
+            this.listBoxPositionsS.Location = new System.Drawing.Point(3, 5);
+            this.listBoxPositionsS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPositionsS.Name = "listBoxPositionsS";
+            this.listBoxPositionsS.Size = new System.Drawing.Size(509, 114);
+            this.listBoxPositionsS.TabIndex = 6;
+            this.listBoxPositionsS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxPositions_MouseDoubleClick);
+            // 
+            // btnAddPosition
+            // 
+            this.btnAddPosition.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPosition.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPosition.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPosition.Image = null;
+            this.btnAddPosition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPosition.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.Location = new System.Drawing.Point(207, 104);
+            this.btnAddPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddPosition.Name = "btnAddPosition";
+            this.btnAddPosition.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPosition.Size = new System.Drawing.Size(99, 21);
+            this.btnAddPosition.TabIndex = 5;
+            this.btnAddPosition.Text = "Add";
+            this.btnAddPosition.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddPosition.Click += new System.EventHandler(this.btnAddPosition_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(230, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 16);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Coordinates:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(401, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 16);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Size";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(202, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 16);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "X            Y            Z";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(88, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 16);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "How:";
+            // 
+            // panelMortalJourney
+            // 
+            this.panelMortalJourney.BackColor = System.Drawing.Color.White;
+            this.panelMortalJourney.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelMortalJourney.Controls.Add(this.hopeTextBoxMortal);
+            this.panelMortalJourney.Controls.Add(this.groupBoxMJS);
+            this.panelMortalJourney.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelMortalJourney.ForeColor = System.Drawing.Color.White;
+            this.panelMortalJourney.Location = new System.Drawing.Point(34, 85);
+            this.panelMortalJourney.Name = "panelMortalJourney";
+            this.panelMortalJourney.Padding = new System.Windows.Forms.Padding(5);
+            this.panelMortalJourney.ShowText = false;
+            this.panelMortalJourney.Size = new System.Drawing.Size(539, 262);
+            this.panelMortalJourney.TabIndex = 13;
+            this.panelMortalJourney.Text = "lostBorderPanel1";
+            // 
+            // hopeTextBoxMortal
+            // 
+            this.hopeTextBoxMortal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.hopeTextBoxMortal.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.hopeTextBoxMortal.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeTextBoxMortal.BorderColorB = System.Drawing.Color.DarkSlateGray;
+            this.hopeTextBoxMortal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hopeTextBoxMortal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.hopeTextBoxMortal.Hint = "";
+            this.hopeTextBoxMortal.Location = new System.Drawing.Point(46, 118);
+            this.hopeTextBoxMortal.MaxLength = 32767;
+            this.hopeTextBoxMortal.Multiline = true;
+            this.hopeTextBoxMortal.Name = "hopeTextBoxMortal";
+            this.hopeTextBoxMortal.PasswordChar = '\0';
+            this.hopeTextBoxMortal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.hopeTextBoxMortal.SelectedText = "";
+            this.hopeTextBoxMortal.SelectionLength = 0;
+            this.hopeTextBoxMortal.SelectionStart = 0;
+            this.hopeTextBoxMortal.Size = new System.Drawing.Size(444, 131);
+            this.hopeTextBoxMortal.TabIndex = 28;
+            this.hopeTextBoxMortal.TabStop = false;
+            this.hopeTextBoxMortal.Text = resources.GetString("hopeTextBoxMortal.Text");
+            this.hopeTextBoxMortal.UseSystemPasswordChar = false;
+            // 
+            // groupBoxMJS
+            // 
+            this.groupBoxMJS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxMJS.BackGColor = System.Drawing.Color.Firebrick;
+            this.groupBoxMJS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxMJS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxMJS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxMJS.Controls.Add(this.checkBoxMortalJourneyRun);
+            this.groupBoxMJS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxMJS.ForeColor = System.Drawing.Color.White;
+            this.groupBoxMJS.HeaderColor = System.Drawing.Color.RoyalBlue;
+            this.groupBoxMJS.Location = new System.Drawing.Point(165, 8);
+            this.groupBoxMJS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxMJS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxMJS.Name = "groupBoxMJS";
+            this.groupBoxMJS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxMJS.Size = new System.Drawing.Size(201, 99);
+            this.groupBoxMJS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxMJS.TabIndex = 0;
+            this.groupBoxMJS.TabStop = false;
+            this.groupBoxMJS.Text = "Mortal Journey";
+            // 
+            // checkBoxMortalJourneyRun
+            // 
+            this.checkBoxMortalJourneyRun.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxMortalJourneyRun.BackgroundColor = System.Drawing.Color.White;
+            this.checkBoxMortalJourneyRun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.checkBoxMortalJourneyRun.Checked = false;
+            this.checkBoxMortalJourneyRun.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.checkBoxMortalJourneyRun.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Unchecked;
+            this.checkBoxMortalJourneyRun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxMortalJourneyRun.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.checkBoxMortalJourneyRun.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMortalJourneyRun.IsDerivedStyle = true;
+            this.checkBoxMortalJourneyRun.Location = new System.Drawing.Point(68, 48);
+            this.checkBoxMortalJourneyRun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxMortalJourneyRun.Name = "checkBoxMortalJourneyRun";
+            this.checkBoxMortalJourneyRun.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
+            this.checkBoxMortalJourneyRun.Size = new System.Drawing.Size(69, 16);
+            this.checkBoxMortalJourneyRun.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.checkBoxMortalJourneyRun.StyleManager = null;
+            this.checkBoxMortalJourneyRun.TabIndex = 27;
+            this.checkBoxMortalJourneyRun.Text = "Enable";
+            this.checkBoxMortalJourneyRun.ThemeAuthor = "Taiizor";
+            this.checkBoxMortalJourneyRun.ThemeName = "MetroLight";
+            this.checkBoxMortalJourneyRun.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.checkBoxMortalJourneyRun_CheckedChanged);
+            // 
+            // panelLevelSekiro
+            // 
+            this.panelLevelSekiro.BackColor = System.Drawing.Color.White;
+            this.panelLevelSekiro.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelLevelSekiro.Controls.Add(this.label32);
+            this.panelLevelSekiro.Controls.Add(this.label34);
+            this.panelLevelSekiro.Controls.Add(this.textBoxValueS);
+            this.panelLevelSekiro.Controls.Add(this.panel21);
+            this.panelLevelSekiro.Controls.Add(this.comboBoxHowAttributeS);
+            this.panelLevelSekiro.Controls.Add(this.btnAddAttributeS);
+            this.panelLevelSekiro.Controls.Add(this.label35);
+            this.panelLevelSekiro.Controls.Add(this.comboBoxAttributeS);
+            this.panelLevelSekiro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelLevelSekiro.ForeColor = System.Drawing.Color.White;
+            this.panelLevelSekiro.Location = new System.Drawing.Point(34, 85);
+            this.panelLevelSekiro.Name = "panelLevelSekiro";
+            this.panelLevelSekiro.Padding = new System.Windows.Forms.Padding(5);
+            this.panelLevelSekiro.ShowText = false;
+            this.panelLevelSekiro.Size = new System.Drawing.Size(539, 262);
+            this.panelLevelSekiro.TabIndex = 30;
+            this.panelLevelSekiro.Text = "lostBorderPanel1";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Black;
+            this.label32.Location = new System.Drawing.Point(40, 15);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(55, 16);
+            this.label32.TabIndex = 33;
+            this.label32.Text = "attribute";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.Transparent;
+            this.label34.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Black;
+            this.label34.Location = new System.Drawing.Point(128, 45);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(39, 16);
+            this.label34.TabIndex = 32;
+            this.label34.Text = "Value";
+            // 
+            // textBoxValueS
+            // 
+            this.textBoxValueS.BackColor = System.Drawing.Color.White;
+            this.textBoxValueS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxValueS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxValueS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxValueS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxValueS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxValueS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxValueS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxValueS.Location = new System.Drawing.Point(173, 42);
+            this.textBoxValueS.MaxLength = 32767;
+            this.textBoxValueS.MultiLine = false;
+            this.textBoxValueS.Name = "textBoxValueS";
+            this.textBoxValueS.Size = new System.Drawing.Size(90, 21);
+            this.textBoxValueS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxValueS.TabIndex = 31;
+            this.textBoxValueS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxValueS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxValueS.UseSystemPasswordChar = false;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel21.Controls.Add(this.listBoxAttributeS);
+            this.panel21.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel21.Location = new System.Drawing.Point(17, 93);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(5);
+            this.panel21.Size = new System.Drawing.Size(508, 164);
+            this.panel21.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel21.TabIndex = 26;
+            this.panel21.Text = "panel21";
+            // 
+            // listBoxAttributeS
+            // 
+            this.listBoxAttributeS.BackColor = System.Drawing.Color.Aquamarine;
+            this.listBoxAttributeS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxAttributeS.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAttributeS.FormattingEnabled = true;
+            this.listBoxAttributeS.ItemHeight = 14;
+            this.listBoxAttributeS.Location = new System.Drawing.Point(4, 4);
+            this.listBoxAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAttributeS.Name = "listBoxAttributeS";
+            this.listBoxAttributeS.Size = new System.Drawing.Size(500, 156);
+            this.listBoxAttributeS.TabIndex = 22;
+            this.listBoxAttributeS.DoubleClick += new System.EventHandler(this.listBoxAttributeS_DoubleClick);
+            // 
+            // comboBoxHowAttributeS
+            // 
+            this.comboBoxHowAttributeS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowAttributeS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowAttributeS.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowAttributeS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowAttributeS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowAttributeS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowAttributeS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowAttributeS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowAttributeS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowAttributeS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowAttributeS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowAttributeS.FormattingEnabled = true;
+            this.comboBoxHowAttributeS.ItemHeight = 16;
+            this.comboBoxHowAttributeS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowAttributeS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowAttributeS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowAttributeS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowAttributeS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowAttributeS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowAttributeS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowAttributeS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeS.Location = new System.Drawing.Point(286, 41);
+            this.comboBoxHowAttributeS.Name = "comboBoxHowAttributeS";
+            this.comboBoxHowAttributeS.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowAttributeS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowAttributeS.StartIndex = -1;
+            this.comboBoxHowAttributeS.TabIndex = 26;
+            this.comboBoxHowAttributeS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // btnAddAttributeS
+            // 
+            this.btnAddAttributeS.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAttributeS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAttributeS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAttributeS.Image = null;
+            this.btnAddAttributeS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAttributeS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.Location = new System.Drawing.Point(217, 67);
+            this.btnAddAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAttributeS.Name = "btnAddAttributeS";
+            this.btnAddAttributeS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeS.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAttributeS.TabIndex = 14;
+            this.btnAddAttributeS.Text = "Add";
+            this.btnAddAttributeS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddAttributeS.Click += new System.EventHandler(this.btnAddAttributeS_Click);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BackColor = System.Drawing.Color.Transparent;
+            this.label35.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Black;
+            this.label35.Location = new System.Drawing.Point(443, 45);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(32, 16);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "How";
+            // 
+            // comboBoxAttributeS
+            // 
+            this.comboBoxAttributeS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxAttributeS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.comboBoxAttributeS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxAttributeS.FormattingEnabled = true;
+            this.comboBoxAttributeS.Items.AddRange(new object[] {
+            "Vitality",
+            "AttackPower"});
+            this.comboBoxAttributeS.Location = new System.Drawing.Point(103, 12);
+            this.comboBoxAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxAttributeS.Name = "comboBoxAttributeS";
+            this.comboBoxAttributeS.Size = new System.Drawing.Size(361, 24);
+            this.comboBoxAttributeS.TabIndex = 18;
+            // 
+            // panelCfSekiro
+            // 
+            this.panelCfSekiro.BackColor = System.Drawing.Color.White;
+            this.panelCfSekiro.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
+            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
+            this.panelCfSekiro.Controls.Add(this.panel3);
+            this.panelCfSekiro.Controls.Add(this.label59);
+            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
+            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
+            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
+            this.panelCfSekiro.Controls.Add(this.label7);
+            this.panelCfSekiro.Controls.Add(this.label91);
+            this.panelCfSekiro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelCfSekiro.ForeColor = System.Drawing.Color.White;
+            this.panelCfSekiro.Location = new System.Drawing.Point(34, 85);
+            this.panelCfSekiro.Name = "panelCfSekiro";
+            this.panelCfSekiro.Padding = new System.Windows.Forms.Padding(5);
+            this.panelCfSekiro.ShowText = false;
+            this.panelCfSekiro.Size = new System.Drawing.Size(539, 262);
+            this.panelCfSekiro.TabIndex = 28;
+            // 
+            // textBoxTitleCFS
+            // 
+            this.textBoxTitleCFS.BackColor = System.Drawing.Color.White;
+            this.textBoxTitleCFS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitleCFS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitleCFS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitleCFS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitleCFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitleCFS.Location = new System.Drawing.Point(216, 73);
+            this.textBoxTitleCFS.MaxLength = 32767;
+            this.textBoxTitleCFS.MultiLine = false;
+            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
+            this.textBoxTitleCFS.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitleCFS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitleCFS.TabIndex = 26;
+            this.textBoxTitleCFS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxTitleCFS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitleCFS.UseSystemPasswordChar = false;
+            // 
+            // btnGetListFlagsSekiro
+            // 
+            this.btnGetListFlagsSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetListFlagsSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetListFlagsSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetListFlagsSekiro.Image = null;
+            this.btnGetListFlagsSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetListFlagsSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(223, 14);
+            this.btnGetListFlagsSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetListFlagsSekiro.Name = "btnGetListFlagsSekiro";
+            this.btnGetListFlagsSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(98, 24);
+            this.btnGetListFlagsSekiro.TabIndex = 2;
+            this.btnGetListFlagsSekiro.Text = "Get List Flags";
+            this.btnGetListFlagsSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetListFlagsSekiro.Click += new System.EventHandler(this.btnGetListFlagsSekiro_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel3.Controls.Add(this.listBoxCfS);
+            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel3.Location = new System.Drawing.Point(13, 130);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(5);
+            this.panel3.Size = new System.Drawing.Size(515, 125);
+            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel3.TabIndex = 27;
+            this.panel3.Text = "panel3";
+            // 
+            // listBoxCfS
+            // 
+            this.listBoxCfS.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxCfS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxCfS.FormattingEnabled = true;
+            this.listBoxCfS.ItemHeight = 16;
+            this.listBoxCfS.Location = new System.Drawing.Point(4, 5);
+            this.listBoxCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxCfS.Name = "listBoxCfS";
+            this.listBoxCfS.Size = new System.Drawing.Size(507, 114);
+            this.listBoxCfS.TabIndex = 19;
+            this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.Black;
+            this.label59.Location = new System.Drawing.Point(128, 46);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(22, 13);
+            this.label59.TabIndex = 1;
+            this.label59.Text = "ID:";
+            // 
+            // textBoxCfIdS
+            // 
+            this.textBoxCfIdS.BackColor = System.Drawing.Color.White;
+            this.textBoxCfIdS.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxCfIdS.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxCfIdS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxCfIdS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxCfIdS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxCfIdS.Location = new System.Drawing.Point(162, 43);
+            this.textBoxCfIdS.MaxLength = 32767;
+            this.textBoxCfIdS.MultiLine = false;
+            this.textBoxCfIdS.Name = "textBoxCfIdS";
+            this.textBoxCfIdS.Size = new System.Drawing.Size(110, 21);
+            this.textBoxCfIdS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxCfIdS.TabIndex = 22;
+            this.textBoxCfIdS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxCfIdS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxCfIdS.UseSystemPasswordChar = false;
+            // 
+            // btnAddCfS
+            // 
+            this.btnAddCfS.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddCfS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCfS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCfS.Image = null;
+            this.btnAddCfS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCfS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.Location = new System.Drawing.Point(222, 101);
+            this.btnAddCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddCfS.Name = "btnAddCfS";
+            this.btnAddCfS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfS.Size = new System.Drawing.Size(99, 21);
+            this.btnAddCfS.TabIndex = 18;
+            this.btnAddCfS.Text = "Add";
+            this.btnAddCfS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddCfS.Click += new System.EventHandler(this.btnAddCfS_Click);
+            // 
+            // comboBoxHowCfS
+            // 
+            this.comboBoxHowCfS.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowCfS.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowCfS.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowCfS.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowCfS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowCfS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowCfS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowCfS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowCfS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowCfS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowCfS.FormattingEnabled = true;
+            this.comboBoxHowCfS.ItemHeight = 16;
+            this.comboBoxHowCfS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowCfS.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfS.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowCfS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfS.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowCfS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowCfS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowCfS.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfS.Location = new System.Drawing.Point(288, 43);
+            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
+            this.comboBoxHowCfS.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowCfS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowCfS.StartIndex = -1;
+            this.comboBoxHowCfS.TabIndex = 27;
+            this.comboBoxHowCfS.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(407, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 16);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "How:";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.ForeColor = System.Drawing.Color.Black;
+            this.label91.Location = new System.Drawing.Point(151, 73);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(55, 26);
+            this.label91.TabIndex = 24;
+            this.label91.Text = "     Title\r\n(Optional)";
+            // 
+            // panelMinibossSekiro
+            // 
+            this.panelMinibossSekiro.BackColor = System.Drawing.Color.White;
+            this.panelMinibossSekiro.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelMinibossSekiro.Controls.Add(this.btnAddAllMiniBossesS);
+            this.panelMinibossSekiro.Controls.Add(this.label79);
+            this.panelMinibossSekiro.Controls.Add(this.panel6);
+            this.panelMinibossSekiro.Controls.Add(this.comboBoxMiniBossSekiro);
+            this.panelMinibossSekiro.Controls.Add(this.comboBoxHowMiniBoss);
+            this.panelMinibossSekiro.Controls.Add(this.btnAddMiniBossSekiro);
+            this.panelMinibossSekiro.Controls.Add(this.label12);
+            this.panelMinibossSekiro.Controls.Add(this.panel5);
+            this.panelMinibossSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelMinibossSekiro.ForeColor = System.Drawing.Color.White;
+            this.panelMinibossSekiro.Location = new System.Drawing.Point(34, 85);
+            this.panelMinibossSekiro.Name = "panelMinibossSekiro";
+            this.panelMinibossSekiro.Padding = new System.Windows.Forms.Padding(5);
+            this.panelMinibossSekiro.ShowText = false;
+            this.panelMinibossSekiro.Size = new System.Drawing.Size(539, 262);
+            this.panelMinibossSekiro.TabIndex = 30;
+            this.panelMinibossSekiro.Text = "lostBorderPanel1";
+            // 
+            // btnAddAllMiniBossesS
+            // 
+            this.btnAddAllMiniBossesS.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAllMiniBossesS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllMiniBossesS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAllMiniBossesS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllMiniBossesS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllMiniBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAllMiniBossesS.Image = null;
+            this.btnAddAllMiniBossesS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAllMiniBossesS.InactiveColor = System.Drawing.Color.Chocolate;
+            this.btnAddAllMiniBossesS.Location = new System.Drawing.Point(62, 97);
+            this.btnAddAllMiniBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAllMiniBossesS.Name = "btnAddAllMiniBossesS";
+            this.btnAddAllMiniBossesS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllMiniBossesS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllMiniBossesS.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAllMiniBossesS.TabIndex = 32;
+            this.btnAddAllMiniBossesS.Text = "Add All";
+            this.btnAddAllMiniBossesS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddAllMiniBossesS.Click += new System.EventHandler(this.btnAddAllMiniBossesS_Click);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.ForeColor = System.Drawing.Color.Black;
+            this.label79.Location = new System.Drawing.Point(316, 5);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(61, 16);
+            this.label79.TabIndex = 19;
+            this.label79.Text = "MiniBoss:";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel6.Controls.Add(this.textBoxDescriptionMiniBoss);
+            this.panel6.EdgeColor = System.Drawing.Color.SteelBlue;
+            this.panel6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(197, 56);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(5);
+            this.panel6.Size = new System.Drawing.Size(312, 69);
+            this.panel6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel6.TabIndex = 31;
+            this.panel6.Text = "panel6";
+            // 
+            // textBoxDescriptionMiniBoss
+            // 
+            this.textBoxDescriptionMiniBoss.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDescriptionMiniBoss.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.textBoxDescriptionMiniBoss.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxDescriptionMiniBoss.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescriptionMiniBoss.Location = new System.Drawing.Point(5, 6);
+            this.textBoxDescriptionMiniBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDescriptionMiniBoss.Multiline = true;
+            this.textBoxDescriptionMiniBoss.Name = "textBoxDescriptionMiniBoss";
+            this.textBoxDescriptionMiniBoss.ReadOnly = true;
+            this.textBoxDescriptionMiniBoss.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxDescriptionMiniBoss.Size = new System.Drawing.Size(303, 58);
+            this.textBoxDescriptionMiniBoss.TabIndex = 21;
+            this.textBoxDescriptionMiniBoss.TabStop = false;
+            // 
+            // comboBoxMiniBossSekiro
+            // 
+            this.comboBoxMiniBossSekiro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxMiniBossSekiro.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.comboBoxMiniBossSekiro.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxMiniBossSekiro.FormattingEnabled = true;
+            this.comboBoxMiniBossSekiro.Items.AddRange(new object[] {
+            "Leader Shigenori Yamauchi",
+            "General Naomori Kawarada",
+            "Ogre - Ashina Outskirts",
+            "General Tenzen Yamauchi",
+            "Headless Ako",
+            "Blazing Bull",
+            "Shigekichi of the Red Guard",
+            "Shinobi Hunter Enshin of Misen",
+            "Juzou the Drunkard",
+            "Lone Shadow Masanaga the Spear-Bearer",
+            "Juzou the Drunkard 2",
+            "General Kuranosuke Matsumoto",
+            "Seven Achina Spears – Shikibu Toshikatsu Yamauchi",
+            "Lone Shadow Longswordsman",
+            "Headless Ungo",
+            "Ashina Elite – Jinsuke Saze",
+            "Ogre - Ashina Castle",
+            "Lone Shadow Vilehand",
+            "Seven Ashina Spears - Shume Masaji Oniwa",
+            "Ashina Elite - Ujinari Mizuo",
+            "Shichimen Warrior - Abandoned Dungeon",
+            "Armored Warrior",
+            "Long-arm Centipede Sen’un",
+            "Headless Gokan",
+            "Long-arm Centipede Giraffe",
+            "Snake Eyes Shirahagi",
+            "Shichimen Warrior - Ashina Depths",
+            "Headless Gacchin",
+            "Tokujiro the Glutton",
+            "Mist Noble",
+            "O\'rin of the Water",
+            "Sakura Bull of the Palace",
+            "Leader Okami",
+            "Headless Yashariku",
+            "Shichimen Warrior - Fountainhead Palace"});
+            this.comboBoxMiniBossSekiro.Location = new System.Drawing.Point(203, 27);
+            this.comboBoxMiniBossSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxMiniBossSekiro.Name = "comboBoxMiniBossSekiro";
+            this.comboBoxMiniBossSekiro.Size = new System.Drawing.Size(292, 24);
+            this.comboBoxMiniBossSekiro.TabIndex = 18;
+            this.comboBoxMiniBossSekiro.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiniBossSekiro_SelectedIndexChanged);
+            // 
+            // comboBoxHowMiniBoss
+            // 
+            this.comboBoxHowMiniBoss.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowMiniBoss.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowMiniBoss.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowMiniBoss.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowMiniBoss.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowMiniBoss.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowMiniBoss.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowMiniBoss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowMiniBoss.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowMiniBoss.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowMiniBoss.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowMiniBoss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowMiniBoss.FormattingEnabled = true;
+            this.comboBoxHowMiniBoss.ItemHeight = 16;
+            this.comboBoxHowMiniBoss.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowMiniBoss.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowMiniBoss.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowMiniBoss.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowMiniBoss.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowMiniBoss.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowMiniBoss.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowMiniBoss.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowMiniBoss.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowMiniBoss.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowMiniBoss.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowMiniBoss.Location = new System.Drawing.Point(56, 44);
+            this.comboBoxHowMiniBoss.Name = "comboBoxHowMiniBoss";
+            this.comboBoxHowMiniBoss.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowMiniBoss.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowMiniBoss.StartIndex = -1;
+            this.comboBoxHowMiniBoss.TabIndex = 31;
+            this.comboBoxHowMiniBoss.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowMiniBoss.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // btnAddMiniBossSekiro
+            // 
+            this.btnAddMiniBossSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddMiniBossSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddMiniBossSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMiniBossSekiro.Image = null;
+            this.btnAddMiniBossSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddMiniBossSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.Location = new System.Drawing.Point(61, 71);
+            this.btnAddMiniBossSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddMiniBossSekiro.Name = "btnAddMiniBossSekiro";
+            this.btnAddMiniBossSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddMiniBossSekiro.Size = new System.Drawing.Size(99, 21);
+            this.btnAddMiniBossSekiro.TabIndex = 20;
+            this.btnAddMiniBossSekiro.Text = "Add";
+            this.btnAddMiniBossSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddMiniBossSekiro.Click += new System.EventHandler(this.btnAddMiniBossSekiro_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(91, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 16);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "How:";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel5.Controls.Add(this.listBoxMiniBossesS);
+            this.panel5.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel5.Location = new System.Drawing.Point(11, 130);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(514, 125);
+            this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel5.TabIndex = 27;
+            this.panel5.Text = "panel5";
+            // 
+            // listBoxMiniBossesS
+            // 
+            this.listBoxMiniBossesS.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxMiniBossesS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxMiniBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxMiniBossesS.FormattingEnabled = true;
+            this.listBoxMiniBossesS.ItemHeight = 16;
+            this.listBoxMiniBossesS.Location = new System.Drawing.Point(5, 5);
+            this.listBoxMiniBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxMiniBossesS.Name = "listBoxMiniBossesS";
+            this.listBoxMiniBossesS.Size = new System.Drawing.Size(502, 114);
+            this.listBoxMiniBossesS.TabIndex = 15;
+            this.listBoxMiniBossesS.DoubleClick += new System.EventHandler(this.listBoxMiniBossSekiro_DoubleClick);
+            // 
+            // panelCfER
+            // 
+            this.panelCfER.BackColor = System.Drawing.Color.White;
+            this.panelCfER.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelCfER.Controls.Add(this.textBoxTitleCFER);
+            this.panelCfER.Controls.Add(this.btnGetListER);
+            this.panelCfER.Controls.Add(this.panel23);
+            this.panelCfER.Controls.Add(this.label4);
+            this.panelCfER.Controls.Add(this.textBoxIdER);
+            this.panelCfER.Controls.Add(this.btnAddCfER);
+            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
+            this.panelCfER.Controls.Add(this.label28);
+            this.panelCfER.Controls.Add(this.label88);
+            this.panelCfER.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelCfER.ForeColor = System.Drawing.Color.White;
+            this.panelCfER.Location = new System.Drawing.Point(34, 85);
+            this.panelCfER.Name = "panelCfER";
+            this.panelCfER.Padding = new System.Windows.Forms.Padding(5);
+            this.panelCfER.ShowText = false;
+            this.panelCfER.Size = new System.Drawing.Size(539, 262);
+            this.panelCfER.TabIndex = 29;
+            // 
+            // textBoxTitleCFER
+            // 
+            this.textBoxTitleCFER.BackColor = System.Drawing.Color.White;
+            this.textBoxTitleCFER.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitleCFER.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitleCFER.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitleCFER.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitleCFER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitleCFER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitleCFER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitleCFER.Location = new System.Drawing.Point(216, 73);
+            this.textBoxTitleCFER.MaxLength = 32767;
+            this.textBoxTitleCFER.MultiLine = false;
+            this.textBoxTitleCFER.Name = "textBoxTitleCFER";
+            this.textBoxTitleCFER.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitleCFER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitleCFER.TabIndex = 26;
+            this.textBoxTitleCFER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxTitleCFER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitleCFER.UseSystemPasswordChar = false;
+            // 
+            // btnGetListER
+            // 
+            this.btnGetListER.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetListER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetListER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetListER.Image = null;
+            this.btnGetListER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetListER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetListER.Location = new System.Drawing.Point(223, 14);
+            this.btnGetListER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetListER.Name = "btnGetListER";
+            this.btnGetListER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetListER.Size = new System.Drawing.Size(98, 24);
+            this.btnGetListER.TabIndex = 2;
+            this.btnGetListER.Text = "Get List Flags";
+            this.btnGetListER.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel23.Controls.Add(this.listBoxCfER);
+            this.panel23.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel23.Location = new System.Drawing.Point(13, 130);
+            this.panel23.Name = "panel23";
+            this.panel23.Padding = new System.Windows.Forms.Padding(5);
+            this.panel23.Size = new System.Drawing.Size(515, 125);
+            this.panel23.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel23.TabIndex = 27;
+            this.panel23.Text = "panel23";
+            // 
+            // listBoxCfER
+            // 
+            this.listBoxCfER.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxCfER.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxCfER.FormattingEnabled = true;
+            this.listBoxCfER.ItemHeight = 14;
+            this.listBoxCfER.Location = new System.Drawing.Point(4, 5);
+            this.listBoxCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxCfER.Name = "listBoxCfER";
+            this.listBoxCfER.Size = new System.Drawing.Size(507, 116);
+            this.listBoxCfER.TabIndex = 19;
+            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(128, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "ID:";
+            // 
+            // textBoxIdER
+            // 
+            this.textBoxIdER.BackColor = System.Drawing.Color.White;
+            this.textBoxIdER.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxIdER.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxIdER.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxIdER.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxIdER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxIdER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxIdER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxIdER.Location = new System.Drawing.Point(162, 43);
+            this.textBoxIdER.MaxLength = 32767;
+            this.textBoxIdER.MultiLine = false;
+            this.textBoxIdER.Name = "textBoxIdER";
+            this.textBoxIdER.Size = new System.Drawing.Size(110, 21);
+            this.textBoxIdER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxIdER.TabIndex = 22;
+            this.textBoxIdER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxIdER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxIdER.UseSystemPasswordChar = false;
+            // 
+            // btnAddCfER
+            // 
+            this.btnAddCfER.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddCfER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCfER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCfER.Image = null;
+            this.btnAddCfER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCfER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.Location = new System.Drawing.Point(222, 101);
+            this.btnAddCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddCfER.Name = "btnAddCfER";
+            this.btnAddCfER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddCfER.Size = new System.Drawing.Size(99, 21);
+            this.btnAddCfER.TabIndex = 18;
+            this.btnAddCfER.Text = "Add";
+            this.btnAddCfER.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
+            // 
+            // comboBoxHowCfER
+            // 
+            this.comboBoxHowCfER.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowCfER.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowCfER.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowCfER.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfER.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowCfER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowCfER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowCfER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowCfER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowCfER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowCfER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowCfER.FormattingEnabled = true;
+            this.comboBoxHowCfER.ItemHeight = 16;
+            this.comboBoxHowCfER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowCfER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowCfER.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowCfER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowCfER.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowCfER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowCfER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowCfER.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowCfER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowCfER.Location = new System.Drawing.Point(288, 43);
+            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
+            this.comboBoxHowCfER.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowCfER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowCfER.StartIndex = -1;
+            this.comboBoxHowCfER.TabIndex = 27;
+            this.comboBoxHowCfER.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowCfER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(407, 46);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(37, 16);
+            this.label28.TabIndex = 21;
+            this.label28.Text = "How:";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.ForeColor = System.Drawing.Color.Black;
+            this.label88.Location = new System.Drawing.Point(151, 73);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(55, 26);
+            this.label88.TabIndex = 24;
+            this.label88.Text = "     Title\r\n(Optional)";
+            // 
+            // toSplitSelectSekiro
+            // 
+            this.toSplitSelectSekiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.toSplitSelectSekiro.ColorA = System.Drawing.Color.Transparent;
+            this.toSplitSelectSekiro.ColorB = System.Drawing.Color.DarkTurquoise;
+            this.toSplitSelectSekiro.ColorC = System.Drawing.Color.WhiteSmoke;
+            this.toSplitSelectSekiro.ColorD = System.Drawing.Color.PaleTurquoise;
+            this.toSplitSelectSekiro.ColorE = System.Drawing.Color.WhiteSmoke;
+            this.toSplitSelectSekiro.ColorF = System.Drawing.Color.LightSeaGreen;
+            this.toSplitSelectSekiro.ColorG = System.Drawing.Color.DarkGreen;
+            this.toSplitSelectSekiro.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.toSplitSelectSekiro.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.toSplitSelectSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toSplitSelectSekiro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.toSplitSelectSekiro.DropDownHeight = 100;
+            this.toSplitSelectSekiro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toSplitSelectSekiro.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.toSplitSelectSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
+            this.toSplitSelectSekiro.FormattingEnabled = true;
+            this.toSplitSelectSekiro.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.toSplitSelectSekiro.IntegralHeight = false;
+            this.toSplitSelectSekiro.ItemHeight = 20;
+            this.toSplitSelectSekiro.Items.AddRange(new object[] {
+            "Kill a Boss",
+            "Kill a MiniBoss",
+            "Is Activated a Idol",
+            "Trigger a Position",
+            "Mortal Journey",
+            "Attribute",
+            "Custom Flags"});
+            this.toSplitSelectSekiro.Location = new System.Drawing.Point(85, 53);
+            this.toSplitSelectSekiro.Name = "toSplitSelectSekiro";
+            this.toSplitSelectSekiro.Size = new System.Drawing.Size(439, 26);
+            this.toSplitSelectSekiro.StartIndex = -1;
+            this.toSplitSelectSekiro.TabIndex = 12;
+            this.toSplitSelectSekiro.SelectedIndexChanged += new System.EventHandler(this.toSplitSelectSekiro_SelectedIndexChanged);
+            // 
+            // btnRefreshSekiro
+            // 
+            this.btnRefreshSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefreshSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshSekiro.Image = null;
+            this.btnRefreshSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefreshSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.Location = new System.Drawing.Point(519, 21);
+            this.btnRefreshSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRefreshSekiro.Name = "btnRefreshSekiro";
+            this.btnRefreshSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshSekiro.Size = new System.Drawing.Size(65, 21);
+            this.btnRefreshSekiro.TabIndex = 11;
+            this.btnRefreshSekiro.Text = "Refresh";
+            this.btnRefreshSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnRefreshSekiro.Click += new System.EventHandler(this.Refresh_Btn);
+            // 
+            // btnDesactiveSekiro
+            // 
+            this.btnDesactiveSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnDesactiveSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesactiveSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesactiveSekiro.Image = null;
+            this.btnDesactiveSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDesactiveSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.Location = new System.Drawing.Point(27, 19);
+            this.btnDesactiveSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDesactiveSekiro.Name = "btnDesactiveSekiro";
+            this.btnDesactiveSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveSekiro.Size = new System.Drawing.Size(93, 24);
+            this.btnDesactiveSekiro.TabIndex = 8;
+            this.btnDesactiveSekiro.Text = "Desactive All";
+            this.btnDesactiveSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDesactiveSekiro.Click += new System.EventHandler(this.btnDesactiveSekiro_Click);
+            // 
+            // sekiroRunning
+            // 
+            this.sekiroRunning.AutoSize = true;
+            this.sekiroRunning.BackColor = System.Drawing.Color.Transparent;
+            this.sekiroRunning.Font = new System.Drawing.Font("Microsoft Uighur", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sekiroRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.sekiroRunning.Location = new System.Drawing.Point(370, 18);
+            this.sekiroRunning.Name = "sekiroRunning";
+            this.sekiroRunning.Size = new System.Drawing.Size(115, 28);
+            this.sekiroRunning.TabIndex = 7;
+            this.sekiroRunning.Text = "Sekiro is Running";
+            // 
+            // SekiroNotRunning
+            // 
+            this.SekiroNotRunning.AutoSize = true;
+            this.SekiroNotRunning.BackColor = System.Drawing.Color.Transparent;
+            this.SekiroNotRunning.Font = new System.Drawing.Font("Microsoft Uighur", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SekiroNotRunning.ForeColor = System.Drawing.Color.Red;
+            this.SekiroNotRunning.Location = new System.Drawing.Point(370, 18);
+            this.SekiroNotRunning.Name = "SekiroNotRunning";
+            this.SekiroNotRunning.Size = new System.Drawing.Size(140, 28);
+            this.SekiroNotRunning.TabIndex = 6;
+            this.SekiroNotRunning.Text = "Sekiro is Not Running";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "when";
+            // 
+            // tabConfig
+            // 
+            this.tabConfig.BackColor = System.Drawing.Color.White;
+            this.tabConfig.Controls.Add(this.labelWarning);
+            this.tabConfig.Controls.Add(this.groupBoxOtherS);
+            this.tabConfig.Controls.Add(this.groupBoxMProfile);
+            this.tabConfig.Controls.Add(this.groupBoxHelp);
+            this.tabConfig.Controls.Add(this.groupBoxUpdate);
+            this.tabConfig.Controls.Add(this.groupBoxSplitters);
+            this.tabConfig.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tabConfig.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabConfig.HorizontalScrollbarBarColor = true;
+            this.tabConfig.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabConfig.HorizontalScrollbarSize = 10;
+            this.tabConfig.Location = new System.Drawing.Point(4, 44);
+            this.tabConfig.Name = "tabConfig";
+            this.tabConfig.Size = new System.Drawing.Size(609, 352);
+            this.tabConfig.TabIndex = 1;
+            this.tabConfig.Text = "Settings";
+            this.tabConfig.UseCustomBackColor = true;
+            this.tabConfig.VerticalScrollbarBarColor = true;
+            this.tabConfig.VerticalScrollbarHighlightOnWheel = false;
+            this.tabConfig.VerticalScrollbarSize = 10;
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.BackColor = System.Drawing.Color.Transparent;
+            this.labelWarning.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.labelWarning.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWarning.ForeColor = System.Drawing.Color.Tomato;
+            this.labelWarning.Location = new System.Drawing.Point(29, 337);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(547, 13);
+            this.labelWarning.TabIndex = 8;
+            this.labelWarning.Text = "Warning: You are not running HCM as an administrator, some features may not work " +
+    "correctly.";
+            // 
+            // groupBoxOtherS
+            // 
+            this.groupBoxOtherS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxOtherS.BackGColor = System.Drawing.Color.MediumSlateBlue;
+            this.groupBoxOtherS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxOtherS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxOtherS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxOtherS.Controls.Add(this.btnGeneral);
+            this.groupBoxOtherS.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBoxOtherS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxOtherS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxOtherS.HeaderColor = System.Drawing.Color.DarkOrchid;
+            this.groupBoxOtherS.Location = new System.Drawing.Point(436, 18);
+            this.groupBoxOtherS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxOtherS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxOtherS.Name = "groupBoxOtherS";
+            this.groupBoxOtherS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxOtherS.Size = new System.Drawing.Size(152, 102);
+            this.groupBoxOtherS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxOtherS.TabIndex = 7;
+            this.groupBoxOtherS.TabStop = false;
+            this.groupBoxOtherS.Text = "Settings";
+            // 
+            // btnGeneral
+            // 
+            this.btnGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.btnGeneral.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGeneral.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGeneral.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGeneral.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGeneral.Image = null;
+            this.btnGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGeneral.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGeneral.Location = new System.Drawing.Point(22, 41);
+            this.btnGeneral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGeneral.Name = "btnGeneral";
+            this.btnGeneral.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGeneral.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGeneral.Size = new System.Drawing.Size(107, 33);
+            this.btnGeneral.TabIndex = 8;
+            this.btnGeneral.Text = "General";
+            this.btnGeneral.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGeneral.Click += new System.EventHandler(this.btnTiming_Click);
+            // 
+            // groupBoxMProfile
+            // 
+            this.groupBoxMProfile.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxMProfile.BackGColor = System.Drawing.Color.DodgerBlue;
+            this.groupBoxMProfile.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxMProfile.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxMProfile.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxMProfile.Controls.Add(this.btnProfile);
+            this.groupBoxMProfile.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBoxMProfile.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxMProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxMProfile.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxMProfile.Location = new System.Drawing.Point(434, 129);
+            this.groupBoxMProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxMProfile.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxMProfile.Name = "groupBoxMProfile";
+            this.groupBoxMProfile.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxMProfile.Size = new System.Drawing.Size(156, 86);
+            this.groupBoxMProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxMProfile.TabIndex = 6;
+            this.groupBoxMProfile.TabStop = false;
+            this.groupBoxMProfile.Text = "Manager";
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.BackColor = System.Drawing.Color.Transparent;
+            this.btnProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProfile.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnProfile.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnProfile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfile.Image = null;
+            this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnProfile.Location = new System.Drawing.Point(24, 33);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnProfile.Size = new System.Drawing.Size(107, 33);
+            this.btnProfile.TabIndex = 0;
+            this.btnProfile.Text = "Profiles";
+            this.btnProfile.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // groupBoxHelp
+            // 
+            this.groupBoxHelp.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxHelp.BackGColor = System.Drawing.Color.Magenta;
+            this.groupBoxHelp.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxHelp.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxHelp.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxHelp.Controls.Add(this.btnHowSetup);
+            this.groupBoxHelp.Controls.Add(this.btnAbout);
+            this.groupBoxHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBoxHelp.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxHelp.HeaderColor = System.Drawing.Color.DarkViolet;
+            this.groupBoxHelp.Location = new System.Drawing.Point(436, 225);
+            this.groupBoxHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxHelp.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxHelp.Name = "groupBoxHelp";
+            this.groupBoxHelp.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxHelp.Size = new System.Drawing.Size(156, 103);
+            this.groupBoxHelp.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxHelp.TabIndex = 5;
+            this.groupBoxHelp.TabStop = false;
+            this.groupBoxHelp.Text = "Help?";
+            // 
+            // btnHowSetup
+            // 
+            this.btnHowSetup.BackColor = System.Drawing.Color.Transparent;
+            this.btnHowSetup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHowSetup.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHowSetup.Image = null;
+            this.btnHowSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHowSetup.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.Location = new System.Drawing.Point(33, 28);
+            this.btnHowSetup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHowSetup.Name = "btnHowSetup";
+            this.btnHowSetup.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHowSetup.Size = new System.Drawing.Size(89, 28);
+            this.btnHowSetup.TabIndex = 10;
+            this.btnHowSetup.Text = "How Setup";
+            this.btnHowSetup.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnHowSetup.Click += new System.EventHandler(this.btnHowSetup_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbout.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAbout.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAbout.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.Image = null;
+            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbout.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAbout.Location = new System.Drawing.Point(33, 63);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAbout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAbout.Size = new System.Drawing.Size(89, 28);
+            this.btnAbout.TabIndex = 9;
+            this.btnAbout.Text = "About";
+            this.btnAbout.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // groupBoxUpdate
+            // 
+            this.groupBoxUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxUpdate.BackGColor = System.Drawing.Color.Khaki;
+            this.groupBoxUpdate.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxUpdate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxUpdate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxUpdate.Controls.Add(this.btnCheckVersion);
+            this.groupBoxUpdate.Controls.Add(this.btnGoToDownloadPage);
+            this.groupBoxUpdate.Controls.Add(this.label76);
+            this.groupBoxUpdate.Controls.Add(this.label78);
+            this.groupBoxUpdate.Controls.Add(this.labelCloudVer);
+            this.groupBoxUpdate.Controls.Add(this.LabelVersion);
+            this.groupBoxUpdate.Controls.Add(this.cbCheckUpdatesOnStartup);
+            this.groupBoxUpdate.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBoxUpdate.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxUpdate.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBoxUpdate.Location = new System.Drawing.Point(14, 206);
+            this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxUpdate.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxUpdate.Name = "groupBoxUpdate";
+            this.groupBoxUpdate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxUpdate.Size = new System.Drawing.Size(408, 126);
+            this.groupBoxUpdate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxUpdate.TabIndex = 4;
+            this.groupBoxUpdate.TabStop = false;
+            this.groupBoxUpdate.Text = "ASC Update";
+            // 
+            // btnCheckVersion
+            // 
+            this.btnCheckVersion.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckVersion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckVersion.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckVersion.Image = null;
+            this.btnCheckVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckVersion.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.Location = new System.Drawing.Point(234, 31);
+            this.btnCheckVersion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheckVersion.Name = "btnCheckVersion";
+            this.btnCheckVersion.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCheckVersion.Size = new System.Drawing.Size(137, 24);
+            this.btnCheckVersion.TabIndex = 78;
+            this.btnCheckVersion.Text = "Check for new version";
+            this.btnCheckVersion.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCheckVersion.Click += new System.EventHandler(this.btnCheckVersion_Click);
+            // 
+            // btnGoToDownloadPage
+            // 
+            this.btnGoToDownloadPage.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoToDownloadPage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGoToDownloadPage.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToDownloadPage.Image = null;
+            this.btnGoToDownloadPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoToDownloadPage.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.Location = new System.Drawing.Point(234, 58);
+            this.btnGoToDownloadPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGoToDownloadPage.Name = "btnGoToDownloadPage";
+            this.btnGoToDownloadPage.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGoToDownloadPage.Size = new System.Drawing.Size(137, 24);
+            this.btnGoToDownloadPage.TabIndex = 77;
+            this.btnGoToDownloadPage.Text = "Go to download page";
+            this.btnGoToDownloadPage.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGoToDownloadPage.Click += new System.EventHandler(this.btnGoToDownloadPage_Click);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.Location = new System.Drawing.Point(40, 71);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(149, 15);
+            this.label76.TabIndex = 76;
+            this.label76.Text = "Latest available version:      ";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Location = new System.Drawing.Point(57, 31);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(109, 15);
+            this.label78.TabIndex = 75;
+            this.label78.Text = "Current version:      ";
+            // 
+            // labelCloudVer
+            // 
+            this.labelCloudVer.AutoSize = true;
+            this.labelCloudVer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCloudVer.Location = new System.Drawing.Point(79, 90);
+            this.labelCloudVer.Name = "labelCloudVer";
+            this.labelCloudVer.Size = new System.Drawing.Size(40, 15);
+            this.labelCloudVer.TabIndex = 74;
+            this.labelCloudVer.Text = "0.0.0.0";
+            // 
+            // LabelVersion
+            // 
+            this.LabelVersion.AutoSize = true;
+            this.LabelVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelVersion.Location = new System.Drawing.Point(79, 50);
+            this.LabelVersion.Name = "LabelVersion";
+            this.LabelVersion.Size = new System.Drawing.Size(40, 15);
+            this.LabelVersion.TabIndex = 72;
+            this.LabelVersion.Text = "0.0.0.0";
+            // 
+            // cbCheckUpdatesOnStartup
+            // 
+            this.cbCheckUpdatesOnStartup.BackColor = System.Drawing.Color.Transparent;
+            this.cbCheckUpdatesOnStartup.BackgroundColor = System.Drawing.Color.White;
+            this.cbCheckUpdatesOnStartup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.cbCheckUpdatesOnStartup.Checked = true;
+            this.cbCheckUpdatesOnStartup.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.cbCheckUpdatesOnStartup.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Checked;
+            this.cbCheckUpdatesOnStartup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCheckUpdatesOnStartup.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.cbCheckUpdatesOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbCheckUpdatesOnStartup.IsDerivedStyle = true;
+            this.cbCheckUpdatesOnStartup.Location = new System.Drawing.Point(204, 92);
+            this.cbCheckUpdatesOnStartup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCheckUpdatesOnStartup.Name = "cbCheckUpdatesOnStartup";
+            this.cbCheckUpdatesOnStartup.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
+            this.cbCheckUpdatesOnStartup.Size = new System.Drawing.Size(187, 16);
+            this.cbCheckUpdatesOnStartup.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.cbCheckUpdatesOnStartup.StyleManager = null;
+            this.cbCheckUpdatesOnStartup.TabIndex = 3;
+            this.cbCheckUpdatesOnStartup.Text = "Check for updates on startup";
+            this.cbCheckUpdatesOnStartup.ThemeAuthor = "Taiizor";
+            this.cbCheckUpdatesOnStartup.ThemeName = "MetroLight";
+            this.cbCheckUpdatesOnStartup.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.cbCheckUpdatesOnStartup_CheckedChanged);
+            // 
+            // groupBoxSplitters
+            // 
+            this.groupBoxSplitters.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxSplitters.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxSplitters.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxSplitters.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxSplitters.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxSplitters.Controls.Add(this.btnSekiro);
+            this.groupBoxSplitters.Controls.Add(this.btnSkyrim);
+            this.groupBoxSplitters.Controls.Add(this.btnDishonored);
+            this.groupBoxSplitters.Controls.Add(this.btnCuphead);
+            this.groupBoxSplitters.Controls.Add(this.btnCeleste);
+            this.groupBoxSplitters.Controls.Add(this.btnHollow);
+            this.groupBoxSplitters.Controls.Add(this.btnElden);
+            this.groupBoxSplitters.Controls.Add(this.btnDs3);
+            this.groupBoxSplitters.Controls.Add(this.btnDs2);
+            this.groupBoxSplitters.Controls.Add(this.btnDs1);
+            this.groupBoxSplitters.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupBoxSplitters.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxSplitters.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBoxSplitters.HeaderColor = System.Drawing.Color.SteelBlue;
+            this.groupBoxSplitters.Location = new System.Drawing.Point(15, 14);
+            this.groupBoxSplitters.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSplitters.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxSplitters.Name = "groupBoxSplitters";
+            this.groupBoxSplitters.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSplitters.Size = new System.Drawing.Size(408, 190);
+            this.groupBoxSplitters.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxSplitters.TabIndex = 0;
+            this.groupBoxSplitters.TabStop = false;
+            this.groupBoxSplitters.Text = "Splitters";
+            // 
+            // btnSekiro
+            // 
+            this.btnSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSekiro.Image = null;
+            this.btnSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSekiro.Location = new System.Drawing.Point(14, 109);
+            this.btnSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSekiro.Name = "btnSekiro";
+            this.btnSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSekiro.Size = new System.Drawing.Size(108, 32);
+            this.btnSekiro.TabIndex = 12;
+            this.btnSekiro.Text = "Sekiro";
+            this.btnSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSekiro.Click += new System.EventHandler(this.btnSekiro_Click);
+            // 
+            // btnSkyrim
+            // 
+            this.btnSkyrim.BackColor = System.Drawing.Color.Transparent;
+            this.btnSkyrim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSkyrim.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSkyrim.Image = null;
+            this.btnSkyrim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSkyrim.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.Location = new System.Drawing.Point(138, 150);
+            this.btnSkyrim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSkyrim.Name = "btnSkyrim";
+            this.btnSkyrim.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnSkyrim.Size = new System.Drawing.Size(132, 32);
+            this.btnSkyrim.TabIndex = 11;
+            this.btnSkyrim.Text = "Skyrim";
+            this.btnSkyrim.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btnDishonored
+            // 
+            this.btnDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.btnDishonored.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDishonored.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDishonored.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDishonored.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDishonored.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDishonored.Image = null;
+            this.btnDishonored.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDishonored.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDishonored.Location = new System.Drawing.Point(282, 109);
+            this.btnDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDishonored.Name = "btnDishonored";
+            this.btnDishonored.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDishonored.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDishonored.Size = new System.Drawing.Size(107, 32);
+            this.btnDishonored.TabIndex = 10;
+            this.btnDishonored.Text = "Dishonored";
+            this.btnDishonored.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDishonored.Click += new System.EventHandler(this.btnDishonored_Click);
+            // 
+            // btnCuphead
+            // 
+            this.btnCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.btnCuphead.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCuphead.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCuphead.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCuphead.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCuphead.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCuphead.Image = null;
+            this.btnCuphead.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCuphead.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCuphead.Location = new System.Drawing.Point(14, 29);
+            this.btnCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCuphead.Name = "btnCuphead";
+            this.btnCuphead.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCuphead.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCuphead.Size = new System.Drawing.Size(107, 32);
+            this.btnCuphead.TabIndex = 7;
+            this.btnCuphead.Text = "Cuphead";
+            this.btnCuphead.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCuphead.Click += new System.EventHandler(this.btnCuphead_Click);
+            // 
+            // btnCeleste
+            // 
+            this.btnCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.btnCeleste.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCeleste.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCeleste.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCeleste.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCeleste.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCeleste.Image = null;
+            this.btnCeleste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCeleste.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCeleste.Location = new System.Drawing.Point(282, 29);
+            this.btnCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCeleste.Name = "btnCeleste";
+            this.btnCeleste.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCeleste.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCeleste.Size = new System.Drawing.Size(107, 32);
+            this.btnCeleste.TabIndex = 6;
+            this.btnCeleste.Text = "Celeste";
+            this.btnCeleste.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCeleste.Click += new System.EventHandler(this.btnCeleste_Click);
+            // 
+            // btnHollow
+            // 
+            this.btnHollow.BackColor = System.Drawing.Color.Transparent;
+            this.btnHollow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHollow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHollow.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHollow.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHollow.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHollow.Image = null;
+            this.btnHollow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHollow.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnHollow.Location = new System.Drawing.Point(139, 29);
+            this.btnHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHollow.Name = "btnHollow";
+            this.btnHollow.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHollow.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnHollow.Size = new System.Drawing.Size(131, 32);
+            this.btnHollow.TabIndex = 5;
+            this.btnHollow.Text = "Hollow Knight";
+            this.btnHollow.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnHollow.Click += new System.EventHandler(this.btnHollow_Click);
+            // 
+            // btnElden
+            // 
+            this.btnElden.BackColor = System.Drawing.Color.Transparent;
+            this.btnElden.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnElden.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnElden.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnElden.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnElden.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElden.Image = null;
+            this.btnElden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnElden.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnElden.Location = new System.Drawing.Point(139, 109);
+            this.btnElden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnElden.Name = "btnElden";
+            this.btnElden.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnElden.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnElden.Size = new System.Drawing.Size(131, 32);
+            this.btnElden.TabIndex = 4;
+            this.btnElden.Text = "Elden Ring";
+            this.btnElden.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnElden.Click += new System.EventHandler(this.btnElden_Click);
+            // 
+            // btnDs3
+            // 
+            this.btnDs3.BackColor = System.Drawing.Color.Transparent;
+            this.btnDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDs3.Image = null;
+            this.btnDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs3.Location = new System.Drawing.Point(282, 69);
+            this.btnDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDs3.Name = "btnDs3";
+            this.btnDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs3.Size = new System.Drawing.Size(107, 32);
+            this.btnDs3.TabIndex = 3;
+            this.btnDs3.Text = "Dark Souls 3";
+            this.btnDs3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDs3.Click += new System.EventHandler(this.btnDs3_Click);
+            // 
+            // btnDs2
+            // 
+            this.btnDs2.BackColor = System.Drawing.Color.Transparent;
+            this.btnDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDs2.Image = null;
+            this.btnDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs2.Location = new System.Drawing.Point(139, 69);
+            this.btnDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDs2.Name = "btnDs2";
+            this.btnDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs2.Size = new System.Drawing.Size(131, 32);
+            this.btnDs2.TabIndex = 2;
+            this.btnDs2.Text = "Dark Souls 2";
+            this.btnDs2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDs2.Click += new System.EventHandler(this.btnDs2_Click);
+            // 
+            // btnDs1
+            // 
+            this.btnDs1.BackColor = System.Drawing.Color.Transparent;
+            this.btnDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDs1.Image = null;
+            this.btnDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDs1.Location = new System.Drawing.Point(14, 69);
+            this.btnDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDs1.Name = "btnDs1";
+            this.btnDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDs1.Size = new System.Drawing.Size(108, 32);
+            this.btnDs1.TabIndex = 1;
+            this.btnDs1.Text = "Dark Souls 1";
+            this.btnDs1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDs1.Click += new System.EventHandler(this.btnDs1_Click);
             // 
             // tabGeneral
             // 
@@ -801,6 +4249,21 @@ namespace AutoSplitterCore
             this.tabPageControl.Size = new System.Drawing.Size(483, 334);
             this.tabPageControl.TabIndex = 0;
             this.tabPageControl.Text = "Control";
+            // 
+            // lostBorderPanel2
+            // 
+            this.lostBorderPanel2.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel2.Controls.Add(this.groupBox1);
+            this.lostBorderPanel2.Controls.Add(this.groupBox2);
+            this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel2.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel2.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel2.Name = "lostBorderPanel2";
+            this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel2.ShowText = false;
+            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel2.TabIndex = 31;
             // 
             // groupBox1
             // 
@@ -932,6 +4395,19 @@ namespace AutoSplitterCore
             this.tabPageShortcuts.TabIndex = 2;
             this.tabPageShortcuts.Text = "Shortcuts";
             // 
+            // lostBorderPanel4
+            // 
+            this.lostBorderPanel4.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel4.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel4.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel4.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel4.Name = "lostBorderPanel4";
+            this.lostBorderPanel4.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel4.ShowText = false;
+            this.lostBorderPanel4.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel4.TabIndex = 33;
+            // 
             // tabPageTimming
             // 
             this.tabPageTimming.BackColor = System.Drawing.Color.White;
@@ -969,6 +4445,18 @@ namespace AutoSplitterCore
             this.lostBorderPanel1.ShowText = false;
             this.lostBorderPanel1.Size = new System.Drawing.Size(471, 322);
             this.lostBorderPanel1.TabIndex = 30;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(220, 13);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(43, 16);
+            this.label26.TabIndex = 26;
+            this.label26.Text = "Game";
             // 
             // comboBoxTGame
             // 
@@ -2027,590 +5515,18 @@ namespace AutoSplitterCore
             this.tabPageHitCounter.TabIndex = 3;
             this.tabPageHitCounter.Text = "HitCounter";
             // 
-            // tabConfig
+            // lostBorderPanel5
             // 
-            this.tabConfig.BackColor = System.Drawing.Color.White;
-            this.tabConfig.Controls.Add(this.labelWarning);
-            this.tabConfig.Controls.Add(this.groupBoxOtherS);
-            this.tabConfig.Controls.Add(this.groupBoxMProfile);
-            this.tabConfig.Controls.Add(this.groupBoxHelp);
-            this.tabConfig.Controls.Add(this.groupBoxUpdate);
-            this.tabConfig.Controls.Add(this.groupBoxSplitters);
-            this.tabConfig.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.tabConfig.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabConfig.HorizontalScrollbarBarColor = true;
-            this.tabConfig.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabConfig.HorizontalScrollbarSize = 10;
-            this.tabConfig.Location = new System.Drawing.Point(4, 44);
-            this.tabConfig.Name = "tabConfig";
-            this.tabConfig.Size = new System.Drawing.Size(609, 352);
-            this.tabConfig.TabIndex = 1;
-            this.tabConfig.Text = "Settings";
-            this.tabConfig.UseCustomBackColor = true;
-            this.tabConfig.VerticalScrollbarBarColor = true;
-            this.tabConfig.VerticalScrollbarHighlightOnWheel = false;
-            this.tabConfig.VerticalScrollbarSize = 10;
-            // 
-            // labelWarning
-            // 
-            this.labelWarning.AutoSize = true;
-            this.labelWarning.BackColor = System.Drawing.Color.Transparent;
-            this.labelWarning.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.labelWarning.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWarning.ForeColor = System.Drawing.Color.Tomato;
-            this.labelWarning.Location = new System.Drawing.Point(29, 337);
-            this.labelWarning.Name = "labelWarning";
-            this.labelWarning.Size = new System.Drawing.Size(547, 13);
-            this.labelWarning.TabIndex = 8;
-            this.labelWarning.Text = "Warning: You are not running HCM as an administrator, some features may not work " +
-    "correctly.";
-            // 
-            // groupBoxOtherS
-            // 
-            this.groupBoxOtherS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxOtherS.BackGColor = System.Drawing.Color.MediumSlateBlue;
-            this.groupBoxOtherS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxOtherS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxOtherS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxOtherS.Controls.Add(this.btnGeneral);
-            this.groupBoxOtherS.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBoxOtherS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxOtherS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxOtherS.HeaderColor = System.Drawing.Color.DarkOrchid;
-            this.groupBoxOtherS.Location = new System.Drawing.Point(436, 18);
-            this.groupBoxOtherS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxOtherS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxOtherS.Name = "groupBoxOtherS";
-            this.groupBoxOtherS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxOtherS.Size = new System.Drawing.Size(152, 102);
-            this.groupBoxOtherS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxOtherS.TabIndex = 7;
-            this.groupBoxOtherS.TabStop = false;
-            this.groupBoxOtherS.Text = "Settings";
-            // 
-            // btnGeneral
-            // 
-            this.btnGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.btnGeneral.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGeneral.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGeneral.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGeneral.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGeneral.Image = null;
-            this.btnGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGeneral.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGeneral.Location = new System.Drawing.Point(22, 41);
-            this.btnGeneral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGeneral.Name = "btnGeneral";
-            this.btnGeneral.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGeneral.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGeneral.Size = new System.Drawing.Size(107, 33);
-            this.btnGeneral.TabIndex = 8;
-            this.btnGeneral.Text = "General";
-            this.btnGeneral.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGeneral.Click += new System.EventHandler(this.btnTiming_Click);
-            // 
-            // groupBoxMProfile
-            // 
-            this.groupBoxMProfile.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxMProfile.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxMProfile.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxMProfile.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxMProfile.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxMProfile.Controls.Add(this.btnProfile);
-            this.groupBoxMProfile.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBoxMProfile.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxMProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxMProfile.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxMProfile.Location = new System.Drawing.Point(434, 129);
-            this.groupBoxMProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxMProfile.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxMProfile.Name = "groupBoxMProfile";
-            this.groupBoxMProfile.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxMProfile.Size = new System.Drawing.Size(156, 86);
-            this.groupBoxMProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxMProfile.TabIndex = 6;
-            this.groupBoxMProfile.TabStop = false;
-            this.groupBoxMProfile.Text = "Manager";
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.BackColor = System.Drawing.Color.Transparent;
-            this.btnProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnProfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfile.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnProfile.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnProfile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.Image = null;
-            this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnProfile.Location = new System.Drawing.Point(24, 33);
-            this.btnProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnProfile.Size = new System.Drawing.Size(107, 33);
-            this.btnProfile.TabIndex = 0;
-            this.btnProfile.Text = "Profiles";
-            this.btnProfile.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
-            // 
-            // groupBoxHelp
-            // 
-            this.groupBoxHelp.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxHelp.BackGColor = System.Drawing.Color.Magenta;
-            this.groupBoxHelp.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxHelp.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxHelp.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxHelp.Controls.Add(this.btnHowSetup);
-            this.groupBoxHelp.Controls.Add(this.btnAbout);
-            this.groupBoxHelp.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBoxHelp.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxHelp.HeaderColor = System.Drawing.Color.DarkViolet;
-            this.groupBoxHelp.Location = new System.Drawing.Point(436, 225);
-            this.groupBoxHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxHelp.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxHelp.Name = "groupBoxHelp";
-            this.groupBoxHelp.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxHelp.Size = new System.Drawing.Size(156, 103);
-            this.groupBoxHelp.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxHelp.TabIndex = 5;
-            this.groupBoxHelp.TabStop = false;
-            this.groupBoxHelp.Text = "Help?";
-            // 
-            // btnHowSetup
-            // 
-            this.btnHowSetup.BackColor = System.Drawing.Color.Transparent;
-            this.btnHowSetup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHowSetup.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHowSetup.Image = null;
-            this.btnHowSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHowSetup.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.Location = new System.Drawing.Point(33, 28);
-            this.btnHowSetup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHowSetup.Name = "btnHowSetup";
-            this.btnHowSetup.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHowSetup.Size = new System.Drawing.Size(89, 28);
-            this.btnHowSetup.TabIndex = 10;
-            this.btnHowSetup.Text = "How Setup";
-            this.btnHowSetup.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnHowSetup.Click += new System.EventHandler(this.btnHowSetup_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.BackColor = System.Drawing.Color.Transparent;
-            this.btnAbout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbout.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAbout.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAbout.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbout.Image = null;
-            this.btnAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAbout.Location = new System.Drawing.Point(33, 63);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAbout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAbout.Size = new System.Drawing.Size(89, 28);
-            this.btnAbout.TabIndex = 9;
-            this.btnAbout.Text = "About";
-            this.btnAbout.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // groupBoxUpdate
-            // 
-            this.groupBoxUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxUpdate.BackGColor = System.Drawing.Color.Khaki;
-            this.groupBoxUpdate.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxUpdate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxUpdate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxUpdate.Controls.Add(this.btnCheckVersion);
-            this.groupBoxUpdate.Controls.Add(this.btnGoToDownloadPage);
-            this.groupBoxUpdate.Controls.Add(this.label76);
-            this.groupBoxUpdate.Controls.Add(this.label78);
-            this.groupBoxUpdate.Controls.Add(this.labelCloudVer);
-            this.groupBoxUpdate.Controls.Add(this.LabelVersion);
-            this.groupBoxUpdate.Controls.Add(this.cbCheckUpdatesOnStartup);
-            this.groupBoxUpdate.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBoxUpdate.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxUpdate.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxUpdate.Location = new System.Drawing.Point(14, 206);
-            this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxUpdate.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxUpdate.Name = "groupBoxUpdate";
-            this.groupBoxUpdate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxUpdate.Size = new System.Drawing.Size(408, 126);
-            this.groupBoxUpdate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxUpdate.TabIndex = 4;
-            this.groupBoxUpdate.TabStop = false;
-            this.groupBoxUpdate.Text = "ASC Update";
-            // 
-            // btnCheckVersion
-            // 
-            this.btnCheckVersion.BackColor = System.Drawing.Color.Transparent;
-            this.btnCheckVersion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheckVersion.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckVersion.Image = null;
-            this.btnCheckVersion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckVersion.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.Location = new System.Drawing.Point(234, 31);
-            this.btnCheckVersion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCheckVersion.Name = "btnCheckVersion";
-            this.btnCheckVersion.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCheckVersion.Size = new System.Drawing.Size(137, 24);
-            this.btnCheckVersion.TabIndex = 78;
-            this.btnCheckVersion.Text = "Check for new version";
-            this.btnCheckVersion.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnCheckVersion.Click += new System.EventHandler(this.btnCheckVersion_Click);
-            // 
-            // btnGoToDownloadPage
-            // 
-            this.btnGoToDownloadPage.BackColor = System.Drawing.Color.Transparent;
-            this.btnGoToDownloadPage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGoToDownloadPage.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToDownloadPage.Image = null;
-            this.btnGoToDownloadPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoToDownloadPage.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.Location = new System.Drawing.Point(234, 58);
-            this.btnGoToDownloadPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGoToDownloadPage.Name = "btnGoToDownloadPage";
-            this.btnGoToDownloadPage.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGoToDownloadPage.Size = new System.Drawing.Size(137, 24);
-            this.btnGoToDownloadPage.TabIndex = 77;
-            this.btnGoToDownloadPage.Text = "Go to download page";
-            this.btnGoToDownloadPage.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGoToDownloadPage.Click += new System.EventHandler(this.btnGoToDownloadPage_Click);
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label76.Location = new System.Drawing.Point(40, 71);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(149, 15);
-            this.label76.TabIndex = 76;
-            this.label76.Text = "Latest available version:      ";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(57, 31);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(109, 15);
-            this.label78.TabIndex = 75;
-            this.label78.Text = "Current version:      ";
-            // 
-            // labelCloudVer
-            // 
-            this.labelCloudVer.AutoSize = true;
-            this.labelCloudVer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCloudVer.Location = new System.Drawing.Point(79, 90);
-            this.labelCloudVer.Name = "labelCloudVer";
-            this.labelCloudVer.Size = new System.Drawing.Size(40, 15);
-            this.labelCloudVer.TabIndex = 74;
-            this.labelCloudVer.Text = "0.0.0.0";
-            // 
-            // LabelVersion
-            // 
-            this.LabelVersion.AutoSize = true;
-            this.LabelVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelVersion.Location = new System.Drawing.Point(79, 50);
-            this.LabelVersion.Name = "LabelVersion";
-            this.LabelVersion.Size = new System.Drawing.Size(40, 15);
-            this.LabelVersion.TabIndex = 72;
-            this.LabelVersion.Text = "0.0.0.0";
-            // 
-            // cbCheckUpdatesOnStartup
-            // 
-            this.cbCheckUpdatesOnStartup.BackColor = System.Drawing.Color.Transparent;
-            this.cbCheckUpdatesOnStartup.BackgroundColor = System.Drawing.Color.White;
-            this.cbCheckUpdatesOnStartup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.cbCheckUpdatesOnStartup.Checked = true;
-            this.cbCheckUpdatesOnStartup.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.cbCheckUpdatesOnStartup.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Checked;
-            this.cbCheckUpdatesOnStartup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCheckUpdatesOnStartup.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.cbCheckUpdatesOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cbCheckUpdatesOnStartup.IsDerivedStyle = true;
-            this.cbCheckUpdatesOnStartup.Location = new System.Drawing.Point(204, 92);
-            this.cbCheckUpdatesOnStartup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbCheckUpdatesOnStartup.Name = "cbCheckUpdatesOnStartup";
-            this.cbCheckUpdatesOnStartup.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
-            this.cbCheckUpdatesOnStartup.Size = new System.Drawing.Size(187, 16);
-            this.cbCheckUpdatesOnStartup.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            this.cbCheckUpdatesOnStartup.StyleManager = null;
-            this.cbCheckUpdatesOnStartup.TabIndex = 3;
-            this.cbCheckUpdatesOnStartup.Text = "Check for updates on startup";
-            this.cbCheckUpdatesOnStartup.ThemeAuthor = "Taiizor";
-            this.cbCheckUpdatesOnStartup.ThemeName = "MetroLight";
-            this.cbCheckUpdatesOnStartup.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.cbCheckUpdatesOnStartup_CheckedChanged);
-            // 
-            // groupBoxSplitters
-            // 
-            this.groupBoxSplitters.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxSplitters.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxSplitters.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxSplitters.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxSplitters.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxSplitters.Controls.Add(this.btnSekiro);
-            this.groupBoxSplitters.Controls.Add(this.btnSkyrim);
-            this.groupBoxSplitters.Controls.Add(this.btnDishonored);
-            this.groupBoxSplitters.Controls.Add(this.btnCuphead);
-            this.groupBoxSplitters.Controls.Add(this.btnCeleste);
-            this.groupBoxSplitters.Controls.Add(this.btnHollow);
-            this.groupBoxSplitters.Controls.Add(this.btnElden);
-            this.groupBoxSplitters.Controls.Add(this.btnDs3);
-            this.groupBoxSplitters.Controls.Add(this.btnDs2);
-            this.groupBoxSplitters.Controls.Add(this.btnDs1);
-            this.groupBoxSplitters.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBoxSplitters.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxSplitters.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBoxSplitters.HeaderColor = System.Drawing.Color.SteelBlue;
-            this.groupBoxSplitters.Location = new System.Drawing.Point(15, 14);
-            this.groupBoxSplitters.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSplitters.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxSplitters.Name = "groupBoxSplitters";
-            this.groupBoxSplitters.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSplitters.Size = new System.Drawing.Size(408, 190);
-            this.groupBoxSplitters.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxSplitters.TabIndex = 0;
-            this.groupBoxSplitters.TabStop = false;
-            this.groupBoxSplitters.Text = "Splitters";
-            // 
-            // btnSekiro
-            // 
-            this.btnSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.btnSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSekiro.Image = null;
-            this.btnSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSekiro.Location = new System.Drawing.Point(14, 109);
-            this.btnSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSekiro.Name = "btnSekiro";
-            this.btnSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSekiro.Size = new System.Drawing.Size(108, 32);
-            this.btnSekiro.TabIndex = 12;
-            this.btnSekiro.Text = "Sekiro";
-            this.btnSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnSekiro.Click += new System.EventHandler(this.btnSekiro_Click);
-            // 
-            // btnSkyrim
-            // 
-            this.btnSkyrim.BackColor = System.Drawing.Color.Transparent;
-            this.btnSkyrim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSkyrim.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSkyrim.Image = null;
-            this.btnSkyrim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSkyrim.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Location = new System.Drawing.Point(138, 150);
-            this.btnSkyrim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSkyrim.Name = "btnSkyrim";
-            this.btnSkyrim.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Size = new System.Drawing.Size(132, 32);
-            this.btnSkyrim.TabIndex = 11;
-            this.btnSkyrim.Text = "Skyrim";
-            this.btnSkyrim.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // btnDishonored
-            // 
-            this.btnDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.btnDishonored.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDishonored.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDishonored.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDishonored.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDishonored.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDishonored.Image = null;
-            this.btnDishonored.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDishonored.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDishonored.Location = new System.Drawing.Point(282, 109);
-            this.btnDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDishonored.Name = "btnDishonored";
-            this.btnDishonored.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDishonored.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDishonored.Size = new System.Drawing.Size(107, 32);
-            this.btnDishonored.TabIndex = 10;
-            this.btnDishonored.Text = "Dishonored";
-            this.btnDishonored.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDishonored.Click += new System.EventHandler(this.btnDishonored_Click);
-            // 
-            // btnCuphead
-            // 
-            this.btnCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.btnCuphead.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCuphead.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCuphead.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCuphead.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCuphead.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCuphead.Image = null;
-            this.btnCuphead.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCuphead.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCuphead.Location = new System.Drawing.Point(14, 29);
-            this.btnCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCuphead.Name = "btnCuphead";
-            this.btnCuphead.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCuphead.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCuphead.Size = new System.Drawing.Size(107, 32);
-            this.btnCuphead.TabIndex = 7;
-            this.btnCuphead.Text = "Cuphead";
-            this.btnCuphead.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnCuphead.Click += new System.EventHandler(this.btnCuphead_Click);
-            // 
-            // btnCeleste
-            // 
-            this.btnCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.btnCeleste.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCeleste.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCeleste.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCeleste.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCeleste.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCeleste.Image = null;
-            this.btnCeleste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCeleste.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCeleste.Location = new System.Drawing.Point(282, 29);
-            this.btnCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCeleste.Name = "btnCeleste";
-            this.btnCeleste.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCeleste.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCeleste.Size = new System.Drawing.Size(107, 32);
-            this.btnCeleste.TabIndex = 6;
-            this.btnCeleste.Text = "Celeste";
-            this.btnCeleste.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnCeleste.Click += new System.EventHandler(this.btnCeleste_Click);
-            // 
-            // btnHollow
-            // 
-            this.btnHollow.BackColor = System.Drawing.Color.Transparent;
-            this.btnHollow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHollow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHollow.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHollow.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHollow.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHollow.Image = null;
-            this.btnHollow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHollow.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnHollow.Location = new System.Drawing.Point(139, 29);
-            this.btnHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHollow.Name = "btnHollow";
-            this.btnHollow.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHollow.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnHollow.Size = new System.Drawing.Size(131, 32);
-            this.btnHollow.TabIndex = 5;
-            this.btnHollow.Text = "Hollow Knight";
-            this.btnHollow.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnHollow.Click += new System.EventHandler(this.btnHollow_Click);
-            // 
-            // btnElden
-            // 
-            this.btnElden.BackColor = System.Drawing.Color.Transparent;
-            this.btnElden.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnElden.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnElden.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnElden.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnElden.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElden.Image = null;
-            this.btnElden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnElden.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnElden.Location = new System.Drawing.Point(139, 109);
-            this.btnElden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnElden.Name = "btnElden";
-            this.btnElden.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnElden.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnElden.Size = new System.Drawing.Size(131, 32);
-            this.btnElden.TabIndex = 4;
-            this.btnElden.Text = "Elden Ring";
-            this.btnElden.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnElden.Click += new System.EventHandler(this.btnElden_Click);
-            // 
-            // btnDs3
-            // 
-            this.btnDs3.BackColor = System.Drawing.Color.Transparent;
-            this.btnDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDs3.Image = null;
-            this.btnDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs3.Location = new System.Drawing.Point(282, 69);
-            this.btnDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDs3.Name = "btnDs3";
-            this.btnDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs3.Size = new System.Drawing.Size(107, 32);
-            this.btnDs3.TabIndex = 3;
-            this.btnDs3.Text = "Dark Souls 3";
-            this.btnDs3.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDs3.Click += new System.EventHandler(this.btnDs3_Click);
-            // 
-            // btnDs2
-            // 
-            this.btnDs2.BackColor = System.Drawing.Color.Transparent;
-            this.btnDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDs2.Image = null;
-            this.btnDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs2.Location = new System.Drawing.Point(139, 69);
-            this.btnDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDs2.Name = "btnDs2";
-            this.btnDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs2.Size = new System.Drawing.Size(131, 32);
-            this.btnDs2.TabIndex = 2;
-            this.btnDs2.Text = "Dark Souls 2";
-            this.btnDs2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDs2.Click += new System.EventHandler(this.btnDs2_Click);
-            // 
-            // btnDs1
-            // 
-            this.btnDs1.BackColor = System.Drawing.Color.Transparent;
-            this.btnDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDs1.Image = null;
-            this.btnDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDs1.Location = new System.Drawing.Point(14, 69);
-            this.btnDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDs1.Name = "btnDs1";
-            this.btnDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDs1.Size = new System.Drawing.Size(108, 32);
-            this.btnDs1.TabIndex = 1;
-            this.btnDs1.Text = "Dark Souls 1";
-            this.btnDs1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDs1.Click += new System.EventHandler(this.btnDs1_Click);
+            this.lostBorderPanel5.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel5.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel5.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel5.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel5.Name = "lostBorderPanel5";
+            this.lostBorderPanel5.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel5.ShowText = false;
+            this.lostBorderPanel5.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel5.TabIndex = 33;
             // 
             // tabInfo
             // 
@@ -2655,2791 +5571,11 @@ namespace AutoSplitterCore
             this.TextboxManual.Text = resources.GetString("TextboxManual.Text");
             this.TextboxManual.UseSystemPasswordChar = false;
             // 
-            // tabLicense
-            // 
-            this.tabLicense.BackColor = System.Drawing.Color.White;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabLicense.HorizontalScrollbarBarColor = true;
-            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabLicense.HorizontalScrollbarSize = 10;
-            this.tabLicense.Location = new System.Drawing.Point(4, 44);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 352);
-            this.tabLicense.TabIndex = 3;
-            this.tabLicense.Text = "License";
-            this.tabLicense.UseCustomBackColor = true;
-            this.tabLicense.VerticalScrollbarBarColor = true;
-            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
-            this.tabLicense.VerticalScrollbarSize = 10;
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
-            // 
-            // tabSekiro
-            // 
-            this.tabSekiro.BackColor = System.Drawing.Color.White;
-            this.tabSekiro.Controls.Add(this.panelCfER);
-            this.tabSekiro.Controls.Add(this.panelCfSekiro);
-            this.tabSekiro.Controls.Add(this.panelLevelSekiro);
-            this.tabSekiro.Controls.Add(this.panelPositionS);
-            this.tabSekiro.Controls.Add(this.panelMinibossSekiro);
-            this.tabSekiro.Controls.Add(this.panelBossS);
-            this.tabSekiro.Controls.Add(this.panelIdolsS);
-            this.tabSekiro.Controls.Add(this.panelMortalJourney);
-            this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
-            this.tabSekiro.Controls.Add(this.btnRefreshSekiro);
-            this.tabSekiro.Controls.Add(this.btnDesactiveSekiro);
-            this.tabSekiro.Controls.Add(this.sekiroRunning);
-            this.tabSekiro.Controls.Add(this.SekiroNotRunning);
-            this.tabSekiro.Controls.Add(this.label1);
-            this.tabSekiro.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabSekiro.HorizontalScrollbarBarColor = true;
-            this.tabSekiro.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabSekiro.HorizontalScrollbarSize = 10;
-            this.tabSekiro.Location = new System.Drawing.Point(4, 44);
-            this.tabSekiro.Name = "tabSekiro";
-            this.tabSekiro.Size = new System.Drawing.Size(609, 352);
-            this.tabSekiro.TabIndex = 5;
-            this.tabSekiro.Text = "Sekiro";
-            this.tabSekiro.UseCustomBackColor = true;
-            this.tabSekiro.VerticalScrollbarBarColor = true;
-            this.tabSekiro.VerticalScrollbarHighlightOnWheel = false;
-            this.tabSekiro.VerticalScrollbarSize = 10;
-            // 
-            // panelCfER
-            // 
-            this.panelCfER.BackColor = System.Drawing.Color.White;
-            this.panelCfER.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelCfER.Controls.Add(this.textBoxTitleCFER);
-            this.panelCfER.Controls.Add(this.btnGetListER);
-            this.panelCfER.Controls.Add(this.panel23);
-            this.panelCfER.Controls.Add(this.label4);
-            this.panelCfER.Controls.Add(this.textBoxIdER);
-            this.panelCfER.Controls.Add(this.btnAddCfER);
-            this.panelCfER.Controls.Add(this.comboBoxHowCfER);
-            this.panelCfER.Controls.Add(this.label28);
-            this.panelCfER.Controls.Add(this.label88);
-            this.panelCfER.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelCfER.ForeColor = System.Drawing.Color.White;
-            this.panelCfER.Location = new System.Drawing.Point(34, 85);
-            this.panelCfER.Name = "panelCfER";
-            this.panelCfER.Padding = new System.Windows.Forms.Padding(5);
-            this.panelCfER.ShowText = false;
-            this.panelCfER.Size = new System.Drawing.Size(539, 262);
-            this.panelCfER.TabIndex = 29;
-            // 
-            // textBoxTitleCFER
-            // 
-            this.textBoxTitleCFER.BackColor = System.Drawing.Color.White;
-            this.textBoxTitleCFER.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitleCFER.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitleCFER.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitleCFER.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitleCFER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitleCFER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitleCFER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitleCFER.Location = new System.Drawing.Point(216, 73);
-            this.textBoxTitleCFER.MaxLength = 32767;
-            this.textBoxTitleCFER.MultiLine = false;
-            this.textBoxTitleCFER.Name = "textBoxTitleCFER";
-            this.textBoxTitleCFER.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitleCFER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitleCFER.TabIndex = 26;
-            this.textBoxTitleCFER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxTitleCFER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitleCFER.UseSystemPasswordChar = false;
-            // 
-            // btnGetListER
-            // 
-            this.btnGetListER.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetListER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetListER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetListER.Image = null;
-            this.btnGetListER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetListER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListER.Location = new System.Drawing.Point(223, 14);
-            this.btnGetListER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetListER.Name = "btnGetListER";
-            this.btnGetListER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListER.Size = new System.Drawing.Size(98, 24);
-            this.btnGetListER.TabIndex = 2;
-            this.btnGetListER.Text = "Get List Flags";
-            this.btnGetListER.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
-            // 
-            // panel23
-            // 
-            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel23.Controls.Add(this.listBoxCfER);
-            this.panel23.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel23.Location = new System.Drawing.Point(13, 130);
-            this.panel23.Name = "panel23";
-            this.panel23.Padding = new System.Windows.Forms.Padding(5);
-            this.panel23.Size = new System.Drawing.Size(515, 125);
-            this.panel23.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel23.TabIndex = 27;
-            this.panel23.Text = "panel23";
-            // 
-            // listBoxCfER
-            // 
-            this.listBoxCfER.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxCfER.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxCfER.FormattingEnabled = true;
-            this.listBoxCfER.ItemHeight = 14;
-            this.listBoxCfER.Location = new System.Drawing.Point(4, 5);
-            this.listBoxCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxCfER.Name = "listBoxCfER";
-            this.listBoxCfER.Size = new System.Drawing.Size(507, 116);
-            this.listBoxCfER.TabIndex = 19;
-            this.listBoxCfER.DoubleClick += new System.EventHandler(this.listBoxCfER_DoubleClick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(128, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "ID:";
-            // 
-            // textBoxIdER
-            // 
-            this.textBoxIdER.BackColor = System.Drawing.Color.White;
-            this.textBoxIdER.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxIdER.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxIdER.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxIdER.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxIdER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxIdER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxIdER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxIdER.Location = new System.Drawing.Point(162, 43);
-            this.textBoxIdER.MaxLength = 32767;
-            this.textBoxIdER.MultiLine = false;
-            this.textBoxIdER.Name = "textBoxIdER";
-            this.textBoxIdER.Size = new System.Drawing.Size(110, 21);
-            this.textBoxIdER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxIdER.TabIndex = 22;
-            this.textBoxIdER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxIdER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxIdER.UseSystemPasswordChar = false;
-            // 
-            // btnAddCfER
-            // 
-            this.btnAddCfER.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddCfER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCfER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCfER.Image = null;
-            this.btnAddCfER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCfER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.Location = new System.Drawing.Point(222, 101);
-            this.btnAddCfER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddCfER.Name = "btnAddCfER";
-            this.btnAddCfER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfER.Size = new System.Drawing.Size(99, 21);
-            this.btnAddCfER.TabIndex = 18;
-            this.btnAddCfER.Text = "Add";
-            this.btnAddCfER.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddCfER.Click += new System.EventHandler(this.btnAddCfER_Click);
-            // 
-            // comboBoxHowCfER
-            // 
-            this.comboBoxHowCfER.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowCfER.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowCfER.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowCfER.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowCfER.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowCfER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowCfER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowCfER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowCfER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowCfER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowCfER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowCfER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowCfER.FormattingEnabled = true;
-            this.comboBoxHowCfER.ItemHeight = 16;
-            this.comboBoxHowCfER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowCfER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfER.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowCfER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowCfER.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowCfER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowCfER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowCfER.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowCfER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfER.Location = new System.Drawing.Point(288, 43);
-            this.comboBoxHowCfER.Name = "comboBoxHowCfER";
-            this.comboBoxHowCfER.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowCfER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowCfER.StartIndex = -1;
-            this.comboBoxHowCfER.TabIndex = 27;
-            this.comboBoxHowCfER.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowCfER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(407, 46);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(37, 16);
-            this.label28.TabIndex = 21;
-            this.label28.Text = "How:";
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label88.ForeColor = System.Drawing.Color.Black;
-            this.label88.Location = new System.Drawing.Point(151, 73);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(55, 26);
-            this.label88.TabIndex = 24;
-            this.label88.Text = "     Title\r\n(Optional)";
-            // 
-            // panelCfSekiro
-            // 
-            this.panelCfSekiro.BackColor = System.Drawing.Color.White;
-            this.panelCfSekiro.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelCfSekiro.Controls.Add(this.textBoxTitleCFS);
-            this.panelCfSekiro.Controls.Add(this.btnGetListFlagsSekiro);
-            this.panelCfSekiro.Controls.Add(this.panel3);
-            this.panelCfSekiro.Controls.Add(this.label59);
-            this.panelCfSekiro.Controls.Add(this.textBoxCfIdS);
-            this.panelCfSekiro.Controls.Add(this.btnAddCfS);
-            this.panelCfSekiro.Controls.Add(this.comboBoxHowCfS);
-            this.panelCfSekiro.Controls.Add(this.label7);
-            this.panelCfSekiro.Controls.Add(this.label91);
-            this.panelCfSekiro.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelCfSekiro.ForeColor = System.Drawing.Color.White;
-            this.panelCfSekiro.Location = new System.Drawing.Point(34, 85);
-            this.panelCfSekiro.Name = "panelCfSekiro";
-            this.panelCfSekiro.Padding = new System.Windows.Forms.Padding(5);
-            this.panelCfSekiro.ShowText = false;
-            this.panelCfSekiro.Size = new System.Drawing.Size(539, 262);
-            this.panelCfSekiro.TabIndex = 28;
-            // 
-            // textBoxTitleCFS
-            // 
-            this.textBoxTitleCFS.BackColor = System.Drawing.Color.White;
-            this.textBoxTitleCFS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitleCFS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitleCFS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitleCFS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitleCFS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitleCFS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitleCFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitleCFS.Location = new System.Drawing.Point(216, 73);
-            this.textBoxTitleCFS.MaxLength = 32767;
-            this.textBoxTitleCFS.MultiLine = false;
-            this.textBoxTitleCFS.Name = "textBoxTitleCFS";
-            this.textBoxTitleCFS.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitleCFS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitleCFS.TabIndex = 26;
-            this.textBoxTitleCFS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxTitleCFS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitleCFS.UseSystemPasswordChar = false;
-            // 
-            // btnGetListFlagsSekiro
-            // 
-            this.btnGetListFlagsSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetListFlagsSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetListFlagsSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetListFlagsSekiro.Image = null;
-            this.btnGetListFlagsSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetListFlagsSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Location = new System.Drawing.Point(223, 14);
-            this.btnGetListFlagsSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetListFlagsSekiro.Name = "btnGetListFlagsSekiro";
-            this.btnGetListFlagsSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(98, 24);
-            this.btnGetListFlagsSekiro.TabIndex = 2;
-            this.btnGetListFlagsSekiro.Text = "Get List Flags";
-            this.btnGetListFlagsSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetListFlagsSekiro.Click += new System.EventHandler(this.btnGetListFlagsSekiro_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel3.Controls.Add(this.listBoxCfS);
-            this.panel3.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel3.Location = new System.Drawing.Point(13, 130);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(515, 125);
-            this.panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel3.TabIndex = 27;
-            this.panel3.Text = "panel3";
-            // 
-            // listBoxCfS
-            // 
-            this.listBoxCfS.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxCfS.FormattingEnabled = true;
-            this.listBoxCfS.ItemHeight = 16;
-            this.listBoxCfS.Location = new System.Drawing.Point(5, 4);
-            this.listBoxCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxCfS.Name = "listBoxCfS";
-            this.listBoxCfS.Size = new System.Drawing.Size(503, 116);
-            this.listBoxCfS.TabIndex = 19;
-            this.listBoxCfS.DoubleClick += new System.EventHandler(this.listBoxCfS_DoubleClick);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.ForeColor = System.Drawing.Color.Black;
-            this.label59.Location = new System.Drawing.Point(128, 46);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(22, 13);
-            this.label59.TabIndex = 1;
-            this.label59.Text = "ID:";
-            // 
-            // textBoxCfIdS
-            // 
-            this.textBoxCfIdS.BackColor = System.Drawing.Color.White;
-            this.textBoxCfIdS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxCfIdS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxCfIdS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxCfIdS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxCfIdS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxCfIdS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxCfIdS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxCfIdS.Location = new System.Drawing.Point(162, 43);
-            this.textBoxCfIdS.MaxLength = 32767;
-            this.textBoxCfIdS.MultiLine = false;
-            this.textBoxCfIdS.Name = "textBoxCfIdS";
-            this.textBoxCfIdS.Size = new System.Drawing.Size(110, 21);
-            this.textBoxCfIdS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxCfIdS.TabIndex = 22;
-            this.textBoxCfIdS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxCfIdS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxCfIdS.UseSystemPasswordChar = false;
-            // 
-            // btnAddCfS
-            // 
-            this.btnAddCfS.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddCfS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCfS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCfS.Image = null;
-            this.btnAddCfS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCfS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Location = new System.Drawing.Point(222, 101);
-            this.btnAddCfS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddCfS.Name = "btnAddCfS";
-            this.btnAddCfS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddCfS.Size = new System.Drawing.Size(99, 21);
-            this.btnAddCfS.TabIndex = 18;
-            this.btnAddCfS.Text = "Add";
-            this.btnAddCfS.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddCfS.Click += new System.EventHandler(this.btnAddCfS_Click);
-            // 
-            // comboBoxHowCfS
-            // 
-            this.comboBoxHowCfS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowCfS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowCfS.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowCfS.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowCfS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowCfS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowCfS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowCfS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowCfS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowCfS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowCfS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowCfS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowCfS.FormattingEnabled = true;
-            this.comboBoxHowCfS.ItemHeight = 16;
-            this.comboBoxHowCfS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowCfS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowCfS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowCfS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowCfS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowCfS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowCfS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowCfS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowCfS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowCfS.Location = new System.Drawing.Point(288, 43);
-            this.comboBoxHowCfS.Name = "comboBoxHowCfS";
-            this.comboBoxHowCfS.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowCfS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowCfS.StartIndex = -1;
-            this.comboBoxHowCfS.TabIndex = 27;
-            this.comboBoxHowCfS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowCfS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(407, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 16);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "How:";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label91.ForeColor = System.Drawing.Color.Black;
-            this.label91.Location = new System.Drawing.Point(151, 73);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(55, 26);
-            this.label91.TabIndex = 24;
-            this.label91.Text = "     Title\r\n(Optional)";
-            // 
-            // panelLevelSekiro
-            // 
-            this.panelLevelSekiro.BackColor = System.Drawing.Color.White;
-            this.panelLevelSekiro.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelLevelSekiro.Controls.Add(this.label32);
-            this.panelLevelSekiro.Controls.Add(this.label34);
-            this.panelLevelSekiro.Controls.Add(this.textBoxValueS);
-            this.panelLevelSekiro.Controls.Add(this.panel21);
-            this.panelLevelSekiro.Controls.Add(this.comboBoxHowAttributeS);
-            this.panelLevelSekiro.Controls.Add(this.btnAddAttributeS);
-            this.panelLevelSekiro.Controls.Add(this.label35);
-            this.panelLevelSekiro.Controls.Add(this.comboBoxAttributeS);
-            this.panelLevelSekiro.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelLevelSekiro.ForeColor = System.Drawing.Color.White;
-            this.panelLevelSekiro.Location = new System.Drawing.Point(34, 85);
-            this.panelLevelSekiro.Name = "panelLevelSekiro";
-            this.panelLevelSekiro.Padding = new System.Windows.Forms.Padding(5);
-            this.panelLevelSekiro.ShowText = false;
-            this.panelLevelSekiro.Size = new System.Drawing.Size(539, 262);
-            this.panelLevelSekiro.TabIndex = 30;
-            this.panelLevelSekiro.Text = "lostBorderPanel1";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(40, 15);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(55, 16);
-            this.label32.TabIndex = 33;
-            this.label32.Text = "attribute";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.Color.Transparent;
-            this.label34.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(128, 45);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(39, 16);
-            this.label34.TabIndex = 32;
-            this.label34.Text = "Value";
-            // 
-            // textBoxValueS
-            // 
-            this.textBoxValueS.BackColor = System.Drawing.Color.White;
-            this.textBoxValueS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxValueS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxValueS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxValueS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxValueS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxValueS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxValueS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxValueS.Location = new System.Drawing.Point(173, 42);
-            this.textBoxValueS.MaxLength = 32767;
-            this.textBoxValueS.MultiLine = false;
-            this.textBoxValueS.Name = "textBoxValueS";
-            this.textBoxValueS.Size = new System.Drawing.Size(90, 21);
-            this.textBoxValueS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxValueS.TabIndex = 31;
-            this.textBoxValueS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxValueS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxValueS.UseSystemPasswordChar = false;
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel21.Controls.Add(this.listBoxAttributeS);
-            this.panel21.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel21.Location = new System.Drawing.Point(15, 95);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(5);
-            this.panel21.Size = new System.Drawing.Size(508, 156);
-            this.panel21.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel21.TabIndex = 26;
-            this.panel21.Text = "panel21";
-            // 
-            // listBoxAttributeS
-            // 
-            this.listBoxAttributeS.BackColor = System.Drawing.Color.Aquamarine;
-            this.listBoxAttributeS.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAttributeS.FormattingEnabled = true;
-            this.listBoxAttributeS.ItemHeight = 14;
-            this.listBoxAttributeS.Location = new System.Drawing.Point(4, 6);
-            this.listBoxAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAttributeS.Name = "listBoxAttributeS";
-            this.listBoxAttributeS.Size = new System.Drawing.Size(500, 144);
-            this.listBoxAttributeS.TabIndex = 22;
-            this.listBoxAttributeS.DoubleClick += new System.EventHandler(this.listBoxAttributeS_DoubleClick);
-            // 
-            // comboBoxHowAttributeS
-            // 
-            this.comboBoxHowAttributeS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowAttributeS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowAttributeS.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowAttributeS.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowAttributeS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowAttributeS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowAttributeS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowAttributeS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowAttributeS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowAttributeS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowAttributeS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowAttributeS.FormattingEnabled = true;
-            this.comboBoxHowAttributeS.ItemHeight = 16;
-            this.comboBoxHowAttributeS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowAttributeS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowAttributeS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowAttributeS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowAttributeS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowAttributeS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowAttributeS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowAttributeS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeS.Location = new System.Drawing.Point(286, 41);
-            this.comboBoxHowAttributeS.Name = "comboBoxHowAttributeS";
-            this.comboBoxHowAttributeS.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowAttributeS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowAttributeS.StartIndex = -1;
-            this.comboBoxHowAttributeS.TabIndex = 26;
-            this.comboBoxHowAttributeS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // btnAddAttributeS
-            // 
-            this.btnAddAttributeS.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddAttributeS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAttributeS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAttributeS.Image = null;
-            this.btnAddAttributeS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAttributeS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.Location = new System.Drawing.Point(217, 69);
-            this.btnAddAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddAttributeS.Name = "btnAddAttributeS";
-            this.btnAddAttributeS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeS.Size = new System.Drawing.Size(99, 21);
-            this.btnAddAttributeS.TabIndex = 14;
-            this.btnAddAttributeS.Text = "Add";
-            this.btnAddAttributeS.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddAttributeS.Click += new System.EventHandler(this.btnAddAttributeS_Click);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.BackColor = System.Drawing.Color.Transparent;
-            this.label35.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(443, 45);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(32, 16);
-            this.label35.TabIndex = 4;
-            this.label35.Text = "How";
-            // 
-            // comboBoxAttributeS
-            // 
-            this.comboBoxAttributeS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxAttributeS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.comboBoxAttributeS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxAttributeS.FormattingEnabled = true;
-            this.comboBoxAttributeS.Items.AddRange(new object[] {
-            "Vitality",
-            "AttackPower"});
-            this.comboBoxAttributeS.Location = new System.Drawing.Point(103, 12);
-            this.comboBoxAttributeS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxAttributeS.Name = "comboBoxAttributeS";
-            this.comboBoxAttributeS.Size = new System.Drawing.Size(361, 24);
-            this.comboBoxAttributeS.TabIndex = 18;
-            // 
-            // panelPositionS
-            // 
-            this.panelPositionS.BackColor = System.Drawing.Color.White;
-            this.panelPositionS.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelPositionS.Controls.Add(this.btnGetPositionS);
-            this.panelPositionS.Controls.Add(this.comboBoxSizeS);
-            this.panelPositionS.Controls.Add(this.textBoxZS);
-            this.panelPositionS.Controls.Add(this.comboBoxHowPositionS);
-            this.panelPositionS.Controls.Add(this.textBoxYS);
-            this.panelPositionS.Controls.Add(this.textBoxTitlePositionS);
-            this.panelPositionS.Controls.Add(this.textBoxXS);
-            this.panelPositionS.Controls.Add(this.label85);
-            this.panelPositionS.Controls.Add(this.panel4);
-            this.panelPositionS.Controls.Add(this.btnAddPosition);
-            this.panelPositionS.Controls.Add(this.label11);
-            this.panelPositionS.Controls.Add(this.label10);
-            this.panelPositionS.Controls.Add(this.label9);
-            this.panelPositionS.Controls.Add(this.label8);
-            this.panelPositionS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPositionS.ForeColor = System.Drawing.Color.White;
-            this.panelPositionS.Location = new System.Drawing.Point(34, 85);
-            this.panelPositionS.Name = "panelPositionS";
-            this.panelPositionS.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPositionS.ShowText = false;
-            this.panelPositionS.Size = new System.Drawing.Size(539, 262);
-            this.panelPositionS.TabIndex = 29;
-            this.panelPositionS.Text = "lostBorderPanel1";
-            // 
-            // btnGetPositionS
-            // 
-            this.btnGetPositionS.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetPositionS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetPositionS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetPositionS.Image = null;
-            this.btnGetPositionS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetPositionS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.Location = new System.Drawing.Point(335, 75);
-            this.btnGetPositionS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetPositionS.Name = "btnGetPositionS";
-            this.btnGetPositionS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionS.Size = new System.Drawing.Size(99, 21);
-            this.btnGetPositionS.TabIndex = 4;
-            this.btnGetPositionS.Text = "Get Position";
-            this.btnGetPositionS.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetPositionS.Click += new System.EventHandler(this.btnGetPositionS_Click);
-            // 
-            // comboBoxSizeS
-            // 
-            this.comboBoxSizeS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxSizeS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxSizeS.BGColorB = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxSizeS.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxSizeS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxSizeS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSizeS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxSizeS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSizeS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxSizeS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxSizeS.FormattingEnabled = true;
-            this.comboBoxSizeS.ItemHeight = 16;
-            this.comboBoxSizeS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxSizeS.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxSizeS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxSizeS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxSizeS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxSizeS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxSizeS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxSizeS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeS.Location = new System.Drawing.Point(357, 47);
-            this.comboBoxSizeS.Name = "comboBoxSizeS";
-            this.comboBoxSizeS.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxSizeS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxSizeS.StartIndex = -1;
-            this.comboBoxSizeS.TabIndex = 30;
-            this.comboBoxSizeS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxZS
-            // 
-            this.textBoxZS.BackColor = System.Drawing.Color.White;
-            this.textBoxZS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxZS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxZS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxZS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxZS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxZS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxZS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxZS.Location = new System.Drawing.Point(297, 47);
-            this.textBoxZS.MaxLength = 32767;
-            this.textBoxZS.MultiLine = false;
-            this.textBoxZS.Name = "textBoxZS";
-            this.textBoxZS.Size = new System.Drawing.Size(51, 21);
-            this.textBoxZS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxZS.TabIndex = 32;
-            this.textBoxZS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxZS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxZS.UseSystemPasswordChar = false;
-            // 
-            // comboBoxHowPositionS
-            // 
-            this.comboBoxHowPositionS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowPositionS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowPositionS.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowPositionS.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowPositionS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowPositionS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowPositionS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowPositionS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowPositionS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowPositionS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowPositionS.FormattingEnabled = true;
-            this.comboBoxHowPositionS.ItemHeight = 16;
-            this.comboBoxHowPositionS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowPositionS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowPositionS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowPositionS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowPositionS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowPositionS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowPositionS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowPositionS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionS.Location = new System.Drawing.Point(57, 47);
-            this.comboBoxHowPositionS.Name = "comboBoxHowPositionS";
-            this.comboBoxHowPositionS.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowPositionS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowPositionS.StartIndex = -1;
-            this.comboBoxHowPositionS.TabIndex = 29;
-            this.comboBoxHowPositionS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxYS
-            // 
-            this.textBoxYS.BackColor = System.Drawing.Color.White;
-            this.textBoxYS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxYS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxYS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxYS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxYS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxYS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxYS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxYS.Location = new System.Drawing.Point(240, 47);
-            this.textBoxYS.MaxLength = 32767;
-            this.textBoxYS.MultiLine = false;
-            this.textBoxYS.Name = "textBoxYS";
-            this.textBoxYS.Size = new System.Drawing.Size(51, 21);
-            this.textBoxYS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxYS.TabIndex = 31;
-            this.textBoxYS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxYS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxYS.UseSystemPasswordChar = false;
-            // 
-            // textBoxTitlePositionS
-            // 
-            this.textBoxTitlePositionS.BackColor = System.Drawing.Color.White;
-            this.textBoxTitlePositionS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitlePositionS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitlePositionS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitlePositionS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitlePositionS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitlePositionS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitlePositionS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitlePositionS.Location = new System.Drawing.Point(196, 75);
-            this.textBoxTitlePositionS.MaxLength = 32767;
-            this.textBoxTitlePositionS.MultiLine = false;
-            this.textBoxTitlePositionS.Name = "textBoxTitlePositionS";
-            this.textBoxTitlePositionS.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitlePositionS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitlePositionS.TabIndex = 28;
-            this.textBoxTitlePositionS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTitlePositionS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitlePositionS.UseSystemPasswordChar = false;
-            // 
-            // textBoxXS
-            // 
-            this.textBoxXS.BackColor = System.Drawing.Color.White;
-            this.textBoxXS.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxXS.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxXS.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxXS.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxXS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxXS.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxXS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxXS.Location = new System.Drawing.Point(181, 47);
-            this.textBoxXS.MaxLength = 32767;
-            this.textBoxXS.MultiLine = false;
-            this.textBoxXS.Name = "textBoxXS";
-            this.textBoxXS.Size = new System.Drawing.Size(51, 21);
-            this.textBoxXS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxXS.TabIndex = 30;
-            this.textBoxXS.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxXS.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxXS.UseSystemPasswordChar = false;
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.ForeColor = System.Drawing.Color.Black;
-            this.label85.Location = new System.Drawing.Point(122, 72);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(64, 32);
-            this.label85.TabIndex = 14;
-            this.label85.Text = "     Title\r\n(Optional)";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel4.Controls.Add(this.listBoxPositionsS);
-            this.panel4.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel4.Location = new System.Drawing.Point(13, 130);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(5);
-            this.panel4.Size = new System.Drawing.Size(515, 125);
-            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel4.TabIndex = 27;
-            this.panel4.Text = "panel4";
-            // 
-            // listBoxPositionsS
-            // 
-            this.listBoxPositionsS.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxPositionsS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPositionsS.FormattingEnabled = true;
-            this.listBoxPositionsS.ItemHeight = 16;
-            this.listBoxPositionsS.Location = new System.Drawing.Point(3, 4);
-            this.listBoxPositionsS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxPositionsS.Name = "listBoxPositionsS";
-            this.listBoxPositionsS.Size = new System.Drawing.Size(509, 116);
-            this.listBoxPositionsS.TabIndex = 6;
-            this.listBoxPositionsS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxPositions_MouseDoubleClick);
-            // 
-            // btnAddPosition
-            // 
-            this.btnAddPosition.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPosition.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPosition.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPosition.Image = null;
-            this.btnAddPosition.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPosition.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.Location = new System.Drawing.Point(207, 104);
-            this.btnAddPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddPosition.Name = "btnAddPosition";
-            this.btnAddPosition.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPosition.Size = new System.Drawing.Size(99, 21);
-            this.btnAddPosition.TabIndex = 5;
-            this.btnAddPosition.Text = "Add";
-            this.btnAddPosition.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddPosition.Click += new System.EventHandler(this.btnAddPosition_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(230, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 16);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Coordinates:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(401, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 16);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Size";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(202, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "X            Y            Z";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(88, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 16);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "How:";
-            // 
-            // panelMinibossSekiro
-            // 
-            this.panelMinibossSekiro.BackColor = System.Drawing.Color.White;
-            this.panelMinibossSekiro.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelMinibossSekiro.Controls.Add(this.label79);
-            this.panelMinibossSekiro.Controls.Add(this.panel6);
-            this.panelMinibossSekiro.Controls.Add(this.comboBoxMiniBossSekiro);
-            this.panelMinibossSekiro.Controls.Add(this.comboBoxHowMiniBoss);
-            this.panelMinibossSekiro.Controls.Add(this.btnAddMiniBossSekiro);
-            this.panelMinibossSekiro.Controls.Add(this.label12);
-            this.panelMinibossSekiro.Controls.Add(this.panel5);
-            this.panelMinibossSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelMinibossSekiro.ForeColor = System.Drawing.Color.White;
-            this.panelMinibossSekiro.Location = new System.Drawing.Point(34, 85);
-            this.panelMinibossSekiro.Name = "panelMinibossSekiro";
-            this.panelMinibossSekiro.Padding = new System.Windows.Forms.Padding(5);
-            this.panelMinibossSekiro.ShowText = false;
-            this.panelMinibossSekiro.Size = new System.Drawing.Size(539, 262);
-            this.panelMinibossSekiro.TabIndex = 30;
-            this.panelMinibossSekiro.Text = "lostBorderPanel1";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.ForeColor = System.Drawing.Color.Black;
-            this.label79.Location = new System.Drawing.Point(316, 5);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(61, 16);
-            this.label79.TabIndex = 19;
-            this.label79.Text = "MiniBoss:";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel6.Controls.Add(this.textBoxDescriptionMiniBoss);
-            this.panel6.EdgeColor = System.Drawing.Color.SteelBlue;
-            this.panel6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(197, 56);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(5);
-            this.panel6.Size = new System.Drawing.Size(312, 69);
-            this.panel6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel6.TabIndex = 31;
-            this.panel6.Text = "panel6";
-            // 
-            // textBoxDescriptionMiniBoss
-            // 
-            this.textBoxDescriptionMiniBoss.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDescriptionMiniBoss.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.textBoxDescriptionMiniBoss.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescriptionMiniBoss.Location = new System.Drawing.Point(5, 6);
-            this.textBoxDescriptionMiniBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDescriptionMiniBoss.Multiline = true;
-            this.textBoxDescriptionMiniBoss.Name = "textBoxDescriptionMiniBoss";
-            this.textBoxDescriptionMiniBoss.ReadOnly = true;
-            this.textBoxDescriptionMiniBoss.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescriptionMiniBoss.Size = new System.Drawing.Size(303, 58);
-            this.textBoxDescriptionMiniBoss.TabIndex = 21;
-            this.textBoxDescriptionMiniBoss.TabStop = false;
-            // 
-            // comboBoxMiniBossSekiro
-            // 
-            this.comboBoxMiniBossSekiro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxMiniBossSekiro.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.comboBoxMiniBossSekiro.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxMiniBossSekiro.FormattingEnabled = true;
-            this.comboBoxMiniBossSekiro.Items.AddRange(new object[] {
-            "Leader Shigenori Yamauchi",
-            "General Naomori Kawarada",
-            "Ogre - Ashina Outskirts",
-            "General Tenzen Yamauchi",
-            "Headless Ako",
-            "Blazing Bull",
-            "Shigekichi of the Red Guard",
-            "Shinobi Hunter Enshin of Misen",
-            "Juzou the Drunkard",
-            "Lone Shadow Masanaga the Spear-Bearer",
-            "Juzou the Drunkard 2",
-            "General Kuranosuke Matsumoto",
-            "Seven Achina Spears – Shikibu Toshikatsu Yamauchi",
-            "Lone Shadow Longswordsman",
-            "Headless Ungo",
-            "Ashina Elite – Jinsuke Saze",
-            "Ogre - Ashina Castle",
-            "Lone Shadow Vilehand",
-            "Seven Ashina Spears - Shume Masaji Oniwa",
-            "Ashina Elite - Ujinari Mizuo",
-            "Shichimen Warrior - Abandoned Dungeon",
-            "Armored Warrior",
-            "Long-arm Centipede Sen’un",
-            "Headless Gokan",
-            "Long-arm Centipede Giraffe",
-            "Snake Eyes Shirahagi",
-            "Shichimen Warrior - Ashina Depths",
-            "Headless Gacchin",
-            "Tokujiro the Glutton",
-            "Mist Noble",
-            "O\'rin of the Water",
-            "Sakura Bull of the Palace",
-            "Leader Okami",
-            "Headless Yashariku",
-            "Shichimen Warrior - Fountainhead Palace"});
-            this.comboBoxMiniBossSekiro.Location = new System.Drawing.Point(203, 27);
-            this.comboBoxMiniBossSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxMiniBossSekiro.Name = "comboBoxMiniBossSekiro";
-            this.comboBoxMiniBossSekiro.Size = new System.Drawing.Size(292, 24);
-            this.comboBoxMiniBossSekiro.TabIndex = 18;
-            this.comboBoxMiniBossSekiro.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiniBossSekiro_SelectedIndexChanged);
-            // 
-            // comboBoxHowMiniBoss
-            // 
-            this.comboBoxHowMiniBoss.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowMiniBoss.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowMiniBoss.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowMiniBoss.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowMiniBoss.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowMiniBoss.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowMiniBoss.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowMiniBoss.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowMiniBoss.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowMiniBoss.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowMiniBoss.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowMiniBoss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowMiniBoss.FormattingEnabled = true;
-            this.comboBoxHowMiniBoss.ItemHeight = 16;
-            this.comboBoxHowMiniBoss.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowMiniBoss.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowMiniBoss.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowMiniBoss.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowMiniBoss.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowMiniBoss.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowMiniBoss.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowMiniBoss.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowMiniBoss.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowMiniBoss.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowMiniBoss.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowMiniBoss.Location = new System.Drawing.Point(61, 46);
-            this.comboBoxHowMiniBoss.Name = "comboBoxHowMiniBoss";
-            this.comboBoxHowMiniBoss.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowMiniBoss.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowMiniBoss.StartIndex = -1;
-            this.comboBoxHowMiniBoss.TabIndex = 31;
-            this.comboBoxHowMiniBoss.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowMiniBoss.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // btnAddMiniBossSekiro
-            // 
-            this.btnAddMiniBossSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddMiniBossSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddMiniBossSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMiniBossSekiro.Image = null;
-            this.btnAddMiniBossSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddMiniBossSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.Location = new System.Drawing.Point(63, 83);
-            this.btnAddMiniBossSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddMiniBossSekiro.Name = "btnAddMiniBossSekiro";
-            this.btnAddMiniBossSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddMiniBossSekiro.Size = new System.Drawing.Size(99, 21);
-            this.btnAddMiniBossSekiro.TabIndex = 20;
-            this.btnAddMiniBossSekiro.Text = "Add";
-            this.btnAddMiniBossSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddMiniBossSekiro.Click += new System.EventHandler(this.btnAddMiniBossSekiro_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(91, 27);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 16);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "How:";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel5.Controls.Add(this.listBoxMiniBossesS);
-            this.panel5.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel5.Location = new System.Drawing.Point(11, 130);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(5);
-            this.panel5.Size = new System.Drawing.Size(514, 125);
-            this.panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel5.TabIndex = 27;
-            this.panel5.Text = "panel5";
-            // 
-            // listBoxMiniBossesS
-            // 
-            this.listBoxMiniBossesS.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxMiniBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxMiniBossesS.FormattingEnabled = true;
-            this.listBoxMiniBossesS.ItemHeight = 16;
-            this.listBoxMiniBossesS.Location = new System.Drawing.Point(5, 5);
-            this.listBoxMiniBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxMiniBossesS.Name = "listBoxMiniBossesS";
-            this.listBoxMiniBossesS.Size = new System.Drawing.Size(502, 116);
-            this.listBoxMiniBossesS.TabIndex = 15;
-            this.listBoxMiniBossesS.DoubleClick += new System.EventHandler(this.listBoxMiniBossSekiro_DoubleClick);
-            // 
-            // panelBossS
-            // 
-            this.panelBossS.BackColor = System.Drawing.Color.White;
-            this.panelBossS.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelBossS.Controls.Add(this.comboBoxBossS);
-            this.panelBossS.Controls.Add(this.panel2);
-            this.panelBossS.Controls.Add(this.comboBoxHowBossS);
-            this.panelBossS.Controls.Add(this.label17);
-            this.panelBossS.Controls.Add(this.btn_AddBoss);
-            this.panelBossS.Controls.Add(this.label15);
-            this.panelBossS.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelBossS.ForeColor = System.Drawing.Color.White;
-            this.panelBossS.Location = new System.Drawing.Point(34, 85);
-            this.panelBossS.Name = "panelBossS";
-            this.panelBossS.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBossS.ShowText = false;
-            this.panelBossS.Size = new System.Drawing.Size(539, 262);
-            this.panelBossS.TabIndex = 27;
-            this.panelBossS.Text = "lostBorderPanel1";
-            // 
-            // comboBoxBossS
-            // 
-            this.comboBoxBossS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxBossS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxBossS.BackColor = System.Drawing.Color.Khaki;
-            this.comboBoxBossS.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBossS.FormattingEnabled = true;
-            this.comboBoxBossS.Items.AddRange(new object[] {
-            "Genichiro Ashina - Tutorial",
-            "Gyoubu Masataka Oniwa",
-            "Lady Butterfly",
-            "Genichiro Ashina",
-            "Folding Screen Monkeys",
-            "Guardian Ape",
-            "Headless Ape",
-            "Corrupted Monk (ghost)",
-            "Emma, the Gentle Blade",
-            "Isshin Ashina",
-            "Great Shinobi Owl",
-            "True Corrupted Monk",
-            "Divine Dragon",
-            "Owl (Father)",
-            "Demon of Hatred",
-            "Isshin, the Sword Saint"});
-            this.comboBoxBossS.Location = new System.Drawing.Point(192, 32);
-            this.comboBoxBossS.MaxDropDownItems = 2;
-            this.comboBoxBossS.Name = "comboBoxBossS";
-            this.comboBoxBossS.Size = new System.Drawing.Size(317, 22);
-            this.comboBoxBossS.TabIndex = 27;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.listBoxBossesS);
-            this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel2.Location = new System.Drawing.Point(15, 95);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(508, 156);
-            this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel2.TabIndex = 26;
-            this.panel2.Text = "panel2";
-            // 
-            // listBoxBossesS
-            // 
-            this.listBoxBossesS.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxBossesS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxBossesS.FormattingEnabled = true;
-            this.listBoxBossesS.ItemHeight = 16;
-            this.listBoxBossesS.Location = new System.Drawing.Point(3, 4);
-            this.listBoxBossesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxBossesS.Name = "listBoxBossesS";
-            this.listBoxBossesS.Size = new System.Drawing.Size(502, 148);
-            this.listBoxBossesS.TabIndex = 7;
-            this.listBoxBossesS.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxBosses_MouseDoubleClick);
-            // 
-            // comboBoxHowBossS
-            // 
-            this.comboBoxHowBossS.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowBossS.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowBossS.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowBossS.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossS.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowBossS.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossS.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowBossS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowBossS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowBossS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowBossS.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowBossS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowBossS.FormattingEnabled = true;
-            this.comboBoxHowBossS.ItemHeight = 16;
-            this.comboBoxHowBossS.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowBossS.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowBossS.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowBossS.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossS.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowBossS.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossS.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowBossS.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowBossS.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowBossS.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossS.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossS.Location = new System.Drawing.Point(20, 32);
-            this.comboBoxHowBossS.Name = "comboBoxHowBossS";
-            this.comboBoxHowBossS.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowBossS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowBossS.StartIndex = -1;
-            this.comboBoxHowBossS.TabIndex = 26;
-            this.comboBoxHowBossS.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(333, 10);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(38, 16);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Boss:";
-            // 
-            // btn_AddBoss
-            // 
-            this.btn_AddBoss.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddBoss.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddBoss.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddBoss.Image = null;
-            this.btn_AddBoss.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddBoss.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.Location = new System.Drawing.Point(214, 66);
-            this.btn_AddBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddBoss.Name = "btn_AddBoss";
-            this.btn_AddBoss.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddBoss.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddBoss.TabIndex = 14;
-            this.btn_AddBoss.Text = "Add";
-            this.btn_AddBoss.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddBoss.Click += new System.EventHandler(this.btn_AddBoss_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(73, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(37, 16);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "How:";
-            // 
-            // panelIdolsS
-            // 
-            this.panelIdolsS.BackColor = System.Drawing.Color.White;
-            this.panelIdolsS.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelIdolsS.Controls.Add(this.groupBoxAbandonedDungeon);
-            this.panelIdolsS.Controls.Add(this.groupBoxAshinaCastle);
-            this.panelIdolsS.Controls.Add(this.groupBoxAshinaOutskirts);
-            this.panelIdolsS.Controls.Add(this.groupBoxFountainhead);
-            this.panelIdolsS.Controls.Add(this.groupBoxSenpouTemple);
-            this.panelIdolsS.Controls.Add(this.groupBoxSunkenValley);
-            this.panelIdolsS.Controls.Add(this.groupBoxHirataEstate);
-            this.panelIdolsS.Controls.Add(this.groupBoxAshinaDepths);
-            this.panelIdolsS.Controls.Add(this.comboBoxZoneSelectS);
-            this.panelIdolsS.Controls.Add(this.label14);
-            this.panelIdolsS.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelIdolsS.ForeColor = System.Drawing.Color.White;
-            this.panelIdolsS.Location = new System.Drawing.Point(34, 85);
-            this.panelIdolsS.Name = "panelIdolsS";
-            this.panelIdolsS.Padding = new System.Windows.Forms.Padding(5);
-            this.panelIdolsS.ShowText = false;
-            this.panelIdolsS.Size = new System.Drawing.Size(539, 262);
-            this.panelIdolsS.TabIndex = 26;
-            this.panelIdolsS.Text = "lostBorderPanel1";
-            // 
-            // groupBoxAbandonedDungeon
-            // 
-            this.groupBoxAbandonedDungeon.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxAbandonedDungeon.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxAbandonedDungeon.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxAbandonedDungeon.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxAbandonedDungeon.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxAbandonedDungeon.Controls.Add(this.listBoxAbandonedDungeon);
-            this.groupBoxAbandonedDungeon.Controls.Add(this.checkedListBoxAbandonedDungeon);
-            this.groupBoxAbandonedDungeon.Controls.Add(this.groupBoxRadioAbandonedDungeon);
-            this.groupBoxAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxAbandonedDungeon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxAbandonedDungeon.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxAbandonedDungeon.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAbandonedDungeon.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxAbandonedDungeon.Name = "groupBoxAbandonedDungeon";
-            this.groupBoxAbandonedDungeon.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAbandonedDungeon.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxAbandonedDungeon.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxAbandonedDungeon.TabIndex = 8;
-            this.groupBoxAbandonedDungeon.TabStop = false;
-            this.groupBoxAbandonedDungeon.Text = "Idols - Abandoned Dungeon ";
-            // 
-            // listBoxAbandonedDungeon
-            // 
-            this.listBoxAbandonedDungeon.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxAbandonedDungeon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAbandonedDungeon.FormattingEnabled = true;
-            this.listBoxAbandonedDungeon.ItemHeight = 15;
-            this.listBoxAbandonedDungeon.Items.AddRange(new object[] {
-            "Underground Waterway",
-            "Bottomless Hole"});
-            this.listBoxAbandonedDungeon.Location = new System.Drawing.Point(61, 91);
-            this.listBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAbandonedDungeon.Name = "listBoxAbandonedDungeon";
-            this.listBoxAbandonedDungeon.Size = new System.Drawing.Size(169, 34);
-            this.listBoxAbandonedDungeon.TabIndex = 4;
-            this.listBoxAbandonedDungeon.SelectedIndexChanged += new System.EventHandler(this.listBoxAbandonedDungeon_SelectedIndexChanged);
-            // 
-            // checkedListBoxAbandonedDungeon
-            // 
-            this.checkedListBoxAbandonedDungeon.BackColor = System.Drawing.Color.DodgerBlue;
-            this.checkedListBoxAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.checkedListBoxAbandonedDungeon.FormattingEnabled = true;
-            this.checkedListBoxAbandonedDungeon.Items.AddRange(new object[] {
-            "Underground Waterway",
-            "Bottomless Hole"});
-            this.checkedListBoxAbandonedDungeon.Location = new System.Drawing.Point(32, 91);
-            this.checkedListBoxAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxAbandonedDungeon.Name = "checkedListBoxAbandonedDungeon";
-            this.checkedListBoxAbandonedDungeon.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxAbandonedDungeon.Size = new System.Drawing.Size(21, 34);
-            this.checkedListBoxAbandonedDungeon.TabIndex = 3;
-            // 
-            // groupBoxRadioAbandonedDungeon
-            // 
-            this.groupBoxRadioAbandonedDungeon.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAbandonedDungeon.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioAbandonedDungeon.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAbandonedDungeon.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioAbandonedDungeon.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.btn_AddAD);
-            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.labelIdolSelectedAD);
-            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.radioLagAD);
-            this.groupBoxRadioAbandonedDungeon.Controls.Add(this.radioImmAD);
-            this.groupBoxRadioAbandonedDungeon.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioAbandonedDungeon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioAbandonedDungeon.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioAbandonedDungeon.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioAbandonedDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAbandonedDungeon.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioAbandonedDungeon.Name = "groupBoxRadioAbandonedDungeon";
-            this.groupBoxRadioAbandonedDungeon.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAbandonedDungeon.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioAbandonedDungeon.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioAbandonedDungeon.TabIndex = 1;
-            this.groupBoxRadioAbandonedDungeon.TabStop = false;
-            this.groupBoxRadioAbandonedDungeon.Text = "Select";
-            // 
-            // btn_AddAD
-            // 
-            this.btn_AddAD.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddAD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddAD.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddAD.Image = null;
-            this.btn_AddAD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddAD.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddAD.Name = "btn_AddAD";
-            this.btn_AddAD.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAD.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddAD.TabIndex = 24;
-            this.btn_AddAD.Text = "Add/Remove";
-            this.btn_AddAD.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddAD.Click += new System.EventHandler(this.btn_AddAD_Click);
-            // 
-            // labelIdolSelectedAD
-            // 
-            this.labelIdolSelectedAD.AutoSize = true;
-            this.labelIdolSelectedAD.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedAD.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedAD.Name = "labelIdolSelectedAD";
-            this.labelIdolSelectedAD.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedAD.TabIndex = 23;
-            this.labelIdolSelectedAD.Text = "???";
-            // 
-            // radioLagAD
-            // 
-            this.radioLagAD.AutoSize = true;
-            this.radioLagAD.Location = new System.Drawing.Point(37, 83);
-            this.radioLagAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagAD.Name = "radioLagAD";
-            this.radioLagAD.Size = new System.Drawing.Size(131, 18);
-            this.radioLagAD.TabIndex = 20;
-            this.radioLagAD.Text = "Loading game after";
-            this.radioLagAD.UseVisualStyleBackColor = true;
-            // 
-            // radioImmAD
-            // 
-            this.radioImmAD.AutoSize = true;
-            this.radioImmAD.Checked = true;
-            this.radioImmAD.Location = new System.Drawing.Point(51, 60);
-            this.radioImmAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmAD.Name = "radioImmAD";
-            this.radioImmAD.Size = new System.Drawing.Size(81, 18);
-            this.radioImmAD.TabIndex = 21;
-            this.radioImmAD.TabStop = true;
-            this.radioImmAD.Text = "Inmediatly";
-            this.radioImmAD.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxAshinaCastle
-            // 
-            this.groupBoxAshinaCastle.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaCastle.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxAshinaCastle.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaCastle.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxAshinaCastle.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxAshinaCastle.Controls.Add(this.listBoxAshinaCastle);
-            this.groupBoxAshinaCastle.Controls.Add(this.checkedListBoxAshinaCastle);
-            this.groupBoxAshinaCastle.Controls.Add(this.groupBoxRadioAshinaCastle);
-            this.groupBoxAshinaCastle.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxAshinaCastle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxAshinaCastle.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxAshinaCastle.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaCastle.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxAshinaCastle.Name = "groupBoxAshinaCastle";
-            this.groupBoxAshinaCastle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaCastle.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxAshinaCastle.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxAshinaCastle.TabIndex = 7;
-            this.groupBoxAshinaCastle.TabStop = false;
-            this.groupBoxAshinaCastle.Text = "Idols - Ashina Castle";
-            // 
-            // listBoxAshinaCastle
-            // 
-            this.listBoxAshinaCastle.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxAshinaCastle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAshinaCastle.FormattingEnabled = true;
-            this.listBoxAshinaCastle.ItemHeight = 15;
-            this.listBoxAshinaCastle.Items.AddRange(new object[] {
-            "Ashina Castle",
-            "Upper Tower - Antechamber",
-            "Upper Tower - Ashina Dojo",
-            "Castle Tower Lookout",
-            "Upper Tower - Kuro\'s Room",
-            "Old Grave",
-            "Great Serpent Shrine",
-            "Abandoned Dungeon Entrance",
-            "Ashina Reservoir",
-            "Near Secret Passage"});
-            this.listBoxAshinaCastle.Location = new System.Drawing.Point(58, 32);
-            this.listBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAshinaCastle.Name = "listBoxAshinaCastle";
-            this.listBoxAshinaCastle.Size = new System.Drawing.Size(178, 154);
-            this.listBoxAshinaCastle.TabIndex = 4;
-            this.listBoxAshinaCastle.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaCastle_SelectedIndexChanged);
-            // 
-            // checkedListBoxAshinaCastle
-            // 
-            this.checkedListBoxAshinaCastle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.checkedListBoxAshinaCastle.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxAshinaCastle.FormattingEnabled = true;
-            this.checkedListBoxAshinaCastle.Items.AddRange(new object[] {
-            "Ashina Castle",
-            "Upper Tower - Antechamber",
-            "Upper Tower - Ashina Dojo",
-            "Castle Tower Lookout",
-            "Upper Tower - Kuro\'s Room",
-            "Old Grave",
-            "Great Serpent Shrine",
-            "Abandoned Dungeon Entrance",
-            "Ashina Reservoir",
-            "Near Secret Passage"});
-            this.checkedListBoxAshinaCastle.Location = new System.Drawing.Point(24, 33);
-            this.checkedListBoxAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxAshinaCastle.Name = "checkedListBoxAshinaCastle";
-            this.checkedListBoxAshinaCastle.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxAshinaCastle.Size = new System.Drawing.Size(21, 154);
-            this.checkedListBoxAshinaCastle.TabIndex = 3;
-            // 
-            // groupBoxRadioAshinaCastle
-            // 
-            this.groupBoxRadioAshinaCastle.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAshinaCastle.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioAshinaCastle.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAshinaCastle.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioAshinaCastle.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioAshinaCastle.Controls.Add(this.btn_AddAC);
-            this.groupBoxRadioAshinaCastle.Controls.Add(this.labelIdolSelectedAC);
-            this.groupBoxRadioAshinaCastle.Controls.Add(this.radioLagAC);
-            this.groupBoxRadioAshinaCastle.Controls.Add(this.radioImmAC);
-            this.groupBoxRadioAshinaCastle.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioAshinaCastle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioAshinaCastle.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioAshinaCastle.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioAshinaCastle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAshinaCastle.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioAshinaCastle.Name = "groupBoxRadioAshinaCastle";
-            this.groupBoxRadioAshinaCastle.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAshinaCastle.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioAshinaCastle.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioAshinaCastle.TabIndex = 1;
-            this.groupBoxRadioAshinaCastle.TabStop = false;
-            this.groupBoxRadioAshinaCastle.Text = "Select";
-            // 
-            // btn_AddAC
-            // 
-            this.btn_AddAC.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddAC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddAC.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddAC.Image = null;
-            this.btn_AddAC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddAC.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddAC.Name = "btn_AddAC";
-            this.btn_AddAC.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddAC.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddAC.TabIndex = 24;
-            this.btn_AddAC.Text = "Add/Remove";
-            this.btn_AddAC.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddAC.Click += new System.EventHandler(this.btn_AddAC_Click);
-            // 
-            // labelIdolSelectedAC
-            // 
-            this.labelIdolSelectedAC.AutoSize = true;
-            this.labelIdolSelectedAC.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedAC.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedAC.Name = "labelIdolSelectedAC";
-            this.labelIdolSelectedAC.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedAC.TabIndex = 23;
-            this.labelIdolSelectedAC.Text = "???";
-            // 
-            // radioLagAC
-            // 
-            this.radioLagAC.AutoSize = true;
-            this.radioLagAC.Location = new System.Drawing.Point(37, 83);
-            this.radioLagAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagAC.Name = "radioLagAC";
-            this.radioLagAC.Size = new System.Drawing.Size(131, 18);
-            this.radioLagAC.TabIndex = 20;
-            this.radioLagAC.Text = "Loading game after";
-            this.radioLagAC.UseVisualStyleBackColor = true;
-            // 
-            // radioImmAC
-            // 
-            this.radioImmAC.AutoSize = true;
-            this.radioImmAC.Checked = true;
-            this.radioImmAC.Location = new System.Drawing.Point(51, 60);
-            this.radioImmAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmAC.Name = "radioImmAC";
-            this.radioImmAC.Size = new System.Drawing.Size(81, 18);
-            this.radioImmAC.TabIndex = 21;
-            this.radioImmAC.TabStop = true;
-            this.radioImmAC.Text = "Inmediatly";
-            this.radioImmAC.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxAshinaOutskirts
-            // 
-            this.groupBoxAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaOutskirts.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxAshinaOutskirts.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaOutskirts.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxAshinaOutskirts.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxAshinaOutskirts.Controls.Add(this.listBoxAshinaOutskirts);
-            this.groupBoxAshinaOutskirts.Controls.Add(this.checkedListBoxAshina);
-            this.groupBoxAshinaOutskirts.Controls.Add(this.groupBoxRadiosAshinaOutskirts);
-            this.groupBoxAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxAshinaOutskirts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxAshinaOutskirts.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxAshinaOutskirts.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaOutskirts.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxAshinaOutskirts.Name = "groupBoxAshinaOutskirts";
-            this.groupBoxAshinaOutskirts.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaOutskirts.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxAshinaOutskirts.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxAshinaOutskirts.TabIndex = 6;
-            this.groupBoxAshinaOutskirts.TabStop = false;
-            this.groupBoxAshinaOutskirts.Text = "Idols - Ashina Outskirts";
-            // 
-            // listBoxAshinaOutskirts
-            // 
-            this.listBoxAshinaOutskirts.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxAshinaOutskirts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAshinaOutskirts.FormattingEnabled = true;
-            this.listBoxAshinaOutskirts.ItemHeight = 15;
-            this.listBoxAshinaOutskirts.Items.AddRange(new object[] {
-            "Dilapidated Temple",
-            "Ashina Outskirts",
-            "Outskirts Wall - Gate Path",
-            "Outskirts Wall - Stairway",
-            "Underbridge Valley",
-            "Ashina Castle Fortress",
-            "Ashina Castle Gate",
-            "Flames of Hatred"});
-            this.listBoxAshinaOutskirts.Location = new System.Drawing.Point(62, 43);
-            this.listBoxAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAshinaOutskirts.Name = "listBoxAshinaOutskirts";
-            this.listBoxAshinaOutskirts.Size = new System.Drawing.Size(169, 139);
-            this.listBoxAshinaOutskirts.TabIndex = 4;
-            this.listBoxAshinaOutskirts.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaOutskirts_SelectedIndexChanged);
-            // 
-            // checkedListBoxAshina
-            // 
-            this.checkedListBoxAshina.BackColor = System.Drawing.Color.DodgerBlue;
-            this.checkedListBoxAshina.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.checkedListBoxAshina.FormattingEnabled = true;
-            this.checkedListBoxAshina.Items.AddRange(new object[] {
-            "Dilapidated Temple",
-            "Ashina Outskirts",
-            "Outskirts Wall - Gate Path",
-            "Outskirts Wall - Stairway",
-            "Underbridge Valley",
-            "Ashina Castle Fortress",
-            "Ashina Castle Gate",
-            "Flames of Hatred"});
-            this.checkedListBoxAshina.Location = new System.Drawing.Point(23, 46);
-            this.checkedListBoxAshina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxAshina.Name = "checkedListBoxAshina";
-            this.checkedListBoxAshina.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxAshina.Size = new System.Drawing.Size(21, 124);
-            this.checkedListBoxAshina.TabIndex = 3;
-            // 
-            // groupBoxRadiosAshinaOutskirts
-            // 
-            this.groupBoxRadiosAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadiosAshinaOutskirts.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadiosAshinaOutskirts.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadiosAshinaOutskirts.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadiosAshinaOutskirts.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.btnAddAshinaOutskirts);
-            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.labelIdolSelectedAO);
-            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.radioLagAO);
-            this.groupBoxRadiosAshinaOutskirts.Controls.Add(this.radioImmAO);
-            this.groupBoxRadiosAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadiosAshinaOutskirts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadiosAshinaOutskirts.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadiosAshinaOutskirts.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadiosAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadiosAshinaOutskirts.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadiosAshinaOutskirts.Name = "groupBoxRadiosAshinaOutskirts";
-            this.groupBoxRadiosAshinaOutskirts.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadiosAshinaOutskirts.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadiosAshinaOutskirts.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadiosAshinaOutskirts.TabIndex = 1;
-            this.groupBoxRadiosAshinaOutskirts.TabStop = false;
-            this.groupBoxRadiosAshinaOutskirts.Text = "Select";
-            // 
-            // btnAddAshinaOutskirts
-            // 
-            this.btnAddAshinaOutskirts.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddAshinaOutskirts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAshinaOutskirts.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAshinaOutskirts.Image = null;
-            this.btnAddAshinaOutskirts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAshinaOutskirts.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.Location = new System.Drawing.Point(48, 110);
-            this.btnAddAshinaOutskirts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddAshinaOutskirts.Name = "btnAddAshinaOutskirts";
-            this.btnAddAshinaOutskirts.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAshinaOutskirts.Size = new System.Drawing.Size(99, 21);
-            this.btnAddAshinaOutskirts.TabIndex = 24;
-            this.btnAddAshinaOutskirts.Text = "Add/Remove";
-            this.btnAddAshinaOutskirts.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddAshinaOutskirts.Click += new System.EventHandler(this.btnAddAshinaOutskirts_Click);
-            // 
-            // labelIdolSelectedAO
-            // 
-            this.labelIdolSelectedAO.AutoSize = true;
-            this.labelIdolSelectedAO.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedAO.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedAO.Name = "labelIdolSelectedAO";
-            this.labelIdolSelectedAO.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedAO.TabIndex = 23;
-            this.labelIdolSelectedAO.Text = "???";
-            // 
-            // radioLagAO
-            // 
-            this.radioLagAO.AutoSize = true;
-            this.radioLagAO.Location = new System.Drawing.Point(37, 83);
-            this.radioLagAO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagAO.Name = "radioLagAO";
-            this.radioLagAO.Size = new System.Drawing.Size(131, 18);
-            this.radioLagAO.TabIndex = 20;
-            this.radioLagAO.Text = "Loading game after";
-            this.radioLagAO.UseVisualStyleBackColor = true;
-            // 
-            // radioImmAO
-            // 
-            this.radioImmAO.AutoSize = true;
-            this.radioImmAO.Checked = true;
-            this.radioImmAO.Location = new System.Drawing.Point(51, 60);
-            this.radioImmAO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmAO.Name = "radioImmAO";
-            this.radioImmAO.Size = new System.Drawing.Size(81, 18);
-            this.radioImmAO.TabIndex = 21;
-            this.radioImmAO.TabStop = true;
-            this.radioImmAO.Text = "Inmediatly";
-            this.radioImmAO.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxFountainhead
-            // 
-            this.groupBoxFountainhead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxFountainhead.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxFountainhead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxFountainhead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxFountainhead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxFountainhead.Controls.Add(this.listBoxFountainhead);
-            this.groupBoxFountainhead.Controls.Add(this.checkedListBoxFountainhead);
-            this.groupBoxFountainhead.Controls.Add(this.groupBoxRadioFountainhead);
-            this.groupBoxFountainhead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxFountainhead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxFountainhead.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxFountainhead.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFountainhead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxFountainhead.Name = "groupBoxFountainhead";
-            this.groupBoxFountainhead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFountainhead.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxFountainhead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxFountainhead.TabIndex = 12;
-            this.groupBoxFountainhead.TabStop = false;
-            this.groupBoxFountainhead.Text = "Idols - Fountainhead";
-            // 
-            // listBoxFountainhead
-            // 
-            this.listBoxFountainhead.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxFountainhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxFountainhead.FormattingEnabled = true;
-            this.listBoxFountainhead.ItemHeight = 15;
-            this.listBoxFountainhead.Items.AddRange(new object[] {
-            "Fountainhead Palace",
-            "Vermilion Bridge",
-            "Mibu Manor",
-            "Flower Viewing Stage",
-            "Great Sakura",
-            "Palace Grounds",
-            "Feeding Grounds",
-            "Near Pot Noble",
-            "Sanctuary"});
-            this.listBoxFountainhead.Location = new System.Drawing.Point(64, 43);
-            this.listBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxFountainhead.Name = "listBoxFountainhead";
-            this.listBoxFountainhead.Size = new System.Drawing.Size(169, 139);
-            this.listBoxFountainhead.TabIndex = 4;
-            this.listBoxFountainhead.SelectedIndexChanged += new System.EventHandler(this.listBoxFountainhead_SelectedIndexChanged);
-            // 
-            // checkedListBoxFountainhead
-            // 
-            this.checkedListBoxFountainhead.BackColor = System.Drawing.Color.DodgerBlue;
-            this.checkedListBoxFountainhead.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.checkedListBoxFountainhead.FormattingEnabled = true;
-            this.checkedListBoxFountainhead.Items.AddRange(new object[] {
-            "Fountainhead Palace",
-            "Vermilion Bridge",
-            "Mibu Manor",
-            "Flower Viewing Stage",
-            "Great Sakura",
-            "Palace Grounds",
-            "Feeding Grounds",
-            "Near Pot Noble",
-            "Sanctuary"});
-            this.checkedListBoxFountainhead.Location = new System.Drawing.Point(23, 43);
-            this.checkedListBoxFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxFountainhead.Name = "checkedListBoxFountainhead";
-            this.checkedListBoxFountainhead.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxFountainhead.Size = new System.Drawing.Size(20, 139);
-            this.checkedListBoxFountainhead.TabIndex = 3;
-            // 
-            // groupBoxRadioFountainhead
-            // 
-            this.groupBoxRadioFountainhead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioFountainhead.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioFountainhead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioFountainhead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioFountainhead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioFountainhead.Controls.Add(this.btn_AddF);
-            this.groupBoxRadioFountainhead.Controls.Add(this.labelIdolSelectedF);
-            this.groupBoxRadioFountainhead.Controls.Add(this.radioLagF);
-            this.groupBoxRadioFountainhead.Controls.Add(this.radioImmF);
-            this.groupBoxRadioFountainhead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioFountainhead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioFountainhead.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioFountainhead.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioFountainhead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioFountainhead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioFountainhead.Name = "groupBoxRadioFountainhead";
-            this.groupBoxRadioFountainhead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioFountainhead.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioFountainhead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioFountainhead.TabIndex = 1;
-            this.groupBoxRadioFountainhead.TabStop = false;
-            this.groupBoxRadioFountainhead.Text = "Select";
-            // 
-            // btn_AddF
-            // 
-            this.btn_AddF.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddF.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddF.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddF.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddF.Image = null;
-            this.btn_AddF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddF.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddF.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddF.Name = "btn_AddF";
-            this.btn_AddF.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddF.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddF.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddF.TabIndex = 24;
-            this.btn_AddF.Text = "Add/Remove";
-            this.btn_AddF.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddF.Click += new System.EventHandler(this.btn_AddF_Click);
-            // 
-            // labelIdolSelectedF
-            // 
-            this.labelIdolSelectedF.AutoSize = true;
-            this.labelIdolSelectedF.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedF.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedF.Name = "labelIdolSelectedF";
-            this.labelIdolSelectedF.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedF.TabIndex = 23;
-            this.labelIdolSelectedF.Text = "???";
-            // 
-            // radioLagF
-            // 
-            this.radioLagF.AutoSize = true;
-            this.radioLagF.Location = new System.Drawing.Point(37, 83);
-            this.radioLagF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagF.Name = "radioLagF";
-            this.radioLagF.Size = new System.Drawing.Size(131, 18);
-            this.radioLagF.TabIndex = 20;
-            this.radioLagF.Text = "Loading game after";
-            this.radioLagF.UseVisualStyleBackColor = true;
-            // 
-            // radioImmF
-            // 
-            this.radioImmF.AutoSize = true;
-            this.radioImmF.Checked = true;
-            this.radioImmF.Location = new System.Drawing.Point(51, 60);
-            this.radioImmF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmF.Name = "radioImmF";
-            this.radioImmF.Size = new System.Drawing.Size(81, 18);
-            this.radioImmF.TabIndex = 21;
-            this.radioImmF.TabStop = true;
-            this.radioImmF.Text = "Inmediatly";
-            this.radioImmF.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxSenpouTemple
-            // 
-            this.groupBoxSenpouTemple.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxSenpouTemple.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxSenpouTemple.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxSenpouTemple.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxSenpouTemple.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxSenpouTemple.Controls.Add(this.listBoxSenpouTemple);
-            this.groupBoxSenpouTemple.Controls.Add(this.checkedListBoxSenpouTemple);
-            this.groupBoxSenpouTemple.Controls.Add(this.groupBoxRadioSenpouTemple);
-            this.groupBoxSenpouTemple.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxSenpouTemple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxSenpouTemple.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxSenpouTemple.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSenpouTemple.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxSenpouTemple.Name = "groupBoxSenpouTemple";
-            this.groupBoxSenpouTemple.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSenpouTemple.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxSenpouTemple.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxSenpouTemple.TabIndex = 9;
-            this.groupBoxSenpouTemple.TabStop = false;
-            this.groupBoxSenpouTemple.Text = "Idols - Senpou Temple";
-            // 
-            // listBoxSenpouTemple
-            // 
-            this.listBoxSenpouTemple.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxSenpouTemple.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxSenpouTemple.FormattingEnabled = true;
-            this.listBoxSenpouTemple.ItemHeight = 15;
-            this.listBoxSenpouTemple.Items.AddRange(new object[] {
-            "Senpou Temple, Mt. Kongo",
-            "Shugendo",
-            "Temple Grounds",
-            "Main Hall",
-            "Inner Sanctum",
-            "Sunken Valley Cavern",
-            "Bell Demon\'s Temple"});
-            this.listBoxSenpouTemple.Location = new System.Drawing.Point(67, 48);
-            this.listBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxSenpouTemple.Name = "listBoxSenpouTemple";
-            this.listBoxSenpouTemple.Size = new System.Drawing.Size(169, 124);
-            this.listBoxSenpouTemple.TabIndex = 4;
-            this.listBoxSenpouTemple.SelectedIndexChanged += new System.EventHandler(this.listBoxSenpouTemple_SelectedIndexChanged);
-            // 
-            // checkedListBoxSenpouTemple
-            // 
-            this.checkedListBoxSenpouTemple.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.checkedListBoxSenpouTemple.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxSenpouTemple.FormattingEnabled = true;
-            this.checkedListBoxSenpouTemple.Items.AddRange(new object[] {
-            "Senpou Temple, Mt. Kongo",
-            "Shugendo",
-            "Temple Grounds",
-            "Main Hall",
-            "Inner Sanctum",
-            "Sunken Valley Cavern",
-            "Bell Demon\'s Temple"});
-            this.checkedListBoxSenpouTemple.Location = new System.Drawing.Point(28, 49);
-            this.checkedListBoxSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxSenpouTemple.Name = "checkedListBoxSenpouTemple";
-            this.checkedListBoxSenpouTemple.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxSenpouTemple.Size = new System.Drawing.Size(21, 109);
-            this.checkedListBoxSenpouTemple.TabIndex = 3;
-            // 
-            // groupBoxRadioSenpouTemple
-            // 
-            this.groupBoxRadioSenpouTemple.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioSenpouTemple.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioSenpouTemple.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioSenpouTemple.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioSenpouTemple.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioSenpouTemple.Controls.Add(this.btn_AddTS);
-            this.groupBoxRadioSenpouTemple.Controls.Add(this.labelIdolSelectedTS);
-            this.groupBoxRadioSenpouTemple.Controls.Add(this.radioLagTS);
-            this.groupBoxRadioSenpouTemple.Controls.Add(this.radioImmTS);
-            this.groupBoxRadioSenpouTemple.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioSenpouTemple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioSenpouTemple.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioSenpouTemple.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioSenpouTemple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioSenpouTemple.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioSenpouTemple.Name = "groupBoxRadioSenpouTemple";
-            this.groupBoxRadioSenpouTemple.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioSenpouTemple.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioSenpouTemple.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioSenpouTemple.TabIndex = 1;
-            this.groupBoxRadioSenpouTemple.TabStop = false;
-            this.groupBoxRadioSenpouTemple.Text = "Select";
-            // 
-            // btn_AddTS
-            // 
-            this.btn_AddTS.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddTS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddTS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddTS.Image = null;
-            this.btn_AddTS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddTS.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddTS.Name = "btn_AddTS";
-            this.btn_AddTS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddTS.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddTS.TabIndex = 24;
-            this.btn_AddTS.Text = "Add/Remove";
-            this.btn_AddTS.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddTS.Click += new System.EventHandler(this.btn_AddTS_Click);
-            // 
-            // labelIdolSelectedTS
-            // 
-            this.labelIdolSelectedTS.AutoSize = true;
-            this.labelIdolSelectedTS.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedTS.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedTS.Name = "labelIdolSelectedTS";
-            this.labelIdolSelectedTS.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedTS.TabIndex = 23;
-            this.labelIdolSelectedTS.Text = "???";
-            // 
-            // radioLagTS
-            // 
-            this.radioLagTS.AutoSize = true;
-            this.radioLagTS.Location = new System.Drawing.Point(37, 83);
-            this.radioLagTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagTS.Name = "radioLagTS";
-            this.radioLagTS.Size = new System.Drawing.Size(131, 18);
-            this.radioLagTS.TabIndex = 20;
-            this.radioLagTS.Text = "Loading game after";
-            this.radioLagTS.UseVisualStyleBackColor = true;
-            // 
-            // radioImmTS
-            // 
-            this.radioImmTS.AutoSize = true;
-            this.radioImmTS.Checked = true;
-            this.radioImmTS.Location = new System.Drawing.Point(51, 60);
-            this.radioImmTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmTS.Name = "radioImmTS";
-            this.radioImmTS.Size = new System.Drawing.Size(81, 18);
-            this.radioImmTS.TabIndex = 21;
-            this.radioImmTS.TabStop = true;
-            this.radioImmTS.Text = "Inmediatly";
-            this.radioImmTS.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxSunkenValley
-            // 
-            this.groupBoxSunkenValley.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxSunkenValley.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxSunkenValley.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxSunkenValley.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxSunkenValley.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxSunkenValley.Controls.Add(this.listBoxSunkenValley);
-            this.groupBoxSunkenValley.Controls.Add(this.checkedListBoxSunkenValley);
-            this.groupBoxSunkenValley.Controls.Add(this.groupBoxRadioSunkenValley);
-            this.groupBoxSunkenValley.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxSunkenValley.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxSunkenValley.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxSunkenValley.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSunkenValley.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxSunkenValley.Name = "groupBoxSunkenValley";
-            this.groupBoxSunkenValley.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSunkenValley.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxSunkenValley.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxSunkenValley.TabIndex = 10;
-            this.groupBoxSunkenValley.TabStop = false;
-            this.groupBoxSunkenValley.Text = "Idols - Sunken Valley";
-            // 
-            // listBoxSunkenValley
-            // 
-            this.listBoxSunkenValley.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxSunkenValley.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxSunkenValley.FormattingEnabled = true;
-            this.listBoxSunkenValley.ItemHeight = 15;
-            this.listBoxSunkenValley.Items.AddRange(new object[] {
-            "Under-Shrine Valley",
-            "Sunken Valley",
-            "Gun Fort",
-            "Riven Cave",
-            "Bodhisattva Valley",
-            "Guardian Ape\'s Watering Hole"});
-            this.listBoxSunkenValley.Location = new System.Drawing.Point(60, 56);
-            this.listBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxSunkenValley.Name = "listBoxSunkenValley";
-            this.listBoxSunkenValley.Size = new System.Drawing.Size(178, 109);
-            this.listBoxSunkenValley.TabIndex = 4;
-            this.listBoxSunkenValley.SelectedIndexChanged += new System.EventHandler(this.listBoxSunkenValley_SelectedIndexChanged);
-            // 
-            // checkedListBoxSunkenValley
-            // 
-            this.checkedListBoxSunkenValley.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.checkedListBoxSunkenValley.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxSunkenValley.FormattingEnabled = true;
-            this.checkedListBoxSunkenValley.Items.AddRange(new object[] {
-            "Under-Shrine Valley",
-            "Sunken Valley",
-            "Gun Fort",
-            "Riven Cave",
-            "Bodhisattva Valley",
-            "Guardian Ape\'s Watering Hole"});
-            this.checkedListBoxSunkenValley.Location = new System.Drawing.Point(25, 57);
-            this.checkedListBoxSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxSunkenValley.Name = "checkedListBoxSunkenValley";
-            this.checkedListBoxSunkenValley.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxSunkenValley.Size = new System.Drawing.Size(21, 94);
-            this.checkedListBoxSunkenValley.TabIndex = 3;
-            // 
-            // groupBoxRadioSunkenValley
-            // 
-            this.groupBoxRadioSunkenValley.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioSunkenValley.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioSunkenValley.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioSunkenValley.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioSunkenValley.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioSunkenValley.Controls.Add(this.btn_AddSV);
-            this.groupBoxRadioSunkenValley.Controls.Add(this.labelIdolSelectedSV);
-            this.groupBoxRadioSunkenValley.Controls.Add(this.radioLagSV);
-            this.groupBoxRadioSunkenValley.Controls.Add(this.radioImmSV);
-            this.groupBoxRadioSunkenValley.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioSunkenValley.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioSunkenValley.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioSunkenValley.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioSunkenValley.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioSunkenValley.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioSunkenValley.Name = "groupBoxRadioSunkenValley";
-            this.groupBoxRadioSunkenValley.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioSunkenValley.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioSunkenValley.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioSunkenValley.TabIndex = 1;
-            this.groupBoxRadioSunkenValley.TabStop = false;
-            this.groupBoxRadioSunkenValley.Text = "Select";
-            // 
-            // btn_AddSV
-            // 
-            this.btn_AddSV.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddSV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddSV.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddSV.Image = null;
-            this.btn_AddSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddSV.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddSV.Name = "btn_AddSV";
-            this.btn_AddSV.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddSV.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddSV.TabIndex = 24;
-            this.btn_AddSV.Text = "Add/Remove";
-            this.btn_AddSV.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddSV.Click += new System.EventHandler(this.btn_AddSV_Click);
-            // 
-            // labelIdolSelectedSV
-            // 
-            this.labelIdolSelectedSV.AutoSize = true;
-            this.labelIdolSelectedSV.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedSV.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedSV.Name = "labelIdolSelectedSV";
-            this.labelIdolSelectedSV.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedSV.TabIndex = 23;
-            this.labelIdolSelectedSV.Text = "???";
-            // 
-            // radioLagSV
-            // 
-            this.radioLagSV.AutoSize = true;
-            this.radioLagSV.Location = new System.Drawing.Point(37, 83);
-            this.radioLagSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagSV.Name = "radioLagSV";
-            this.radioLagSV.Size = new System.Drawing.Size(131, 18);
-            this.radioLagSV.TabIndex = 20;
-            this.radioLagSV.Text = "Loading game after";
-            this.radioLagSV.UseVisualStyleBackColor = true;
-            // 
-            // radioImmSV
-            // 
-            this.radioImmSV.AutoSize = true;
-            this.radioImmSV.Checked = true;
-            this.radioImmSV.Location = new System.Drawing.Point(51, 60);
-            this.radioImmSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmSV.Name = "radioImmSV";
-            this.radioImmSV.Size = new System.Drawing.Size(81, 18);
-            this.radioImmSV.TabIndex = 21;
-            this.radioImmSV.TabStop = true;
-            this.radioImmSV.Text = "Inmediatly";
-            this.radioImmSV.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxHirataEstate
-            // 
-            this.groupBoxHirataEstate.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxHirataEstate.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxHirataEstate.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxHirataEstate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxHirataEstate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxHirataEstate.Controls.Add(this.listBoxHirataEstate);
-            this.groupBoxHirataEstate.Controls.Add(this.checkedListBoxHirataEstate);
-            this.groupBoxHirataEstate.Controls.Add(this.groupBoxRadioHirataEstate);
-            this.groupBoxHirataEstate.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxHirataEstate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxHirataEstate.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxHirataEstate.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxHirataEstate.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxHirataEstate.Name = "groupBoxHirataEstate";
-            this.groupBoxHirataEstate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxHirataEstate.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxHirataEstate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxHirataEstate.TabIndex = 7;
-            this.groupBoxHirataEstate.Text = "Idols  - Hirata Estate";
-            // 
-            // listBoxHirataEstate
-            // 
-            this.listBoxHirataEstate.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxHirataEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxHirataEstate.FormattingEnabled = true;
-            this.listBoxHirataEstate.ItemHeight = 15;
-            this.listBoxHirataEstate.Items.AddRange(new object[] {
-            "Dragonspring - Hirata Estate",
-            "Estate Path",
-            "Bamboo Thicket Slope",
-            "Hirata Estate - Main Hal",
-            "Hirata Estate - Hidden Temple",
-            "Hirata Audience Chamber"});
-            this.listBoxHirataEstate.Location = new System.Drawing.Point(58, 56);
-            this.listBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxHirataEstate.Name = "listBoxHirataEstate";
-            this.listBoxHirataEstate.Size = new System.Drawing.Size(178, 109);
-            this.listBoxHirataEstate.TabIndex = 4;
-            this.listBoxHirataEstate.SelectedIndexChanged += new System.EventHandler(this.listBoxHirataEstate_SelectedIndexChanged);
-            // 
-            // checkedListBoxHirataEstate
-            // 
-            this.checkedListBoxHirataEstate.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.checkedListBoxHirataEstate.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxHirataEstate.FormattingEnabled = true;
-            this.checkedListBoxHirataEstate.Items.AddRange(new object[] {
-            "Dragonspring - Hirata Estate",
-            "Estate Path",
-            "Bamboo Thicket Slope",
-            "Hirata Estate - Main Hal",
-            "Hirata Estate - Hidden Temple",
-            "Hirata Audience Chamber"});
-            this.checkedListBoxHirataEstate.Location = new System.Drawing.Point(22, 59);
-            this.checkedListBoxHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxHirataEstate.Name = "checkedListBoxHirataEstate";
-            this.checkedListBoxHirataEstate.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxHirataEstate.Size = new System.Drawing.Size(21, 94);
-            this.checkedListBoxHirataEstate.TabIndex = 3;
-            // 
-            // groupBoxRadioHirataEstate
-            // 
-            this.groupBoxRadioHirataEstate.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioHirataEstate.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioHirataEstate.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioHirataEstate.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioHirataEstate.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioHirataEstate.Controls.Add(this.btnAddHirata);
-            this.groupBoxRadioHirataEstate.Controls.Add(this.labelIdolSelectedHE);
-            this.groupBoxRadioHirataEstate.Controls.Add(this.radioLagHE);
-            this.groupBoxRadioHirataEstate.Controls.Add(this.radioImmHE);
-            this.groupBoxRadioHirataEstate.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioHirataEstate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioHirataEstate.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioHirataEstate.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioHirataEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioHirataEstate.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioHirataEstate.Name = "groupBoxRadioHirataEstate";
-            this.groupBoxRadioHirataEstate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioHirataEstate.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioHirataEstate.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioHirataEstate.TabIndex = 1;
-            this.groupBoxRadioHirataEstate.TabStop = false;
-            this.groupBoxRadioHirataEstate.Text = "Select";
-            // 
-            // btnAddHirata
-            // 
-            this.btnAddHirata.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddHirata.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddHirata.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddHirata.Image = null;
-            this.btnAddHirata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddHirata.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.Location = new System.Drawing.Point(48, 110);
-            this.btnAddHirata.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddHirata.Name = "btnAddHirata";
-            this.btnAddHirata.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddHirata.Size = new System.Drawing.Size(99, 21);
-            this.btnAddHirata.TabIndex = 24;
-            this.btnAddHirata.Text = "Add/Remove";
-            this.btnAddHirata.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddHirata.Click += new System.EventHandler(this.btnAddHirata_Click);
-            // 
-            // labelIdolSelectedHE
-            // 
-            this.labelIdolSelectedHE.AutoSize = true;
-            this.labelIdolSelectedHE.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedHE.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedHE.Name = "labelIdolSelectedHE";
-            this.labelIdolSelectedHE.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedHE.TabIndex = 23;
-            this.labelIdolSelectedHE.Text = "???";
-            // 
-            // radioLagHE
-            // 
-            this.radioLagHE.AutoSize = true;
-            this.radioLagHE.Location = new System.Drawing.Point(37, 83);
-            this.radioLagHE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagHE.Name = "radioLagHE";
-            this.radioLagHE.Size = new System.Drawing.Size(131, 18);
-            this.radioLagHE.TabIndex = 20;
-            this.radioLagHE.Text = "Loading game after";
-            this.radioLagHE.UseVisualStyleBackColor = true;
-            // 
-            // radioImmHE
-            // 
-            this.radioImmHE.AutoSize = true;
-            this.radioImmHE.Checked = true;
-            this.radioImmHE.Location = new System.Drawing.Point(51, 60);
-            this.radioImmHE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmHE.Name = "radioImmHE";
-            this.radioImmHE.Size = new System.Drawing.Size(81, 18);
-            this.radioImmHE.TabIndex = 21;
-            this.radioImmHE.TabStop = true;
-            this.radioImmHE.Text = "Inmediatly";
-            this.radioImmHE.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxAshinaDepths
-            // 
-            this.groupBoxAshinaDepths.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaDepths.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBoxAshinaDepths.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxAshinaDepths.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxAshinaDepths.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxAshinaDepths.Controls.Add(this.listBoxAshinaDepths);
-            this.groupBoxAshinaDepths.Controls.Add(this.checkedListBoxAshinaDepths);
-            this.groupBoxAshinaDepths.Controls.Add(this.groupBoxRadioAshinaDepths);
-            this.groupBoxAshinaDepths.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxAshinaDepths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxAshinaDepths.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxAshinaDepths.Location = new System.Drawing.Point(44, 49);
-            this.groupBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaDepths.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxAshinaDepths.Name = "groupBoxAshinaDepths";
-            this.groupBoxAshinaDepths.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxAshinaDepths.Size = new System.Drawing.Size(450, 200);
-            this.groupBoxAshinaDepths.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxAshinaDepths.TabIndex = 11;
-            this.groupBoxAshinaDepths.TabStop = false;
-            this.groupBoxAshinaDepths.Text = "Idols - Ashina Depths";
-            // 
-            // listBoxAshinaDepths
-            // 
-            this.listBoxAshinaDepths.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxAshinaDepths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxAshinaDepths.FormattingEnabled = true;
-            this.listBoxAshinaDepths.ItemHeight = 15;
-            this.listBoxAshinaDepths.Items.AddRange(new object[] {
-            "Ashina Depths",
-            "Poison Pool",
-            "Guardian Ape\'s Burrow",
-            "Hidden Forest",
-            "Mibu Village",
-            "Water Mill",
-            "Wedding Cave Door"});
-            this.listBoxAshinaDepths.Location = new System.Drawing.Point(62, 60);
-            this.listBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAshinaDepths.Name = "listBoxAshinaDepths";
-            this.listBoxAshinaDepths.Size = new System.Drawing.Size(169, 109);
-            this.listBoxAshinaDepths.TabIndex = 4;
-            this.listBoxAshinaDepths.SelectedIndexChanged += new System.EventHandler(this.listBoxAshinaDepths_SelectedIndexChanged);
-            // 
-            // checkedListBoxAshinaDepths
-            // 
-            this.checkedListBoxAshinaDepths.BackColor = System.Drawing.Color.DodgerBlue;
-            this.checkedListBoxAshinaDepths.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.checkedListBoxAshinaDepths.FormattingEnabled = true;
-            this.checkedListBoxAshinaDepths.Items.AddRange(new object[] {
-            "Ashina Depths",
-            "Poison Pool",
-            "Guardian Ape\'s Burrow",
-            "Hidden Forest",
-            "Mibu Village",
-            "Water Mill",
-            "Wedding Cave Door"});
-            this.checkedListBoxAshinaDepths.Location = new System.Drawing.Point(24, 60);
-            this.checkedListBoxAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkedListBoxAshinaDepths.Name = "checkedListBoxAshinaDepths";
-            this.checkedListBoxAshinaDepths.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.checkedListBoxAshinaDepths.Size = new System.Drawing.Size(21, 109);
-            this.checkedListBoxAshinaDepths.TabIndex = 3;
-            // 
-            // groupBoxRadioAshinaDepths
-            // 
-            this.groupBoxRadioAshinaDepths.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAshinaDepths.BackGColor = System.Drawing.Color.PaleTurquoise;
-            this.groupBoxRadioAshinaDepths.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxRadioAshinaDepths.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxRadioAshinaDepths.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxRadioAshinaDepths.Controls.Add(this.btn_AddADe);
-            this.groupBoxRadioAshinaDepths.Controls.Add(this.labelIdolSelectedADe);
-            this.groupBoxRadioAshinaDepths.Controls.Add(this.radioLagADe);
-            this.groupBoxRadioAshinaDepths.Controls.Add(this.radioImmADe);
-            this.groupBoxRadioAshinaDepths.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxRadioAshinaDepths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxRadioAshinaDepths.HeaderColor = System.Drawing.Color.DarkTurquoise;
-            this.groupBoxRadioAshinaDepths.Location = new System.Drawing.Point(246, 24);
-            this.groupBoxRadioAshinaDepths.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAshinaDepths.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxRadioAshinaDepths.Name = "groupBoxRadioAshinaDepths";
-            this.groupBoxRadioAshinaDepths.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxRadioAshinaDepths.Size = new System.Drawing.Size(189, 161);
-            this.groupBoxRadioAshinaDepths.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxRadioAshinaDepths.TabIndex = 1;
-            this.groupBoxRadioAshinaDepths.TabStop = false;
-            this.groupBoxRadioAshinaDepths.Text = "Select";
-            // 
-            // btn_AddADe
-            // 
-            this.btn_AddADe.BackColor = System.Drawing.Color.Transparent;
-            this.btn_AddADe.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddADe.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddADe.Image = null;
-            this.btn_AddADe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddADe.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.Location = new System.Drawing.Point(48, 110);
-            this.btn_AddADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_AddADe.Name = "btn_AddADe";
-            this.btn_AddADe.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_AddADe.Size = new System.Drawing.Size(99, 21);
-            this.btn_AddADe.TabIndex = 24;
-            this.btn_AddADe.Text = "Add/Remove";
-            this.btn_AddADe.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_AddADe.Click += new System.EventHandler(this.btn_AddADe_Click);
-            // 
-            // labelIdolSelectedADe
-            // 
-            this.labelIdolSelectedADe.AutoSize = true;
-            this.labelIdolSelectedADe.ForeColor = System.Drawing.Color.Red;
-            this.labelIdolSelectedADe.Location = new System.Drawing.Point(15, 30);
-            this.labelIdolSelectedADe.Name = "labelIdolSelectedADe";
-            this.labelIdolSelectedADe.Size = new System.Drawing.Size(25, 14);
-            this.labelIdolSelectedADe.TabIndex = 23;
-            this.labelIdolSelectedADe.Text = "???";
-            // 
-            // radioLagADe
-            // 
-            this.radioLagADe.AutoSize = true;
-            this.radioLagADe.Location = new System.Drawing.Point(37, 83);
-            this.radioLagADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioLagADe.Name = "radioLagADe";
-            this.radioLagADe.Size = new System.Drawing.Size(131, 18);
-            this.radioLagADe.TabIndex = 20;
-            this.radioLagADe.Text = "Loading game after";
-            this.radioLagADe.UseVisualStyleBackColor = true;
-            // 
-            // radioImmADe
-            // 
-            this.radioImmADe.AutoSize = true;
-            this.radioImmADe.Checked = true;
-            this.radioImmADe.Location = new System.Drawing.Point(51, 60);
-            this.radioImmADe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioImmADe.Name = "radioImmADe";
-            this.radioImmADe.Size = new System.Drawing.Size(81, 18);
-            this.radioImmADe.TabIndex = 21;
-            this.radioImmADe.TabStop = true;
-            this.radioImmADe.Text = "Inmediatly";
-            this.radioImmADe.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxZoneSelectS
-            // 
-            this.comboBoxZoneSelectS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.comboBoxZoneSelectS.ColorA = System.Drawing.Color.Transparent;
-            this.comboBoxZoneSelectS.ColorB = System.Drawing.Color.Silver;
-            this.comboBoxZoneSelectS.ColorC = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxZoneSelectS.ColorD = System.Drawing.Color.Gold;
-            this.comboBoxZoneSelectS.ColorE = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxZoneSelectS.ColorF = System.Drawing.Color.LightSeaGreen;
-            this.comboBoxZoneSelectS.ColorG = System.Drawing.Color.ForestGreen;
-            this.comboBoxZoneSelectS.ColorH = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxZoneSelectS.ColorI = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxZoneSelectS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxZoneSelectS.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxZoneSelectS.DropDownHeight = 100;
-            this.comboBoxZoneSelectS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxZoneSelectS.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxZoneSelectS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
-            this.comboBoxZoneSelectS.FormattingEnabled = true;
-            this.comboBoxZoneSelectS.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.comboBoxZoneSelectS.IntegralHeight = false;
-            this.comboBoxZoneSelectS.ItemHeight = 20;
-            this.comboBoxZoneSelectS.Items.AddRange(new object[] {
-            "Ashina Outskirts",
-            "Hirata Estate",
-            "Ashina Castle",
-            "Abandoned Dungeon",
-            "Senpou Temple",
-            "Sunken Valley",
-            "Ashina Depths",
-            "Fountainhead Palace"});
-            this.comboBoxZoneSelectS.Location = new System.Drawing.Point(94, 15);
-            this.comboBoxZoneSelectS.Name = "comboBoxZoneSelectS";
-            this.comboBoxZoneSelectS.Size = new System.Drawing.Size(370, 26);
-            this.comboBoxZoneSelectS.StartIndex = -1;
-            this.comboBoxZoneSelectS.TabIndex = 27;
-            this.comboBoxZoneSelectS.SelectedIndexChanged += new System.EventHandler(this.comboBoxZoneSelect_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(31, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Location";
-            // 
-            // panelMortalJourney
-            // 
-            this.panelMortalJourney.BackColor = System.Drawing.Color.White;
-            this.panelMortalJourney.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelMortalJourney.Controls.Add(this.hopeTextBoxMortal);
-            this.panelMortalJourney.Controls.Add(this.groupBoxMJS);
-            this.panelMortalJourney.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelMortalJourney.ForeColor = System.Drawing.Color.White;
-            this.panelMortalJourney.Location = new System.Drawing.Point(34, 85);
-            this.panelMortalJourney.Name = "panelMortalJourney";
-            this.panelMortalJourney.Padding = new System.Windows.Forms.Padding(5);
-            this.panelMortalJourney.ShowText = false;
-            this.panelMortalJourney.Size = new System.Drawing.Size(539, 262);
-            this.panelMortalJourney.TabIndex = 13;
-            this.panelMortalJourney.Text = "lostBorderPanel1";
-            // 
-            // hopeTextBoxMortal
-            // 
-            this.hopeTextBoxMortal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.hopeTextBoxMortal.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.hopeTextBoxMortal.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeTextBoxMortal.BorderColorB = System.Drawing.Color.DarkSlateGray;
-            this.hopeTextBoxMortal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hopeTextBoxMortal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.hopeTextBoxMortal.Hint = "";
-            this.hopeTextBoxMortal.Location = new System.Drawing.Point(46, 118);
-            this.hopeTextBoxMortal.MaxLength = 32767;
-            this.hopeTextBoxMortal.Multiline = true;
-            this.hopeTextBoxMortal.Name = "hopeTextBoxMortal";
-            this.hopeTextBoxMortal.PasswordChar = '\0';
-            this.hopeTextBoxMortal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.hopeTextBoxMortal.SelectedText = "";
-            this.hopeTextBoxMortal.SelectionLength = 0;
-            this.hopeTextBoxMortal.SelectionStart = 0;
-            this.hopeTextBoxMortal.Size = new System.Drawing.Size(444, 131);
-            this.hopeTextBoxMortal.TabIndex = 28;
-            this.hopeTextBoxMortal.TabStop = false;
-            this.hopeTextBoxMortal.Text = resources.GetString("hopeTextBoxMortal.Text");
-            this.hopeTextBoxMortal.UseSystemPasswordChar = false;
-            // 
-            // groupBoxMJS
-            // 
-            this.groupBoxMJS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxMJS.BackGColor = System.Drawing.Color.Firebrick;
-            this.groupBoxMJS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxMJS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxMJS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxMJS.Controls.Add(this.checkBoxMortalJourneyRun);
-            this.groupBoxMJS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxMJS.ForeColor = System.Drawing.Color.White;
-            this.groupBoxMJS.HeaderColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxMJS.Location = new System.Drawing.Point(165, 8);
-            this.groupBoxMJS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxMJS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxMJS.Name = "groupBoxMJS";
-            this.groupBoxMJS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxMJS.Size = new System.Drawing.Size(201, 99);
-            this.groupBoxMJS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxMJS.TabIndex = 0;
-            this.groupBoxMJS.TabStop = false;
-            this.groupBoxMJS.Text = "Mortal Journey";
-            // 
-            // checkBoxMortalJourneyRun
-            // 
-            this.checkBoxMortalJourneyRun.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxMortalJourneyRun.BackgroundColor = System.Drawing.Color.White;
-            this.checkBoxMortalJourneyRun.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.checkBoxMortalJourneyRun.Checked = false;
-            this.checkBoxMortalJourneyRun.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.checkBoxMortalJourneyRun.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Unchecked;
-            this.checkBoxMortalJourneyRun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxMortalJourneyRun.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.checkBoxMortalJourneyRun.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMortalJourneyRun.IsDerivedStyle = true;
-            this.checkBoxMortalJourneyRun.Location = new System.Drawing.Point(68, 48);
-            this.checkBoxMortalJourneyRun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxMortalJourneyRun.Name = "checkBoxMortalJourneyRun";
-            this.checkBoxMortalJourneyRun.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
-            this.checkBoxMortalJourneyRun.Size = new System.Drawing.Size(69, 16);
-            this.checkBoxMortalJourneyRun.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            this.checkBoxMortalJourneyRun.StyleManager = null;
-            this.checkBoxMortalJourneyRun.TabIndex = 27;
-            this.checkBoxMortalJourneyRun.Text = "Enable";
-            this.checkBoxMortalJourneyRun.ThemeAuthor = "Taiizor";
-            this.checkBoxMortalJourneyRun.ThemeName = "MetroLight";
-            this.checkBoxMortalJourneyRun.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.checkBoxMortalJourneyRun_CheckedChanged);
-            // 
-            // toSplitSelectSekiro
-            // 
-            this.toSplitSelectSekiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.toSplitSelectSekiro.ColorA = System.Drawing.Color.Transparent;
-            this.toSplitSelectSekiro.ColorB = System.Drawing.Color.DarkTurquoise;
-            this.toSplitSelectSekiro.ColorC = System.Drawing.Color.WhiteSmoke;
-            this.toSplitSelectSekiro.ColorD = System.Drawing.Color.PaleTurquoise;
-            this.toSplitSelectSekiro.ColorE = System.Drawing.Color.WhiteSmoke;
-            this.toSplitSelectSekiro.ColorF = System.Drawing.Color.LightSeaGreen;
-            this.toSplitSelectSekiro.ColorG = System.Drawing.Color.DarkGreen;
-            this.toSplitSelectSekiro.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
-            this.toSplitSelectSekiro.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.toSplitSelectSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toSplitSelectSekiro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.toSplitSelectSekiro.DropDownHeight = 100;
-            this.toSplitSelectSekiro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toSplitSelectSekiro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toSplitSelectSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
-            this.toSplitSelectSekiro.FormattingEnabled = true;
-            this.toSplitSelectSekiro.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.toSplitSelectSekiro.IntegralHeight = false;
-            this.toSplitSelectSekiro.ItemHeight = 20;
-            this.toSplitSelectSekiro.Items.AddRange(new object[] {
-            "Kill a Boss",
-            "Kill a MiniBoss",
-            "Is Activated a Idol",
-            "Trigger a Position",
-            "Mortal Journey",
-            "Attribute",
-            "Custom Flags"});
-            this.toSplitSelectSekiro.Location = new System.Drawing.Point(85, 53);
-            this.toSplitSelectSekiro.Name = "toSplitSelectSekiro";
-            this.toSplitSelectSekiro.Size = new System.Drawing.Size(439, 26);
-            this.toSplitSelectSekiro.StartIndex = -1;
-            this.toSplitSelectSekiro.TabIndex = 12;
-            this.toSplitSelectSekiro.SelectedIndexChanged += new System.EventHandler(this.toSplitSelectSekiro_SelectedIndexChanged);
-            // 
-            // btnRefreshSekiro
-            // 
-            this.btnRefreshSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefreshSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefreshSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshSekiro.Image = null;
-            this.btnRefreshSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefreshSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.Location = new System.Drawing.Point(519, 21);
-            this.btnRefreshSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRefreshSekiro.Name = "btnRefreshSekiro";
-            this.btnRefreshSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshSekiro.Size = new System.Drawing.Size(65, 21);
-            this.btnRefreshSekiro.TabIndex = 11;
-            this.btnRefreshSekiro.Text = "Refresh";
-            this.btnRefreshSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshSekiro.Click += new System.EventHandler(this.Refresh_Btn);
-            // 
-            // btnDesactiveSekiro
-            // 
-            this.btnDesactiveSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactiveSekiro.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactiveSekiro.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactiveSekiro.Image = null;
-            this.btnDesactiveSekiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesactiveSekiro.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.Location = new System.Drawing.Point(27, 19);
-            this.btnDesactiveSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDesactiveSekiro.Name = "btnDesactiveSekiro";
-            this.btnDesactiveSekiro.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveSekiro.Size = new System.Drawing.Size(93, 24);
-            this.btnDesactiveSekiro.TabIndex = 8;
-            this.btnDesactiveSekiro.Text = "Desactive All";
-            this.btnDesactiveSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDesactiveSekiro.Click += new System.EventHandler(this.btnDesactiveSekiro_Click);
-            // 
-            // sekiroRunning
-            // 
-            this.sekiroRunning.AutoSize = true;
-            this.sekiroRunning.BackColor = System.Drawing.Color.Transparent;
-            this.sekiroRunning.Font = new System.Drawing.Font("Microsoft Uighur", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sekiroRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.sekiroRunning.Location = new System.Drawing.Point(370, 18);
-            this.sekiroRunning.Name = "sekiroRunning";
-            this.sekiroRunning.Size = new System.Drawing.Size(115, 28);
-            this.sekiroRunning.TabIndex = 7;
-            this.sekiroRunning.Text = "Sekiro is Running";
-            // 
-            // SekiroNotRunning
-            // 
-            this.SekiroNotRunning.AutoSize = true;
-            this.SekiroNotRunning.BackColor = System.Drawing.Color.Transparent;
-            this.SekiroNotRunning.Font = new System.Drawing.Font("Microsoft Uighur", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SekiroNotRunning.ForeColor = System.Drawing.Color.Red;
-            this.SekiroNotRunning.Location = new System.Drawing.Point(370, 18);
-            this.SekiroNotRunning.Name = "SekiroNotRunning";
-            this.SekiroNotRunning.Size = new System.Drawing.Size(140, 28);
-            this.SekiroNotRunning.TabIndex = 6;
-            this.SekiroNotRunning.Text = "Sekiro is Not Running";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "when";
-            // 
             // tabDs1
             // 
             this.tabDs1.BackColor = System.Drawing.Color.White;
-            this.tabDs1.Controls.Add(this.panelBonfireDs1);
             this.tabDs1.Controls.Add(this.panelBossDs1);
+            this.tabDs1.Controls.Add(this.panelBonfireDs1);
             this.tabDs1.Controls.Add(this.panelLvlDs1);
             this.tabDs1.Controls.Add(this.panelPositionDs1);
             this.tabDs1.Controls.Add(this.panelItemDs1);
@@ -5462,6 +5598,199 @@ namespace AutoSplitterCore
             this.tabDs1.VerticalScrollbarBarColor = true;
             this.tabDs1.VerticalScrollbarHighlightOnWheel = false;
             this.tabDs1.VerticalScrollbarSize = 10;
+            // 
+            // panelBossDs1
+            // 
+            this.panelBossDs1.BackColor = System.Drawing.Color.White;
+            this.panelBossDs1.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelBossDs1.Controls.Add(this.btnAddAllBossesDs1);
+            this.panelBossDs1.Controls.Add(this.comboBoxBossDs1);
+            this.panelBossDs1.Controls.Add(this.panel8);
+            this.panelBossDs1.Controls.Add(this.comboBoxHowBossDs1);
+            this.panelBossDs1.Controls.Add(this.label23);
+            this.panelBossDs1.Controls.Add(this.btnAddBossDs1);
+            this.panelBossDs1.Controls.Add(this.label62);
+            this.panelBossDs1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelBossDs1.ForeColor = System.Drawing.Color.White;
+            this.panelBossDs1.Location = new System.Drawing.Point(34, 85);
+            this.panelBossDs1.Name = "panelBossDs1";
+            this.panelBossDs1.Padding = new System.Windows.Forms.Padding(5);
+            this.panelBossDs1.ShowText = false;
+            this.panelBossDs1.Size = new System.Drawing.Size(539, 262);
+            this.panelBossDs1.TabIndex = 29;
+            this.panelBossDs1.Text = "lostBorderPanel1";
+            // 
+            // btnAddAllBossesDs1
+            // 
+            this.btnAddAllBossesDs1.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAllBossesDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAllBossesDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAllBossesDs1.Image = null;
+            this.btnAddAllBossesDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAllBossesDs1.InactiveColor = System.Drawing.Color.Chocolate;
+            this.btnAddAllBossesDs1.Location = new System.Drawing.Point(276, 66);
+            this.btnAddAllBossesDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAllBossesDs1.Name = "btnAddAllBossesDs1";
+            this.btnAddAllBossesDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAllBossesDs1.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAllBossesDs1.TabIndex = 29;
+            this.btnAddAllBossesDs1.Text = "Add All";
+            this.btnAddAllBossesDs1.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // comboBoxBossDs1
+            // 
+            this.comboBoxBossDs1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxBossDs1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxBossDs1.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxBossDs1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBossDs1.FormattingEnabled = true;
+            this.comboBoxBossDs1.Items.AddRange(new object[] {
+            "Asylum Demon",
+            "Bell Gargoyle",
+            "Capra Demon",
+            "Ceaseless Discharge",
+            "Centipede Demon",
+            "Chaos Witch Quelaag",
+            "Crossbreed Priscilla",
+            "Dark Sun Gwyndolin",
+            "Demon Firesage",
+            "Four Kings",
+            "Gaping Dragon",
+            "Great Grey Wolf Sif",
+            "Gwyn Lord of Cinder",
+            "Iron Golem",
+            "Moonlight Butterfly",
+            "Nito",
+            "Ornstein And Smough",
+            "Pinwheel",
+            "Seath the Scaleless",
+            "Stray Demon",
+            "Taurus Demon",
+            "The Bed of Chaos",
+            "Artorias the Abysswalker",
+            "Black Dragon Kalameet",
+            "Manus, Father of the Abyss",
+            "Sanctuary Guardian"});
+            this.comboBoxBossDs1.Location = new System.Drawing.Point(192, 32);
+            this.comboBoxBossDs1.MaxDropDownItems = 2;
+            this.comboBoxBossDs1.Name = "comboBoxBossDs1";
+            this.comboBoxBossDs1.Size = new System.Drawing.Size(317, 22);
+            this.comboBoxBossDs1.TabIndex = 27;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel8.Controls.Add(this.listBoxBossDs1);
+            this.panel8.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel8.Location = new System.Drawing.Point(15, 95);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(5);
+            this.panel8.Size = new System.Drawing.Size(508, 156);
+            this.panel8.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel8.TabIndex = 26;
+            this.panel8.Text = "panel8";
+            // 
+            // listBoxBossDs1
+            // 
+            this.listBoxBossDs1.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxBossDs1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxBossDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxBossDs1.FormattingEnabled = true;
+            this.listBoxBossDs1.ItemHeight = 14;
+            this.listBoxBossDs1.Location = new System.Drawing.Point(5, 6);
+            this.listBoxBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxBossDs1.Name = "listBoxBossDs1";
+            this.listBoxBossDs1.Size = new System.Drawing.Size(497, 142);
+            this.listBoxBossDs1.TabIndex = 7;
+            this.listBoxBossDs1.DoubleClick += new System.EventHandler(this.listBoxBossDs1_DoubleClick);
+            // 
+            // comboBoxHowBossDs1
+            // 
+            this.comboBoxHowBossDs1.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowBossDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowBossDs1.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowBossDs1.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossDs1.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowBossDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowBossDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowBossDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowBossDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowBossDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowBossDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowBossDs1.FormattingEnabled = true;
+            this.comboBoxHowBossDs1.ItemHeight = 16;
+            this.comboBoxHowBossDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowBossDs1.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowBossDs1.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowBossDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossDs1.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowBossDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowBossDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowBossDs1.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowBossDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossDs1.Location = new System.Drawing.Point(20, 32);
+            this.comboBoxHowBossDs1.Name = "comboBoxHowBossDs1";
+            this.comboBoxHowBossDs1.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowBossDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowBossDs1.StartIndex = -1;
+            this.comboBoxHowBossDs1.TabIndex = 26;
+            this.comboBoxHowBossDs1.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(333, 10);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(38, 16);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Boss:";
+            // 
+            // btnAddBossDs1
+            // 
+            this.btnAddBossDs1.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddBossDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddBossDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBossDs1.Image = null;
+            this.btnAddBossDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddBossDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.Location = new System.Drawing.Point(164, 66);
+            this.btnAddBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddBossDs1.Name = "btnAddBossDs1";
+            this.btnAddBossDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossDs1.Size = new System.Drawing.Size(99, 21);
+            this.btnAddBossDs1.TabIndex = 14;
+            this.btnAddBossDs1.Text = "Add";
+            this.btnAddBossDs1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddBossDs1.Click += new System.EventHandler(this.btnAddBossDs1_Click);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.BackColor = System.Drawing.Color.Transparent;
+            this.label62.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.Black;
+            this.label62.Location = new System.Drawing.Point(73, 11);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(37, 16);
+            this.label62.TabIndex = 4;
+            this.label62.Text = "How:";
             // 
             // panelBonfireDs1
             // 
@@ -5566,13 +5895,14 @@ namespace AutoSplitterCore
             // listBoxBonfireDs1
             // 
             this.listBoxBonfireDs1.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.listBoxBonfireDs1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxBonfireDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxBonfireDs1.FormattingEnabled = true;
             this.listBoxBonfireDs1.ItemHeight = 14;
             this.listBoxBonfireDs1.Location = new System.Drawing.Point(4, 6);
             this.listBoxBonfireDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxBonfireDs1.Name = "listBoxBonfireDs1";
-            this.listBoxBonfireDs1.Size = new System.Drawing.Size(499, 144);
+            this.listBoxBonfireDs1.Size = new System.Drawing.Size(499, 142);
             this.listBoxBonfireDs1.TabIndex = 16;
             this.listBoxBonfireDs1.DoubleClick += new System.EventHandler(this.listBoxBonfireDs1_DoubleClick);
             // 
@@ -5703,176 +6033,6 @@ namespace AutoSplitterCore
             this.label67.Size = new System.Drawing.Size(32, 16);
             this.label67.TabIndex = 4;
             this.label67.Text = "How";
-            // 
-            // panelBossDs1
-            // 
-            this.panelBossDs1.BackColor = System.Drawing.Color.White;
-            this.panelBossDs1.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelBossDs1.Controls.Add(this.comboBoxBossDs1);
-            this.panelBossDs1.Controls.Add(this.panel8);
-            this.panelBossDs1.Controls.Add(this.comboBoxHowBossDs1);
-            this.panelBossDs1.Controls.Add(this.label23);
-            this.panelBossDs1.Controls.Add(this.btnAddBossDs1);
-            this.panelBossDs1.Controls.Add(this.label62);
-            this.panelBossDs1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelBossDs1.ForeColor = System.Drawing.Color.White;
-            this.panelBossDs1.Location = new System.Drawing.Point(34, 85);
-            this.panelBossDs1.Name = "panelBossDs1";
-            this.panelBossDs1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBossDs1.ShowText = false;
-            this.panelBossDs1.Size = new System.Drawing.Size(539, 262);
-            this.panelBossDs1.TabIndex = 29;
-            this.panelBossDs1.Text = "lostBorderPanel1";
-            // 
-            // comboBoxBossDs1
-            // 
-            this.comboBoxBossDs1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxBossDs1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxBossDs1.BackColor = System.Drawing.Color.Khaki;
-            this.comboBoxBossDs1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBossDs1.FormattingEnabled = true;
-            this.comboBoxBossDs1.Items.AddRange(new object[] {
-            "Asylum Demon",
-            "Bell Gargoyle",
-            "Capra Demon",
-            "Ceaseless Discharge",
-            "Centipede Demon",
-            "Chaos Witch Quelaag",
-            "Crossbreed Priscilla",
-            "Dark Sun Gwyndolin",
-            "Demon Firesage",
-            "Four Kings",
-            "Gaping Dragon",
-            "Great Grey Wolf Sif",
-            "Gwyn Lord of Cinder",
-            "Iron Golem",
-            "Moonlight Butterfly",
-            "Nito",
-            "Ornstein And Smough",
-            "Pinwheel",
-            "Seath the Scaleless",
-            "Stray Demon",
-            "Taurus Demon",
-            "The Bed of Chaos",
-            "Artorias the Abysswalker",
-            "Black Dragon Kalameet",
-            "Manus, Father of the Abyss",
-            "Sanctuary Guardian"});
-            this.comboBoxBossDs1.Location = new System.Drawing.Point(192, 32);
-            this.comboBoxBossDs1.MaxDropDownItems = 2;
-            this.comboBoxBossDs1.Name = "comboBoxBossDs1";
-            this.comboBoxBossDs1.Size = new System.Drawing.Size(317, 22);
-            this.comboBoxBossDs1.TabIndex = 27;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel8.Controls.Add(this.listBoxBossDs1);
-            this.panel8.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel8.Location = new System.Drawing.Point(15, 95);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(5);
-            this.panel8.Size = new System.Drawing.Size(508, 156);
-            this.panel8.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel8.TabIndex = 26;
-            this.panel8.Text = "panel8";
-            // 
-            // listBoxBossDs1
-            // 
-            this.listBoxBossDs1.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxBossDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxBossDs1.FormattingEnabled = true;
-            this.listBoxBossDs1.ItemHeight = 14;
-            this.listBoxBossDs1.Location = new System.Drawing.Point(5, 6);
-            this.listBoxBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxBossDs1.Name = "listBoxBossDs1";
-            this.listBoxBossDs1.Size = new System.Drawing.Size(497, 144);
-            this.listBoxBossDs1.TabIndex = 7;
-            this.listBoxBossDs1.DoubleClick += new System.EventHandler(this.listBoxBossDs1_DoubleClick);
-            // 
-            // comboBoxHowBossDs1
-            // 
-            this.comboBoxHowBossDs1.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowBossDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowBossDs1.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowBossDs1.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossDs1.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowBossDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowBossDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowBossDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowBossDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowBossDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowBossDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowBossDs1.FormattingEnabled = true;
-            this.comboBoxHowBossDs1.ItemHeight = 16;
-            this.comboBoxHowBossDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowBossDs1.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowBossDs1.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowBossDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossDs1.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowBossDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowBossDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowBossDs1.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowBossDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossDs1.Location = new System.Drawing.Point(20, 32);
-            this.comboBoxHowBossDs1.Name = "comboBoxHowBossDs1";
-            this.comboBoxHowBossDs1.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowBossDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowBossDs1.StartIndex = -1;
-            this.comboBoxHowBossDs1.TabIndex = 26;
-            this.comboBoxHowBossDs1.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(333, 10);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(38, 16);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Boss:";
-            // 
-            // btnAddBossDs1
-            // 
-            this.btnAddBossDs1.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddBossDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddBossDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBossDs1.Image = null;
-            this.btnAddBossDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddBossDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.Location = new System.Drawing.Point(214, 66);
-            this.btnAddBossDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddBossDs1.Name = "btnAddBossDs1";
-            this.btnAddBossDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossDs1.Size = new System.Drawing.Size(99, 21);
-            this.btnAddBossDs1.TabIndex = 14;
-            this.btnAddBossDs1.Text = "Add";
-            this.btnAddBossDs1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddBossDs1.Click += new System.EventHandler(this.btnAddBossDs1_Click);
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.BackColor = System.Drawing.Color.Transparent;
-            this.label62.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.ForeColor = System.Drawing.Color.Black;
-            this.label62.Location = new System.Drawing.Point(73, 11);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(37, 16);
-            this.label62.TabIndex = 4;
-            this.label62.Text = "How:";
             // 
             // panelLvlDs1
             // 
@@ -12793,64 +12953,53 @@ namespace AutoSplitterCore
             this.materialCheckBox12.UseAccentColor = true;
             this.materialCheckBox12.UseVisualStyleBackColor = true;
             // 
-            // lostBorderPanel2
+            // btnRemoveAllIdolsS
             // 
-            this.lostBorderPanel2.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel2.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel2.Controls.Add(this.groupBox1);
-            this.lostBorderPanel2.Controls.Add(this.groupBox2);
-            this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel2.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel2.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel2.Name = "lostBorderPanel2";
-            this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel2.ShowText = false;
-            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel2.TabIndex = 31;
+            this.btnRemoveAllIdolsS.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveAllIdolsS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRemoveAllIdolsS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveAllIdolsS.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRemoveAllIdolsS.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRemoveAllIdolsS.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveAllIdolsS.Image = null;
+            this.btnRemoveAllIdolsS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveAllIdolsS.InactiveColor = System.Drawing.Color.Olive;
+            this.btnRemoveAllIdolsS.Location = new System.Drawing.Point(8, 87);
+            this.btnRemoveAllIdolsS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveAllIdolsS.Name = "btnRemoveAllIdolsS";
+            this.btnRemoveAllIdolsS.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnRemoveAllIdolsS.PressedColor = System.Drawing.Color.Blue;
+            this.btnRemoveAllIdolsS.Size = new System.Drawing.Size(55, 41);
+            this.btnRemoveAllIdolsS.TabIndex = 30;
+            this.btnRemoveAllIdolsS.Text = "Remove All";
+            this.btnRemoveAllIdolsS.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnRemoveAllIdolsS.Click += new System.EventHandler(this.btnRemoveAllIdolsS_Click);
             // 
-            // lostBorderPanel4
+            // groupBox3
             // 
-            this.lostBorderPanel4.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel4.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel4.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel4.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel4.Name = "lostBorderPanel4";
-            this.lostBorderPanel4.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel4.ShowText = false;
-            this.lostBorderPanel4.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel4.TabIndex = 33;
-            // 
-            // lostBorderPanel5
-            // 
-            this.lostBorderPanel5.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel5.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel5.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel5.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel5.Name = "lostBorderPanel5";
-            this.lostBorderPanel5.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel5.ShowText = false;
-            this.lostBorderPanel5.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel5.TabIndex = 33;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(220, 13);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(43, 16);
-            this.label26.TabIndex = 26;
-            this.label26.Text = "Game";
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.BackGColor = System.Drawing.Color.SlateBlue;
+            this.groupBox3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox3.Controls.Add(this.btnRemoveAllIdolsS);
+            this.groupBox3.Controls.Add(this.btnAddAllIdolsS);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox3.HeaderColor = System.Drawing.Color.Turquoise;
+            this.groupBox3.Location = new System.Drawing.Point(469, 81);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox3.Size = new System.Drawing.Size(136, 149);
+            this.groupBox3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox3.TabIndex = 31;
             // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1365, 840);
+            this.ClientSize = new System.Drawing.Size(645, 477);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
@@ -12867,9 +13016,70 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
+            this.tabSekiro.ResumeLayout(false);
+            this.tabSekiro.PerformLayout();
+            this.panelIdolsS.ResumeLayout(false);
+            this.panelIdolsS.PerformLayout();
+            this.groupBoxAbandonedDungeon.ResumeLayout(false);
+            this.groupBoxRadioAbandonedDungeon.ResumeLayout(false);
+            this.groupBoxRadioAbandonedDungeon.PerformLayout();
+            this.groupBoxAshinaCastle.ResumeLayout(false);
+            this.groupBoxRadioAshinaCastle.ResumeLayout(false);
+            this.groupBoxRadioAshinaCastle.PerformLayout();
+            this.groupBoxAshinaOutskirts.ResumeLayout(false);
+            this.groupBoxRadiosAshinaOutskirts.ResumeLayout(false);
+            this.groupBoxRadiosAshinaOutskirts.PerformLayout();
+            this.groupBoxFountainhead.ResumeLayout(false);
+            this.groupBoxRadioFountainhead.ResumeLayout(false);
+            this.groupBoxRadioFountainhead.PerformLayout();
+            this.groupBoxSenpouTemple.ResumeLayout(false);
+            this.groupBoxRadioSenpouTemple.ResumeLayout(false);
+            this.groupBoxRadioSenpouTemple.PerformLayout();
+            this.groupBoxSunkenValley.ResumeLayout(false);
+            this.groupBoxRadioSunkenValley.ResumeLayout(false);
+            this.groupBoxRadioSunkenValley.PerformLayout();
+            this.groupBoxHirataEstate.ResumeLayout(false);
+            this.groupBoxRadioHirataEstate.ResumeLayout(false);
+            this.groupBoxRadioHirataEstate.PerformLayout();
+            this.groupBoxAshinaDepths.ResumeLayout(false);
+            this.groupBoxRadioAshinaDepths.ResumeLayout(false);
+            this.groupBoxRadioAshinaDepths.PerformLayout();
+            this.panelBossS.ResumeLayout(false);
+            this.panelBossS.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panelPositionS.ResumeLayout(false);
+            this.panelPositionS.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panelMortalJourney.ResumeLayout(false);
+            this.groupBoxMJS.ResumeLayout(false);
+            this.panelLevelSekiro.ResumeLayout(false);
+            this.panelLevelSekiro.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panelCfSekiro.ResumeLayout(false);
+            this.panelCfSekiro.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panelMinibossSekiro.ResumeLayout(false);
+            this.panelMinibossSekiro.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panelCfER.ResumeLayout(false);
+            this.panelCfER.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.tabConfig.ResumeLayout(false);
+            this.tabConfig.PerformLayout();
+            this.groupBoxOtherS.ResumeLayout(false);
+            this.groupBoxMProfile.ResumeLayout(false);
+            this.groupBoxHelp.ResumeLayout(false);
+            this.groupBoxUpdate.ResumeLayout(false);
+            this.groupBoxUpdate.PerformLayout();
+            this.groupBoxSplitters.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
             this.TabPageGeneral.ResumeLayout(false);
             this.tabPageControl.ResumeLayout(false);
+            this.lostBorderPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -12925,75 +13135,15 @@ namespace AutoSplitterCore
             this.groupBoxTMDs3.ResumeLayout(false);
             this.groupBoxTMDs3.PerformLayout();
             this.tabPageHitCounter.ResumeLayout(false);
-            this.tabConfig.ResumeLayout(false);
-            this.tabConfig.PerformLayout();
-            this.groupBoxOtherS.ResumeLayout(false);
-            this.groupBoxMProfile.ResumeLayout(false);
-            this.groupBoxHelp.ResumeLayout(false);
-            this.groupBoxUpdate.ResumeLayout(false);
-            this.groupBoxUpdate.PerformLayout();
-            this.groupBoxSplitters.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
-            this.tabSekiro.ResumeLayout(false);
-            this.tabSekiro.PerformLayout();
-            this.panelCfER.ResumeLayout(false);
-            this.panelCfER.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panelCfSekiro.ResumeLayout(false);
-            this.panelCfSekiro.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panelLevelSekiro.ResumeLayout(false);
-            this.panelLevelSekiro.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panelPositionS.ResumeLayout(false);
-            this.panelPositionS.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panelMinibossSekiro.ResumeLayout(false);
-            this.panelMinibossSekiro.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panelBossS.ResumeLayout(false);
-            this.panelBossS.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panelIdolsS.ResumeLayout(false);
-            this.panelIdolsS.PerformLayout();
-            this.groupBoxAbandonedDungeon.ResumeLayout(false);
-            this.groupBoxRadioAbandonedDungeon.ResumeLayout(false);
-            this.groupBoxRadioAbandonedDungeon.PerformLayout();
-            this.groupBoxAshinaCastle.ResumeLayout(false);
-            this.groupBoxRadioAshinaCastle.ResumeLayout(false);
-            this.groupBoxRadioAshinaCastle.PerformLayout();
-            this.groupBoxAshinaOutskirts.ResumeLayout(false);
-            this.groupBoxRadiosAshinaOutskirts.ResumeLayout(false);
-            this.groupBoxRadiosAshinaOutskirts.PerformLayout();
-            this.groupBoxFountainhead.ResumeLayout(false);
-            this.groupBoxRadioFountainhead.ResumeLayout(false);
-            this.groupBoxRadioFountainhead.PerformLayout();
-            this.groupBoxSenpouTemple.ResumeLayout(false);
-            this.groupBoxRadioSenpouTemple.ResumeLayout(false);
-            this.groupBoxRadioSenpouTemple.PerformLayout();
-            this.groupBoxSunkenValley.ResumeLayout(false);
-            this.groupBoxRadioSunkenValley.ResumeLayout(false);
-            this.groupBoxRadioSunkenValley.PerformLayout();
-            this.groupBoxHirataEstate.ResumeLayout(false);
-            this.groupBoxRadioHirataEstate.ResumeLayout(false);
-            this.groupBoxRadioHirataEstate.PerformLayout();
-            this.groupBoxAshinaDepths.ResumeLayout(false);
-            this.groupBoxRadioAshinaDepths.ResumeLayout(false);
-            this.groupBoxRadioAshinaDepths.PerformLayout();
-            this.panelMortalJourney.ResumeLayout(false);
-            this.groupBoxMJS.ResumeLayout(false);
             this.tabDs1.ResumeLayout(false);
             this.tabDs1.PerformLayout();
-            this.panelBonfireDs1.ResumeLayout(false);
-            this.panelBonfireDs1.PerformLayout();
-            this.panel11.ResumeLayout(false);
             this.panelBossDs1.ResumeLayout(false);
             this.panelBossDs1.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panelBonfireDs1.ResumeLayout(false);
+            this.panelBonfireDs1.PerformLayout();
+            this.panel11.ResumeLayout(false);
             this.panelLvlDs1.ResumeLayout(false);
             this.panelLvlDs1.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -13075,7 +13225,7 @@ namespace AutoSplitterCore
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.lostBorderPanel2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -13631,5 +13781,11 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.LostBorderPanel lostBorderPanel4;
         private ReaLTaiizor.Controls.LostBorderPanel lostBorderPanel5;
         private System.Windows.Forms.Label label26;
+        private ReaLTaiizor.Controls.Button btnAddAllBossesS;
+        private ReaLTaiizor.Controls.Button btnAddAllMiniBossesS;
+        private ReaLTaiizor.Controls.Button btnAddAllBossesDs1;
+        private ReaLTaiizor.Controls.Button btnAddAllIdolsS;
+        private ReaLTaiizor.Controls.GroupBox groupBox3;
+        private ReaLTaiizor.Controls.Button btnRemoveAllIdolsS;
     }
 }

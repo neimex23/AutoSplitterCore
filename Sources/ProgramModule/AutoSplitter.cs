@@ -29,6 +29,7 @@ using ReaLTaiizor;
 using ReaLTaiizor.Controls;
 using System.Security.Principal;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using LiveSplit.Cuphead;
 
 namespace AutoSplitterCore
 {
@@ -99,6 +100,7 @@ namespace AutoSplitterCore
             groupBoxSunkenValley.Hide();
             groupBoxAshinaDepths.Hide();
             groupBoxFountainhead.Hide();
+            comboBoxZoneSelectS.SelectedIndex = 0;
             #endregion
             #region HollowTab
             panelBossH.Hide();
@@ -206,29 +208,43 @@ namespace AutoSplitterCore
                 labelWarning.ForeColor = Color.Gold;
 
                 //Panels
-                ChangeBackColorPanels();
+                SetTealColorToLostBorderPanels();
             }
         }
 
-        private void ChangeBackColorPanels()
+        public void SetTealColorToLostBorderPanels()
         {
-            // Recorrer todos los controles
-            foreach (Control control in co)
-            {
-                // Si el control es de tipo LostPanelBorder
-                if (control is LostBorderPanel panel)
-                {
-                    // Cambiar el BackColor a LightBlue
-                    panel.BackColor = Color.LightBlue;
-                }
-
-                // Si el control contiene otros controles (es un contenedor como un Panel)
-                if (control.HasChildren)
-                {
-                    // Llamar recursivamente a la función para los controles hijos
-                    ChangeBackColorPanels(control.Controls);
-                }
-            }
+            panelMortalJourney.BackColor = Color.LightBlue;
+            panelIdolsS.BackColor = Color.LightBlue;
+            panelCfSekiro.BackColor = Color.LightBlue;
+            panelPositionS.BackColor = Color.LightBlue;
+            panelBossS.BackColor = Color.LightBlue;
+            panelPositionDs1.BackColor = Color.LightBlue;
+            panelBossDs1.BackColor = Color.LightBlue;
+            panelItemDs1.BackColor = Color.LightBlue;
+            panelLvlDs1.BackColor = Color.LightBlue;
+            panelBonfireDs1.BackColor = Color.LightBlue;
+            panelPositionDs2.BackColor = Color.LightBlue;
+            panelBossDS2.BackColor = Color.LightBlue;
+            panelLvlDs2.BackColor = Color.LightBlue;
+            panelLvlDs3.BackColor = Color.LightBlue;
+            panelBossDs3.BackColor = Color.LightBlue;
+            panelBonfireDs3.BackColor = Color.LightBlue;
+            panelCfDs3.BackColor = Color.LightBlue;
+            panelPositionsDs3.BackColor = Color.LightBlue;
+            panelPositionsER.BackColor = Color.LightBlue;
+            panelLevelSekiro.BackColor = Color.LightBlue;
+            panelBossER.BackColor = Color.LightBlue;
+            panelCfER.BackColor = Color.LightBlue;
+            panelGraceER.BackColor = Color.LightBlue;
+            panelPositionH.BackColor = Color.LightBlue;
+            panelItemH.BackColor = Color.LightBlue;
+            panelBossH.BackColor = Color.LightBlue;
+            panelCheckpointsCeleste.BackColor = Color.LightBlue;
+            panelCassettesNHearts.BackColor = Color.LightBlue;
+            panelChapterCeleste.BackColor = Color.LightBlue;
+            panelLevelCuphead.BackColor = Color.LightBlue;
+            panelBossCuphead.BackColor = Color.LightBlue;
         }
 
 
@@ -946,6 +962,7 @@ namespace AutoSplitterCore
         {
             Close();
         }
+
         private void cbCheckUpdatesOnStartup_CheckedChanged(object sender)
         {
             updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
@@ -968,6 +985,28 @@ namespace AutoSplitterCore
             saveModule.dataAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
         }
 
+        private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isInitializing) return;
+
+            if (Enum.TryParse(skyComboBoxOverrideStyleMode.SelectedItem.ToString(), out StyleMode selectedStyleMode))
+            {
+                saveModule.dataAS.StyleMode = selectedStyleMode;
+
+                DialogResult result = MessageBox.Show("Do you want update Interface?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Controls.Clear();
+                    this.InitializeComponent();
+                    RefreshForm();
+                    this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                    TabControlGeneral.TabPages.Add(tabGeneral);
+                    TabControlGeneral.SelectTab(tabGeneral);
+                }
+            }
+        }
+
+        #region TimmingConfg
         private void comboBoxTGame_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBoxTSekiro.Hide();
@@ -991,6 +1030,38 @@ namespace AutoSplitterCore
                 case 6: groupBoxTCeleste.Show(); break;
                 case 7: groupBoxTCuphead.Show(); break;
                 case 8: groupBoxTDishonored.Show(); break;
+            }
+        }
+
+        private void btnDesactiveAllTiming_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                sekiroSplitter.dataSekiro.autoTimer = false;
+                sekiroSplitter.dataSekiro.gameTimer = false;
+                ds1Splitter.dataDs1.autoTimer = false;
+                ds1Splitter.dataDs1.gameTimer = false;
+                ds2Splitter.dataDs2.autoTimer = false;
+                ds2Splitter.dataDs2.gameTimer = false;
+                ds3Splitter.dataDs3.autoTimer = false;
+                ds3Splitter.dataDs3.gameTimer = false;
+                eldenSplitter.dataElden.autoTimer = false;
+                eldenSplitter.dataElden.gameTimer = false;
+                hollowSplitter.dataHollow.autoTimer = false;
+                hollowSplitter.dataHollow.gameTimer = false;
+                celesteSplitter.dataCeleste.autoTimer = false;
+                celesteSplitter.dataCeleste.gameTimer = false;
+                cupSplitter.dataCuphead.autoTimer = false;
+                cupSplitter.dataCuphead.gameTimer = false;
+                dishonoredSplitter.dataDish.autoTimer = false;
+                dishonoredSplitter.dataDish.gameTimer = false;
+                this.Controls.Clear();
+                this.InitializeComponent();
+                RefreshForm();
+                this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                TabControlGeneral.TabPages.Add(tabGeneral);
+                TabControlGeneral.SelectTab(tabGeneral);
             }
         }
 
@@ -1128,7 +1199,7 @@ namespace AutoSplitterCore
                 _ = checkBoxResetIGTSekiro.Checked ? sekiroSplitter.dataSekiro.ResetIGTNG = true : sekiroSplitter.dataSekiro.ResetIGTNG = false;
             }
         }
-
+        #endregion
         private void btnHowSetup_Click(object sender, EventArgs e)
         {
             AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/wiki"));
@@ -1249,37 +1320,7 @@ namespace AutoSplitterCore
             this.AutoSplitter_Load(null, null);//Load Others Games Settings
         }
 
-        private void btnDesactiveAllTiming_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                sekiroSplitter.dataSekiro.autoTimer = false;
-                sekiroSplitter.dataSekiro.gameTimer = false;
-                ds1Splitter.dataDs1.autoTimer = false;
-                ds1Splitter.dataDs1.gameTimer = false;
-                ds2Splitter.dataDs2.autoTimer = false;
-                ds2Splitter.dataDs2.gameTimer = false;
-                ds3Splitter.dataDs3.autoTimer = false;
-                ds3Splitter.dataDs3.gameTimer = false;
-                eldenSplitter.dataElden.autoTimer = false;
-                eldenSplitter.dataElden.gameTimer = false;
-                hollowSplitter.dataHollow.autoTimer = false;
-                hollowSplitter.dataHollow.gameTimer = false;
-                celesteSplitter.dataCeleste.autoTimer = false;
-                celesteSplitter.dataCeleste.gameTimer = false;
-                cupSplitter.dataCuphead.autoTimer = false;
-                cupSplitter.dataCuphead.gameTimer = false;
-                dishonoredSplitter.dataDish.autoTimer = false;
-                dishonoredSplitter.dataDish.gameTimer = false;
-                this.Controls.Clear();
-                this.InitializeComponent();
-                RefreshForm();
-                this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                TabControlGeneral.TabPages.Add(tabGeneral);
-                TabControlGeneral.SelectTab(tabGeneral);
-            }
-        }
+       
         #endregion
         #region SekiroUI
         private void toSplitSelectSekiro_SelectedIndexChanged(object sender, EventArgs e)
@@ -1320,7 +1361,7 @@ namespace AutoSplitterCore
             _ = checkBoxMortalJourneyRun.Checked ? sekiroSplitter.dataSekiro.mortalJourneyRun = true : sekiroSplitter.dataSekiro.mortalJourneyRun = false;
         }
 
-
+        //Positions Triggers
         private void btnGetPositionS_Click(object sender, EventArgs e)
         {
             var Vector = sekiroSplitter.GetCurrentPosition();
@@ -1403,6 +1444,7 @@ namespace AutoSplitterCore
             sekiroSplitter.SetPositionMargin(select);
         }
 
+        //Level Triggers
         private void btnAddAttributeS_Click(object sender, EventArgs e)
         {
             if (comboBoxAttributeS.SelectedIndex == -1 || comboBoxAttributeS.SelectedIndex == -1 || textBoxValueS.Text == null)
@@ -1443,6 +1485,7 @@ namespace AutoSplitterCore
             }
         }
 
+        //Bosses Triggers
 
         private void btn_AddBoss_Click(object sender, EventArgs e)
         {
@@ -1476,6 +1519,22 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnAddAllBossesS_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBossS.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }else
+            {
+                for (int i = 0; i < comboBoxBossS.Items.Count; i++) 
+                {
+                    comboBoxBossS.SelectedIndex = i;
+                    btn_AddBoss_Click(null, null);
+                }
+            }
+        }
+
+        //Idols Triggers
         private void comboBoxZoneSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBoxAshinaOutskirts.Hide();
@@ -1933,6 +1992,48 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnAddAllIdolsS_Click(object sender, EventArgs e)
+        {
+            btnRemoveAllIdolsS_Click(null, null); //Remove all for avoid duplicates
+
+            string mode = "Inmediatly";
+            foreach (var AllIdols in sekiroSplitter.GetAllIdols())
+            {
+                sekiroSplitter.AddIdol(AllIdols, mode);
+            }
+
+            this.Controls.Clear();
+            this.InitializeComponent();
+            RefreshForm();
+            this.AutoSplitter_Load(null, null);//Load Others Games Settings
+            TabControlGeneral.TabPages.Add(tabSekiro);
+            TabControlGeneral.SelectTab(tabSekiro);
+            toSplitSelectSekiro.SelectedIndex = 2;
+            comboBoxZoneSelectS.SelectedIndex = 0;
+            groupBoxAshinaOutskirts.Show();
+        }
+
+        private void btnRemoveAllIdolsS_Click(object sender, EventArgs e)
+        {
+            foreach (var AllIdols in sekiroSplitter.GetAllIdols())
+            {
+                sekiroSplitter.RemoveIdol(AllIdols);
+            }
+
+            if (sender != null)
+            {
+                this.Controls.Clear();
+                this.InitializeComponent();
+                RefreshForm();
+                this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                TabControlGeneral.TabPages.Add(tabSekiro);
+                TabControlGeneral.SelectTab(tabSekiro);
+                toSplitSelectSekiro.SelectedIndex = 2;
+                comboBoxZoneSelectS.SelectedIndex = 0;
+                groupBoxAshinaOutskirts.Show();
+            }
+        }
+
         private void btnGetListFlagsSekiro_Click(object sender, EventArgs e)
         {
             AutoSplitterMainModule.OpenWithBrowser(new Uri("https://docs.google.com/spreadsheets/d/1Nwp6XwURGksUu-_jCVhcyXh4KH7hTCXYsJTCHbw87JQ/edit?usp=sharing"));
@@ -2022,6 +2123,23 @@ namespace AutoSplitterCore
         private void comboBoxMiniBossSekiro_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxMiniBossSekiro.SelectedIndex >= 0) textBoxDescriptionMiniBoss.Text = sekiroSplitter.GetMiniBossDescription(comboBoxMiniBossSekiro.SelectedItem.ToString());
+        }
+
+        private void btnAddAllMiniBossesS_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowMiniBoss.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show ("Some triggers are incompatible with each other, do you want to continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                for (int i = 0; i < comboBoxMiniBossSekiro.Items.Count; i++)
+                {
+                    comboBoxMiniBossSekiro.SelectedIndex = i;
+                    btnAddMiniBossSekiro_Click(null, null);
+                }
+            }
         }
 
         private void btnDesactiveSekiro_Click(object sender, EventArgs e)
@@ -3421,27 +3539,14 @@ namespace AutoSplitterCore
 
 
 
+
+
+
+
+
+
         #endregion
 
-        private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isInitializing) return;
 
-            if (Enum.TryParse(skyComboBoxOverrideStyleMode.SelectedItem.ToString(), out StyleMode selectedStyleMode))
-            {
-                saveModule.dataAS.StyleMode = selectedStyleMode;
-
-                DialogResult result = MessageBox.Show("Do you want update Interface?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    this.Controls.Clear();
-                    this.InitializeComponent();
-                    RefreshForm();
-                    this.AutoSplitter_Load(null, null);//Load Others Games Settings
-                    TabControlGeneral.TabPages.Add(tabGeneral);
-                    TabControlGeneral.SelectTab(tabGeneral);
-                }
-            }      
-        }
     }
 }

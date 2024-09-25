@@ -25,8 +25,6 @@ using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -161,7 +159,9 @@ namespace AutoSplitterCore
             cIdol.Mode = mode;
             dataSekiro.idolsTosplit.Add(cIdol);
         }
-            
+
+        public List<String> GetAllIdols() => defS.GetAllIdols();
+
 
         public void AddBoss(string boss,string mode)
         {
