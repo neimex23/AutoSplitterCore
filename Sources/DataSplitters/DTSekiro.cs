@@ -41,7 +41,9 @@ namespace AutoSplitterCore
             public bool IsSplited;
             public string Mode;
 
-            public void BossDate(string title, uint id)
+            public BossS() {}
+
+            public BossS(string title, uint id)
             {
                 this.Title = title;
                 this.Id = id;
@@ -50,60 +52,39 @@ namespace AutoSplitterCore
 
         }
 
+        Dictionary<string, uint> bossMap = new Dictionary<string, uint>
+            {
+                { "Genichiro Ashina - Tutorial", 11120803 },
+                { "Gyoubu Masataka Oniwa", 9301 },
+                { "Lady Butterfly", 9302 },
+                { "Genichiro Ashina", 9303 },
+                { "Folding Screen Monkeys", 9305 },
+                { "Guardian Ape", 9304 },
+                { "Headless Ape", 9307 },
+                { "Corrupted Monk (ghost)", 9306 },
+                { "Emma, the Gentle Blade", 9315 },
+                { "Isshin Ashina", 9316 },
+                { "Great Shinobi Owl", 9308 },
+                { "True Corrupted Monk", 9309 },
+                { "Divine Dragon", 9310 },
+                { "Owl (Father)", 9317 },
+                { "Demon of Hatred", 9313 },
+                { "Isshin, the Sword Saint", 9312 }
+            };
+
         public BossS BossToEnum(string Nboss)
         {
-            BossS boss = new BossS();
-            switch (Nboss)
+            BossS selectedBoss;
+            if (bossMap.ContainsKey(Nboss))
             {
-                case "Genichiro Ashina - Tutorial":
-                    boss.BossDate("Genichiro Ashina - Tutorial", 11120803); break;
-                case "Gyoubu Masataka Oniwa":
-                    boss.BossDate("Gyoubu Masataka Oniwa", 9301);
-                    break;
-                case "Lady Butterfly":
-                    boss.BossDate("Lady Butterfly", 9302);
-                    break;
-                case "Genichiro Ashina":
-                    boss.BossDate("Genichiro Ashina", 9303);
-                    break;
-                case "Folding Screen Monkeys":
-                    boss.BossDate("Folding Screen Monkeys", 9305);
-                    break;
-                case "Guardian Ape":
-                    boss.BossDate("Guardian Ape", 9304);
-                    break;
-                case "Headless Ape":
-                    boss.BossDate("Headless Ape", 9307);
-                    break;
-                case "Corrupted Monk (ghost)":
-                    boss.BossDate("Corrupted Monk (ghost)", 9306);
-                    break;
-                case "Emma, the Gentle Blade":
-                    boss.BossDate("Emma, the Gentle Blade", 9315);
-                    break;
-                case "Isshin Ashina":
-                    boss.BossDate("Isshin Ashina", 9316);
-                    break;
-                case "Great Shinobi Owl":
-                    boss.BossDate("Great Shinobi Owl", 9308);
-                    break;
-                case "True Corrupted Monk":
-                    boss.BossDate("True Corrupted Monk", 9309);
-                    break;
-                case "Divine Dragon":
-                    boss.BossDate("Divine Dragon", 9310);
-                    break;
-                case "Owl (Father)":
-                    boss.BossDate("Owl (Father)", 9317);
-                    break;
-                case "Demon of Hatred":
-                    boss.BossDate("Demon of Hatred", 9313);
-                    break;
-                case "Isshin, the Sword Saint":
-                    boss.BossDate("Isshin, the Sword Saint", 9312);
-                    break;
+                selectedBoss = new BossS(Nboss,bossMap[Nboss]);
             }
-            return boss;
+            else
+            {
+                throw new ArgumentException("Invalid Boss.");
+            }
+
+            return selectedBoss;
         }
         #endregion
         #region Idol.Sekiro
@@ -115,6 +96,8 @@ namespace AutoSplitterCore
             public uint Id;
             public bool IsSplited = false;
             public string Mode;
+
+            public Idol() { }
             public Idol(string Title, string Location, uint Id)
             {
                 this.Title = Title;

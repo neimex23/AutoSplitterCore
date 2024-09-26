@@ -25,11 +25,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using SoulMemory;
 using System.Globalization;
-using ReaLTaiizor;
-using ReaLTaiizor.Controls;
 using System.Security.Principal;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using LiveSplit.Cuphead;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -1038,8 +1035,8 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                sekiroSplitter.dataSekiro.autoTimer = false;
-                sekiroSplitter.dataSekiro.gameTimer = false;
+                sekiroSplitter.GetDataSekiro().autoTimer = false;
+                sekiroSplitter.GetDataSekiro().gameTimer = false;
                 ds1Splitter.dataDs1.autoTimer = false;
                 ds1Splitter.dataDs1.gameTimer = false;
                 ds2Splitter.dataDs2.autoTimer = false;
@@ -1067,14 +1064,14 @@ namespace AutoSplitterCore
 
         private void radioIGTSTimer_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTSTimer.Checked ? sekiroSplitter.dataSekiro.gameTimer = true : sekiroSplitter.dataSekiro.gameTimer = false;
+            _ = radioIGTSTimer.Checked ? sekiroSplitter.GetDataSekiro().gameTimer = true : sekiroSplitter.GetDataSekiro().gameTimer = false;
         }
 
         private void checkBoxATS_CheckedChanged(object sender, EventArgs e)
         {
-            _ = checkBoxATS.Checked ? sekiroSplitter.dataSekiro.autoTimer = true : sekiroSplitter.dataSekiro.autoTimer = false;
+            _ = checkBoxATS.Checked ? sekiroSplitter.GetDataSekiro().autoTimer = true : sekiroSplitter.GetDataSekiro().autoTimer = false;
             _ = checkBoxATS.Checked ? groupBoxTMS.Enabled = true : groupBoxTMS.Enabled = false;
-            if (!checkBoxATS.Checked) { sekiroSplitter.dataSekiro.gameTimer = false; radioIGTSTimer.Checked = false; radioRealTimerS.Checked = true; }
+            if (!checkBoxATS.Checked) { sekiroSplitter.GetDataSekiro().gameTimer = false; radioIGTSTimer.Checked = false; radioRealTimerS.Checked = true; }
         }
 
         private void checkBoxATDs1_CheckedChanged_1(object sender, EventArgs e)
@@ -1196,7 +1193,7 @@ namespace AutoSplitterCore
             if (!radioIGTSTimer.Checked && checkBoxResetIGTSekiro.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIGTSekiro.Checked = false; }
             else
             {
-                _ = checkBoxResetIGTSekiro.Checked ? sekiroSplitter.dataSekiro.ResetIGTNG = true : sekiroSplitter.dataSekiro.ResetIGTNG = false;
+                _ = checkBoxResetIGTSekiro.Checked ? sekiroSplitter.GetDataSekiro().ResetIGTNG = true : sekiroSplitter.GetDataSekiro().ResetIGTNG = false;
             }
         }
         #endregion
@@ -1358,7 +1355,7 @@ namespace AutoSplitterCore
 
         private void checkBoxMortalJourneyRun_CheckedChanged(object sender)
         {
-            _ = checkBoxMortalJourneyRun.Checked ? sekiroSplitter.dataSekiro.mortalJourneyRun = true : sekiroSplitter.dataSekiro.mortalJourneyRun = false;
+            _ = checkBoxMortalJourneyRun.Checked ? sekiroSplitter.GetDataSekiro().mortalJourneyRun = true : sekiroSplitter.GetDataSekiro().mortalJourneyRun = false;
         }
 
         //Positions Triggers
@@ -1994,24 +1991,42 @@ namespace AutoSplitterCore
 
         private void btnAddAllIdolsS_Click(object sender, EventArgs e)
         {
-            btnRemoveAllIdolsS_Click(null, null); //Remove all for avoid duplicates
-
-            string mode = "Inmediatly";
-            foreach (var AllIdols in sekiroSplitter.GetAllIdols())
-            {
-                sekiroSplitter.AddIdol(AllIdols, mode);
-            }
-
-            this.Controls.Clear();
-            this.InitializeComponent();
-            RefreshForm();
-            this.AutoSplitter_Load(null, null);//Load Others Games Settings
-            TabControlGeneral.TabPages.Add(tabSekiro);
-            TabControlGeneral.SelectTab(tabSekiro);
-            toSplitSelectSekiro.SelectedIndex = 2;
-            comboBoxZoneSelectS.SelectedIndex = 0;
-            groupBoxAshinaOutskirts.Show();
+            groupBoxAddAllIdol.Location = new Point(400, groupBoxAddAllIdol.Location.Y);
         }
+
+
+        private void XAddAllIdol_Click(object sender, EventArgs e)
+        {
+            groupBoxAddAllIdol.Location = new Point(472, groupBoxAddAllIdol.Location.Y);
+        }
+
+        private void HowAddAllIdol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HowAddAllIdol.SelectedIndex != -1)
+            {
+
+                btnRemoveAllIdolsS_Click(null, null); //Remove all for avoid duplicates
+
+                string mode = HowAddAllIdol.Text.ToString();
+                foreach (var AllIdols in sekiroSplitter.GetAllIdols())
+                {
+                    sekiroSplitter.AddIdol(AllIdols, mode);
+                }
+
+                this.Controls.Clear();
+                this.InitializeComponent();
+                RefreshForm();
+                this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                TabControlGeneral.TabPages.Add(tabSekiro);
+                TabControlGeneral.SelectTab(tabSekiro);
+                toSplitSelectSekiro.SelectedIndex = 2;
+                comboBoxZoneSelectS.SelectedIndex = 0;
+                groupBoxAshinaOutskirts.Show();
+                HowAddAllIdol.SelectedIndex = -1;
+                XAddAllIdol_Click(null, null);
+            }
+        }
+
 
         private void btnRemoveAllIdolsS_Click(object sender, EventArgs e)
         {
@@ -3533,6 +3548,8 @@ namespace AutoSplitterCore
                 TabControlGeneral.SelectTab(tabDishonored);
             }
         }
+
+
 
 
 
