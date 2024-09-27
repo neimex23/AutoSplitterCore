@@ -154,6 +154,7 @@ namespace AutoSplitterCore
             }
 
             interfaceASC.SplitterResetMethod = ResetSplitterFlags;
+            interfaceASC.ActiveGameIndex = -1;
         }
 
         public void SaveAutoSplitterSettings()
@@ -278,7 +279,7 @@ namespace AutoSplitterCore
             return this.anyGameTime && ReturnCurrentIGT() > 0;
         }
 
-        private int gameActive = 0;
+        public int gameActive = 0;
         private bool anyGameTime = false;
         private bool autoTimer = false;
         private bool profileResetDone = false;

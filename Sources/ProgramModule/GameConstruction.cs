@@ -33,6 +33,7 @@ namespace AutoSplitterCore
         //List All Games
         public static List<string> GameList = new List<string>()
         {
+            "None", //NoneSplitterIndex
             "Sekiro",
             "Dark Souls 1",
             "Dark Souls 2",
