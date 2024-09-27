@@ -217,8 +217,8 @@ namespace AutoSplitterCore
             
             if (!_DebugMode)
             {
-                mainModule.main.ActiveGameIndex = mainModule.GetSplitterEnable();
-                mainModule.main.PracticeMode = mainModule.GetPracticeMode();
+                mainModule.profCtrl.ActiveGameIndex = mainModule.GetSplitterEnable();
+                mainModule.profCtrl.PracticeMode = mainModule.GetPracticeMode();
             }
             else
             {
