@@ -43,6 +43,9 @@ namespace AutoSplitterCore
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
         public UpdateModule updateModule = new UpdateModule();
+
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         #if !HCMv2
         public Debug debugForm;
         #endif
@@ -69,6 +72,7 @@ namespace AutoSplitterCore
             dishonoredSplitter.DebugMode = true;
             updateModule.DebugMode = true;
             saveModule._DebugMode = true;
+            splitterControl.SetDebug(true);
         }
 
         public void AutoSplitterForm(bool darkMode)
@@ -108,7 +112,7 @@ namespace AutoSplitterCore
                     updateModule,
                     this);
             //LoadSettings
-            saveModule.LoadAutoSplitterSettings(interfaceASC);
+            saveModule.LoadAutoSplitterSettings();
             this.profCtrl = interfaceASC;
 
             #if !AutoSplitterCoreDebug
@@ -154,6 +158,7 @@ namespace AutoSplitterCore
             }
 
             interfaceASC.SplitterResetMethod = ResetSplitterFlags;
+            splitterControl.SetInterface(interfaceASC);
         }
 
         public void SaveAutoSplitterSettings()
@@ -180,6 +185,7 @@ namespace AutoSplitterCore
             celesteSplitter._PracticeMode = status;
             cupSplitter._PracticeMode = status;
             dishonoredSplitter._PracticeMode = status;
+            splitterControl.SetChecking(!status);
         }
 
         public void SetShowSettings(bool status)
@@ -194,11 +200,12 @@ namespace AutoSplitterCore
             celesteSplitter._ShowSettings = status;
             cupSplitter._ShowSettings = status;
             dishonoredSplitter._ShowSettings = status;
+            splitterControl.SetChecking(!status);
         }
 
         public int GetSplitterEnable()
         {
-            if (sekiroSplitter.dataSekiro.enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
+            if (sekiroSplitter.GetDataSekiro().enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
             if (ds1Splitter.dataDs1.enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
             if (ds2Splitter.dataDs2.enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
             if (ds3Splitter.dataDs3.enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
@@ -217,6 +224,7 @@ namespace AutoSplitterCore
             anyGameTime = false;
             if (splitter == GameConstruction.NoneSplitterIndex)
             {
+                splitterControl.SetChecking(false);
                 sekiroSplitter.SetStatusSplitting(false);
                 ds1Splitter.SetStatusSplitting(false);
                 ds2Splitter.SetStatusSplitting(false);
@@ -242,6 +250,7 @@ namespace AutoSplitterCore
                     case GameConstruction.CupheadSplitterIndex: cupSplitter.SetStatusSplitting(true); break;
                     default: EnableSplitting(0); break;
                 }
+                splitterControl.SetChecking(true);
             }
         }
 
@@ -292,10 +301,10 @@ namespace AutoSplitterCore
             switch (gameActive)
             {
                 case GameConstruction.SekiroSplitterIndex: //Sekiro
-                    if (sekiroSplitter.dataSekiro.autoTimer && !_PracticeMode)
+                    if (sekiroSplitter.GetDataSekiro().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
-                        if (sekiroSplitter.dataSekiro.gameTimer)
+                        if (sekiroSplitter.GetDataSekiro().gameTimer)
                         {
                             anyGameTime = true;
                         }

@@ -168,6 +168,7 @@ namespace AutoSplitterCore
 
         private void CheckingSplit()
         {
+            /*
             switch (GameActive)
             {
                 case GameConstruction.SekiroSplitterIndex:
@@ -196,10 +197,10 @@ namespace AutoSplitterCore
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
                     debugSplit = mainModule.dishonoredSplitter._SplitGo; break;
-
+            
                 case GameConstruction.NoneSplitterIndex:
                 default: break;
-            }
+            }*/
             Thread.Sleep(1200);
             if (debugSplit) { listBoxLog.Items.Add("The Game: " + comboBoxGame.Text + "Generate a Flag"); debugSplit = false; }
             if (listBoxLog.Items.Count > 1) listBoxLog.SelectedIndex = listBoxLog.Items.Count - 1;

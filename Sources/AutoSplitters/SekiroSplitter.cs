@@ -33,56 +33,20 @@ namespace AutoSplitterCore
 {
     public class SekiroSplitter
     {
-        public static Sekiro sekiro = new Sekiro();
+        private DTSekiro dataSekiro;
+        private static Sekiro sekiro = new Sekiro();
+        private DefinitionsSekiro defS = new DefinitionsSekiro();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         public bool _StatusSekiro = false;
-        public bool _SplitGo = false;
-        public bool _PracticeMode = false;
-        private bool PK = true;
+        public bool _PracticeMode = false;        
         public bool _ShowSettings = false;
-        public DTSekiro dataSekiro;
-        public DefinitionsSekiro defS = new DefinitionsSekiro();
-        public IAutoSplitterCoreInterface _profile;
-        private bool _writeMemory = false;
-        private static readonly object _object = new object();
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
+        public bool DebugMode = false;     
 
         #region Control Management
-        public DTSekiro GetDataSekiro()
-        {
-            return this.dataSekiro;
-        }
+        public DTSekiro GetDataSekiro() => dataSekiro;
 
-        public void SetDataSekiro(DTSekiro data, IAutoSplitterCoreInterface profile)
-        {
-            this.dataSekiro = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
-        }
-
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-
-        private void SplitCheck() //PK is seted false if user set Practice mode after a flagcheck is produced 
-        {
-            lock (_object)
-            {
-                if (_PracticeMode)
-                    PK = false;
-                else
-                {
-                    if (_SplitGo) { Thread.Sleep(2000); }
-                    _SplitGo = true;
-                    PK = true;
-                }              
-            }
-        }
+        public void SetDataSekiro(DTSekiro data) => dataSekiro = data;
 
         public bool GetSekiroStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
@@ -97,7 +61,7 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             dataSekiro.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -518,6 +482,7 @@ namespace AutoSplitterCore
         }
         #endregion
         #region CheckFlag Init()   
+        private bool _writeMemory = false;
         private void RefreshSekiro()
         {
             int delay = 2000;
@@ -568,14 +533,14 @@ namespace AutoSplitterCore
                         {
                             foreach (var idol in listPendingI)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
                                 dataSekiro.idolsTosplit[i].IsSplited = true;
                             }
 
                             foreach (var boss in listPendingB)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
                                 dataSekiro.bossToSplit[b].IsSplited = true;
 
@@ -583,28 +548,28 @@ namespace AutoSplitterCore
 
                             foreach (var position in listPendingP)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
                                 dataSekiro.positionsToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingCf)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
                                 dataSekiro.flagToSplit[c].IsSplited = true;
                             }
 
                             foreach (var mb in listPendingMb)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
                                 dataSekiro.miniBossToSplit[mbo].IsSplited = true;
                             }
 
                             foreach (var lvl in listPendingLevel)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var l = dataSekiro.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
                                 dataSekiro.lvlToSplit[l].IsSplited = true;
                             }
@@ -642,8 +607,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                SplitCheck();
-                                b.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -675,8 +640,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {                                  
-                                    SplitCheck();
-                                    mb.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    mb.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
 
@@ -698,8 +663,8 @@ namespace AutoSplitterCore
                                     }
                                     else
                                     {                                      
-                                        SplitCheck();
-                                        mb.IsSplited = PK;
+                                        splitterControl.SplitCheck();
+                                        mb.IsSplited = splitterControl.GetSplitStatus();
                                     }
                                 }
                             }
@@ -778,8 +743,8 @@ namespace AutoSplitterCore
                         {
                             if (!sekiro.IsPlayerLoaded())
                             {
-                                SplitCheck();
-                                if (PK)
+                                splitterControl.SplitCheck();
+                                if (splitterControl.GetSplitStatus())
                                 {
                                     p.IsSplited = true;
                                     PendingMortal.Clear();
@@ -818,8 +783,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                i.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                i.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -854,8 +819,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {                                   
-                                    SplitCheck();
-                                    p.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }
@@ -886,8 +851,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                SplitCheck();
-                                lvl.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                lvl.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -917,8 +882,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                cf.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                cf.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }

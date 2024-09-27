@@ -76,7 +76,6 @@ namespace AutoSplitterCore
         private CupheadSplitter cupSplitter = null;
         private DishonoredSplitter dishonoredSplitter = null;
         private UpdateModule updateModule = null;
-        private IAutoSplitterCoreInterface prfCtl = null;
         private AutoSplitterMainModule mainModule = null;
 
         public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
@@ -143,9 +142,8 @@ namespace AutoSplitterCore
         /// <summary>
         /// Load user data in XML for AutoSplitter
         /// </summary>
-        public void LoadAutoSplitterSettings(IAutoSplitterCoreInterface profiles)
+        public void LoadAutoSplitterSettings()
         {
-            prfCtl = profiles;
             DTSekiro dataSekiro = null;
             DTHollow dataHollow = null;
             DTElden dataElden = null;
@@ -187,15 +185,15 @@ namespace AutoSplitterCore
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
-            sekiroSplitter.SetDataSekiro(dataSekiro, profiles);
-            hollowSplitter.SetDataHollow(dataHollow, profiles);
-            eldenSplitter.SetDataElden(dataElden, profiles);
-            ds3Splitter.SetDataDs3(dataDs3, profiles);
-            ds2Splitter.SetDataDs2(dataDs2, profiles);
-            ds1Splitter.SetDataDs1(dataDs1, profiles);
-            celesteSplitter.SetDataCeleste(dataCeleste, profiles);
-            cupSplitter.SetDataCuphead(dataCuphead, profiles);
-            dishonoredSplitter.SetDataDishonored(dataDishonored, profiles);
+            sekiroSplitter.SetDataSekiro(dataSekiro);
+            hollowSplitter.SetDataHollow(dataHollow, null);
+            eldenSplitter.SetDataElden(dataElden, null);
+            ds3Splitter.SetDataDs3(dataDs3, null);
+            ds2Splitter.SetDataDs2(dataDs2, null);
+            ds1Splitter.SetDataDs1(dataDs1, null);
+            celesteSplitter.SetDataCeleste(dataCeleste, null);
+            cupSplitter.SetDataCuphead(dataCuphead, null);
+            dishonoredSplitter.SetDataDishonored(dataDishonored, null);
           
         }
 
@@ -207,12 +205,12 @@ namespace AutoSplitterCore
         {
             try
             {
-                LoadAutoSplitterSettings(prfCtl);
+                LoadAutoSplitterSettings();
             }catch (Exception e)
             {
                 MessageBox.Show("Error to load Profile, file corrupt or not compatible\r\nLoaded Default Settings\r\nError: "+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 File.Delete(Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml"));
-                LoadAutoSplitterSettings(prfCtl);
+                LoadAutoSplitterSettings();
             }
             
             if (!_DebugMode)
@@ -256,29 +254,7 @@ namespace AutoSplitterCore
         public string GetGameSelected()
         {
             int game = mainModule.GetSplitterEnable();
-            switch (game)
-            {
-                case GameConstruction.SekiroSplitterIndex:
-                    return "Sekiro";
-                case GameConstruction.Ds1SplitterIndex:
-                    return "Dark Souls 1";
-                case GameConstruction.Ds2SplitterIndex:
-                    return "Dark Souls 2";
-                case GameConstruction.Ds3SplitterIndex:
-                    return "Dark Souls 3";
-                case GameConstruction.EldenSplitterIndex:
-                    return "Elden Ring";
-                case GameConstruction.HollowSplitterIndex:
-                    return "Hollow Knight";
-                case GameConstruction.CelesteSplitterIndex:
-                    return "Celeste";
-                case GameConstruction.DishonoredSplitterIndex:
-                    return "Dishonored";
-                case GameConstruction.CupheadSplitterIndex:
-                    return "Cuphead";
-                case GameConstruction.NoneSplitterIndex:
-                default: return "None";
-            }
+            return GameConstruction.GameList[game];
         }
 
         public bool GetResetNewGame()

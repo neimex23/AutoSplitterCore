@@ -1035,8 +1035,8 @@ namespace AutoSplitterCore
             DialogResult result = MessageBox.Show("Are you sure you want to disable everything?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                sekiroSplitter.dataSekiro.autoTimer = false;
-                sekiroSplitter.dataSekiro.gameTimer = false;
+                sekiroSplitter.GetDataSekiro().autoTimer = false;
+                sekiroSplitter.GetDataSekiro().gameTimer = false;
                 ds1Splitter.dataDs1.autoTimer = false;
                 ds1Splitter.dataDs1.gameTimer = false;
                 ds2Splitter.dataDs2.autoTimer = false;
@@ -1064,14 +1064,14 @@ namespace AutoSplitterCore
 
         private void radioIGTSTimer_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTSTimer.Checked ? sekiroSplitter.dataSekiro.gameTimer = true : sekiroSplitter.dataSekiro.gameTimer = false;
+            _ = radioIGTSTimer.Checked ? sekiroSplitter.GetDataSekiro().gameTimer = true : sekiroSplitter.GetDataSekiro().gameTimer = false;
         }
 
         private void checkBoxATS_CheckedChanged(object sender, EventArgs e)
         {
-            _ = checkBoxATS.Checked ? sekiroSplitter.dataSekiro.autoTimer = true : sekiroSplitter.dataSekiro.autoTimer = false;
+            _ = checkBoxATS.Checked ? sekiroSplitter.GetDataSekiro().autoTimer = true : sekiroSplitter.GetDataSekiro().autoTimer = false;
             _ = checkBoxATS.Checked ? groupBoxTMS.Enabled = true : groupBoxTMS.Enabled = false;
-            if (!checkBoxATS.Checked) { sekiroSplitter.dataSekiro.gameTimer = false; radioIGTSTimer.Checked = false; radioRealTimerS.Checked = true; }
+            if (!checkBoxATS.Checked) { sekiroSplitter.GetDataSekiro().gameTimer = false; radioIGTSTimer.Checked = false; radioRealTimerS.Checked = true; }
         }
 
         private void checkBoxATDs1_CheckedChanged_1(object sender, EventArgs e)

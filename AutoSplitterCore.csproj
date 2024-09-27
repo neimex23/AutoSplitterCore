@@ -99,6 +99,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
     <Compile Include="Sources\ProgramModule\AutoSplitter.cs">
       <SubType>Form</SubType>
