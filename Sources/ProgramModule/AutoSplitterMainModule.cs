@@ -61,7 +61,6 @@ namespace AutoSplitterCore
         #region Settings
         public void InitDebug()
         {
-            sekiroSplitter.DebugMode = true;
             ds1Splitter.DebugMode = true;
             ds2Splitter.DebugMode = true;
             ds3Splitter.DebugMode = true;
@@ -130,7 +129,8 @@ namespace AutoSplitterCore
                 interfaceASC.GameList.Add(game);
             }
 
-            interfaceASC.ActiveGameIndex = GetSplitterEnable();
+            //interfaceASC.ActiveGameIndex = GetSplitterEnable(); //Before HCM Interface Change, ASC control mannualy on start the index of ComboBoxGame in Main Program
+            interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //Afrer HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
             interfaceASC.SetActiveGameIndexMethod = (splitter) =>
             {
                 //Disable all games
@@ -161,16 +161,11 @@ namespace AutoSplitterCore
             splitterControl.SetInterface(interfaceASC);
         }
 
-        public void SaveAutoSplitterSettings()
-        {
-            saveModule.SaveAutoSplitterSettings();
-        }
+        public void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
+
         #endregion
         #region SplitterManagement
-        public bool GetPracticeMode()
-        {
-            return saveModule._PracticeMode;
-        }
+        public bool GetPracticeMode() => saveModule._PracticeMode;
 
         public void SetPracticeMode(bool status)
         {
