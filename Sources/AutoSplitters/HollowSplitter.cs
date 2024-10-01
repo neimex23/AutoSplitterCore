@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -26,62 +26,27 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.HollowKnight;
-using HitCounterManager;
 
 namespace AutoSplitterCore
 {
     public class HollowSplitter
-    {
-        public static HollowKnightInfo hollow = new HollowKnightInfo();
-        public DefinitionHollow defH = new DefinitionHollow();      
-        public bool _StatusHollow = false;
-        public bool _runStarted = false;
-        public bool _SplitGo = false;
-        public DTHollow dataHollow;
-        public IAutoSplitterCoreInterface _profile;
+    {   
+        private static HollowKnightInfo hollow = new HollowKnightInfo();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+        private DefinitionHollow defH = new DefinitionHollow();      
+        private DTHollow dataHollow;
+
         public DefinitionHollow.Vector3F currentPosition = new DefinitionHollow.Vector3F();
-        private static readonly object _object = new object();
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
+
+        public bool _StatusHollow = false;
         public bool _PracticeMode = false;
-        private bool PK = true;
         public bool _ShowSettings = false;
+        public bool _runStarted = false;
 
         #region Control Management
-        public DTHollow GetDataHollow()
-        {
-            return this.dataHollow;
-        }
+        public DTHollow GetDataHollow() => dataHollow;
 
-        public void SetDataHollow(DTHollow data, IAutoSplitterCoreInterface profile)
-        {
-            this.dataHollow = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
-        }
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-
-        private void SplitCheck()
-        {
-            lock (_object)
-            {
-                if (_PracticeMode)
-                    PK = false;
-                else
-                {
-                    if (_SplitGo) { Thread.Sleep(2000); }
-                    _SplitGo = true;
-                    PK = true;
-                }
-            }
-        }
+        public void SetDataHollow(DTHollow data) => dataHollow = data;
 
         public bool GetHollowStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
@@ -96,7 +61,7 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             dataHollow.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -344,8 +309,8 @@ namespace AutoSplitterCore
                     {
                         if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
                         {                            
-                            SplitCheck();
-                            element.IsSplited = PK;
+                            splitterControl.SplitCheck();
+                            element.IsSplited = splitterControl.GetSplitStatus();
                         }
                     }
                 }
@@ -369,16 +334,16 @@ namespace AutoSplitterCore
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
                                 {                                    
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
                                 {                                    
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }
@@ -404,23 +369,23 @@ namespace AutoSplitterCore
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
                                 {                                   
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset) && !element.kingSoulsCase)
                                 {                                    
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                                 else
                                 {
                                     if (hollow.Memory.PlayerData<int>(Offset.charmCost_36) == 5 && hollow.Memory.PlayerData<int>(Offset.royalCharmState) == 3)
                                     {                                        
-                                        SplitCheck();
-                                        element.IsSplited = PK;
+                                        splitterControl.SplitCheck();
+                                        element.IsSplited = splitterControl.GetSplitStatus();
                                     }
                                 }
                             }
@@ -447,16 +412,16 @@ namespace AutoSplitterCore
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
                                 {                                   
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
                                 {                                   
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }
@@ -484,8 +449,8 @@ namespace AutoSplitterCore
                             var rangeZ = currentPosition.sceneName == p.sceneName;
                             if (rangeX && rangeY && rangeZ)
                             {                              
-                                SplitCheck();
-                                p.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                p.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -605,8 +570,8 @@ namespace AutoSplitterCore
                         {
                             if (!element.IsSplited && PantheonCase(element.Title))
                             {                               
-                                SplitCheck();
-                                element.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                element.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -618,8 +583,8 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Nailmasters") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
 
@@ -628,8 +593,8 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Painter") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
 
@@ -637,8 +602,8 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Sly") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
 
                             }
@@ -647,8 +612,8 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Hollow_Knight") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
 
@@ -656,8 +621,8 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.sceneName.StartsWith("Cinematic_Ending_E"))
                                 {
-                                    SplitCheck();
-                                    element.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }

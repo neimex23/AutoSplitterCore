@@ -1043,10 +1043,10 @@ namespace AutoSplitterCore
                 ds2Splitter.dataDs2.gameTimer = false;
                 ds3Splitter.dataDs3.autoTimer = false;
                 ds3Splitter.dataDs3.gameTimer = false;
-                eldenSplitter.dataElden.autoTimer = false;
-                eldenSplitter.dataElden.gameTimer = false;
-                hollowSplitter.dataHollow.autoTimer = false;
-                hollowSplitter.dataHollow.gameTimer = false;
+                eldenSplitter.GetDataElden().autoTimer = false;
+                eldenSplitter.GetDataElden().gameTimer = false;
+                hollowSplitter.GetDataHollow().autoTimer = false;
+                hollowSplitter.GetDataHollow().gameTimer = false;
                 celesteSplitter.dataCeleste.autoTimer = false;
                 celesteSplitter.dataCeleste.gameTimer = false;
                 cupSplitter.dataCuphead.autoTimer = false;
@@ -1112,14 +1112,14 @@ namespace AutoSplitterCore
 
         private void checkBoxATEr_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATEr.Checked ? eldenSplitter.dataElden.autoTimer = true : eldenSplitter.dataElden.autoTimer = false;
+            _ = checkBoxATEr.Checked ? eldenSplitter.GetDataElden().autoTimer = true : eldenSplitter.GetDataElden().autoTimer = false;
             _ = checkBoxATEr.Checked ? groupBoxTMEr.Enabled = true : groupBoxTMEr.Enabled = false;
-            if (!checkBoxATEr.Checked) { eldenSplitter.dataElden.gameTimer = false; radioIGTEr.Checked = false; radioRealTimerEr.Checked = true; }
+            if (!checkBoxATEr.Checked) { eldenSplitter.GetDataElden().gameTimer = false; radioIGTEr.Checked = false; radioRealTimerEr.Checked = true; }
         }
 
         private void radioIGTEr_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTEr.Checked ? eldenSplitter.dataElden.gameTimer = true : eldenSplitter.dataElden.gameTimer = false;
+            _ = radioIGTEr.Checked ? eldenSplitter.GetDataElden().gameTimer = true : eldenSplitter.GetDataElden().gameTimer = false;
         }
 
         private void checkBoxATCeleste_CheckedChanged_1(object sender, EventArgs e)
@@ -1148,14 +1148,14 @@ namespace AutoSplitterCore
 
         private void checkBoxATHollow_CheckedChanged(object sender, EventArgs e)
         {
-            _ = checkBoxATHollow.Checked ? hollowSplitter.dataHollow.autoTimer = true : hollowSplitter.dataHollow.autoTimer = false;
+            _ = checkBoxATHollow.Checked ? hollowSplitter.GetDataHollow().autoTimer = true : hollowSplitter.GetDataHollow().autoTimer = false;
             _ = checkBoxATHollow.Checked ? groupBoxTMHollow.Enabled = true : groupBoxTMHollow.Enabled = false;
-            if (!checkBoxATHollow.Checked) { hollowSplitter.dataHollow.gameTimer = false; radioIGTHollow.Checked = false; radioRealTimerHollow.Checked = true; }
+            if (!checkBoxATHollow.Checked) { hollowSplitter.GetDataHollow().gameTimer = false; radioIGTHollow.Checked = false; radioRealTimerHollow.Checked = true; }
         }
 
         private void radioIGTHollow_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTHollow.Checked == true ? hollowSplitter.dataHollow.gameTimer = true : hollowSplitter.dataHollow.gameTimer = false;
+            _ = radioIGTHollow.Checked == true ? hollowSplitter.GetDataHollow().gameTimer = true : hollowSplitter.GetDataHollow().gameTimer = false;
         }
 
         private void checkBoxATDishonored_CheckedChanged(object sender, EventArgs e)
@@ -1184,7 +1184,7 @@ namespace AutoSplitterCore
             if (!radioIGTEr.Checked && checkBoxResetIGTNGEr.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIGTNGEr.Checked = false; }
             else
             {
-                _ = checkBoxResetIGTNGEr.Checked ? eldenSplitter.dataElden.ResetIGTNG = true : eldenSplitter.dataElden.ResetIGTNG = false;
+                _ = checkBoxResetIGTNGEr.Checked ? eldenSplitter.GetDataElden().ResetIGTNG = true : eldenSplitter.GetDataElden().ResetIGTNG = false;
             }
         }
 
@@ -2938,7 +2938,6 @@ namespace AutoSplitterCore
             }
         }
 
-
         private void checkBoxViewDlcGrace_CheckStateChanged(object sender, EventArgs e)
         {
             if (checkBoxViewDlcGrace.Checked)
@@ -2991,7 +2990,7 @@ namespace AutoSplitterCore
         SoulMemory.EldenRing.Position VectorER;
         private void comboBoxMarginER_SelectedIndexChanged(object sender, EventArgs e)
         {
-            eldenSplitter.dataElden.positionMargin = comboBoxSizeER.SelectedIndex; ;
+            eldenSplitter.GetDataElden().positionMargin = comboBoxSizeER.SelectedIndex; ;
         }
 
         private void btnGetPositionER_Click(object sender, EventArgs e)
@@ -3272,11 +3271,11 @@ namespace AutoSplitterCore
                     case 0: //P1+P2+P3+P4 or P5                       
                         checkedListBoxPantheon.Show();
                         lbl_warning.Show();
-                        hollowSplitter.dataHollow.PantheonMode = 0;
+                        hollowSplitter.GetDataHollow().PantheonMode = 0;
                         break;
                     case 1: //Split one per Pantheon
                         checkedListBoxPp.Show();
-                        hollowSplitter.dataHollow.PantheonMode = 1;
+                        hollowSplitter.GetDataHollow().PantheonMode = 1;
                         break;
                 }
             }
@@ -3317,7 +3316,7 @@ namespace AutoSplitterCore
         private void comboBoxMarginH_SelectedIndexChanged(object sender, EventArgs e)
         {
             int select = comboBoxSizeH.SelectedIndex;
-            hollowSplitter.dataHollow.positionMargin = select;
+            hollowSplitter.GetDataHollow().positionMargin = select;
         }
 
         private void btn_AddPositionH_Click(object sender, EventArgs e)

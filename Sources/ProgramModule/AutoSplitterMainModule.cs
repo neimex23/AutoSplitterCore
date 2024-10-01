@@ -52,7 +52,6 @@ namespace AutoSplitterCore
         public bool DebugMode = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
-        public IAutoSplitterCoreInterface profCtrl;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };
 
         public List<string> GetGames() { return GameConstruction.GameList; }
@@ -61,16 +60,6 @@ namespace AutoSplitterCore
         #region Settings
         public void InitDebug()
         {
-            ds1Splitter.DebugMode = true;
-            ds2Splitter.DebugMode = true;
-            ds3Splitter.DebugMode = true;
-            eldenSplitter.DebugMode = true;
-            hollowSplitter.DebugMode = true;
-            celesteSplitter.DebugMode = true;
-            cupSplitter.DebugMode = true;
-            dishonoredSplitter.DebugMode = true;
-            updateModule.DebugMode = true;
-            saveModule._DebugMode = true;
             splitterControl.SetDebug(true);
         }
 
@@ -112,7 +101,6 @@ namespace AutoSplitterCore
                     this);
             //LoadSettings
             saveModule.LoadAutoSplitterSettings();
-            this.profCtrl = interfaceASC;
 
             #if !AutoSplitterCoreDebug
             _update_timer.Tick += (senderT, args) => CheckAutoTimers();
@@ -204,8 +192,8 @@ namespace AutoSplitterCore
             if (ds1Splitter.dataDs1.enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
             if (ds2Splitter.dataDs2.enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
             if (ds3Splitter.dataDs3.enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
-            if (eldenSplitter.dataElden.enableSplitting) { return GameConstruction.EldenSplitterIndex; }
-            if (hollowSplitter.dataHollow.enableSplitting) { return GameConstruction.HollowSplitterIndex; }
+            if (eldenSplitter.GetDataElden().enableSplitting) { return GameConstruction.EldenSplitterIndex; }
+            if (hollowSplitter.GetDataHollow().enableSplitting) { return GameConstruction.HollowSplitterIndex; }
             if (celesteSplitter.dataCeleste.enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
             if (dishonoredSplitter.dataDish.enableSplitting) { return GameConstruction.DishonoredSplitterIndex; }
             if (cupSplitter.dataCuphead.enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
@@ -326,10 +314,10 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.EldenSplitterIndex: //Elden
-                    if (eldenSplitter.dataElden.autoTimer && !_PracticeMode)
+                    if (eldenSplitter.GetDataElden().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
-                        if (eldenSplitter.dataElden.gameTimer)
+                        if (eldenSplitter.GetDataElden().gameTimer)
                         {
                             anyGameTime = true;
                         }
@@ -344,8 +332,8 @@ namespace AutoSplitterCore
                         {                           
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
-                                if (!profCtrl.TimerRunning && GameOn())
-                                    profCtrl.StartStopTimer(true);
+                                if (!splitterControl.GetTimerRunning() && GameOn())
+                                    splitterControl.StartStopTimer(true);
                                 celesteSplitter._runStarted = true;
                             }
                         }
@@ -355,13 +343,13 @@ namespace AutoSplitterCore
                             var currentCelesteTime = celesteSplitter.GetTimeInGame();
                             if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame() && GameOn())
                             {
-                                if (!profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(true);
+                                if (!splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(true);
                             }
                             else
                             {
-                                if (profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(false);
+                                if (splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(false);
                             }
                                 
 
@@ -377,13 +365,13 @@ namespace AutoSplitterCore
                         {
                             if (!cupSplitter.IsInGame() || !GameOn())
                             {
-                                if (profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(false);
+                                if (splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(false);
                             }
                             else
                             {
-                                if (!profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(true);
+                                if (!splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(true);
                             }
                         }
                         else
@@ -391,13 +379,13 @@ namespace AutoSplitterCore
                             anyGameTime = true;
                             if (!cupSplitter.IsInGame() || cupSplitter.LevelCompleted() || !GameOn())
                             {
-                                if (profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(false);
+                                if (splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(false);
                             }
                             else
                             {
-                                if (!profCtrl.TimerRunning)
-                                    profCtrl.StartStopTimer(true);
+                                if (!splitterControl.GetTimerRunning())
+                                    splitterControl.StartStopTimer(true);
                             }
                         }                     
                     }
@@ -407,21 +395,21 @@ namespace AutoSplitterCore
                 case GameConstruction.Ds2SplitterIndex: //DS2
                     if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
                     {
-                        if (ds2Splitter._runStarted && !profCtrl.TimerRunning && GameOn())
-                            profCtrl.StartStopTimer(true);
+                        if (ds2Splitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
+                            splitterControl.StartStopTimer(true);
 
-                        if ((!ds2Splitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
-                            profCtrl.StartStopTimer(false);
+                        if ((!ds2Splitter._runStarted || !GameOn()) && splitterControl.GetTimerRunning())
+                            splitterControl.StartStopTimer(false);
                     }
                     break;
                 case GameConstruction.HollowSplitterIndex: //Hollow
-                    if (hollowSplitter.dataHollow.autoTimer && !_PracticeMode)
+                    if (hollowSplitter.GetDataHollow().autoTimer && !_PracticeMode)
                     {
-                        if (hollowSplitter._runStarted && !profCtrl.TimerRunning && GameOn())
-                            profCtrl.StartStopTimer(true);
+                        if (hollowSplitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
+                            splitterControl.StartStopTimer(true);
 
-                        if ((!hollowSplitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
-                            profCtrl.StartStopTimer(false);
+                        if ((!hollowSplitter._runStarted || !GameOn()) && splitterControl.GetTimerRunning())
+                            splitterControl.StartStopTimer(false);
                     }
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
@@ -429,19 +417,19 @@ namespace AutoSplitterCore
                     {
                         if (!dishonoredSplitter.dataDish.gameTimer)
                         {
-                            if (dishonoredSplitter._runStarted && !profCtrl.TimerRunning && GameOn())
-                                profCtrl.StartStopTimer(true);
+                            if (dishonoredSplitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
+                                splitterControl.StartStopTimer(true);
                             
-                            if ((!dishonoredSplitter._runStarted || !GameOn()) && profCtrl.TimerRunning)
-                                profCtrl.StartStopTimer(false);
+                            if ((!dishonoredSplitter._runStarted || !GameOn()) && splitterControl.GetTimerRunning())
+                                splitterControl.StartStopTimer(false);
                         }
                         else
                         {
-                            if (dishonoredSplitter._runStarted && !dishonoredSplitter.isLoading && !profCtrl.TimerRunning && GameOn())
-                                profCtrl.StartStopTimer(true);
+                            if (dishonoredSplitter._runStarted && !dishonoredSplitter.isLoading && !splitterControl.GetTimerRunning() && GameOn())
+                                splitterControl.StartStopTimer(true);
 
-                            if ((!dishonoredSplitter._runStarted || dishonoredSplitter.isLoading || !GameOn()) && profCtrl.TimerRunning)
-                                profCtrl.StartStopTimer(false);
+                            if ((!dishonoredSplitter._runStarted || dishonoredSplitter.isLoading || !GameOn()) && splitterControl.GetTimerRunning())
+                                splitterControl.StartStopTimer(false);
                         }
                     }
                     break;
@@ -462,18 +450,18 @@ namespace AutoSplitterCore
                     } catch (Exception) { inGameTime = -1; }
                 }
 
-                if (inGameTime > 0 && _lastTime != inGameTime && !profCtrl.TimerRunning && profCtrl.ActiveSplit != profCtrl.SplitCount && GameOn())
+                if (inGameTime > 0 && _lastTime != inGameTime && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && GameOn())
                 {
-                    profCtrl.UpdateDuration();
-                    profCtrl.StartStopTimer(true);
-                    profCtrl.UpdateDuration();
+                    splitterControl.UpdateDuration();
+                    splitterControl.StartStopTimer(true);
+                    splitterControl.UpdateDuration();
                 }
                     
-                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || profCtrl.ActiveSplit == profCtrl.SplitCount || !GameOn()) && profCtrl.TimerRunning)
+                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || splitterControl.CurrentFinalSplit() || !GameOn()) && splitterControl.GetTimerRunning())
                 {
-                    profCtrl.UpdateDuration();
-                    profCtrl.StartStopTimer(false);
-                    profCtrl.UpdateDuration();
+                    splitterControl.UpdateDuration();
+                    splitterControl.StartStopTimer(false);
+                    splitterControl.UpdateDuration();
                 }
 
                 if (inGameTime > 0)
@@ -492,11 +480,11 @@ namespace AutoSplitterCore
                     catch (Exception) { inGameTime = -1; }
                 }
 
-                if (inGameTime > 0 && !profCtrl.TimerRunning && profCtrl.ActiveSplit != profCtrl.SplitCount && GameOn())
-                    profCtrl.StartStopTimer(true);
+                if (inGameTime > 0 && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && GameOn())
+                    splitterControl.StartStopTimer(true);
 
-                if ((inGameTime <= 0 || profCtrl.ActiveSplit == profCtrl.SplitCount || !GameOn()) && profCtrl.TimerRunning)
-                    profCtrl.StartStopTimer(false);
+                if ((inGameTime <= 0 || splitterControl.CurrentFinalSplit() || !GameOn()) && splitterControl.GetTimerRunning())
+                    splitterControl.StartStopTimer(false);
             }
         }
 
@@ -533,8 +521,8 @@ namespace AutoSplitterCore
                                     ResetSplitterFlags();
                                     if (!DebugMode)
                                     {
-                                        profCtrl.StartStopTimer(false);
-                                        profCtrl.ProfileReset();
+                                        splitterControl.StartStopTimer(false);
+                                        splitterControl.ProfileReset();
                                     }                                   
                                 }
                             }
@@ -555,8 +543,8 @@ namespace AutoSplitterCore
 
                                 if (!DebugMode)
                                 {
-                                    profCtrl.StartStopTimer(false);
-                                    profCtrl.ProfileReset();
+                                    splitterControl.StartStopTimer(false);
+                                    splitterControl.ProfileReset();
                                 }
                             }                           
                         }
@@ -577,8 +565,8 @@ namespace AutoSplitterCore
 
                             if (!DebugMode)
                             {
-                                profCtrl.StartStopTimer(false);
-                                profCtrl.ProfileReset();
+                                splitterControl.StartStopTimer(false);
+                                splitterControl.ProfileReset();
                             }
                         }
                     }

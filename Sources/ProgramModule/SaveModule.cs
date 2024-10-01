@@ -186,8 +186,8 @@ namespace AutoSplitterCore
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
             sekiroSplitter.SetDataSekiro(dataSekiro);
-            hollowSplitter.SetDataHollow(dataHollow, null);
-            eldenSplitter.SetDataElden(dataElden, null);
+            hollowSplitter.SetDataHollow(dataHollow);
+            eldenSplitter.SetDataElden(dataElden);
             ds3Splitter.SetDataDs3(dataDs3, null);
             ds2Splitter.SetDataDs2(dataDs2, null);
             ds1Splitter.SetDataDs1(dataDs1, null);
@@ -215,8 +215,8 @@ namespace AutoSplitterCore
             
             if (!_DebugMode)
             {
-                mainModule.profCtrl.ActiveGameIndex = mainModule.GetSplitterEnable();
-                mainModule.profCtrl.PracticeMode = mainModule.GetPracticeMode();
+                SplitterControl.GetControl().SetActiveGameIndex(mainModule.GetSplitterEnable());
+                SplitterControl.GetControl().SetPracticeMode(mainModule.GetPracticeMode());
             }
             else
             {

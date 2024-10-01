@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -25,61 +25,25 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SoulMemory.EldenRing;
 using System.Threading;
-using HitCounterManager;
 
 namespace AutoSplitterCore
 {
     public class EldenSplitter
     {
-        public static EldenRing elden = new EldenRing();
+        private static EldenRing elden = new EldenRing();
+        private DTElden dataElden;
+        private DefinitionsElden defE = new DefinitionsElden();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         public bool _StatusElden = false;
-        public bool _SplitGo = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
-        private bool PK = true;
-        public DTElden dataElden;
-        public DefinitionsElden defE = new DefinitionsElden();
-        public IAutoSplitterCoreInterface _profile;
-        private bool _writeMemory = false;      
-        private static readonly object _object = new object();
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
+
 
         #region Control Management
-        public DTElden GetDataElden()
-        {
-            return this.dataElden;
-        }
+        public DTElden GetDataElden() => dataElden;
 
-        public void SetDataElden(DTElden data, IAutoSplitterCoreInterface profile)
-        {
-            this.dataElden = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
-        }
-
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-        private void SplitCheck()
-        {
-            lock (_object)
-            {
-                if (_PracticeMode)
-                    PK = false;
-                else
-                {
-                    if (_SplitGo) { Thread.Sleep(2000); }
-                    _SplitGo = true;
-                    PK = true;
-                }
-            }
-        }
+        public void SetDataElden(DTElden data) => dataElden = data;
 
         public bool GetEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
@@ -93,12 +57,7 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             dataElden.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
-        }
-
-        public void SetPositionMargin(int select)
-        {
-            dataElden.positionMargin = select;
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -241,6 +200,7 @@ namespace AutoSplitterCore
         }
         #endregion
         #region CheckFlag Init()   
+        private bool _writeMemory = false;
         private void RefreshElden()
         {
             int delay = 2000;
@@ -289,28 +249,28 @@ namespace AutoSplitterCore
                         {
                             foreach (var boss in listPendingB)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var b = dataElden.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
                                 dataElden.bossToSplit[b].IsSplited = true;
                             }
 
                             foreach (var grace in listPendingG)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var g = dataElden.graceToSplit.FindIndex(igrace => igrace.Id == grace.Id);
                                 dataElden.graceToSplit[g].IsSplited = true;
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var p = dataElden.positionToSplit.FindIndex(iposition => iposition.vector == position.vector);
                                 dataElden.positionToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingCf)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var c = dataElden.flagsToSplit.FindIndex(iflag => iflag.Id == cf.Id);
                                 dataElden.flagsToSplit[c].IsSplited = true;
                             }
@@ -347,8 +307,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                SplitCheck();
-                                b.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -378,8 +338,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                i.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                i.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -410,8 +370,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                SplitCheck();
-                                cf.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                cf.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -447,8 +407,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {
-                                    SplitCheck();
-                                    p.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }

@@ -1,4 +1,26 @@
-﻿using HitCounterManager;
+﻿//MIT License
+
+//Copyright (c) 2022-2024 Ezequiel Medina
+
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
+
+using HitCounterManager;
 using System;
 using System.Threading;
 using System.Collections.Generic;
@@ -29,10 +51,48 @@ namespace AutoSplitterCore
         /// <param name="status">True to enable the timer, false to disable it.</param>
         void SetDebug(bool status);
 
+        // <summary>
+        /// Start or Stop Timer of HCM
+        /// </summary>
+        /// <param name="stop">True to enable the timer, false to disable it.</param>
+        void StartStopTimer(bool stop);
+
+
+        // <summary>
+        /// Set Index of ComboBox Game on HCM
+        /// </summary>
+        /// <param name="index">index >-1: Set Index Combobox </param>
+        void SetActiveGameIndex(int index);
+
+
+        // <summary>
+        /// Set ComboBox Practice on HCM
+        /// </summary>
+        /// <param name="status"></param>
+        void SetPracticeMode(bool status);
+
         /// <summary>
         /// Processes a split in the main HCM program.
         /// </summary>
         void SplitCheck();
+
+        /// <summary>
+        /// Force to Internal Proces of HCM update timer values to current value
+        /// </summary>
+        void UpdateDuration();
+
+        /// <summary>
+        /// Reset CurrentSplit to first Split and add a attemps run
+        /// Stop and Reset Timer
+        /// </summary>
+        void ProfileReset();
+
+        /// <summary>
+        /// Returns if HCM Current Split is the last
+        /// </summary>
+        /// <returns>Returns true/false if CurrentSplit = LastSplit</returns>
+        bool CurrentFinalSplit();
+
 
         /// <summary>
         /// Returns the current SplitStatus value.
@@ -40,6 +100,12 @@ namespace AutoSplitterCore
         /// </summary>
         /// <returns>Returns true if the split status is valid, or false if Practice mode was enabled.</returns>
         bool GetSplitStatus();
+
+        /// <summary>
+        /// Returns the current Timer Running value of Timer on HCM.
+        /// </summary>
+        /// <returns>Returns true if the Timer is running, or false if Timer is Stop.</returns>
+        bool GetTimerRunning();
     }
 
     public class SplitterControl : ISplitterControl
@@ -62,6 +128,7 @@ namespace AutoSplitterCore
         private bool enableChecking = true;
         private bool DebugMode = false;
 
+        //Checking Splits Procedures Functions
         private bool _SplitGo = false;
         private bool SplitStatus = false;
         private IAutoSplitterCoreInterface interfaceHCM;
@@ -81,8 +148,6 @@ namespace AutoSplitterCore
                 _update_timer.Enabled = false;        
             }
         }
-
-        public void SetDebug(bool status) => DebugMode = status;
 
         public bool GetSplitStatus() => SplitStatus;
 
@@ -111,6 +176,23 @@ namespace AutoSplitterCore
                 _SplitGo = false;
             }
         }
+
+        // Chequing to HCM Interface functions
+        public void SetDebug(bool status) => DebugMode = status;
+
+        public bool GetTimerRunning() => interfaceHCM.TimerRunning;
+
+        public void StartStopTimer(bool stop) => interfaceHCM.StartStopTimer(stop);
+
+        public bool CurrentFinalSplit() => interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
+
+        public void UpdateDuration() => interfaceHCM.UpdateDuration();
+
+        public void ProfileReset() => interfaceHCM.ProfileReset();
+
+        public void SetActiveGameIndex(int index) => interfaceHCM.ActiveGameIndex = index;
+
+        public void SetPracticeMode(bool status) => interfaceHCM.PracticeMode = status;
 
     }
 }
