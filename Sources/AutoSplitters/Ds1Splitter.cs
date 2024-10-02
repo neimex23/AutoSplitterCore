@@ -32,56 +32,19 @@ namespace AutoSplitterCore
 {
     public class Ds1Splitter
     {
-        public static DarkSouls1 Ds1 = new DarkSouls1();
+        private static DarkSouls1 Ds1 = new DarkSouls1();
+        private DTDs1 dataDs1;
+        private DefinitionsDs1 defDs1 = new DefinitionsDs1();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         public bool _StatusDs1 = false;
-        public bool _SplitGo = false;
         public bool _PracticeMode = false;
-        private bool PK = true;
         public bool _ShowSettings = false;
-        public DTDs1 dataDs1;
-        public DefinitionsDs1 defDs1 = new DefinitionsDs1();
-        public IAutoSplitterCoreInterface _profile;
-        private List<Item> inventory = null;
-        private static readonly object _object = new object();
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
 
         #region Control Management
-        public DTDs1 GetDataDs1()
-        {
-            return this.dataDs1;
-        }
+        public DTDs1 GetDataDs1() => dataDs1;
 
-        public void SetDataDs1(DTDs1 data, IAutoSplitterCoreInterface profile)
-        {
-            this.dataDs1 = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
-        }
-
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-
-        private void SplitCheck()
-        {
-            lock (_object)
-            {
-                if (_PracticeMode)
-                    PK = false;
-                else
-                {
-                    if (_SplitGo) { Thread.Sleep(2000); }
-                    _SplitGo = true;
-                    PK = true;
-                }
-            }
-        }
+        public void SetDataDs1(DTDs1 data) => dataDs1 = data;
 
         public bool GetDs1StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
@@ -97,7 +60,7 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             dataDs1.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -301,6 +264,8 @@ namespace AutoSplitterCore
             }
         }
 
+        private List<Item> inventory = null;
+
         public void InventorySee()
         {
             while (dataDs1.enableSplitting)
@@ -329,35 +294,35 @@ namespace AutoSplitterCore
                         {
                             foreach (var boss in listPendingB)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var b = dataDs1.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
                                 dataDs1.bossToSplit[b].IsSplited = true;
                             }
 
                             foreach (var bone in listPendingBon)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var bo = dataDs1.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
                                 dataDs1.bonfireToSplit[bo].IsSplited = true;
                             }
 
                             foreach (var lvl in listPendingLvl)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var l = dataDs1.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
                                 dataDs1.lvlToSplit[l].IsSplited = true;
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var p = dataDs1.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
                                 dataDs1.positionsToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingItem)
                             {
-                                SplitCheck();
+                                splitterControl.SplitCheck();
                                 var c = dataDs1.itemToSplit.FindIndex(icf => icf.Id == cf.Id);
                                 dataDs1.itemToSplit[c].IsSplited = true;
                             }
@@ -395,8 +360,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                b.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -427,8 +392,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                bonfire.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                bonfire.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -458,8 +423,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                                
-                                SplitCheck();
-                                lvl.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                lvl.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -495,8 +460,8 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {                                    
-                                    SplitCheck();
-                                    p.IsSplited = PK;
+                                    splitterControl.SplitCheck();
+                                    p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                         }
@@ -1229,8 +1194,8 @@ namespace AutoSplitterCore
                             }
                             else
                             {                               
-                                SplitCheck();
-                                item.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                item.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }

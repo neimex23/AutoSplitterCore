@@ -188,12 +188,12 @@ namespace AutoSplitterCore
             sekiroSplitter.SetDataSekiro(dataSekiro);
             hollowSplitter.SetDataHollow(dataHollow);
             eldenSplitter.SetDataElden(dataElden);
-            ds3Splitter.SetDataDs3(dataDs3, null);
-            ds2Splitter.SetDataDs2(dataDs2, null);
-            ds1Splitter.SetDataDs1(dataDs1, null);
-            celesteSplitter.SetDataCeleste(dataCeleste, null);
-            cupSplitter.SetDataCuphead(dataCuphead, null);
-            dishonoredSplitter.SetDataDishonored(dataDishonored, null);
+            ds3Splitter.SetDataDs3(dataDs3);
+            ds2Splitter.SetDataDs2(dataDs2);
+            ds1Splitter.SetDataDs1(dataDs1);
+            celesteSplitter.SetDataCeleste(dataCeleste);
+            cupSplitter.SetDataCuphead(dataCuphead);
+            dishonoredSplitter.SetDataDishonored(dataDishonored);
           
         }
 

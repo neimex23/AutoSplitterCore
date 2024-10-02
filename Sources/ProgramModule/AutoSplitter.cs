@@ -1037,22 +1037,22 @@ namespace AutoSplitterCore
             {
                 sekiroSplitter.GetDataSekiro().autoTimer = false;
                 sekiroSplitter.GetDataSekiro().gameTimer = false;
-                ds1Splitter.dataDs1.autoTimer = false;
-                ds1Splitter.dataDs1.gameTimer = false;
-                ds2Splitter.dataDs2.autoTimer = false;
-                ds2Splitter.dataDs2.gameTimer = false;
-                ds3Splitter.dataDs3.autoTimer = false;
-                ds3Splitter.dataDs3.gameTimer = false;
+                ds1Splitter.GetDataDs1().autoTimer = false;
+                ds1Splitter.GetDataDs1().gameTimer = false;
+                ds2Splitter.GetDataDs2().autoTimer = false;
+                ds2Splitter.GetDataDs2().gameTimer = false;
+                ds3Splitter.GetDataDs3().autoTimer = false;
+                ds3Splitter.GetDataDs3().gameTimer = false;
                 eldenSplitter.GetDataElden().autoTimer = false;
                 eldenSplitter.GetDataElden().gameTimer = false;
                 hollowSplitter.GetDataHollow().autoTimer = false;
                 hollowSplitter.GetDataHollow().gameTimer = false;
-                celesteSplitter.dataCeleste.autoTimer = false;
-                celesteSplitter.dataCeleste.gameTimer = false;
-                cupSplitter.dataCuphead.autoTimer = false;
-                cupSplitter.dataCuphead.gameTimer = false;
-                dishonoredSplitter.dataDish.autoTimer = false;
-                dishonoredSplitter.dataDish.gameTimer = false;
+                celesteSplitter.GetDataCeleste().autoTimer = false;
+                celesteSplitter.GetDataCeleste().gameTimer = false;
+                cupSplitter.GetDataCuphead().autoTimer = false;
+                cupSplitter.GetDataCuphead().gameTimer = false;
+                dishonoredSplitter.GetDataDishonored().autoTimer = false;
+                dishonoredSplitter.GetDataDishonored().gameTimer = false;
                 this.Controls.Clear();
                 this.InitializeComponent();
                 RefreshForm();
@@ -1076,38 +1076,38 @@ namespace AutoSplitterCore
 
         private void checkBoxATDs1_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATDs1.Checked ? ds1Splitter.dataDs1.autoTimer = true : ds1Splitter.dataDs1.autoTimer = false;
+            _ = checkBoxATDs1.Checked ? ds1Splitter.GetDataDs1().autoTimer = true : ds1Splitter.GetDataDs1().autoTimer = false;
             _ = checkBoxATDs1.Checked ? groupBoxTMDs1.Enabled = true : groupBoxTMDs1.Enabled = false;
-            if (!checkBoxATDs1.Checked) { ds1Splitter.dataDs1.gameTimer = false; radioIGTDs1.Checked = false; radioRealTimerDs1.Checked = true; }
+            if (!checkBoxATDs1.Checked) { ds1Splitter.GetDataDs1().gameTimer = false; radioIGTDs1.Checked = false; radioRealTimerDs1.Checked = true; }
         }
 
         private void radioIGTDs1_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTDs1.Checked ? ds1Splitter.dataDs1.gameTimer = true : ds1Splitter.dataDs1.gameTimer = false;
+            _ = radioIGTDs1.Checked ? ds1Splitter.GetDataDs1().gameTimer = true : ds1Splitter.GetDataDs1().gameTimer = false;
         }
 
         private void checkBoxATDs2_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATDs2.Checked ? ds2Splitter.dataDs2.autoTimer = true : ds2Splitter.dataDs2.autoTimer = false;
+            _ = checkBoxATDs2.Checked ? ds2Splitter.GetDataDs2().autoTimer = true : ds2Splitter.GetDataDs2().autoTimer = false;
             _ = checkBoxATDs2.Checked ? groupBoxTMDs2.Enabled = true : groupBoxTMDs2.Enabled = false;
-            if (!checkBoxATDs2.Checked) { ds2Splitter.dataDs2.gameTimer = false; radioIGTDs2.Checked = false; radioRealTimerDs2.Checked = true; }
+            if (!checkBoxATDs2.Checked) { ds2Splitter.GetDataDs2().gameTimer = false; radioIGTDs2.Checked = false; radioRealTimerDs2.Checked = true; }
         }
 
         private void radioIGTDs2_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTDs2.Checked ? ds2Splitter.dataDs2.gameTimer = true : ds2Splitter.dataDs2.gameTimer = false;
+            _ = radioIGTDs2.Checked ? ds2Splitter.GetDataDs2().gameTimer = true : ds2Splitter.GetDataDs2().gameTimer = false;
         }
 
         private void checkBoxATDs3_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATDs3.Checked ? ds3Splitter.dataDs3.autoTimer = true : ds3Splitter.dataDs3.autoTimer = false;
+            _ = checkBoxATDs3.Checked ? ds3Splitter.GetDataDs3().autoTimer = true : ds3Splitter.GetDataDs3().autoTimer = false;
             _ = checkBoxATDs3.Checked ? groupBoxTMDs3.Enabled = true : groupBoxTMDs3.Enabled = false;
-            if (!checkBoxATDs3.Checked) { ds3Splitter.dataDs3.gameTimer = false; radioIGTDs3.Checked = false; radioRealTimerDs3.Checked = true; }
+            if (!checkBoxATDs3.Checked) { ds3Splitter.GetDataDs3().gameTimer = false; radioIGTDs3.Checked = false; radioRealTimerDs3.Checked = true; }
         }
 
         private void radioIGTDs3_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTDs3.Checked ? ds3Splitter.dataDs3.gameTimer = true : ds3Splitter.dataDs3.gameTimer = false;
+            _ = radioIGTDs3.Checked ? ds3Splitter.GetDataDs3().gameTimer = true : ds3Splitter.GetDataDs3().gameTimer = false;
         }
 
         private void checkBoxATEr_CheckedChanged_1(object sender, EventArgs e)
@@ -1124,26 +1124,26 @@ namespace AutoSplitterCore
 
         private void checkBoxATCeleste_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATCeleste.Checked ? celesteSplitter.dataCeleste.autoTimer = true : celesteSplitter.dataCeleste.autoTimer = false;
+            _ = checkBoxATCeleste.Checked ? celesteSplitter.GetDataCeleste().autoTimer = true : celesteSplitter.GetDataCeleste().autoTimer = false;
             _ = checkBoxATCeleste.Checked ? groupBoxTMCeleste.Enabled = true : groupBoxTMCeleste.Enabled = false;
-            if (!checkBoxATCeleste.Checked) { celesteSplitter.dataCeleste.gameTimer = false; radioIGTCeleste.Checked = false; radioRealTimerCeleste.Checked = true; }
+            if (!checkBoxATCeleste.Checked) { celesteSplitter.GetDataCeleste().gameTimer = false; radioIGTCeleste.Checked = false; radioRealTimerCeleste.Checked = true; }
         }
 
         private void radioIGTCeleste_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTCeleste.Checked == true ? celesteSplitter.dataCeleste.gameTimer = true : celesteSplitter.dataCeleste.gameTimer = false;
+            _ = radioIGTCeleste.Checked == true ? celesteSplitter.GetDataCeleste().gameTimer = true : celesteSplitter.GetDataCeleste().gameTimer = false;
         }
 
         private void checkBoxATCuphead_CheckedChanged_1(object sender, EventArgs e)
         {
-            _ = checkBoxATCuphead.Checked ? cupSplitter.dataCuphead.autoTimer = true : cupSplitter.dataCuphead.autoTimer = false;
+            _ = checkBoxATCuphead.Checked ? cupSplitter.GetDataCuphead().autoTimer = true : cupSplitter.GetDataCuphead().autoTimer = false;
             _ = checkBoxATCuphead.Checked ? groupBoxTMCuphead.Enabled = true : groupBoxTMCuphead.Enabled = false;
-            if (!checkBoxATCuphead.Checked) { cupSplitter.dataCuphead.gameTimer = false; radioIGTCuphead.Checked = false; radioRealTimerCuphead.Checked = true; }
+            if (!checkBoxATCuphead.Checked) { cupSplitter.GetDataCuphead().gameTimer = false; radioIGTCuphead.Checked = false; radioRealTimerCuphead.Checked = true; }
         }
 
         private void radioIGTCuphead_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTCuphead.Checked ? cupSplitter.dataCuphead.gameTimer = true : cupSplitter.dataCuphead.gameTimer = false;
+            _ = radioIGTCuphead.Checked ? cupSplitter.GetDataCuphead().gameTimer = true : cupSplitter.GetDataCuphead().gameTimer = false;
         }
 
         private void checkBoxATHollow_CheckedChanged(object sender, EventArgs e)
@@ -1160,14 +1160,14 @@ namespace AutoSplitterCore
 
         private void checkBoxATDishonored_CheckedChanged(object sender, EventArgs e)
         {
-            _ = checkBoxATDishonored.Checked ? dishonoredSplitter.dataDish.autoTimer = true : dishonoredSplitter.dataDish.autoTimer = false;
+            _ = checkBoxATDishonored.Checked ? dishonoredSplitter.GetDataDishonored().autoTimer = true : dishonoredSplitter.GetDataDishonored().autoTimer = false;
             _ = checkBoxATDishonored.Checked ? groupBoxTMDishonored.Enabled = true : groupBoxTMDishonored.Enabled = false;
-            if (!checkBoxATDishonored.Checked) { dishonoredSplitter.dataDish.gameTimer = false; radioIGTDishonored.Checked = false; radioRealTimerDishonored.Checked = true; }
+            if (!checkBoxATDishonored.Checked) { dishonoredSplitter.GetDataDishonored().gameTimer = false; radioIGTDishonored.Checked = false; radioRealTimerDishonored.Checked = true; }
         }
 
         private void radioIGTDishonored_CheckedChanged(object sender, EventArgs e)
         {
-            _ = radioIGTDishonored.Checked == true ? dishonoredSplitter.dataDish.gameTimer = true : dishonoredSplitter.dataDish.gameTimer = false;
+            _ = radioIGTDishonored.Checked == true ? dishonoredSplitter.GetDataDishonored().gameTimer = true : dishonoredSplitter.GetDataDishonored().gameTimer = false;
         }
 
         private void checkBoxResetIgtDs3_CheckedChanged(object sender, EventArgs e)
@@ -1175,7 +1175,7 @@ namespace AutoSplitterCore
             if (!radioIGTDs3.Checked && checkBoxResetIgtDs3.Checked) { MessageBox.Show("You should activate IGT in timing options", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning); checkBoxResetIgtDs3.Checked = false; }
             else
             {
-                _ = checkBoxResetIgtDs3.Checked ? ds3Splitter.dataDs3.ResetIGTNG = true : ds3Splitter.dataDs3.ResetIGTNG = false;
+                _ = checkBoxResetIgtDs3.Checked ? ds3Splitter.GetDataDs3().ResetIGTNG = true : ds3Splitter.GetDataDs3().ResetIGTNG = false;
             }
         }
 
@@ -2320,7 +2320,7 @@ namespace AutoSplitterCore
 
         private void comboBoxMarginDs1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ds1Splitter.dataDs1.positionMargin = comboBoxSizeDs1.SelectedIndex;
+            ds1Splitter.GetDataDs1().positionMargin = comboBoxSizeDs1.SelectedIndex;
         }
 
         private void btnAddPositionDs1_Click(object sender, EventArgs e)
@@ -2514,7 +2514,7 @@ namespace AutoSplitterCore
 
         private void comboBoxMarginDs2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ds2Splitter.dataDs2.positionMargin = comboBoxSizeDs2.SelectedIndex;
+            ds2Splitter.GetDataDs2().positionMargin = comboBoxSizeDs2.SelectedIndex;
         }
 
         private void btnAddPositionDs2_Click(object sender, EventArgs e)
@@ -2850,7 +2850,7 @@ namespace AutoSplitterCore
 
         private void comboBoxMarginDs3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ds3Splitter.dataDs3.positionMargin = comboBoxMarginDs3.SelectedIndex;
+            ds3Splitter.GetDataDs3().positionMargin = comboBoxMarginDs3.SelectedIndex;
         }
 
         private void btnDesactiveAllDs3_Click(object sender, EventArgs e)
@@ -3547,22 +3547,7 @@ namespace AutoSplitterCore
                 TabControlGeneral.SelectTab(tabDishonored);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #endregion
-
 
     }
 }

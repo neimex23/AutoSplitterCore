@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -30,31 +30,20 @@ namespace AutoSplitterCore
 {
     public class CelesteSplitter
     {
-        public static ISplitterMemory celeste = new SplitterMemoryDispatch();
+        private static ISplitterMemory celeste = new SplitterMemoryDispatch();
+        private DTCeleste dataCeleste;
+        private DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         public bool _StatusCeleste = false;
         public bool _runStarted = false;
-        public bool _SplitGo = false;
         public bool _PracticeMode = false;
-        private bool PK = true;
         public bool _ShowSettings = false;
-        public DTCeleste dataCeleste;
-        public IAutoSplitterCoreInterface _profile;
-        public DefinitionsCeleste.InfoPlayerCeleste infoPlayer = new DefinitionsCeleste.InfoPlayerCeleste(); 
-        private static readonly object _object = new object();
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
 
         #region Control Management
-        public DTCeleste GetDataCeleste()
-        {
-            return this.dataCeleste;
-        }
-        public void SetDataCeleste(DTCeleste data, IAutoSplitterCoreInterface profile)
-        {
-            this.dataCeleste = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
-        }
+        public DTCeleste GetDataCeleste() => dataCeleste;
+
+        public void SetDataCeleste(DTCeleste data) => dataCeleste = data;
 
         public bool GetCelesteStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
@@ -66,34 +55,10 @@ namespace AutoSplitterCore
             return _StatusCeleste;
         }
 
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-
-        private void SplitCheck()
-        {
-            lock (_object)
-            {
-                if (_PracticeMode)
-                    PK = false;
-                else
-                {
-                    if (_SplitGo) { Thread.Sleep(2000); }
-                    _SplitGo = true;
-                    PK = true;
-                }
-            }
-        }
-
         public void SetStatusSplitting(bool status)
         {
             dataCeleste.enableSplitting = status;
-            if (status) { LoadAutoSplitterProcedure(); _update_timer.Enabled = true; } else { _update_timer.Enabled = false; }
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -405,8 +370,8 @@ namespace AutoSplitterCore
 
                             if (shouldSplit)
                             {                       
-                                SplitCheck();
-                                element.IsSplited = PK;
+                                splitterControl.SplitCheck();
+                                element.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }

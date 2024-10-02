@@ -31,6 +31,128 @@ namespace AutoSplitterCore
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.PoisonTabControl();
+            this.tabElden = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.panelPositionsER = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnGetPositionEr = new ReaLTaiizor.Controls.Button();
+            this.comboBoxSizeER = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxZEr = new ReaLTaiizor.Controls.SkyTextBox();
+            this.comboBoxHowPositionsER = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxYEr = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxTitlePositionER = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxXEr = new ReaLTaiizor.Controls.SkyTextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.panel20 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxPositionsER = new System.Windows.Forms.ListBox();
+            this.btnAddPositionER = new ReaLTaiizor.Controls.Button();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.panelGraceER = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.checkBoxViewDlcGrace = new System.Windows.Forms.CheckBox();
+            this.comboBoxGraceDLC_ER = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.btnAddGraceER = new ReaLTaiizor.Controls.Button();
+            this.panel24 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxGrace = new System.Windows.Forms.ListBox();
+            this.comboBoxHowGraceER = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.comboBoxGraceER = new System.Windows.Forms.ComboBox();
+            this.panelBossER = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.comboBoxBossER_DLC = new System.Windows.Forms.ComboBox();
+            this.checkBoxDLCBoss = new System.Windows.Forms.CheckBox();
+            this.btnAddBossER = new ReaLTaiizor.Controls.Button();
+            this.panel22 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxBossER = new System.Windows.Forms.ListBox();
+            this.comboBoxHowBossER = new ReaLTaiizor.Controls.SkyComboBox();
+            this.comboBoxBossER = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.comboBoxToSplitEldenRing = new ReaLTaiizor.Controls.DungeonComboBox();
+            this.EldenRingRunning = new System.Windows.Forms.Label();
+            this.EldenRingNotRunning = new System.Windows.Forms.Label();
+            this.btnRefreshE = new ReaLTaiizor.Controls.Button();
+            this.btn_DesactiveAllElden = new ReaLTaiizor.Controls.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tabGeneral = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.TabPageGeneral = new ReaLTaiizor.Controls.AirTabPage();
+            this.tabPageControl = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel2 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.skyComboBoxOverrideStyleMode = new ReaLTaiizor.Controls.SkyComboBox();
+            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
+            this.tabPageShortcuts = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel4 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.tabPageTimming = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
+            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATS = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
+            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
+            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
+            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
+            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
+            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
+            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
+            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
+            this.radioIGTEr = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
+            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
+            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
+            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
+            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
+            this.tabPageHitCounter = new System.Windows.Forms.TabPage();
+            this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.tabConfig = new ReaLTaiizor.Controls.PoisonTabPage();
             this.labelWarning = new System.Windows.Forms.Label();
             this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
@@ -211,89 +333,27 @@ namespace AutoSplitterCore
             this.sekiroRunning = new System.Windows.Forms.Label();
             this.SekiroNotRunning = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabGeneral = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.TabPageGeneral = new ReaLTaiizor.Controls.AirTabPage();
-            this.tabPageControl = new System.Windows.Forms.TabPage();
-            this.lostBorderPanel2 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.skyComboBoxOverrideStyleMode = new ReaLTaiizor.Controls.SkyComboBox();
-            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
-            this.label94 = new System.Windows.Forms.Label();
-            this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
-            this.tabPageShortcuts = new System.Windows.Forms.TabPage();
-            this.lostBorderPanel4 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.tabPageTimming = new System.Windows.Forms.TabPage();
-            this.lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.comboBoxTGame = new ReaLTaiizor.Controls.DungeonComboBox();
-            this.groupBoxTSekiro = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATS = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMS = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTSekiro = new System.Windows.Forms.CheckBox();
-            this.radioIGTSTimer = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerS = new System.Windows.Forms.RadioButton();
-            this.btnDesactiveAllTiming = new ReaLTaiizor.Controls.Button();
-            this.groupBoxTDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDishonored = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDishonored = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDishonored = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDishonored = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCeleste = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCeleste = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTCeleste = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCeleste = new System.Windows.Forms.RadioButton();
-            this.groupBoxTCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label77 = new System.Windows.Forms.Label();
-            this.groupBoxATCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATCuphead = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMCuphead = new ReaLTaiizor.Controls.GroupBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.radioIGTCuphead = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerCuphead = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs1 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs1 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs1 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs1 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTHK = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATHk = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATHollow = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMHollow = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTHollow = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerHollow = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs2 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs2 = new ReaLTaiizor.Controls.GroupBox();
-            this.radioIGTDs2 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs2 = new System.Windows.Forms.RadioButton();
-            this.groupBoxTEr = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATEr = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMEr = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIGTNGEr = new System.Windows.Forms.CheckBox();
-            this.radioIGTEr = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerEr = new System.Windows.Forms.RadioButton();
-            this.groupBoxTDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.groupBoxATDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxATDs3 = new System.Windows.Forms.CheckBox();
-            this.groupBoxTMDs3 = new ReaLTaiizor.Controls.GroupBox();
-            this.checkBoxResetIgtDs3 = new System.Windows.Forms.CheckBox();
-            this.radioIGTDs3 = new System.Windows.Forms.RadioButton();
-            this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
-            this.tabPageHitCounter = new System.Windows.Forms.TabPage();
-            this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
             this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
             this.tabDs1 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.panelPositionDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnGetPositionDs1 = new ReaLTaiizor.Controls.Button();
+            this.comboBoxSizeDs1 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxZDs1 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.comboBoxHowPositionsDs1 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxYDs1 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxTitlePositionDs1 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxXDs1 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel7 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxPositionsDs1 = new System.Windows.Forms.ListBox();
+            this.btnAddPositionDs1 = new ReaLTaiizor.Controls.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.panelBossDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.btnAddAllBossesDs1 = new ReaLTaiizor.Controls.Button();
             this.comboBoxBossDs1 = new System.Windows.Forms.ComboBox();
@@ -323,22 +383,6 @@ namespace AutoSplitterCore
             this.btnAddAttributeDs1 = new ReaLTaiizor.Controls.Button();
             this.label69 = new System.Windows.Forms.Label();
             this.comboBoxAttributesDs1 = new System.Windows.Forms.ComboBox();
-            this.panelPositionDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.btnGetPositionDs1 = new ReaLTaiizor.Controls.Button();
-            this.comboBoxSizeDs1 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxZDs1 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.comboBoxHowPositionsDs1 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxYDs1 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxTitlePositionDs1 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxXDs1 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel7 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxPositionsDs1 = new System.Windows.Forms.ListBox();
-            this.btnAddPositionDs1 = new ReaLTaiizor.Controls.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panelItemDs1 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.comboBoxItemDs1 = new System.Windows.Forms.ComboBox();
             this.panel9 = new ReaLTaiizor.Controls.Panel();
@@ -354,6 +398,22 @@ namespace AutoSplitterCore
             this.Ds1Running = new System.Windows.Forms.Label();
             this.Ds1NotRunning = new System.Windows.Forms.Label();
             this.tabDs2 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.panelPositionDs2 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnGetPositionDs2 = new ReaLTaiizor.Controls.Button();
+            this.comboBoxSizeDs2 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxZDs2 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.comboBoxHowPositionsDs2 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.textBoxYDs2 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxTitlePositionDs2 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxXDs2 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.panel12 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxPositionsDs2 = new System.Windows.Forms.ListBox();
+            this.btnAddPositionDs2 = new ReaLTaiizor.Controls.Button();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
             this.panelLvlDs2 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -372,22 +432,6 @@ namespace AutoSplitterCore
             this.label51 = new System.Windows.Forms.Label();
             this.button1 = new ReaLTaiizor.Controls.Button();
             this.label55 = new System.Windows.Forms.Label();
-            this.panelPositionDs2 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.btnGetPositionDs2 = new ReaLTaiizor.Controls.Button();
-            this.comboBoxSizeDs2 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxZDs2 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.comboBoxHowPositionsDs2 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxYDs2 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxTitlePositionDs2 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxXDs2 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.panel12 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxPositionsDs2 = new System.Windows.Forms.ListBox();
-            this.btnAddPositionDs2 = new ReaLTaiizor.Controls.Button();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
             this.comboBoxToSplitDs2 = new ReaLTaiizor.Controls.DungeonComboBox();
             this.btnRefreshDs2 = new ReaLTaiizor.Controls.Button();
@@ -395,22 +439,6 @@ namespace AutoSplitterCore
             this.Ds2Running = new System.Windows.Forms.Label();
             this.Ds2NotRunning = new System.Windows.Forms.Label();
             this.tabDs3 = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.panelBonfireDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.btnAddBonfire = new ReaLTaiizor.Controls.Button();
-            this.comboBoxBonfireDs3 = new System.Windows.Forms.ComboBox();
-            this.panel17 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBonfireDs3 = new System.Windows.Forms.ListBox();
-            this.comboBoxHowBonfireDs3 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.panelBossDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.btnAddBossDs3 = new ReaLTaiizor.Controls.Button();
-            this.panel16 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBossDs3 = new System.Windows.Forms.ListBox();
-            this.comboBoxHowBossDs3 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.comboBoxBossDs3 = new System.Windows.Forms.ComboBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
             this.panelPositionsDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.btnGetPositionDs3 = new ReaLTaiizor.Controls.Button();
             this.comboBoxMarginDs3 = new ReaLTaiizor.Controls.SkyComboBox();
@@ -427,6 +455,32 @@ namespace AutoSplitterCore
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
+            this.panelLvlDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.textBoxValueDs3 = new ReaLTaiizor.Controls.SkyTextBox();
+            this.panel15 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxAttributesDs3 = new System.Windows.Forms.ListBox();
+            this.comboBoxHowAttributeDs3 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.btnAddAttributeDs3 = new ReaLTaiizor.Controls.Button();
+            this.comboBoxAttributeDs3 = new System.Windows.Forms.ComboBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.panelBonfireDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.btnAddBonfire = new ReaLTaiizor.Controls.Button();
+            this.comboBoxBonfireDs3 = new System.Windows.Forms.ComboBox();
+            this.panel17 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxBonfireDs3 = new System.Windows.Forms.ListBox();
+            this.comboBoxHowBonfireDs3 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.panelBossDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.btnAddBossDs3 = new ReaLTaiizor.Controls.Button();
+            this.panel16 = new ReaLTaiizor.Controls.Panel();
+            this.listBoxBossDs3 = new System.Windows.Forms.ListBox();
+            this.comboBoxHowBossDs3 = new ReaLTaiizor.Controls.SkyComboBox();
+            this.comboBoxBossDs3 = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.panelCfDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.textBoxTitleCFDs3 = new ReaLTaiizor.Controls.SkyTextBox();
             this.btnGetListFlagDs3 = new ReaLTaiizor.Controls.Button();
@@ -439,16 +493,6 @@ namespace AutoSplitterCore
             this.label37 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.comboBoxToSplitSelectDs3 = new ReaLTaiizor.Controls.DungeonComboBox();
-            this.panelLvlDs3 = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.textBoxValueDs3 = new ReaLTaiizor.Controls.SkyTextBox();
-            this.panel15 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxAttributesDs3 = new System.Windows.Forms.ListBox();
-            this.comboBoxHowAttributeDs3 = new ReaLTaiizor.Controls.SkyComboBox();
-            this.btnAddAttributeDs3 = new ReaLTaiizor.Controls.Button();
-            this.comboBoxAttributeDs3 = new System.Windows.Forms.ComboBox();
-            this.label54 = new System.Windows.Forms.Label();
             this.btnRefreshDS3 = new ReaLTaiizor.Controls.Button();
             this.btnDesactiveAllDs3 = new ReaLTaiizor.Controls.Button();
             this.Ds3Running = new System.Windows.Forms.Label();
@@ -467,50 +511,6 @@ namespace AutoSplitterCore
             this.btnRemoveAllCuphead = new ReaLTaiizor.Controls.Button();
             this.CupheadRunning = new System.Windows.Forms.Label();
             this.CupheadNotRunning = new System.Windows.Forms.Label();
-            this.tabElden = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.panelPositionsER = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.btnGetPositionEr = new ReaLTaiizor.Controls.Button();
-            this.comboBoxSizeER = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxZEr = new ReaLTaiizor.Controls.SkyTextBox();
-            this.comboBoxHowPositionsER = new ReaLTaiizor.Controls.SkyComboBox();
-            this.textBoxYEr = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxTitlePositionER = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxXEr = new ReaLTaiizor.Controls.SkyTextBox();
-            this.label81 = new System.Windows.Forms.Label();
-            this.panel20 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxPositionsER = new System.Windows.Forms.ListBox();
-            this.btnAddPositionER = new ReaLTaiizor.Controls.Button();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.panelGraceER = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.checkBoxViewDlcGrace = new System.Windows.Forms.CheckBox();
-            this.comboBoxGraceDLC_ER = new System.Windows.Forms.ComboBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.btnAddGraceER = new ReaLTaiizor.Controls.Button();
-            this.panel24 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxGrace = new System.Windows.Forms.ListBox();
-            this.comboBoxHowGraceER = new ReaLTaiizor.Controls.SkyComboBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.comboBoxGraceER = new System.Windows.Forms.ComboBox();
-            this.panelBossER = new ReaLTaiizor.Controls.LostBorderPanel();
-            this.comboBoxBossER_DLC = new System.Windows.Forms.ComboBox();
-            this.checkBoxDLCBoss = new System.Windows.Forms.CheckBox();
-            this.btnAddBossER = new ReaLTaiizor.Controls.Button();
-            this.panel22 = new ReaLTaiizor.Controls.Panel();
-            this.listBoxBossER = new System.Windows.Forms.ListBox();
-            this.comboBoxHowBossER = new ReaLTaiizor.Controls.SkyComboBox();
-            this.comboBoxBossER = new System.Windows.Forms.ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.comboBoxToSplitEldenRing = new ReaLTaiizor.Controls.DungeonComboBox();
-            this.EldenRingRunning = new System.Windows.Forms.Label();
-            this.EldenRingNotRunning = new System.Windows.Forms.Label();
-            this.btnRefreshE = new ReaLTaiizor.Controls.Button();
-            this.btn_DesactiveAllElden = new ReaLTaiizor.Controls.Button();
-            this.label30 = new System.Windows.Forms.Label();
             this.tabHollow = new ReaLTaiizor.Controls.PoisonTabPage();
             this.panelBossH = new ReaLTaiizor.Controls.LostBorderPanel();
             this.groupBoxPantheon = new ReaLTaiizor.Controls.GroupBox();
@@ -590,6 +590,50 @@ namespace AutoSplitterCore
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.TabControlGeneral.SuspendLayout();
+            this.tabElden.SuspendLayout();
+            this.panelPositionsER.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panelGraceER.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panelBossER.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.tabGeneral.SuspendLayout();
+            this.TabPageGeneral.SuspendLayout();
+            this.tabPageControl.SuspendLayout();
+            this.lostBorderPanel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabPageShortcuts.SuspendLayout();
+            this.tabPageTimming.SuspendLayout();
+            this.lostBorderPanel1.SuspendLayout();
+            this.groupBoxTSekiro.SuspendLayout();
+            this.groupBoxATS.SuspendLayout();
+            this.groupBoxTMS.SuspendLayout();
+            this.groupBoxTDishonored.SuspendLayout();
+            this.groupBoxATDishonored.SuspendLayout();
+            this.groupBoxTMDishonored.SuspendLayout();
+            this.groupBoxTCeleste.SuspendLayout();
+            this.groupBoxATCeleste.SuspendLayout();
+            this.groupBoxTMCeleste.SuspendLayout();
+            this.groupBoxTCuphead.SuspendLayout();
+            this.groupBoxATCuphead.SuspendLayout();
+            this.groupBoxTMCuphead.SuspendLayout();
+            this.groupBoxTDs1.SuspendLayout();
+            this.groupBoxATDs1.SuspendLayout();
+            this.groupBoxTMDs1.SuspendLayout();
+            this.groupBoxTHK.SuspendLayout();
+            this.groupBoxATHk.SuspendLayout();
+            this.groupBoxTMHollow.SuspendLayout();
+            this.groupBoxTDs2.SuspendLayout();
+            this.groupBoxATDs2.SuspendLayout();
+            this.groupBoxTMDs2.SuspendLayout();
+            this.groupBoxTEr.SuspendLayout();
+            this.groupBoxATEr.SuspendLayout();
+            this.groupBoxTMEr.SuspendLayout();
+            this.groupBoxTDs3.SuspendLayout();
+            this.groupBoxATDs3.SuspendLayout();
+            this.groupBoxTMDs3.SuspendLayout();
+            this.tabPageHitCounter.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -630,86 +674,42 @@ namespace AutoSplitterCore
             this.panel5.SuspendLayout();
             this.panelCfER.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.tabGeneral.SuspendLayout();
-            this.TabPageGeneral.SuspendLayout();
-            this.tabPageControl.SuspendLayout();
-            this.lostBorderPanel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tabPageShortcuts.SuspendLayout();
-            this.tabPageTimming.SuspendLayout();
-            this.lostBorderPanel1.SuspendLayout();
-            this.groupBoxTSekiro.SuspendLayout();
-            this.groupBoxATS.SuspendLayout();
-            this.groupBoxTMS.SuspendLayout();
-            this.groupBoxTDishonored.SuspendLayout();
-            this.groupBoxATDishonored.SuspendLayout();
-            this.groupBoxTMDishonored.SuspendLayout();
-            this.groupBoxTCeleste.SuspendLayout();
-            this.groupBoxATCeleste.SuspendLayout();
-            this.groupBoxTMCeleste.SuspendLayout();
-            this.groupBoxTCuphead.SuspendLayout();
-            this.groupBoxATCuphead.SuspendLayout();
-            this.groupBoxTMCuphead.SuspendLayout();
-            this.groupBoxTDs1.SuspendLayout();
-            this.groupBoxATDs1.SuspendLayout();
-            this.groupBoxTMDs1.SuspendLayout();
-            this.groupBoxTHK.SuspendLayout();
-            this.groupBoxATHk.SuspendLayout();
-            this.groupBoxTMHollow.SuspendLayout();
-            this.groupBoxTDs2.SuspendLayout();
-            this.groupBoxATDs2.SuspendLayout();
-            this.groupBoxTMDs2.SuspendLayout();
-            this.groupBoxTEr.SuspendLayout();
-            this.groupBoxATEr.SuspendLayout();
-            this.groupBoxTMEr.SuspendLayout();
-            this.groupBoxTDs3.SuspendLayout();
-            this.groupBoxATDs3.SuspendLayout();
-            this.groupBoxTMDs3.SuspendLayout();
-            this.tabPageHitCounter.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabDs1.SuspendLayout();
+            this.panelPositionDs1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panelBossDs1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panelBonfireDs1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panelLvlDs1.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panelPositionDs1.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panelItemDs1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tabDs2.SuspendLayout();
+            this.panelPositionDs2.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panelLvlDs2.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panelBossDS2.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panelPositionDs2.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.tabDs3.SuspendLayout();
+            this.panelPositionsDs3.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panelLvlDs3.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panelBonfireDs3.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panelBossDs3.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.panelPositionsDs3.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panelCfDs3.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.panelLvlDs3.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.tabCuphead.SuspendLayout();
             this.panelBossCuphead.SuspendLayout();
             this.panel30.SuspendLayout();
             this.panelLevelCuphead.SuspendLayout();
             this.panel29.SuspendLayout();
-            this.tabElden.SuspendLayout();
-            this.panelPositionsER.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panelGraceER.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panelBossER.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.tabHollow.SuspendLayout();
             this.panelBossH.SuspendLayout();
             this.groupBoxPantheon.SuspendLayout();
@@ -735,27 +735,2804 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.TabControlGeneral.Controls.Add(this.tabInfo);
+            this.TabControlGeneral.Controls.Add(this.tabElden);
             this.TabControlGeneral.Controls.Add(this.tabGeneral);
             this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
-            this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
             this.TabControlGeneral.Controls.Add(this.tabDs2);
             this.TabControlGeneral.Controls.Add(this.tabDs3);
             this.TabControlGeneral.Controls.Add(this.tabCuphead);
-            this.TabControlGeneral.Controls.Add(this.tabElden);
             this.TabControlGeneral.Controls.Add(this.tabHollow);
             this.TabControlGeneral.Controls.Add(this.tabCeleste);
             this.TabControlGeneral.Controls.Add(this.tabDishonored);
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 9;
+            this.TabControlGeneral.SelectedIndex = 3;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
             this.TabControlGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // tabElden
+            // 
+            this.tabElden.BackColor = System.Drawing.Color.White;
+            this.tabElden.Controls.Add(this.panelPositionsER);
+            this.tabElden.Controls.Add(this.panelGraceER);
+            this.tabElden.Controls.Add(this.panelBossER);
+            this.tabElden.Controls.Add(this.label80);
+            this.tabElden.Controls.Add(this.comboBoxToSplitEldenRing);
+            this.tabElden.Controls.Add(this.EldenRingRunning);
+            this.tabElden.Controls.Add(this.EldenRingNotRunning);
+            this.tabElden.Controls.Add(this.btnRefreshE);
+            this.tabElden.Controls.Add(this.btn_DesactiveAllElden);
+            this.tabElden.Controls.Add(this.label30);
+            this.tabElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabElden.HorizontalScrollbarBarColor = true;
+            this.tabElden.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabElden.HorizontalScrollbarSize = 10;
+            this.tabElden.Location = new System.Drawing.Point(4, 44);
+            this.tabElden.Name = "tabElden";
+            this.tabElden.Size = new System.Drawing.Size(609, 352);
+            this.tabElden.TabIndex = 8;
+            this.tabElden.Text = "Elden Ring";
+            this.tabElden.UseCustomBackColor = true;
+            this.tabElden.VerticalScrollbarBarColor = true;
+            this.tabElden.VerticalScrollbarHighlightOnWheel = false;
+            this.tabElden.VerticalScrollbarSize = 10;
+            // 
+            // panelPositionsER
+            // 
+            this.panelPositionsER.BackColor = System.Drawing.Color.White;
+            this.panelPositionsER.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelPositionsER.Controls.Add(this.btnGetPositionEr);
+            this.panelPositionsER.Controls.Add(this.comboBoxSizeER);
+            this.panelPositionsER.Controls.Add(this.textBoxZEr);
+            this.panelPositionsER.Controls.Add(this.comboBoxHowPositionsER);
+            this.panelPositionsER.Controls.Add(this.textBoxYEr);
+            this.panelPositionsER.Controls.Add(this.textBoxTitlePositionER);
+            this.panelPositionsER.Controls.Add(this.textBoxXEr);
+            this.panelPositionsER.Controls.Add(this.label81);
+            this.panelPositionsER.Controls.Add(this.panel20);
+            this.panelPositionsER.Controls.Add(this.btnAddPositionER);
+            this.panelPositionsER.Controls.Add(this.label82);
+            this.panelPositionsER.Controls.Add(this.label83);
+            this.panelPositionsER.Controls.Add(this.label84);
+            this.panelPositionsER.Controls.Add(this.label86);
+            this.panelPositionsER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPositionsER.ForeColor = System.Drawing.Color.White;
+            this.panelPositionsER.Location = new System.Drawing.Point(34, 85);
+            this.panelPositionsER.Name = "panelPositionsER";
+            this.panelPositionsER.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPositionsER.ShowText = false;
+            this.panelPositionsER.Size = new System.Drawing.Size(539, 262);
+            this.panelPositionsER.TabIndex = 31;
+            this.panelPositionsER.Text = "lostBorderPanel1";
+            // 
+            // btnGetPositionEr
+            // 
+            this.btnGetPositionEr.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetPositionEr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetPositionEr.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetPositionEr.Image = null;
+            this.btnGetPositionEr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPositionEr.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.Location = new System.Drawing.Point(335, 75);
+            this.btnGetPositionEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetPositionEr.Name = "btnGetPositionEr";
+            this.btnGetPositionEr.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionEr.Size = new System.Drawing.Size(99, 21);
+            this.btnGetPositionEr.TabIndex = 4;
+            this.btnGetPositionEr.Text = "Get Position";
+            this.btnGetPositionEr.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetPositionEr.Click += new System.EventHandler(this.btnGetPositionER_Click);
+            // 
+            // comboBoxSizeER
+            // 
+            this.comboBoxSizeER.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxSizeER.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSizeER.BGColorB = System.Drawing.Color.MediumSlateBlue;
+            this.comboBoxSizeER.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeER.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxSizeER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxSizeER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxSizeER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxSizeER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSizeER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxSizeER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeER.FormattingEnabled = true;
+            this.comboBoxSizeER.ItemHeight = 16;
+            this.comboBoxSizeER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxSizeER.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxSizeER.LineColorA = System.Drawing.Color.White;
+            this.comboBoxSizeER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeER.LineColorC = System.Drawing.Color.White;
+            this.comboBoxSizeER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxSizeER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxSizeER.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxSizeER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeER.Location = new System.Drawing.Point(357, 47);
+            this.comboBoxSizeER.Name = "comboBoxSizeER";
+            this.comboBoxSizeER.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxSizeER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxSizeER.StartIndex = -1;
+            this.comboBoxSizeER.TabIndex = 30;
+            this.comboBoxSizeER.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeER.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginER_SelectedIndexChanged);
+            // 
+            // textBoxZEr
+            // 
+            this.textBoxZEr.BackColor = System.Drawing.Color.White;
+            this.textBoxZEr.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxZEr.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxZEr.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxZEr.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxZEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxZEr.Enabled = false;
+            this.textBoxZEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxZEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxZEr.Location = new System.Drawing.Point(297, 47);
+            this.textBoxZEr.MaxLength = 32767;
+            this.textBoxZEr.MultiLine = false;
+            this.textBoxZEr.Name = "textBoxZEr";
+            this.textBoxZEr.Size = new System.Drawing.Size(51, 21);
+            this.textBoxZEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxZEr.TabIndex = 32;
+            this.textBoxZEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxZEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxZEr.UseSystemPasswordChar = false;
+            // 
+            // comboBoxHowPositionsER
+            // 
+            this.comboBoxHowPositionsER.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowPositionsER.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowPositionsER.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowPositionsER.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsER.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowPositionsER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowPositionsER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowPositionsER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowPositionsER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowPositionsER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowPositionsER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowPositionsER.FormattingEnabled = true;
+            this.comboBoxHowPositionsER.ItemHeight = 16;
+            this.comboBoxHowPositionsER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowPositionsER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowPositionsER.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowPositionsER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsER.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowPositionsER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowPositionsER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowPositionsER.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsER.Location = new System.Drawing.Point(57, 47);
+            this.comboBoxHowPositionsER.Name = "comboBoxHowPositionsER";
+            this.comboBoxHowPositionsER.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowPositionsER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowPositionsER.StartIndex = -1;
+            this.comboBoxHowPositionsER.TabIndex = 29;
+            this.comboBoxHowPositionsER.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxYEr
+            // 
+            this.textBoxYEr.BackColor = System.Drawing.Color.White;
+            this.textBoxYEr.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxYEr.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxYEr.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxYEr.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxYEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxYEr.Enabled = false;
+            this.textBoxYEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxYEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxYEr.Location = new System.Drawing.Point(240, 47);
+            this.textBoxYEr.MaxLength = 32767;
+            this.textBoxYEr.MultiLine = false;
+            this.textBoxYEr.Name = "textBoxYEr";
+            this.textBoxYEr.Size = new System.Drawing.Size(51, 21);
+            this.textBoxYEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxYEr.TabIndex = 31;
+            this.textBoxYEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxYEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxYEr.UseSystemPasswordChar = false;
+            // 
+            // textBoxTitlePositionER
+            // 
+            this.textBoxTitlePositionER.BackColor = System.Drawing.Color.White;
+            this.textBoxTitlePositionER.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitlePositionER.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitlePositionER.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitlePositionER.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitlePositionER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitlePositionER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitlePositionER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitlePositionER.Location = new System.Drawing.Point(196, 75);
+            this.textBoxTitlePositionER.MaxLength = 32767;
+            this.textBoxTitlePositionER.MultiLine = false;
+            this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
+            this.textBoxTitlePositionER.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitlePositionER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitlePositionER.TabIndex = 28;
+            this.textBoxTitlePositionER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTitlePositionER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitlePositionER.UseSystemPasswordChar = false;
+            // 
+            // textBoxXEr
+            // 
+            this.textBoxXEr.BackColor = System.Drawing.Color.White;
+            this.textBoxXEr.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxXEr.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxXEr.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxXEr.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxXEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxXEr.Enabled = false;
+            this.textBoxXEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxXEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxXEr.Location = new System.Drawing.Point(181, 47);
+            this.textBoxXEr.MaxLength = 32767;
+            this.textBoxXEr.MultiLine = false;
+            this.textBoxXEr.Name = "textBoxXEr";
+            this.textBoxXEr.Size = new System.Drawing.Size(51, 21);
+            this.textBoxXEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxXEr.TabIndex = 30;
+            this.textBoxXEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxXEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxXEr.UseSystemPasswordChar = false;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.ForeColor = System.Drawing.Color.Black;
+            this.label81.Location = new System.Drawing.Point(122, 72);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(64, 32);
+            this.label81.TabIndex = 14;
+            this.label81.Text = "     Title\r\n(Optional)";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel20.Controls.Add(this.listBoxPositionsER);
+            this.panel20.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel20.Location = new System.Drawing.Point(13, 130);
+            this.panel20.Name = "panel20";
+            this.panel20.Padding = new System.Windows.Forms.Padding(5);
+            this.panel20.Size = new System.Drawing.Size(515, 125);
+            this.panel20.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel20.TabIndex = 27;
+            this.panel20.Text = "panel20";
+            // 
+            // listBoxPositionsER
+            // 
+            this.listBoxPositionsER.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxPositionsER.FormattingEnabled = true;
+            this.listBoxPositionsER.ItemHeight = 16;
+            this.listBoxPositionsER.Location = new System.Drawing.Point(3, 4);
+            this.listBoxPositionsER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPositionsER.Name = "listBoxPositionsER";
+            this.listBoxPositionsER.Size = new System.Drawing.Size(507, 116);
+            this.listBoxPositionsER.TabIndex = 6;
+            this.listBoxPositionsER.DoubleClick += new System.EventHandler(this.listBoxPositionsER_DoubleClick);
+            // 
+            // btnAddPositionER
+            // 
+            this.btnAddPositionER.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPositionER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPositionER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPositionER.Image = null;
+            this.btnAddPositionER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPositionER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.Location = new System.Drawing.Point(207, 104);
+            this.btnAddPositionER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddPositionER.Name = "btnAddPositionER";
+            this.btnAddPositionER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionER.Size = new System.Drawing.Size(99, 21);
+            this.btnAddPositionER.TabIndex = 5;
+            this.btnAddPositionER.Text = "Add";
+            this.btnAddPositionER.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddPositionER.Click += new System.EventHandler(this.btnAddPositionER_Click);
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.ForeColor = System.Drawing.Color.Black;
+            this.label82.Location = new System.Drawing.Point(230, 11);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(80, 16);
+            this.label82.TabIndex = 12;
+            this.label82.Text = "Coordinates:";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.ForeColor = System.Drawing.Color.Black;
+            this.label83.Location = new System.Drawing.Point(401, 24);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(31, 16);
+            this.label83.TabIndex = 11;
+            this.label83.Text = "Size";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.ForeColor = System.Drawing.Color.Black;
+            this.label84.Location = new System.Drawing.Point(202, 29);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(125, 16);
+            this.label84.TabIndex = 10;
+            this.label84.Text = "X            Y            Z";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.ForeColor = System.Drawing.Color.Black;
+            this.label86.Location = new System.Drawing.Point(88, 28);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(37, 16);
+            this.label86.TabIndex = 9;
+            this.label86.Text = "How:";
+            // 
+            // panelGraceER
+            // 
+            this.panelGraceER.BackColor = System.Drawing.Color.White;
+            this.panelGraceER.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelGraceER.Controls.Add(this.checkBoxViewDlcGrace);
+            this.panelGraceER.Controls.Add(this.comboBoxGraceDLC_ER);
+            this.panelGraceER.Controls.Add(this.label41);
+            this.panelGraceER.Controls.Add(this.btnAddGraceER);
+            this.panelGraceER.Controls.Add(this.panel24);
+            this.panelGraceER.Controls.Add(this.comboBoxHowGraceER);
+            this.panelGraceER.Controls.Add(this.label42);
+            this.panelGraceER.Controls.Add(this.comboBoxGraceER);
+            this.panelGraceER.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelGraceER.ForeColor = System.Drawing.Color.White;
+            this.panelGraceER.Location = new System.Drawing.Point(34, 85);
+            this.panelGraceER.Name = "panelGraceER";
+            this.panelGraceER.Padding = new System.Windows.Forms.Padding(5);
+            this.panelGraceER.ShowText = false;
+            this.panelGraceER.Size = new System.Drawing.Size(539, 262);
+            this.panelGraceER.TabIndex = 31;
+            this.panelGraceER.Text = "lostBorderPanel1";
+            // 
+            // checkBoxViewDlcGrace
+            // 
+            this.checkBoxViewDlcGrace.AutoSize = true;
+            this.checkBoxViewDlcGrace.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxViewDlcGrace.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxViewDlcGrace.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxViewDlcGrace.Location = new System.Drawing.Point(363, 46);
+            this.checkBoxViewDlcGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxViewDlcGrace.Name = "checkBoxViewDlcGrace";
+            this.checkBoxViewDlcGrace.Size = new System.Drawing.Size(106, 18);
+            this.checkBoxViewDlcGrace.TabIndex = 17;
+            this.checkBoxViewDlcGrace.Text = "View DLC Only";
+            this.checkBoxViewDlcGrace.UseVisualStyleBackColor = false;
+            this.checkBoxViewDlcGrace.CheckStateChanged += new System.EventHandler(this.checkBoxViewDlcGrace_CheckStateChanged);
+            // 
+            // comboBoxGraceDLC_ER
+            // 
+            this.comboBoxGraceDLC_ER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxGraceDLC_ER.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.comboBoxGraceDLC_ER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGraceDLC_ER.FormattingEnabled = true;
+            this.comboBoxGraceDLC_ER.Items.AddRange(new object[] {
+            "Theatre of the Divine Beast",
+            "Belurat, Tower Settlement",
+            "Small Private Altar",
+            "Stagefront",
+            "Gate of Divinity",
+            "Enir-Ilim: Outer Wall",
+            "First Rise",
+            "Spiral Rise",
+            "Cleansing Chamber Anteroom",
+            "Divine Gate Front Staircase",
+            "Main Gate Plaza",
+            "Shadow Keep Main Gate",
+            "Church District Entrance",
+            "Sunken Chapel",
+            "Tree,Worship Passage",
+            "Tree,Worship Sanctum",
+            "Messmer\'s Dark Chamber",
+            "Storehouse, First Floor",
+            "Storehouse, Fourth Floor",
+            "Storehouse, Seventh Floor",
+            "Dark Chamber Entrance",
+            "Storehouse, Back Section",
+            "Storehouse, Loft",
+            "West Rampart",
+            "Garden of Deep Purple",
+            "Stone Coffin Fissure",
+            "Fissure Cross",
+            "Fissure Waypoint",
+            "Fissure Depths",
+            "Finger Birthing Grounds",
+            "Discussion Chamber",
+            "Manse Hall",
+            "Midra\'s Library",
+            "Second Floor Chamber",
+            "Fog Rift Catacombs",
+            "Ruined Forge Lava Intake",
+            "Rivermouth Cave",
+            "Dragon\'s Pit",
+            "Dragon\'s Pit Terminus",
+            "Cliffroad Terminus",
+            "Main Gate Cross",
+            "Gravesite Plain",
+            "Three,Path Cross",
+            "Greatbridge, North",
+            "Scorched Ruins",
+            "Ellac River Cave",
+            "Castle Front",
+            "Pillar Path Waypoint",
+            "Pillar Path Cross",
+            "Belurat Gaol",
+            "Ellac River Downstream",
+            "Charo\'s Hidden Grave",
+            "Lamenter\'s Gaol",
+            "Castle Ensis Checkpoint",
+            "Ensis Moongazing Grounds",
+            "Castle,Lord\'s Chamber",
+            "Cerulean Coast West",
+            "The Fissure",
+            "Cerulean Coast Cross",
+            "Cerulean Coast",
+            "Finger Ruins of Rhia",
+            "Grand Altar of Dragon Communion",
+            "Divided Falls",
+            "Abyssal Woods",
+            "Forsaken Graveyard",
+            "Church Ruins",
+            "Woodland Trail",
+            "Foot of the Jagged Peak",
+            "Jagged Peak Mountainside",
+            "Jagged Peak Summit",
+            "Rest of the Dread Dragon",
+            "Ancient Ruins, Grand Stairway",
+            "Church of the Bud",
+            "Church of the Bud, Main Entrance",
+            "Rauh Ancient Ruins, West",
+            "Rauh Ancient Ruins, East",
+            "Viaduct Minor Tower",
+            "Temple Town Ruins",
+            "Ravine North",
+            "Scorpion River Catacombs",
+            "Taylew\'s Ruined Forge",
+            "Ancient Ruins Base",
+            "Darklight Catacombs",
+            "Bonny Gaol",
+            "Highroad Cross",
+            "Scadu Altus, West",
+            "Moorth Highway, South",
+            "Fort of Reprimand",
+            "Behind the Fort of Reprimand",
+            "Moorth Ruins",
+            "Bonny Village",
+            "Castle Watering Hole",
+            "Ruined Forge of Starfall Past",
+            "Scaduview Cross",
+            "Recluses\' River Downstream",
+            "Recluses\' River Upstream",
+            "Bridge Leading to the Village",
+            "Cathedral of Manus Metyr",
+            "Church District Highroad",
+            "Scaduview",
+            "Shadow Keep, Back Gate",
+            "Fingerstone Hill",
+            "Hinterland Bridge",
+            "Hinterland",
+            "Scadutree Base"});
+            this.comboBoxGraceDLC_ER.Location = new System.Drawing.Point(97, 14);
+            this.comboBoxGraceDLC_ER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxGraceDLC_ER.Name = "comboBoxGraceDLC_ER";
+            this.comboBoxGraceDLC_ER.Size = new System.Drawing.Size(335, 22);
+            this.comboBoxGraceDLC_ER.TabIndex = 18;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.Transparent;
+            this.label41.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(40, 15);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(39, 16);
+            this.label41.TabIndex = 33;
+            this.label41.Text = "grace";
+            // 
+            // btnAddGraceER
+            // 
+            this.btnAddGraceER.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddGraceER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddGraceER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnAddGraceER.Image = null;
+            this.btnAddGraceER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddGraceER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.Location = new System.Drawing.Point(213, 68);
+            this.btnAddGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddGraceER.Name = "btnAddGraceER";
+            this.btnAddGraceER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddGraceER.Size = new System.Drawing.Size(99, 21);
+            this.btnAddGraceER.TabIndex = 15;
+            this.btnAddGraceER.Text = "Add";
+            this.btnAddGraceER.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddGraceER.Click += new System.EventHandler(this.btnAddGraceER_Click);
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel24.Controls.Add(this.listBoxGrace);
+            this.panel24.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel24.Location = new System.Drawing.Point(15, 95);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(5);
+            this.panel24.Size = new System.Drawing.Size(508, 156);
+            this.panel24.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel24.TabIndex = 26;
+            this.panel24.Text = "panel24";
+            // 
+            // listBoxGrace
+            // 
+            this.listBoxGrace.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.listBoxGrace.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxGrace.FormattingEnabled = true;
+            this.listBoxGrace.ItemHeight = 14;
+            this.listBoxGrace.Location = new System.Drawing.Point(4, 5);
+            this.listBoxGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxGrace.Name = "listBoxGrace";
+            this.listBoxGrace.Size = new System.Drawing.Size(500, 144);
+            this.listBoxGrace.TabIndex = 16;
+            this.listBoxGrace.DoubleClick += new System.EventHandler(this.listBoxGrace_DoubleClick);
+            // 
+            // comboBoxHowGraceER
+            // 
+            this.comboBoxHowGraceER.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowGraceER.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowGraceER.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowGraceER.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowGraceER.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowGraceER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowGraceER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowGraceER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowGraceER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowGraceER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowGraceER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowGraceER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowGraceER.FormattingEnabled = true;
+            this.comboBoxHowGraceER.ItemHeight = 16;
+            this.comboBoxHowGraceER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowGraceER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowGraceER.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowGraceER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowGraceER.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowGraceER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowGraceER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowGraceER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowGraceER.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowGraceER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowGraceER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowGraceER.Location = new System.Drawing.Point(192, 41);
+            this.comboBoxHowGraceER.Name = "comboBoxHowGraceER";
+            this.comboBoxHowGraceER.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowGraceER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowGraceER.StartIndex = -1;
+            this.comboBoxHowGraceER.TabIndex = 26;
+            this.comboBoxHowGraceER.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowGraceER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label42.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.Black;
+            this.label42.Location = new System.Drawing.Point(154, 43);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(32, 16);
+            this.label42.TabIndex = 4;
+            this.label42.Text = "How";
+            // 
+            // comboBoxGraceER
+            // 
+            this.comboBoxGraceER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxGraceER.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.comboBoxGraceER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGraceER.FormattingEnabled = true;
+            this.comboBoxGraceER.Items.AddRange(new object[] {
+            "Raya Lucaria Grand Library",
+            "Debate Parlor",
+            "Church of the Cuckoo",
+            "Schoolhouse Classroom",
+            "Dragonkin Soldier of Nokstella",
+            "Ainsel River Well Depths",
+            "Ainsel River Sluice Gate",
+            "Ainsel River Downstream",
+            "Astel, Naturalborn of the Void",
+            "Ainsel River Main",
+            "Nokstella, Eternal City",
+            "Nokstella Waterfall Basin",
+            "Sainted Hero\'s Grave",
+            "Unsightly Catacombs",
+            "Perfumer\'s Grotto",
+            "Sage\'s Cave",
+            "Old Altus Tunnel",
+            "Altus Tunnel",
+            "Abandoned Coffin",
+            "Altus Plateau",
+            "Erdtree-Gazing Hill",
+            "Altus Highway Junction",
+            "Forest-Spanning Greatbridge",
+            "Rampartside Path",
+            "Bower of Bounty",
+            "Road of Iniquity Side Path",
+            "Windmill Village",
+            "Windmill Heights",
+            "Shaded Castle Ramparts",
+            "Shaded Castle Inner Gate",
+            "Castellan\'s Hall",
+            "East Raya Lucaria Gate",
+            "Bellum Church",
+            "Frenzied Flame Village Outskirts",
+            "Church of Inhibition",
+            "Minor Erdtree Catacombs",
+            "Caelid Catacombs",
+            "War-Dead Catacombs",
+            "Abandoned Cave",
+            "Gaol Cave",
+            "Gael Tunnel",
+            "Rear Gael Tunnel Entrance",
+            "Sellia Crystal Tunnel",
+            "Smoldering Church",
+            "Rotview Balcony",
+            "Fort Gael North",
+            "Caelem Ruins",
+            "Cathedral of Dragon Communion",
+            "Caelid Highway South",
+            "Smoldering Wall",
+            "Deep Siofra Well",
+            "Southern Aeonia Swamp Bank",
+            "Sellia Backstreets",
+            "Chair-Crypt of Sellia",
+            "Sellia Under-Stair",
+            "Impassable Greatbridge",
+            "Church of the Plague",
+            "Redmane Castle Plaza",
+            "Chamber Outside the Plaza",
+            "Starscourge Radahn",
+            "Auriza Hero\'s Grave",
+            "Auriza Side Tomb",
+            "Divine Tower of West Altus",
+            "Sealed Tunnel",
+            "Divine Tower of West Altus: Gate",
+            "Outer Wall Phantom Tree",
+            "Minor Erdtree Church",
+            "Hermit Merchant\'s Shack",
+            "Outer Wall Battleground",
+            "Capital Rampart",
+            "Consecrated Snowfield Catacombs",
+            "Cave of the Forlorn",
+            "Yelough Anix Tunnel",
+            "Consecrated Snowfield",
+            "Inner Consecrated Snowfield",
+            "Ordina, Liturgical Town",
+            "Apostate Derelict",
+            "Maliketh, the Black Blade",
+            "Dragonlord Placidusax",
+            "Dragon Temple Altar",
+            "Crumbling Beast Grave",
+            "Crumbling Beast Grave Depths",
+            "Tempest-Facing Balcony",
+            "Dragon Temple",
+            "Dragon Temple Transept",
+            "Dragon Temple Lift",
+            "Dragon Temple Rooftop",
+            "Beside the Great Bridge",
+            "Prince of Death\'s Throne",
+            "Root-Facing Cliffs",
+            "Great Waterfall Crest",
+            "Deeproot Depths",
+            "The Nameless Eternal City",
+            "Across the Roots",
+            "Fractured Marika",
+            "Malenia, Goddess of Rot",
+            "Prayer Room",
+            "Elphael Inner Wall",
+            "Drainage Channel",
+            "Haligtree Roots",
+            "Giant-Conquering Hero\'s Grave",
+            "Giants\' Mountaintop Catacombs",
+            "Giants\' Gravepost",
+            "Church of Repose",
+            "Foot of the Forge",
+            "Fire Giant",
+            "Forge of the Giants",
+            "Hidden Path to the Haligtree",
+            "Divine Tower of East Altus: Gate",
+            "Divine Tower of East Altus",
+            "Forbidden Lands",
+            "Grand Lift of Rold",
+            "Dragonbarrow Cave",
+            "Sellia Hideaway",
+            "Divine Tower of Caelid",
+            "Divine Tower of Caelid: Center",
+            "Isolated Divine Tower",
+            "Dragonbarrow West",
+            "Isolated Merchant\'s Shack (Greyoll\'s Dragonbarrow)",
+            "Dragonbarrow Fork",
+            "Fort Faroth",
+            "Bestial Sanctum",
+            "Lenne\'s Rise",
+            "Farum Greatbridge",
+            "Lake of Rot Shoreside",
+            "Grand Cloister",
+            "Elden Throne (Leyndell, Ashen Capital)",
+            "Erdtree Sanctuary (Leyndell, Ashen Capital)",
+            "East Capital Rampart (Leyndell, Ashen Capital)",
+            "Leyndell, Capital of Ash",
+            "Queen\'s Bedchamber (Leyndell, Ashen Capital)",
+            "Divine Bridge (Leyndell, Ashen Capital)",
+            "Elden Throne (Leyndell, Royal Capital)",
+            "Erdtree Sanctuary (Leyndell, Royal Capital)",
+            "East Capital Rampart (Leyndell, Royal Capital)",
+            "Lower Capital Church",
+            "Avenue Balcony",
+            "West Capital Rampart",
+            "Queen\'s Bedchamber (Leyndell, Royal Capital)",
+            "Fortified Manor, First Floor",
+            "Divine Bridge (Leyndell, Royal Capital)",
+            "Stormfoot Catacombs",
+            "Murkwater Catacombs",
+            "Murkwater Cave",
+            "Groveside Cave",
+            "Coastal Cave",
+            "Highroad Cave",
+            "Limgrave Tunnels",
+            "Church of Elleh",
+            "The First Step",
+            "Artist\'s Shack (Limgrave)",
+            "Third Church of Marika",
+            "Fort Haight West",
+            "Agheel Lake South",
+            "Agheel Lake North",
+            "Church of Dragon Communion",
+            "Gatefront",
+            "Seaside Ruins",
+            "Mistwood Outskirts",
+            "Murkwater Coast",
+            "Summonwater Village Outskirts",
+            "Waypoint Ruins Cellar",
+            "Road\'s End Catacombs",
+            "Black Knife Catacombs",
+            "Cliffbottom Catacombs",
+            "Stillwater Cave",
+            "Lakeside Crystal Cave",
+            "Academy Crystal Cave",
+            "Raya Lucaria Crystal Tunnel",
+            "Study Hall Entrance",
+            "Liurnia Tower Bridge",
+            "Divine Tower of Liurnia",
+            "Lake-Facing Cliffs",
+            "Liurnia Lake Shore",
+            "Laskyar Ruins",
+            "Scenic Isle",
+            "Academy Gate Town",
+            "South Raya Lucaria Gate",
+            "Main Academy Gate",
+            "Grand Lift of Dectus",
+            "Foot of the Four Belfries",
+            "Sorcerer\'s Isle",
+            "Northern Liurnia Lake Shore",
+            "Road to the Manor",
+            "Main Caria Manor Gate",
+            "Slumbering Wolf\'s Shack",
+            "Boilprawn Shack",
+            "Artist\'s Shack (Liurnia of the Lakes)",
+            "Revenger\'s Shack",
+            "Folly on the Lake",
+            "Village of the Albinaurics",
+            "Liurnia Highway North",
+            "Gate Town Bridge",
+            "Eastern Liurnia Lake Shore",
+            "Church of Vows",
+            "Ruined Labyrinth",
+            "Mausoleum Compound",
+            "The Four Belfries",
+            "Ranni\'s Rise",
+            "Ravine-Veiled Village",
+            "Manor Upper Level",
+            "Manor Lower Level",
+            "Royal Moongazing Grounds",
+            "Gate Town North",
+            "Eastern Tableland",
+            "The Ravine",
+            "Fallen Ruins of the Lake",
+            "Converted Tower",
+            "Behind Caria Manor",
+            "Temple Quarter",
+            "East Gate Bridge Trestle",
+            "Crystalline Woods",
+            "Liurnia Highway South",
+            "Jarburg",
+            "Ranni\'s Chamber",
+            "Haligtree Promenade",
+            "Haligtree Canopy",
+            "Haligtree Town",
+            "Haligtree Town Plaza",
+            "Cocoon of the Empyrean",
+            "Palace Approach Ledge-Road",
+            "Dynasty Mausoleum Entrance",
+            "Dynasty Mausoleum Midpoint",
+            "Moonlight Altar",
+            "Cathedral of Manus Celes",
+            "Altar South",
+            "Spiritcaller\'s Cave",
+            "Zamor Ruins",
+            "Ancient Snow Valley Ruins",
+            "Freezing Lake",
+            "First Church of Marika",
+            "Whiteridge Road",
+            "Snow Valley Ruins Overlook",
+            "Castle Sol Main Gate",
+            "Church of the Eclipse",
+            "Castle Sol Rooftop",
+            "Wyndham Catacombs",
+            "Gelmir Hero\'s Grave",
+            "Seethewater Cave",
+            "Volcano Cave",
+            "Bridge of Iniquity",
+            "First Mt. Gelmir Campsite",
+            "Ninth Mt. Gelmir Campsite",
+            "Road of Iniquity",
+            "Seethewater River",
+            "Seethewater Terminus",
+            "Craftsman\'s Shack",
+            "Primeval Sorcerer Azur",
+            "Great Waterfall Basin",
+            "Mimic Tear",
+            "Ancestral Woods",
+            "Aqueduct-Facing Cliffs",
+            "Night\'s Sacred Ground",
+            "Nokron, Eternal City",
+            "Table of Lost Grace",
+            "Magma Wyrm",
+            "Ruin-Strewn Precipice",
+            "Ruin-Strewn Precipice Overlook",
+            "Siofra River Bank",
+            "Worshippers\' Woods",
+            "Below the Well",
+            "Siofra River Well Depths",
+            "Deathtouched Catacombs",
+            "Limgrave Tower Bridge",
+            "Divine Tower of Limgrave",
+            "Stormhill Shack",
+            "Saintsbridge",
+            "Warmaster\'s Shack",
+            "Godrick the Grafted",
+            "Margit, the Fell Omen",
+            "Castleward Tunnel",
+            "Gateside Chamber",
+            "Stormveil Cliffside",
+            "Rampart Tower",
+            "Liftside Chamber",
+            "Secluded Cell",
+            "Stormveil Main Gate",
+            "Cave of Knowledge",
+            "Stranded Graveyard",
+            "Cathedral of the Forsaken",
+            "Underground Roadside",
+            "Forsaken Depths",
+            "Leyndell Catacombs",
+            "Frenzied Flame Proscription",
+            "Aeonia Swamp Shore",
+            "Astray from Caelid Highway North",
+            "Heart of Aeonia",
+            "Inner Aeonia",
+            "Rykard, Lord of Blasphemy",
+            "Temple of Eiglay",
+            "Volcano Manor",
+            "Prison Town Church",
+            "Guest Hall",
+            "Audience Pathway",
+            "Abductor Virgin",
+            "Subterranean Inquisition Chamber",
+            "Tombsward Catacombs",
+            "Impaler\'s Catacombs",
+            "Earthbore Cave",
+            "Tombsward Cave",
+            "Morne Tunnel",
+            "Church of Pilgrimage",
+            "Castle Morne Rampart",
+            "Tombsward",
+            "South of the Lookout Tower",
+            "Ailing Village Outskirts",
+            "Beside the Crater-Pocked Glade",
+            "Isolated Merchant\'s Shack (Weeping Peninsula)",
+            "Bridge of Sacrifice",
+            "Castle Morne Lift",
+            "Behind the Castle",
+            "Beside the Rampart Gaol",
+            "Morne Moangrave",
+            "Fourth Church of Marika"});
+            this.comboBoxGraceER.Location = new System.Drawing.Point(91, 14);
+            this.comboBoxGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxGraceER.Name = "comboBoxGraceER";
+            this.comboBoxGraceER.Size = new System.Drawing.Size(361, 22);
+            this.comboBoxGraceER.TabIndex = 9;
+            // 
+            // panelBossER
+            // 
+            this.panelBossER.BackColor = System.Drawing.Color.White;
+            this.panelBossER.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelBossER.Controls.Add(this.comboBoxBossER_DLC);
+            this.panelBossER.Controls.Add(this.checkBoxDLCBoss);
+            this.panelBossER.Controls.Add(this.btnAddBossER);
+            this.panelBossER.Controls.Add(this.panel22);
+            this.panelBossER.Controls.Add(this.comboBoxHowBossER);
+            this.panelBossER.Controls.Add(this.comboBoxBossER);
+            this.panelBossER.Controls.Add(this.label36);
+            this.panelBossER.Controls.Add(this.label87);
+            this.panelBossER.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelBossER.ForeColor = System.Drawing.Color.White;
+            this.panelBossER.Location = new System.Drawing.Point(34, 85);
+            this.panelBossER.Name = "panelBossER";
+            this.panelBossER.Padding = new System.Windows.Forms.Padding(5);
+            this.panelBossER.ShowText = false;
+            this.panelBossER.Size = new System.Drawing.Size(539, 262);
+            this.panelBossER.TabIndex = 31;
+            this.panelBossER.Text = "lostBorderPanel1";
+            // 
+            // comboBoxBossER_DLC
+            // 
+            this.comboBoxBossER_DLC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBossER_DLC.BackColor = System.Drawing.Color.Khaki;
+            this.comboBoxBossER_DLC.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBossER_DLC.FormattingEnabled = true;
+            this.comboBoxBossER_DLC.Items.AddRange(new object[] {
+            "Ghostflame Dragon - Gravesite Plain (Northwest)",
+            "Blackgaol Knight - Western Nameless Mausoleum",
+            "Chief Bloodfiend - Rivermouth Cave",
+            "Lamenter - Lamenter\'s Gaol",
+            "Demi-Human Swordmaster Onze - Belurat Gaol",
+            "Divine Beast Dancing Lion - Belurat, Tower Settlement",
+            "Rellana, Twin Moon Knight - Castle Ensis",
+            "Ghostflame Dragon",
+            "Ralva the Great Red Bear",
+            "Rugalea the Great Red Bear - Rauh Base (Northwest)",
+            "Dryleaf Dane - Moorth Ruins",
+            "Black Knight Edredd - Fort of Reprimand",
+            "Black Knight Garrew - Fog Rift Fort",
+            "Red Bear - Northern Nameless Mausoleum",
+            "Rakshasa - Eastern Nameless Mausoleum",
+            "Metyr, Mother of Fingers - Cathedral of Manus Metyr",
+            "Count Ymir, Mother of Fingers - Cathedral of Manus Metyr",
+            "Death Knight - Fog Rift Catacombs",
+            "Death Knight - Scorpion River Catacombs",
+            "Curseblade Labirith - Bonny Gaol",
+            "Golden Hippopotamus - Main Gate Plaza",
+            "Base Serpent Messmer - Messmer\'s Dark Chamber",
+            "Divine Beast Dancing Lion - Ancient Ruins of Rauh",
+            "Romina, Saint of the Bud - Church of the Bud",
+            "Ghostflame Dragon - Cerulean Coast",
+            "Dancer of Ranah - Southern Nameless Mausoleum",
+            "Putrescent Knight - Stone Coffin Fissure",
+            "Death Rite Bird - Charo\'s Hidden Grave",
+            "Demi-Human Queen Marigga - Charo\'s Hidden Grave (West)",
+            "Jagged Peak Drake - Foot of the Jagged Peak",
+            "Jagged Peak Drake - Jagged Peak Mountainside",
+            "Ancient Dragon-Man - Dragon\'s Pit",
+            "Ancient Dragon Senessax - Jagged Peak Mountainside",
+            "Bayle the Dread - Jagged Peak Summit",
+            "Tree Sentinel - Hinterland",
+            "Tree Sentinel - Hinterland Bridge",
+            "Fallingstar Beast - Fingerstone Hill",
+            "Commander Gaius - Scaduview",
+            "Scadutree Avatar - Scadutree Base",
+            "Jori, Elder Inquisitor - Darklight Catacombs",
+            "Midra, Lord of Frenzied Flame - Midra\'s Manse",
+            "Radahn, Consort of Miquella - Enir-Ilim"});
+            this.comboBoxBossER_DLC.Location = new System.Drawing.Point(207, 32);
+            this.comboBoxBossER_DLC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxBossER_DLC.Name = "comboBoxBossER_DLC";
+            this.comboBoxBossER_DLC.Size = new System.Drawing.Size(277, 22);
+            this.comboBoxBossER_DLC.TabIndex = 16;
+            // 
+            // checkBoxDLCBoss
+            // 
+            this.checkBoxDLCBoss.AutoSize = true;
+            this.checkBoxDLCBoss.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDLCBoss.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxDLCBoss.Location = new System.Drawing.Point(357, 67);
+            this.checkBoxDLCBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxDLCBoss.Name = "checkBoxDLCBoss";
+            this.checkBoxDLCBoss.Size = new System.Drawing.Size(106, 18);
+            this.checkBoxDLCBoss.TabIndex = 15;
+            this.checkBoxDLCBoss.Text = "View DLC Boss";
+            this.checkBoxDLCBoss.UseVisualStyleBackColor = true;
+            this.checkBoxDLCBoss.CheckStateChanged += new System.EventHandler(this.checkBoxDLC_CheckStateChanged);
+            // 
+            // btnAddBossER
+            // 
+            this.btnAddBossER.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddBossER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddBossER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBossER.Image = null;
+            this.btnAddBossER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddBossER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.Location = new System.Drawing.Point(215, 67);
+            this.btnAddBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddBossER.Name = "btnAddBossER";
+            this.btnAddBossER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddBossER.Size = new System.Drawing.Size(99, 21);
+            this.btnAddBossER.TabIndex = 14;
+            this.btnAddBossER.Text = "Add";
+            this.btnAddBossER.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddBossER.Click += new System.EventHandler(this.btnAddBossER_Click);
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel22.Controls.Add(this.listBoxBossER);
+            this.panel22.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel22.Location = new System.Drawing.Point(15, 95);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(5);
+            this.panel22.Size = new System.Drawing.Size(508, 156);
+            this.panel22.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel22.TabIndex = 26;
+            this.panel22.Text = "panel22";
+            // 
+            // listBoxBossER
+            // 
+            this.listBoxBossER.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxBossER.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxBossER.FormattingEnabled = true;
+            this.listBoxBossER.ItemHeight = 14;
+            this.listBoxBossER.Location = new System.Drawing.Point(4, 6);
+            this.listBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxBossER.Name = "listBoxBossER";
+            this.listBoxBossER.Size = new System.Drawing.Size(500, 144);
+            this.listBoxBossER.TabIndex = 7;
+            this.listBoxBossER.DoubleClick += new System.EventHandler(this.listBoxBossER_DoubleClick);
+            // 
+            // comboBoxHowBossER
+            // 
+            this.comboBoxHowBossER.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowBossER.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowBossER.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowBossER.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossER.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowBossER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowBossER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowBossER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowBossER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowBossER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowBossER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowBossER.FormattingEnabled = true;
+            this.comboBoxHowBossER.ItemHeight = 16;
+            this.comboBoxHowBossER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowBossER.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowBossER.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowBossER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowBossER.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowBossER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowBossER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowBossER.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowBossER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowBossER.Location = new System.Drawing.Point(20, 32);
+            this.comboBoxHowBossER.Name = "comboBoxHowBossER";
+            this.comboBoxHowBossER.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowBossER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowBossER.StartIndex = -1;
+            this.comboBoxHowBossER.TabIndex = 26;
+            this.comboBoxHowBossER.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowBossER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // comboBoxBossER
+            // 
+            this.comboBoxBossER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBossER.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.comboBoxBossER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBossER.FormattingEnabled = true;
+            this.comboBoxBossER.Items.AddRange(new object[] {
+            "Godrick the Grafted - Stormveil Castle",
+            "Margit, the Fell Omen - Stormveil Castle",
+            "Grafted Scion - Chapel of Anticipation",
+            "Morgott, the Omen King - Leyndell",
+            "Godfrey, First Elden Lord - Leyndell",
+            "Hoarah Loux - Leyndell",
+            "Sir Gideon Ofnir, the All-Knowing - Leyndell",
+            "Dragonkin Soldier of Nokstella - Ainsel River",
+            "Dragonkin Soldier - Lake of Rot",
+            "Valiant Gargoyles - Siofra River",
+            "Dragonkin Soldier - Siofra River",
+            "Mimic Tear - Siofra River",
+            "Crucible Knight Sirulia - Deeproot Depths",
+            "Fia\'s Champion - Deeproot Depths",
+            "Lichdragon Fortissax - Deeproot Depths",
+            "Astel, Naturalborn of the Void - Lake of Rot",
+            "Mohg, Lord of Blood - Mohgwyn Palace",
+            "Ancestor Spirit - Siofra River",
+            "Regal Ancestor Spirit - Nokron, Eternal City",
+            "Maliketh, The Black Blade - Crumbling Farum Azula",
+            "Dragonlord Placidusax - Crumbling Farum Azula",
+            "Godskin Duo - Crumbling Farum Azula",
+            "Rennala, Queen of the Full Moon - Academy of Raya Lucaria",
+            "Red Wolf of Radagon - Academy of Raya Lucaria",
+            "Malenia, Blade of Miquella - Miquella\'s Haligtree",
+            "Loretta, Knight of the Haligtree - Miquella\'s Haligtree",
+            "Rykard, Lord of Blasphemy - Volcano Manor",
+            "Godskin Noble - Volcano Manor",
+            "Abductor Virgins - Volcano Manor",
+            "Ulcerated Tree Spirit - Stranded Graveyard",
+            "Soldier of Godrick - Stranded Graveyard",
+            "Elden Beast - Elden Throne",
+            "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)",
+            "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)",
+            "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)",
+            "Cemetery Shade - Tombsward Catacombs (Limgrave)",
+            "Erdtree Burial Watchdog - Impaler\'s Catacombs (Weeping Penisula)",
+            "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)",
+            "Black Knife Assassin - Deathtouched Catacombs (Limgrave)",
+            "Grave Warden Duelist - Murkwater Catacombs (Limgrave)",
+            "Cemetery Shade - Black Knife Catacombs (Liurnia)",
+            "Black Knife Assassin - Black Knife Catacombs (Liurnia)",
+            "Spirit-Caller Snail - Road\'s End Catacombs (Liurnia)",
+            "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)",
+            "Ancient Hero of Zamor - Sainted Hero\'s Grave (Altus Plateau)",
+            "Red Wolf of the Champion - Gelmir Hero\'s Grave (Mt. Gelmir)",
+            "Crucible Knight Ordovis - Auriza Hero\'s Grave (Altus Plateau)",
+            "Crucible Knight (Tree Spear) - Auriza Hero\'s Grave (Altus Plateau)",
+            "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)",
+            "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)",
+            "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)",
+            "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)",
+            "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)",
+            "Cemetery Shade - Caelid Catacombs (Caelid)",
+            "Putrid Tree Spirit - War-Dead Catacombs (Caelid)",
+            "Ancient Hero of Zamor - Giant-Conquering Hero\'s Grave (Mountaintops)",
+            "Ulcerated Tree Sprit - Giants\' Mountaintop Catacombs (Mountaintops)",
+            "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)",
+            "Stray Mimic Tear - Hidden Path to the Haligtree",
+            "Patches - Murkwater Cave (Limgrave)",
+            "Runebear - Earthbore Cave (Weeping Penisula)",
+            "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)",
+            "Beastman of Farum Azula - Groveside Cave (Limgrave)",
+            "Demi-Human Chief - Coastal Cave (Limgrave)",
+            "Guardian Golem - Highroad Cave (Limgrave)",
+            "Cleanrot Knight - Stillwater Cave (Liurnia)",
+            "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)",
+            "Crystalians - Academy Crystal Cave (Liurnia)",
+            "Kindred of Rot - Seethewater Cave (Mt. Gelmir)",
+            "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)",
+            "Miranda the Blighted Bloom - Perfumer\'s Grotto (Altus Plateau)",
+            "Black Knife Assassin - Sage\'s Cave (Altus Plateau)",
+            "Necromancer Garris - Sage\'s Cave (Altus Plateau)",
+            "Frenzied Duelist - Gaol Cave (Caelid)",
+            "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)",
+            "Cleanrot Knight - Abandoned Cave (Caelid)",
+            "Putrid Crystalians - Sellia Hideaway (Caelid)",
+            "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)",
+            "Spirit-Caller Snail - Spiritcaller\'s Cave (Mountaintops)",
+            "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)",
+            "Stonedigger Troll - Limgrave Tunnels (Limgrave)",
+            "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)",
+            "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)",
+            "Onyx Lord - Divine Tower of West Altus (Altus Plateau)",
+            "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)",
+            "Crystalian (Spear) - Altus Tunnel (Altus Plateau)",
+            "Magma Wyrm - Gael Tunnel (Caelid)",
+            "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)",
+            "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)",
+            "Godskin Apostle - Divine Tower of Caelid (Caelid)",
+            "Fell Twins - Divine Tower of East Altus (Capital Outskirts)",
+            "Mad Pumpkin Head - Waypoint Ruins (Limgrave)",
+            "Night\'s Cavalry - Agheel Lake North (Limgrave)",
+            "Deathbird - Stormgate (Limgrave)",
+            "Ball-Bearing Hunter - Warmaster\'s Shack (Limgrave)",
+            "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)",
+            "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)",
+            "Crucible Knight - Stormhill Evergaol (Limgrave)",
+            "Erdtree Avatar - Minor Erdtree (Weeping Penisula)",
+            "Night\'s Cavalry - Castle Morne Approach (Weeping Penisula)",
+            "Deathbird - Castle Morne Approach (Weeping Penisula)",
+            "Leonine Misbegotten - Castle Morne (Weeping Penisula)",
+            "Tree Sentinel - Church of Elleh (Limgrave)",
+            "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)",
+            "Tibia Mariner - Summonwater Village (Limgrave)",
+            "Royal Revenant - Kingsrealm Ruins (Liurnia)",
+            "Adan, Thief of Fire - Malefactor\'s Evergaol (Liurnia)",
+            "Bols, Carian Knight - Cuckoo\'s Evergaol (Liurnia)",
+            "Onyx Lord - Royal Grave Evergaol (Liurnia)",
+            "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)",
+            "Erdtree Avatar - Revenger\'s Shack (Liurnia)",
+            "Erdtree Avatar - Minor Erdtree (Liurnia)",
+            "Royal Knight Loretta - Carian Manor (Liurnia)",
+            "Ball-Bearing Hunter - Church of Vows (Liurnia)",
+            "Night\'s Cavalry - Liurnia Highway Far North (Liurnia)",
+            "Night\'s Cavalry - East Raya Lucaria Gate (Liurnia)",
+            "Deathbird - Laskyar Ruins (Liurnia)",
+            "Death Rite Bird - Gate Town Northwest (Liurnia)",
+            "Glintstone Dragon Smarag - Meeting Place (Liurnia)",
+            "Glintstone Dragon Adula - Ranni\'s Rise (Liurnia)",
+            "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)",
+            "Omenkiller - Village of the Albinaurics (Liurnia)",
+            "Tibia Mariner - Jarburg (Liurnia)",
+            "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)",
+            "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)",
+            "Demi-Human Queen - Lux Ruins (Altus Plateau)",
+            "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)",
+            "Sanguine Noble - Writheblood Ruins (Altus Plateau)",
+            "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)",
+            "Godskin Apostle - Windmill Heights (Altus Plateau)",
+            "Black Knife Assassin - Sainted Hero\'s Grave Entrance (Altus Plateau)",
+            "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)",
+            "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)",
+            "Wormface - Woodfolk Ruins (Altus Plateau)",
+            "Ball-Bearing Hunter - Hermit Merchant\'s Shack (Capital Outskirts)",
+            "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)",
+            "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)",
+            "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)",
+            "Elemer of the Briar - Shaded Castle (Altus Plateau)",
+            "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)",
+            "Tibia Mariner - Wyndham Ruins (Altus Plateau)",
+            "Putrid Avatar - Minor Erdtree (Caelid)",
+            "Decaying Ekzykes - Caelid Highway South (Caelid)",
+            "Monstrous Dog - Southwest of Caelid Highway South (Caelid)",
+            "Night\'s Cavalry - Southern Aeonia Swamp Bank (Caelid)",
+            "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)",
+            "Commander O\'Neil - East Aeonia Swamp (Caelid)",
+            "Crucible Knight - Redmane Castle (Caelid)",
+            "Starscourge Radahn - Battlefield (Caelid)",
+            "Nox Priest - West Sellia (Caelid)",
+            "Bell-Bearing Hunter - Isolated Merchant\'s Shack (Dragonbarrow)",
+            "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)",
+            "Putrid Avatar - Dragonbarrow Fork (Caelid)",
+            "Flying Dragon Greyll - Dragonbarrow (Caelid)",
+            "Night\'s Cavalry - Dragonbarrow (Caelid)",
+            "Black Blade Kindred - Bestial Sanctum (Caelid)",
+            "Night\'s Cavalry - Forbidden Lands (Mountaintops)",
+            "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)",
+            "Borealis the Freezing Fog - Freezing Fields (Mountaintops)",
+            "Roundtable Knight Vyke - Lord Contender\'s Evergaol (Mountaintops)",
+            "Fire Giant - Giant\'s Forge (Mountaintops)",
+            "Erdtree Avatar - Minor Erdtree (Mountaintops)",
+            "Death Rite Bird - West of Castle So (Mountaintops)",
+            "Putrid Avatar - Minor Erdtree (Snowfield)",
+            "Commander Niall - Castle Soul (Mountaintops)",
+            "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)",
+            "Night\'s Cavalry - Sourthwest (Mountaintops)",
+            "Death Rite Bird - Ordina, Liturgical Town (Snowfield)",
+            "Deathbird - Minor Erdtree (Capital Outskirts)"});
+            this.comboBoxBossER.Location = new System.Drawing.Point(207, 32);
+            this.comboBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxBossER.Name = "comboBoxBossER";
+            this.comboBoxBossER.Size = new System.Drawing.Size(292, 22);
+            this.comboBoxBossER.TabIndex = 12;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(333, 10);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(38, 16);
+            this.label36.TabIndex = 15;
+            this.label36.Text = "Boss:";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.BackColor = System.Drawing.Color.Transparent;
+            this.label87.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.ForeColor = System.Drawing.Color.Black;
+            this.label87.Location = new System.Drawing.Point(73, 11);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(37, 16);
+            this.label87.TabIndex = 4;
+            this.label87.Text = "How:";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.BackColor = System.Drawing.Color.Transparent;
+            this.label80.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label80.Location = new System.Drawing.Point(41, 57);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(38, 16);
+            this.label80.TabIndex = 29;
+            this.label80.Text = "when";
+            // 
+            // comboBoxToSplitEldenRing
+            // 
+            this.comboBoxToSplitEldenRing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.comboBoxToSplitEldenRing.ColorA = System.Drawing.Color.Transparent;
+            this.comboBoxToSplitEldenRing.ColorB = System.Drawing.Color.LightSkyBlue;
+            this.comboBoxToSplitEldenRing.ColorC = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxToSplitEldenRing.ColorD = System.Drawing.Color.DeepSkyBlue;
+            this.comboBoxToSplitEldenRing.ColorE = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxToSplitEldenRing.ColorF = System.Drawing.Color.Teal;
+            this.comboBoxToSplitEldenRing.ColorG = System.Drawing.Color.DarkCyan;
+            this.comboBoxToSplitEldenRing.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.comboBoxToSplitEldenRing.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.comboBoxToSplitEldenRing.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxToSplitEldenRing.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxToSplitEldenRing.DropDownHeight = 100;
+            this.comboBoxToSplitEldenRing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxToSplitEldenRing.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxToSplitEldenRing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
+            this.comboBoxToSplitEldenRing.FormattingEnabled = true;
+            this.comboBoxToSplitEldenRing.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.comboBoxToSplitEldenRing.IntegralHeight = false;
+            this.comboBoxToSplitEldenRing.ItemHeight = 20;
+            this.comboBoxToSplitEldenRing.Items.AddRange(new object[] {
+            "Kill a Boss",
+            "Is Activated a Grace",
+            "Trigger a Position",
+            "Custom Flag"});
+            this.comboBoxToSplitEldenRing.Location = new System.Drawing.Point(85, 53);
+            this.comboBoxToSplitEldenRing.Name = "comboBoxToSplitEldenRing";
+            this.comboBoxToSplitEldenRing.Size = new System.Drawing.Size(439, 26);
+            this.comboBoxToSplitEldenRing.StartIndex = -1;
+            this.comboBoxToSplitEldenRing.TabIndex = 28;
+            this.comboBoxToSplitEldenRing.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // EldenRingRunning
+            // 
+            this.EldenRingRunning.AutoSize = true;
+            this.EldenRingRunning.BackColor = System.Drawing.Color.Transparent;
+            this.EldenRingRunning.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EldenRingRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.EldenRingRunning.Location = new System.Drawing.Point(335, 21);
+            this.EldenRingRunning.Name = "EldenRingRunning";
+            this.EldenRingRunning.Size = new System.Drawing.Size(113, 15);
+            this.EldenRingRunning.TabIndex = 19;
+            this.EldenRingRunning.Text = "Elden Ring is Running";
+            // 
+            // EldenRingNotRunning
+            // 
+            this.EldenRingNotRunning.AutoSize = true;
+            this.EldenRingNotRunning.BackColor = System.Drawing.Color.Transparent;
+            this.EldenRingNotRunning.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EldenRingNotRunning.ForeColor = System.Drawing.Color.Red;
+            this.EldenRingNotRunning.Location = new System.Drawing.Point(329, 21);
+            this.EldenRingNotRunning.Name = "EldenRingNotRunning";
+            this.EldenRingNotRunning.Size = new System.Drawing.Size(135, 15);
+            this.EldenRingNotRunning.TabIndex = 18;
+            this.EldenRingNotRunning.Text = "Elden Ring is Not Running";
+            // 
+            // btnRefreshE
+            // 
+            this.btnRefreshE.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefreshE.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshE.Image = null;
+            this.btnRefreshE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefreshE.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.Location = new System.Drawing.Point(482, 18);
+            this.btnRefreshE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRefreshE.Name = "btnRefreshE";
+            this.btnRefreshE.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRefreshE.Size = new System.Drawing.Size(63, 24);
+            this.btnRefreshE.TabIndex = 17;
+            this.btnRefreshE.Text = "Refresh";
+            this.btnRefreshE.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnRefreshE.Click += new System.EventHandler(this.Refresh_Btn);
+            // 
+            // btn_DesactiveAllElden
+            // 
+            this.btn_DesactiveAllElden.BackColor = System.Drawing.Color.Transparent;
+            this.btn_DesactiveAllElden.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DesactiveAllElden.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DesactiveAllElden.Image = null;
+            this.btn_DesactiveAllElden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DesactiveAllElden.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.Location = new System.Drawing.Point(27, 18);
+            this.btn_DesactiveAllElden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_DesactiveAllElden.Name = "btn_DesactiveAllElden";
+            this.btn_DesactiveAllElden.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btn_DesactiveAllElden.Size = new System.Drawing.Size(99, 24);
+            this.btn_DesactiveAllElden.TabIndex = 16;
+            this.btn_DesactiveAllElden.Text = "Desactive All";
+            this.btn_DesactiveAllElden.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_DesactiveAllElden.Click += new System.EventHandler(this.btn_DesactiveAllElden_Click);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(41, 57);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(38, 14);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "when";
+            // 
+            // tabGeneral
+            // 
+            this.tabGeneral.BackColor = System.Drawing.Color.White;
+            this.tabGeneral.Controls.Add(this.TabPageGeneral);
+            this.tabGeneral.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabGeneral.HorizontalScrollbarBarColor = true;
+            this.tabGeneral.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabGeneral.HorizontalScrollbarSize = 10;
+            this.tabGeneral.Location = new System.Drawing.Point(4, 44);
+            this.tabGeneral.Name = "tabGeneral";
+            this.tabGeneral.Size = new System.Drawing.Size(609, 352);
+            this.tabGeneral.TabIndex = 4;
+            this.tabGeneral.Text = "General";
+            this.tabGeneral.UseCustomBackColor = true;
+            this.tabGeneral.VerticalScrollbarBarColor = true;
+            this.tabGeneral.VerticalScrollbarHighlightOnWheel = false;
+            this.tabGeneral.VerticalScrollbarSize = 10;
+            // 
+            // TabPageGeneral
+            // 
+            this.TabPageGeneral.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.TabPageGeneral.BaseColor = System.Drawing.Color.LightCyan;
+            this.TabPageGeneral.Controls.Add(this.tabPageControl);
+            this.TabPageGeneral.Controls.Add(this.tabPageShortcuts);
+            this.TabPageGeneral.Controls.Add(this.tabPageTimming);
+            this.TabPageGeneral.Controls.Add(this.tabPageHitCounter);
+            this.TabPageGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabPageGeneral.ItemSize = new System.Drawing.Size(30, 115);
+            this.TabPageGeneral.Location = new System.Drawing.Point(3, 3);
+            this.TabPageGeneral.Multiline = true;
+            this.TabPageGeneral.Name = "TabPageGeneral";
+            this.TabPageGeneral.NormalTextColor = System.Drawing.Color.LightGray;
+            this.TabPageGeneral.SelectedIndex = 0;
+            this.TabPageGeneral.SelectedTabBackColor = System.Drawing.Color.White;
+            this.TabPageGeneral.SelectedTextColor = System.Drawing.Color.Black;
+            this.TabPageGeneral.ShowOuterBorders = true;
+            this.TabPageGeneral.Size = new System.Drawing.Size(606, 342);
+            this.TabPageGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabPageGeneral.SquareColor = System.Drawing.Color.SteelBlue;
+            this.TabPageGeneral.TabCursor = System.Windows.Forms.Cursors.Hand;
+            this.TabPageGeneral.TabIndex = 2;
+            // 
+            // tabPageControl
+            // 
+            this.tabPageControl.BackColor = System.Drawing.Color.White;
+            this.tabPageControl.Controls.Add(this.lostBorderPanel2);
+            this.tabPageControl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPageControl.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tabPageControl.Location = new System.Drawing.Point(119, 4);
+            this.tabPageControl.Name = "tabPageControl";
+            this.tabPageControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageControl.Size = new System.Drawing.Size(483, 334);
+            this.tabPageControl.TabIndex = 0;
+            this.tabPageControl.Text = "Control";
+            // 
+            // lostBorderPanel2
+            // 
+            this.lostBorderPanel2.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel2.Controls.Add(this.groupBox1);
+            this.lostBorderPanel2.Controls.Add(this.groupBox2);
+            this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel2.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel2.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel2.Name = "lostBorderPanel2";
+            this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel2.ShowText = false;
+            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel2.TabIndex = 31;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackGColor = System.Drawing.Color.CadetBlue;
+            this.groupBox1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.skyComboBoxOverrideStyleMode);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.HeaderColor = System.Drawing.Color.SlateBlue;
+            this.groupBox1.Location = new System.Drawing.Point(240, 14);
+            this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(216, 91);
+            this.groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Override";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(46, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 26);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Override Light/Dark Mode\r\n         From HCM\r\n";
+            // 
+            // skyComboBoxOverrideStyleMode
+            // 
+            this.skyComboBoxOverrideStyleMode.BackColor = System.Drawing.Color.Transparent;
+            this.skyComboBoxOverrideStyleMode.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.skyComboBoxOverrideStyleMode.BGColorB = System.Drawing.Color.SkyBlue;
+            this.skyComboBoxOverrideStyleMode.BorderColorA = System.Drawing.Color.Black;
+            this.skyComboBoxOverrideStyleMode.BorderColorB = System.Drawing.Color.Teal;
+            this.skyComboBoxOverrideStyleMode.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxOverrideStyleMode.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.skyComboBoxOverrideStyleMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyComboBoxOverrideStyleMode.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.skyComboBoxOverrideStyleMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.skyComboBoxOverrideStyleMode.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.skyComboBoxOverrideStyleMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxOverrideStyleMode.FormattingEnabled = true;
+            this.skyComboBoxOverrideStyleMode.ItemHeight = 16;
+            this.skyComboBoxOverrideStyleMode.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.skyComboBoxOverrideStyleMode.Items.AddRange(new object[] {
+            "Default",
+            "Light",
+            "Dark"});
+            this.skyComboBoxOverrideStyleMode.LineColorA = System.Drawing.Color.White;
+            this.skyComboBoxOverrideStyleMode.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxOverrideStyleMode.LineColorC = System.Drawing.Color.White;
+            this.skyComboBoxOverrideStyleMode.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxOverrideStyleMode.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.skyComboBoxOverrideStyleMode.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.skyComboBoxOverrideStyleMode.ListForeColor = System.Drawing.Color.Black;
+            this.skyComboBoxOverrideStyleMode.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxOverrideStyleMode.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxOverrideStyleMode.Location = new System.Drawing.Point(54, 60);
+            this.skyComboBoxOverrideStyleMode.Name = "skyComboBoxOverrideStyleMode";
+            this.skyComboBoxOverrideStyleMode.Size = new System.Drawing.Size(111, 22);
+            this.skyComboBoxOverrideStyleMode.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.skyComboBoxOverrideStyleMode.StartIndex = 0;
+            this.skyComboBoxOverrideStyleMode.TabIndex = 28;
+            this.skyComboBoxOverrideStyleMode.TriangleColorA = System.Drawing.Color.Black;
+            this.skyComboBoxOverrideStyleMode.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxOverrideStyleMode.SelectedIndexChanged += new System.EventHandler(this.skyComboBoxOverrideStyleMode_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BackGColor = System.Drawing.Color.PowderBlue;
+            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.HeaderColor = System.Drawing.Color.Navy;
+            this.groupBox2.Location = new System.Drawing.Point(18, 14);
+            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(216, 91);
+            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "General";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label94.Location = new System.Drawing.Point(6, 51);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(151, 28);
+            this.label94.TabIndex = 18;
+            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
+            // 
+            // checkBoxResetSplitNg
+            // 
+            this.checkBoxResetSplitNg.AutoSize = true;
+            this.checkBoxResetSplitNg.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(29, 30);
+            this.checkBoxResetSplitNg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
+            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(166, 18);
+            this.checkBoxResetSplitNg.TabIndex = 17;
+            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
+            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
+            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
+            // 
+            // tabPageShortcuts
+            // 
+            this.tabPageShortcuts.BackColor = System.Drawing.Color.White;
+            this.tabPageShortcuts.Controls.Add(this.lostBorderPanel4);
+            this.tabPageShortcuts.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPageShortcuts.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tabPageShortcuts.Location = new System.Drawing.Point(119, 4);
+            this.tabPageShortcuts.Name = "tabPageShortcuts";
+            this.tabPageShortcuts.Size = new System.Drawing.Size(483, 334);
+            this.tabPageShortcuts.TabIndex = 2;
+            this.tabPageShortcuts.Text = "Shortcuts";
+            // 
+            // lostBorderPanel4
+            // 
+            this.lostBorderPanel4.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel4.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel4.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel4.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel4.Name = "lostBorderPanel4";
+            this.lostBorderPanel4.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel4.ShowText = false;
+            this.lostBorderPanel4.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel4.TabIndex = 33;
+            // 
+            // tabPageTimming
+            // 
+            this.tabPageTimming.BackColor = System.Drawing.Color.White;
+            this.tabPageTimming.Controls.Add(this.lostBorderPanel1);
+            this.tabPageTimming.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPageTimming.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tabPageTimming.Location = new System.Drawing.Point(119, 4);
+            this.tabPageTimming.Name = "tabPageTimming";
+            this.tabPageTimming.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTimming.Size = new System.Drawing.Size(483, 334);
+            this.tabPageTimming.TabIndex = 1;
+            this.tabPageTimming.Text = "Timming";
+            // 
+            // lostBorderPanel1
+            // 
+            this.lostBorderPanel1.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel1.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel1.Controls.Add(this.label26);
+            this.lostBorderPanel1.Controls.Add(this.comboBoxTGame);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTSekiro);
+            this.lostBorderPanel1.Controls.Add(this.btnDesactiveAllTiming);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTDishonored);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTCeleste);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTCuphead);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs1);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTHK);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs2);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTEr);
+            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs3);
+            this.lostBorderPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel1.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel1.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel1.Name = "lostBorderPanel1";
+            this.lostBorderPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel1.ShowText = false;
+            this.lostBorderPanel1.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel1.TabIndex = 30;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(220, 11);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(43, 16);
+            this.label26.TabIndex = 26;
+            this.label26.Text = "Game";
+            // 
+            // comboBoxTGame
+            // 
+            this.comboBoxTGame.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.comboBoxTGame.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
+            this.comboBoxTGame.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
+            this.comboBoxTGame.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+            this.comboBoxTGame.ColorD = System.Drawing.Color.Teal;
+            this.comboBoxTGame.ColorE = System.Drawing.Color.Aqua;
+            this.comboBoxTGame.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.comboBoxTGame.ColorG = System.Drawing.Color.Cyan;
+            this.comboBoxTGame.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.comboBoxTGame.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.comboBoxTGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxTGame.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTGame.DropDownHeight = 100;
+            this.comboBoxTGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTGame.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comboBoxTGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
+            this.comboBoxTGame.FormattingEnabled = true;
+            this.comboBoxTGame.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.comboBoxTGame.IntegralHeight = false;
+            this.comboBoxTGame.ItemHeight = 20;
+            this.comboBoxTGame.Items.AddRange(new object[] {
+            "Sekiro Shadow Die Twice",
+            "Dark Souls 1",
+            "Dark Souls 2",
+            "Dark Souls 3",
+            "Elden Ring",
+            "Hollow Knight",
+            "Celeste",
+            "Cuphead",
+            "Dishonored"});
+            this.comboBoxTGame.Location = new System.Drawing.Point(35, 32);
+            this.comboBoxTGame.Name = "comboBoxTGame";
+            this.comboBoxTGame.Size = new System.Drawing.Size(406, 26);
+            this.comboBoxTGame.StartIndex = -1;
+            this.comboBoxTGame.TabIndex = 6;
+            this.comboBoxTGame.SelectedIndexChanged += new System.EventHandler(this.comboBoxTGame_SelectedIndexChanged);
+            // 
+            // groupBoxTSekiro
+            // 
+            this.groupBoxTSekiro.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTSekiro.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTSekiro.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTSekiro.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTSekiro.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTSekiro.Controls.Add(this.groupBoxATS);
+            this.groupBoxTSekiro.Controls.Add(this.groupBoxTMS);
+            this.groupBoxTSekiro.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTSekiro.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTSekiro.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTSekiro.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTSekiro.Name = "groupBoxTSekiro";
+            this.groupBoxTSekiro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTSekiro.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTSekiro.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTSekiro.TabIndex = 0;
+            this.groupBoxTSekiro.Text = "Sekiro Timing";
+            // 
+            // groupBoxATS
+            // 
+            this.groupBoxATS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATS.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATS.Controls.Add(this.checkBoxATS);
+            this.groupBoxATS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATS.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATS.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATS.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATS.Name = "groupBoxATS";
+            this.groupBoxATS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATS.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATS.TabIndex = 4;
+            this.groupBoxATS.TabStop = false;
+            this.groupBoxATS.Text = "AutoTimer";
+            // 
+            // checkBoxATS
+            // 
+            this.checkBoxATS.AutoSize = true;
+            this.checkBoxATS.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxATS.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATS.Name = "checkBoxATS";
+            this.checkBoxATS.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATS.TabIndex = 1;
+            this.checkBoxATS.Text = "Enable";
+            this.checkBoxATS.UseVisualStyleBackColor = true;
+            this.checkBoxATS.CheckedChanged += new System.EventHandler(this.checkBoxATS_CheckedChanged);
+            // 
+            // groupBoxTMS
+            // 
+            this.groupBoxTMS.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMS.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMS.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMS.Controls.Add(this.checkBoxResetIGTSekiro);
+            this.groupBoxTMS.Controls.Add(this.radioIGTSTimer);
+            this.groupBoxTMS.Controls.Add(this.radioRealTimerS);
+            this.groupBoxTMS.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMS.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMS.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMS.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMS.Name = "groupBoxTMS";
+            this.groupBoxTMS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMS.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMS.TabIndex = 3;
+            this.groupBoxTMS.TabStop = false;
+            this.groupBoxTMS.Text = "Timing Method";
+            // 
+            // checkBoxResetIGTSekiro
+            // 
+            this.checkBoxResetIGTSekiro.AutoSize = true;
+            this.checkBoxResetIGTSekiro.Location = new System.Drawing.Point(21, 79);
+            this.checkBoxResetIGTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIGTSekiro.Name = "checkBoxResetIGTSekiro";
+            this.checkBoxResetIGTSekiro.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIGTSekiro.TabIndex = 0;
+            this.checkBoxResetIGTSekiro.Text = "Reset IGT on NG+";
+            this.checkBoxResetIGTSekiro.UseVisualStyleBackColor = true;
+            this.checkBoxResetIGTSekiro.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTSekiro_CheckedChanged);
+            // 
+            // radioIGTSTimer
+            // 
+            this.radioIGTSTimer.AutoSize = true;
+            this.radioIGTSTimer.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTSTimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTSTimer.Name = "radioIGTSTimer";
+            this.radioIGTSTimer.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTSTimer.TabIndex = 1;
+            this.radioIGTSTimer.Text = "Game Time";
+            this.radioIGTSTimer.UseVisualStyleBackColor = true;
+            this.radioIGTSTimer.CheckedChanged += new System.EventHandler(this.radioIGTSTimer_CheckedChanged);
+            // 
+            // radioRealTimerS
+            // 
+            this.radioRealTimerS.AutoSize = true;
+            this.radioRealTimerS.Checked = true;
+            this.radioRealTimerS.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerS.Name = "radioRealTimerS";
+            this.radioRealTimerS.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerS.TabIndex = 0;
+            this.radioRealTimerS.TabStop = true;
+            this.radioRealTimerS.Text = "Real Time";
+            this.radioRealTimerS.UseVisualStyleBackColor = true;
+            // 
+            // btnDesactiveAllTiming
+            // 
+            this.btnDesactiveAllTiming.BackColor = System.Drawing.Color.Transparent;
+            this.btnDesactiveAllTiming.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesactiveAllTiming.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesactiveAllTiming.Image = null;
+            this.btnDesactiveAllTiming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDesactiveAllTiming.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(193, 65);
+            this.btnDesactiveAllTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDesactiveAllTiming.Name = "btnDesactiveAllTiming";
+            this.btnDesactiveAllTiming.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(95, 26);
+            this.btnDesactiveAllTiming.TabIndex = 15;
+            this.btnDesactiveAllTiming.Text = "Desactive All";
+            this.btnDesactiveAllTiming.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnDesactiveAllTiming.Click += new System.EventHandler(this.btnDesactiveAllTiming_Click);
+            // 
+            // groupBoxTDishonored
+            // 
+            this.groupBoxTDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDishonored.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxATDishonored);
+            this.groupBoxTDishonored.Controls.Add(this.groupBoxTMDishonored);
+            this.groupBoxTDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDishonored.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDishonored.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDishonored.Name = "groupBoxTDishonored";
+            this.groupBoxTDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDishonored.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDishonored.TabIndex = 23;
+            this.groupBoxTDishonored.Text = "Dishonored Timing";
+            // 
+            // groupBoxATDishonored
+            // 
+            this.groupBoxATDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDishonored.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDishonored.Controls.Add(this.checkBoxATDishonored);
+            this.groupBoxATDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDishonored.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDishonored.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDishonored.Name = "groupBoxATDishonored";
+            this.groupBoxATDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDishonored.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDishonored.TabIndex = 0;
+            this.groupBoxATDishonored.Text = "AutoTimer";
+            // 
+            // checkBoxATDishonored
+            // 
+            this.checkBoxATDishonored.AutoSize = true;
+            this.checkBoxATDishonored.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDishonored.Name = "checkBoxATDishonored";
+            this.checkBoxATDishonored.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDishonored.TabIndex = 1;
+            this.checkBoxATDishonored.Text = "Enable";
+            this.checkBoxATDishonored.UseVisualStyleBackColor = true;
+            this.checkBoxATDishonored.CheckedChanged += new System.EventHandler(this.checkBoxATDishonored_CheckedChanged);
+            // 
+            // groupBoxTMDishonored
+            // 
+            this.groupBoxTMDishonored.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDishonored.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDishonored.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDishonored.Controls.Add(this.radioIGTDishonored);
+            this.groupBoxTMDishonored.Controls.Add(this.radioRealTimerDishonored);
+            this.groupBoxTMDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDishonored.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDishonored.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDishonored.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDishonored.Name = "groupBoxTMDishonored";
+            this.groupBoxTMDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDishonored.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDishonored.TabIndex = 1;
+            this.groupBoxTMDishonored.Text = "Timing Method";
+            // 
+            // radioIGTDishonored
+            // 
+            this.radioIGTDishonored.AutoSize = true;
+            this.radioIGTDishonored.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDishonored.Name = "radioIGTDishonored";
+            this.radioIGTDishonored.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDishonored.TabIndex = 1;
+            this.radioIGTDishonored.Text = "Game Time";
+            this.radioIGTDishonored.UseVisualStyleBackColor = true;
+            this.radioIGTDishonored.CheckedChanged += new System.EventHandler(this.radioIGTDishonored_CheckedChanged);
+            // 
+            // radioRealTimerDishonored
+            // 
+            this.radioRealTimerDishonored.AutoSize = true;
+            this.radioRealTimerDishonored.Checked = true;
+            this.radioRealTimerDishonored.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDishonored.Name = "radioRealTimerDishonored";
+            this.radioRealTimerDishonored.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDishonored.TabIndex = 0;
+            this.radioRealTimerDishonored.TabStop = true;
+            this.radioRealTimerDishonored.Text = "Real Time";
+            this.radioRealTimerDishonored.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTCeleste
+            // 
+            this.groupBoxTCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCeleste.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
+            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
+            this.groupBoxTCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTCeleste.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTCeleste.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
+            this.groupBoxTCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTCeleste.TabIndex = 20;
+            this.groupBoxTCeleste.Text = "Celeste Timing";
+            // 
+            // groupBoxATCeleste
+            // 
+            this.groupBoxATCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCeleste.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
+            this.groupBoxATCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATCeleste.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
+            this.groupBoxATCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCeleste.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATCeleste.TabIndex = 0;
+            this.groupBoxATCeleste.Text = "AutoTimer";
+            // 
+            // checkBoxATCeleste
+            // 
+            this.checkBoxATCeleste.AutoSize = true;
+            this.checkBoxATCeleste.Location = new System.Drawing.Point(45, 50);
+            this.checkBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
+            this.checkBoxATCeleste.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATCeleste.TabIndex = 1;
+            this.checkBoxATCeleste.Text = "Enable";
+            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
+            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
+            // 
+            // groupBoxTMCeleste
+            // 
+            this.groupBoxTMCeleste.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCeleste.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCeleste.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
+            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
+            this.groupBoxTMCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMCeleste.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCeleste.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
+            this.groupBoxTMCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMCeleste.TabIndex = 1;
+            this.groupBoxTMCeleste.Text = "Timing Method";
+            // 
+            // radioIGTCeleste
+            // 
+            this.radioIGTCeleste.AutoSize = true;
+            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTCeleste.Name = "radioIGTCeleste";
+            this.radioIGTCeleste.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTCeleste.TabIndex = 1;
+            this.radioIGTCeleste.Text = "Game Time";
+            this.radioIGTCeleste.UseVisualStyleBackColor = true;
+            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
+            // 
+            // radioRealTimerCeleste
+            // 
+            this.radioRealTimerCeleste.AutoSize = true;
+            this.radioRealTimerCeleste.Checked = true;
+            this.radioRealTimerCeleste.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
+            this.radioRealTimerCeleste.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerCeleste.TabIndex = 0;
+            this.radioRealTimerCeleste.TabStop = true;
+            this.radioRealTimerCeleste.Text = "Real Time";
+            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTCuphead
+            // 
+            this.groupBoxTCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCuphead.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTCuphead.Controls.Add(this.label77);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
+            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
+            this.groupBoxTCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTCuphead.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTCuphead.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
+            this.groupBoxTCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTCuphead.TabIndex = 24;
+            this.groupBoxTCuphead.Text = "Cuphead Timing";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label77.Location = new System.Drawing.Point(57, 141);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(267, 14);
+            this.label77.TabIndex = 3;
+            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
+            // 
+            // groupBoxATCuphead
+            // 
+            this.groupBoxATCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCuphead.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
+            this.groupBoxATCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATCuphead.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
+            this.groupBoxATCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATCuphead.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATCuphead.TabIndex = 4;
+            this.groupBoxATCuphead.Text = "AutoTimer";
+            // 
+            // checkBoxATCuphead
+            // 
+            this.checkBoxATCuphead.AutoSize = true;
+            this.checkBoxATCuphead.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
+            this.checkBoxATCuphead.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATCuphead.TabIndex = 1;
+            this.checkBoxATCuphead.Text = "Enable";
+            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
+            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
+            // 
+            // groupBoxTMCuphead
+            // 
+            this.groupBoxTMCuphead.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCuphead.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCuphead.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMCuphead.Controls.Add(this.label60);
+            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
+            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
+            this.groupBoxTMCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMCuphead.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCuphead.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
+            this.groupBoxTMCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMCuphead.TabIndex = 5;
+            this.groupBoxTMCuphead.Text = "Timing Method";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label60.Location = new System.Drawing.Point(51, 78);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(76, 14);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "(Level Time)";
+            // 
+            // radioIGTCuphead
+            // 
+            this.radioIGTCuphead.AutoSize = true;
+            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTCuphead.Name = "radioIGTCuphead";
+            this.radioIGTCuphead.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTCuphead.TabIndex = 1;
+            this.radioIGTCuphead.Text = "Game Time";
+            this.radioIGTCuphead.UseVisualStyleBackColor = true;
+            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
+            // 
+            // radioRealTimerCuphead
+            // 
+            this.radioRealTimerCuphead.AutoSize = true;
+            this.radioRealTimerCuphead.Checked = true;
+            this.radioRealTimerCuphead.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
+            this.radioRealTimerCuphead.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerCuphead.TabIndex = 0;
+            this.radioRealTimerCuphead.TabStop = true;
+            this.radioRealTimerCuphead.Text = "Real Time";
+            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs1
+            // 
+            this.groupBoxTDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs1.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs1.Controls.Add(this.groupBoxATDs1);
+            this.groupBoxTDs1.Controls.Add(this.groupBoxTMDs1);
+            this.groupBoxTDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs1.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs1.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs1.Name = "groupBoxTDs1";
+            this.groupBoxTDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs1.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs1.TabIndex = 25;
+            this.groupBoxTDs1.Text = "Ds1 Timing";
+            // 
+            // groupBoxATDs1
+            // 
+            this.groupBoxATDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs1.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs1.Controls.Add(this.checkBoxATDs1);
+            this.groupBoxATDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs1.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs1.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs1.Name = "groupBoxATDs1";
+            this.groupBoxATDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs1.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs1.TabIndex = 0;
+            this.groupBoxATDs1.Text = "AutoTimer";
+            // 
+            // checkBoxATDs1
+            // 
+            this.checkBoxATDs1.AutoSize = true;
+            this.checkBoxATDs1.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs1.Name = "checkBoxATDs1";
+            this.checkBoxATDs1.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs1.TabIndex = 1;
+            this.checkBoxATDs1.Text = "Enable";
+            this.checkBoxATDs1.UseVisualStyleBackColor = true;
+            this.checkBoxATDs1.CheckedChanged += new System.EventHandler(this.checkBoxATDs1_CheckedChanged_1);
+            // 
+            // groupBoxTMDs1
+            // 
+            this.groupBoxTMDs1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs1.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs1.Controls.Add(this.radioIGTDs1);
+            this.groupBoxTMDs1.Controls.Add(this.radioRealTimerDs1);
+            this.groupBoxTMDs1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs1.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs1.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs1.Name = "groupBoxTMDs1";
+            this.groupBoxTMDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs1.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs1.TabIndex = 1;
+            this.groupBoxTMDs1.Text = "Timing Method";
+            // 
+            // radioIGTDs1
+            // 
+            this.radioIGTDs1.AutoSize = true;
+            this.radioIGTDs1.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs1.Name = "radioIGTDs1";
+            this.radioIGTDs1.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs1.TabIndex = 1;
+            this.radioIGTDs1.Text = "Game Time";
+            this.radioIGTDs1.UseVisualStyleBackColor = true;
+            this.radioIGTDs1.CheckedChanged += new System.EventHandler(this.radioIGTDs1_CheckedChanged);
+            // 
+            // radioRealTimerDs1
+            // 
+            this.radioRealTimerDs1.AutoSize = true;
+            this.radioRealTimerDs1.Checked = true;
+            this.radioRealTimerDs1.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs1.Name = "radioRealTimerDs1";
+            this.radioRealTimerDs1.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs1.TabIndex = 0;
+            this.radioRealTimerDs1.TabStop = true;
+            this.radioRealTimerDs1.Text = "Real Time";
+            this.radioRealTimerDs1.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTHK
+            // 
+            this.groupBoxTHK.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTHK.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTHK.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTHK.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTHK.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTHK.Controls.Add(this.groupBoxATHk);
+            this.groupBoxTHK.Controls.Add(this.groupBoxTMHollow);
+            this.groupBoxTHK.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTHK.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTHK.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTHK.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTHK.Name = "groupBoxTHK";
+            this.groupBoxTHK.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTHK.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTHK.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTHK.TabIndex = 21;
+            this.groupBoxTHK.Text = "Hollow Knight Timing";
+            // 
+            // groupBoxATHk
+            // 
+            this.groupBoxATHk.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATHk.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATHk.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATHk.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATHk.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATHk.Controls.Add(this.checkBoxATHollow);
+            this.groupBoxATHk.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATHk.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATHk.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATHk.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATHk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATHk.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATHk.Name = "groupBoxATHk";
+            this.groupBoxATHk.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATHk.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATHk.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATHk.TabIndex = 0;
+            this.groupBoxATHk.Text = "AutoTimer";
+            // 
+            // checkBoxATHollow
+            // 
+            this.checkBoxATHollow.AutoSize = true;
+            this.checkBoxATHollow.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATHollow.Name = "checkBoxATHollow";
+            this.checkBoxATHollow.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATHollow.TabIndex = 1;
+            this.checkBoxATHollow.Text = "Enable";
+            this.checkBoxATHollow.UseVisualStyleBackColor = true;
+            this.checkBoxATHollow.CheckedChanged += new System.EventHandler(this.checkBoxATHollow_CheckedChanged);
+            // 
+            // groupBoxTMHollow
+            // 
+            this.groupBoxTMHollow.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMHollow.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMHollow.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMHollow.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMHollow.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMHollow.Controls.Add(this.radioIGTHollow);
+            this.groupBoxTMHollow.Controls.Add(this.radioRealTimerHollow);
+            this.groupBoxTMHollow.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMHollow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMHollow.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMHollow.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMHollow.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMHollow.Name = "groupBoxTMHollow";
+            this.groupBoxTMHollow.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMHollow.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMHollow.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMHollow.TabIndex = 1;
+            this.groupBoxTMHollow.Text = "Timing Method";
+            // 
+            // radioIGTHollow
+            // 
+            this.radioIGTHollow.AutoSize = true;
+            this.radioIGTHollow.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTHollow.Name = "radioIGTHollow";
+            this.radioIGTHollow.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTHollow.TabIndex = 1;
+            this.radioIGTHollow.Text = "Game Time";
+            this.radioIGTHollow.UseVisualStyleBackColor = true;
+            this.radioIGTHollow.CheckedChanged += new System.EventHandler(this.radioIGTHollow_CheckedChanged);
+            // 
+            // radioRealTimerHollow
+            // 
+            this.radioRealTimerHollow.AutoSize = true;
+            this.radioRealTimerHollow.Checked = true;
+            this.radioRealTimerHollow.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerHollow.Name = "radioRealTimerHollow";
+            this.radioRealTimerHollow.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerHollow.TabIndex = 0;
+            this.radioRealTimerHollow.TabStop = true;
+            this.radioRealTimerHollow.Text = "Real Time";
+            this.radioRealTimerHollow.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs2
+            // 
+            this.groupBoxTDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs2.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
+            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
+            this.groupBoxTDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs2.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs2.Name = "groupBoxTDs2";
+            this.groupBoxTDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs2.TabIndex = 9;
+            this.groupBoxTDs2.TabStop = false;
+            this.groupBoxTDs2.Text = "Ds2 Timing";
+            // 
+            // groupBoxATDs2
+            // 
+            this.groupBoxATDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs2.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
+            this.groupBoxATDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs2.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs2.Name = "groupBoxATDs2";
+            this.groupBoxATDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs2.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs2.TabIndex = 0;
+            this.groupBoxATDs2.Text = "AutoTimer";
+            // 
+            // checkBoxATDs2
+            // 
+            this.checkBoxATDs2.AutoSize = true;
+            this.checkBoxATDs2.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs2.Name = "checkBoxATDs2";
+            this.checkBoxATDs2.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs2.TabIndex = 1;
+            this.checkBoxATDs2.Text = "Enable";
+            this.checkBoxATDs2.UseVisualStyleBackColor = true;
+            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
+            // 
+            // groupBoxTMDs2
+            // 
+            this.groupBoxTMDs2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs2.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
+            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
+            this.groupBoxTMDs2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs2.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
+            this.groupBoxTMDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs2.TabIndex = 1;
+            this.groupBoxTMDs2.Text = "Timing Method";
+            // 
+            // radioIGTDs2
+            // 
+            this.radioIGTDs2.AutoSize = true;
+            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs2.Name = "radioIGTDs2";
+            this.radioIGTDs2.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs2.TabIndex = 1;
+            this.radioIGTDs2.Text = "Game Time";
+            this.radioIGTDs2.UseVisualStyleBackColor = true;
+            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
+            // 
+            // radioRealTimerDs2
+            // 
+            this.radioRealTimerDs2.AutoSize = true;
+            this.radioRealTimerDs2.Checked = true;
+            this.radioRealTimerDs2.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
+            this.radioRealTimerDs2.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs2.TabIndex = 0;
+            this.radioRealTimerDs2.TabStop = true;
+            this.radioRealTimerDs2.Text = "Real Time";
+            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTEr
+            // 
+            this.groupBoxTEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTEr.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTEr.Controls.Add(this.groupBoxATEr);
+            this.groupBoxTEr.Controls.Add(this.groupBoxTMEr);
+            this.groupBoxTEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTEr.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTEr.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTEr.Name = "groupBoxTEr";
+            this.groupBoxTEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTEr.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTEr.TabIndex = 22;
+            this.groupBoxTEr.Text = "Elden Timing";
+            // 
+            // groupBoxATEr
+            // 
+            this.groupBoxATEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATEr.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATEr.Controls.Add(this.checkBoxATEr);
+            this.groupBoxATEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATEr.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATEr.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATEr.Name = "groupBoxATEr";
+            this.groupBoxATEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATEr.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATEr.TabIndex = 0;
+            this.groupBoxATEr.Text = "AutoTimer";
+            // 
+            // checkBoxATEr
+            // 
+            this.checkBoxATEr.AutoSize = true;
+            this.checkBoxATEr.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATEr.Name = "checkBoxATEr";
+            this.checkBoxATEr.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATEr.TabIndex = 1;
+            this.checkBoxATEr.Text = "Enable";
+            this.checkBoxATEr.UseVisualStyleBackColor = true;
+            this.checkBoxATEr.CheckedChanged += new System.EventHandler(this.checkBoxATEr_CheckedChanged_1);
+            // 
+            // groupBoxTMEr
+            // 
+            this.groupBoxTMEr.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMEr.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMEr.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMEr.Controls.Add(this.checkBoxResetIGTNGEr);
+            this.groupBoxTMEr.Controls.Add(this.radioIGTEr);
+            this.groupBoxTMEr.Controls.Add(this.radioRealTimerEr);
+            this.groupBoxTMEr.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMEr.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMEr.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMEr.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMEr.Name = "groupBoxTMEr";
+            this.groupBoxTMEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMEr.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMEr.TabIndex = 1;
+            this.groupBoxTMEr.Text = "Timing Method";
+            // 
+            // checkBoxResetIGTNGEr
+            // 
+            this.checkBoxResetIGTNGEr.AutoSize = true;
+            this.checkBoxResetIGTNGEr.Location = new System.Drawing.Point(21, 80);
+            this.checkBoxResetIGTNGEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIGTNGEr.Name = "checkBoxResetIGTNGEr";
+            this.checkBoxResetIGTNGEr.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIGTNGEr.TabIndex = 0;
+            this.checkBoxResetIGTNGEr.Text = "Reset IGT on NG+";
+            this.checkBoxResetIGTNGEr.UseVisualStyleBackColor = true;
+            this.checkBoxResetIGTNGEr.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTNGEr_CheckedChanged);
+            // 
+            // radioIGTEr
+            // 
+            this.radioIGTEr.AutoSize = true;
+            this.radioIGTEr.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTEr.Name = "radioIGTEr";
+            this.radioIGTEr.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTEr.TabIndex = 1;
+            this.radioIGTEr.Text = "Game Time";
+            this.radioIGTEr.UseVisualStyleBackColor = true;
+            this.radioIGTEr.CheckedChanged += new System.EventHandler(this.radioIGTEr_CheckedChanged);
+            // 
+            // radioRealTimerEr
+            // 
+            this.radioRealTimerEr.AutoSize = true;
+            this.radioRealTimerEr.Checked = true;
+            this.radioRealTimerEr.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerEr.Name = "radioRealTimerEr";
+            this.radioRealTimerEr.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerEr.TabIndex = 0;
+            this.radioRealTimerEr.TabStop = true;
+            this.radioRealTimerEr.Text = "Real Time";
+            this.radioRealTimerEr.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTDs3
+            // 
+            this.groupBoxTDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs3.BackGColor = System.Drawing.Color.Gold;
+            this.groupBoxTDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTDs3.Controls.Add(this.groupBoxATDs3);
+            this.groupBoxTDs3.Controls.Add(this.groupBoxTMDs3);
+            this.groupBoxTDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTDs3.HeaderColor = System.Drawing.Color.Khaki;
+            this.groupBoxTDs3.Location = new System.Drawing.Point(60, 107);
+            this.groupBoxTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTDs3.Name = "groupBoxTDs3";
+            this.groupBoxTDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTDs3.Size = new System.Drawing.Size(361, 158);
+            this.groupBoxTDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTDs3.TabIndex = 9;
+            this.groupBoxTDs3.TabStop = false;
+            this.groupBoxTDs3.Text = "Ds3 Timing";
+            // 
+            // groupBoxATDs3
+            // 
+            this.groupBoxATDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs3.BackGColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxATDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxATDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxATDs3.Controls.Add(this.checkBoxATDs3);
+            this.groupBoxATDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxATDs3.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxATDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
+            this.groupBoxATDs3.Location = new System.Drawing.Point(15, 31);
+            this.groupBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxATDs3.Name = "groupBoxATDs3";
+            this.groupBoxATDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxATDs3.Size = new System.Drawing.Size(164, 109);
+            this.groupBoxATDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxATDs3.TabIndex = 0;
+            this.groupBoxATDs3.Text = "AutoTimer";
+            // 
+            // checkBoxATDs3
+            // 
+            this.checkBoxATDs3.AutoSize = true;
+            this.checkBoxATDs3.Location = new System.Drawing.Point(54, 50);
+            this.checkBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxATDs3.Name = "checkBoxATDs3";
+            this.checkBoxATDs3.Size = new System.Drawing.Size(62, 18);
+            this.checkBoxATDs3.TabIndex = 1;
+            this.checkBoxATDs3.Text = "Enable";
+            this.checkBoxATDs3.UseVisualStyleBackColor = true;
+            this.checkBoxATDs3.CheckedChanged += new System.EventHandler(this.checkBoxATDs3_CheckedChanged_1);
+            // 
+            // groupBoxTMDs3
+            // 
+            this.groupBoxTMDs3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs3.BackGColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxTMDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxTMDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxTMDs3.Controls.Add(this.checkBoxResetIgtDs3);
+            this.groupBoxTMDs3.Controls.Add(this.radioIGTDs3);
+            this.groupBoxTMDs3.Controls.Add(this.radioRealTimerDs3);
+            this.groupBoxTMDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxTMDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxTMDs3.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBoxTMDs3.Location = new System.Drawing.Point(185, 31);
+            this.groupBoxTMDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxTMDs3.Name = "groupBoxTMDs3";
+            this.groupBoxTMDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTMDs3.Size = new System.Drawing.Size(157, 109);
+            this.groupBoxTMDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxTMDs3.TabIndex = 1;
+            this.groupBoxTMDs3.Text = "Timing Method";
+            // 
+            // checkBoxResetIgtDs3
+            // 
+            this.checkBoxResetIgtDs3.AutoSize = true;
+            this.checkBoxResetIgtDs3.Location = new System.Drawing.Point(21, 80);
+            this.checkBoxResetIgtDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxResetIgtDs3.Name = "checkBoxResetIgtDs3";
+            this.checkBoxResetIgtDs3.Size = new System.Drawing.Size(127, 18);
+            this.checkBoxResetIgtDs3.TabIndex = 0;
+            this.checkBoxResetIgtDs3.Text = "Reset IGT on NG+";
+            this.checkBoxResetIgtDs3.UseVisualStyleBackColor = true;
+            this.checkBoxResetIgtDs3.CheckedChanged += new System.EventHandler(this.checkBoxResetIgtDs3_CheckedChanged);
+            // 
+            // radioIGTDs3
+            // 
+            this.radioIGTDs3.AutoSize = true;
+            this.radioIGTDs3.Location = new System.Drawing.Point(39, 58);
+            this.radioIGTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioIGTDs3.Name = "radioIGTDs3";
+            this.radioIGTDs3.Size = new System.Drawing.Size(87, 18);
+            this.radioIGTDs3.TabIndex = 1;
+            this.radioIGTDs3.Text = "Game Time";
+            this.radioIGTDs3.UseVisualStyleBackColor = true;
+            this.radioIGTDs3.CheckedChanged += new System.EventHandler(this.radioIGTDs3_CheckedChanged);
+            // 
+            // radioRealTimerDs3
+            // 
+            this.radioRealTimerDs3.AutoSize = true;
+            this.radioRealTimerDs3.Checked = true;
+            this.radioRealTimerDs3.Location = new System.Drawing.Point(39, 34);
+            this.radioRealTimerDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioRealTimerDs3.Name = "radioRealTimerDs3";
+            this.radioRealTimerDs3.Size = new System.Drawing.Size(78, 18);
+            this.radioRealTimerDs3.TabIndex = 0;
+            this.radioRealTimerDs3.TabStop = true;
+            this.radioRealTimerDs3.Text = "Real Time";
+            this.radioRealTimerDs3.UseVisualStyleBackColor = true;
+            // 
+            // tabPageHitCounter
+            // 
+            this.tabPageHitCounter.BackColor = System.Drawing.Color.White;
+            this.tabPageHitCounter.Controls.Add(this.lostBorderPanel5);
+            this.tabPageHitCounter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPageHitCounter.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tabPageHitCounter.Location = new System.Drawing.Point(119, 4);
+            this.tabPageHitCounter.Name = "tabPageHitCounter";
+            this.tabPageHitCounter.Size = new System.Drawing.Size(483, 334);
+            this.tabPageHitCounter.TabIndex = 3;
+            this.tabPageHitCounter.Text = "HitCounter";
+            // 
+            // lostBorderPanel5
+            // 
+            this.lostBorderPanel5.BackColor = System.Drawing.Color.LightBlue;
+            this.lostBorderPanel5.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lostBorderPanel5.ForeColor = System.Drawing.Color.White;
+            this.lostBorderPanel5.Location = new System.Drawing.Point(6, 6);
+            this.lostBorderPanel5.Name = "lostBorderPanel5";
+            this.lostBorderPanel5.Padding = new System.Windows.Forms.Padding(5);
+            this.lostBorderPanel5.ShowText = false;
+            this.lostBorderPanel5.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel5.TabIndex = 33;
             // 
             // tabConfig
             // 
@@ -1345,9 +4122,9 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.Color.White;
+            this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
             this.tabSekiro.Controls.Add(this.panelBossS);
-            this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelMortalJourney);
             this.tabSekiro.Controls.Add(this.panelLevelSekiro);
             this.tabSekiro.Controls.Add(this.panelCfSekiro);
@@ -3031,6 +5808,7 @@ namespace AutoSplitterCore
             this.comboBoxSizeS.TabIndex = 30;
             this.comboBoxSizeS.TriangleColorA = System.Drawing.Color.Black;
             this.comboBoxSizeS.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeS.SelectedIndexChanged += new System.EventHandler(this.comboBoxMargin_SelectedIndexChanged);
             // 
             // textBoxZS
             // 
@@ -4280,1339 +7058,6 @@ namespace AutoSplitterCore
             this.label1.TabIndex = 3;
             this.label1.Text = "when";
             // 
-            // tabGeneral
-            // 
-            this.tabGeneral.BackColor = System.Drawing.Color.White;
-            this.tabGeneral.Controls.Add(this.TabPageGeneral);
-            this.tabGeneral.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGeneral.HorizontalScrollbarBarColor = true;
-            this.tabGeneral.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabGeneral.HorizontalScrollbarSize = 10;
-            this.tabGeneral.Location = new System.Drawing.Point(4, 44);
-            this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Size = new System.Drawing.Size(609, 352);
-            this.tabGeneral.TabIndex = 4;
-            this.tabGeneral.Text = "General";
-            this.tabGeneral.UseCustomBackColor = true;
-            this.tabGeneral.VerticalScrollbarBarColor = true;
-            this.tabGeneral.VerticalScrollbarHighlightOnWheel = false;
-            this.tabGeneral.VerticalScrollbarSize = 10;
-            // 
-            // TabPageGeneral
-            // 
-            this.TabPageGeneral.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.TabPageGeneral.BaseColor = System.Drawing.Color.LightCyan;
-            this.TabPageGeneral.Controls.Add(this.tabPageControl);
-            this.TabPageGeneral.Controls.Add(this.tabPageShortcuts);
-            this.TabPageGeneral.Controls.Add(this.tabPageTimming);
-            this.TabPageGeneral.Controls.Add(this.tabPageHitCounter);
-            this.TabPageGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabPageGeneral.ItemSize = new System.Drawing.Size(30, 115);
-            this.TabPageGeneral.Location = new System.Drawing.Point(3, 3);
-            this.TabPageGeneral.Multiline = true;
-            this.TabPageGeneral.Name = "TabPageGeneral";
-            this.TabPageGeneral.NormalTextColor = System.Drawing.Color.LightGray;
-            this.TabPageGeneral.SelectedIndex = 0;
-            this.TabPageGeneral.SelectedTabBackColor = System.Drawing.Color.White;
-            this.TabPageGeneral.SelectedTextColor = System.Drawing.Color.Black;
-            this.TabPageGeneral.ShowOuterBorders = true;
-            this.TabPageGeneral.Size = new System.Drawing.Size(606, 342);
-            this.TabPageGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.TabPageGeneral.SquareColor = System.Drawing.Color.SteelBlue;
-            this.TabPageGeneral.TabCursor = System.Windows.Forms.Cursors.Hand;
-            this.TabPageGeneral.TabIndex = 2;
-            // 
-            // tabPageControl
-            // 
-            this.tabPageControl.BackColor = System.Drawing.Color.White;
-            this.tabPageControl.Controls.Add(this.lostBorderPanel2);
-            this.tabPageControl.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPageControl.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tabPageControl.Location = new System.Drawing.Point(119, 4);
-            this.tabPageControl.Name = "tabPageControl";
-            this.tabPageControl.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageControl.Size = new System.Drawing.Size(483, 334);
-            this.tabPageControl.TabIndex = 0;
-            this.tabPageControl.Text = "Control";
-            // 
-            // lostBorderPanel2
-            // 
-            this.lostBorderPanel2.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel2.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel2.Controls.Add(this.groupBox1);
-            this.lostBorderPanel2.Controls.Add(this.groupBox2);
-            this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel2.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel2.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel2.Name = "lostBorderPanel2";
-            this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel2.ShowText = false;
-            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel2.TabIndex = 31;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackGColor = System.Drawing.Color.CadetBlue;
-            this.groupBox1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.skyComboBoxOverrideStyleMode);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.HeaderColor = System.Drawing.Color.SlateBlue;
-            this.groupBox1.Location = new System.Drawing.Point(240, 14);
-            this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(216, 91);
-            this.groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Override";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(46, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 26);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Override Light/Dark Mode\r\n         From HCM\r\n";
-            // 
-            // skyComboBoxOverrideStyleMode
-            // 
-            this.skyComboBoxOverrideStyleMode.BackColor = System.Drawing.Color.Transparent;
-            this.skyComboBoxOverrideStyleMode.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.skyComboBoxOverrideStyleMode.BGColorB = System.Drawing.Color.SkyBlue;
-            this.skyComboBoxOverrideStyleMode.BorderColorA = System.Drawing.Color.Black;
-            this.skyComboBoxOverrideStyleMode.BorderColorB = System.Drawing.Color.Teal;
-            this.skyComboBoxOverrideStyleMode.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.skyComboBoxOverrideStyleMode.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.skyComboBoxOverrideStyleMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.skyComboBoxOverrideStyleMode.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.skyComboBoxOverrideStyleMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.skyComboBoxOverrideStyleMode.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.skyComboBoxOverrideStyleMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyComboBoxOverrideStyleMode.FormattingEnabled = true;
-            this.skyComboBoxOverrideStyleMode.ItemHeight = 16;
-            this.skyComboBoxOverrideStyleMode.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.skyComboBoxOverrideStyleMode.Items.AddRange(new object[] {
-            "Default",
-            "Light",
-            "Dark"});
-            this.skyComboBoxOverrideStyleMode.LineColorA = System.Drawing.Color.White;
-            this.skyComboBoxOverrideStyleMode.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.skyComboBoxOverrideStyleMode.LineColorC = System.Drawing.Color.White;
-            this.skyComboBoxOverrideStyleMode.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.skyComboBoxOverrideStyleMode.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.skyComboBoxOverrideStyleMode.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.skyComboBoxOverrideStyleMode.ListForeColor = System.Drawing.Color.Black;
-            this.skyComboBoxOverrideStyleMode.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.skyComboBoxOverrideStyleMode.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.skyComboBoxOverrideStyleMode.Location = new System.Drawing.Point(54, 60);
-            this.skyComboBoxOverrideStyleMode.Name = "skyComboBoxOverrideStyleMode";
-            this.skyComboBoxOverrideStyleMode.Size = new System.Drawing.Size(111, 22);
-            this.skyComboBoxOverrideStyleMode.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.skyComboBoxOverrideStyleMode.StartIndex = 0;
-            this.skyComboBoxOverrideStyleMode.TabIndex = 28;
-            this.skyComboBoxOverrideStyleMode.TriangleColorA = System.Drawing.Color.Black;
-            this.skyComboBoxOverrideStyleMode.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyComboBoxOverrideStyleMode.SelectedIndexChanged += new System.EventHandler(this.skyComboBoxOverrideStyleMode_SelectedIndexChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BackGColor = System.Drawing.Color.PowderBlue;
-            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox2.Controls.Add(this.label94);
-            this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.HeaderColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(18, 14);
-            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(216, 91);
-            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "General";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label94.Location = new System.Drawing.Point(6, 51);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(151, 28);
-            this.label94.TabIndex = 18;
-            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
-            // 
-            // checkBoxResetSplitNg
-            // 
-            this.checkBoxResetSplitNg.AutoSize = true;
-            this.checkBoxResetSplitNg.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(29, 30);
-            this.checkBoxResetSplitNg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
-            this.checkBoxResetSplitNg.Size = new System.Drawing.Size(166, 18);
-            this.checkBoxResetSplitNg.TabIndex = 17;
-            this.checkBoxResetSplitNg.Text = "Reset Splits in New Game";
-            this.checkBoxResetSplitNg.UseVisualStyleBackColor = true;
-            this.checkBoxResetSplitNg.CheckedChanged += new System.EventHandler(this.checkBoxResetSplitNg_CheckedChanged);
-            // 
-            // tabPageShortcuts
-            // 
-            this.tabPageShortcuts.BackColor = System.Drawing.Color.White;
-            this.tabPageShortcuts.Controls.Add(this.lostBorderPanel4);
-            this.tabPageShortcuts.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPageShortcuts.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tabPageShortcuts.Location = new System.Drawing.Point(119, 4);
-            this.tabPageShortcuts.Name = "tabPageShortcuts";
-            this.tabPageShortcuts.Size = new System.Drawing.Size(483, 334);
-            this.tabPageShortcuts.TabIndex = 2;
-            this.tabPageShortcuts.Text = "Shortcuts";
-            // 
-            // lostBorderPanel4
-            // 
-            this.lostBorderPanel4.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel4.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel4.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel4.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel4.Name = "lostBorderPanel4";
-            this.lostBorderPanel4.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel4.ShowText = false;
-            this.lostBorderPanel4.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel4.TabIndex = 33;
-            // 
-            // tabPageTimming
-            // 
-            this.tabPageTimming.BackColor = System.Drawing.Color.White;
-            this.tabPageTimming.Controls.Add(this.lostBorderPanel1);
-            this.tabPageTimming.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPageTimming.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tabPageTimming.Location = new System.Drawing.Point(119, 4);
-            this.tabPageTimming.Name = "tabPageTimming";
-            this.tabPageTimming.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTimming.Size = new System.Drawing.Size(483, 334);
-            this.tabPageTimming.TabIndex = 1;
-            this.tabPageTimming.Text = "Timming";
-            // 
-            // lostBorderPanel1
-            // 
-            this.lostBorderPanel1.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel1.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel1.Controls.Add(this.label26);
-            this.lostBorderPanel1.Controls.Add(this.comboBoxTGame);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTSekiro);
-            this.lostBorderPanel1.Controls.Add(this.btnDesactiveAllTiming);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTDishonored);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTCeleste);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTCuphead);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs1);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTHK);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs2);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTEr);
-            this.lostBorderPanel1.Controls.Add(this.groupBoxTDs3);
-            this.lostBorderPanel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel1.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel1.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel1.Name = "lostBorderPanel1";
-            this.lostBorderPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel1.ShowText = false;
-            this.lostBorderPanel1.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel1.TabIndex = 30;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(220, 11);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(43, 16);
-            this.label26.TabIndex = 26;
-            this.label26.Text = "Game";
-            // 
-            // comboBoxTGame
-            // 
-            this.comboBoxTGame.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.comboBoxTGame.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(132)))), ((int)(((byte)(85)))));
-            this.comboBoxTGame.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(108)))), ((int)(((byte)(57)))));
-            this.comboBoxTGame.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
-            this.comboBoxTGame.ColorD = System.Drawing.Color.Teal;
-            this.comboBoxTGame.ColorE = System.Drawing.Color.Aqua;
-            this.comboBoxTGame.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.comboBoxTGame.ColorG = System.Drawing.Color.Cyan;
-            this.comboBoxTGame.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
-            this.comboBoxTGame.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.comboBoxTGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxTGame.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxTGame.DropDownHeight = 100;
-            this.comboBoxTGame.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTGame.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxTGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
-            this.comboBoxTGame.FormattingEnabled = true;
-            this.comboBoxTGame.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.comboBoxTGame.IntegralHeight = false;
-            this.comboBoxTGame.ItemHeight = 20;
-            this.comboBoxTGame.Items.AddRange(new object[] {
-            "Sekiro Shadow Die Twice",
-            "Dark Souls 1",
-            "Dark Souls 2",
-            "Dark Souls 3",
-            "Elden Ring",
-            "Hollow Knight",
-            "Celeste",
-            "Cuphead",
-            "Dishonored"});
-            this.comboBoxTGame.Location = new System.Drawing.Point(35, 32);
-            this.comboBoxTGame.Name = "comboBoxTGame";
-            this.comboBoxTGame.Size = new System.Drawing.Size(406, 26);
-            this.comboBoxTGame.StartIndex = -1;
-            this.comboBoxTGame.TabIndex = 6;
-            this.comboBoxTGame.SelectedIndexChanged += new System.EventHandler(this.comboBoxTGame_SelectedIndexChanged);
-            // 
-            // groupBoxTSekiro
-            // 
-            this.groupBoxTSekiro.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTSekiro.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTSekiro.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTSekiro.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTSekiro.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTSekiro.Controls.Add(this.groupBoxATS);
-            this.groupBoxTSekiro.Controls.Add(this.groupBoxTMS);
-            this.groupBoxTSekiro.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTSekiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTSekiro.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTSekiro.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTSekiro.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTSekiro.Name = "groupBoxTSekiro";
-            this.groupBoxTSekiro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTSekiro.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTSekiro.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTSekiro.TabIndex = 0;
-            this.groupBoxTSekiro.Text = "Sekiro Timing";
-            // 
-            // groupBoxATS
-            // 
-            this.groupBoxATS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATS.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATS.Controls.Add(this.checkBoxATS);
-            this.groupBoxATS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATS.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATS.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATS.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATS.Name = "groupBoxATS";
-            this.groupBoxATS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATS.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATS.TabIndex = 4;
-            this.groupBoxATS.TabStop = false;
-            this.groupBoxATS.Text = "AutoTimer";
-            // 
-            // checkBoxATS
-            // 
-            this.checkBoxATS.AutoSize = true;
-            this.checkBoxATS.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxATS.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATS.Name = "checkBoxATS";
-            this.checkBoxATS.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATS.TabIndex = 1;
-            this.checkBoxATS.Text = "Enable";
-            this.checkBoxATS.UseVisualStyleBackColor = true;
-            this.checkBoxATS.CheckedChanged += new System.EventHandler(this.checkBoxATS_CheckedChanged);
-            // 
-            // groupBoxTMS
-            // 
-            this.groupBoxTMS.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMS.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMS.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMS.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMS.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMS.Controls.Add(this.checkBoxResetIGTSekiro);
-            this.groupBoxTMS.Controls.Add(this.radioIGTSTimer);
-            this.groupBoxTMS.Controls.Add(this.radioRealTimerS);
-            this.groupBoxTMS.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMS.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMS.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMS.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMS.Name = "groupBoxTMS";
-            this.groupBoxTMS.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMS.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMS.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMS.TabIndex = 3;
-            this.groupBoxTMS.TabStop = false;
-            this.groupBoxTMS.Text = "Timing Method";
-            // 
-            // checkBoxResetIGTSekiro
-            // 
-            this.checkBoxResetIGTSekiro.AutoSize = true;
-            this.checkBoxResetIGTSekiro.Location = new System.Drawing.Point(21, 79);
-            this.checkBoxResetIGTSekiro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIGTSekiro.Name = "checkBoxResetIGTSekiro";
-            this.checkBoxResetIGTSekiro.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIGTSekiro.TabIndex = 0;
-            this.checkBoxResetIGTSekiro.Text = "Reset IGT on NG+";
-            this.checkBoxResetIGTSekiro.UseVisualStyleBackColor = true;
-            this.checkBoxResetIGTSekiro.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTSekiro_CheckedChanged);
-            // 
-            // radioIGTSTimer
-            // 
-            this.radioIGTSTimer.AutoSize = true;
-            this.radioIGTSTimer.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTSTimer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTSTimer.Name = "radioIGTSTimer";
-            this.radioIGTSTimer.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTSTimer.TabIndex = 1;
-            this.radioIGTSTimer.Text = "Game Time";
-            this.radioIGTSTimer.UseVisualStyleBackColor = true;
-            this.radioIGTSTimer.CheckedChanged += new System.EventHandler(this.radioIGTSTimer_CheckedChanged);
-            // 
-            // radioRealTimerS
-            // 
-            this.radioRealTimerS.AutoSize = true;
-            this.radioRealTimerS.Checked = true;
-            this.radioRealTimerS.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerS.Name = "radioRealTimerS";
-            this.radioRealTimerS.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerS.TabIndex = 0;
-            this.radioRealTimerS.TabStop = true;
-            this.radioRealTimerS.Text = "Real Time";
-            this.radioRealTimerS.UseVisualStyleBackColor = true;
-            // 
-            // btnDesactiveAllTiming
-            // 
-            this.btnDesactiveAllTiming.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactiveAllTiming.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactiveAllTiming.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactiveAllTiming.Image = null;
-            this.btnDesactiveAllTiming.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesactiveAllTiming.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Location = new System.Drawing.Point(193, 65);
-            this.btnDesactiveAllTiming.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDesactiveAllTiming.Name = "btnDesactiveAllTiming";
-            this.btnDesactiveAllTiming.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnDesactiveAllTiming.Size = new System.Drawing.Size(95, 26);
-            this.btnDesactiveAllTiming.TabIndex = 15;
-            this.btnDesactiveAllTiming.Text = "Desactive All";
-            this.btnDesactiveAllTiming.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnDesactiveAllTiming.Click += new System.EventHandler(this.btnDesactiveAllTiming_Click);
-            // 
-            // groupBoxTDishonored
-            // 
-            this.groupBoxTDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDishonored.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDishonored.Controls.Add(this.groupBoxATDishonored);
-            this.groupBoxTDishonored.Controls.Add(this.groupBoxTMDishonored);
-            this.groupBoxTDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDishonored.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTDishonored.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDishonored.Name = "groupBoxTDishonored";
-            this.groupBoxTDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDishonored.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDishonored.TabIndex = 23;
-            this.groupBoxTDishonored.Text = "Dishonored Timing";
-            // 
-            // groupBoxATDishonored
-            // 
-            this.groupBoxATDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDishonored.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDishonored.Controls.Add(this.checkBoxATDishonored);
-            this.groupBoxATDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDishonored.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATDishonored.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDishonored.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDishonored.Name = "groupBoxATDishonored";
-            this.groupBoxATDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDishonored.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDishonored.TabIndex = 0;
-            this.groupBoxATDishonored.Text = "AutoTimer";
-            // 
-            // checkBoxATDishonored
-            // 
-            this.checkBoxATDishonored.AutoSize = true;
-            this.checkBoxATDishonored.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDishonored.Name = "checkBoxATDishonored";
-            this.checkBoxATDishonored.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDishonored.TabIndex = 1;
-            this.checkBoxATDishonored.Text = "Enable";
-            this.checkBoxATDishonored.UseVisualStyleBackColor = true;
-            this.checkBoxATDishonored.CheckedChanged += new System.EventHandler(this.checkBoxATDishonored_CheckedChanged);
-            // 
-            // groupBoxTMDishonored
-            // 
-            this.groupBoxTMDishonored.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDishonored.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDishonored.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDishonored.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDishonored.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDishonored.Controls.Add(this.radioIGTDishonored);
-            this.groupBoxTMDishonored.Controls.Add(this.radioRealTimerDishonored);
-            this.groupBoxTMDishonored.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDishonored.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDishonored.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDishonored.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDishonored.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDishonored.Name = "groupBoxTMDishonored";
-            this.groupBoxTMDishonored.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDishonored.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDishonored.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDishonored.TabIndex = 1;
-            this.groupBoxTMDishonored.Text = "Timing Method";
-            // 
-            // radioIGTDishonored
-            // 
-            this.radioIGTDishonored.AutoSize = true;
-            this.radioIGTDishonored.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDishonored.Name = "radioIGTDishonored";
-            this.radioIGTDishonored.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDishonored.TabIndex = 1;
-            this.radioIGTDishonored.Text = "Game Time";
-            this.radioIGTDishonored.UseVisualStyleBackColor = true;
-            this.radioIGTDishonored.CheckedChanged += new System.EventHandler(this.radioIGTDishonored_CheckedChanged);
-            // 
-            // radioRealTimerDishonored
-            // 
-            this.radioRealTimerDishonored.AutoSize = true;
-            this.radioRealTimerDishonored.Checked = true;
-            this.radioRealTimerDishonored.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDishonored.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDishonored.Name = "radioRealTimerDishonored";
-            this.radioRealTimerDishonored.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDishonored.TabIndex = 0;
-            this.radioRealTimerDishonored.TabStop = true;
-            this.radioRealTimerDishonored.Text = "Real Time";
-            this.radioRealTimerDishonored.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCeleste
-            // 
-            this.groupBoxTCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCeleste.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxATCeleste);
-            this.groupBoxTCeleste.Controls.Add(this.groupBoxTMCeleste);
-            this.groupBoxTCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTCeleste.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTCeleste.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTCeleste.Name = "groupBoxTCeleste";
-            this.groupBoxTCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCeleste.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTCeleste.TabIndex = 20;
-            this.groupBoxTCeleste.Text = "Celeste Timing";
-            // 
-            // groupBoxATCeleste
-            // 
-            this.groupBoxATCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCeleste.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATCeleste.Controls.Add(this.checkBoxATCeleste);
-            this.groupBoxATCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATCeleste.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATCeleste.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCeleste.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATCeleste.Name = "groupBoxATCeleste";
-            this.groupBoxATCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCeleste.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATCeleste.TabIndex = 0;
-            this.groupBoxATCeleste.Text = "AutoTimer";
-            // 
-            // checkBoxATCeleste
-            // 
-            this.checkBoxATCeleste.AutoSize = true;
-            this.checkBoxATCeleste.Location = new System.Drawing.Point(45, 50);
-            this.checkBoxATCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATCeleste.Name = "checkBoxATCeleste";
-            this.checkBoxATCeleste.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATCeleste.TabIndex = 1;
-            this.checkBoxATCeleste.Text = "Enable";
-            this.checkBoxATCeleste.UseVisualStyleBackColor = true;
-            this.checkBoxATCeleste.CheckedChanged += new System.EventHandler(this.checkBoxATCeleste_CheckedChanged_1);
-            // 
-            // groupBoxTMCeleste
-            // 
-            this.groupBoxTMCeleste.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCeleste.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMCeleste.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCeleste.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMCeleste.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMCeleste.Controls.Add(this.radioIGTCeleste);
-            this.groupBoxTMCeleste.Controls.Add(this.radioRealTimerCeleste);
-            this.groupBoxTMCeleste.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMCeleste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMCeleste.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMCeleste.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCeleste.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMCeleste.Name = "groupBoxTMCeleste";
-            this.groupBoxTMCeleste.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCeleste.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMCeleste.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMCeleste.TabIndex = 1;
-            this.groupBoxTMCeleste.Text = "Timing Method";
-            // 
-            // radioIGTCeleste
-            // 
-            this.radioIGTCeleste.AutoSize = true;
-            this.radioIGTCeleste.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTCeleste.Name = "radioIGTCeleste";
-            this.radioIGTCeleste.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTCeleste.TabIndex = 1;
-            this.radioIGTCeleste.Text = "Game Time";
-            this.radioIGTCeleste.UseVisualStyleBackColor = true;
-            this.radioIGTCeleste.CheckedChanged += new System.EventHandler(this.radioIGTCeleste_CheckedChanged);
-            // 
-            // radioRealTimerCeleste
-            // 
-            this.radioRealTimerCeleste.AutoSize = true;
-            this.radioRealTimerCeleste.Checked = true;
-            this.radioRealTimerCeleste.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerCeleste.Name = "radioRealTimerCeleste";
-            this.radioRealTimerCeleste.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerCeleste.TabIndex = 0;
-            this.radioRealTimerCeleste.TabStop = true;
-            this.radioRealTimerCeleste.Text = "Real Time";
-            this.radioRealTimerCeleste.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTCuphead
-            // 
-            this.groupBoxTCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCuphead.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTCuphead.Controls.Add(this.label77);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxATCuphead);
-            this.groupBoxTCuphead.Controls.Add(this.groupBoxTMCuphead);
-            this.groupBoxTCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTCuphead.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTCuphead.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTCuphead.Name = "groupBoxTCuphead";
-            this.groupBoxTCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTCuphead.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTCuphead.TabIndex = 24;
-            this.groupBoxTCuphead.Text = "Cuphead Timing";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label77.Location = new System.Drawing.Point(57, 141);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(267, 14);
-            this.label77.TabIndex = 3;
-            this.label77.Text = "Highly Recommend Use AutoSplit for IGT Timer";
-            // 
-            // groupBoxATCuphead
-            // 
-            this.groupBoxATCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCuphead.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATCuphead.Controls.Add(this.checkBoxATCuphead);
-            this.groupBoxATCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATCuphead.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATCuphead.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATCuphead.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATCuphead.Name = "groupBoxATCuphead";
-            this.groupBoxATCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATCuphead.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATCuphead.TabIndex = 4;
-            this.groupBoxATCuphead.Text = "AutoTimer";
-            // 
-            // checkBoxATCuphead
-            // 
-            this.checkBoxATCuphead.AutoSize = true;
-            this.checkBoxATCuphead.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATCuphead.Name = "checkBoxATCuphead";
-            this.checkBoxATCuphead.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATCuphead.TabIndex = 1;
-            this.checkBoxATCuphead.Text = "Enable";
-            this.checkBoxATCuphead.UseVisualStyleBackColor = true;
-            this.checkBoxATCuphead.CheckedChanged += new System.EventHandler(this.checkBoxATCuphead_CheckedChanged_1);
-            // 
-            // groupBoxTMCuphead
-            // 
-            this.groupBoxTMCuphead.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCuphead.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMCuphead.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMCuphead.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMCuphead.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMCuphead.Controls.Add(this.label60);
-            this.groupBoxTMCuphead.Controls.Add(this.radioIGTCuphead);
-            this.groupBoxTMCuphead.Controls.Add(this.radioRealTimerCuphead);
-            this.groupBoxTMCuphead.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMCuphead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMCuphead.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMCuphead.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCuphead.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMCuphead.Name = "groupBoxTMCuphead";
-            this.groupBoxTMCuphead.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMCuphead.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMCuphead.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMCuphead.TabIndex = 5;
-            this.groupBoxTMCuphead.Text = "Timing Method";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label60.Location = new System.Drawing.Point(51, 78);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(76, 14);
-            this.label60.TabIndex = 2;
-            this.label60.Text = "(Level Time)";
-            // 
-            // radioIGTCuphead
-            // 
-            this.radioIGTCuphead.AutoSize = true;
-            this.radioIGTCuphead.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTCuphead.Name = "radioIGTCuphead";
-            this.radioIGTCuphead.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTCuphead.TabIndex = 1;
-            this.radioIGTCuphead.Text = "Game Time";
-            this.radioIGTCuphead.UseVisualStyleBackColor = true;
-            this.radioIGTCuphead.CheckedChanged += new System.EventHandler(this.radioIGTCuphead_CheckedChanged);
-            // 
-            // radioRealTimerCuphead
-            // 
-            this.radioRealTimerCuphead.AutoSize = true;
-            this.radioRealTimerCuphead.Checked = true;
-            this.radioRealTimerCuphead.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerCuphead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerCuphead.Name = "radioRealTimerCuphead";
-            this.radioRealTimerCuphead.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerCuphead.TabIndex = 0;
-            this.radioRealTimerCuphead.TabStop = true;
-            this.radioRealTimerCuphead.Text = "Real Time";
-            this.radioRealTimerCuphead.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDs1
-            // 
-            this.groupBoxTDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs1.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs1.Controls.Add(this.groupBoxATDs1);
-            this.groupBoxTDs1.Controls.Add(this.groupBoxTMDs1);
-            this.groupBoxTDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs1.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTDs1.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs1.Name = "groupBoxTDs1";
-            this.groupBoxTDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs1.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs1.TabIndex = 25;
-            this.groupBoxTDs1.Text = "Ds1 Timing";
-            // 
-            // groupBoxATDs1
-            // 
-            this.groupBoxATDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs1.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs1.Controls.Add(this.checkBoxATDs1);
-            this.groupBoxATDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs1.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATDs1.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs1.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs1.Name = "groupBoxATDs1";
-            this.groupBoxATDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs1.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs1.TabIndex = 0;
-            this.groupBoxATDs1.Text = "AutoTimer";
-            // 
-            // checkBoxATDs1
-            // 
-            this.checkBoxATDs1.AutoSize = true;
-            this.checkBoxATDs1.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs1.Name = "checkBoxATDs1";
-            this.checkBoxATDs1.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs1.TabIndex = 1;
-            this.checkBoxATDs1.Text = "Enable";
-            this.checkBoxATDs1.UseVisualStyleBackColor = true;
-            this.checkBoxATDs1.CheckedChanged += new System.EventHandler(this.checkBoxATDs1_CheckedChanged_1);
-            // 
-            // groupBoxTMDs1
-            // 
-            this.groupBoxTMDs1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs1.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs1.Controls.Add(this.radioIGTDs1);
-            this.groupBoxTMDs1.Controls.Add(this.radioRealTimerDs1);
-            this.groupBoxTMDs1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs1.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs1.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs1.Name = "groupBoxTMDs1";
-            this.groupBoxTMDs1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs1.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs1.TabIndex = 1;
-            this.groupBoxTMDs1.Text = "Timing Method";
-            // 
-            // radioIGTDs1
-            // 
-            this.radioIGTDs1.AutoSize = true;
-            this.radioIGTDs1.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs1.Name = "radioIGTDs1";
-            this.radioIGTDs1.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs1.TabIndex = 1;
-            this.radioIGTDs1.Text = "Game Time";
-            this.radioIGTDs1.UseVisualStyleBackColor = true;
-            this.radioIGTDs1.CheckedChanged += new System.EventHandler(this.radioIGTDs1_CheckedChanged);
-            // 
-            // radioRealTimerDs1
-            // 
-            this.radioRealTimerDs1.AutoSize = true;
-            this.radioRealTimerDs1.Checked = true;
-            this.radioRealTimerDs1.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs1.Name = "radioRealTimerDs1";
-            this.radioRealTimerDs1.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs1.TabIndex = 0;
-            this.radioRealTimerDs1.TabStop = true;
-            this.radioRealTimerDs1.Text = "Real Time";
-            this.radioRealTimerDs1.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTHK
-            // 
-            this.groupBoxTHK.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTHK.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTHK.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTHK.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTHK.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTHK.Controls.Add(this.groupBoxATHk);
-            this.groupBoxTHK.Controls.Add(this.groupBoxTMHollow);
-            this.groupBoxTHK.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTHK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTHK.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTHK.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTHK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTHK.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTHK.Name = "groupBoxTHK";
-            this.groupBoxTHK.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTHK.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTHK.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTHK.TabIndex = 21;
-            this.groupBoxTHK.Text = "Hollow Knight Timing";
-            // 
-            // groupBoxATHk
-            // 
-            this.groupBoxATHk.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATHk.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATHk.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATHk.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATHk.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATHk.Controls.Add(this.checkBoxATHollow);
-            this.groupBoxATHk.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATHk.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATHk.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATHk.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATHk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATHk.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATHk.Name = "groupBoxATHk";
-            this.groupBoxATHk.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATHk.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATHk.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATHk.TabIndex = 0;
-            this.groupBoxATHk.Text = "AutoTimer";
-            // 
-            // checkBoxATHollow
-            // 
-            this.checkBoxATHollow.AutoSize = true;
-            this.checkBoxATHollow.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATHollow.Name = "checkBoxATHollow";
-            this.checkBoxATHollow.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATHollow.TabIndex = 1;
-            this.checkBoxATHollow.Text = "Enable";
-            this.checkBoxATHollow.UseVisualStyleBackColor = true;
-            this.checkBoxATHollow.CheckedChanged += new System.EventHandler(this.checkBoxATHollow_CheckedChanged);
-            // 
-            // groupBoxTMHollow
-            // 
-            this.groupBoxTMHollow.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMHollow.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMHollow.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMHollow.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMHollow.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMHollow.Controls.Add(this.radioIGTHollow);
-            this.groupBoxTMHollow.Controls.Add(this.radioRealTimerHollow);
-            this.groupBoxTMHollow.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMHollow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMHollow.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMHollow.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMHollow.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMHollow.Name = "groupBoxTMHollow";
-            this.groupBoxTMHollow.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMHollow.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMHollow.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMHollow.TabIndex = 1;
-            this.groupBoxTMHollow.Text = "Timing Method";
-            // 
-            // radioIGTHollow
-            // 
-            this.radioIGTHollow.AutoSize = true;
-            this.radioIGTHollow.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTHollow.Name = "radioIGTHollow";
-            this.radioIGTHollow.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTHollow.TabIndex = 1;
-            this.radioIGTHollow.Text = "Game Time";
-            this.radioIGTHollow.UseVisualStyleBackColor = true;
-            this.radioIGTHollow.CheckedChanged += new System.EventHandler(this.radioIGTHollow_CheckedChanged);
-            // 
-            // radioRealTimerHollow
-            // 
-            this.radioRealTimerHollow.AutoSize = true;
-            this.radioRealTimerHollow.Checked = true;
-            this.radioRealTimerHollow.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerHollow.Name = "radioRealTimerHollow";
-            this.radioRealTimerHollow.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerHollow.TabIndex = 0;
-            this.radioRealTimerHollow.TabStop = true;
-            this.radioRealTimerHollow.Text = "Real Time";
-            this.radioRealTimerHollow.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDs2
-            // 
-            this.groupBoxTDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs2.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs2.Controls.Add(this.groupBoxATDs2);
-            this.groupBoxTDs2.Controls.Add(this.groupBoxTMDs2);
-            this.groupBoxTDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs2.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTDs2.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs2.Name = "groupBoxTDs2";
-            this.groupBoxTDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs2.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs2.TabIndex = 9;
-            this.groupBoxTDs2.TabStop = false;
-            this.groupBoxTDs2.Text = "Ds2 Timing";
-            // 
-            // groupBoxATDs2
-            // 
-            this.groupBoxATDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs2.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs2.Controls.Add(this.checkBoxATDs2);
-            this.groupBoxATDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs2.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATDs2.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs2.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs2.Name = "groupBoxATDs2";
-            this.groupBoxATDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs2.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs2.TabIndex = 0;
-            this.groupBoxATDs2.Text = "AutoTimer";
-            // 
-            // checkBoxATDs2
-            // 
-            this.checkBoxATDs2.AutoSize = true;
-            this.checkBoxATDs2.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs2.Name = "checkBoxATDs2";
-            this.checkBoxATDs2.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs2.TabIndex = 1;
-            this.checkBoxATDs2.Text = "Enable";
-            this.checkBoxATDs2.UseVisualStyleBackColor = true;
-            this.checkBoxATDs2.CheckedChanged += new System.EventHandler(this.checkBoxATDs2_CheckedChanged_1);
-            // 
-            // groupBoxTMDs2
-            // 
-            this.groupBoxTMDs2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs2.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs2.Controls.Add(this.radioIGTDs2);
-            this.groupBoxTMDs2.Controls.Add(this.radioRealTimerDs2);
-            this.groupBoxTMDs2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs2.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs2.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs2.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs2.Name = "groupBoxTMDs2";
-            this.groupBoxTMDs2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs2.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs2.TabIndex = 1;
-            this.groupBoxTMDs2.Text = "Timing Method";
-            // 
-            // radioIGTDs2
-            // 
-            this.radioIGTDs2.AutoSize = true;
-            this.radioIGTDs2.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs2.Name = "radioIGTDs2";
-            this.radioIGTDs2.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs2.TabIndex = 1;
-            this.radioIGTDs2.Text = "Game Time";
-            this.radioIGTDs2.UseVisualStyleBackColor = true;
-            this.radioIGTDs2.CheckedChanged += new System.EventHandler(this.radioIGTDs2_CheckedChanged);
-            // 
-            // radioRealTimerDs2
-            // 
-            this.radioRealTimerDs2.AutoSize = true;
-            this.radioRealTimerDs2.Checked = true;
-            this.radioRealTimerDs2.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs2.Name = "radioRealTimerDs2";
-            this.radioRealTimerDs2.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs2.TabIndex = 0;
-            this.radioRealTimerDs2.TabStop = true;
-            this.radioRealTimerDs2.Text = "Real Time";
-            this.radioRealTimerDs2.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTEr
-            // 
-            this.groupBoxTEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTEr.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTEr.Controls.Add(this.groupBoxATEr);
-            this.groupBoxTEr.Controls.Add(this.groupBoxTMEr);
-            this.groupBoxTEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTEr.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTEr.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTEr.Name = "groupBoxTEr";
-            this.groupBoxTEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTEr.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTEr.TabIndex = 22;
-            this.groupBoxTEr.Text = "Elden Timing";
-            // 
-            // groupBoxATEr
-            // 
-            this.groupBoxATEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATEr.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATEr.Controls.Add(this.checkBoxATEr);
-            this.groupBoxATEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATEr.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATEr.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATEr.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATEr.Name = "groupBoxATEr";
-            this.groupBoxATEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATEr.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATEr.TabIndex = 0;
-            this.groupBoxATEr.Text = "AutoTimer";
-            // 
-            // checkBoxATEr
-            // 
-            this.checkBoxATEr.AutoSize = true;
-            this.checkBoxATEr.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATEr.Name = "checkBoxATEr";
-            this.checkBoxATEr.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATEr.TabIndex = 1;
-            this.checkBoxATEr.Text = "Enable";
-            this.checkBoxATEr.UseVisualStyleBackColor = true;
-            this.checkBoxATEr.CheckedChanged += new System.EventHandler(this.checkBoxATEr_CheckedChanged_1);
-            // 
-            // groupBoxTMEr
-            // 
-            this.groupBoxTMEr.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMEr.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMEr.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMEr.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMEr.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMEr.Controls.Add(this.checkBoxResetIGTNGEr);
-            this.groupBoxTMEr.Controls.Add(this.radioIGTEr);
-            this.groupBoxTMEr.Controls.Add(this.radioRealTimerEr);
-            this.groupBoxTMEr.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMEr.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMEr.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMEr.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMEr.Name = "groupBoxTMEr";
-            this.groupBoxTMEr.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMEr.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMEr.TabIndex = 1;
-            this.groupBoxTMEr.Text = "Timing Method";
-            // 
-            // checkBoxResetIGTNGEr
-            // 
-            this.checkBoxResetIGTNGEr.AutoSize = true;
-            this.checkBoxResetIGTNGEr.Location = new System.Drawing.Point(21, 80);
-            this.checkBoxResetIGTNGEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIGTNGEr.Name = "checkBoxResetIGTNGEr";
-            this.checkBoxResetIGTNGEr.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIGTNGEr.TabIndex = 0;
-            this.checkBoxResetIGTNGEr.Text = "Reset IGT on NG+";
-            this.checkBoxResetIGTNGEr.UseVisualStyleBackColor = true;
-            this.checkBoxResetIGTNGEr.CheckedChanged += new System.EventHandler(this.checkBoxResetIGTNGEr_CheckedChanged);
-            // 
-            // radioIGTEr
-            // 
-            this.radioIGTEr.AutoSize = true;
-            this.radioIGTEr.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTEr.Name = "radioIGTEr";
-            this.radioIGTEr.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTEr.TabIndex = 1;
-            this.radioIGTEr.Text = "Game Time";
-            this.radioIGTEr.UseVisualStyleBackColor = true;
-            this.radioIGTEr.CheckedChanged += new System.EventHandler(this.radioIGTEr_CheckedChanged);
-            // 
-            // radioRealTimerEr
-            // 
-            this.radioRealTimerEr.AutoSize = true;
-            this.radioRealTimerEr.Checked = true;
-            this.radioRealTimerEr.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerEr.Name = "radioRealTimerEr";
-            this.radioRealTimerEr.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerEr.TabIndex = 0;
-            this.radioRealTimerEr.TabStop = true;
-            this.radioRealTimerEr.Text = "Real Time";
-            this.radioRealTimerEr.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxTDs3
-            // 
-            this.groupBoxTDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs3.BackGColor = System.Drawing.Color.Gold;
-            this.groupBoxTDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTDs3.Controls.Add(this.groupBoxATDs3);
-            this.groupBoxTDs3.Controls.Add(this.groupBoxTMDs3);
-            this.groupBoxTDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTDs3.HeaderColor = System.Drawing.Color.Khaki;
-            this.groupBoxTDs3.Location = new System.Drawing.Point(60, 107);
-            this.groupBoxTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTDs3.Name = "groupBoxTDs3";
-            this.groupBoxTDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTDs3.Size = new System.Drawing.Size(361, 158);
-            this.groupBoxTDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTDs3.TabIndex = 9;
-            this.groupBoxTDs3.TabStop = false;
-            this.groupBoxTDs3.Text = "Ds3 Timing";
-            // 
-            // groupBoxATDs3
-            // 
-            this.groupBoxATDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs3.BackGColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxATDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxATDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxATDs3.Controls.Add(this.checkBoxATDs3);
-            this.groupBoxATDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxATDs3.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxATDs3.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxATDs3.Location = new System.Drawing.Point(15, 31);
-            this.groupBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxATDs3.Name = "groupBoxATDs3";
-            this.groupBoxATDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxATDs3.Size = new System.Drawing.Size(164, 109);
-            this.groupBoxATDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxATDs3.TabIndex = 0;
-            this.groupBoxATDs3.Text = "AutoTimer";
-            // 
-            // checkBoxATDs3
-            // 
-            this.checkBoxATDs3.AutoSize = true;
-            this.checkBoxATDs3.Location = new System.Drawing.Point(54, 50);
-            this.checkBoxATDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxATDs3.Name = "checkBoxATDs3";
-            this.checkBoxATDs3.Size = new System.Drawing.Size(62, 18);
-            this.checkBoxATDs3.TabIndex = 1;
-            this.checkBoxATDs3.Text = "Enable";
-            this.checkBoxATDs3.UseVisualStyleBackColor = true;
-            this.checkBoxATDs3.CheckedChanged += new System.EventHandler(this.checkBoxATDs3_CheckedChanged_1);
-            // 
-            // groupBoxTMDs3
-            // 
-            this.groupBoxTMDs3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs3.BackGColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBoxTMDs3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBoxTMDs3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxTMDs3.Controls.Add(this.checkBoxResetIgtDs3);
-            this.groupBoxTMDs3.Controls.Add(this.radioIGTDs3);
-            this.groupBoxTMDs3.Controls.Add(this.radioRealTimerDs3);
-            this.groupBoxTMDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBoxTMDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBoxTMDs3.HeaderColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBoxTMDs3.Location = new System.Drawing.Point(185, 31);
-            this.groupBoxTMDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs3.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBoxTMDs3.Name = "groupBoxTMDs3";
-            this.groupBoxTMDs3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTMDs3.Size = new System.Drawing.Size(157, 109);
-            this.groupBoxTMDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBoxTMDs3.TabIndex = 1;
-            this.groupBoxTMDs3.Text = "Timing Method";
-            // 
-            // checkBoxResetIgtDs3
-            // 
-            this.checkBoxResetIgtDs3.AutoSize = true;
-            this.checkBoxResetIgtDs3.Location = new System.Drawing.Point(21, 80);
-            this.checkBoxResetIgtDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxResetIgtDs3.Name = "checkBoxResetIgtDs3";
-            this.checkBoxResetIgtDs3.Size = new System.Drawing.Size(127, 18);
-            this.checkBoxResetIgtDs3.TabIndex = 0;
-            this.checkBoxResetIgtDs3.Text = "Reset IGT on NG+";
-            this.checkBoxResetIgtDs3.UseVisualStyleBackColor = true;
-            this.checkBoxResetIgtDs3.CheckedChanged += new System.EventHandler(this.checkBoxResetIgtDs3_CheckedChanged);
-            // 
-            // radioIGTDs3
-            // 
-            this.radioIGTDs3.AutoSize = true;
-            this.radioIGTDs3.Location = new System.Drawing.Point(39, 58);
-            this.radioIGTDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioIGTDs3.Name = "radioIGTDs3";
-            this.radioIGTDs3.Size = new System.Drawing.Size(87, 18);
-            this.radioIGTDs3.TabIndex = 1;
-            this.radioIGTDs3.Text = "Game Time";
-            this.radioIGTDs3.UseVisualStyleBackColor = true;
-            this.radioIGTDs3.CheckedChanged += new System.EventHandler(this.radioIGTDs3_CheckedChanged);
-            // 
-            // radioRealTimerDs3
-            // 
-            this.radioRealTimerDs3.AutoSize = true;
-            this.radioRealTimerDs3.Checked = true;
-            this.radioRealTimerDs3.Location = new System.Drawing.Point(39, 34);
-            this.radioRealTimerDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioRealTimerDs3.Name = "radioRealTimerDs3";
-            this.radioRealTimerDs3.Size = new System.Drawing.Size(78, 18);
-            this.radioRealTimerDs3.TabIndex = 0;
-            this.radioRealTimerDs3.TabStop = true;
-            this.radioRealTimerDs3.Text = "Real Time";
-            this.radioRealTimerDs3.UseVisualStyleBackColor = true;
-            // 
-            // tabPageHitCounter
-            // 
-            this.tabPageHitCounter.BackColor = System.Drawing.Color.White;
-            this.tabPageHitCounter.Controls.Add(this.lostBorderPanel5);
-            this.tabPageHitCounter.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPageHitCounter.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tabPageHitCounter.Location = new System.Drawing.Point(119, 4);
-            this.tabPageHitCounter.Name = "tabPageHitCounter";
-            this.tabPageHitCounter.Size = new System.Drawing.Size(483, 334);
-            this.tabPageHitCounter.TabIndex = 3;
-            this.tabPageHitCounter.Text = "HitCounter";
-            // 
-            // lostBorderPanel5
-            // 
-            this.lostBorderPanel5.BackColor = System.Drawing.Color.LightBlue;
-            this.lostBorderPanel5.BorderColor = System.Drawing.Color.SteelBlue;
-            this.lostBorderPanel5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lostBorderPanel5.ForeColor = System.Drawing.Color.White;
-            this.lostBorderPanel5.Location = new System.Drawing.Point(6, 6);
-            this.lostBorderPanel5.Name = "lostBorderPanel5";
-            this.lostBorderPanel5.Padding = new System.Windows.Forms.Padding(5);
-            this.lostBorderPanel5.ShowText = false;
-            this.lostBorderPanel5.Size = new System.Drawing.Size(471, 322);
-            this.lostBorderPanel5.TabIndex = 33;
-            // 
             // tabLicense
             // 
             this.tabLicense.BackColor = System.Drawing.Color.White;
@@ -5694,10 +7139,10 @@ namespace AutoSplitterCore
             // tabDs1
             // 
             this.tabDs1.BackColor = System.Drawing.Color.White;
+            this.tabDs1.Controls.Add(this.panelPositionDs1);
             this.tabDs1.Controls.Add(this.panelBossDs1);
             this.tabDs1.Controls.Add(this.panelBonfireDs1);
             this.tabDs1.Controls.Add(this.panelLvlDs1);
-            this.tabDs1.Controls.Add(this.panelPositionDs1);
             this.tabDs1.Controls.Add(this.panelItemDs1);
             this.tabDs1.Controls.Add(this.label13);
             this.tabDs1.Controls.Add(this.comboBoxToSplitDs1);
@@ -5718,6 +7163,324 @@ namespace AutoSplitterCore
             this.tabDs1.VerticalScrollbarBarColor = true;
             this.tabDs1.VerticalScrollbarHighlightOnWheel = false;
             this.tabDs1.VerticalScrollbarSize = 10;
+            // 
+            // panelPositionDs1
+            // 
+            this.panelPositionDs1.BackColor = System.Drawing.Color.White;
+            this.panelPositionDs1.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelPositionDs1.Controls.Add(this.btnGetPositionDs1);
+            this.panelPositionDs1.Controls.Add(this.comboBoxSizeDs1);
+            this.panelPositionDs1.Controls.Add(this.textBoxZDs1);
+            this.panelPositionDs1.Controls.Add(this.comboBoxHowPositionsDs1);
+            this.panelPositionDs1.Controls.Add(this.textBoxYDs1);
+            this.panelPositionDs1.Controls.Add(this.textBoxTitlePositionDs1);
+            this.panelPositionDs1.Controls.Add(this.textBoxXDs1);
+            this.panelPositionDs1.Controls.Add(this.label18);
+            this.panelPositionDs1.Controls.Add(this.panel7);
+            this.panelPositionDs1.Controls.Add(this.btnAddPositionDs1);
+            this.panelPositionDs1.Controls.Add(this.label19);
+            this.panelPositionDs1.Controls.Add(this.label20);
+            this.panelPositionDs1.Controls.Add(this.label21);
+            this.panelPositionDs1.Controls.Add(this.label22);
+            this.panelPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPositionDs1.ForeColor = System.Drawing.Color.White;
+            this.panelPositionDs1.Location = new System.Drawing.Point(34, 85);
+            this.panelPositionDs1.Name = "panelPositionDs1";
+            this.panelPositionDs1.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPositionDs1.ShowText = false;
+            this.panelPositionDs1.Size = new System.Drawing.Size(539, 262);
+            this.panelPositionDs1.TabIndex = 30;
+            this.panelPositionDs1.Text = "lostBorderPanel1";
+            // 
+            // btnGetPositionDs1
+            // 
+            this.btnGetPositionDs1.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetPositionDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetPositionDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetPositionDs1.Image = null;
+            this.btnGetPositionDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPositionDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.Location = new System.Drawing.Point(335, 75);
+            this.btnGetPositionDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetPositionDs1.Name = "btnGetPositionDs1";
+            this.btnGetPositionDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs1.Size = new System.Drawing.Size(99, 21);
+            this.btnGetPositionDs1.TabIndex = 4;
+            this.btnGetPositionDs1.Text = "Get Position";
+            this.btnGetPositionDs1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetPositionDs1.Click += new System.EventHandler(this.btnGetPositionDs1_Click);
+            // 
+            // comboBoxSizeDs1
+            // 
+            this.comboBoxSizeDs1.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxSizeDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSizeDs1.BGColorB = System.Drawing.Color.MediumSlateBlue;
+            this.comboBoxSizeDs1.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeDs1.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxSizeDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxSizeDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxSizeDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxSizeDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSizeDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxSizeDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeDs1.FormattingEnabled = true;
+            this.comboBoxSizeDs1.ItemHeight = 16;
+            this.comboBoxSizeDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxSizeDs1.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxSizeDs1.LineColorA = System.Drawing.Color.White;
+            this.comboBoxSizeDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeDs1.LineColorC = System.Drawing.Color.White;
+            this.comboBoxSizeDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxSizeDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxSizeDs1.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxSizeDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs1.Location = new System.Drawing.Point(357, 47);
+            this.comboBoxSizeDs1.Name = "comboBoxSizeDs1";
+            this.comboBoxSizeDs1.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxSizeDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxSizeDs1.StartIndex = -1;
+            this.comboBoxSizeDs1.TabIndex = 30;
+            this.comboBoxSizeDs1.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeDs1.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs1_SelectedIndexChanged);
+            // 
+            // textBoxZDs1
+            // 
+            this.textBoxZDs1.BackColor = System.Drawing.Color.White;
+            this.textBoxZDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxZDs1.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxZDs1.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxZDs1.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxZDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxZDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxZDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxZDs1.Location = new System.Drawing.Point(297, 47);
+            this.textBoxZDs1.MaxLength = 32767;
+            this.textBoxZDs1.MultiLine = false;
+            this.textBoxZDs1.Name = "textBoxZDs1";
+            this.textBoxZDs1.Size = new System.Drawing.Size(51, 21);
+            this.textBoxZDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxZDs1.TabIndex = 32;
+            this.textBoxZDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxZDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxZDs1.UseSystemPasswordChar = false;
+            // 
+            // comboBoxHowPositionsDs1
+            // 
+            this.comboBoxHowPositionsDs1.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowPositionsDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowPositionsDs1.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowPositionsDs1.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs1.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowPositionsDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowPositionsDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowPositionsDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowPositionsDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowPositionsDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowPositionsDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowPositionsDs1.FormattingEnabled = true;
+            this.comboBoxHowPositionsDs1.ItemHeight = 16;
+            this.comboBoxHowPositionsDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowPositionsDs1.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowPositionsDs1.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs1.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowPositionsDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowPositionsDs1.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs1.Location = new System.Drawing.Point(57, 47);
+            this.comboBoxHowPositionsDs1.Name = "comboBoxHowPositionsDs1";
+            this.comboBoxHowPositionsDs1.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowPositionsDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowPositionsDs1.StartIndex = -1;
+            this.comboBoxHowPositionsDs1.TabIndex = 29;
+            this.comboBoxHowPositionsDs1.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxYDs1
+            // 
+            this.textBoxYDs1.BackColor = System.Drawing.Color.White;
+            this.textBoxYDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxYDs1.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxYDs1.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxYDs1.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxYDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxYDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxYDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxYDs1.Location = new System.Drawing.Point(240, 47);
+            this.textBoxYDs1.MaxLength = 32767;
+            this.textBoxYDs1.MultiLine = false;
+            this.textBoxYDs1.Name = "textBoxYDs1";
+            this.textBoxYDs1.Size = new System.Drawing.Size(51, 21);
+            this.textBoxYDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxYDs1.TabIndex = 31;
+            this.textBoxYDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxYDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxYDs1.UseSystemPasswordChar = false;
+            // 
+            // textBoxTitlePositionDs1
+            // 
+            this.textBoxTitlePositionDs1.BackColor = System.Drawing.Color.White;
+            this.textBoxTitlePositionDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitlePositionDs1.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs1.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs1.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitlePositionDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitlePositionDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(196, 75);
+            this.textBoxTitlePositionDs1.MaxLength = 32767;
+            this.textBoxTitlePositionDs1.MultiLine = false;
+            this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
+            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitlePositionDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitlePositionDs1.TabIndex = 28;
+            this.textBoxTitlePositionDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTitlePositionDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitlePositionDs1.UseSystemPasswordChar = false;
+            // 
+            // textBoxXDs1
+            // 
+            this.textBoxXDs1.BackColor = System.Drawing.Color.White;
+            this.textBoxXDs1.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxXDs1.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxXDs1.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxXDs1.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxXDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxXDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxXDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxXDs1.Location = new System.Drawing.Point(181, 47);
+            this.textBoxXDs1.MaxLength = 32767;
+            this.textBoxXDs1.MultiLine = false;
+            this.textBoxXDs1.Name = "textBoxXDs1";
+            this.textBoxXDs1.Size = new System.Drawing.Size(51, 21);
+            this.textBoxXDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxXDs1.TabIndex = 30;
+            this.textBoxXDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxXDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxXDs1.UseSystemPasswordChar = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(122, 72);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 32);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "     Title\r\n(Optional)";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel7.Controls.Add(this.listBoxPositionsDs1);
+            this.panel7.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel7.Location = new System.Drawing.Point(13, 130);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(5);
+            this.panel7.Size = new System.Drawing.Size(515, 125);
+            this.panel7.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel7.TabIndex = 27;
+            this.panel7.Text = "panel7";
+            // 
+            // listBoxPositionsDs1
+            // 
+            this.listBoxPositionsDs1.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxPositionsDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPositionsDs1.FormattingEnabled = true;
+            this.listBoxPositionsDs1.ItemHeight = 14;
+            this.listBoxPositionsDs1.Location = new System.Drawing.Point(3, 4);
+            this.listBoxPositionsDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPositionsDs1.Name = "listBoxPositionsDs1";
+            this.listBoxPositionsDs1.Size = new System.Drawing.Size(509, 116);
+            this.listBoxPositionsDs1.TabIndex = 6;
+            this.listBoxPositionsDs1.DoubleClick += new System.EventHandler(this.listBoxPositionDs1_DoubleClick);
+            // 
+            // btnAddPositionDs1
+            // 
+            this.btnAddPositionDs1.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPositionDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPositionDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPositionDs1.Image = null;
+            this.btnAddPositionDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPositionDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.Location = new System.Drawing.Point(207, 104);
+            this.btnAddPositionDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddPositionDs1.Name = "btnAddPositionDs1";
+            this.btnAddPositionDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs1.Size = new System.Drawing.Size(99, 21);
+            this.btnAddPositionDs1.TabIndex = 5;
+            this.btnAddPositionDs1.Text = "Add";
+            this.btnAddPositionDs1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddPositionDs1.Click += new System.EventHandler(this.btnAddPositionDs1_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(230, 11);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(80, 16);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Coordinates:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(401, 24);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(31, 16);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Size";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(202, 29);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(125, 16);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "X            Y            Z";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(88, 28);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(37, 16);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "How:";
             // 
             // panelBossDs1
             // 
@@ -6341,323 +8104,6 @@ namespace AutoSplitterCore
             this.comboBoxAttributesDs1.Name = "comboBoxAttributesDs1";
             this.comboBoxAttributesDs1.Size = new System.Drawing.Size(361, 24);
             this.comboBoxAttributesDs1.TabIndex = 18;
-            // 
-            // panelPositionDs1
-            // 
-            this.panelPositionDs1.BackColor = System.Drawing.Color.White;
-            this.panelPositionDs1.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelPositionDs1.Controls.Add(this.btnGetPositionDs1);
-            this.panelPositionDs1.Controls.Add(this.comboBoxSizeDs1);
-            this.panelPositionDs1.Controls.Add(this.textBoxZDs1);
-            this.panelPositionDs1.Controls.Add(this.comboBoxHowPositionsDs1);
-            this.panelPositionDs1.Controls.Add(this.textBoxYDs1);
-            this.panelPositionDs1.Controls.Add(this.textBoxTitlePositionDs1);
-            this.panelPositionDs1.Controls.Add(this.textBoxXDs1);
-            this.panelPositionDs1.Controls.Add(this.label18);
-            this.panelPositionDs1.Controls.Add(this.panel7);
-            this.panelPositionDs1.Controls.Add(this.btnAddPositionDs1);
-            this.panelPositionDs1.Controls.Add(this.label19);
-            this.panelPositionDs1.Controls.Add(this.label20);
-            this.panelPositionDs1.Controls.Add(this.label21);
-            this.panelPositionDs1.Controls.Add(this.label22);
-            this.panelPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPositionDs1.ForeColor = System.Drawing.Color.White;
-            this.panelPositionDs1.Location = new System.Drawing.Point(34, 85);
-            this.panelPositionDs1.Name = "panelPositionDs1";
-            this.panelPositionDs1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPositionDs1.ShowText = false;
-            this.panelPositionDs1.Size = new System.Drawing.Size(539, 262);
-            this.panelPositionDs1.TabIndex = 30;
-            this.panelPositionDs1.Text = "lostBorderPanel1";
-            // 
-            // btnGetPositionDs1
-            // 
-            this.btnGetPositionDs1.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetPositionDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetPositionDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetPositionDs1.Image = null;
-            this.btnGetPositionDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetPositionDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.Location = new System.Drawing.Point(335, 75);
-            this.btnGetPositionDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetPositionDs1.Name = "btnGetPositionDs1";
-            this.btnGetPositionDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs1.Size = new System.Drawing.Size(99, 21);
-            this.btnGetPositionDs1.TabIndex = 4;
-            this.btnGetPositionDs1.Text = "Get Position";
-            this.btnGetPositionDs1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetPositionDs1.Click += new System.EventHandler(this.btnGetPositionDs1_Click);
-            // 
-            // comboBoxSizeDs1
-            // 
-            this.comboBoxSizeDs1.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxSizeDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxSizeDs1.BGColorB = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxSizeDs1.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeDs1.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxSizeDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxSizeDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSizeDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxSizeDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSizeDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxSizeDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxSizeDs1.FormattingEnabled = true;
-            this.comboBoxSizeDs1.ItemHeight = 16;
-            this.comboBoxSizeDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxSizeDs1.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxSizeDs1.LineColorA = System.Drawing.Color.White;
-            this.comboBoxSizeDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeDs1.LineColorC = System.Drawing.Color.White;
-            this.comboBoxSizeDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxSizeDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxSizeDs1.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxSizeDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs1.Location = new System.Drawing.Point(357, 47);
-            this.comboBoxSizeDs1.Name = "comboBoxSizeDs1";
-            this.comboBoxSizeDs1.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxSizeDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxSizeDs1.StartIndex = -1;
-            this.comboBoxSizeDs1.TabIndex = 30;
-            this.comboBoxSizeDs1.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxZDs1
-            // 
-            this.textBoxZDs1.BackColor = System.Drawing.Color.White;
-            this.textBoxZDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxZDs1.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxZDs1.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxZDs1.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxZDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxZDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxZDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxZDs1.Location = new System.Drawing.Point(297, 47);
-            this.textBoxZDs1.MaxLength = 32767;
-            this.textBoxZDs1.MultiLine = false;
-            this.textBoxZDs1.Name = "textBoxZDs1";
-            this.textBoxZDs1.Size = new System.Drawing.Size(51, 21);
-            this.textBoxZDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxZDs1.TabIndex = 32;
-            this.textBoxZDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxZDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxZDs1.UseSystemPasswordChar = false;
-            // 
-            // comboBoxHowPositionsDs1
-            // 
-            this.comboBoxHowPositionsDs1.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowPositionsDs1.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowPositionsDs1.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowPositionsDs1.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs1.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowPositionsDs1.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowPositionsDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowPositionsDs1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowPositionsDs1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowPositionsDs1.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowPositionsDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowPositionsDs1.FormattingEnabled = true;
-            this.comboBoxHowPositionsDs1.ItemHeight = 16;
-            this.comboBoxHowPositionsDs1.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowPositionsDs1.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowPositionsDs1.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs1.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs1.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs1.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs1.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowPositionsDs1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowPositionsDs1.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs1.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs1.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs1.Location = new System.Drawing.Point(57, 47);
-            this.comboBoxHowPositionsDs1.Name = "comboBoxHowPositionsDs1";
-            this.comboBoxHowPositionsDs1.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowPositionsDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowPositionsDs1.StartIndex = -1;
-            this.comboBoxHowPositionsDs1.TabIndex = 29;
-            this.comboBoxHowPositionsDs1.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs1.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxYDs1
-            // 
-            this.textBoxYDs1.BackColor = System.Drawing.Color.White;
-            this.textBoxYDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxYDs1.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxYDs1.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxYDs1.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxYDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxYDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxYDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxYDs1.Location = new System.Drawing.Point(240, 47);
-            this.textBoxYDs1.MaxLength = 32767;
-            this.textBoxYDs1.MultiLine = false;
-            this.textBoxYDs1.Name = "textBoxYDs1";
-            this.textBoxYDs1.Size = new System.Drawing.Size(51, 21);
-            this.textBoxYDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxYDs1.TabIndex = 31;
-            this.textBoxYDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxYDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxYDs1.UseSystemPasswordChar = false;
-            // 
-            // textBoxTitlePositionDs1
-            // 
-            this.textBoxTitlePositionDs1.BackColor = System.Drawing.Color.White;
-            this.textBoxTitlePositionDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitlePositionDs1.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs1.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs1.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitlePositionDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitlePositionDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitlePositionDs1.Location = new System.Drawing.Point(196, 75);
-            this.textBoxTitlePositionDs1.MaxLength = 32767;
-            this.textBoxTitlePositionDs1.MultiLine = false;
-            this.textBoxTitlePositionDs1.Name = "textBoxTitlePositionDs1";
-            this.textBoxTitlePositionDs1.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitlePositionDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitlePositionDs1.TabIndex = 28;
-            this.textBoxTitlePositionDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTitlePositionDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitlePositionDs1.UseSystemPasswordChar = false;
-            // 
-            // textBoxXDs1
-            // 
-            this.textBoxXDs1.BackColor = System.Drawing.Color.White;
-            this.textBoxXDs1.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxXDs1.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxXDs1.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxXDs1.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxXDs1.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxXDs1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxXDs1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxXDs1.Location = new System.Drawing.Point(181, 47);
-            this.textBoxXDs1.MaxLength = 32767;
-            this.textBoxXDs1.MultiLine = false;
-            this.textBoxXDs1.Name = "textBoxXDs1";
-            this.textBoxXDs1.Size = new System.Drawing.Size(51, 21);
-            this.textBoxXDs1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxXDs1.TabIndex = 30;
-            this.textBoxXDs1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxXDs1.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxXDs1.UseSystemPasswordChar = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(122, 72);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 32);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "     Title\r\n(Optional)";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel7.Controls.Add(this.listBoxPositionsDs1);
-            this.panel7.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel7.Location = new System.Drawing.Point(13, 130);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(5);
-            this.panel7.Size = new System.Drawing.Size(515, 125);
-            this.panel7.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel7.TabIndex = 27;
-            this.panel7.Text = "panel7";
-            // 
-            // listBoxPositionsDs1
-            // 
-            this.listBoxPositionsDs1.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxPositionsDs1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPositionsDs1.FormattingEnabled = true;
-            this.listBoxPositionsDs1.ItemHeight = 14;
-            this.listBoxPositionsDs1.Location = new System.Drawing.Point(3, 4);
-            this.listBoxPositionsDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxPositionsDs1.Name = "listBoxPositionsDs1";
-            this.listBoxPositionsDs1.Size = new System.Drawing.Size(509, 116);
-            this.listBoxPositionsDs1.TabIndex = 6;
-            this.listBoxPositionsDs1.DoubleClick += new System.EventHandler(this.listBoxPositionDs1_DoubleClick);
-            // 
-            // btnAddPositionDs1
-            // 
-            this.btnAddPositionDs1.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPositionDs1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPositionDs1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPositionDs1.Image = null;
-            this.btnAddPositionDs1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPositionDs1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.Location = new System.Drawing.Point(207, 104);
-            this.btnAddPositionDs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddPositionDs1.Name = "btnAddPositionDs1";
-            this.btnAddPositionDs1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs1.Size = new System.Drawing.Size(99, 21);
-            this.btnAddPositionDs1.TabIndex = 5;
-            this.btnAddPositionDs1.Text = "Add";
-            this.btnAddPositionDs1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddPositionDs1.Click += new System.EventHandler(this.btnAddPositionDs1_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(230, 11);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(80, 16);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "Coordinates:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(401, 24);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(31, 16);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "Size";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(202, 29);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(125, 16);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "X            Y            Z";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(88, 28);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(37, 16);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "How:";
             // 
             // panelItemDs1
             // 
@@ -7605,9 +9051,9 @@ namespace AutoSplitterCore
             // tabDs2
             // 
             this.tabDs2.BackColor = System.Drawing.Color.White;
+            this.tabDs2.Controls.Add(this.panelPositionDs2);
             this.tabDs2.Controls.Add(this.panelLvlDs2);
             this.tabDs2.Controls.Add(this.panelBossDS2);
-            this.tabDs2.Controls.Add(this.panelPositionDs2);
             this.tabDs2.Controls.Add(this.label74);
             this.tabDs2.Controls.Add(this.comboBoxToSplitDs2);
             this.tabDs2.Controls.Add(this.btnRefreshDs2);
@@ -7627,6 +9073,323 @@ namespace AutoSplitterCore
             this.tabDs2.VerticalScrollbarBarColor = true;
             this.tabDs2.VerticalScrollbarHighlightOnWheel = false;
             this.tabDs2.VerticalScrollbarSize = 10;
+            // 
+            // panelPositionDs2
+            // 
+            this.panelPositionDs2.BackColor = System.Drawing.Color.White;
+            this.panelPositionDs2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelPositionDs2.Controls.Add(this.btnGetPositionDs2);
+            this.panelPositionDs2.Controls.Add(this.comboBoxSizeDs2);
+            this.panelPositionDs2.Controls.Add(this.textBoxZDs2);
+            this.panelPositionDs2.Controls.Add(this.comboBoxHowPositionsDs2);
+            this.panelPositionDs2.Controls.Add(this.textBoxYDs2);
+            this.panelPositionDs2.Controls.Add(this.textBoxTitlePositionDs2);
+            this.panelPositionDs2.Controls.Add(this.textBoxXDs2);
+            this.panelPositionDs2.Controls.Add(this.label63);
+            this.panelPositionDs2.Controls.Add(this.panel12);
+            this.panelPositionDs2.Controls.Add(this.btnAddPositionDs2);
+            this.panelPositionDs2.Controls.Add(this.label64);
+            this.panelPositionDs2.Controls.Add(this.label71);
+            this.panelPositionDs2.Controls.Add(this.label72);
+            this.panelPositionDs2.Controls.Add(this.label73);
+            this.panelPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPositionDs2.ForeColor = System.Drawing.Color.White;
+            this.panelPositionDs2.Location = new System.Drawing.Point(34, 85);
+            this.panelPositionDs2.Name = "panelPositionDs2";
+            this.panelPositionDs2.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPositionDs2.ShowText = false;
+            this.panelPositionDs2.Size = new System.Drawing.Size(539, 262);
+            this.panelPositionDs2.TabIndex = 31;
+            this.panelPositionDs2.Text = "btnAddPositionDs2";
+            // 
+            // btnGetPositionDs2
+            // 
+            this.btnGetPositionDs2.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetPositionDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetPositionDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetPositionDs2.Image = null;
+            this.btnGetPositionDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPositionDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.Location = new System.Drawing.Point(335, 75);
+            this.btnGetPositionDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetPositionDs2.Name = "btnGetPositionDs2";
+            this.btnGetPositionDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs2.Size = new System.Drawing.Size(99, 21);
+            this.btnGetPositionDs2.TabIndex = 4;
+            this.btnGetPositionDs2.Text = "Get Position";
+            this.btnGetPositionDs2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetPositionDs2.Click += new System.EventHandler(this.btnGetPositionDs2_Click);
+            // 
+            // comboBoxSizeDs2
+            // 
+            this.comboBoxSizeDs2.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxSizeDs2.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSizeDs2.BGColorB = System.Drawing.Color.MediumSlateBlue;
+            this.comboBoxSizeDs2.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeDs2.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxSizeDs2.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxSizeDs2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxSizeDs2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxSizeDs2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSizeDs2.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxSizeDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeDs2.FormattingEnabled = true;
+            this.comboBoxSizeDs2.ItemHeight = 16;
+            this.comboBoxSizeDs2.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxSizeDs2.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxSizeDs2.LineColorA = System.Drawing.Color.White;
+            this.comboBoxSizeDs2.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxSizeDs2.LineColorC = System.Drawing.Color.White;
+            this.comboBoxSizeDs2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs2.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxSizeDs2.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxSizeDs2.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxSizeDs2.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs2.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxSizeDs2.Location = new System.Drawing.Point(357, 47);
+            this.comboBoxSizeDs2.Name = "comboBoxSizeDs2";
+            this.comboBoxSizeDs2.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxSizeDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxSizeDs2.StartIndex = -1;
+            this.comboBoxSizeDs2.TabIndex = 30;
+            this.comboBoxSizeDs2.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxSizeDs2.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxSizeDs2.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs2_SelectedIndexChanged);
+            // 
+            // textBoxZDs2
+            // 
+            this.textBoxZDs2.BackColor = System.Drawing.Color.White;
+            this.textBoxZDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxZDs2.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxZDs2.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxZDs2.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxZDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxZDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxZDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxZDs2.Location = new System.Drawing.Point(297, 47);
+            this.textBoxZDs2.MaxLength = 32767;
+            this.textBoxZDs2.MultiLine = false;
+            this.textBoxZDs2.Name = "textBoxZDs2";
+            this.textBoxZDs2.Size = new System.Drawing.Size(51, 21);
+            this.textBoxZDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxZDs2.TabIndex = 32;
+            this.textBoxZDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxZDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxZDs2.UseSystemPasswordChar = false;
+            // 
+            // comboBoxHowPositionsDs2
+            // 
+            this.comboBoxHowPositionsDs2.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowPositionsDs2.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowPositionsDs2.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowPositionsDs2.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs2.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowPositionsDs2.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowPositionsDs2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowPositionsDs2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowPositionsDs2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowPositionsDs2.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowPositionsDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowPositionsDs2.FormattingEnabled = true;
+            this.comboBoxHowPositionsDs2.ItemHeight = 16;
+            this.comboBoxHowPositionsDs2.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowPositionsDs2.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowPositionsDs2.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs2.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs2.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs2.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowPositionsDs2.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowPositionsDs2.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs2.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs2.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs2.Location = new System.Drawing.Point(57, 47);
+            this.comboBoxHowPositionsDs2.Name = "comboBoxHowPositionsDs2";
+            this.comboBoxHowPositionsDs2.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowPositionsDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowPositionsDs2.StartIndex = -1;
+            this.comboBoxHowPositionsDs2.TabIndex = 29;
+            this.comboBoxHowPositionsDs2.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs2.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxYDs2
+            // 
+            this.textBoxYDs2.BackColor = System.Drawing.Color.White;
+            this.textBoxYDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxYDs2.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxYDs2.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxYDs2.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxYDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxYDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxYDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxYDs2.Location = new System.Drawing.Point(240, 47);
+            this.textBoxYDs2.MaxLength = 32767;
+            this.textBoxYDs2.MultiLine = false;
+            this.textBoxYDs2.Name = "textBoxYDs2";
+            this.textBoxYDs2.Size = new System.Drawing.Size(51, 21);
+            this.textBoxYDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxYDs2.TabIndex = 31;
+            this.textBoxYDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxYDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxYDs2.UseSystemPasswordChar = false;
+            // 
+            // textBoxTitlePositionDs2
+            // 
+            this.textBoxTitlePositionDs2.BackColor = System.Drawing.Color.White;
+            this.textBoxTitlePositionDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitlePositionDs2.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs2.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs2.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitlePositionDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitlePositionDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(196, 75);
+            this.textBoxTitlePositionDs2.MaxLength = 32767;
+            this.textBoxTitlePositionDs2.MultiLine = false;
+            this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
+            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitlePositionDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitlePositionDs2.TabIndex = 28;
+            this.textBoxTitlePositionDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTitlePositionDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitlePositionDs2.UseSystemPasswordChar = false;
+            // 
+            // textBoxXDs2
+            // 
+            this.textBoxXDs2.BackColor = System.Drawing.Color.White;
+            this.textBoxXDs2.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxXDs2.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxXDs2.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxXDs2.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxXDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxXDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxXDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxXDs2.Location = new System.Drawing.Point(181, 47);
+            this.textBoxXDs2.MaxLength = 32767;
+            this.textBoxXDs2.MultiLine = false;
+            this.textBoxXDs2.Name = "textBoxXDs2";
+            this.textBoxXDs2.Size = new System.Drawing.Size(51, 21);
+            this.textBoxXDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxXDs2.TabIndex = 30;
+            this.textBoxXDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxXDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxXDs2.UseSystemPasswordChar = false;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.ForeColor = System.Drawing.Color.Black;
+            this.label63.Location = new System.Drawing.Point(122, 72);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(64, 32);
+            this.label63.TabIndex = 14;
+            this.label63.Text = "     Title\r\n(Optional)";
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel12.Controls.Add(this.listBoxPositionsDs2);
+            this.panel12.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel12.Location = new System.Drawing.Point(13, 130);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(5);
+            this.panel12.Size = new System.Drawing.Size(515, 125);
+            this.panel12.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel12.TabIndex = 27;
+            this.panel12.Text = "panel12";
+            // 
+            // listBoxPositionsDs2
+            // 
+            this.listBoxPositionsDs2.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxPositionsDs2.FormattingEnabled = true;
+            this.listBoxPositionsDs2.ItemHeight = 16;
+            this.listBoxPositionsDs2.Location = new System.Drawing.Point(3, 5);
+            this.listBoxPositionsDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPositionsDs2.Name = "listBoxPositionsDs2";
+            this.listBoxPositionsDs2.Size = new System.Drawing.Size(507, 116);
+            this.listBoxPositionsDs2.TabIndex = 6;
+            this.listBoxPositionsDs2.DoubleClick += new System.EventHandler(this.listBoxPositionsDs2_DoubleClick);
+            // 
+            // btnAddPositionDs2
+            // 
+            this.btnAddPositionDs2.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPositionDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPositionDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPositionDs2.Image = null;
+            this.btnAddPositionDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPositionDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.Location = new System.Drawing.Point(207, 104);
+            this.btnAddPositionDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddPositionDs2.Name = "btnAddPositionDs2";
+            this.btnAddPositionDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs2.Size = new System.Drawing.Size(99, 21);
+            this.btnAddPositionDs2.TabIndex = 5;
+            this.btnAddPositionDs2.Text = "Add";
+            this.btnAddPositionDs2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddPositionDs2.Click += new System.EventHandler(this.btnAddPositionDs2_Click);
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.ForeColor = System.Drawing.Color.Black;
+            this.label64.Location = new System.Drawing.Point(230, 11);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(80, 16);
+            this.label64.TabIndex = 12;
+            this.label64.Text = "Coordinates:";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.ForeColor = System.Drawing.Color.Black;
+            this.label71.Location = new System.Drawing.Point(401, 24);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(31, 16);
+            this.label71.TabIndex = 11;
+            this.label71.Text = "Size";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.ForeColor = System.Drawing.Color.Black;
+            this.label72.Location = new System.Drawing.Point(202, 29);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(125, 16);
+            this.label72.TabIndex = 10;
+            this.label72.Text = "X            Y            Z";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.ForeColor = System.Drawing.Color.Black;
+            this.label73.Location = new System.Drawing.Point(88, 28);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(37, 16);
+            this.label73.TabIndex = 9;
+            this.label73.Text = "How:";
             // 
             // panelLvlDs2
             // 
@@ -8000,322 +9763,6 @@ namespace AutoSplitterCore
             this.label55.TabIndex = 4;
             this.label55.Text = "How:";
             // 
-            // panelPositionDs2
-            // 
-            this.panelPositionDs2.BackColor = System.Drawing.Color.White;
-            this.panelPositionDs2.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelPositionDs2.Controls.Add(this.btnGetPositionDs2);
-            this.panelPositionDs2.Controls.Add(this.comboBoxSizeDs2);
-            this.panelPositionDs2.Controls.Add(this.textBoxZDs2);
-            this.panelPositionDs2.Controls.Add(this.comboBoxHowPositionsDs2);
-            this.panelPositionDs2.Controls.Add(this.textBoxYDs2);
-            this.panelPositionDs2.Controls.Add(this.textBoxTitlePositionDs2);
-            this.panelPositionDs2.Controls.Add(this.textBoxXDs2);
-            this.panelPositionDs2.Controls.Add(this.label63);
-            this.panelPositionDs2.Controls.Add(this.panel12);
-            this.panelPositionDs2.Controls.Add(this.btnAddPositionDs2);
-            this.panelPositionDs2.Controls.Add(this.label64);
-            this.panelPositionDs2.Controls.Add(this.label71);
-            this.panelPositionDs2.Controls.Add(this.label72);
-            this.panelPositionDs2.Controls.Add(this.label73);
-            this.panelPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPositionDs2.ForeColor = System.Drawing.Color.White;
-            this.panelPositionDs2.Location = new System.Drawing.Point(34, 85);
-            this.panelPositionDs2.Name = "panelPositionDs2";
-            this.panelPositionDs2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPositionDs2.ShowText = false;
-            this.panelPositionDs2.Size = new System.Drawing.Size(539, 262);
-            this.panelPositionDs2.TabIndex = 31;
-            this.panelPositionDs2.Text = "btnAddPositionDs2";
-            // 
-            // btnGetPositionDs2
-            // 
-            this.btnGetPositionDs2.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetPositionDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetPositionDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetPositionDs2.Image = null;
-            this.btnGetPositionDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetPositionDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.Location = new System.Drawing.Point(335, 75);
-            this.btnGetPositionDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetPositionDs2.Name = "btnGetPositionDs2";
-            this.btnGetPositionDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs2.Size = new System.Drawing.Size(99, 21);
-            this.btnGetPositionDs2.TabIndex = 4;
-            this.btnGetPositionDs2.Text = "Get Position";
-            this.btnGetPositionDs2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetPositionDs2.Click += new System.EventHandler(this.btnGetPositionDs2_Click);
-            // 
-            // comboBoxSizeDs2
-            // 
-            this.comboBoxSizeDs2.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxSizeDs2.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxSizeDs2.BGColorB = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxSizeDs2.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeDs2.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxSizeDs2.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxSizeDs2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSizeDs2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxSizeDs2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSizeDs2.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxSizeDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxSizeDs2.FormattingEnabled = true;
-            this.comboBoxSizeDs2.ItemHeight = 16;
-            this.comboBoxSizeDs2.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxSizeDs2.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxSizeDs2.LineColorA = System.Drawing.Color.White;
-            this.comboBoxSizeDs2.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeDs2.LineColorC = System.Drawing.Color.White;
-            this.comboBoxSizeDs2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs2.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxSizeDs2.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxSizeDs2.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxSizeDs2.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs2.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeDs2.Location = new System.Drawing.Point(357, 47);
-            this.comboBoxSizeDs2.Name = "comboBoxSizeDs2";
-            this.comboBoxSizeDs2.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxSizeDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxSizeDs2.StartIndex = -1;
-            this.comboBoxSizeDs2.TabIndex = 30;
-            this.comboBoxSizeDs2.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeDs2.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxZDs2
-            // 
-            this.textBoxZDs2.BackColor = System.Drawing.Color.White;
-            this.textBoxZDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxZDs2.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxZDs2.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxZDs2.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxZDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxZDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxZDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxZDs2.Location = new System.Drawing.Point(297, 47);
-            this.textBoxZDs2.MaxLength = 32767;
-            this.textBoxZDs2.MultiLine = false;
-            this.textBoxZDs2.Name = "textBoxZDs2";
-            this.textBoxZDs2.Size = new System.Drawing.Size(51, 21);
-            this.textBoxZDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxZDs2.TabIndex = 32;
-            this.textBoxZDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxZDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxZDs2.UseSystemPasswordChar = false;
-            // 
-            // comboBoxHowPositionsDs2
-            // 
-            this.comboBoxHowPositionsDs2.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowPositionsDs2.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowPositionsDs2.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowPositionsDs2.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs2.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowPositionsDs2.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowPositionsDs2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowPositionsDs2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowPositionsDs2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowPositionsDs2.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowPositionsDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowPositionsDs2.FormattingEnabled = true;
-            this.comboBoxHowPositionsDs2.ItemHeight = 16;
-            this.comboBoxHowPositionsDs2.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowPositionsDs2.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowPositionsDs2.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs2.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs2.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs2.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs2.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowPositionsDs2.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowPositionsDs2.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs2.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs2.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs2.Location = new System.Drawing.Point(57, 47);
-            this.comboBoxHowPositionsDs2.Name = "comboBoxHowPositionsDs2";
-            this.comboBoxHowPositionsDs2.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowPositionsDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowPositionsDs2.StartIndex = -1;
-            this.comboBoxHowPositionsDs2.TabIndex = 29;
-            this.comboBoxHowPositionsDs2.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs2.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxYDs2
-            // 
-            this.textBoxYDs2.BackColor = System.Drawing.Color.White;
-            this.textBoxYDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxYDs2.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxYDs2.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxYDs2.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxYDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxYDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxYDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxYDs2.Location = new System.Drawing.Point(240, 47);
-            this.textBoxYDs2.MaxLength = 32767;
-            this.textBoxYDs2.MultiLine = false;
-            this.textBoxYDs2.Name = "textBoxYDs2";
-            this.textBoxYDs2.Size = new System.Drawing.Size(51, 21);
-            this.textBoxYDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxYDs2.TabIndex = 31;
-            this.textBoxYDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxYDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxYDs2.UseSystemPasswordChar = false;
-            // 
-            // textBoxTitlePositionDs2
-            // 
-            this.textBoxTitlePositionDs2.BackColor = System.Drawing.Color.White;
-            this.textBoxTitlePositionDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitlePositionDs2.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs2.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs2.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitlePositionDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitlePositionDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitlePositionDs2.Location = new System.Drawing.Point(196, 75);
-            this.textBoxTitlePositionDs2.MaxLength = 32767;
-            this.textBoxTitlePositionDs2.MultiLine = false;
-            this.textBoxTitlePositionDs2.Name = "textBoxTitlePositionDs2";
-            this.textBoxTitlePositionDs2.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitlePositionDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitlePositionDs2.TabIndex = 28;
-            this.textBoxTitlePositionDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTitlePositionDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitlePositionDs2.UseSystemPasswordChar = false;
-            // 
-            // textBoxXDs2
-            // 
-            this.textBoxXDs2.BackColor = System.Drawing.Color.White;
-            this.textBoxXDs2.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxXDs2.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxXDs2.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxXDs2.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxXDs2.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxXDs2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxXDs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxXDs2.Location = new System.Drawing.Point(181, 47);
-            this.textBoxXDs2.MaxLength = 32767;
-            this.textBoxXDs2.MultiLine = false;
-            this.textBoxXDs2.Name = "textBoxXDs2";
-            this.textBoxXDs2.Size = new System.Drawing.Size(51, 21);
-            this.textBoxXDs2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxXDs2.TabIndex = 30;
-            this.textBoxXDs2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxXDs2.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxXDs2.UseSystemPasswordChar = false;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.ForeColor = System.Drawing.Color.Black;
-            this.label63.Location = new System.Drawing.Point(122, 72);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(64, 32);
-            this.label63.TabIndex = 14;
-            this.label63.Text = "     Title\r\n(Optional)";
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel12.Controls.Add(this.listBoxPositionsDs2);
-            this.panel12.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel12.Location = new System.Drawing.Point(13, 130);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(5);
-            this.panel12.Size = new System.Drawing.Size(515, 125);
-            this.panel12.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel12.TabIndex = 27;
-            this.panel12.Text = "panel12";
-            // 
-            // listBoxPositionsDs2
-            // 
-            this.listBoxPositionsDs2.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxPositionsDs2.FormattingEnabled = true;
-            this.listBoxPositionsDs2.ItemHeight = 16;
-            this.listBoxPositionsDs2.Location = new System.Drawing.Point(3, 5);
-            this.listBoxPositionsDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxPositionsDs2.Name = "listBoxPositionsDs2";
-            this.listBoxPositionsDs2.Size = new System.Drawing.Size(507, 116);
-            this.listBoxPositionsDs2.TabIndex = 6;
-            this.listBoxPositionsDs2.DoubleClick += new System.EventHandler(this.listBoxPositionsDs2_DoubleClick);
-            // 
-            // btnAddPositionDs2
-            // 
-            this.btnAddPositionDs2.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPositionDs2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPositionDs2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPositionDs2.Image = null;
-            this.btnAddPositionDs2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPositionDs2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.Location = new System.Drawing.Point(207, 104);
-            this.btnAddPositionDs2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddPositionDs2.Name = "btnAddPositionDs2";
-            this.btnAddPositionDs2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs2.Size = new System.Drawing.Size(99, 21);
-            this.btnAddPositionDs2.TabIndex = 5;
-            this.btnAddPositionDs2.Text = "Add";
-            this.btnAddPositionDs2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddPositionDs2.Click += new System.EventHandler(this.btnAddPositionDs2_Click);
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.ForeColor = System.Drawing.Color.Black;
-            this.label64.Location = new System.Drawing.Point(230, 11);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(80, 16);
-            this.label64.TabIndex = 12;
-            this.label64.Text = "Coordinates:";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.ForeColor = System.Drawing.Color.Black;
-            this.label71.Location = new System.Drawing.Point(401, 24);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(31, 16);
-            this.label71.TabIndex = 11;
-            this.label71.Text = "Size";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.ForeColor = System.Drawing.Color.Black;
-            this.label72.Location = new System.Drawing.Point(202, 29);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(125, 16);
-            this.label72.TabIndex = 10;
-            this.label72.Text = "X            Y            Z";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.ForeColor = System.Drawing.Color.Black;
-            this.label73.Location = new System.Drawing.Point(88, 28);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(37, 16);
-            this.label73.TabIndex = 9;
-            this.label73.Text = "How:";
-            // 
             // label74
             // 
             this.label74.AutoSize = true;
@@ -8431,12 +9878,12 @@ namespace AutoSplitterCore
             // tabDs3
             // 
             this.tabDs3.BackColor = System.Drawing.Color.White;
+            this.tabDs3.Controls.Add(this.panelPositionsDs3);
+            this.tabDs3.Controls.Add(this.panelLvlDs3);
             this.tabDs3.Controls.Add(this.panelBonfireDs3);
             this.tabDs3.Controls.Add(this.panelBossDs3);
-            this.tabDs3.Controls.Add(this.panelPositionsDs3);
             this.tabDs3.Controls.Add(this.panelCfDs3);
             this.tabDs3.Controls.Add(this.comboBoxToSplitSelectDs3);
-            this.tabDs3.Controls.Add(this.panelLvlDs3);
             this.tabDs3.Controls.Add(this.btnRefreshDS3);
             this.tabDs3.Controls.Add(this.btnDesactiveAllDs3);
             this.tabDs3.Controls.Add(this.Ds3Running);
@@ -8455,6 +9902,513 @@ namespace AutoSplitterCore
             this.tabDs3.VerticalScrollbarBarColor = true;
             this.tabDs3.VerticalScrollbarHighlightOnWheel = false;
             this.tabDs3.VerticalScrollbarSize = 10;
+            // 
+            // panelPositionsDs3
+            // 
+            this.panelPositionsDs3.BackColor = System.Drawing.Color.White;
+            this.panelPositionsDs3.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelPositionsDs3.Controls.Add(this.btnGetPositionDs3);
+            this.panelPositionsDs3.Controls.Add(this.comboBoxMarginDs3);
+            this.panelPositionsDs3.Controls.Add(this.textBoxZDs3);
+            this.panelPositionsDs3.Controls.Add(this.comboBoxHowPositionsDs3);
+            this.panelPositionsDs3.Controls.Add(this.textBoxYDs3);
+            this.panelPositionsDs3.Controls.Add(this.textBoxTitlePositionDs3);
+            this.panelPositionsDs3.Controls.Add(this.textBoxXDs3);
+            this.panelPositionsDs3.Controls.Add(this.label46);
+            this.panelPositionsDs3.Controls.Add(this.panel19);
+            this.panelPositionsDs3.Controls.Add(this.btnAddPositionDs3);
+            this.panelPositionsDs3.Controls.Add(this.label47);
+            this.panelPositionsDs3.Controls.Add(this.label57);
+            this.panelPositionsDs3.Controls.Add(this.label58);
+            this.panelPositionsDs3.Controls.Add(this.label75);
+            this.panelPositionsDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPositionsDs3.ForeColor = System.Drawing.Color.White;
+            this.panelPositionsDs3.Location = new System.Drawing.Point(34, 85);
+            this.panelPositionsDs3.Name = "panelPositionsDs3";
+            this.panelPositionsDs3.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPositionsDs3.ShowText = false;
+            this.panelPositionsDs3.Size = new System.Drawing.Size(539, 262);
+            this.panelPositionsDs3.TabIndex = 30;
+            this.panelPositionsDs3.Text = "panelPositionsDs3";
+            // 
+            // btnGetPositionDs3
+            // 
+            this.btnGetPositionDs3.BackColor = System.Drawing.Color.Transparent;
+            this.btnGetPositionDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGetPositionDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetPositionDs3.Image = null;
+            this.btnGetPositionDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPositionDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.Location = new System.Drawing.Point(335, 75);
+            this.btnGetPositionDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGetPositionDs3.Name = "btnGetPositionDs3";
+            this.btnGetPositionDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnGetPositionDs3.Size = new System.Drawing.Size(99, 21);
+            this.btnGetPositionDs3.TabIndex = 4;
+            this.btnGetPositionDs3.Text = "Get Position";
+            this.btnGetPositionDs3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnGetPositionDs3.Click += new System.EventHandler(this.btnGetPositionDs3_Click);
+            // 
+            // comboBoxMarginDs3
+            // 
+            this.comboBoxMarginDs3.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxMarginDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxMarginDs3.BGColorB = System.Drawing.Color.MediumSlateBlue;
+            this.comboBoxMarginDs3.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxMarginDs3.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxMarginDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxMarginDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxMarginDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxMarginDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxMarginDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMarginDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxMarginDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxMarginDs3.FormattingEnabled = true;
+            this.comboBoxMarginDs3.ItemHeight = 16;
+            this.comboBoxMarginDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxMarginDs3.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxMarginDs3.LineColorA = System.Drawing.Color.White;
+            this.comboBoxMarginDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxMarginDs3.LineColorC = System.Drawing.Color.White;
+            this.comboBoxMarginDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxMarginDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxMarginDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxMarginDs3.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxMarginDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxMarginDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxMarginDs3.Location = new System.Drawing.Point(357, 47);
+            this.comboBoxMarginDs3.Name = "comboBoxMarginDs3";
+            this.comboBoxMarginDs3.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxMarginDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxMarginDs3.StartIndex = -1;
+            this.comboBoxMarginDs3.TabIndex = 30;
+            this.comboBoxMarginDs3.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxMarginDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxMarginDs3.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginDs3_SelectedIndexChanged);
+            // 
+            // textBoxZDs3
+            // 
+            this.textBoxZDs3.BackColor = System.Drawing.Color.White;
+            this.textBoxZDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxZDs3.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxZDs3.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxZDs3.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxZDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxZDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxZDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxZDs3.Location = new System.Drawing.Point(297, 47);
+            this.textBoxZDs3.MaxLength = 32767;
+            this.textBoxZDs3.MultiLine = false;
+            this.textBoxZDs3.Name = "textBoxZDs3";
+            this.textBoxZDs3.Size = new System.Drawing.Size(51, 21);
+            this.textBoxZDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxZDs3.TabIndex = 32;
+            this.textBoxZDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxZDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxZDs3.UseSystemPasswordChar = false;
+            // 
+            // comboBoxHowPositionsDs3
+            // 
+            this.comboBoxHowPositionsDs3.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowPositionsDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowPositionsDs3.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowPositionsDs3.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs3.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowPositionsDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowPositionsDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowPositionsDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowPositionsDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowPositionsDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowPositionsDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowPositionsDs3.FormattingEnabled = true;
+            this.comboBoxHowPositionsDs3.ItemHeight = 16;
+            this.comboBoxHowPositionsDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowPositionsDs3.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowPositionsDs3.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowPositionsDs3.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowPositionsDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowPositionsDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowPositionsDs3.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowPositionsDs3.Location = new System.Drawing.Point(57, 47);
+            this.comboBoxHowPositionsDs3.Name = "comboBoxHowPositionsDs3";
+            this.comboBoxHowPositionsDs3.Size = new System.Drawing.Size(111, 22);
+            this.comboBoxHowPositionsDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowPositionsDs3.StartIndex = -1;
+            this.comboBoxHowPositionsDs3.TabIndex = 29;
+            this.comboBoxHowPositionsDs3.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowPositionsDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // textBoxYDs3
+            // 
+            this.textBoxYDs3.BackColor = System.Drawing.Color.White;
+            this.textBoxYDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxYDs3.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxYDs3.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxYDs3.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxYDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxYDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxYDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxYDs3.Location = new System.Drawing.Point(240, 47);
+            this.textBoxYDs3.MaxLength = 32767;
+            this.textBoxYDs3.MultiLine = false;
+            this.textBoxYDs3.Name = "textBoxYDs3";
+            this.textBoxYDs3.Size = new System.Drawing.Size(51, 21);
+            this.textBoxYDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxYDs3.TabIndex = 31;
+            this.textBoxYDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxYDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxYDs3.UseSystemPasswordChar = false;
+            // 
+            // textBoxTitlePositionDs3
+            // 
+            this.textBoxTitlePositionDs3.BackColor = System.Drawing.Color.White;
+            this.textBoxTitlePositionDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxTitlePositionDs3.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs3.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs3.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxTitlePositionDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxTitlePositionDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxTitlePositionDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(196, 75);
+            this.textBoxTitlePositionDs3.MaxLength = 32767;
+            this.textBoxTitlePositionDs3.MultiLine = false;
+            this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
+            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(125, 21);
+            this.textBoxTitlePositionDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxTitlePositionDs3.TabIndex = 28;
+            this.textBoxTitlePositionDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTitlePositionDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxTitlePositionDs3.UseSystemPasswordChar = false;
+            // 
+            // textBoxXDs3
+            // 
+            this.textBoxXDs3.BackColor = System.Drawing.Color.White;
+            this.textBoxXDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxXDs3.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxXDs3.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxXDs3.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxXDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxXDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxXDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxXDs3.Location = new System.Drawing.Point(181, 47);
+            this.textBoxXDs3.MaxLength = 32767;
+            this.textBoxXDs3.MultiLine = false;
+            this.textBoxXDs3.Name = "textBoxXDs3";
+            this.textBoxXDs3.Size = new System.Drawing.Size(51, 21);
+            this.textBoxXDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxXDs3.TabIndex = 30;
+            this.textBoxXDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxXDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxXDs3.UseSystemPasswordChar = false;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.ForeColor = System.Drawing.Color.Black;
+            this.label46.Location = new System.Drawing.Point(122, 72);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(64, 32);
+            this.label46.TabIndex = 14;
+            this.label46.Text = "     Title\r\n(Optional)";
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel19.Controls.Add(this.listBoxPositionsDs3);
+            this.panel19.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel19.Location = new System.Drawing.Point(13, 130);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(5);
+            this.panel19.Size = new System.Drawing.Size(515, 125);
+            this.panel19.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel19.TabIndex = 27;
+            this.panel19.Text = "panel19";
+            // 
+            // listBoxPositionsDs3
+            // 
+            this.listBoxPositionsDs3.BackColor = System.Drawing.Color.Khaki;
+            this.listBoxPositionsDs3.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.listBoxPositionsDs3.FormattingEnabled = true;
+            this.listBoxPositionsDs3.ItemHeight = 16;
+            this.listBoxPositionsDs3.Location = new System.Drawing.Point(4, 4);
+            this.listBoxPositionsDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxPositionsDs3.Name = "listBoxPositionsDs3";
+            this.listBoxPositionsDs3.Size = new System.Drawing.Size(507, 116);
+            this.listBoxPositionsDs3.TabIndex = 6;
+            this.listBoxPositionsDs3.DoubleClick += new System.EventHandler(this.listBoxPositionDs3_DoubleClick);
+            // 
+            // btnAddPositionDs3
+            // 
+            this.btnAddPositionDs3.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPositionDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPositionDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPositionDs3.Image = null;
+            this.btnAddPositionDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPositionDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.Location = new System.Drawing.Point(207, 104);
+            this.btnAddPositionDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddPositionDs3.Name = "btnAddPositionDs3";
+            this.btnAddPositionDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddPositionDs3.Size = new System.Drawing.Size(99, 21);
+            this.btnAddPositionDs3.TabIndex = 5;
+            this.btnAddPositionDs3.Text = "Add";
+            this.btnAddPositionDs3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAddPositionDs3.Click += new System.EventHandler(this.btnAddPositionDs3_Click);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.ForeColor = System.Drawing.Color.Black;
+            this.label47.Location = new System.Drawing.Point(230, 11);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(80, 16);
+            this.label47.TabIndex = 12;
+            this.label47.Text = "Coordinates:";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.Color.Black;
+            this.label57.Location = new System.Drawing.Point(401, 24);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(31, 16);
+            this.label57.TabIndex = 11;
+            this.label57.Text = "Size";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.ForeColor = System.Drawing.Color.Black;
+            this.label58.Location = new System.Drawing.Point(202, 29);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(125, 16);
+            this.label58.TabIndex = 10;
+            this.label58.Text = "X            Y            Z";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.ForeColor = System.Drawing.Color.Black;
+            this.label75.Location = new System.Drawing.Point(88, 28);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(37, 16);
+            this.label75.TabIndex = 9;
+            this.label75.Text = "How:";
+            // 
+            // panelLvlDs3
+            // 
+            this.panelLvlDs3.BackColor = System.Drawing.Color.White;
+            this.panelLvlDs3.BorderColor = System.Drawing.Color.SteelBlue;
+            this.panelLvlDs3.Controls.Add(this.label52);
+            this.panelLvlDs3.Controls.Add(this.label53);
+            this.panelLvlDs3.Controls.Add(this.textBoxValueDs3);
+            this.panelLvlDs3.Controls.Add(this.panel15);
+            this.panelLvlDs3.Controls.Add(this.comboBoxHowAttributeDs3);
+            this.panelLvlDs3.Controls.Add(this.btnAddAttributeDs3);
+            this.panelLvlDs3.Controls.Add(this.comboBoxAttributeDs3);
+            this.panelLvlDs3.Controls.Add(this.label54);
+            this.panelLvlDs3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.panelLvlDs3.ForeColor = System.Drawing.Color.White;
+            this.panelLvlDs3.Location = new System.Drawing.Point(34, 85);
+            this.panelLvlDs3.Name = "panelLvlDs3";
+            this.panelLvlDs3.Padding = new System.Windows.Forms.Padding(5);
+            this.panelLvlDs3.ShowText = false;
+            this.panelLvlDs3.Size = new System.Drawing.Size(539, 262);
+            this.panelLvlDs3.TabIndex = 29;
+            this.panelLvlDs3.Text = "panelLvlDs3";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.BackColor = System.Drawing.Color.Transparent;
+            this.label52.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.Black;
+            this.label52.Location = new System.Drawing.Point(40, 15);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(55, 16);
+            this.label52.TabIndex = 33;
+            this.label52.Text = "attribute";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.Transparent;
+            this.label53.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.Black;
+            this.label53.Location = new System.Drawing.Point(128, 45);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(39, 16);
+            this.label53.TabIndex = 32;
+            this.label53.Text = "Value";
+            // 
+            // textBoxValueDs3
+            // 
+            this.textBoxValueDs3.BackColor = System.Drawing.Color.White;
+            this.textBoxValueDs3.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxValueDs3.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxValueDs3.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxValueDs3.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxValueDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.textBoxValueDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxValueDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.textBoxValueDs3.Location = new System.Drawing.Point(173, 42);
+            this.textBoxValueDs3.MaxLength = 32767;
+            this.textBoxValueDs3.MultiLine = false;
+            this.textBoxValueDs3.Name = "textBoxValueDs3";
+            this.textBoxValueDs3.Size = new System.Drawing.Size(90, 21);
+            this.textBoxValueDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxValueDs3.TabIndex = 31;
+            this.textBoxValueDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxValueDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxValueDs3.UseSystemPasswordChar = false;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel15.Controls.Add(this.listBoxAttributesDs3);
+            this.panel15.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.panel15.Location = new System.Drawing.Point(15, 95);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(5);
+            this.panel15.Size = new System.Drawing.Size(508, 156);
+            this.panel15.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel15.TabIndex = 26;
+            this.panel15.Text = "panel15";
+            // 
+            // listBoxAttributesDs3
+            // 
+            this.listBoxAttributesDs3.BackColor = System.Drawing.Color.Aquamarine;
+            this.listBoxAttributesDs3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.listBoxAttributesDs3.FormattingEnabled = true;
+            this.listBoxAttributesDs3.ItemHeight = 14;
+            this.listBoxAttributesDs3.Location = new System.Drawing.Point(4, 6);
+            this.listBoxAttributesDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAttributesDs3.Name = "listBoxAttributesDs3";
+            this.listBoxAttributesDs3.Size = new System.Drawing.Size(500, 144);
+            this.listBoxAttributesDs3.TabIndex = 22;
+            this.listBoxAttributesDs3.DoubleClick += new System.EventHandler(this.listBoxAttributesDs3_DoubleClick);
+            // 
+            // comboBoxHowAttributeDs3
+            // 
+            this.comboBoxHowAttributeDs3.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxHowAttributeDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxHowAttributeDs3.BGColorB = System.Drawing.Color.SkyBlue;
+            this.comboBoxHowAttributeDs3.BorderColorA = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeDs3.BorderColorB = System.Drawing.Color.Teal;
+            this.comboBoxHowAttributeDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowAttributeDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.comboBoxHowAttributeDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxHowAttributeDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxHowAttributeDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHowAttributeDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.comboBoxHowAttributeDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowAttributeDs3.FormattingEnabled = true;
+            this.comboBoxHowAttributeDs3.ItemHeight = 16;
+            this.comboBoxHowAttributeDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.comboBoxHowAttributeDs3.Items.AddRange(new object[] {
+            "Inmediatly",
+            "Loading game after"});
+            this.comboBoxHowAttributeDs3.LineColorA = System.Drawing.Color.White;
+            this.comboBoxHowAttributeDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.comboBoxHowAttributeDs3.LineColorC = System.Drawing.Color.White;
+            this.comboBoxHowAttributeDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxHowAttributeDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.comboBoxHowAttributeDs3.ListForeColor = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxHowAttributeDs3.Location = new System.Drawing.Point(286, 41);
+            this.comboBoxHowAttributeDs3.Name = "comboBoxHowAttributeDs3";
+            this.comboBoxHowAttributeDs3.Size = new System.Drawing.Size(151, 22);
+            this.comboBoxHowAttributeDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.comboBoxHowAttributeDs3.StartIndex = -1;
+            this.comboBoxHowAttributeDs3.TabIndex = 26;
+            this.comboBoxHowAttributeDs3.TriangleColorA = System.Drawing.Color.Black;
+            this.comboBoxHowAttributeDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.comboBoxHowAttributeDs3.Click += new System.EventHandler(this.btnAddAttributeDs3_Click);
+            // 
+            // btnAddAttributeDs3
+            // 
+            this.btnAddAttributeDs3.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAttributeDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAttributeDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAttributeDs3.Image = null;
+            this.btnAddAttributeDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAttributeDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.Location = new System.Drawing.Point(217, 69);
+            this.btnAddAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAttributeDs3.Name = "btnAddAttributeDs3";
+            this.btnAddAttributeDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnAddAttributeDs3.Size = new System.Drawing.Size(99, 21);
+            this.btnAddAttributeDs3.TabIndex = 14;
+            this.btnAddAttributeDs3.Text = "Add";
+            this.btnAddAttributeDs3.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // comboBoxAttributeDs3
+            // 
+            this.comboBoxAttributeDs3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxAttributeDs3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.comboBoxAttributeDs3.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.comboBoxAttributeDs3.FormattingEnabled = true;
+            this.comboBoxAttributeDs3.Items.AddRange(new object[] {
+            "Vigor",
+            "Attunement",
+            "Endurance",
+            "Vitality",
+            "Strength",
+            "Dexterity",
+            "Intelligence",
+            "Faith",
+            "Luck",
+            "SoulLevel",
+            "Humanity"});
+            this.comboBoxAttributeDs3.Location = new System.Drawing.Point(101, 12);
+            this.comboBoxAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxAttributeDs3.Name = "comboBoxAttributeDs3";
+            this.comboBoxAttributeDs3.Size = new System.Drawing.Size(361, 24);
+            this.comboBoxAttributeDs3.TabIndex = 18;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.BackColor = System.Drawing.Color.Transparent;
+            this.label54.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.Color.Black;
+            this.label54.Location = new System.Drawing.Point(443, 45);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(32, 16);
+            this.label54.TabIndex = 4;
+            this.label54.Text = "How";
             // 
             // panelBonfireDs3
             // 
@@ -8844,323 +10798,6 @@ namespace AutoSplitterCore
             this.label44.TabIndex = 4;
             this.label44.Text = "How:";
             // 
-            // panelPositionsDs3
-            // 
-            this.panelPositionsDs3.BackColor = System.Drawing.Color.White;
-            this.panelPositionsDs3.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelPositionsDs3.Controls.Add(this.btnGetPositionDs3);
-            this.panelPositionsDs3.Controls.Add(this.comboBoxMarginDs3);
-            this.panelPositionsDs3.Controls.Add(this.textBoxZDs3);
-            this.panelPositionsDs3.Controls.Add(this.comboBoxHowPositionsDs3);
-            this.panelPositionsDs3.Controls.Add(this.textBoxYDs3);
-            this.panelPositionsDs3.Controls.Add(this.textBoxTitlePositionDs3);
-            this.panelPositionsDs3.Controls.Add(this.textBoxXDs3);
-            this.panelPositionsDs3.Controls.Add(this.label46);
-            this.panelPositionsDs3.Controls.Add(this.panel19);
-            this.panelPositionsDs3.Controls.Add(this.btnAddPositionDs3);
-            this.panelPositionsDs3.Controls.Add(this.label47);
-            this.panelPositionsDs3.Controls.Add(this.label57);
-            this.panelPositionsDs3.Controls.Add(this.label58);
-            this.panelPositionsDs3.Controls.Add(this.label75);
-            this.panelPositionsDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPositionsDs3.ForeColor = System.Drawing.Color.White;
-            this.panelPositionsDs3.Location = new System.Drawing.Point(34, 85);
-            this.panelPositionsDs3.Name = "panelPositionsDs3";
-            this.panelPositionsDs3.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPositionsDs3.ShowText = false;
-            this.panelPositionsDs3.Size = new System.Drawing.Size(539, 262);
-            this.panelPositionsDs3.TabIndex = 30;
-            this.panelPositionsDs3.Text = "panelPositionsDs3";
-            // 
-            // btnGetPositionDs3
-            // 
-            this.btnGetPositionDs3.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetPositionDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetPositionDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetPositionDs3.Image = null;
-            this.btnGetPositionDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetPositionDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.Location = new System.Drawing.Point(335, 75);
-            this.btnGetPositionDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetPositionDs3.Name = "btnGetPositionDs3";
-            this.btnGetPositionDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionDs3.Size = new System.Drawing.Size(99, 21);
-            this.btnGetPositionDs3.TabIndex = 4;
-            this.btnGetPositionDs3.Text = "Get Position";
-            this.btnGetPositionDs3.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetPositionDs3.Click += new System.EventHandler(this.btnGetPositionDs3_Click);
-            // 
-            // comboBoxMarginDs3
-            // 
-            this.comboBoxMarginDs3.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxMarginDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxMarginDs3.BGColorB = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxMarginDs3.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxMarginDs3.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxMarginDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxMarginDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxMarginDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxMarginDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxMarginDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMarginDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxMarginDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxMarginDs3.FormattingEnabled = true;
-            this.comboBoxMarginDs3.ItemHeight = 16;
-            this.comboBoxMarginDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxMarginDs3.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxMarginDs3.LineColorA = System.Drawing.Color.White;
-            this.comboBoxMarginDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxMarginDs3.LineColorC = System.Drawing.Color.White;
-            this.comboBoxMarginDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxMarginDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxMarginDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxMarginDs3.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxMarginDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxMarginDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxMarginDs3.Location = new System.Drawing.Point(357, 47);
-            this.comboBoxMarginDs3.Name = "comboBoxMarginDs3";
-            this.comboBoxMarginDs3.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxMarginDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxMarginDs3.StartIndex = -1;
-            this.comboBoxMarginDs3.TabIndex = 30;
-            this.comboBoxMarginDs3.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxMarginDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxZDs3
-            // 
-            this.textBoxZDs3.BackColor = System.Drawing.Color.White;
-            this.textBoxZDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxZDs3.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxZDs3.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxZDs3.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxZDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxZDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxZDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxZDs3.Location = new System.Drawing.Point(297, 47);
-            this.textBoxZDs3.MaxLength = 32767;
-            this.textBoxZDs3.MultiLine = false;
-            this.textBoxZDs3.Name = "textBoxZDs3";
-            this.textBoxZDs3.Size = new System.Drawing.Size(51, 21);
-            this.textBoxZDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxZDs3.TabIndex = 32;
-            this.textBoxZDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxZDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxZDs3.UseSystemPasswordChar = false;
-            // 
-            // comboBoxHowPositionsDs3
-            // 
-            this.comboBoxHowPositionsDs3.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowPositionsDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowPositionsDs3.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowPositionsDs3.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs3.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowPositionsDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowPositionsDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowPositionsDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowPositionsDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowPositionsDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowPositionsDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowPositionsDs3.FormattingEnabled = true;
-            this.comboBoxHowPositionsDs3.ItemHeight = 16;
-            this.comboBoxHowPositionsDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowPositionsDs3.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowPositionsDs3.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsDs3.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowPositionsDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowPositionsDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowPositionsDs3.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsDs3.Location = new System.Drawing.Point(57, 47);
-            this.comboBoxHowPositionsDs3.Name = "comboBoxHowPositionsDs3";
-            this.comboBoxHowPositionsDs3.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowPositionsDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowPositionsDs3.StartIndex = -1;
-            this.comboBoxHowPositionsDs3.TabIndex = 29;
-            this.comboBoxHowPositionsDs3.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxYDs3
-            // 
-            this.textBoxYDs3.BackColor = System.Drawing.Color.White;
-            this.textBoxYDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxYDs3.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxYDs3.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxYDs3.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxYDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxYDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxYDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxYDs3.Location = new System.Drawing.Point(240, 47);
-            this.textBoxYDs3.MaxLength = 32767;
-            this.textBoxYDs3.MultiLine = false;
-            this.textBoxYDs3.Name = "textBoxYDs3";
-            this.textBoxYDs3.Size = new System.Drawing.Size(51, 21);
-            this.textBoxYDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxYDs3.TabIndex = 31;
-            this.textBoxYDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxYDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxYDs3.UseSystemPasswordChar = false;
-            // 
-            // textBoxTitlePositionDs3
-            // 
-            this.textBoxTitlePositionDs3.BackColor = System.Drawing.Color.White;
-            this.textBoxTitlePositionDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitlePositionDs3.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs3.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs3.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitlePositionDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitlePositionDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitlePositionDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitlePositionDs3.Location = new System.Drawing.Point(196, 75);
-            this.textBoxTitlePositionDs3.MaxLength = 32767;
-            this.textBoxTitlePositionDs3.MultiLine = false;
-            this.textBoxTitlePositionDs3.Name = "textBoxTitlePositionDs3";
-            this.textBoxTitlePositionDs3.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitlePositionDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitlePositionDs3.TabIndex = 28;
-            this.textBoxTitlePositionDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTitlePositionDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitlePositionDs3.UseSystemPasswordChar = false;
-            // 
-            // textBoxXDs3
-            // 
-            this.textBoxXDs3.BackColor = System.Drawing.Color.White;
-            this.textBoxXDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxXDs3.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxXDs3.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxXDs3.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxXDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxXDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxXDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxXDs3.Location = new System.Drawing.Point(181, 47);
-            this.textBoxXDs3.MaxLength = 32767;
-            this.textBoxXDs3.MultiLine = false;
-            this.textBoxXDs3.Name = "textBoxXDs3";
-            this.textBoxXDs3.Size = new System.Drawing.Size(51, 21);
-            this.textBoxXDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxXDs3.TabIndex = 30;
-            this.textBoxXDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxXDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxXDs3.UseSystemPasswordChar = false;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.ForeColor = System.Drawing.Color.Black;
-            this.label46.Location = new System.Drawing.Point(122, 72);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(64, 32);
-            this.label46.TabIndex = 14;
-            this.label46.Text = "     Title\r\n(Optional)";
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel19.Controls.Add(this.listBoxPositionsDs3);
-            this.panel19.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel19.Location = new System.Drawing.Point(13, 130);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(5);
-            this.panel19.Size = new System.Drawing.Size(515, 125);
-            this.panel19.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel19.TabIndex = 27;
-            this.panel19.Text = "panel19";
-            // 
-            // listBoxPositionsDs3
-            // 
-            this.listBoxPositionsDs3.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxPositionsDs3.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.listBoxPositionsDs3.FormattingEnabled = true;
-            this.listBoxPositionsDs3.ItemHeight = 16;
-            this.listBoxPositionsDs3.Location = new System.Drawing.Point(4, 4);
-            this.listBoxPositionsDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxPositionsDs3.Name = "listBoxPositionsDs3";
-            this.listBoxPositionsDs3.Size = new System.Drawing.Size(507, 116);
-            this.listBoxPositionsDs3.TabIndex = 6;
-            this.listBoxPositionsDs3.DoubleClick += new System.EventHandler(this.listBoxPositionDs3_DoubleClick);
-            // 
-            // btnAddPositionDs3
-            // 
-            this.btnAddPositionDs3.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPositionDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPositionDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPositionDs3.Image = null;
-            this.btnAddPositionDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPositionDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.Location = new System.Drawing.Point(207, 104);
-            this.btnAddPositionDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddPositionDs3.Name = "btnAddPositionDs3";
-            this.btnAddPositionDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionDs3.Size = new System.Drawing.Size(99, 21);
-            this.btnAddPositionDs3.TabIndex = 5;
-            this.btnAddPositionDs3.Text = "Add";
-            this.btnAddPositionDs3.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddPositionDs3.Click += new System.EventHandler(this.btnAddPositionDs3_Click);
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.ForeColor = System.Drawing.Color.Black;
-            this.label47.Location = new System.Drawing.Point(230, 11);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(80, 16);
-            this.label47.TabIndex = 12;
-            this.label47.Text = "Coordinates:";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.ForeColor = System.Drawing.Color.Black;
-            this.label57.Location = new System.Drawing.Point(401, 24);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(31, 16);
-            this.label57.TabIndex = 11;
-            this.label57.Text = "Size";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.ForeColor = System.Drawing.Color.Black;
-            this.label58.Location = new System.Drawing.Point(202, 29);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(125, 16);
-            this.label58.TabIndex = 10;
-            this.label58.Text = "X            Y            Z";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.ForeColor = System.Drawing.Color.Black;
-            this.label75.Location = new System.Drawing.Point(88, 28);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(37, 16);
-            this.label75.TabIndex = 9;
-            this.label75.Text = "How:";
-            // 
             // panelCfDs3
             // 
             this.panelCfDs3.BackColor = System.Drawing.Color.White;
@@ -9400,195 +11037,6 @@ namespace AutoSplitterCore
             this.comboBoxToSplitSelectDs3.StartIndex = -1;
             this.comboBoxToSplitSelectDs3.TabIndex = 30;
             this.comboBoxToSplitSelectDs3.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitSelectDs3_SelectedIndexChanged);
-            // 
-            // panelLvlDs3
-            // 
-            this.panelLvlDs3.BackColor = System.Drawing.Color.White;
-            this.panelLvlDs3.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelLvlDs3.Controls.Add(this.label52);
-            this.panelLvlDs3.Controls.Add(this.label53);
-            this.panelLvlDs3.Controls.Add(this.textBoxValueDs3);
-            this.panelLvlDs3.Controls.Add(this.panel15);
-            this.panelLvlDs3.Controls.Add(this.comboBoxHowAttributeDs3);
-            this.panelLvlDs3.Controls.Add(this.btnAddAttributeDs3);
-            this.panelLvlDs3.Controls.Add(this.comboBoxAttributeDs3);
-            this.panelLvlDs3.Controls.Add(this.label54);
-            this.panelLvlDs3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelLvlDs3.ForeColor = System.Drawing.Color.White;
-            this.panelLvlDs3.Location = new System.Drawing.Point(34, 85);
-            this.panelLvlDs3.Name = "panelLvlDs3";
-            this.panelLvlDs3.Padding = new System.Windows.Forms.Padding(5);
-            this.panelLvlDs3.ShowText = false;
-            this.panelLvlDs3.Size = new System.Drawing.Size(539, 262);
-            this.panelLvlDs3.TabIndex = 29;
-            this.panelLvlDs3.Text = "panelLvlDs3";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.BackColor = System.Drawing.Color.Transparent;
-            this.label52.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.ForeColor = System.Drawing.Color.Black;
-            this.label52.Location = new System.Drawing.Point(40, 15);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(55, 16);
-            this.label52.TabIndex = 33;
-            this.label52.Text = "attribute";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Transparent;
-            this.label53.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.ForeColor = System.Drawing.Color.Black;
-            this.label53.Location = new System.Drawing.Point(128, 45);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(39, 16);
-            this.label53.TabIndex = 32;
-            this.label53.Text = "Value";
-            // 
-            // textBoxValueDs3
-            // 
-            this.textBoxValueDs3.BackColor = System.Drawing.Color.White;
-            this.textBoxValueDs3.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxValueDs3.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxValueDs3.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxValueDs3.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxValueDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxValueDs3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxValueDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxValueDs3.Location = new System.Drawing.Point(173, 42);
-            this.textBoxValueDs3.MaxLength = 32767;
-            this.textBoxValueDs3.MultiLine = false;
-            this.textBoxValueDs3.Name = "textBoxValueDs3";
-            this.textBoxValueDs3.Size = new System.Drawing.Size(90, 21);
-            this.textBoxValueDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxValueDs3.TabIndex = 31;
-            this.textBoxValueDs3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxValueDs3.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxValueDs3.UseSystemPasswordChar = false;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel15.Controls.Add(this.listBoxAttributesDs3);
-            this.panel15.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel15.Location = new System.Drawing.Point(15, 95);
-            this.panel15.Name = "panel15";
-            this.panel15.Padding = new System.Windows.Forms.Padding(5);
-            this.panel15.Size = new System.Drawing.Size(508, 156);
-            this.panel15.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel15.TabIndex = 26;
-            this.panel15.Text = "panel15";
-            // 
-            // listBoxAttributesDs3
-            // 
-            this.listBoxAttributesDs3.BackColor = System.Drawing.Color.Aquamarine;
-            this.listBoxAttributesDs3.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.listBoxAttributesDs3.FormattingEnabled = true;
-            this.listBoxAttributesDs3.ItemHeight = 14;
-            this.listBoxAttributesDs3.Location = new System.Drawing.Point(4, 6);
-            this.listBoxAttributesDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAttributesDs3.Name = "listBoxAttributesDs3";
-            this.listBoxAttributesDs3.Size = new System.Drawing.Size(500, 144);
-            this.listBoxAttributesDs3.TabIndex = 22;
-            this.listBoxAttributesDs3.DoubleClick += new System.EventHandler(this.listBoxAttributesDs3_DoubleClick);
-            // 
-            // comboBoxHowAttributeDs3
-            // 
-            this.comboBoxHowAttributeDs3.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowAttributeDs3.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowAttributeDs3.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowAttributeDs3.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeDs3.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowAttributeDs3.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowAttributeDs3.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowAttributeDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowAttributeDs3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowAttributeDs3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowAttributeDs3.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowAttributeDs3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowAttributeDs3.FormattingEnabled = true;
-            this.comboBoxHowAttributeDs3.ItemHeight = 16;
-            this.comboBoxHowAttributeDs3.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowAttributeDs3.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowAttributeDs3.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowAttributeDs3.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowAttributeDs3.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowAttributeDs3.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeDs3.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowAttributeDs3.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowAttributeDs3.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeDs3.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeDs3.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowAttributeDs3.Location = new System.Drawing.Point(286, 41);
-            this.comboBoxHowAttributeDs3.Name = "comboBoxHowAttributeDs3";
-            this.comboBoxHowAttributeDs3.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowAttributeDs3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowAttributeDs3.StartIndex = -1;
-            this.comboBoxHowAttributeDs3.TabIndex = 26;
-            this.comboBoxHowAttributeDs3.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowAttributeDs3.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowAttributeDs3.Click += new System.EventHandler(this.btnAddAttributeDs3_Click);
-            // 
-            // btnAddAttributeDs3
-            // 
-            this.btnAddAttributeDs3.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddAttributeDs3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAttributeDs3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAttributeDs3.Image = null;
-            this.btnAddAttributeDs3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAttributeDs3.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.Location = new System.Drawing.Point(217, 69);
-            this.btnAddAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddAttributeDs3.Name = "btnAddAttributeDs3";
-            this.btnAddAttributeDs3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddAttributeDs3.Size = new System.Drawing.Size(99, 21);
-            this.btnAddAttributeDs3.TabIndex = 14;
-            this.btnAddAttributeDs3.Text = "Add";
-            this.btnAddAttributeDs3.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // comboBoxAttributeDs3
-            // 
-            this.comboBoxAttributeDs3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxAttributeDs3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.comboBoxAttributeDs3.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.comboBoxAttributeDs3.FormattingEnabled = true;
-            this.comboBoxAttributeDs3.Items.AddRange(new object[] {
-            "Vigor",
-            "Attunement",
-            "Endurance",
-            "Vitality",
-            "Strength",
-            "Dexterity",
-            "Intelligence",
-            "Faith",
-            "Luck",
-            "SoulLevel",
-            "Humanity"});
-            this.comboBoxAttributeDs3.Location = new System.Drawing.Point(101, 12);
-            this.comboBoxAttributeDs3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxAttributeDs3.Name = "comboBoxAttributeDs3";
-            this.comboBoxAttributeDs3.Size = new System.Drawing.Size(361, 24);
-            this.comboBoxAttributeDs3.TabIndex = 18;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.BackColor = System.Drawing.Color.Transparent;
-            this.label54.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.ForeColor = System.Drawing.Color.Black;
-            this.label54.Location = new System.Drawing.Point(443, 45);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(32, 16);
-            this.label54.TabIndex = 4;
-            this.label54.Text = "How";
             // 
             // btnRefreshDS3
             // 
@@ -9929,1450 +11377,6 @@ namespace AutoSplitterCore
             this.CupheadNotRunning.Size = new System.Drawing.Size(137, 15);
             this.CupheadNotRunning.TabIndex = 25;
             this.CupheadNotRunning.Text = "Cuphead is Not Running";
-            // 
-            // tabElden
-            // 
-            this.tabElden.BackColor = System.Drawing.Color.White;
-            this.tabElden.Controls.Add(this.panelPositionsER);
-            this.tabElden.Controls.Add(this.panelGraceER);
-            this.tabElden.Controls.Add(this.panelBossER);
-            this.tabElden.Controls.Add(this.label80);
-            this.tabElden.Controls.Add(this.comboBoxToSplitEldenRing);
-            this.tabElden.Controls.Add(this.EldenRingRunning);
-            this.tabElden.Controls.Add(this.EldenRingNotRunning);
-            this.tabElden.Controls.Add(this.btnRefreshE);
-            this.tabElden.Controls.Add(this.btn_DesactiveAllElden);
-            this.tabElden.Controls.Add(this.label30);
-            this.tabElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabElden.HorizontalScrollbarBarColor = true;
-            this.tabElden.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabElden.HorizontalScrollbarSize = 10;
-            this.tabElden.Location = new System.Drawing.Point(4, 44);
-            this.tabElden.Name = "tabElden";
-            this.tabElden.Size = new System.Drawing.Size(609, 352);
-            this.tabElden.TabIndex = 8;
-            this.tabElden.Text = "Elden Ring";
-            this.tabElden.UseCustomBackColor = true;
-            this.tabElden.VerticalScrollbarBarColor = true;
-            this.tabElden.VerticalScrollbarHighlightOnWheel = false;
-            this.tabElden.VerticalScrollbarSize = 10;
-            // 
-            // panelPositionsER
-            // 
-            this.panelPositionsER.BackColor = System.Drawing.Color.White;
-            this.panelPositionsER.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelPositionsER.Controls.Add(this.btnGetPositionEr);
-            this.panelPositionsER.Controls.Add(this.comboBoxSizeER);
-            this.panelPositionsER.Controls.Add(this.textBoxZEr);
-            this.panelPositionsER.Controls.Add(this.comboBoxHowPositionsER);
-            this.panelPositionsER.Controls.Add(this.textBoxYEr);
-            this.panelPositionsER.Controls.Add(this.textBoxTitlePositionER);
-            this.panelPositionsER.Controls.Add(this.textBoxXEr);
-            this.panelPositionsER.Controls.Add(this.label81);
-            this.panelPositionsER.Controls.Add(this.panel20);
-            this.panelPositionsER.Controls.Add(this.btnAddPositionER);
-            this.panelPositionsER.Controls.Add(this.label82);
-            this.panelPositionsER.Controls.Add(this.label83);
-            this.panelPositionsER.Controls.Add(this.label84);
-            this.panelPositionsER.Controls.Add(this.label86);
-            this.panelPositionsER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPositionsER.ForeColor = System.Drawing.Color.White;
-            this.panelPositionsER.Location = new System.Drawing.Point(34, 85);
-            this.panelPositionsER.Name = "panelPositionsER";
-            this.panelPositionsER.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPositionsER.ShowText = false;
-            this.panelPositionsER.Size = new System.Drawing.Size(539, 262);
-            this.panelPositionsER.TabIndex = 31;
-            this.panelPositionsER.Text = "lostBorderPanel1";
-            // 
-            // btnGetPositionEr
-            // 
-            this.btnGetPositionEr.BackColor = System.Drawing.Color.Transparent;
-            this.btnGetPositionEr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetPositionEr.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetPositionEr.Image = null;
-            this.btnGetPositionEr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetPositionEr.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.Location = new System.Drawing.Point(335, 75);
-            this.btnGetPositionEr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGetPositionEr.Name = "btnGetPositionEr";
-            this.btnGetPositionEr.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnGetPositionEr.Size = new System.Drawing.Size(99, 21);
-            this.btnGetPositionEr.TabIndex = 4;
-            this.btnGetPositionEr.Text = "Get Position";
-            this.btnGetPositionEr.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnGetPositionEr.Click += new System.EventHandler(this.btnGetPositionER_Click);
-            // 
-            // comboBoxSizeER
-            // 
-            this.comboBoxSizeER.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxSizeER.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxSizeER.BGColorB = System.Drawing.Color.MediumSlateBlue;
-            this.comboBoxSizeER.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeER.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxSizeER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxSizeER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSizeER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxSizeER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSizeER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxSizeER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxSizeER.FormattingEnabled = true;
-            this.comboBoxSizeER.ItemHeight = 16;
-            this.comboBoxSizeER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxSizeER.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxSizeER.LineColorA = System.Drawing.Color.White;
-            this.comboBoxSizeER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxSizeER.LineColorC = System.Drawing.Color.White;
-            this.comboBoxSizeER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxSizeER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxSizeER.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxSizeER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxSizeER.Location = new System.Drawing.Point(357, 47);
-            this.comboBoxSizeER.Name = "comboBoxSizeER";
-            this.comboBoxSizeER.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxSizeER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxSizeER.StartIndex = -1;
-            this.comboBoxSizeER.TabIndex = 30;
-            this.comboBoxSizeER.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxSizeER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxSizeER.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarginER_SelectedIndexChanged);
-            // 
-            // textBoxZEr
-            // 
-            this.textBoxZEr.BackColor = System.Drawing.Color.White;
-            this.textBoxZEr.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxZEr.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxZEr.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxZEr.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxZEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxZEr.Enabled = false;
-            this.textBoxZEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxZEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxZEr.Location = new System.Drawing.Point(297, 47);
-            this.textBoxZEr.MaxLength = 32767;
-            this.textBoxZEr.MultiLine = false;
-            this.textBoxZEr.Name = "textBoxZEr";
-            this.textBoxZEr.Size = new System.Drawing.Size(51, 21);
-            this.textBoxZEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxZEr.TabIndex = 32;
-            this.textBoxZEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxZEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxZEr.UseSystemPasswordChar = false;
-            // 
-            // comboBoxHowPositionsER
-            // 
-            this.comboBoxHowPositionsER.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowPositionsER.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowPositionsER.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowPositionsER.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsER.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowPositionsER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowPositionsER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowPositionsER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowPositionsER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowPositionsER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowPositionsER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowPositionsER.FormattingEnabled = true;
-            this.comboBoxHowPositionsER.ItemHeight = 16;
-            this.comboBoxHowPositionsER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowPositionsER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowPositionsER.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowPositionsER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowPositionsER.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowPositionsER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowPositionsER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowPositionsER.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowPositionsER.Location = new System.Drawing.Point(57, 47);
-            this.comboBoxHowPositionsER.Name = "comboBoxHowPositionsER";
-            this.comboBoxHowPositionsER.Size = new System.Drawing.Size(111, 22);
-            this.comboBoxHowPositionsER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowPositionsER.StartIndex = -1;
-            this.comboBoxHowPositionsER.TabIndex = 29;
-            this.comboBoxHowPositionsER.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowPositionsER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // textBoxYEr
-            // 
-            this.textBoxYEr.BackColor = System.Drawing.Color.White;
-            this.textBoxYEr.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxYEr.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxYEr.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxYEr.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxYEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxYEr.Enabled = false;
-            this.textBoxYEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxYEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxYEr.Location = new System.Drawing.Point(240, 47);
-            this.textBoxYEr.MaxLength = 32767;
-            this.textBoxYEr.MultiLine = false;
-            this.textBoxYEr.Name = "textBoxYEr";
-            this.textBoxYEr.Size = new System.Drawing.Size(51, 21);
-            this.textBoxYEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxYEr.TabIndex = 31;
-            this.textBoxYEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxYEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxYEr.UseSystemPasswordChar = false;
-            // 
-            // textBoxTitlePositionER
-            // 
-            this.textBoxTitlePositionER.BackColor = System.Drawing.Color.White;
-            this.textBoxTitlePositionER.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxTitlePositionER.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxTitlePositionER.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxTitlePositionER.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxTitlePositionER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxTitlePositionER.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxTitlePositionER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxTitlePositionER.Location = new System.Drawing.Point(196, 75);
-            this.textBoxTitlePositionER.MaxLength = 32767;
-            this.textBoxTitlePositionER.MultiLine = false;
-            this.textBoxTitlePositionER.Name = "textBoxTitlePositionER";
-            this.textBoxTitlePositionER.Size = new System.Drawing.Size(125, 21);
-            this.textBoxTitlePositionER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxTitlePositionER.TabIndex = 28;
-            this.textBoxTitlePositionER.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTitlePositionER.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxTitlePositionER.UseSystemPasswordChar = false;
-            // 
-            // textBoxXEr
-            // 
-            this.textBoxXEr.BackColor = System.Drawing.Color.White;
-            this.textBoxXEr.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxXEr.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxXEr.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxXEr.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxXEr.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.textBoxXEr.Enabled = false;
-            this.textBoxXEr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxXEr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.textBoxXEr.Location = new System.Drawing.Point(181, 47);
-            this.textBoxXEr.MaxLength = 32767;
-            this.textBoxXEr.MultiLine = false;
-            this.textBoxXEr.Name = "textBoxXEr";
-            this.textBoxXEr.Size = new System.Drawing.Size(51, 21);
-            this.textBoxXEr.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxXEr.TabIndex = 30;
-            this.textBoxXEr.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxXEr.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxXEr.UseSystemPasswordChar = false;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.ForeColor = System.Drawing.Color.Black;
-            this.label81.Location = new System.Drawing.Point(122, 72);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(64, 32);
-            this.label81.TabIndex = 14;
-            this.label81.Text = "     Title\r\n(Optional)";
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel20.Controls.Add(this.listBoxPositionsER);
-            this.panel20.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel20.Location = new System.Drawing.Point(13, 130);
-            this.panel20.Name = "panel20";
-            this.panel20.Padding = new System.Windows.Forms.Padding(5);
-            this.panel20.Size = new System.Drawing.Size(515, 125);
-            this.panel20.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel20.TabIndex = 27;
-            this.panel20.Text = "panel20";
-            // 
-            // listBoxPositionsER
-            // 
-            this.listBoxPositionsER.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxPositionsER.FormattingEnabled = true;
-            this.listBoxPositionsER.ItemHeight = 16;
-            this.listBoxPositionsER.Location = new System.Drawing.Point(3, 4);
-            this.listBoxPositionsER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxPositionsER.Name = "listBoxPositionsER";
-            this.listBoxPositionsER.Size = new System.Drawing.Size(507, 116);
-            this.listBoxPositionsER.TabIndex = 6;
-            this.listBoxPositionsER.DoubleClick += new System.EventHandler(this.listBoxPositionsER_DoubleClick);
-            // 
-            // btnAddPositionER
-            // 
-            this.btnAddPositionER.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPositionER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPositionER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPositionER.Image = null;
-            this.btnAddPositionER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPositionER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.Location = new System.Drawing.Point(207, 104);
-            this.btnAddPositionER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddPositionER.Name = "btnAddPositionER";
-            this.btnAddPositionER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddPositionER.Size = new System.Drawing.Size(99, 21);
-            this.btnAddPositionER.TabIndex = 5;
-            this.btnAddPositionER.Text = "Add";
-            this.btnAddPositionER.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddPositionER.Click += new System.EventHandler(this.btnAddPositionER_Click);
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.ForeColor = System.Drawing.Color.Black;
-            this.label82.Location = new System.Drawing.Point(230, 11);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(80, 16);
-            this.label82.TabIndex = 12;
-            this.label82.Text = "Coordinates:";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.ForeColor = System.Drawing.Color.Black;
-            this.label83.Location = new System.Drawing.Point(401, 24);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(31, 16);
-            this.label83.TabIndex = 11;
-            this.label83.Text = "Size";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.ForeColor = System.Drawing.Color.Black;
-            this.label84.Location = new System.Drawing.Point(202, 29);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(125, 16);
-            this.label84.TabIndex = 10;
-            this.label84.Text = "X            Y            Z";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.ForeColor = System.Drawing.Color.Black;
-            this.label86.Location = new System.Drawing.Point(88, 28);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(37, 16);
-            this.label86.TabIndex = 9;
-            this.label86.Text = "How:";
-            // 
-            // panelGraceER
-            // 
-            this.panelGraceER.BackColor = System.Drawing.Color.White;
-            this.panelGraceER.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelGraceER.Controls.Add(this.checkBoxViewDlcGrace);
-            this.panelGraceER.Controls.Add(this.comboBoxGraceDLC_ER);
-            this.panelGraceER.Controls.Add(this.label41);
-            this.panelGraceER.Controls.Add(this.btnAddGraceER);
-            this.panelGraceER.Controls.Add(this.panel24);
-            this.panelGraceER.Controls.Add(this.comboBoxHowGraceER);
-            this.panelGraceER.Controls.Add(this.label42);
-            this.panelGraceER.Controls.Add(this.comboBoxGraceER);
-            this.panelGraceER.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelGraceER.ForeColor = System.Drawing.Color.White;
-            this.panelGraceER.Location = new System.Drawing.Point(34, 85);
-            this.panelGraceER.Name = "panelGraceER";
-            this.panelGraceER.Padding = new System.Windows.Forms.Padding(5);
-            this.panelGraceER.ShowText = false;
-            this.panelGraceER.Size = new System.Drawing.Size(539, 262);
-            this.panelGraceER.TabIndex = 31;
-            this.panelGraceER.Text = "lostBorderPanel1";
-            // 
-            // checkBoxViewDlcGrace
-            // 
-            this.checkBoxViewDlcGrace.AutoSize = true;
-            this.checkBoxViewDlcGrace.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxViewDlcGrace.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxViewDlcGrace.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxViewDlcGrace.Location = new System.Drawing.Point(363, 46);
-            this.checkBoxViewDlcGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxViewDlcGrace.Name = "checkBoxViewDlcGrace";
-            this.checkBoxViewDlcGrace.Size = new System.Drawing.Size(106, 18);
-            this.checkBoxViewDlcGrace.TabIndex = 17;
-            this.checkBoxViewDlcGrace.Text = "View DLC Only";
-            this.checkBoxViewDlcGrace.UseVisualStyleBackColor = false;
-            this.checkBoxViewDlcGrace.CheckStateChanged += new System.EventHandler(this.checkBoxViewDlcGrace_CheckStateChanged);
-            // 
-            // comboBoxGraceDLC_ER
-            // 
-            this.comboBoxGraceDLC_ER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxGraceDLC_ER.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.comboBoxGraceDLC_ER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGraceDLC_ER.FormattingEnabled = true;
-            this.comboBoxGraceDLC_ER.Items.AddRange(new object[] {
-            "Theatre of the Divine Beast",
-            "Belurat, Tower Settlement",
-            "Small Private Altar",
-            "Stagefront",
-            "Gate of Divinity",
-            "Enir-Ilim: Outer Wall",
-            "First Rise",
-            "Spiral Rise",
-            "Cleansing Chamber Anteroom",
-            "Divine Gate Front Staircase",
-            "Main Gate Plaza",
-            "Shadow Keep Main Gate",
-            "Church District Entrance",
-            "Sunken Chapel",
-            "Tree,Worship Passage",
-            "Tree,Worship Sanctum",
-            "Messmer\'s Dark Chamber",
-            "Storehouse, First Floor",
-            "Storehouse, Fourth Floor",
-            "Storehouse, Seventh Floor",
-            "Dark Chamber Entrance",
-            "Storehouse, Back Section",
-            "Storehouse, Loft",
-            "West Rampart",
-            "Garden of Deep Purple",
-            "Stone Coffin Fissure",
-            "Fissure Cross",
-            "Fissure Waypoint",
-            "Fissure Depths",
-            "Finger Birthing Grounds",
-            "Discussion Chamber",
-            "Manse Hall",
-            "Midra\'s Library",
-            "Second Floor Chamber",
-            "Fog Rift Catacombs",
-            "Ruined Forge Lava Intake",
-            "Rivermouth Cave",
-            "Dragon\'s Pit",
-            "Dragon\'s Pit Terminus",
-            "Cliffroad Terminus",
-            "Main Gate Cross",
-            "Gravesite Plain",
-            "Three,Path Cross",
-            "Greatbridge, North",
-            "Scorched Ruins",
-            "Ellac River Cave",
-            "Castle Front",
-            "Pillar Path Waypoint",
-            "Pillar Path Cross",
-            "Belurat Gaol",
-            "Ellac River Downstream",
-            "Charo\'s Hidden Grave",
-            "Lamenter\'s Gaol",
-            "Castle Ensis Checkpoint",
-            "Ensis Moongazing Grounds",
-            "Castle,Lord\'s Chamber",
-            "Cerulean Coast West",
-            "The Fissure",
-            "Cerulean Coast Cross",
-            "Cerulean Coast",
-            "Finger Ruins of Rhia",
-            "Grand Altar of Dragon Communion",
-            "Divided Falls",
-            "Abyssal Woods",
-            "Forsaken Graveyard",
-            "Church Ruins",
-            "Woodland Trail",
-            "Foot of the Jagged Peak",
-            "Jagged Peak Mountainside",
-            "Jagged Peak Summit",
-            "Rest of the Dread Dragon",
-            "Ancient Ruins, Grand Stairway",
-            "Church of the Bud",
-            "Church of the Bud, Main Entrance",
-            "Rauh Ancient Ruins, West",
-            "Rauh Ancient Ruins, East",
-            "Viaduct Minor Tower",
-            "Temple Town Ruins",
-            "Ravine North",
-            "Scorpion River Catacombs",
-            "Taylew\'s Ruined Forge",
-            "Ancient Ruins Base",
-            "Darklight Catacombs",
-            "Bonny Gaol",
-            "Highroad Cross",
-            "Scadu Altus, West",
-            "Moorth Highway, South",
-            "Fort of Reprimand",
-            "Behind the Fort of Reprimand",
-            "Moorth Ruins",
-            "Bonny Village",
-            "Castle Watering Hole",
-            "Ruined Forge of Starfall Past",
-            "Scaduview Cross",
-            "Recluses\' River Downstream",
-            "Recluses\' River Upstream",
-            "Bridge Leading to the Village",
-            "Cathedral of Manus Metyr",
-            "Church District Highroad",
-            "Scaduview",
-            "Shadow Keep, Back Gate",
-            "Fingerstone Hill",
-            "Hinterland Bridge",
-            "Hinterland",
-            "Scadutree Base"});
-            this.comboBoxGraceDLC_ER.Location = new System.Drawing.Point(97, 14);
-            this.comboBoxGraceDLC_ER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxGraceDLC_ER.Name = "comboBoxGraceDLC_ER";
-            this.comboBoxGraceDLC_ER.Size = new System.Drawing.Size(335, 22);
-            this.comboBoxGraceDLC_ER.TabIndex = 18;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BackColor = System.Drawing.Color.Transparent;
-            this.label41.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(40, 15);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(39, 16);
-            this.label41.TabIndex = 33;
-            this.label41.Text = "grace";
-            // 
-            // btnAddGraceER
-            // 
-            this.btnAddGraceER.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddGraceER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddGraceER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.btnAddGraceER.Image = null;
-            this.btnAddGraceER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddGraceER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.Location = new System.Drawing.Point(213, 68);
-            this.btnAddGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddGraceER.Name = "btnAddGraceER";
-            this.btnAddGraceER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddGraceER.Size = new System.Drawing.Size(99, 21);
-            this.btnAddGraceER.TabIndex = 15;
-            this.btnAddGraceER.Text = "Add";
-            this.btnAddGraceER.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddGraceER.Click += new System.EventHandler(this.btnAddGraceER_Click);
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel24.Controls.Add(this.listBoxGrace);
-            this.panel24.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel24.Location = new System.Drawing.Point(15, 95);
-            this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(5);
-            this.panel24.Size = new System.Drawing.Size(508, 156);
-            this.panel24.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel24.TabIndex = 26;
-            this.panel24.Text = "panel24";
-            // 
-            // listBoxGrace
-            // 
-            this.listBoxGrace.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.listBoxGrace.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxGrace.FormattingEnabled = true;
-            this.listBoxGrace.ItemHeight = 14;
-            this.listBoxGrace.Location = new System.Drawing.Point(4, 5);
-            this.listBoxGrace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxGrace.Name = "listBoxGrace";
-            this.listBoxGrace.Size = new System.Drawing.Size(500, 144);
-            this.listBoxGrace.TabIndex = 16;
-            this.listBoxGrace.DoubleClick += new System.EventHandler(this.listBoxGrace_DoubleClick);
-            // 
-            // comboBoxHowGraceER
-            // 
-            this.comboBoxHowGraceER.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowGraceER.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowGraceER.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowGraceER.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowGraceER.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowGraceER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowGraceER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowGraceER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowGraceER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowGraceER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowGraceER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowGraceER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowGraceER.FormattingEnabled = true;
-            this.comboBoxHowGraceER.ItemHeight = 16;
-            this.comboBoxHowGraceER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowGraceER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowGraceER.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowGraceER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowGraceER.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowGraceER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowGraceER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowGraceER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowGraceER.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowGraceER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowGraceER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowGraceER.Location = new System.Drawing.Point(192, 41);
-            this.comboBoxHowGraceER.Name = "comboBoxHowGraceER";
-            this.comboBoxHowGraceER.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowGraceER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowGraceER.StartIndex = -1;
-            this.comboBoxHowGraceER.TabIndex = 26;
-            this.comboBoxHowGraceER.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowGraceER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.Transparent;
-            this.label42.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.Black;
-            this.label42.Location = new System.Drawing.Point(154, 43);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(32, 16);
-            this.label42.TabIndex = 4;
-            this.label42.Text = "How";
-            // 
-            // comboBoxGraceER
-            // 
-            this.comboBoxGraceER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxGraceER.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.comboBoxGraceER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGraceER.FormattingEnabled = true;
-            this.comboBoxGraceER.Items.AddRange(new object[] {
-            "Raya Lucaria Grand Library",
-            "Debate Parlor",
-            "Church of the Cuckoo",
-            "Schoolhouse Classroom",
-            "Dragonkin Soldier of Nokstella",
-            "Ainsel River Well Depths",
-            "Ainsel River Sluice Gate",
-            "Ainsel River Downstream",
-            "Astel, Naturalborn of the Void",
-            "Ainsel River Main",
-            "Nokstella, Eternal City",
-            "Nokstella Waterfall Basin",
-            "Sainted Hero\'s Grave",
-            "Unsightly Catacombs",
-            "Perfumer\'s Grotto",
-            "Sage\'s Cave",
-            "Old Altus Tunnel",
-            "Altus Tunnel",
-            "Abandoned Coffin",
-            "Altus Plateau",
-            "Erdtree-Gazing Hill",
-            "Altus Highway Junction",
-            "Forest-Spanning Greatbridge",
-            "Rampartside Path",
-            "Bower of Bounty",
-            "Road of Iniquity Side Path",
-            "Windmill Village",
-            "Windmill Heights",
-            "Shaded Castle Ramparts",
-            "Shaded Castle Inner Gate",
-            "Castellan\'s Hall",
-            "East Raya Lucaria Gate",
-            "Bellum Church",
-            "Frenzied Flame Village Outskirts",
-            "Church of Inhibition",
-            "Minor Erdtree Catacombs",
-            "Caelid Catacombs",
-            "War-Dead Catacombs",
-            "Abandoned Cave",
-            "Gaol Cave",
-            "Gael Tunnel",
-            "Rear Gael Tunnel Entrance",
-            "Sellia Crystal Tunnel",
-            "Smoldering Church",
-            "Rotview Balcony",
-            "Fort Gael North",
-            "Caelem Ruins",
-            "Cathedral of Dragon Communion",
-            "Caelid Highway South",
-            "Smoldering Wall",
-            "Deep Siofra Well",
-            "Southern Aeonia Swamp Bank",
-            "Sellia Backstreets",
-            "Chair-Crypt of Sellia",
-            "Sellia Under-Stair",
-            "Impassable Greatbridge",
-            "Church of the Plague",
-            "Redmane Castle Plaza",
-            "Chamber Outside the Plaza",
-            "Starscourge Radahn",
-            "Auriza Hero\'s Grave",
-            "Auriza Side Tomb",
-            "Divine Tower of West Altus",
-            "Sealed Tunnel",
-            "Divine Tower of West Altus: Gate",
-            "Outer Wall Phantom Tree",
-            "Minor Erdtree Church",
-            "Hermit Merchant\'s Shack",
-            "Outer Wall Battleground",
-            "Capital Rampart",
-            "Consecrated Snowfield Catacombs",
-            "Cave of the Forlorn",
-            "Yelough Anix Tunnel",
-            "Consecrated Snowfield",
-            "Inner Consecrated Snowfield",
-            "Ordina, Liturgical Town",
-            "Apostate Derelict",
-            "Maliketh, the Black Blade",
-            "Dragonlord Placidusax",
-            "Dragon Temple Altar",
-            "Crumbling Beast Grave",
-            "Crumbling Beast Grave Depths",
-            "Tempest-Facing Balcony",
-            "Dragon Temple",
-            "Dragon Temple Transept",
-            "Dragon Temple Lift",
-            "Dragon Temple Rooftop",
-            "Beside the Great Bridge",
-            "Prince of Death\'s Throne",
-            "Root-Facing Cliffs",
-            "Great Waterfall Crest",
-            "Deeproot Depths",
-            "The Nameless Eternal City",
-            "Across the Roots",
-            "Fractured Marika",
-            "Malenia, Goddess of Rot",
-            "Prayer Room",
-            "Elphael Inner Wall",
-            "Drainage Channel",
-            "Haligtree Roots",
-            "Giant-Conquering Hero\'s Grave",
-            "Giants\' Mountaintop Catacombs",
-            "Giants\' Gravepost",
-            "Church of Repose",
-            "Foot of the Forge",
-            "Fire Giant",
-            "Forge of the Giants",
-            "Hidden Path to the Haligtree",
-            "Divine Tower of East Altus: Gate",
-            "Divine Tower of East Altus",
-            "Forbidden Lands",
-            "Grand Lift of Rold",
-            "Dragonbarrow Cave",
-            "Sellia Hideaway",
-            "Divine Tower of Caelid",
-            "Divine Tower of Caelid: Center",
-            "Isolated Divine Tower",
-            "Dragonbarrow West",
-            "Isolated Merchant\'s Shack (Greyoll\'s Dragonbarrow)",
-            "Dragonbarrow Fork",
-            "Fort Faroth",
-            "Bestial Sanctum",
-            "Lenne\'s Rise",
-            "Farum Greatbridge",
-            "Lake of Rot Shoreside",
-            "Grand Cloister",
-            "Elden Throne (Leyndell, Ashen Capital)",
-            "Erdtree Sanctuary (Leyndell, Ashen Capital)",
-            "East Capital Rampart (Leyndell, Ashen Capital)",
-            "Leyndell, Capital of Ash",
-            "Queen\'s Bedchamber (Leyndell, Ashen Capital)",
-            "Divine Bridge (Leyndell, Ashen Capital)",
-            "Elden Throne (Leyndell, Royal Capital)",
-            "Erdtree Sanctuary (Leyndell, Royal Capital)",
-            "East Capital Rampart (Leyndell, Royal Capital)",
-            "Lower Capital Church",
-            "Avenue Balcony",
-            "West Capital Rampart",
-            "Queen\'s Bedchamber (Leyndell, Royal Capital)",
-            "Fortified Manor, First Floor",
-            "Divine Bridge (Leyndell, Royal Capital)",
-            "Stormfoot Catacombs",
-            "Murkwater Catacombs",
-            "Murkwater Cave",
-            "Groveside Cave",
-            "Coastal Cave",
-            "Highroad Cave",
-            "Limgrave Tunnels",
-            "Church of Elleh",
-            "The First Step",
-            "Artist\'s Shack (Limgrave)",
-            "Third Church of Marika",
-            "Fort Haight West",
-            "Agheel Lake South",
-            "Agheel Lake North",
-            "Church of Dragon Communion",
-            "Gatefront",
-            "Seaside Ruins",
-            "Mistwood Outskirts",
-            "Murkwater Coast",
-            "Summonwater Village Outskirts",
-            "Waypoint Ruins Cellar",
-            "Road\'s End Catacombs",
-            "Black Knife Catacombs",
-            "Cliffbottom Catacombs",
-            "Stillwater Cave",
-            "Lakeside Crystal Cave",
-            "Academy Crystal Cave",
-            "Raya Lucaria Crystal Tunnel",
-            "Study Hall Entrance",
-            "Liurnia Tower Bridge",
-            "Divine Tower of Liurnia",
-            "Lake-Facing Cliffs",
-            "Liurnia Lake Shore",
-            "Laskyar Ruins",
-            "Scenic Isle",
-            "Academy Gate Town",
-            "South Raya Lucaria Gate",
-            "Main Academy Gate",
-            "Grand Lift of Dectus",
-            "Foot of the Four Belfries",
-            "Sorcerer\'s Isle",
-            "Northern Liurnia Lake Shore",
-            "Road to the Manor",
-            "Main Caria Manor Gate",
-            "Slumbering Wolf\'s Shack",
-            "Boilprawn Shack",
-            "Artist\'s Shack (Liurnia of the Lakes)",
-            "Revenger\'s Shack",
-            "Folly on the Lake",
-            "Village of the Albinaurics",
-            "Liurnia Highway North",
-            "Gate Town Bridge",
-            "Eastern Liurnia Lake Shore",
-            "Church of Vows",
-            "Ruined Labyrinth",
-            "Mausoleum Compound",
-            "The Four Belfries",
-            "Ranni\'s Rise",
-            "Ravine-Veiled Village",
-            "Manor Upper Level",
-            "Manor Lower Level",
-            "Royal Moongazing Grounds",
-            "Gate Town North",
-            "Eastern Tableland",
-            "The Ravine",
-            "Fallen Ruins of the Lake",
-            "Converted Tower",
-            "Behind Caria Manor",
-            "Temple Quarter",
-            "East Gate Bridge Trestle",
-            "Crystalline Woods",
-            "Liurnia Highway South",
-            "Jarburg",
-            "Ranni\'s Chamber",
-            "Haligtree Promenade",
-            "Haligtree Canopy",
-            "Haligtree Town",
-            "Haligtree Town Plaza",
-            "Cocoon of the Empyrean",
-            "Palace Approach Ledge-Road",
-            "Dynasty Mausoleum Entrance",
-            "Dynasty Mausoleum Midpoint",
-            "Moonlight Altar",
-            "Cathedral of Manus Celes",
-            "Altar South",
-            "Spiritcaller\'s Cave",
-            "Zamor Ruins",
-            "Ancient Snow Valley Ruins",
-            "Freezing Lake",
-            "First Church of Marika",
-            "Whiteridge Road",
-            "Snow Valley Ruins Overlook",
-            "Castle Sol Main Gate",
-            "Church of the Eclipse",
-            "Castle Sol Rooftop",
-            "Wyndham Catacombs",
-            "Gelmir Hero\'s Grave",
-            "Seethewater Cave",
-            "Volcano Cave",
-            "Bridge of Iniquity",
-            "First Mt. Gelmir Campsite",
-            "Ninth Mt. Gelmir Campsite",
-            "Road of Iniquity",
-            "Seethewater River",
-            "Seethewater Terminus",
-            "Craftsman\'s Shack",
-            "Primeval Sorcerer Azur",
-            "Great Waterfall Basin",
-            "Mimic Tear",
-            "Ancestral Woods",
-            "Aqueduct-Facing Cliffs",
-            "Night\'s Sacred Ground",
-            "Nokron, Eternal City",
-            "Table of Lost Grace",
-            "Magma Wyrm",
-            "Ruin-Strewn Precipice",
-            "Ruin-Strewn Precipice Overlook",
-            "Siofra River Bank",
-            "Worshippers\' Woods",
-            "Below the Well",
-            "Siofra River Well Depths",
-            "Deathtouched Catacombs",
-            "Limgrave Tower Bridge",
-            "Divine Tower of Limgrave",
-            "Stormhill Shack",
-            "Saintsbridge",
-            "Warmaster\'s Shack",
-            "Godrick the Grafted",
-            "Margit, the Fell Omen",
-            "Castleward Tunnel",
-            "Gateside Chamber",
-            "Stormveil Cliffside",
-            "Rampart Tower",
-            "Liftside Chamber",
-            "Secluded Cell",
-            "Stormveil Main Gate",
-            "Cave of Knowledge",
-            "Stranded Graveyard",
-            "Cathedral of the Forsaken",
-            "Underground Roadside",
-            "Forsaken Depths",
-            "Leyndell Catacombs",
-            "Frenzied Flame Proscription",
-            "Aeonia Swamp Shore",
-            "Astray from Caelid Highway North",
-            "Heart of Aeonia",
-            "Inner Aeonia",
-            "Rykard, Lord of Blasphemy",
-            "Temple of Eiglay",
-            "Volcano Manor",
-            "Prison Town Church",
-            "Guest Hall",
-            "Audience Pathway",
-            "Abductor Virgin",
-            "Subterranean Inquisition Chamber",
-            "Tombsward Catacombs",
-            "Impaler\'s Catacombs",
-            "Earthbore Cave",
-            "Tombsward Cave",
-            "Morne Tunnel",
-            "Church of Pilgrimage",
-            "Castle Morne Rampart",
-            "Tombsward",
-            "South of the Lookout Tower",
-            "Ailing Village Outskirts",
-            "Beside the Crater-Pocked Glade",
-            "Isolated Merchant\'s Shack (Weeping Peninsula)",
-            "Bridge of Sacrifice",
-            "Castle Morne Lift",
-            "Behind the Castle",
-            "Beside the Rampart Gaol",
-            "Morne Moangrave",
-            "Fourth Church of Marika"});
-            this.comboBoxGraceER.Location = new System.Drawing.Point(91, 14);
-            this.comboBoxGraceER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxGraceER.Name = "comboBoxGraceER";
-            this.comboBoxGraceER.Size = new System.Drawing.Size(361, 22);
-            this.comboBoxGraceER.TabIndex = 9;
-            // 
-            // panelBossER
-            // 
-            this.panelBossER.BackColor = System.Drawing.Color.White;
-            this.panelBossER.BorderColor = System.Drawing.Color.SteelBlue;
-            this.panelBossER.Controls.Add(this.comboBoxBossER_DLC);
-            this.panelBossER.Controls.Add(this.checkBoxDLCBoss);
-            this.panelBossER.Controls.Add(this.btnAddBossER);
-            this.panelBossER.Controls.Add(this.panel22);
-            this.panelBossER.Controls.Add(this.comboBoxHowBossER);
-            this.panelBossER.Controls.Add(this.comboBoxBossER);
-            this.panelBossER.Controls.Add(this.label36);
-            this.panelBossER.Controls.Add(this.label87);
-            this.panelBossER.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.panelBossER.ForeColor = System.Drawing.Color.White;
-            this.panelBossER.Location = new System.Drawing.Point(34, 85);
-            this.panelBossER.Name = "panelBossER";
-            this.panelBossER.Padding = new System.Windows.Forms.Padding(5);
-            this.panelBossER.ShowText = false;
-            this.panelBossER.Size = new System.Drawing.Size(539, 262);
-            this.panelBossER.TabIndex = 31;
-            this.panelBossER.Text = "lostBorderPanel1";
-            // 
-            // comboBoxBossER_DLC
-            // 
-            this.comboBoxBossER_DLC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxBossER_DLC.BackColor = System.Drawing.Color.Khaki;
-            this.comboBoxBossER_DLC.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBossER_DLC.FormattingEnabled = true;
-            this.comboBoxBossER_DLC.Items.AddRange(new object[] {
-            "Ghostflame Dragon - Gravesite Plain (Northwest)",
-            "Blackgaol Knight - Western Nameless Mausoleum",
-            "Chief Bloodfiend - Rivermouth Cave",
-            "Lamenter - Lamenter\'s Gaol",
-            "Demi-Human Swordmaster Onze - Belurat Gaol",
-            "Divine Beast Dancing Lion - Belurat, Tower Settlement",
-            "Rellana, Twin Moon Knight - Castle Ensis",
-            "Ghostflame Dragon",
-            "Ralva the Great Red Bear",
-            "Rugalea the Great Red Bear - Rauh Base (Northwest)",
-            "Dryleaf Dane - Moorth Ruins",
-            "Black Knight Edredd - Fort of Reprimand",
-            "Black Knight Garrew - Fog Rift Fort",
-            "Red Bear - Northern Nameless Mausoleum",
-            "Rakshasa - Eastern Nameless Mausoleum",
-            "Metyr, Mother of Fingers - Cathedral of Manus Metyr",
-            "Count Ymir, Mother of Fingers - Cathedral of Manus Metyr",
-            "Death Knight - Fog Rift Catacombs",
-            "Death Knight - Scorpion River Catacombs",
-            "Curseblade Labirith - Bonny Gaol",
-            "Golden Hippopotamus - Main Gate Plaza",
-            "Base Serpent Messmer - Messmer\'s Dark Chamber",
-            "Divine Beast Dancing Lion - Ancient Ruins of Rauh",
-            "Romina, Saint of the Bud - Church of the Bud",
-            "Ghostflame Dragon - Cerulean Coast",
-            "Dancer of Ranah - Southern Nameless Mausoleum",
-            "Putrescent Knight - Stone Coffin Fissure",
-            "Death Rite Bird - Charo\'s Hidden Grave",
-            "Demi-Human Queen Marigga - Charo\'s Hidden Grave (West)",
-            "Jagged Peak Drake - Foot of the Jagged Peak",
-            "Jagged Peak Drake - Jagged Peak Mountainside",
-            "Ancient Dragon-Man - Dragon\'s Pit",
-            "Ancient Dragon Senessax - Jagged Peak Mountainside",
-            "Bayle the Dread - Jagged Peak Summit",
-            "Tree Sentinel - Hinterland",
-            "Tree Sentinel - Hinterland Bridge",
-            "Fallingstar Beast - Fingerstone Hill",
-            "Commander Gaius - Scaduview",
-            "Scadutree Avatar - Scadutree Base",
-            "Jori, Elder Inquisitor - Darklight Catacombs",
-            "Midra, Lord of Frenzied Flame - Midra\'s Manse",
-            "Radahn, Consort of Miquella - Enir-Ilim"});
-            this.comboBoxBossER_DLC.Location = new System.Drawing.Point(207, 32);
-            this.comboBoxBossER_DLC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxBossER_DLC.Name = "comboBoxBossER_DLC";
-            this.comboBoxBossER_DLC.Size = new System.Drawing.Size(277, 22);
-            this.comboBoxBossER_DLC.TabIndex = 16;
-            // 
-            // checkBoxDLCBoss
-            // 
-            this.checkBoxDLCBoss.AutoSize = true;
-            this.checkBoxDLCBoss.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxDLCBoss.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxDLCBoss.Location = new System.Drawing.Point(357, 67);
-            this.checkBoxDLCBoss.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxDLCBoss.Name = "checkBoxDLCBoss";
-            this.checkBoxDLCBoss.Size = new System.Drawing.Size(106, 18);
-            this.checkBoxDLCBoss.TabIndex = 15;
-            this.checkBoxDLCBoss.Text = "View DLC Boss";
-            this.checkBoxDLCBoss.UseVisualStyleBackColor = true;
-            this.checkBoxDLCBoss.CheckStateChanged += new System.EventHandler(this.checkBoxDLC_CheckStateChanged);
-            // 
-            // btnAddBossER
-            // 
-            this.btnAddBossER.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddBossER.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddBossER.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBossER.Image = null;
-            this.btnAddBossER.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddBossER.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.Location = new System.Drawing.Point(215, 67);
-            this.btnAddBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddBossER.Name = "btnAddBossER";
-            this.btnAddBossER.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnAddBossER.Size = new System.Drawing.Size(99, 21);
-            this.btnAddBossER.TabIndex = 14;
-            this.btnAddBossER.Text = "Add";
-            this.btnAddBossER.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnAddBossER.Click += new System.EventHandler(this.btnAddBossER_Click);
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel22.Controls.Add(this.listBoxBossER);
-            this.panel22.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.panel22.Location = new System.Drawing.Point(15, 95);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(5);
-            this.panel22.Size = new System.Drawing.Size(508, 156);
-            this.panel22.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.panel22.TabIndex = 26;
-            this.panel22.Text = "panel22";
-            // 
-            // listBoxBossER
-            // 
-            this.listBoxBossER.BackColor = System.Drawing.Color.Khaki;
-            this.listBoxBossER.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxBossER.FormattingEnabled = true;
-            this.listBoxBossER.ItemHeight = 14;
-            this.listBoxBossER.Location = new System.Drawing.Point(4, 6);
-            this.listBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxBossER.Name = "listBoxBossER";
-            this.listBoxBossER.Size = new System.Drawing.Size(500, 144);
-            this.listBoxBossER.TabIndex = 7;
-            this.listBoxBossER.DoubleClick += new System.EventHandler(this.listBoxBossER_DoubleClick);
-            // 
-            // comboBoxHowBossER
-            // 
-            this.comboBoxHowBossER.BackColor = System.Drawing.Color.Transparent;
-            this.comboBoxHowBossER.BGColorA = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxHowBossER.BGColorB = System.Drawing.Color.SkyBlue;
-            this.comboBoxHowBossER.BorderColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossER.BorderColorB = System.Drawing.Color.Teal;
-            this.comboBoxHowBossER.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossER.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.comboBoxHowBossER.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxHowBossER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxHowBossER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHowBossER.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
-            this.comboBoxHowBossER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.comboBoxHowBossER.FormattingEnabled = true;
-            this.comboBoxHowBossER.ItemHeight = 16;
-            this.comboBoxHowBossER.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
-            this.comboBoxHowBossER.Items.AddRange(new object[] {
-            "Inmediatly",
-            "Loading game after"});
-            this.comboBoxHowBossER.LineColorA = System.Drawing.Color.White;
-            this.comboBoxHowBossER.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.comboBoxHowBossER.LineColorC = System.Drawing.Color.White;
-            this.comboBoxHowBossER.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossER.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxHowBossER.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.comboBoxHowBossER.ListForeColor = System.Drawing.Color.Black;
-            this.comboBoxHowBossER.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossER.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxHowBossER.Location = new System.Drawing.Point(20, 32);
-            this.comboBoxHowBossER.Name = "comboBoxHowBossER";
-            this.comboBoxHowBossER.Size = new System.Drawing.Size(151, 22);
-            this.comboBoxHowBossER.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowBossER.StartIndex = -1;
-            this.comboBoxHowBossER.TabIndex = 26;
-            this.comboBoxHowBossER.TriangleColorA = System.Drawing.Color.Black;
-            this.comboBoxHowBossER.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            // 
-            // comboBoxBossER
-            // 
-            this.comboBoxBossER.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxBossER.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.comboBoxBossER.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBossER.FormattingEnabled = true;
-            this.comboBoxBossER.Items.AddRange(new object[] {
-            "Godrick the Grafted - Stormveil Castle",
-            "Margit, the Fell Omen - Stormveil Castle",
-            "Grafted Scion - Chapel of Anticipation",
-            "Morgott, the Omen King - Leyndell",
-            "Godfrey, First Elden Lord - Leyndell",
-            "Hoarah Loux - Leyndell",
-            "Sir Gideon Ofnir, the All-Knowing - Leyndell",
-            "Dragonkin Soldier of Nokstella - Ainsel River",
-            "Dragonkin Soldier - Lake of Rot",
-            "Valiant Gargoyles - Siofra River",
-            "Dragonkin Soldier - Siofra River",
-            "Mimic Tear - Siofra River",
-            "Crucible Knight Sirulia - Deeproot Depths",
-            "Fia\'s Champion - Deeproot Depths",
-            "Lichdragon Fortissax - Deeproot Depths",
-            "Astel, Naturalborn of the Void - Lake of Rot",
-            "Mohg, Lord of Blood - Mohgwyn Palace",
-            "Ancestor Spirit - Siofra River",
-            "Regal Ancestor Spirit - Nokron, Eternal City",
-            "Maliketh, The Black Blade - Crumbling Farum Azula",
-            "Dragonlord Placidusax - Crumbling Farum Azula",
-            "Godskin Duo - Crumbling Farum Azula",
-            "Rennala, Queen of the Full Moon - Academy of Raya Lucaria",
-            "Red Wolf of Radagon - Academy of Raya Lucaria",
-            "Malenia, Blade of Miquella - Miquella\'s Haligtree",
-            "Loretta, Knight of the Haligtree - Miquella\'s Haligtree",
-            "Rykard, Lord of Blasphemy - Volcano Manor",
-            "Godskin Noble - Volcano Manor",
-            "Abductor Virgins - Volcano Manor",
-            "Ulcerated Tree Spirit - Stranded Graveyard",
-            "Soldier of Godrick - Stranded Graveyard",
-            "Elden Beast - Elden Throne",
-            "Mohg, The Omen - Subterranean Shunning-Grounds (Leyndell)",
-            "Esgar, Priest of Blood - Subterranean Shunning-Grounds (Leyndell)",
-            "Magma Wyrm Makar - Ruin-Strewn Precipice (Liurnia)",
-            "Cemetery Shade - Tombsward Catacombs (Limgrave)",
-            "Erdtree Burial Watchdog - Impaler\'s Catacombs (Weeping Penisula)",
-            "Erdtree Burial Watchdog - Stormfoot Catacombs (Limgrave)",
-            "Black Knife Assassin - Deathtouched Catacombs (Limgrave)",
-            "Grave Warden Duelist - Murkwater Catacombs (Limgrave)",
-            "Cemetery Shade - Black Knife Catacombs (Liurnia)",
-            "Black Knife Assassin - Black Knife Catacombs (Liurnia)",
-            "Spirit-Caller Snail - Road\'s End Catacombs (Liurnia)",
-            "Erdtree Burial Watchdog - Cliffbottom Catacombs (Liurnia)",
-            "Ancient Hero of Zamor - Sainted Hero\'s Grave (Altus Plateau)",
-            "Red Wolf of the Champion - Gelmir Hero\'s Grave (Mt. Gelmir)",
-            "Crucible Knight Ordovis - Auriza Hero\'s Grave (Altus Plateau)",
-            "Crucible Knight (Tree Spear) - Auriza Hero\'s Grave (Altus Plateau)",
-            "Misbegotten Warrior - Unsightly Catacombs (Mt. Gelmir)",
-            "Perfumer Tricia - Unsightly Catacombs (Mt. Gelmir)",
-            "Erdtree Burial Watchdog - Wyndham Catacombs (Altus Plateau)",
-            "Grave Warden Duelist - Auriza Side Tomb (Altus Plateau)",
-            "Erdtree Burial Watchdog - Minor Erdtree Catacombs (Caelid)",
-            "Cemetery Shade - Caelid Catacombs (Caelid)",
-            "Putrid Tree Spirit - War-Dead Catacombs (Caelid)",
-            "Ancient Hero of Zamor - Giant-Conquering Hero\'s Grave (Mountaintops)",
-            "Ulcerated Tree Sprit - Giants\' Mountaintop Catacombs (Mountaintops)",
-            "Putrid Grave Warden Duelist - Consecrated Snowfield Catacombs (Snowfield)",
-            "Stray Mimic Tear - Hidden Path to the Haligtree",
-            "Patches - Murkwater Cave (Limgrave)",
-            "Runebear - Earthbore Cave (Weeping Penisula)",
-            "Miranda the Blighted Bloom - Tombsward Cave (Limgrave)",
-            "Beastman of Farum Azula - Groveside Cave (Limgrave)",
-            "Demi-Human Chief - Coastal Cave (Limgrave)",
-            "Guardian Golem - Highroad Cave (Limgrave)",
-            "Cleanrot Knight - Stillwater Cave (Liurnia)",
-            "Bloodhound Knight - Lakeside Crystal Cave (Liurnia)",
-            "Crystalians - Academy Crystal Cave (Liurnia)",
-            "Kindred of Rot - Seethewater Cave (Mt. Gelmir)",
-            "Demi-Human Queen Margot - Volcano Cave (Mt. Gelmir)",
-            "Miranda the Blighted Bloom - Perfumer\'s Grotto (Altus Plateau)",
-            "Black Knife Assassin - Sage\'s Cave (Altus Plateau)",
-            "Necromancer Garris - Sage\'s Cave (Altus Plateau)",
-            "Frenzied Duelist - Gaol Cave (Caelid)",
-            "Beastman of Farum Azula - Dragonbarrow Cave (Dragonbarrow)",
-            "Cleanrot Knight - Abandoned Cave (Caelid)",
-            "Putrid Crystalians - Sellia Hideaway (Caelid)",
-            "Misbegotten Crusader - Cave of the Forlorn (Mountaintops)",
-            "Spirit-Caller Snail - Spiritcaller\'s Cave (Mountaintops)",
-            "Scaly Misbegotten - Morne Tunnel (Weeping Penisula)",
-            "Stonedigger Troll - Limgrave Tunnels (Limgrave)",
-            "Crystalian (Ringblade) - Raya Lucaria Crystal Tunnel (Liurnia)",
-            "Stonedigger Troll - Old Altus Tunnel (Altus Plateau)",
-            "Onyx Lord - Divine Tower of West Altus (Altus Plateau)",
-            "Crystalian (Ringblade) - Altus Tunnel (Altus Plateau)",
-            "Crystalian (Spear) - Altus Tunnel (Altus Plateau)",
-            "Magma Wyrm - Gael Tunnel (Caelid)",
-            "Fallingstar Beast - Sellia Crystal Tunnel (Caelid)",
-            "Astel, Stars of Darkness - Yelough Anix Tunnel (Snowfield)",
-            "Godskin Apostle - Divine Tower of Caelid (Caelid)",
-            "Fell Twins - Divine Tower of East Altus (Capital Outskirts)",
-            "Mad Pumpkin Head - Waypoint Ruins (Limgrave)",
-            "Night\'s Cavalry - Agheel Lake North (Limgrave)",
-            "Deathbird - Stormgate (Limgrave)",
-            "Ball-Bearing Hunter - Warmaster\'s Shack (Limgrave)",
-            "Ancient Hero of Zamor - Weeping Evergaol (Weeping Penisula)",
-            "Bloodhound Knight Darriwill - Forlorn Hound Evergaol (Limgrave)",
-            "Crucible Knight - Stormhill Evergaol (Limgrave)",
-            "Erdtree Avatar - Minor Erdtree (Weeping Penisula)",
-            "Night\'s Cavalry - Castle Morne Approach (Weeping Penisula)",
-            "Deathbird - Castle Morne Approach (Weeping Penisula)",
-            "Leonine Misbegotten - Castle Morne (Weeping Penisula)",
-            "Tree Sentinel - Church of Elleh (Limgrave)",
-            "Flying Dragon Agheel - Dragon-Burnt Ruins (Limgrave)",
-            "Tibia Mariner - Summonwater Village (Limgrave)",
-            "Royal Revenant - Kingsrealm Ruins (Liurnia)",
-            "Adan, Thief of Fire - Malefactor\'s Evergaol (Liurnia)",
-            "Bols, Carian Knight - Cuckoo\'s Evergaol (Liurnia)",
-            "Onyx Lord - Royal Grave Evergaol (Liurnia)",
-            "Alecto, Black Knife Ringleader - Moonlight Altar (Liurnia)",
-            "Erdtree Avatar - Revenger\'s Shack (Liurnia)",
-            "Erdtree Avatar - Minor Erdtree (Liurnia)",
-            "Royal Knight Loretta - Carian Manor (Liurnia)",
-            "Ball-Bearing Hunter - Church of Vows (Liurnia)",
-            "Night\'s Cavalry - Liurnia Highway Far North (Liurnia)",
-            "Night\'s Cavalry - East Raya Lucaria Gate (Liurnia)",
-            "Deathbird - Laskyar Ruins (Liurnia)",
-            "Death Rite Bird - Gate Town Northwest (Liurnia)",
-            "Glintstone Dragon Smarag - Meeting Place (Liurnia)",
-            "Glintstone Dragon Adula - Ranni\'s Rise (Liurnia)",
-            "Glintstone Dragon Adula - Moonfolk Ruins (Liurnia)",
-            "Omenkiller - Village of the Albinaurics (Liurnia)",
-            "Tibia Mariner - Jarburg (Liurnia)",
-            "Ancient Dragon Lansseax - Abandoned Coffin (Altus Plateau)",
-            "Ancient Dragon Lansseax - Rampartside Path (Altus Plateau)",
-            "Demi-Human Queen - Lux Ruins (Altus Plateau)",
-            "Fallingstar Beast - South of Tree Sentinel Duo (Altus Plateau)",
-            "Sanguine Noble - Writheblood Ruins (Altus Plateau)",
-            "Tree Sentinel - Tree Sentinel Duo (Altus Plateau)",
-            "Godskin Apostle - Windmill Heights (Altus Plateau)",
-            "Black Knife Assassin - Sainted Hero\'s Grave Entrance (Altus Plateau)",
-            "Draconic Tree Sentinel - Capital Rampart (Capital Outskirts)",
-            "Godefroy the Grafted - Golden Lineage Evergaol (Altus Plateau)",
-            "Wormface - Woodfolk Ruins (Altus Plateau)",
-            "Ball-Bearing Hunter - Hermit Merchant\'s Shack (Capital Outskirts)",
-            "Demi-Human Queen - Primeval Sorcerer Azur (Mt. Gelmir)",
-            "Magma Wyrm - Seethewater Terminus (Mt. Gelmir)",
-            "Full-Grown Fallingstar Beast - Crater (Mt. Gelmir)",
-            "Elemer of the Briar - Shaded Castle (Altus Plateau)",
-            "Ulcerated Tree Spirit - Minor Erdtree (Mt. Gelmir)",
-            "Tibia Mariner - Wyndham Ruins (Altus Plateau)",
-            "Putrid Avatar - Minor Erdtree (Caelid)",
-            "Decaying Ekzykes - Caelid Highway South (Caelid)",
-            "Monstrous Dog - Southwest of Caelid Highway South (Caelid)",
-            "Night\'s Cavalry - Southern Aeonia Swamp Bank (Caelid)",
-            "Death Rite Bird - Southern Aeonia Swamp Bank (Caelid)",
-            "Commander O\'Neil - East Aeonia Swamp (Caelid)",
-            "Crucible Knight - Redmane Castle (Caelid)",
-            "Starscourge Radahn - Battlefield (Caelid)",
-            "Nox Priest - West Sellia (Caelid)",
-            "Bell-Bearing Hunter - Isolated Merchant\'s Shack (Dragonbarrow)",
-            "Battlemage Hugues - Sellia Crystal Tunnel Entrance (Caelid)",
-            "Putrid Avatar - Dragonbarrow Fork (Caelid)",
-            "Flying Dragon Greyll - Dragonbarrow (Caelid)",
-            "Night\'s Cavalry - Dragonbarrow (Caelid)",
-            "Black Blade Kindred - Bestial Sanctum (Caelid)",
-            "Night\'s Cavalry - Forbidden Lands (Mountaintops)",
-            "Black Blade Kindred - Before Grand Lift of Rold (Mountaintops)",
-            "Borealis the Freezing Fog - Freezing Fields (Mountaintops)",
-            "Roundtable Knight Vyke - Lord Contender\'s Evergaol (Mountaintops)",
-            "Fire Giant - Giant\'s Forge (Mountaintops)",
-            "Erdtree Avatar - Minor Erdtree (Mountaintops)",
-            "Death Rite Bird - West of Castle So (Mountaintops)",
-            "Putrid Avatar - Minor Erdtree (Snowfield)",
-            "Commander Niall - Castle Soul (Mountaintops)",
-            "Great Wyrm Theodorix - Albinauric Rise (Mountaintops)",
-            "Night\'s Cavalry - Sourthwest (Mountaintops)",
-            "Death Rite Bird - Ordina, Liturgical Town (Snowfield)",
-            "Deathbird - Minor Erdtree (Capital Outskirts)"});
-            this.comboBoxBossER.Location = new System.Drawing.Point(207, 32);
-            this.comboBoxBossER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxBossER.Name = "comboBoxBossER";
-            this.comboBoxBossER.Size = new System.Drawing.Size(292, 22);
-            this.comboBoxBossER.TabIndex = 12;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.Transparent;
-            this.label36.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(333, 10);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(38, 16);
-            this.label36.TabIndex = 15;
-            this.label36.Text = "Boss:";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.BackColor = System.Drawing.Color.Transparent;
-            this.label87.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label87.ForeColor = System.Drawing.Color.Black;
-            this.label87.Location = new System.Drawing.Point(73, 11);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(37, 16);
-            this.label87.TabIndex = 4;
-            this.label87.Text = "How:";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.BackColor = System.Drawing.Color.Transparent;
-            this.label80.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label80.Location = new System.Drawing.Point(41, 57);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(38, 16);
-            this.label80.TabIndex = 29;
-            this.label80.Text = "when";
-            // 
-            // comboBoxToSplitEldenRing
-            // 
-            this.comboBoxToSplitEldenRing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.comboBoxToSplitEldenRing.ColorA = System.Drawing.Color.Transparent;
-            this.comboBoxToSplitEldenRing.ColorB = System.Drawing.Color.LightSkyBlue;
-            this.comboBoxToSplitEldenRing.ColorC = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxToSplitEldenRing.ColorD = System.Drawing.Color.DeepSkyBlue;
-            this.comboBoxToSplitEldenRing.ColorE = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxToSplitEldenRing.ColorF = System.Drawing.Color.Teal;
-            this.comboBoxToSplitEldenRing.ColorG = System.Drawing.Color.DarkCyan;
-            this.comboBoxToSplitEldenRing.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
-            this.comboBoxToSplitEldenRing.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.comboBoxToSplitEldenRing.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxToSplitEldenRing.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxToSplitEldenRing.DropDownHeight = 100;
-            this.comboBoxToSplitEldenRing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxToSplitEldenRing.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxToSplitEldenRing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(97)))));
-            this.comboBoxToSplitEldenRing.FormattingEnabled = true;
-            this.comboBoxToSplitEldenRing.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.comboBoxToSplitEldenRing.IntegralHeight = false;
-            this.comboBoxToSplitEldenRing.ItemHeight = 20;
-            this.comboBoxToSplitEldenRing.Items.AddRange(new object[] {
-            "Kill a Boss",
-            "Is Activated a Grace",
-            "Trigger a Position",
-            "Custom Flag"});
-            this.comboBoxToSplitEldenRing.Location = new System.Drawing.Point(85, 53);
-            this.comboBoxToSplitEldenRing.Name = "comboBoxToSplitEldenRing";
-            this.comboBoxToSplitEldenRing.Size = new System.Drawing.Size(439, 26);
-            this.comboBoxToSplitEldenRing.StartIndex = -1;
-            this.comboBoxToSplitEldenRing.TabIndex = 28;
-            this.comboBoxToSplitEldenRing.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
-            // 
-            // EldenRingRunning
-            // 
-            this.EldenRingRunning.AutoSize = true;
-            this.EldenRingRunning.BackColor = System.Drawing.Color.Transparent;
-            this.EldenRingRunning.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EldenRingRunning.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.EldenRingRunning.Location = new System.Drawing.Point(335, 21);
-            this.EldenRingRunning.Name = "EldenRingRunning";
-            this.EldenRingRunning.Size = new System.Drawing.Size(113, 15);
-            this.EldenRingRunning.TabIndex = 19;
-            this.EldenRingRunning.Text = "Elden Ring is Running";
-            // 
-            // EldenRingNotRunning
-            // 
-            this.EldenRingNotRunning.AutoSize = true;
-            this.EldenRingNotRunning.BackColor = System.Drawing.Color.Transparent;
-            this.EldenRingNotRunning.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EldenRingNotRunning.ForeColor = System.Drawing.Color.Red;
-            this.EldenRingNotRunning.Location = new System.Drawing.Point(329, 21);
-            this.EldenRingNotRunning.Name = "EldenRingNotRunning";
-            this.EldenRingNotRunning.Size = new System.Drawing.Size(135, 15);
-            this.EldenRingNotRunning.TabIndex = 18;
-            this.EldenRingNotRunning.Text = "Elden Ring is Not Running";
-            // 
-            // btnRefreshE
-            // 
-            this.btnRefreshE.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefreshE.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefreshE.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshE.Image = null;
-            this.btnRefreshE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefreshE.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.Location = new System.Drawing.Point(482, 18);
-            this.btnRefreshE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRefreshE.Name = "btnRefreshE";
-            this.btnRefreshE.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRefreshE.Size = new System.Drawing.Size(63, 24);
-            this.btnRefreshE.TabIndex = 17;
-            this.btnRefreshE.Text = "Refresh";
-            this.btnRefreshE.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnRefreshE.Click += new System.EventHandler(this.Refresh_Btn);
-            // 
-            // btn_DesactiveAllElden
-            // 
-            this.btn_DesactiveAllElden.BackColor = System.Drawing.Color.Transparent;
-            this.btn_DesactiveAllElden.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DesactiveAllElden.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DesactiveAllElden.Image = null;
-            this.btn_DesactiveAllElden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DesactiveAllElden.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.Location = new System.Drawing.Point(27, 18);
-            this.btn_DesactiveAllElden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_DesactiveAllElden.Name = "btn_DesactiveAllElden";
-            this.btn_DesactiveAllElden.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btn_DesactiveAllElden.Size = new System.Drawing.Size(99, 24);
-            this.btn_DesactiveAllElden.TabIndex = 16;
-            this.btn_DesactiveAllElden.Text = "Desactive All";
-            this.btn_DesactiveAllElden.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_DesactiveAllElden.Click += new System.EventHandler(this.btn_DesactiveAllElden_Click);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(41, 57);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(38, 14);
-            this.label30.TabIndex = 12;
-            this.label30.Text = "when";
             // 
             // tabHollow
             // 
@@ -13095,6 +13099,76 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
+            this.tabElden.ResumeLayout(false);
+            this.tabElden.PerformLayout();
+            this.panelPositionsER.ResumeLayout(false);
+            this.panelPositionsER.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panelGraceER.ResumeLayout(false);
+            this.panelGraceER.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panelBossER.ResumeLayout(false);
+            this.panelBossER.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.tabGeneral.ResumeLayout(false);
+            this.TabPageGeneral.ResumeLayout(false);
+            this.tabPageControl.ResumeLayout(false);
+            this.lostBorderPanel2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabPageShortcuts.ResumeLayout(false);
+            this.tabPageTimming.ResumeLayout(false);
+            this.lostBorderPanel1.ResumeLayout(false);
+            this.lostBorderPanel1.PerformLayout();
+            this.groupBoxTSekiro.ResumeLayout(false);
+            this.groupBoxATS.ResumeLayout(false);
+            this.groupBoxATS.PerformLayout();
+            this.groupBoxTMS.ResumeLayout(false);
+            this.groupBoxTMS.PerformLayout();
+            this.groupBoxTDishonored.ResumeLayout(false);
+            this.groupBoxATDishonored.ResumeLayout(false);
+            this.groupBoxATDishonored.PerformLayout();
+            this.groupBoxTMDishonored.ResumeLayout(false);
+            this.groupBoxTMDishonored.PerformLayout();
+            this.groupBoxTCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.ResumeLayout(false);
+            this.groupBoxATCeleste.PerformLayout();
+            this.groupBoxTMCeleste.ResumeLayout(false);
+            this.groupBoxTMCeleste.PerformLayout();
+            this.groupBoxTCuphead.ResumeLayout(false);
+            this.groupBoxTCuphead.PerformLayout();
+            this.groupBoxATCuphead.ResumeLayout(false);
+            this.groupBoxATCuphead.PerformLayout();
+            this.groupBoxTMCuphead.ResumeLayout(false);
+            this.groupBoxTMCuphead.PerformLayout();
+            this.groupBoxTDs1.ResumeLayout(false);
+            this.groupBoxATDs1.ResumeLayout(false);
+            this.groupBoxATDs1.PerformLayout();
+            this.groupBoxTMDs1.ResumeLayout(false);
+            this.groupBoxTMDs1.PerformLayout();
+            this.groupBoxTHK.ResumeLayout(false);
+            this.groupBoxATHk.ResumeLayout(false);
+            this.groupBoxATHk.PerformLayout();
+            this.groupBoxTMHollow.ResumeLayout(false);
+            this.groupBoxTMHollow.PerformLayout();
+            this.groupBoxTDs2.ResumeLayout(false);
+            this.groupBoxATDs2.ResumeLayout(false);
+            this.groupBoxATDs2.PerformLayout();
+            this.groupBoxTMDs2.ResumeLayout(false);
+            this.groupBoxTMDs2.PerformLayout();
+            this.groupBoxTEr.ResumeLayout(false);
+            this.groupBoxATEr.ResumeLayout(false);
+            this.groupBoxATEr.PerformLayout();
+            this.groupBoxTMEr.ResumeLayout(false);
+            this.groupBoxTMEr.PerformLayout();
+            this.groupBoxTDs3.ResumeLayout(false);
+            this.groupBoxATDs3.ResumeLayout(false);
+            this.groupBoxATDs3.PerformLayout();
+            this.groupBoxTMDs3.ResumeLayout(false);
+            this.groupBoxTMDs3.PerformLayout();
+            this.tabPageHitCounter.ResumeLayout(false);
             this.tabConfig.ResumeLayout(false);
             this.tabConfig.PerformLayout();
             this.groupBoxOtherS.ResumeLayout(false);
@@ -13155,70 +13229,14 @@ namespace AutoSplitterCore
             this.panelCfER.ResumeLayout(false);
             this.panelCfER.PerformLayout();
             this.panel23.ResumeLayout(false);
-            this.tabGeneral.ResumeLayout(false);
-            this.TabPageGeneral.ResumeLayout(false);
-            this.tabPageControl.ResumeLayout(false);
-            this.lostBorderPanel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.tabPageShortcuts.ResumeLayout(false);
-            this.tabPageTimming.ResumeLayout(false);
-            this.lostBorderPanel1.ResumeLayout(false);
-            this.lostBorderPanel1.PerformLayout();
-            this.groupBoxTSekiro.ResumeLayout(false);
-            this.groupBoxATS.ResumeLayout(false);
-            this.groupBoxATS.PerformLayout();
-            this.groupBoxTMS.ResumeLayout(false);
-            this.groupBoxTMS.PerformLayout();
-            this.groupBoxTDishonored.ResumeLayout(false);
-            this.groupBoxATDishonored.ResumeLayout(false);
-            this.groupBoxATDishonored.PerformLayout();
-            this.groupBoxTMDishonored.ResumeLayout(false);
-            this.groupBoxTMDishonored.PerformLayout();
-            this.groupBoxTCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.ResumeLayout(false);
-            this.groupBoxATCeleste.PerformLayout();
-            this.groupBoxTMCeleste.ResumeLayout(false);
-            this.groupBoxTMCeleste.PerformLayout();
-            this.groupBoxTCuphead.ResumeLayout(false);
-            this.groupBoxTCuphead.PerformLayout();
-            this.groupBoxATCuphead.ResumeLayout(false);
-            this.groupBoxATCuphead.PerformLayout();
-            this.groupBoxTMCuphead.ResumeLayout(false);
-            this.groupBoxTMCuphead.PerformLayout();
-            this.groupBoxTDs1.ResumeLayout(false);
-            this.groupBoxATDs1.ResumeLayout(false);
-            this.groupBoxATDs1.PerformLayout();
-            this.groupBoxTMDs1.ResumeLayout(false);
-            this.groupBoxTMDs1.PerformLayout();
-            this.groupBoxTHK.ResumeLayout(false);
-            this.groupBoxATHk.ResumeLayout(false);
-            this.groupBoxATHk.PerformLayout();
-            this.groupBoxTMHollow.ResumeLayout(false);
-            this.groupBoxTMHollow.PerformLayout();
-            this.groupBoxTDs2.ResumeLayout(false);
-            this.groupBoxATDs2.ResumeLayout(false);
-            this.groupBoxATDs2.PerformLayout();
-            this.groupBoxTMDs2.ResumeLayout(false);
-            this.groupBoxTMDs2.PerformLayout();
-            this.groupBoxTEr.ResumeLayout(false);
-            this.groupBoxATEr.ResumeLayout(false);
-            this.groupBoxATEr.PerformLayout();
-            this.groupBoxTMEr.ResumeLayout(false);
-            this.groupBoxTMEr.PerformLayout();
-            this.groupBoxTDs3.ResumeLayout(false);
-            this.groupBoxATDs3.ResumeLayout(false);
-            this.groupBoxATDs3.PerformLayout();
-            this.groupBoxTMDs3.ResumeLayout(false);
-            this.groupBoxTMDs3.PerformLayout();
-            this.tabPageHitCounter.ResumeLayout(false);
             this.tabLicense.ResumeLayout(false);
             this.tabLicense.PerformLayout();
             this.tabInfo.ResumeLayout(false);
             this.tabDs1.ResumeLayout(false);
             this.tabDs1.PerformLayout();
+            this.panelPositionDs1.ResumeLayout(false);
+            this.panelPositionDs1.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.panelBossDs1.ResumeLayout(false);
             this.panelBossDs1.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -13228,57 +13246,43 @@ namespace AutoSplitterCore
             this.panelLvlDs1.ResumeLayout(false);
             this.panelLvlDs1.PerformLayout();
             this.panel10.ResumeLayout(false);
-            this.panelPositionDs1.ResumeLayout(false);
-            this.panelPositionDs1.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.panelItemDs1.ResumeLayout(false);
             this.panelItemDs1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.tabDs2.ResumeLayout(false);
             this.tabDs2.PerformLayout();
+            this.panelPositionDs2.ResumeLayout(false);
+            this.panelPositionDs2.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.panelLvlDs2.ResumeLayout(false);
             this.panelLvlDs2.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panelBossDS2.ResumeLayout(false);
             this.panelBossDS2.PerformLayout();
             this.panel13.ResumeLayout(false);
-            this.panelPositionDs2.ResumeLayout(false);
-            this.panelPositionDs2.PerformLayout();
-            this.panel12.ResumeLayout(false);
             this.tabDs3.ResumeLayout(false);
             this.tabDs3.PerformLayout();
+            this.panelPositionsDs3.ResumeLayout(false);
+            this.panelPositionsDs3.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panelLvlDs3.ResumeLayout(false);
+            this.panelLvlDs3.PerformLayout();
+            this.panel15.ResumeLayout(false);
             this.panelBonfireDs3.ResumeLayout(false);
             this.panelBonfireDs3.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panelBossDs3.ResumeLayout(false);
             this.panelBossDs3.PerformLayout();
             this.panel16.ResumeLayout(false);
-            this.panelPositionsDs3.ResumeLayout(false);
-            this.panelPositionsDs3.PerformLayout();
-            this.panel19.ResumeLayout(false);
             this.panelCfDs3.ResumeLayout(false);
             this.panelCfDs3.PerformLayout();
             this.panel18.ResumeLayout(false);
-            this.panelLvlDs3.ResumeLayout(false);
-            this.panelLvlDs3.PerformLayout();
-            this.panel15.ResumeLayout(false);
             this.tabCuphead.ResumeLayout(false);
             this.tabCuphead.PerformLayout();
             this.panelBossCuphead.ResumeLayout(false);
             this.panel30.ResumeLayout(false);
             this.panelLevelCuphead.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            this.tabElden.ResumeLayout(false);
-            this.tabElden.PerformLayout();
-            this.panelPositionsER.ResumeLayout(false);
-            this.panelPositionsER.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panelGraceER.ResumeLayout(false);
-            this.panelGraceER.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panelBossER.ResumeLayout(false);
-            this.panelBossER.PerformLayout();
-            this.panel22.ResumeLayout(false);
             this.tabHollow.ResumeLayout(false);
             this.tabHollow.PerformLayout();
             this.panelBossH.ResumeLayout(false);

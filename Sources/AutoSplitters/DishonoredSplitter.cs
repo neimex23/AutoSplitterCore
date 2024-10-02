@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2023 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -20,9 +20,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using HitCounterManager;
 using System;
-using System.Threading;
 using LiveSplit.Dishonored;
 using System.Diagnostics;
 
@@ -30,31 +28,25 @@ namespace AutoSplitterCore
 {
     public class DishonoredSplitter
     {
-        public static GameMemory Dish = new GameMemory();
+        private static GameMemory Dish = new GameMemory();
+        private DTDishonored dataDish;
+        private DefinitionDishonored defDish = new DefinitionDishonored();
+        private ISplitterControl splitterControl = SplitterControl.GetControl();
+
         public bool _StatusDish = false;
-        public bool _SplitGo = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
         public bool _runStarted = false;
         public bool isLoading = false;
-        public DTDishonored dataDish;
-        public DefinitionDishonored defDish = new DefinitionDishonored();
-        public IAutoSplitterCoreInterface _profile;
-        private static readonly object _object = new object();
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
-        public bool DebugMode = false;
+
 
         #region Control Management
-        public DTDishonored GetDataDishonored()
-        {
-            return this.dataDish;
-        }
+        public DTDishonored GetDataDishonored() => dataDish;
 
-        public void SetDataDishonored(DTDishonored data, IAutoSplitterCoreInterface profile)
+        public void SetDataDishonored(DTDishonored data)
         {
-            this.dataDish = data;
-            this._profile = profile;
-            _update_timer.Tick += (sender, args) => SplitGo();
+            dataDish = data;
             _update_timer.Tick += (sender, args) => GetDishonoredStatusProcess();
             Dish.OnFirstLevelLoading += Dish_OnFirstLevelLoading;
             Dish.OnPlayerGainedControl += Dish_OnPlayerGainedControl;
@@ -76,23 +68,6 @@ namespace AutoSplitterCore
             return _StatusDish = Dish._process != null;
         }
 
-        public void SplitGo()
-        {
-            if (_SplitGo && !DebugMode)
-            {
-                try { _profile.ProfileSplitGo(+1); } catch (Exception) { }
-                _SplitGo = false;
-            }
-        }
-
-        private void SplitCheck()
-        {
-            lock (_object)
-            {
-                if (_SplitGo) { Thread.Sleep(2000); }
-                _SplitGo = true;
-            }
-        }
 
         public void SetStatusSplitting(bool status)
         {
@@ -152,7 +127,7 @@ namespace AutoSplitterCore
                     || (type == GameMemory.AreaCompletionType.Weepers && dataDish.DishonoredOptions[4].Enable)
                     || (type == GameMemory.AreaCompletionType.DLC06IntroEnd && dataDish.DishonoredOptions[5].Enable))
                 {
-                    SplitCheck();
+                    splitterControl.SplitCheck();
                 }
             }
         }

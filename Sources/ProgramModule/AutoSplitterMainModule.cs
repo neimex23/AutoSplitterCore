@@ -189,14 +189,14 @@ namespace AutoSplitterCore
         public int GetSplitterEnable()
         {
             if (sekiroSplitter.GetDataSekiro().enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
-            if (ds1Splitter.dataDs1.enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
-            if (ds2Splitter.dataDs2.enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
-            if (ds3Splitter.dataDs3.enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
+            if (ds1Splitter.GetDataDs1().enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
+            if (ds2Splitter.GetDataDs2().enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
+            if (ds3Splitter.GetDataDs3().enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
             if (eldenSplitter.GetDataElden().enableSplitting) { return GameConstruction.EldenSplitterIndex; }
             if (hollowSplitter.GetDataHollow().enableSplitting) { return GameConstruction.HollowSplitterIndex; }
-            if (celesteSplitter.dataCeleste.enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
-            if (dishonoredSplitter.dataDish.enableSplitting) { return GameConstruction.DishonoredSplitterIndex; }
-            if (cupSplitter.dataCuphead.enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
+            if (celesteSplitter.GetDataCeleste().enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
+            if (dishonoredSplitter.GetDataDishonored().enableSplitting) { return GameConstruction.DishonoredSplitterIndex; }
+            if (cupSplitter.GetDataCuphead().enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
             return GameConstruction.NoneSplitterIndex;
         }
 
@@ -294,20 +294,20 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.Ds1SplitterIndex: //DS1
-                    if (ds1Splitter.dataDs1.autoTimer && !_PracticeMode)
+                    if (ds1Splitter.GetDataDs1().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
-                        if (ds1Splitter.dataDs1.gameTimer)
+                        if (ds1Splitter.GetDataDs1().gameTimer)
                         {
                             anyGameTime = true;
                         }
                     }
                     break;
                 case GameConstruction.Ds3SplitterIndex: //Ds3
-                    if (ds3Splitter.dataDs3.autoTimer && !_PracticeMode)
+                    if (ds3Splitter.GetDataDs3().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
-                        if (!ds3Splitter.dataDs3.gameTimer)
+                        if (!ds3Splitter.GetDataDs3().gameTimer)
                         {
                             anyGameTime = true;
                         }
@@ -326,9 +326,9 @@ namespace AutoSplitterCore
 
                 //Special Case
                 case GameConstruction.CelesteSplitterIndex: //Celeste
-                    if (celesteSplitter.dataCeleste.autoTimer && !_PracticeMode)
+                    if (celesteSplitter.GetDataCeleste().autoTimer && !_PracticeMode)
                     {
-                        if (!celesteSplitter.dataCeleste.gameTimer)
+                        if (!celesteSplitter.GetDataCeleste().gameTimer)
                         {                           
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
@@ -359,9 +359,9 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.CupheadSplitterIndex: //Cuphead
-                    if (cupSplitter.dataCuphead.autoTimer && !_PracticeMode)
+                    if (cupSplitter.GetDataCuphead().autoTimer && !_PracticeMode)
                     {
-                        if (!cupSplitter.dataCuphead.gameTimer)
+                        if (!cupSplitter.GetDataCuphead().gameTimer)
                         {
                             if (!cupSplitter.IsInGame() || !GameOn())
                             {
@@ -393,7 +393,7 @@ namespace AutoSplitterCore
 
                 //Manual Controller with Loading Events           
                 case GameConstruction.Ds2SplitterIndex: //DS2
-                    if (ds2Splitter.dataDs2.autoTimer && !_PracticeMode)
+                    if (ds2Splitter.GetDataDs2().autoTimer && !_PracticeMode)
                     {
                         if (ds2Splitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
                             splitterControl.StartStopTimer(true);
@@ -413,9 +413,9 @@ namespace AutoSplitterCore
                     }
                     break;
                 case GameConstruction.DishonoredSplitterIndex:
-                    if (dishonoredSplitter.dataDish.autoTimer && !_PracticeMode)
+                    if (dishonoredSplitter.GetDataDishonored().autoTimer && !_PracticeMode)
                     {
-                        if (!dishonoredSplitter.dataDish.gameTimer)
+                        if (!dishonoredSplitter.GetDataDishonored().gameTimer)
                         {
                             if (dishonoredSplitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
                                 splitterControl.StartStopTimer(true);
