@@ -31,22 +31,34 @@ namespace AutoSplitterCore
         static string[] Scopes = { DriveService.Scope.Drive };
         static string ApplicationName = "AutoSplitterCore";
 
-        public static DriveService GetServiceForUser(string userId)
+        public static DriveService GetService()
         {
             UserCredential credential;
+            string credFilePath = "credentials.json"; // Ruta para credenciales generales
 
-            using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+            if (!File.Exists(credFilePath))
             {
-                string credPath = $"token_{userId}.json"; // Token específico para cada usuario
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    Scopes,
-                    userId, // Cada usuario tendrá su propio token
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
-                Console.WriteLine("Credential file saved to: " + credPath);
+                // Si no existe credentials.json, iniciar flujo interactivo para crear las credenciales
+                Console.WriteLine("No se encontraron credenciales. Iniciando flujo de autenticación interactiva...");
+                credential = GetInteractiveCredentials();
+            }
+            else
+            {
+                // Si credentials.json existe, utilizarlo para autenticar
+                using (var stream = new FileStream(credFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    string tokenPath = "token.json"; // Archivo de token genérico
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.FromStream(stream).Secrets,
+                        Scopes,
+                        "user", // Sin especificar un userId real
+                        CancellationToken.None,
+                        new FileDataStore(tokenPath, true)).Result;
+                    Console.WriteLine("Token de autenticación guardado en: " + tokenPath);
+                }
             }
 
+            // Crear el servicio de Google Drive
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
@@ -56,9 +68,34 @@ namespace AutoSplitterCore
             return service;
         }
 
+        // Método para obtener las credenciales mediante flujo interactivo
+        private static UserCredential GetInteractiveCredentials()
+        {
+            Console.WriteLine("Iniciando autenticación OAuth interactiva...");
+
+            // Aquí puedes usar GoogleWebAuthorizationBroker para crear las credenciales desde la interacción del usuario
+            var clientSecrets = new ClientSecrets
+            {
+                ClientId = "TU_CLIENT_ID", // Debes ingresar tu ClientId aquí
+                ClientSecret = "TU_CLIENT_SECRET" // Debes ingresar tu ClientSecret aquí
+            };
+
+            string tokenPath = "token.json"; // Archivo de token genérico
+
+            var credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                clientSecrets,
+                Scopes,
+                "user", // Sin especificar un userId
+                CancellationToken.None,
+                new FileDataStore(tokenPath, true)).Result;
+
+            Console.WriteLine("Autenticación completada. Token guardado en: " + tokenPath);
+            return credential;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
+            GetService();
         }
     }
 }
