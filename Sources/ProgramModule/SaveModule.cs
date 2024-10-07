@@ -220,36 +220,21 @@ namespace AutoSplitterCore
             }
             else
             {
-#if !HCMv2
-                mainModule.debugForm.UpdateBoxes();
-#endif
+                #if !HCMv2
+                    mainModule.debugForm.UpdateBoxes();
+                #endif
             }
         }
 
-        public string GetProfileName()
-        {
-            return dataAS.ProfileName;
-        }
+        public string GetProfileName() => dataAS.ProfileName;
 
-        public string GetAuthor()
-        {
-            return dataAS.Author;
-        }
+        public string GetAuthor() => dataAS.Author;
 
-        public void SetProfileName(string Name)
-        {
-            dataAS.ProfileName = Name;
-        }
+        public void SetProfileName(string Name)  => dataAS.ProfileName = Name;
 
-        public void SetAuthor(string Name)
-        {
-            dataAS.Author = Name;
-        }
+        public void SetAuthor(string Name) => dataAS.Author = Name;
 
-        public bool GetPracticeMode()
-        {
-            return mainModule.GetPracticeMode();
-        }
+        public bool GetPracticeMode() => mainModule.GetPracticeMode();
 
         public string GetGameSelected()
         {
@@ -257,15 +242,11 @@ namespace AutoSplitterCore
             return GameConstruction.GameList[game];
         }
 
-        public bool GetResetNewGame()
-        {
-            return dataAS.AutoResetSplit;
-        }
+        public bool GetResetNewGame() => dataAS.AutoResetSplit;
 
-        public void ResetFlags()
-        {
-            mainModule.ResetSplitterFlags();
-        }
+        public void ResetFlags() => mainModule.ResetSplitterFlags();
+
+        public string GetStyle() => dataAS.StyleMode.ToString();
 
         #endregion
     }

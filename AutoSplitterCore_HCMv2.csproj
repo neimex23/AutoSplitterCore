@@ -104,7 +104,6 @@
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
-    <None Include="packages.config" />
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>
@@ -125,6 +124,12 @@
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
+    <Compile Include="Sources\ProgramModule\GoogleAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\GoogleAuth.Designer.cs">
+      <DependentUpon>GoogleAuth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
     <Compile Include="Sources\ProgramModule\ProfileManager.cs">
       <SubType>Form</SubType>
@@ -155,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\GoogleAuth.resx">
+      <DependentUpon>GoogleAuth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\ProfileManager.resx">
       <DependentUpon>ProfileManager.cs</DependentUpon>

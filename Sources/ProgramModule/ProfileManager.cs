@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -26,20 +26,22 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Eventing.Reader;
 
 namespace AutoSplitterCore
 {
-    public partial class ProfileManager : Form
+    public partial class ProfileManager : ReaLTaiizor.Forms.MetroForm
     {
         private static string savePath = String.Empty;
         private readonly string defaultPath = Path.GetFullPath("./AutoSplitterProfiles");
         private readonly string CustomSavePath = Path.GetFullPath("./PathSaveProfileAutoSplitter.xml");
         private SaveModule saveModule = null;
 
-        public ProfileManager(SaveModule saveModule)
+        public ProfileManager(SaveModule saveModule, bool dark)
         {
             InitializeComponent();
             this.saveModule = saveModule;
+            if (dark) this.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
         }
 
         private void ProfileManager_Load(object sender, EventArgs e)
@@ -113,7 +115,8 @@ namespace AutoSplitterCore
             Summary += "Author: " + saveModule.GetAuthor() + Line;
             Summary += "Practice Mode: " + saveModule.GetPracticeMode() + Line;
             Summary += "Game Selected: " + saveModule.GetGameSelected() + Line;
-            Summary += "Reset Split New Game" + saveModule.GetResetNewGame() + Line;
+            Summary += "Reset Split New Game: " + saveModule.GetResetNewGame() + Line;
+            Summary += "Overwrite Style View: " + saveModule.GetStyle() + Line;
             Summary += Line;
             #endregion
             #region TimingSummary
@@ -588,6 +591,18 @@ namespace AutoSplitterCore
                 Summary += Space + Space + "Not Have Flags" + Line;
             Summary += Line;
             #endregion
+            #region Dishonored
+            Summary += "=======================================================" + Line;
+            Summary += "Dishonored Flags:" + Line;
+            Summary += "=======================================================" + Line;
+            Summary += "option: " + Line;
+            foreach (var dishOp in saveModule.dataAS.DataDishonored.DishonoredOptions)
+            {
+                Summary += Space + dishOp.Option + " : " + dishOp.Enable.ToString() + Line;
+            }
+
+            Summary += Line;
+            #endregion
             Summary += "=======================================================" + Line;
 
             TextBoxSummary.Text = Summary;
@@ -725,6 +740,17 @@ namespace AutoSplitterCore
                 btnSetAuthor.Show();
             else
                 btnSetAuthor.Hide();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnCloud_Click(object sender, EventArgs e)
+        {
+            var form = new GoogleAuth();
+            form.ShowDialog(); 
         }
     }
 }

@@ -29,77 +29,70 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileManager));
-            this.groupBoxManagement = new System.Windows.Forms.GroupBox();
-            this.btnRemoveProfile = new System.Windows.Forms.Button();
-            this.btnSaveProfile = new System.Windows.Forms.Button();
+            this.btnSetAuthor = new System.Windows.Forms.PictureBox();
+            this.textBoxAuthor = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnSetProfile = new System.Windows.Forms.PictureBox();
             this.textBoxCurrrentProfile = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLoadProfile = new System.Windows.Forms.Button();
-            this.btnBrowser = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxSavePath = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.comboBoxProfiles = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxAuthor = new System.Windows.Forms.TextBox();
-            this.btnSetAuthor = new System.Windows.Forms.PictureBox();
-            this.groupBoxManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.button3 = new ReaLTaiizor.Controls.Button();
+            this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBox4 = new ReaLTaiizor.Controls.GroupBox();
+            this.btnCloud = new ReaLTaiizor.Controls.Button();
+            this.groupBox3 = new ReaLTaiizor.Controls.GroupBox();
+            this.btnLoadProfile = new ReaLTaiizor.Controls.Button();
+            this.btnRemoveProfiles = new ReaLTaiizor.Controls.Button();
+            this.btnBrowse = new ReaLTaiizor.Controls.Button();
+            this.btnClose = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBoxManagement
+            // btnSetAuthor
             // 
-            this.groupBoxManagement.Controls.Add(this.btnSetAuthor);
-            this.groupBoxManagement.Controls.Add(this.textBoxAuthor);
-            this.groupBoxManagement.Controls.Add(this.label4);
-            this.groupBoxManagement.Controls.Add(this.btnRemoveProfile);
-            this.groupBoxManagement.Controls.Add(this.btnSaveProfile);
-            this.groupBoxManagement.Controls.Add(this.btnSetProfile);
-            this.groupBoxManagement.Controls.Add(this.textBoxCurrrentProfile);
-            this.groupBoxManagement.Controls.Add(this.label2);
-            this.groupBoxManagement.Controls.Add(this.label1);
-            this.groupBoxManagement.Controls.Add(this.btnLoadProfile);
-            this.groupBoxManagement.Controls.Add(this.btnBrowser);
-            this.groupBoxManagement.Controls.Add(this.label3);
-            this.groupBoxManagement.Controls.Add(this.textBoxSavePath);
-            this.groupBoxManagement.Controls.Add(this.groupBox1);
-            this.groupBoxManagement.Controls.Add(this.comboBoxProfiles);
-            this.groupBoxManagement.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxManagement.Name = "groupBoxManagement";
-            this.groupBoxManagement.Size = new System.Drawing.Size(644, 584);
-            this.groupBoxManagement.TabIndex = 1;
-            this.groupBoxManagement.TabStop = false;
-            this.groupBoxManagement.Text = "Management";
+            this.btnSetAuthor.Image = ((System.Drawing.Image)(resources.GetObject("btnSetAuthor.Image")));
+            this.btnSetAuthor.Location = new System.Drawing.Point(424, 268);
+            this.btnSetAuthor.Name = "btnSetAuthor";
+            this.btnSetAuthor.Size = new System.Drawing.Size(22, 21);
+            this.btnSetAuthor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSetAuthor.TabIndex = 22;
+            this.btnSetAuthor.TabStop = false;
+            this.btnSetAuthor.Click += new System.EventHandler(this.btnSetAuthor_Click);
             // 
-            // btnRemoveProfile
+            // textBoxAuthor
             // 
-            this.btnRemoveProfile.Location = new System.Drawing.Point(336, 98);
-            this.btnRemoveProfile.Name = "btnRemoveProfile";
-            this.btnRemoveProfile.Size = new System.Drawing.Size(93, 23);
-            this.btnRemoveProfile.TabIndex = 19;
-            this.btnRemoveProfile.Text = "Remove Profile";
-            
-            this.btnRemoveProfile.Click += new System.EventHandler(this.btnRemoveProfile_Click);
+            this.textBoxAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxAuthor.Location = new System.Drawing.Point(216, 267);
+            this.textBoxAuthor.Name = "textBoxAuthor";
+            this.textBoxAuthor.Size = new System.Drawing.Size(194, 22);
+            this.textBoxAuthor.TabIndex = 21;
+            this.textBoxAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
             // 
-            // btnSaveProfile
+            // label4
             // 
-            this.btnSaveProfile.Location = new System.Drawing.Point(293, 538);
-            this.btnSaveProfile.Name = "btnSaveProfile";
-            this.btnSaveProfile.Size = new System.Drawing.Size(83, 35);
-            this.btnSaveProfile.TabIndex = 4;
-            this.btnSaveProfile.Text = "Save Current Profile";
-            
-            this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label4.Location = new System.Drawing.Point(161, 272);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 14);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Author";
             // 
             // btnSetProfile
             // 
             this.btnSetProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnSetProfile.Image")));
-            this.btnSetProfile.Location = new System.Drawing.Point(538, 137);
+            this.btnSetProfile.Location = new System.Drawing.Point(518, 233);
             this.btnSetProfile.Name = "btnSetProfile";
             this.btnSetProfile.Size = new System.Drawing.Size(22, 21);
             this.btnSetProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,9 +102,10 @@
             // 
             // textBoxCurrrentProfile
             // 
-            this.textBoxCurrrentProfile.Location = new System.Drawing.Point(141, 137);
+            this.textBoxCurrrentProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxCurrrentProfile.Location = new System.Drawing.Point(120, 233);
             this.textBoxCurrrentProfile.Name = "textBoxCurrrentProfile";
-            this.textBoxCurrrentProfile.Size = new System.Drawing.Size(391, 20);
+            this.textBoxCurrrentProfile.Size = new System.Drawing.Size(391, 22);
             this.textBoxCurrrentProfile.TabIndex = 16;
             this.textBoxCurrrentProfile.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCurrrentProfile.TextChanged += new System.EventHandler(this.textBoxCurrrentProfile_TextChanged);
@@ -119,149 +113,322 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Fuchsia;
-            this.label2.Location = new System.Drawing.Point(62, 142);
+            this.label2.Location = new System.Drawing.Point(19, 236);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(90, 16);
             this.label2.TabIndex = 15;
             this.label2.Text = "Current Profile";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(76, 75);
+            this.label1.Location = new System.Drawing.Point(33, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(53, 14);
             this.label1.TabIndex = 10;
             this.label1.Text = "Profiles";
-            // 
-            // btnLoadProfile
-            // 
-            this.btnLoadProfile.Location = new System.Drawing.Point(237, 98);
-            this.btnLoadProfile.Name = "btnLoadProfile";
-            this.btnLoadProfile.Size = new System.Drawing.Size(93, 23);
-            this.btnLoadProfile.TabIndex = 14;
-            this.btnLoadProfile.Text = "Load Profile";
-            
-            this.btnLoadProfile.Click += new System.EventHandler(this.btnLoadProfile_Click);
-            // 
-            // btnBrowser
-            // 
-            this.btnBrowser.Location = new System.Drawing.Point(552, 29);
-            this.btnBrowser.Name = "btnBrowser";
-            this.btnBrowser.Size = new System.Drawing.Size(83, 23);
-            this.btnBrowser.TabIndex = 11;
-            this.btnBrowser.Text = "Browser";
-            
-            this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(306, 15);
+            this.label3.Location = new System.Drawing.Point(268, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(62, 14);
             this.label3.TabIndex = 10;
             this.label3.Text = "Path Save";
             // 
             // textBoxSavePath
             // 
-            this.textBoxSavePath.Location = new System.Drawing.Point(35, 31);
+            this.textBoxSavePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxSavePath.Location = new System.Drawing.Point(36, 45);
             this.textBoxSavePath.Name = "textBoxSavePath";
-            this.textBoxSavePath.Size = new System.Drawing.Size(511, 20);
+            this.textBoxSavePath.Size = new System.Drawing.Size(511, 22);
             this.textBoxSavePath.TabIndex = 8;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TextBoxSummary);
-            this.groupBox1.Location = new System.Drawing.Point(35, 208);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(574, 321);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Current Summary";
             // 
             // TextBoxSummary
             // 
             this.TextBoxSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxSummary.Location = new System.Drawing.Point(20, 29);
+            this.TextBoxSummary.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.TextBoxSummary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSummary.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSummary.Location = new System.Drawing.Point(14, 31);
             this.TextBoxSummary.Multiline = true;
             this.TextBoxSummary.Name = "TextBoxSummary";
             this.TextBoxSummary.ReadOnly = true;
             this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBoxSummary.Size = new System.Drawing.Size(535, 273);
+            this.TextBoxSummary.Size = new System.Drawing.Size(527, 237);
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
             // 
             // comboBoxProfiles
             // 
             this.comboBoxProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProfiles.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxProfiles.FormattingEnabled = true;
-            this.comboBoxProfiles.Location = new System.Drawing.Point(127, 71);
+            this.comboBoxProfiles.Location = new System.Drawing.Point(92, 111);
             this.comboBoxProfiles.Name = "comboBoxProfiles";
-            this.comboBoxProfiles.Size = new System.Drawing.Size(433, 21);
+            this.comboBoxProfiles.Size = new System.Drawing.Size(433, 22);
             this.comboBoxProfiles.TabIndex = 5;
             // 
-            // label4
+            // groupBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(191, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Author";
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BackGColor = System.Drawing.Color.Khaki;
+            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.btnSetAuthor);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.textBoxAuthor);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.btnBrowse);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btnSetProfile);
+            this.groupBox2.Controls.Add(this.textBoxSavePath);
+            this.groupBox2.Controls.Add(this.textBoxCurrrentProfile);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.comboBoxProfiles);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox2.HeaderColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox2.Location = new System.Drawing.Point(25, 86);
+            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox2.Size = new System.Drawing.Size(603, 619);
+            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.Text = "Managment";
             // 
-            // textBoxAuthor
+            // button3
             // 
-            this.textBoxAuthor.Location = new System.Drawing.Point(235, 168);
-            this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(194, 20);
-            this.textBoxAuthor.TabIndex = 21;
-            this.textBoxAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button3.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = null;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.InactiveColor = System.Drawing.Color.Gold;
+            this.button3.Location = new System.Drawing.Point(257, 585);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button3.Size = new System.Drawing.Size(81, 30);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Save Profile";
+            this.button3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.button3.Click += new System.EventHandler(this.btnSaveProfile_Click);
             // 
-            // btnSetAuthor
+            // groupBox5
             // 
-            this.btnSetAuthor.Image = ((System.Drawing.Image)(resources.GetObject("btnSetAuthor.Image")));
-            this.btnSetAuthor.Location = new System.Drawing.Point(438, 168);
-            this.btnSetAuthor.Name = "btnSetAuthor";
-            this.btnSetAuthor.Size = new System.Drawing.Size(22, 21);
-            this.btnSetAuthor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSetAuthor.TabIndex = 22;
-            this.btnSetAuthor.TabStop = false;
-            this.btnSetAuthor.Click += new System.EventHandler(this.btnSetAuthor_Click);
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.BackGColor = System.Drawing.Color.MediumTurquoise;
+            this.groupBox5.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox5.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox5.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox5.Controls.Add(this.TextBoxSummary);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox5.HeaderColor = System.Drawing.Color.DarkOrange;
+            this.groupBox5.Location = new System.Drawing.Point(22, 304);
+            this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox5.Size = new System.Drawing.Size(551, 276);
+            this.groupBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox5.TabIndex = 23;
+            this.groupBox5.Text = "Current Summary";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.BackGColor = System.Drawing.Color.Red;
+            this.groupBox4.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox4.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox4.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox4.Controls.Add(this.btnCloud);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox4.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBox4.Location = new System.Drawing.Point(338, 147);
+            this.groupBox4.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox4.Size = new System.Drawing.Size(187, 67);
+            this.groupBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.Text = "Cloud Files";
+            // 
+            // btnCloud
+            // 
+            this.btnCloud.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloud.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloud.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloud.Image = null;
+            this.btnCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Location = new System.Drawing.Point(31, 26);
+            this.btnCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCloud.Name = "btnCloud";
+            this.btnCloud.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.Size = new System.Drawing.Size(123, 34);
+            this.btnCloud.TabIndex = 13;
+            this.btnCloud.Text = "Upload/Download Profiles";
+            this.btnCloud.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCloud.Click += new System.EventHandler(this.btnCloud_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.BackGColor = System.Drawing.Color.PowderBlue;
+            this.groupBox3.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox3.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox3.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox3.Controls.Add(this.btnLoadProfile);
+            this.groupBox3.Controls.Add(this.btnRemoveProfiles);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox3.HeaderColor = System.Drawing.Color.DeepSkyBlue;
+            this.groupBox3.Location = new System.Drawing.Point(89, 147);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox3.Size = new System.Drawing.Size(212, 67);
+            this.groupBox3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.Text = "Local Files";
+            // 
+            // btnLoadProfile
+            // 
+            this.btnLoadProfile.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoadProfile.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadProfile.Image = null;
+            this.btnLoadProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.Location = new System.Drawing.Point(15, 28);
+            this.btnLoadProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoadProfile.Name = "btnLoadProfile";
+            this.btnLoadProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnLoadProfile.Size = new System.Drawing.Size(81, 30);
+            this.btnLoadProfile.TabIndex = 13;
+            this.btnLoadProfile.Text = "Load Profile";
+            this.btnLoadProfile.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLoadProfile.Click += new System.EventHandler(this.btnLoadProfile_Click);
+            // 
+            // btnRemoveProfiles
+            // 
+            this.btnRemoveProfiles.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveProfiles.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveProfiles.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveProfiles.Image = null;
+            this.btnRemoveProfiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveProfiles.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.Location = new System.Drawing.Point(110, 28);
+            this.btnRemoveProfiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoveProfiles.Name = "btnRemoveProfiles";
+            this.btnRemoveProfiles.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnRemoveProfiles.Size = new System.Drawing.Size(81, 30);
+            this.btnRemoveProfiles.TabIndex = 14;
+            this.btnRemoveProfiles.Text = "Remove Profile";
+            this.btnRemoveProfiles.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnRemoveProfiles.Click += new System.EventHandler(this.btnRemoveProfile_Click);
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.BackColor = System.Drawing.Color.Transparent;
+            this.btnBrowse.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowse.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnBrowse.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnBrowse.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Image = null;
+            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowse.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnBrowse.Location = new System.Drawing.Point(258, 72);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnBrowse.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnBrowse.Size = new System.Drawing.Size(81, 24);
+            this.btnBrowse.TabIndex = 12;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowser_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnClose.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = null;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnClose.Location = new System.Drawing.Point(543, 50);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnClose.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnClose.Size = new System.Drawing.Size(73, 25);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ProfileManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 603);
-            this.Controls.Add(this.groupBoxManagement);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(669, 725);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfileManager";
             this.Text = "Profile Manager";
             this.Load += new System.EventHandler(this.ProfileManager_Load);
-            this.groupBoxManagement.ResumeLayout(false);
-            this.groupBoxManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBoxManagement;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxProfiles;
-        private System.Windows.Forms.Button btnSaveProfile;
-        private System.Windows.Forms.Button btnLoadProfile;
-        private System.Windows.Forms.Button btnBrowser;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxSavePath;
         private System.Windows.Forms.Label label1;
@@ -269,9 +436,18 @@
         private System.Windows.Forms.TextBox textBoxCurrrentProfile;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnSetProfile;
-        private System.Windows.Forms.Button btnRemoveProfile;
         private System.Windows.Forms.PictureBox btnSetAuthor;
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.Label label4;
+        private ReaLTaiizor.Controls.GroupBox groupBox2;
+        private ReaLTaiizor.Controls.Button btnRemoveProfiles;
+        private ReaLTaiizor.Controls.Button btnLoadProfile;
+        private ReaLTaiizor.Controls.Button btnBrowse;
+        private ReaLTaiizor.Controls.GroupBox groupBox3;
+        private ReaLTaiizor.Controls.GroupBox groupBox4;
+        private ReaLTaiizor.Controls.Button btnCloud;
+        private ReaLTaiizor.Controls.GroupBox groupBox5;
+        private ReaLTaiizor.Controls.Button button3;
+        private ReaLTaiizor.Controls.Button btnClose;
     }
 }

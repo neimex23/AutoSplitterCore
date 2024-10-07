@@ -170,6 +170,7 @@ namespace AutoSplitterCore
                     break;
                 case StyleMode.Dark:
                     DarkMode(true);
+                    darkModeHCM = true;
                     break;
                 case StyleMode.Default:
                 default:
@@ -1309,7 +1310,7 @@ namespace AutoSplitterCore
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            Form form = new ProfileManager(saveModule);
+            var form = new ProfileManager(saveModule, darkModeHCM);
             form.ShowDialog();
             this.Controls.Clear();
             this.InitializeComponent();
