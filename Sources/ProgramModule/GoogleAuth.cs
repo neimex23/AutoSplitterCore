@@ -2,6 +2,7 @@
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Google.Cloud.SecretManager.V1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,8 @@ namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
+        private static string clientId = string.Empty;
+        private static string clientSecret = string.Empty;
         public GoogleAuth()
         {
             InitializeComponent();
@@ -28,74 +31,84 @@ namespace AutoSplitterCore
 
         }
 
-        static string[] Scopes = { DriveService.Scope.Drive };
-        static string ApplicationName = "AutoSplitterCore";
+        public static async Task GetSecretsAsync()
+        {
+            var projectId = "autosplittercore"; // Reemplaza con tu ID de proyecto en Google Cloud
+            var client = SecretManagerServiceClient.Create();
 
-        public static DriveService GetService()
+            // Acceder al secreto del clientId
+            var clientIdSecret = await client.AccessSecretVersionAsync(new SecretVersionName(projectId, "client-id", "latest"));
+            // Acceder al secreto del clientSecret
+            var clientSecretSecret = await client.AccessSecretVersionAsync(new SecretVersionName(projectId, "client-secret", "latest"));
+
+            // Convertir los valores de secretos a texto
+            clientId = clientIdSecret.Payload.Data.ToStringUtf8();
+            clientSecret = clientSecretSecret.Payload.Data.ToStringUtf8();
+        }
+
+        // Método para autenticar al usuario en Google Drive
+        public static async Task<DriveService> AuthenticateAsync()
         {
             UserCredential credential;
-            string credFilePath = "credentials.json"; // Ruta para credenciales generales
+            string credPath = "token.json"; // Ruta donde se almacenará el token de acceso
 
-            if (!File.Exists(credFilePath))
+            // Intentar reutilizar el token existente
+            if (File.Exists(credPath))
             {
-                // Si no existe credentials.json, iniciar flujo interactivo para crear las credenciales
-                Console.WriteLine("No se encontraron credenciales. Iniciando flujo de autenticación interactiva...");
-                credential = GetInteractiveCredentials();
+                using (var stream = new FileStream(credPath, FileMode.Open, FileAccess.Read))
+                {
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.FromStream(stream).Secrets,
+                        new[] { DriveService.Scope.DriveFile },
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)
+                    );
+                }
             }
             else
             {
-                // Si credentials.json existe, utilizarlo para autenticar
-                using (var stream = new FileStream(credFilePath, FileMode.Open, FileAccess.Read))
+                // Si no existe el token.json, crear nuevas credenciales OAuth2
+                var secrets = new ClientSecrets
                 {
-                    string tokenPath = "token.json"; // Archivo de token genérico
-                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.FromStream(stream).Secrets,
-                        Scopes,
-                        "user", // Sin especificar un userId real
-                        CancellationToken.None,
-                        new FileDataStore(tokenPath, true)).Result;
-                    Console.WriteLine("Token de autenticación guardado en: " + tokenPath);
-                }
+                    ClientId = clientId,
+                    ClientSecret = clientSecret
+                };
+
+                // Pedir al usuario que inicie sesión mediante OAuth2
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    secrets,
+                    new[] { DriveService.Scope.DriveFile },
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true)
+                );
             }
 
-            // Crear el servicio de Google Drive
-            var service = new DriveService(new BaseClientService.Initializer()
+            // Crear el servicio de Google Drive utilizando las credenciales obtenidas
+            return new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
+                ApplicationName = "autosplittercore",
             });
-
-            return service;
-        }
-
-        // Método para obtener las credenciales mediante flujo interactivo
-        private static UserCredential GetInteractiveCredentials()
-        {
-            Console.WriteLine("Iniciando autenticación OAuth interactiva...");
-
-            // Aquí puedes usar GoogleWebAuthorizationBroker para crear las credenciales desde la interacción del usuario
-            var clientSecrets = new ClientSecrets
-            {
-                ClientId = "TU_CLIENT_ID", // Debes ingresar tu ClientId aquí
-                ClientSecret = "TU_CLIENT_SECRET" // Debes ingresar tu ClientSecret aquí
-            };
-
-            string tokenPath = "token.json"; // Archivo de token genérico
-
-            var credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                clientSecrets,
-                Scopes,
-                "user", // Sin especificar un userId
-                CancellationToken.None,
-                new FileDataStore(tokenPath, true)).Result;
-
-            Console.WriteLine("Autenticación completada. Token guardado en: " + tokenPath);
-            return credential;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetService();
+            Initialize();
+        }
+
+        private async void Initialize()
+        {
+            try
+            {
+                await GoogleAuth.GetSecretsAsync();
+                var service = await GoogleAuth.AuthenticateAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
     }
 }
