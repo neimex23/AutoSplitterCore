@@ -263,11 +263,11 @@
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox4.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBox4.Location = new System.Drawing.Point(338, 147);
+            this.groupBox4.Location = new System.Drawing.Point(338, 140);
             this.groupBox4.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox4.Size = new System.Drawing.Size(187, 67);
+            this.groupBox4.Size = new System.Drawing.Size(187, 80);
             this.groupBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox4.TabIndex = 18;
             this.groupBox4.Text = "Cloud Files";
@@ -283,7 +283,7 @@
             this.btnCloud.Image = null;
             this.btnCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCloud.Location = new System.Drawing.Point(31, 26);
+            this.btnCloud.Location = new System.Drawing.Point(31, 32);
             this.btnCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCloud.Name = "btnCloud";
             this.btnCloud.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
