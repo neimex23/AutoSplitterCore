@@ -100,9 +100,6 @@
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
-    <None Include="credentials.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>

@@ -1,19 +1,14 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿using Amazon.SecretsManager;
+using Amazon.SecretsManager.Model;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -28,26 +23,57 @@ namespace AutoSplitterCore
         static DriveService driveAdapter = null;
         UserCredential credential;
 
+        string secretName = "AutoSplitterCore/GoogleAuth/credentials";
+        string region = "sa-east-1";
+
         public GoogleAuth()
         {
             InitializeComponent();
         }
 
+        // Función para obtener las credenciales desde AWS Secrets Manager
+        private async Task<string> GetGoogleCredentialsFromSecretsManager()
+        {
+            IAmazonSecretsManager client = new AmazonSecretsManagerClient(Amazon.RegionEndpoint.GetBySystemName(region));
+
+            var request = new GetSecretValueRequest
+            {
+                SecretId = secretName
+            };
+
+            GetSecretValueResponse response;
+            try
+            {
+                response = await client.GetSecretValueAsync(request);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener el secreto: " + ex.Message);
+                throw;
+            }
+
+            // El secreto está en formato JSON en response.SecretString
+            return response.SecretString;
+        }
 
         private async Task Auth()
         {
             if (!File.Exists(credPath))
             {
-                using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                // Obtener las credenciales desde AWS Secrets Manager
+                string googleCredentialsJson = await GetGoogleCredentialsFromSecretsManager();
+
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
                 {
-                    // Si no existe, solicita autorización
+                    // Autenticar con las credenciales obtenidas
                     credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    Scopes,
-                    machineName,  // Usamos el nombre de la máquina aquí
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)
+                        GoogleClientSecrets.FromStream(stream).Secrets,
+                        Scopes,
+                        machineName,  // Usamos el nombre de la máquina aquí
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)
                     );
+
                     Console.WriteLine("Autenticación completada para la máquina: " + machineName + ". Token guardado en: " + credPath);
                     tokenInitialice = true;
                     CreateService();
@@ -66,36 +92,45 @@ namespace AutoSplitterCore
         }
 
         private async Task LoadToken()
-        {    // Verifica si el archivo de tokens existe
+        {
             if (File.Exists(credPath))
             {
-                using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                string googleCredentialsJson = await GetGoogleCredentialsFromSecretsManager();
+
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
                 {
-                    // Carga el token desde el archivo utilizando el nombre de la máquina como clave
-                    var token = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    Scopes,
-                    machineName,  // Usamos el nombre de la máquina aquí
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.FromStream(stream).Secrets,
+                        Scopes,
+                        machineName,
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)
                     );
-                    credential = token;
                     Console.WriteLine("Token cargado exitosamente para la máquina: " + machineName);
                 }
                 tokenInitialice = true;
             }
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             Auth();
         }
 
+        private async Task LoadProcedure()
+        {
+            await LoadToken();
+            if (tokenInitialice)
+            {
+                button1.Hide();
+                CreateService();
+            }
+        }
+
+
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
-            LoadToken();
-            if (tokenInitialice) { button1.Hide(); CreateService(); }
+            LoadProcedure();
         }
     }
 }

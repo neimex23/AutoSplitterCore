@@ -169,9 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="credentials.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="PrepareReleaseAutoSplitter.bat" />
     <None Include="UpdateScriptASC.bat">
