@@ -1,11 +1,10 @@
-﻿using Amazon.SecretsManager;
-using Amazon.SecretsManager.Model;
-using Google.Apis.Auth.OAuth2;
+﻿using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,75 +15,96 @@ namespace AutoSplitterCore
     {
         static string[] Scopes = { DriveService.Scope.Drive };
         static string ApplicationName = "autosplittercore";
-        bool tokenInitialice = false;
+        bool tokenInitialized = false;
 
-        string credPath = "token.json";
-        string machineName = Environment.MachineName;
-        static DriveService driveAdapter = null;
+        string credPath = "token.json"; // Encrypt final token to protect account security
+        string machineName = Environment.MachineName; //Sensitive Information and predicted think with other solution
+        static DriveService driveService = null;
         UserCredential credential;
-
-        string secretName = "AutoSplitterCore/GoogleAuth/credentials";
-        string region = "sa-east-1";
 
         public GoogleAuth()
         {
             InitializeComponent();
         }
 
-        // Función para obtener las credenciales desde AWS Secrets Manager
-        private async Task<string> GetGoogleCredentialsFromSecretsManager()
+        private static readonly HttpClient client = new HttpClient();
+
+        public async Task<string> GetGoogleCredentials()
         {
-            IAmazonSecretsManager client = new AmazonSecretsManagerClient(Amazon.RegionEndpoint.GetBySystemName(region));
+            // API Gateway URL
+            string url = "Reserved until implementing more security";
 
-            var request = new GetSecretValueRequest
-            {
-                SecretId = secretName
-            };
-
-            GetSecretValueResponse response;
             try
             {
-                response = await client.GetSecretValueAsync(request);
+                // Create content for the POST request (if necessary)
+                var content = new StringContent("", Encoding.UTF8, "application/json"); // You can add data if your API requires it
+
+                // Make a POST request to the API Gateway
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                response.EnsureSuccessStatusCode();
+
+                // Get the response body as a string
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                // Remove the undesired initial part
+                if (responseBody.StartsWith("{\"AutoSplitterCoreAuth\":"))
+                {
+                    // Get the value between the quotes and the closing of the object
+                    string value = responseBody.Substring(responseBody.IndexOf(':') + 1);
+                    // Remove the closing of the JSON object
+                    if (value.EndsWith("}"))
+                    {
+                        value = value.Substring(0, value.Length - 1).Trim();
+                    }
+                    value = value.Replace("\\\"", "\"");
+                    return value.Trim('\"').Trim(); // Remove surrounding quotes and blank space
+                }
+
+                return responseBody; // If it's not what you expected, return the complete body
             }
-            catch (Exception ex)
+            catch (HttpRequestException e)
             {
-                Console.WriteLine("Error al obtener el secreto: " + ex.Message);
+                Console.WriteLine("Error making the request: " + e.Message);
                 throw;
             }
-
-            // El secreto está en formato JSON en response.SecretString
-            return response.SecretString;
         }
 
         private async Task Auth()
         {
             if (!File.Exists(credPath))
             {
-                // Obtener las credenciales desde AWS Secrets Manager
-                string googleCredentialsJson = await GetGoogleCredentialsFromSecretsManager();
+                // Obtain credentials from AWS Secrets Manager
+                string googleCredentialsJson = await GetGoogleCredentials();   
 
-                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
+                try
                 {
-                    // Autenticar con las credenciales obtenidas
-                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.FromStream(stream).Secrets,
-                        Scopes,
-                        machineName,  // Usamos el nombre de la máquina aquí
-                        CancellationToken.None,
-                        new FileDataStore(credPath, true)
-                    );
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
+                    {
+                        // Authenticate with the obtained credentials
+                        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                            GoogleClientSecrets.FromStream(stream).Secrets,
+                            Scopes,
+                            machineName,  // Use the machine name here
+                            CancellationToken.None,
+                            new FileDataStore(credPath, true)
+                        );
 
-                    Console.WriteLine("Autenticación completada para la máquina: " + machineName + ". Token guardado en: " + credPath);
-                    tokenInitialice = true;
-                    CreateService();
+                        Console.WriteLine("Authentication completed for machine: " + machineName + ". Token saved in: " + credPath);
+                        tokenInitialized = true;
+                        CreateService();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error on Authentification process: " + e.Message);
                 }
             }
         }
 
         private void CreateService()
         {
-            // Crea el servicio de Google Drive
-            driveAdapter = new DriveService(new BaseClientService.Initializer()
+            // Create the Google Drive service
+            driveService = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
@@ -95,20 +115,26 @@ namespace AutoSplitterCore
         {
             if (File.Exists(credPath))
             {
-                string googleCredentialsJson = await GetGoogleCredentialsFromSecretsManager();
+                string googleCredentialsJson = await GetGoogleCredentials();
 
-                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
+                try
                 {
-                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.FromStream(stream).Secrets,
-                        Scopes,
-                        machineName,
-                        CancellationToken.None,
-                        new FileDataStore(credPath, true)
-                    );
-                    Console.WriteLine("Token cargado exitosamente para la máquina: " + machineName);
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
+                    {
+                        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                            GoogleClientSecrets.FromStream(stream).Secrets,
+                            Scopes,
+                            machineName,
+                            CancellationToken.None,
+                            new FileDataStore(credPath, true)
+                        );
+                        Console.WriteLine("Token loaded successfully for machine: " + machineName);
+                    }
+                    tokenInitialized = true;
+                }catch (Exception e)
+                {
+                    Console.WriteLine("Error on LoadToken process: " + e.Message);
                 }
-                tokenInitialice = true;
             }
         }
 
@@ -120,13 +146,12 @@ namespace AutoSplitterCore
         private async Task LoadProcedure()
         {
             await LoadToken();
-            if (tokenInitialice)
+            if (tokenInitialized)
             {
                 button1.Hide();
                 CreateService();
             }
         }
-
 
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
@@ -134,4 +159,3 @@ namespace AutoSplitterCore
         }
     }
 }
-
