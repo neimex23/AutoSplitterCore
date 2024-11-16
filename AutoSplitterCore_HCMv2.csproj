@@ -62,10 +62,6 @@
       <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Sources\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\SoulMemory.dll</HintPath>
@@ -100,6 +96,7 @@
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
+    <EmbeddedResource Include="appsettings.json" />
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>
