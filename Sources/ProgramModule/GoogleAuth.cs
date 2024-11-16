@@ -2,9 +2,11 @@
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,12 +29,34 @@ namespace AutoSplitterCore
             InitializeComponent();
         }
 
+        //Dev should create a appsettings.json on root source code and using "Incrusting resource method" with url of AWS_ApiGateWay with name GetGoogleCredentials_ApiGateWay = api.url
+        // For more info read my investigation: https://www.notion.so/Manejo-de-Secretos-c781ca2f65c449f4b9a6aa82fef3ab0a?pvs=4 (web on Spanish language)
+        public static string GetAPIUrl()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    return jsonObject["ApiSettings"]["GetGoogleCredentials_ApiGateWay"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on Incrusted Resource: ", ex);
+            }
+        }
+
         private static readonly HttpClient client = new HttpClient();
 
         public async Task<string> GetGoogleCredentials()
         {
+
             // API Gateway URL
-            string url = "Reserved until implementing more security";
+            string url = GetAPIUrl();
 
             try
             {
