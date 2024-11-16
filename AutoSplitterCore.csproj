@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <EmbeddedResource Include="appsettings.json" />
     <None Include="Images\installer-banner-autosplitter.png" />
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
