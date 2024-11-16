@@ -100,7 +100,6 @@
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
-    <EmbeddedResource Include="appsettings.json" />
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>

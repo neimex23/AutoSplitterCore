@@ -2,15 +2,12 @@
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Net.Http;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.UI.Design;
 
 namespace AutoSplitterCore
 {
@@ -32,30 +29,10 @@ namespace AutoSplitterCore
 
         private static readonly HttpClient client = new HttpClient();
 
-        //Dev should add a Api GateWay of AWS linked to SecretManager or similar method on appsettingsjsonto work this correctly if can test or modify anything of this
-        public static string GetAPIURL()
+        public async Task<string> GetGoogleCredentials()
         {
-            try
-            {
-                // Cargar el recurso incrustado
-                var assembly = Assembly.GetExecutingAssembly();
-                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    string jsonContent = reader.ReadToEnd();
-                    var jsonObject = JObject.Parse(jsonContent);
-                    return jsonObject["ApiSettings"]["GetGoogleCredentials_ApiGateWay"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al cargar la configuración desde el recurso incrustado", ex);
-            }
-        }
-
-        public async Task<string> GetGoogleCredentials() {
             // API Gateway URL
-            string url = GetAPIURL();
+            string url = "Reserved until implementing more security";
 
             try
             {

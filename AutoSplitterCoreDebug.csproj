@@ -169,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="appsettings.json" />
     <None Include="packages.config" />
     <None Include="PrepareReleaseAutoSplitter.bat" />
     <None Include="UpdateScriptASC.bat">
