@@ -8,11 +8,11 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoSplitterCore Installer", "AutoSplitterCoreInstaller.vdproj", "{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCoreDebug", "AutoSplitterCoreDebug.csproj", "{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "AutoSplitterCore_HCMv2.csproj", "{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A} = {8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "AutoSplitterCore_HCMv2.csproj", "{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

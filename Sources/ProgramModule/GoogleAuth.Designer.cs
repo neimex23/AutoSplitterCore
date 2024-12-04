@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ReaLTaiizor.Controls.GroupBox groupBox1;
             this.btnLogin = new ReaLTaiizor.Controls.Button();
-            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.groupBox1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listViewFiles = new ReaLTaiizor.Controls.MaterialListView();
+            groupBox1 = new ReaLTaiizor.Controls.GroupBox();
+            groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -46,7 +48,7 @@
             this.btnLogin.Image = null;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnLogin.Location = new System.Drawing.Point(389, 310);
+            this.btnLogin.Location = new System.Drawing.Point(1512, 55);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -58,33 +60,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackGColor = System.Drawing.Color.DodgerBlue;
-            this.groupBox1.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBox1.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBox1.Location = new System.Drawing.Point(25, 55);
-            this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox1.Size = new System.Drawing.Size(537, 162);
-            this.groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Email>";
+            groupBox1.BackColor = System.Drawing.Color.Transparent;
+            groupBox1.BackGColor = System.Drawing.Color.Khaki;
+            groupBox1.BaseColor = System.Drawing.Color.Transparent;
+            groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Controls.Add(this.listViewFiles);
+            groupBox1.Controls.Add(this.linkLabel1);
+            groupBox1.Controls.Add(this.label1);
+            groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
+            groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            groupBox1.HeaderColor = System.Drawing.Color.PowderBlue;
+            groupBox1.Location = new System.Drawing.Point(25, 55);
+            groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            groupBox1.Size = new System.Drawing.Size(879, 890);
+            groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            groupBox1.TabIndex = 1;
+            groupBox1.Text = "Profile View";
             // 
             // linkLabel1
             // 
@@ -96,18 +90,46 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "linkLabel1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Email>";
+            // 
+            // listViewFiles
+            // 
+            this.listViewFiles.AutoSizeTable = false;
+            this.listViewFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.listViewFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewFiles.Depth = 0;
+            this.listViewFiles.FullRowSelect = true;
+            this.listViewFiles.HideSelection = false;
+            this.listViewFiles.Location = new System.Drawing.Point(11, 56);
+            this.listViewFiles.MinimumSize = new System.Drawing.Size(200, 100);
+            this.listViewFiles.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.listViewFiles.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.listViewFiles.Name = "listViewFiles";
+            this.listViewFiles.OwnerDraw = true;
+            this.listViewFiles.Size = new System.Drawing.Size(672, 817);
+            this.listViewFiles.TabIndex = 2;
+            this.listViewFiles.UseCompatibleStateImageBehavior = false;
+            this.listViewFiles.View = System.Windows.Forms.View.Details;
+            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1651, 1014);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(groupBox1);
             this.Image = null;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -115,8 +137,8 @@
         #endregion
 
         private ReaLTaiizor.Controls.Button btnLogin;
-        private ReaLTaiizor.Controls.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
+        private ReaLTaiizor.Controls.MaterialListView listViewFiles;
     }
 }

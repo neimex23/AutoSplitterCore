@@ -12,6 +12,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -159,7 +162,46 @@ namespace AutoSplitterCore
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
             linkLabel1.Text = userInfo.Email;
             btnLogin.Hide();
+            LoadFilesFromPublicFolder();
         }
         #endregion
+
+
+        public async Task<string> DownloadFileFromPublicUrl(string fileId)
+        {
+            try
+            {
+                string url = $"https://www.googleapis.com/drive/v3/files/{fileId}?alt=media&key={GetGoogleCredentials()}";
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+
+                    // Leer el contenido del archivo
+                    return await response.Content.ReadAsStringAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error downloading file: " + ex.Message);
+                return string.Empty;
+            }
+        }
+
+        private async void LoadFilesFromPublicFolder()
+        {
+            string folderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
+            var request = driveService.Files.List();
+            request.Q = $"'{folderId}' in parents and mimeType='application/xml'";
+            request.Fields = "files(id, name)";
+
+            var result = request.Execute();
+            foreach (var file in result.Files)
+            {
+                ListViewItem item = new ListViewItem(file.OriginalFilename);
+                listViewFiles.Items.Add(item);
+                Console.WriteLine($"Name: {file.Name}, ID: {file.Id}");
+            }
+        }
     }
 }

@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>x64</PlatformTarget>
+    <NoWarn>MSB3277</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Sources\ProgramModule\AutoSplitterSetupIcon.ico</ApplicationIcon>
@@ -75,11 +76,11 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,7 @@
     <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
     <EmbeddedResource Include="appsettings.json" />
+    <None Include="app.config" />
     <None Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
     </None>
