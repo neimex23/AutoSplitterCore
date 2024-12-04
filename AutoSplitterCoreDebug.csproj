@@ -42,9 +42,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.Apis.Drive.v3, Version=1.68.0.3587, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+    <Reference Include="Google.Apis.Drive.v3, Version=1.68.0.3601, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.Drive.v3.1.68.0.3601\lib\net462\Google.Apis.Drive.v3.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis.Oauth2.v2, Version=1.68.0.1869, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.Oauth2.v2.1.68.0.1869\lib\net462\Google.Apis.Oauth2.v2.dll</HintPath>
