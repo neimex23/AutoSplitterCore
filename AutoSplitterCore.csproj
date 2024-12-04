@@ -201,8 +201,8 @@
     <PackageReference Include="Google.Apis.Drive.v3">
       <Version>1.68.0.3587</Version>
     </PackageReference>
-    <PackageReference Include="MetroFramework">
-      <Version>1.2.0.3</Version>
+    <PackageReference Include="Google.Apis.Oauth2.v2">
+      <Version>1.68.0.1869</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>

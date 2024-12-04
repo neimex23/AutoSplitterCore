@@ -111,6 +111,9 @@
         <member name="P:Google.Apis.Drive.v3.DriveService.About">
             <summary>Gets the About resource.</summary>
         </member>
+        <member name="P:Google.Apis.Drive.v3.DriveService.Accessproposals">
+            <summary>Gets the Accessproposals resource.</summary>
+        </member>
         <member name="P:Google.Apis.Drive.v3.DriveService.Apps">
             <summary>Gets the Apps resource.</summary>
         </member>
@@ -245,6 +248,117 @@
         </member>
         <member name="M:Google.Apis.Drive.v3.AboutResource.GetRequest.InitParameters">
             <summary>Initializes Get parameter list.</summary>
+        </member>
+        <member name="T:Google.Apis.Drive.v3.AccessproposalsResource">
+            <summary>The "accessproposals" collection of methods.</summary>
+        </member>
+        <member name="F:Google.Apis.Drive.v3.AccessproposalsResource.service">
+            <summary>The service which this resource belongs to.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.#ctor(Google.Apis.Services.IClientService)">
+            <summary>Constructs a new resource.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.Get(System.String,System.String)">
+            <summary>Retrieves an AccessProposal by ID.</summary>
+            <param name="fileId">Required. The id of the item the request is on.</param>
+            <param name="proposalId">Required. The id of the access proposal to resolve.</param>
+        </member>
+        <member name="T:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest">
+            <summary>Retrieves an AccessProposal by ID.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.#ctor(Google.Apis.Services.IClientService,System.String,System.String)">
+            <summary>Constructs a new Get request.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.FileId">
+            <summary>Required. The id of the item the request is on.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.ProposalId">
+            <summary>Required. The id of the access proposal to resolve.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.GetRequest.InitParameters">
+            <summary>Initializes Get parameter list.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.List(System.String)">
+            <summary>
+            List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If the
+            user is not an approver, returns a 403.
+            </summary>
+            <param name="fileId">Required. The id of the item the request is on.</param>
+        </member>
+        <member name="T:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest">
+            <summary>
+            List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If the
+            user is not an approver, returns a 403.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
+            <summary>Constructs a new List request.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.FileId">
+            <summary>Required. The id of the item the request is on.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.PageSize">
+            <summary>Optional. The number of results per page</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.PageToken">
+            <summary>Optional. The continuation token on the list of access requests.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.ListRequest.InitParameters">
+            <summary>Initializes List parameter list.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.Resolve(Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest,System.String,System.String)">
+            <summary>Used to approve or deny an Access Proposal.</summary>
+            <param name="body">The body of the request.</param>
+            <param name="fileId">Required. The id of the item the request is on.</param>
+            <param name="proposalId">Required. The id of the access proposal to resolve.</param>
+        </member>
+        <member name="T:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest">
+            <summary>Used to approve or deny an Access Proposal.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.#ctor(Google.Apis.Services.IClientService,Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest,System.String,System.String)">
+            <summary>Constructs a new Resolve request.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.FileId">
+            <summary>Required. The id of the item the request is on.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.ProposalId">
+            <summary>Required. The id of the access proposal to resolve.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.Body">
+            <summary>Gets or sets the body of this request.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.GetBody">
+            <summary>Returns the body of the request.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.MethodName">
+            <summary>Gets the method name.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.HttpMethod">
+            <summary>Gets the HTTP method.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.RestPath">
+            <summary>Gets the REST path.</summary>
+        </member>
+        <member name="M:Google.Apis.Drive.v3.AccessproposalsResource.ResolveRequest.InitParameters">
+            <summary>Initializes Resolve parameter list.</summary>
         </member>
         <member name="T:Google.Apis.Drive.v3.AppsResource">
             <summary>The "apps" collection of methods.</summary>
@@ -1037,119 +1151,6 @@
         </member>
         <member name="M:Google.Apis.Drive.v3.FilesResource.#ctor(Google.Apis.Services.IClientService)">
             <summary>Constructs a new resource.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.Accessproposals">
-            <summary>Gets the Accessproposals resource.</summary>
-        </member>
-        <member name="T:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource">
-            <summary>The "accessproposals" collection of methods.</summary>
-        </member>
-        <member name="F:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.service">
-            <summary>The service which this resource belongs to.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.#ctor(Google.Apis.Services.IClientService)">
-            <summary>Constructs a new resource.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.List(System.String)">
-            <summary>
-            List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If
-            the user is not an approver, returns a 403.
-            </summary>
-            <param name="fileId">Required. The id of the item the request is on.</param>
-        </member>
-        <member name="T:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest">
-            <summary>
-            List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If
-            the user is not an approver, returns a 403.
-            </summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
-            <summary>Constructs a new List request.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.FileId">
-            <summary>Required. The id of the item the request is on.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.PageSize">
-            <summary>Optional. The number of results per page</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.PageToken">
-            <summary>Optional. The continuation token on the list of access requests.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.MethodName">
-            <summary>Gets the method name.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.HttpMethod">
-            <summary>Gets the HTTP method.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.RestPath">
-            <summary>Gets the REST path.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ListRequest.InitParameters">
-            <summary>Initializes List parameter list.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.Resolve(System.String,System.String)">
-            <summary>Used to approve or deny an Access Proposal.</summary>
-            <param name="fileId">Required. The id of the item the request is on.</param>
-            <param name="proposalId">Required. The id of the access proposal to resolve.</param>
-        </member>
-        <member name="T:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest">
-            <summary>Used to approve or deny an Access Proposal.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.#ctor(Google.Apis.Services.IClientService,System.String,System.String)">
-            <summary>Constructs a new Resolve request.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.FileId">
-            <summary>Required. The id of the item the request is on.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.ProposalId">
-            <summary>Required. The id of the access proposal to resolve.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.Action">
-            <summary>Required. The action to take on the AccessProposal.</summary>
-        </member>
-        <member name="T:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.ActionEnum">
-            <summary>Required. The action to take on the AccessProposal.</summary>
-        </member>
-        <member name="F:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.ActionEnum.ACTIONUNSPECIFIED">
-            <summary>Unspecified action</summary>
-        </member>
-        <member name="F:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.ActionEnum.ACCEPT">
-            <summary>
-            The user accepts the proposal. Note: If this action is used, the `role` field must have at least
-            one value.
-            </summary>
-        </member>
-        <member name="F:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.ActionEnum.DENY">
-            <summary>The user denies the proposal</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.Role">
-            <summary>
-            Optional. The roles the approver has allowed, if any. Note: This field is required for the `ACCEPT`
-            action.
-            </summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.SendNotification">
-            <summary>
-            Optional. Whether to send an email to the requester when the AccessProposal is denied or accepted.
-            </summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.View">
-            <summary>
-            Optional. Indicates the view for this access proposal. This should only be set when the proposal
-            belongs to a view. `published` is the only supported value.
-            </summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.MethodName">
-            <summary>Gets the method name.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.HttpMethod">
-            <summary>Gets the HTTP method.</summary>
-        </member>
-        <member name="P:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.RestPath">
-            <summary>Gets the REST path.</summary>
-        </member>
-        <member name="M:Google.Apis.Drive.v3.FilesResource.AccessproposalsResource.ResolveRequest.InitParameters">
-            <summary>Initializes Resolve parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.FilesResource.Copy(Google.Apis.Drive.v3.Data.File,System.String)">
             <summary>Creates a copy of a file and applies any requested updates with patch semantics.</summary>
@@ -5424,6 +5425,31 @@
             </summary>
         </member>
         <member name="P:Google.Apis.Drive.v3.Data.ReplyList.ETag">
+            <summary>The ETag of the item.</summary>
+        </member>
+        <member name="T:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest">
+            <summary>Request message for resolving an AccessProposal on a file.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest.Action">
+            <summary>Required. The action to take on the AccessProposal.</summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest.Role">
+            <summary>
+            Optional. The roles the approver has allowed, if any. Note: This field is required for the `ACCEPT` action.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest.SendNotification">
+            <summary>
+            Optional. Whether to send an email to the requester when the AccessProposal is denied or accepted.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest.View">
+            <summary>
+            Optional. Indicates the view for this access proposal. This should only be set when the proposal belongs to
+            a view. `published` is the only supported value.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Drive.v3.Data.ResolveAccessProposalRequest.ETag">
             <summary>The ETag of the item.</summary>
         </member>
         <member name="T:Google.Apis.Drive.v3.Data.Revision">

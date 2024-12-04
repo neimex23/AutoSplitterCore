@@ -41,6 +41,7 @@ namespace AutoSplitterCore
         public string ProfileName = "Default";
         public string Author = "Owner";
         //Settings
+        public string saveProfilePath = string.Empty;
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
         public bool AutoResetSplit = false;

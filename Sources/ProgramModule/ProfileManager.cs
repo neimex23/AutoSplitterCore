@@ -34,7 +34,6 @@ namespace AutoSplitterCore
     {
         private static string savePath = String.Empty;
         private readonly string defaultPath = Path.GetFullPath("./AutoSplitterProfiles");
-        private readonly string CustomSavePath = Path.GetFullPath("./PathSaveProfileAutoSplitter.xml");
         private SaveModule saveModule = null;
 
         public ProfileManager(SaveModule saveModule, bool dark)
@@ -49,21 +48,11 @@ namespace AutoSplitterCore
             btnSetProfile.Hide();
             btnSetAuthor.Hide();
 
-            if (File.Exists(CustomSavePath))
-            {
-                savePath = File.ReadAllText(CustomSavePath);
-                if (savePath == String.Empty)
-                {
-                    savePath = defaultPath;
-                    File.Delete(CustomSavePath);
-                }
-            }
-            else
-            {
-                savePath = defaultPath;
-            }
+            savePath = saveModule.dataAS.saveProfilePath;
+
+            _ = savePath == string.Empty ? savePath = defaultPath : savePath;
            
-            if (!Directory.Exists(savePath) && savePath == defaultPath )
+            if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
@@ -685,21 +674,24 @@ namespace AutoSplitterCore
 
         private void btnBrowser_Click(object sender, EventArgs e)
         {
-            Stream stream = new FileStream(CustomSavePath, FileMode.OpenOrCreate);
-            var Browser = new FolderBrowserDialog();
-            DialogResult result = Browser.ShowDialog();
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(Browser.SelectedPath))
+            try
             {
-                using (StreamWriter writer = new StreamWriter(stream, Encoding.UTF8))
+                Stream stream = new FileStream(savePath, FileMode.OpenOrCreate);
+                var Browser = new FolderBrowserDialog();
+                DialogResult result = Browser.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(Browser.SelectedPath))
                 {
-                    writer.Write(Browser.SelectedPath);
-                }
+                    using (StreamWriter writer = new StreamWriter(stream, Encoding.UTF8))
+                    {
+                        writer.Write(Browser.SelectedPath);
+                    }
                     savePath = Browser.SelectedPath;
                     textBoxSavePath.Text = savePath;
+                }
+                stream.Close();
+                RefreshForm();
             }
-            stream.Close();
-            if (savePath == defaultPath) File.Delete(CustomSavePath);
-            RefreshForm();
+            catch (Exception ex) { MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnSetProfile_Click(object sender, EventArgs e)

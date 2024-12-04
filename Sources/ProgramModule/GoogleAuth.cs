@@ -1,6 +1,6 @@
 ﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Responses;
+using Google.Apis.Oauth2.v2;
+using Google.Apis.Oauth2.v2.Data;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
@@ -9,7 +9,6 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,13 +17,12 @@ namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = { DriveService.Scope.Drive };
+        static string[] Scopes = { DriveService.Scope.Drive, "https://www.googleapis.com/auth/userinfo.email" };
         static string ApplicationName = "autosplittercore";
-        bool tokenInitialized = false;
 
-        string credPath = "token.json"; // Encrypt final token to protect account security
         string machineName = Environment.MachineName; //Sensitive Information and predicted think with other solution
         static DriveService driveService = null;
+        static Oauth2Service oauth2Service = null;
         UserCredential credential;
 
         public GoogleAuth()
@@ -32,99 +30,39 @@ namespace AutoSplitterCore
             InitializeComponent();
         }
 
-        private void GoogleAuth_Load(object sender, EventArgs e)
-        {
-            LoadProcedure();
-        }
-
-        private async Task LoadProcedure()
-        {
-            LoadToken();
-            if (tokenInitialized)
-            {
-                button1.Hide();
-                CreateService();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        #region AuthProcess
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             Auth();
         }
 
-        #region Encrypt Files
-
-        public static string GetEncryptKey()
+        private async Task Auth()
         {
             try
             {
-                var assembly = Assembly.GetExecutingAssembly();
-                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
-                using (StreamReader reader = new StreamReader(stream))
+                string googleCredentialsJson = await GetGoogleCredentials();
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
                 {
-                    string jsonContent = reader.ReadToEnd();
-                    var jsonObject = JObject.Parse(jsonContent);
-                    return jsonObject["EncryptFiles"]["EncryptKey"].ToString();
+                    // Authenticate with the obtained credentials
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.FromStream(stream).Secrets,
+                        Scopes,
+                        machineName,
+                        CancellationToken.None,
+                        new FileDataStore("")
+                    );
+
+
+                    Console.WriteLine("Authentication completed for ´user´ machine: " + machineName);
+                    CreateService();
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception("Error on Incrusted Resource: ", ex);
+                Console.WriteLine("Error on Authentification process: " + e.Message);
             }
         }
 
-
-        private static readonly string encryptionKey = GetEncryptKey();
-
-            private static string Encrypt(string plainText)
-            {
-                using (Aes aes = Aes.Create())
-                {
-                    var key = Encoding.UTF8.GetBytes(encryptionKey.PadRight(32, '0'));
-                    aes.Key = key;
-                    aes.GenerateIV();
-                    var iv = Convert.ToBase64String(aes.IV);
-                    using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
-                    {
-                        var plainBytes = Encoding.UTF8.GetBytes(plainText);
-                        var encryptedBytes = encryptor.TransformFinalBlock(plainBytes, 0, plainBytes.Length);
-                        return iv + ":" + Convert.ToBase64String(encryptedBytes);
-                    }
-                }
-            }
-
-            private static string Decrypt(string encryptedText)
-            {
-                var parts = encryptedText.Split(':');
-                var iv = Convert.FromBase64String(parts[0]);
-                var cipherText = Convert.FromBase64String(parts[1]);
-                using (Aes aes = Aes.Create())
-                {
-                    var key = Encoding.UTF8.GetBytes(encryptionKey.PadRight(32, '0'));
-                    aes.Key = key;
-                    aes.IV = iv;
-                    using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
-                    {
-                        var plainBytes = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
-                        return Encoding.UTF8.GetString(plainBytes);
-                    }
-                }
-            }
-
-
-        #endregion
-
-        private static readonly HttpClient client = new HttpClient();
-
-        private void CreateService()
-        {
-            // Create the Google Drive service
-            driveService = new DriveService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-        }
 
         //Dev should create a appsettings.json on root source code and using "Incrusting resource method" with url of AWS_ApiGateWay with name GetGoogleCredentials_ApiGateWay = api.url
         // For more info read my investigation: https://www.notion.so/Manejo-de-Secretos-c781ca2f65c449f4b9a6aa82fef3ab0a?pvs=4 (web on Spanish language)
@@ -201,91 +139,27 @@ namespace AutoSplitterCore
             }
         }
 
+        private static readonly HttpClient client = new HttpClient();
 
-
-        private async Task Auth()
+        private void CreateService()
         {
-            if (!File.Exists(credPath))
+            // Create the Google Drive service
+            driveService = new DriveService(new BaseClientService.Initializer()
             {
-                // Obtain credentials from AWS Secrets Manager
-                string googleCredentialsJson = await GetGoogleCredentials();   
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
 
-                try
-                {
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
-                    {
-                        // Authenticate with the obtained credentials
-                        credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                            GoogleClientSecrets.FromStream(stream).Secrets,
-                            Scopes,
-                            "user", 
-                            CancellationToken.None,
-                            new FileDataStore("")
-                        );
-
-                        using (var stream2 = new MemoryStream())
-                        {
-                            new FileDataStore("").StoreAsync("StoredCredential", credential.Token).Wait();
-                            stream2.Seek(0, SeekOrigin.Begin);
-                            var tokenBytes = stream2.ToArray();
-
-                            // encrypt and save credentials token on file
-                            var encryptedToken = Encrypt(Convert.ToBase64String(tokenBytes));
-                            File.WriteAllText(credPath, encryptedToken);
-                        }
-
-
-                        Console.WriteLine("Authentication completed for machine: " + machineName + ". Token saved in: " + credPath);
-
-
-                        tokenInitialized = true;
-                        CreateService();
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error on Authentification process: " + e.Message);
-                }
-            }
-        }
-
-        private async Task LoadToken()
-        {
-            if (File.Exists(credPath))
+            oauth2Service = new Oauth2Service(new BaseClientService.Initializer
             {
-                try
-                {
-                    string googleCredentialsJson = await GetGoogleCredentials();
-                    // Descifrar y deserializar el token
-                    var encryptedToken = File.ReadAllText(credPath);
-                    var decryptedTokenJson = Decrypt(encryptedToken);
-                    var token = Newtonsoft.Json.JsonConvert.DeserializeObject<TokenResponse>(decryptedTokenJson);
-                   
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
-                    {
-                        // Crear el flujo de autorización manualmente
-                        var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
-                        {
-                            ClientSecrets = GoogleClientSecrets.FromStream(stream).Secrets,
-                        Scopes = Scopes,
-                        DataStore = new FileDataStore("")
-                        });
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
 
-                        // Reconstruir las credenciales del usuario
-                        credential = new UserCredential(flow, "user", token);
-
-                        Console.WriteLine("Token loaded successfully for machine: " + machineName);
-                        tokenInitialized = true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error during token loading process: " + e.Message);
-                }
-            }
+            Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
+            linkLabel1.Text = userInfo.Email;
+            btnLogin.Hide();
         }
-
-
-     
+        #endregion
     }
 }
