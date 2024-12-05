@@ -36,7 +36,24 @@ namespace AutoSplitterCore
         #region AuthProcess
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Auth();
+            Cursor.Current = Cursors.WaitCursor;
+            Task.Run(() => Auth());
+        }
+
+        private void btnForgetLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dataStore = new EncryptedDataStore("Google.Apis.Auth");
+
+                dataStore.Clear(); // Remove all credentials
+
+                Console.WriteLine("Logout completed. All stored credentials have been cleared.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error during logout process: " + ex.Message);
+            }
         }
 
         private async Task Auth()
@@ -47,12 +64,14 @@ namespace AutoSplitterCore
                 using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
                 {
                     // Authenticate with the obtained credentials
+                    var dataStore = new EncryptedDataStore("Google.Apis.Auth");
+
                     credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.FromStream(stream).Secrets,
                         Scopes,
                         machineName,
                         CancellationToken.None,
-                        new FileDataStore("")
+                        new FileDataStoreAdapter(dataStore)
                     );
 
 
@@ -161,47 +180,35 @@ namespace AutoSplitterCore
 
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
             linkLabel1.Text = userInfo.Email;
-            btnLogin.Hide();
+            btnLogin.Enabled = false;
+            btnForgetLogin.Enabled = true;
             LoadFilesFromPublicFolder();
+            Cursor = Cursors.Default;
         }
         #endregion
 
 
-        public async Task<string> DownloadFileFromPublicUrl(string fileId)
-        {
-            try
-            {
-                string url = $"https://www.googleapis.com/drive/v3/files/{fileId}?alt=media&key={GetGoogleCredentials()}";
-                using (HttpClient client = new HttpClient())
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    response.EnsureSuccessStatusCode();
-
-                    // Leer el contenido del archivo
-                    return await response.Content.ReadAsStringAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error downloading file: " + ex.Message);
-                return string.Empty;
-            }
-        }
-
-        private async void LoadFilesFromPublicFolder()
+        private void LoadFilesFromPublicFolder()
         {
             string folderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
             var request = driveService.Files.List();
-            request.Q = $"'{folderId}' in parents and mimeType='application/xml'";
+            request.Q = $"'{folderId}' in parents and name contains '.xml'";
             request.Fields = "files(id, name)";
 
             var result = request.Execute();
             foreach (var file in result.Files)
             {
-                ListViewItem item = new ListViewItem(file.OriginalFilename);
+                ListViewItem item = new ListViewItem(file.Name);
+                item.SubItems.Add(file.Id);
                 listViewFiles.Items.Add(item);
+                listViewFiles.Refresh();
                 Console.WriteLine($"Name: {file.Name}, ID: {file.Id}");
             }
+        }
+
+        private void GoogleAuth_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -66,6 +66,7 @@ namespace AutoSplitterCore
             textBoxSavePath.Text = savePath;
             textBoxCurrrentProfile.Text = saveModule.GetProfileName();
             textBoxAuthor.Text = saveModule.GetAuthor();
+            TextboxDescription.Text = saveModule.GetDescription();
             
             prevIndex = comboBoxProfiles.SelectedIndex;
 
@@ -102,6 +103,7 @@ namespace AutoSplitterCore
             Summary += "=======================================================" + Line;
             Summary += "Profile: " + saveModule.GetProfileName() + Line;
             Summary += "Author: " + saveModule.GetAuthor() + Line;
+            Summary += "Description: " + saveModule.GetDescription() + Line;
             Summary += "Practice Mode: " + saveModule.GetPracticeMode() + Line;
             Summary += "Game Selected: " + saveModule.GetGameSelected() + Line;
             Summary += "Reset Split New Game: " + saveModule.GetResetNewGame() + Line;

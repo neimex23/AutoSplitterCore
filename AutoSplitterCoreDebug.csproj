@@ -126,6 +126,7 @@
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
+    <Compile Include="Sources\ProgramModule\EncryptedFileDataStore.cs" />
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
     <Compile Include="Sources\ProgramModule\GoogleAuth.cs">
       <SubType>Form</SubType>

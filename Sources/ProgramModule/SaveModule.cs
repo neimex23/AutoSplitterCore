@@ -40,6 +40,7 @@ namespace AutoSplitterCore
         //Profile
         public string ProfileName = "Default";
         public string Author = "Owner";
+        public string Description = "Default Profile";
         //Settings
         public string saveProfilePath = string.Empty;
         public bool CheckUpdatesOnStartup = true;
@@ -248,6 +249,8 @@ namespace AutoSplitterCore
         public void ResetFlags() => mainModule.ResetSplitterFlags();
 
         public string GetStyle() => dataAS.StyleMode.ToString();
+
+        public string GetDescription() => dataAS.Description;
 
         #endregion
     }
