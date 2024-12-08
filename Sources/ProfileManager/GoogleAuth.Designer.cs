@@ -35,8 +35,6 @@
             this.btnLogin = new ReaLTaiizor.Controls.Button();
             this.btnForgetLogin = new ReaLTaiizor.Controls.Button();
             this.groupBoxUpload = new ReaLTaiizor.Controls.GroupBox();
-            this.textBoxSplitsCount = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnUploadProfile = new ReaLTaiizor.Controls.Button();
             this.textBoxDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -153,8 +151,6 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxUpload.Controls.Add(this.textBoxSplitsCount);
-            this.groupBoxUpload.Controls.Add(this.label6);
             this.groupBoxUpload.Controls.Add(this.btnUploadProfile);
             this.groupBoxUpload.Controls.Add(this.textBoxDate);
             this.groupBoxUpload.Controls.Add(this.label3);
@@ -175,27 +171,6 @@
             this.groupBoxUpload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpload.TabIndex = 4;
             this.groupBoxUpload.Text = "Upload";
-            // 
-            // textBoxSplitsCount
-            // 
-            this.textBoxSplitsCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSplitsCount.Enabled = false;
-            this.textBoxSplitsCount.Location = new System.Drawing.Point(454, 70);
-            this.textBoxSplitsCount.Name = "textBoxSplitsCount";
-            this.textBoxSplitsCount.ReadOnly = true;
-            this.textBoxSplitsCount.Size = new System.Drawing.Size(116, 22);
-            this.textBoxSplitsCount.TabIndex = 40;
-            this.textBoxSplitsCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(415, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 14);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Splits";
             // 
             // btnUploadProfile
             // 
@@ -222,7 +197,7 @@
             // 
             this.textBoxDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDate.Enabled = false;
-            this.textBoxDate.Location = new System.Drawing.Point(436, 40);
+            this.textBoxDate.Location = new System.Drawing.Point(428, 56);
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.ReadOnly = true;
             this.textBoxDate.Size = new System.Drawing.Size(145, 22);
@@ -233,7 +208,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(397, 42);
+            this.label3.Location = new System.Drawing.Point(389, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 14);
             this.label3.TabIndex = 36;
@@ -353,8 +328,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxCurrrentProfile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxSplitsCount;
-        private System.Windows.Forms.Label label6;
         private ReaLTaiizor.Controls.Button btnUploadProfile;
         private System.Windows.Forms.TextBox textBoxDate;
         private System.Windows.Forms.Label label3;

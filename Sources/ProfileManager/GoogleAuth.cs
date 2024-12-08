@@ -51,13 +51,13 @@ namespace AutoSplitterCore
         UserCredential credential;
 
         SaveModule saveModule;
-        int splitsCounts;
+        string currentProfilePath;
 
-        public GoogleAuth(SaveModule saveModule, int splitsCounts)
+        public GoogleAuth(SaveModule saveModule, string currentProfilePath)
         {
             InitializeComponent();
             this.saveModule = saveModule;
-            this.splitsCounts = splitsCounts;
+            this.currentProfilePath = currentProfilePath;
         }
 
         #region AuthProcess
@@ -226,7 +226,6 @@ namespace AutoSplitterCore
             textBoxAuthor.Text = saveModule.GetAuthor();
             TextboxDescription.Text = saveModule.GetDescription();
             textBoxDate.Text = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
-            textBoxSplitsCount.Text = splitsCounts.ToString();
         }
 
         private void LoadFilesFromPublicFolder()
@@ -249,18 +248,54 @@ namespace AutoSplitterCore
 
         private void btnUploadProfile_Click(object sender, EventArgs e)
         {
+            if (saveModule.GetProfileName() == "Default" || saveModule.GetAuthor() == "Owner" || saveModule.GetDescription() == "Default Profile") { 
+                MessageBox.Show("You must use a profile name, author and description different from default", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (IsFileNameRepeated(saveModule.GetProfileName())) { MessageBox.Show("ProfileName alrady exist, please use another.", "Error", MessageBoxButtons.OK); return; }
+
             var fileMetadata = new Google.Apis.Drive.v3.Data.File
             {
-                //Name = Path.GetFileName(),
+                Name = Path.GetFileName(currentProfilePath),
                 Description = saveModule.GetDescription(),
                 Properties = new System.Collections.Generic.Dictionary<string, string>
                 {
                     { "author", saveModule.GetAuthor() },
-                    { "splitCount", splitsCounts.ToString() },
                     { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
                 }
             };
 
+            using (var stream = new FileStream(currentProfilePath, FileMode.Open))
+            {
+                var request = driveService.Files.Create(fileMetadata, stream, "application/xml");
+                request.Fields = "id";
+                var file = request.Upload();
+
+                if (file.Status == Google.Apis.Upload.UploadStatus.Failed)
+                {
+                    throw new Exception($"Error to upload file: {file.Exception.Message}");
+                }
+            }
+
+        }
+
+        public bool IsFileNameRepeated(string fileName)
+        {
+            try
+            {
+                var request = driveService.Files.List();
+                request.Q = $"name = '{fileName}' and trashed = false";
+                request.Fields = "files(id, name)";
+
+                var result = request.Execute();
+
+                return result.Files.Count > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
         }
 
         private void GoogleAuth_Load(object sender, EventArgs e)
