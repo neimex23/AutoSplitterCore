@@ -1,4 +1,26 @@
-﻿using Google.Apis.Auth.OAuth2;
+﻿//MIT License
+
+//Copyright (c) 2022-2024 Ezequiel Medina
+
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
+
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Oauth2.v2;
 using Google.Apis.Oauth2.v2.Data;
 using Google.Apis.Drive.v3;
@@ -20,17 +42,22 @@ namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = { DriveService.Scope.Drive, "https://www.googleapis.com/auth/userinfo.email" };
+        static string[] Scopes = {"https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive };
         static string ApplicationName = "autosplittercore";
 
-        string machineName = Environment.MachineName; //Sensitive Information and predicted think with other solution
+        string machineName = Environment.MachineName; 
         static DriveService driveService = null;
         static Oauth2Service oauth2Service = null;
         UserCredential credential;
 
-        public GoogleAuth()
+        SaveModule saveModule;
+        int splitsCounts;
+
+        public GoogleAuth(SaveModule saveModule, int splitsCounts)
         {
             InitializeComponent();
+            this.saveModule = saveModule;
+            this.splitsCounts = splitsCounts;
         }
 
         #region AuthProcess
@@ -38,6 +65,7 @@ namespace AutoSplitterCore
         {
             Cursor.Current = Cursors.WaitCursor;
             Task.Run(() => Auth());
+            Cursor = Cursors.Default;
         }
 
         private void btnForgetLogin_Click(object sender, EventArgs e)
@@ -179,14 +207,27 @@ namespace AutoSplitterCore
             });
 
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
-            linkLabel1.Text = userInfo.Email;
-            btnLogin.Enabled = false;
-            btnForgetLogin.Enabled = true;
-            LoadFilesFromPublicFolder();
-            Cursor = Cursors.Default;
+            string email = userInfo.Email;       
+            linkLabel1.Invoke(new Action(() =>
+            {
+                linkLabel1.Text = email;
+                AfterLoginEvents();
+            }));       
         }
         #endregion
 
+        private void AfterLoginEvents()
+        {
+            btnLogin.Enabled = false;
+            btnForgetLogin.Enabled = true;
+            LoadFilesFromPublicFolder();
+
+            textBoxCurrrentProfile.Text = saveModule.GetProfileName();
+            textBoxAuthor.Text = saveModule.GetAuthor();
+            TextboxDescription.Text = saveModule.GetDescription();
+            textBoxDate.Text = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+            textBoxSplitsCount.Text = splitsCounts.ToString();
+        }
 
         private void LoadFilesFromPublicFolder()
         {
@@ -204,6 +245,22 @@ namespace AutoSplitterCore
                 listViewFiles.Refresh();
                 Console.WriteLine($"Name: {file.Name}, ID: {file.Id}");
             }
+        }
+
+        private void btnUploadProfile_Click(object sender, EventArgs e)
+        {
+            var fileMetadata = new Google.Apis.Drive.v3.Data.File
+            {
+                //Name = Path.GetFileName(),
+                Description = saveModule.GetDescription(),
+                Properties = new System.Collections.Generic.Dictionary<string, string>
+                {
+                    { "author", saveModule.GetAuthor() },
+                    { "splitCount", splitsCounts.ToString() },
+                    { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
+                }
+            };
+
         }
 
         private void GoogleAuth_Load(object sender, EventArgs e)

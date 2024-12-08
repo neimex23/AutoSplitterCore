@@ -127,16 +127,12 @@
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
     <Compile Include="Sources\ProgramModule\EncryptedFileDataStore.cs" />
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
-    <Compile Include="Sources\ProgramModule\GoogleAuth.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Sources\ProgramModule\GoogleAuth.cs" />
     <Compile Include="Sources\ProgramModule\GoogleAuth.Designer.cs">
       <DependentUpon>GoogleAuth.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
-    <Compile Include="Sources\ProgramModule\ProfileManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Sources\ProgramModule\ProfileManager.cs" />
     <Compile Include="Sources\ProgramModule\ProfileManager.Designer.cs">
       <DependentUpon>ProfileManager.cs</DependentUpon>
     </Compile>

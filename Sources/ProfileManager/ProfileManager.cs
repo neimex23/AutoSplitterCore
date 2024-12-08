@@ -27,6 +27,7 @@ using System.IO;
 using System.Xml;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Eventing.Reader;
+using System.Linq;
 
 namespace AutoSplitterCore
 {
@@ -35,6 +36,7 @@ namespace AutoSplitterCore
         private static string savePath = String.Empty;
         private readonly string defaultPath = Path.GetFullPath("./AutoSplitterProfiles");
         private SaveModule saveModule = null;
+        private int splitsCount = 0;
 
         public ProfileManager(SaveModule saveModule, bool dark)
         {
@@ -47,6 +49,7 @@ namespace AutoSplitterCore
         {
             btnSetProfile.Hide();
             btnSetAuthor.Hide();
+            btnSetDescription.Hide();
 
             savePath = saveModule.dataAS.saveProfilePath;
 
@@ -161,6 +164,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataSekiro.bossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -173,6 +177,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataSekiro.miniBossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -186,6 +191,7 @@ namespace AutoSplitterCore
                 foreach (var idol in saveModule.dataAS.DataSekiro.idolsTosplit)
                 {
                     Summary += Space + idol.Title + " - " + idol.Location + " - " + idol.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -199,6 +205,7 @@ namespace AutoSplitterCore
                 foreach (var position in saveModule.dataAS.DataSekiro.positionsToSplit)
                 {
                     Summary += Space + position.vector + " - " + position.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -215,6 +222,7 @@ namespace AutoSplitterCore
                 foreach (var lvl in saveModule.dataAS.DataSekiro.lvlToSplit)
                 {
                     Summary += Space + lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode + Line;
+                    splitsCount++;
                 }
             }
 
@@ -224,6 +232,7 @@ namespace AutoSplitterCore
                 foreach (var cf in saveModule.dataAS.DataSekiro.flagToSplit)
                 {
                     Summary += Space + cf.Id + " - " + cf.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -240,6 +249,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataDs1.bossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -251,7 +261,8 @@ namespace AutoSplitterCore
             {
                 foreach (var bonDs1 in saveModule.dataAS.DataDs1.bonfireToSplit)
                 {
-                    Summary += Space + bonDs1.Title + " - " + bonDs1.Value + " - " + bonDs1.Mode + Line; 
+                    Summary += Space + bonDs1.Title + " - " + bonDs1.Value + " - " + bonDs1.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -264,6 +275,7 @@ namespace AutoSplitterCore
                 foreach (var lvl in saveModule.dataAS.DataDs1.lvlToSplit)
                 {
                     Summary += Space + lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -277,6 +289,7 @@ namespace AutoSplitterCore
                 foreach (var sb in saveModule.dataAS.DataDs1.positionsToSplit)
                 {
                     Summary += Space + sb.vector + " - " + sb.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -289,6 +302,7 @@ namespace AutoSplitterCore
                 foreach (var LvlDs1 in saveModule.dataAS.DataDs1.lvlToSplit)
                 {
                     Summary += Space + LvlDs1.Attribute + ": " + LvlDs1.Value + " - " + LvlDs1.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -301,6 +315,7 @@ namespace AutoSplitterCore
                 foreach (var items in saveModule.dataAS.DataDs1.itemToSplit)
                 {
                     Summary += Space + items.Title + " - " + items.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -318,6 +333,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataDs2.bossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -330,6 +346,7 @@ namespace AutoSplitterCore
                 foreach (var lvl in saveModule.dataAS.DataDs2.lvlToSplit)
                 {
                     Summary += Space + lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -343,6 +360,7 @@ namespace AutoSplitterCore
                 foreach (var sb in saveModule.dataAS.DataDs2.positionsToSplit)
                 {
                     Summary += Space + sb.vector + " - " + sb.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -360,6 +378,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataDs3.bossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -372,6 +391,7 @@ namespace AutoSplitterCore
                 foreach (var lvl in saveModule.dataAS.DataDs3.lvlToSplit)
                 {
                     Summary += Space + lvl.Attribute + ": " + lvl.Value + " - " + lvl.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -384,6 +404,7 @@ namespace AutoSplitterCore
                 foreach (var bon in saveModule.dataAS.DataDs3.bonfireToSplit)
                 {
                     Summary += Space + bon.Title + " - " + bon.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -396,6 +417,7 @@ namespace AutoSplitterCore
                 foreach (var cf in saveModule.dataAS.DataDs3.flagToSplit)
                 {
                     Summary += Space + cf.Id + " - " + cf.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -409,6 +431,7 @@ namespace AutoSplitterCore
                 foreach (var sb in saveModule.dataAS.DataDs3.positionsToSplit)
                 {
                     Summary += Space + sb.vector + " - " + sb.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -426,6 +449,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataElden.bossToSplit)
                 {
                     Summary += Space + b.Title + " - " + b.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -438,6 +462,7 @@ namespace AutoSplitterCore
                 foreach (var bon in saveModule.dataAS.DataElden.graceToSplit)
                 {
                     Summary += Space + bon.Title + " - " + bon.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -451,6 +476,7 @@ namespace AutoSplitterCore
                 foreach (var sb in saveModule.dataAS.DataDs2.positionsToSplit)
                 {
                     Summary += Space + sb.vector + " - " + sb.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -463,6 +489,7 @@ namespace AutoSplitterCore
                 foreach (var cf in saveModule.dataAS.DataElden.flagsToSplit)
                 {
                     Summary += Space + cf.Id + " - " + cf.Mode + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -481,6 +508,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataHollow.bossToSplit)
                 {
                     Summary += Space + b.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -493,6 +521,7 @@ namespace AutoSplitterCore
                 foreach (var b in saveModule.dataAS.DataHollow.miniBossToSplit)
                 {
                     Summary += Space + b.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -506,6 +535,7 @@ namespace AutoSplitterCore
                 foreach (var p in saveModule.dataAS.DataHollow.phanteonToSplit)
                 {
                     Summary += Space + p.Title + Line;
+                    splitsCount++;
                 }
             }else
                 Summary += Space + "Not Have Flags" + Line;
@@ -517,6 +547,7 @@ namespace AutoSplitterCore
                 foreach (var s in saveModule.dataAS.DataHollow.skillsToSplit)
                 {
                     Summary += Space + s.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -530,6 +561,7 @@ namespace AutoSplitterCore
                 foreach (var s in saveModule.dataAS.DataHollow.charmToSplit)
                 {
                     Summary += Space + s.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -543,6 +575,7 @@ namespace AutoSplitterCore
                 foreach (var p in saveModule.dataAS.DataHollow.positionToSplit)
                 {
                     Summary += Space + p.position + " - " + p.sceneName + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -560,6 +593,7 @@ namespace AutoSplitterCore
                 foreach (var c in saveModule.dataAS.DataCeleste.chapterToSplit)
                 {
                     Summary += Space + c.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -576,6 +610,7 @@ namespace AutoSplitterCore
                 foreach (var c in saveModule.dataAS.DataCuphead.elementToSplit)
                 {
                     Summary += Space + c.Title + Line;
+                    splitsCount++;
                 }
             }
             else
@@ -590,6 +625,7 @@ namespace AutoSplitterCore
             foreach (var dishOp in saveModule.dataAS.DataDishonored.DishonoredOptions)
             {
                 Summary += Space + dishOp.Option + " : " + dishOp.Enable.ToString() + Line;
+                splitsCount++;
             }
 
             Summary += Line;
@@ -638,6 +674,31 @@ namespace AutoSplitterCore
                 MessageBox.Show("There are no Profiles to Remove", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        bool FilesAreEqual(string file1, string file2)
+        {
+            using (FileStream fs1 = new FileStream(file1, FileMode.Open, FileAccess.Read))
+            using (FileStream fs2 = new FileStream(file2, FileMode.Open, FileAccess.Read))
+            {
+                if (fs1.Length != fs2.Length)
+                    return false;
+
+                byte[] buffer1 = new byte[8192];
+                byte[] buffer2 = new byte[8192];
+
+                int bytesRead1, bytesRead2;
+                do
+                {
+                    bytesRead1 = fs1.Read(buffer1, 0, buffer1.Length);
+                    bytesRead2 = fs2.Read(buffer2, 0, buffer2.Length);
+
+                    if (bytesRead1 != bytesRead2 || !buffer1.SequenceEqual(buffer2))
+                        return false;
+
+                } while (bytesRead1 > 0);
+            }
+            return true;
+        }
+
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
             if (textBoxCurrrentProfile.Text == String.Empty)
@@ -652,18 +713,49 @@ namespace AutoSplitterCore
             }
             if (textBoxCurrrentProfile.Text != saveModule.GetProfileName()) btnSetProfile_Click(null, null);
             if (textBoxAuthor.Text != saveModule.GetAuthor()) btnSetAuthor_Click(null, null);
+            if (TextboxDescription.Text != saveModule.GetDescription()) btnSetDescription_Click(null, null);
+
             saveModule.ResetFlags();
             saveModule.SaveAutoSplitterSettings();
             RefreshForm();
             string mainSave = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
             string destSave = savePath + "\\" + saveModule.GetProfileName() + ".xml";
+
+            bool FilesAreEqual(string file1, string file2) //Check If Files are same or not
+            {
+                using (FileStream fs1 = new FileStream(file1, FileMode.Open, FileAccess.Read))
+                using (FileStream fs2 = new FileStream(file2, FileMode.Open, FileAccess.Read))
+                {
+                    if (fs1.Length != fs2.Length)
+                        return false;
+
+                    byte[] buffer1 = new byte[8192];
+                    byte[] buffer2 = new byte[8192];
+
+                    int bytesRead1, bytesRead2;
+                    do
+                    {
+                        bytesRead1 = fs1.Read(buffer1, 0, buffer1.Length);
+                        bytesRead2 = fs2.Read(buffer2, 0, buffer2.Length);
+
+                        if (bytesRead1 != bytesRead2 || !buffer1.SequenceEqual(buffer2))
+                            return false;
+
+                    } while (bytesRead1 > 0);
+                }
+                return true;
+            }
+
             if (File.Exists(destSave))
             {
-                DialogResult result = MessageBox.Show("File Exist, Do You Want Replace?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (!FilesAreEqual(mainSave, destSave))
                 {
-                    File.Delete(destSave);
-                    File.Copy(mainSave, destSave);
+                    DialogResult result = MessageBox.Show("File Exist, Do You Want Replace?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        File.Delete(destSave);
+                        File.Copy(mainSave, destSave);
+                    }
                 }
             }
             else
@@ -720,6 +812,16 @@ namespace AutoSplitterCore
                 MessageBox.Show("Dont Set String Empty on Profile Author", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void btnSetDescription_Click(object sender, EventArgs e)
+        {
+            if (TextboxDescription.Text != String.Empty)
+            {
+                saveModule.SetDescription(TextboxDescription.Text);
+                btnSetDescription.Hide();
+                RefreshSummary();
+            }
+        }
+
         private void textBoxCurrrentProfile_TextChanged(object sender, EventArgs e)
         {
             if (textBoxCurrrentProfile.Text != saveModule.GetProfileName())
@@ -736,15 +838,28 @@ namespace AutoSplitterCore
                 btnSetAuthor.Hide();
         }
 
+        private void TextboxDescription_TextChanged(object sender, EventArgs e)
+        {
+            if (TextboxDescription.Text != saveModule.GetDescription())
+                btnSetDescription.Show();
+            else
+                btnSetDescription.Hide();
+        }
+
+        private void btnCloud_Click(object sender, EventArgs e)
+        {
+            var Result = MessageBox.Show("The current profile is used to fill in file upload fields, it must be saved before continuing. Remplace file if is necessary", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Result == DialogResult.OK) {
+                btnSaveProfile_Click(null, null);
+                var form = new GoogleAuth(saveModule, splitsCount);
+                form.ShowDialog();
+            }       
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnCloud_Click(object sender, EventArgs e)
-        {
-            var form = new GoogleAuth();
-            form.ShowDialog(); 
-        }
     }
 }

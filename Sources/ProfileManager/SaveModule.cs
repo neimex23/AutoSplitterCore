@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2024 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -235,6 +235,8 @@ namespace AutoSplitterCore
         public void SetProfileName(string Name)  => dataAS.ProfileName = Name;
 
         public void SetAuthor(string Name) => dataAS.Author = Name;
+
+        public void SetDescription(string Description) => dataAS.Description = Description;
 
         public bool GetPracticeMode() => mainModule.GetPracticeMode();
 

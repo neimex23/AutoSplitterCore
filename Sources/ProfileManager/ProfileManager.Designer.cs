@@ -41,25 +41,25 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.comboBoxProfiles = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
-            this.button3 = new ReaLTaiizor.Controls.Button();
-            this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
+            this.btnSetDescription = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new ReaLTaiizor.Controls.GroupBox();
             this.btnCloud = new ReaLTaiizor.Controls.Button();
+            this.TextboxDescription = new ReaLTaiizor.Controls.HopeTextBox();
+            this.button3 = new ReaLTaiizor.Controls.Button();
+            this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
             this.groupBox3 = new ReaLTaiizor.Controls.GroupBox();
             this.btnLoadProfile = new ReaLTaiizor.Controls.Button();
             this.btnRemoveProfiles = new ReaLTaiizor.Controls.Button();
             this.btnBrowse = new ReaLTaiizor.Controls.Button();
             this.btnClose = new ReaLTaiizor.Controls.Button();
-            this.TextboxDescription = new ReaLTaiizor.Controls.HopeTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetDescription)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSetAuthor
@@ -150,7 +150,7 @@
             this.textBoxSavePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSavePath.Location = new System.Drawing.Point(36, 45);
             this.textBoxSavePath.Name = "textBoxSavePath";
-            this.textBoxSavePath.Size = new System.Drawing.Size(511, 22);
+            this.textBoxSavePath.Size = new System.Drawing.Size(527, 22);
             this.textBoxSavePath.TabIndex = 8;
             // 
             // TextBoxSummary
@@ -183,17 +183,17 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.BackGColor = System.Drawing.Color.Khaki;
+            this.groupBox2.BackGColor = System.Drawing.Color.Yellow;
             this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
             this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.btnSetDescription);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.TextboxDescription);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.btnSetAuthor);
-            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.textBoxAuthor);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label4);
@@ -217,6 +217,93 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.Text = "Managment";
             // 
+            // btnSetDescription
+            // 
+            this.btnSetDescription.Image = ((System.Drawing.Image)(resources.GetObject("btnSetDescription.Image")));
+            this.btnSetDescription.Location = new System.Drawing.Point(531, 348);
+            this.btnSetDescription.Name = "btnSetDescription";
+            this.btnSetDescription.Size = new System.Drawing.Size(22, 21);
+            this.btnSetDescription.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSetDescription.TabIndex = 27;
+            this.btnSetDescription.TabStop = false;
+            this.btnSetDescription.Click += new System.EventHandler(this.btnSetDescription_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(69, 291);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 14);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Description";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.BackGColor = System.Drawing.Color.Red;
+            this.groupBox4.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox4.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox4.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox4.Controls.Add(this.btnCloud);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox4.HeaderColor = System.Drawing.Color.Gold;
+            this.groupBox4.Location = new System.Drawing.Point(339, 147);
+            this.groupBox4.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox4.Size = new System.Drawing.Size(172, 67);
+            this.groupBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.Text = "Cloud Files";
+            // 
+            // btnCloud
+            // 
+            this.btnCloud.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloud.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloud.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloud.Image = null;
+            this.btnCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnCloud.Location = new System.Drawing.Point(14, 26);
+            this.btnCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCloud.Name = "btnCloud";
+            this.btnCloud.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnCloud.Size = new System.Drawing.Size(145, 34);
+            this.btnCloud.TabIndex = 13;
+            this.btnCloud.Text = "Upload/Download Profiles";
+            this.btnCloud.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCloud.Click += new System.EventHandler(this.btnCloud_Click);
+            // 
+            // TextboxDescription
+            // 
+            this.TextboxDescription.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TextboxDescription.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.TextboxDescription.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.TextboxDescription.BorderColorB = System.Drawing.Color.DarkSlateGray;
+            this.TextboxDescription.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextboxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.TextboxDescription.Hint = "";
+            this.TextboxDescription.Location = new System.Drawing.Point(61, 310);
+            this.TextboxDescription.MaxLength = 32767;
+            this.TextboxDescription.Multiline = true;
+            this.TextboxDescription.Name = "TextboxDescription";
+            this.TextboxDescription.PasswordChar = '\0';
+            this.TextboxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextboxDescription.SelectedText = "";
+            this.TextboxDescription.SelectionLength = 0;
+            this.TextboxDescription.SelectionStart = 0;
+            this.TextboxDescription.Size = new System.Drawing.Size(464, 96);
+            this.TextboxDescription.TabIndex = 25;
+            this.TextboxDescription.TabStop = false;
+            this.TextboxDescription.UseSystemPasswordChar = false;
+            this.TextboxDescription.TextChanged += new System.EventHandler(this.TextboxDescription_TextChanged);
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
@@ -228,7 +315,7 @@
             this.button3.Image = null;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.InactiveColor = System.Drawing.Color.Gold;
-            this.button3.Location = new System.Drawing.Point(257, 693);
+            this.button3.Location = new System.Drawing.Point(257, 695);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -250,7 +337,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox5.HeaderColor = System.Drawing.Color.DarkOrange;
-            this.groupBox5.Location = new System.Drawing.Point(22, 412);
+            this.groupBox5.Location = new System.Drawing.Point(22, 414);
             this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
@@ -258,48 +345,6 @@
             this.groupBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox5.TabIndex = 23;
             this.groupBox5.Text = "Current Summary";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox4.BackGColor = System.Drawing.Color.Red;
-            this.groupBox4.BaseColor = System.Drawing.Color.Transparent;
-            this.groupBox4.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            this.groupBox4.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox4.Controls.Add(this.btnCloud);
-            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.groupBox4.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBox4.Location = new System.Drawing.Point(341, 140);
-            this.groupBox4.MinimumSize = new System.Drawing.Size(136, 50);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox4.Size = new System.Drawing.Size(171, 80);
-            this.groupBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.Text = "Cloud Files";
-            // 
-            // btnCloud
-            // 
-            this.btnCloud.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloud.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCloud.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloud.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCloud.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCloud.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloud.Image = null;
-            this.btnCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCloud.Location = new System.Drawing.Point(23, 32);
-            this.btnCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCloud.Name = "btnCloud";
-            this.btnCloud.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCloud.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnCloud.Size = new System.Drawing.Size(123, 34);
-            this.btnCloud.TabIndex = 13;
-            this.btnCloud.Text = "Upload/Download Profiles";
-            this.btnCloud.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnCloud.Click += new System.EventHandler(this.btnCloud_Click);
             // 
             // groupBox3
             // 
@@ -410,49 +455,6 @@
             this.btnClose.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // TextboxDescription
-            // 
-            this.TextboxDescription.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TextboxDescription.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.TextboxDescription.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.TextboxDescription.BorderColorB = System.Drawing.Color.DarkSlateGray;
-            this.TextboxDescription.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextboxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.TextboxDescription.Hint = "";
-            this.TextboxDescription.Location = new System.Drawing.Point(61, 310);
-            this.TextboxDescription.MaxLength = 32767;
-            this.TextboxDescription.Multiline = true;
-            this.TextboxDescription.Name = "TextboxDescription";
-            this.TextboxDescription.PasswordChar = '\0';
-            this.TextboxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextboxDescription.SelectedText = "";
-            this.TextboxDescription.SelectionLength = 0;
-            this.TextboxDescription.SelectionStart = 0;
-            this.TextboxDescription.Size = new System.Drawing.Size(464, 96);
-            this.TextboxDescription.TabIndex = 25;
-            this.TextboxDescription.TabStop = false;
-            this.TextboxDescription.UseSystemPasswordChar = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(72, 289);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 14);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Description";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(531, 348);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
-            // 
             // ProfileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -462,6 +464,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(669, 835);
+            this.MinimumSize = new System.Drawing.Size(669, 835);
             this.Name = "ProfileManager";
             this.Text = "Profile Manager";
             this.Load += new System.EventHandler(this.ProfileManager_Load);
@@ -469,11 +473,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetDescription)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,7 +504,7 @@
         private ReaLTaiizor.Controls.GroupBox groupBox5;
         private ReaLTaiizor.Controls.Button button3;
         private ReaLTaiizor.Controls.Button btnClose;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnSetDescription;
         private System.Windows.Forms.Label label5;
         private ReaLTaiizor.Controls.HopeTextBox TextboxDescription;
     }
