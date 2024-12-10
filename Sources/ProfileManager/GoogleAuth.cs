@@ -232,53 +232,109 @@ namespace AutoSplitterCore
         {
             string folderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
             var request = driveService.Files.List();
-            request.Q = $"'{folderId}' in parents and name contains '.xml'";
-            request.Fields = "files(id, name)";
+            request.Q = $"'{folderId}' in parents and mimeType != 'application/vnd.google-apps.folder' and trashed = false";
+            request.Fields = "files(id, name, description, properties, createdTime, mimeType)";
 
-            var result = request.Execute();
-            foreach (var file in result.Files)
+            try
             {
-                ListViewItem item = new ListViewItem(file.Name);
-                item.SubItems.Add(file.Id);
-                listViewFiles.Items.Add(item);
+                var result = request.Execute();
+
+                listViewFiles.View = View.Details; 
+                listViewFiles.FullRowSelect = true; 
+                listViewFiles.GridLines = true; 
+
+                if (listViewFiles.Columns.Count == 0)
+                {
+                    listViewFiles.Columns.Add("Name", 150);
+                    listViewFiles.Columns.Add("ID", 100);
+                    listViewFiles.Columns.Add("Author", 100);
+                    listViewFiles.Columns.Add("Date", 100);
+                    listViewFiles.Columns.Add("Description", 200);
+                    listViewFiles.Columns.Add("MIME Type", 100);
+                }
+
+                listViewFiles.Items.Clear(); // Limpiar elementos existentes
+
+                // Procesar y agregar archivos al ListView
+                foreach (var file in result.Files)
+                {
+                    var item = new ListViewItem(file.Name); // Nombre del archivo
+                    item.SubItems.Add(file.Id); // ID del archivo
+                    item.SubItems.Add(file.Properties != null && file.Properties.ContainsKey("author")
+                        ? file.Properties["author"]
+                        : "Unknown"); // Autor
+                    item.SubItems.Add(file.CreatedTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Fecha de creación
+                    item.SubItems.Add(file.Description ?? "No description"); // Descripción
+                    item.SubItems.Add(file.MimeType); // Tipo MIME
+
+                    listViewFiles.Items.Add(item);
+                }
+
                 listViewFiles.Refresh();
-                Console.WriteLine($"Name: {file.Name}, ID: {file.Id}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading files: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+
         private void btnUploadProfile_Click(object sender, EventArgs e)
         {
-            if (saveModule.GetProfileName() == "Default" || saveModule.GetAuthor() == "Owner" || saveModule.GetDescription() == "Default Profile") { 
+            // Profle not default
+            if (saveModule.GetProfileName() == "Default" ||
+                saveModule.GetAuthor() == "Owner" ||
+                saveModule.GetDescription() == "Default Profile")
+            {
                 MessageBox.Show("You must use a profile name, author and description different from default", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (IsFileNameRepeated(saveModule.GetProfileName())) { MessageBox.Show("ProfileName alrady exist, please use another.", "Error", MessageBoxButtons.OK); return; }
-
-            var fileMetadata = new Google.Apis.Drive.v3.Data.File
+            // file not exist
+            if (IsFileNameRepeated(saveModule.GetProfileName()))
             {
-                Name = Path.GetFileName(currentProfilePath),
-                Description = saveModule.GetDescription(),
-                Properties = new System.Collections.Generic.Dictionary<string, string>
-                {
-                    { "author", saveModule.GetAuthor() },
-                    { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
-                }
-            };
-
-            using (var stream = new FileStream(currentProfilePath, FileMode.Open))
-            {
-                var request = driveService.Files.Create(fileMetadata, stream, "application/xml");
-                request.Fields = "id";
-                var file = request.Upload();
-
-                if (file.Status == Google.Apis.Upload.UploadStatus.Failed)
-                {
-                    throw new Exception($"Error to upload file: {file.Exception.Message}");
-                }
+                MessageBox.Show("Profile name already exists, please use another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            try
+            {
+                var fileMetadata = new Google.Apis.Drive.v3.Data.File
+                {
+                    Name = Path.GetFileName(currentProfilePath),
+                    Description = saveModule.GetDescription(),
+                    Parents = new List<string> { "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV" },
+                    Properties = new Dictionary<string, string>
+                    {
+                        { "author", saveModule.GetAuthor() },
+                        { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
+                    }
+                };
+
+                // Upload File
+                using (var stream = new FileStream(currentProfilePath, FileMode.Open))
+                {
+                    var request = driveService.Files.Create(fileMetadata, stream, "application/xml");
+                    request.Fields = "id";
+                    var uploadResult = request.Upload();
+
+                    if (uploadResult.Status == Google.Apis.Upload.UploadStatus.Completed)
+                    {
+                        MessageBox.Show("File uploaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadFilesFromPublicFolder();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"File upload failed: {uploadResult.Status}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         public bool IsFileNameRepeated(string fileName)
         {

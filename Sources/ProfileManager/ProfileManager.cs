@@ -639,31 +639,6 @@ namespace AutoSplitterCore
                 MessageBox.Show("There are no Profiles to Remove", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        bool FilesAreEqual(string file1, string file2)
-        {
-            using (FileStream fs1 = new FileStream(file1, FileMode.Open, FileAccess.Read))
-            using (FileStream fs2 = new FileStream(file2, FileMode.Open, FileAccess.Read))
-            {
-                if (fs1.Length != fs2.Length)
-                    return false;
-
-                byte[] buffer1 = new byte[8192];
-                byte[] buffer2 = new byte[8192];
-
-                int bytesRead1, bytesRead2;
-                do
-                {
-                    bytesRead1 = fs1.Read(buffer1, 0, buffer1.Length);
-                    bytesRead2 = fs2.Read(buffer2, 0, buffer2.Length);
-
-                    if (bytesRead1 != bytesRead2 || !buffer1.SequenceEqual(buffer2))
-                        return false;
-
-                } while (bytesRead1 > 0);
-            }
-            return true;
-        }
-
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
             if (textBoxCurrrentProfile.Text == String.Empty)
@@ -813,9 +788,8 @@ namespace AutoSplitterCore
 
         private void btnCloud_Click(object sender, EventArgs e)
         {
-            var Result = MessageBox.Show("The current profile is used to fill in file upload fields, it must be saved before continuing. Remplace file if is necessary", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var Result = MessageBox.Show("The current profile is used to fill in file upload fields, it must be saved before continuing", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (Result == DialogResult.OK) {
-                btnSaveProfile_Click(null, null);
                 string currentProfilePath = savePath + "\\" + saveModule.GetProfileName() + ".xml";
                 var form = new GoogleAuth(saveModule, currentProfilePath);
                 form.ShowDialog();
