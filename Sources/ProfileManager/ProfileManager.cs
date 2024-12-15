@@ -96,6 +96,11 @@ namespace AutoSplitterCore
         private void RefreshSummary()
         {
             saveModule.UpdateAutoSplitterData();
+            TextBoxSummary.Text = BuildSummary(saveModule);
+        }
+
+        public static string BuildSummary(SaveModule saveModule)
+        {
             String Summary = String.Empty;
             String Line = "\r\n";
             string Space = "      ";
@@ -195,7 +200,7 @@ namespace AutoSplitterCore
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataSekiro.positionMargin +Line;
+            Summary += Space + "Margin: " + saveModule.dataAS.DataSekiro.positionMargin + Line;
             if (saveModule.dataAS.DataSekiro.positionsToSplit.Count > 0)
             {
                 foreach (var position in saveModule.dataAS.DataSekiro.positionsToSplit)
@@ -241,7 +246,8 @@ namespace AutoSplitterCore
             {
                 foreach (var b in saveModule.dataAS.DataDs1.bossToSplit)
                 {
-                    Summary += Space + b.Title + " - " + b.Mode + Line;                }
+                    Summary += Space + b.Title + " - " + b.Mode + Line;
+                }
             }
             else
                 Summary += Space + "Not Have Flags" + Line;
@@ -508,7 +514,8 @@ namespace AutoSplitterCore
                 {
                     Summary += Space + p.Title + Line;
                 }
-            }else
+            }
+            else
                 Summary += Space + "Not Have Flags" + Line;
             Summary += Line;
 
@@ -597,7 +604,7 @@ namespace AutoSplitterCore
             #endregion
             Summary += "=======================================================" + Line;
 
-            TextBoxSummary.Text = Summary;
+            return Summary;
         }
 
         private void btnLoadProfile_Click(object sender, EventArgs e)

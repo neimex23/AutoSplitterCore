@@ -37,12 +37,16 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.Runtime.InteropServices.ComTypes;
+using System.Diagnostics;
+using System.Web;
 
 namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = {"https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive };
+        static string[] Scopes = {"https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive, DriveService.Scope.DriveReadonly };
         static string ApplicationName = "autosplittercore";
 
         string machineName = Environment.MachineName; 
@@ -81,6 +85,7 @@ namespace AutoSplitterCore
             catch (Exception ex)
             {
                 Console.WriteLine("Error during logout process: " + ex.Message);
+                MessageBox.Show("Error during logout process:" +  ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -215,7 +220,7 @@ namespace AutoSplitterCore
             }));       
         }
         #endregion
-
+        #region LoadFilesOnDrive
         private void AfterLoginEvents()
         {
             btnLogin.Enabled = false;
@@ -253,19 +258,19 @@ namespace AutoSplitterCore
                     listViewFiles.Columns.Add("MIME Type", 100);
                 }
 
-                listViewFiles.Items.Clear(); // Limpiar elementos existentes
+                listViewFiles.Items.Clear(); // Clean Elements
 
-                // Procesar y agregar archivos al ListView
+                // Process and add files to ListView
                 foreach (var file in result.Files)
                 {
-                    var item = new ListViewItem(file.Name); // Nombre del archivo
-                    item.SubItems.Add(file.Id); // ID del archivo
+                    var item = new ListViewItem(file.Name); // FileName
+                    item.SubItems.Add(file.Id); // DriveID
                     item.SubItems.Add(file.Properties != null && file.Properties.ContainsKey("author")
                         ? file.Properties["author"]
-                        : "Unknown"); // Autor
-                    item.SubItems.Add(file.CreatedTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Fecha de creación
-                    item.SubItems.Add(file.Description ?? "No description"); // Descripción
-                    item.SubItems.Add(file.MimeType); // Tipo MIME
+                        : "Unknown"); // Author
+                    item.SubItems.Add(file.CreatedTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); //Date of Creation
+                    item.SubItems.Add(file.Description ?? "No description"); // Description
+                    item.SubItems.Add(file.MimeType); //MIME
 
                     listViewFiles.Items.Add(item);
                 }
@@ -277,20 +282,27 @@ namespace AutoSplitterCore
                 MessageBox.Show($"Error loading files: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        #endregion
+        #region UploadProfile
 
         private void btnUploadProfile_Click(object sender, EventArgs e)
         {
-            // Profle not default
+            // Profile validation
             if (saveModule.GetProfileName() == "Default" ||
                 saveModule.GetAuthor() == "Owner" ||
                 saveModule.GetDescription() == "Default Profile")
             {
-                MessageBox.Show("You must use a profile name, author and description different from default", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You must use a profile name, author, and description different from default.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // file not exist
+            if (!File.Exists(currentProfilePath))
+            {
+                MessageBox.Show("The file path does not exist. Please verify the path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // File name validation
             if (IsFileNameRepeated(saveModule.GetProfileName()))
             {
                 MessageBox.Show("Profile name already exists, please use another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -299,11 +311,23 @@ namespace AutoSplitterCore
 
             try
             {
+                var parentFolderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
+
+                // Validate folder
+                var folderRequest = driveService.Files.Get(parentFolderId);
+                var folder = folderRequest.Execute();
+                if (folder == null || folder.Trashed == true)
+                {
+                    MessageBox.Show("The specified parent folder is invalid or trashed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // File metadata
                 var fileMetadata = new Google.Apis.Drive.v3.Data.File
                 {
                     Name = Path.GetFileName(currentProfilePath),
                     Description = saveModule.GetDescription(),
-                    Parents = new List<string> { "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV" },
+                    Parents = new List<string> { parentFolderId },
                     Properties = new Dictionary<string, string>
                     {
                         { "author", saveModule.GetAuthor() },
@@ -311,10 +335,13 @@ namespace AutoSplitterCore
                     }
                 };
 
-                // Upload File
+                // Determine MIME type
+                string mimeType = MimeMapping.GetMimeMapping(currentProfilePath);
+
+                // Upload file
                 using (var stream = new FileStream(currentProfilePath, FileMode.Open))
                 {
-                    var request = driveService.Files.Create(fileMetadata, stream, "application/xml");
+                    var request = driveService.Files.Create(fileMetadata, stream, mimeType);
                     request.Fields = "id";
                     var uploadResult = request.Upload();
 
@@ -325,7 +352,7 @@ namespace AutoSplitterCore
                     }
                     else
                     {
-                        MessageBox.Show($"File upload failed: {uploadResult.Status}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"File upload failed: {uploadResult.Status}. Error: {uploadResult.Exception?.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -335,23 +362,102 @@ namespace AutoSplitterCore
             }
         }
 
-
         public bool IsFileNameRepeated(string fileName)
         {
             try
             {
+                var parentFolderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
                 var request = driveService.Files.List();
-                request.Q = $"name = '{fileName}' and trashed = false";
+                request.Q = $"name = '{fileName}' and '{parentFolderId}' in parents and trashed = false";
                 request.Fields = "files(id, name)";
 
                 var result = request.Execute();
-
                 return result.Files.Count > 0;
             }
             catch (Exception ex)
             {
                 throw new Exception($"Error: {ex.Message}");
             }
+        }
+
+        #endregion
+
+        private void DownloadFile(string fileId, string destinationPath)
+        {
+            var request = driveService.Files.Get(fileId);
+            request.AcknowledgeAbuse = true;
+            var file = driveService.Files.Get(fileId).Execute();
+            Console.WriteLine($"File to download: {file.Name}, Size: {file.Size}, MimeType: {file.MimeType}, Propierties: {file.Properties}");
+
+            try
+            {
+                var exportRequest = driveService.Files.Export(fileId, "text/xml");
+                using (var response = exportRequest.ExecuteAsStream())
+                using (var output = new FileStream(destinationPath, FileMode.Create, FileAccess.Write))
+                {
+                    response.CopyTo(output);
+                }
+
+                Console.WriteLine("File downloaded successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error downloading file: {ex.Message}");
+            }
+        }
+
+        private void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewFiles.SelectedItems.Count > 0)
+            {
+                var selectedItem = listViewFiles.SelectedItems[0];
+                var fileId = selectedItem.SubItems[1].Text; 
+                var fileName = selectedItem.Text; 
+
+                if (!fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("The Selected Filed not is a XML Format.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                try
+                {
+                    string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName); ;
+                    DownloadFile(fileId, tempFilePath);
+
+                    var configuration = DeserializeXmlFile(tempFilePath);
+
+                    SaveModule saveModule = new SaveModule();
+                    saveModule.dataAS = configuration;
+                    
+                    TextBoxSummary.Text = ProfileManager.BuildSummary(saveModule);
+                    
+                    File.Delete(tempFilePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error to process file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private DataAutoSplitter DeserializeXmlFile(string filePath)
+        {
+            Stream myStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
+            DataAutoSplitter dataAutoSplitter = null;
+            try
+            {
+                dataAutoSplitter = (DataAutoSplitter)formatter.Deserialize(myStream);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally {
+                myStream.Close();
+            }
+            return dataAutoSplitter;
         }
 
         private void GoogleAuth_Load(object sender, EventArgs e)
