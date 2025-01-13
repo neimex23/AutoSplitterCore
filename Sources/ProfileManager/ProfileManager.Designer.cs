@@ -269,7 +269,7 @@
             this.btnCloud.Image = null;
             this.btnCloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnCloud.Location = new System.Drawing.Point(14, 26);
+            this.btnCloud.Location = new System.Drawing.Point(13, 25);
             this.btnCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCloud.Name = "btnCloud";
             this.btnCloud.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));

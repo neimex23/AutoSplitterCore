@@ -795,12 +795,9 @@ namespace AutoSplitterCore
 
         private void btnCloud_Click(object sender, EventArgs e)
         {
-            var Result = MessageBox.Show("The current profile is used to fill in file upload fields, it must be saved before continuing", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (Result == DialogResult.OK) {
-                string currentProfilePath = savePath + "\\" + saveModule.GetProfileName() + ".xml";
-                var form = new GoogleAuth(saveModule, currentProfilePath);
-                form.ShowDialog();
-            }       
+            string currentProfilePath = savePath + "\\" + saveModule.GetProfileName() + ".xml";
+            var form = new GoogleAuth(saveModule, currentProfilePath);
+            form.ShowDialog();  
         }
 
         private void btnClose_Click(object sender, EventArgs e)

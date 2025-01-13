@@ -254,6 +254,8 @@ namespace AutoSplitterCore
 
         public string GetDescription() => dataAS.Description;
 
+        public AutoSplitterMainModule MainModule { get { return mainModule; } set { mainModule = value; } }
+
         #endregion
     }
     #endregion

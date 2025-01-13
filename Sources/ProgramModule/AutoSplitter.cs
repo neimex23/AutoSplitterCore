@@ -27,6 +27,7 @@ using SoulMemory;
 using System.Globalization;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using ReaLTaiizor.Forms;
 
 namespace AutoSplitterCore
 {
@@ -1311,6 +1312,16 @@ namespace AutoSplitterCore
         private void btnProfile_Click(object sender, EventArgs e)
         {
             var form = new ProfileManager(saveModule, darkModeHCM);
+
+            Point parentLocation = this.Location;
+
+            // Calcula la nueva posición (por ejemplo, justo a la derecha del formulario principal)
+            int newX = parentLocation.X + this.Width + 10; // Desplazado 10 píxeles hacia la derecha
+            int newY = parentLocation.Y;
+
+            // Ajusta la posición del formulario
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(newX, newY);
             form.ShowDialog();
             this.Controls.Clear();
             this.InitializeComponent();

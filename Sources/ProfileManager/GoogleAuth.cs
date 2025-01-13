@@ -41,6 +41,7 @@ using System.Xml.Serialization;
 using System.Runtime.InteropServices.ComTypes;
 using System.Diagnostics;
 using System.Web;
+using Google.Apis.Download;
 
 namespace AutoSplitterCore
 {
@@ -217,7 +218,13 @@ namespace AutoSplitterCore
             {
                 linkLabel1.Text = email;
                 AfterLoginEvents();
-            }));       
+            }));
+
+            groupBoxManagment.Invoke(new Action(() =>
+            {
+                groupBoxManagment.Enabled = true;
+            }));
+            
         }
         #endregion
         #region LoadFilesOnDrive
@@ -309,6 +316,9 @@ namespace AutoSplitterCore
                 return;
             }
 
+            if (MessageBox.Show("Splitter Flags and run Will be Reset to upload profile", "Warning", MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.Cancel) return;
+            saveModule.ResetFlags();
+
             try
             {
                 var parentFolderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
@@ -382,23 +392,47 @@ namespace AutoSplitterCore
 
         #endregion
 
-        private void DownloadFile(string fileId, string destinationPath)
+        public void DownloadFile(string fileId, string destinationPath)
         {
-            var request = driveService.Files.Get(fileId);
-            request.AcknowledgeAbuse = true;
-            var file = driveService.Files.Get(fileId).Execute();
-            Console.WriteLine($"File to download: {file.Name}, Size: {file.Size}, MimeType: {file.MimeType}, Propierties: {file.Properties}");
-
             try
             {
-                var exportRequest = driveService.Files.Export(fileId, "text/xml");
-                using (var response = exportRequest.ExecuteAsStream())
-                using (var output = new FileStream(destinationPath, FileMode.Create, FileAccess.Write))
+                var request = driveService.Files.Get(fileId);
+                using (var stream = new MemoryStream())
                 {
-                    response.CopyTo(output);
-                }
+                    // Descarga el contenido del archivo en el flujo
+                    request.MediaDownloader.ProgressChanged += progress =>
+                    {
+                        switch (progress.Status)
+                        {
+                            case DownloadStatus.Downloading:
+                                Console.WriteLine($"Downloading: {progress.BytesDownloaded} bytes...");
+                                break;
+                            case DownloadStatus.Completed:
+                                Console.WriteLine("Download completed.");
+                                break;
+                            case DownloadStatus.Failed:
+                                Console.WriteLine("Download failed.");
+                                break;
+                        }
+                    };
 
-                Console.WriteLine("File downloaded successfully.");
+                    request.Download(stream);
+
+                    if (stream.Length > 0)
+                    {
+                        stream.Position = 0; 
+                        using (var fileStream = new FileStream(destinationPath, FileMode.Create, FileAccess.Write))
+                        {
+                            stream.CopyTo(fileStream);
+                            fileStream.Close();// Escribe los datos en el archivo local
+                        }
+                        Console.WriteLine($"File saved to {destinationPath}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Stream is empty. No data was downloaded.");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -429,7 +463,8 @@ namespace AutoSplitterCore
 
                     SaveModule saveModule = new SaveModule();
                     saveModule.dataAS = configuration;
-                    
+                    saveModule.MainModule = this.saveModule.MainModule;
+
                     TextBoxSummary.Text = ProfileManager.BuildSummary(saveModule);
                     
                     File.Delete(tempFilePath);
@@ -443,22 +478,22 @@ namespace AutoSplitterCore
 
         private DataAutoSplitter DeserializeXmlFile(string filePath)
         {
-            Stream myStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
-            DataAutoSplitter dataAutoSplitter = null;
-            try
+            using (Stream myStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                dataAutoSplitter = (DataAutoSplitter)formatter.Deserialize(myStream);
+                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter),
+                    new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2),
+                         typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
+                try
+                {
+                    return (DataAutoSplitter)formatter.Deserialize(myStream);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error deserializing XML file: {ex.Message}");
+                }
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally {
-                myStream.Close();
-            }
-            return dataAutoSplitter;
         }
+
 
         private void GoogleAuth_Load(object sender, EventArgs e)
         {

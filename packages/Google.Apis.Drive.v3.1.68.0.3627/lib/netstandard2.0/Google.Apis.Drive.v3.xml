@@ -229,10 +229,20 @@
             <summary>Constructs a new resource.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AboutResource.Get">
-            <summary>Gets information about the user, the user's Drive, and system capabilities.</summary>
+            <summary>
+            Gets information about the user, the user's Drive, and system capabilities. For more information, see
+            [Return user info](https://developers.google.com/drive/api/guides/user-info). Required: The `fields`
+            parameter must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="T:Google.Apis.Drive.v3.AboutResource.GetRequest">
-            <summary>Gets information about the user, the user's Drive, and system capabilities.</summary>
+            <summary>
+            Gets information about the user, the user's Drive, and system capabilities. For more information, see
+            [Return user info](https://developers.google.com/drive/api/guides/user-info). Required: The `fields`
+            parameter must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AboutResource.GetRequest.#ctor(Google.Apis.Services.IClientService)">
             <summary>Constructs a new Get request.</summary>
@@ -370,11 +380,17 @@
             <summary>Constructs a new resource.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AppsResource.Get(System.String)">
-            <summary>Gets a specific app.</summary>
+            <summary>
+            Gets a specific app. For more information, see [Return user
+            info](https://developers.google.com/drive/api/guides/user-info).
+            </summary>
             <param name="appId">The ID of the app.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.AppsResource.GetRequest">
-            <summary>Gets a specific app.</summary>
+            <summary>
+            Gets a specific app. For more information, see [Return user
+            info](https://developers.google.com/drive/api/guides/user-info).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AppsResource.GetRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
             <summary>Constructs a new Get request.</summary>
@@ -395,10 +411,16 @@
             <summary>Initializes Get parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AppsResource.List">
-            <summary>Lists a user's installed apps.</summary>
+            <summary>
+            Lists a user's installed apps. For more information, see [Return user
+            info](https://developers.google.com/drive/api/guides/user-info).
+            </summary>
         </member>
         <member name="T:Google.Apis.Drive.v3.AppsResource.ListRequest">
-            <summary>Lists a user's installed apps.</summary>
+            <summary>
+            Lists a user's installed apps. For more information, see [Return user
+            info](https://developers.google.com/drive/api/guides/user-info).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.AppsResource.ListRequest.#ctor(Google.Apis.Services.IClientService)">
             <summary>Constructs a new List request.</summary>
@@ -445,10 +467,16 @@
             <summary>Constructs a new resource.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.GetStartPageToken">
-            <summary>Gets the starting pageToken for listing future changes.</summary>
+            <summary>
+            Gets the starting pageToken for listing future changes. For more information, see [Retrieve
+            changes](https://developers.google.com/drive/api/guides/manage-changes).
+            </summary>
         </member>
         <member name="T:Google.Apis.Drive.v3.ChangesResource.GetStartPageTokenRequest">
-            <summary>Gets the starting pageToken for listing future changes.</summary>
+            <summary>
+            Gets the starting pageToken for listing future changes. For more information, see [Retrieve
+            changes](https://developers.google.com/drive/api/guides/manage-changes).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.GetStartPageTokenRequest.#ctor(Google.Apis.Services.IClientService)">
             <summary>Constructs a new GetStartPageToken request.</summary>
@@ -481,14 +509,20 @@
             <summary>Initializes GetStartPageToken parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.List(System.String)">
-            <summary>Lists the changes for a user or shared drive.</summary>
+            <summary>
+            Lists the changes for a user or shared drive. For more information, see [Retrieve
+            changes](https://developers.google.com/drive/api/guides/manage-changes).
+            </summary>
             <param name="pageToken">
             The token for continuing a previous list request on the next page. This should be set to the value of
             'nextPageToken' from the previous response or to the response from the getStartPageToken method.
             </param>
         </member>
         <member name="T:Google.Apis.Drive.v3.ChangesResource.ListRequest">
-            <summary>Lists the changes for a user or shared drive.</summary>
+            <summary>
+            Lists the changes for a user or shared drive. For more information, see [Retrieve
+            changes](https://developers.google.com/drive/api/guides/manage-changes).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.ListRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
             <summary>Constructs a new List request.</summary>
@@ -571,7 +605,10 @@
             <summary>Initializes List parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.Watch(Google.Apis.Drive.v3.Data.Channel,System.String)">
-            <summary>Subscribes to changes for a user.</summary>
+            <summary>
+            Subscribes to changes for a user. For more information, see [Notifications for resource
+            changes](https://developers.google.com/drive/api/guides/push).
+            </summary>
             <param name="body">The body of the request.</param>
             <param name="pageToken">
             The token for continuing a previous list request on the next page. This should be set to the value of
@@ -579,7 +616,10 @@
             </param>
         </member>
         <member name="T:Google.Apis.Drive.v3.ChangesResource.WatchRequest">
-            <summary>Subscribes to changes for a user.</summary>
+            <summary>
+            Subscribes to changes for a user. For more information, see [Notifications for resource
+            changes](https://developers.google.com/drive/api/guides/push).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChangesResource.WatchRequest.#ctor(Google.Apis.Services.IClientService,Google.Apis.Drive.v3.Data.Channel,System.String)">
             <summary>Constructs a new Watch request.</summary>
@@ -677,11 +717,17 @@
             <summary>Constructs a new resource.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChannelsResource.Stop(Google.Apis.Drive.v3.Data.Channel)">
-            <summary>Stops watching resources through this channel.</summary>
+            <summary>
+            Stops watching resources through this channel. For more information, see [Notifications for resource
+            changes](https://developers.google.com/drive/api/guides/push).
+            </summary>
             <param name="body">The body of the request.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.ChannelsResource.StopRequest">
-            <summary>Stops watching resources through this channel.</summary>
+            <summary>
+            Stops watching resources through this channel. For more information, see [Notifications for resource
+            changes](https://developers.google.com/drive/api/guides/push).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.ChannelsResource.StopRequest.#ctor(Google.Apis.Services.IClientService,Google.Apis.Drive.v3.Data.Channel)">
             <summary>Constructs a new Stop request.</summary>
@@ -714,12 +760,22 @@
             <summary>Constructs a new resource.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.Create(Google.Apis.Drive.v3.Data.Comment,System.String)">
-            <summary>Creates a comment on a file.</summary>
+            <summary>
+            Creates a comment on a file. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
             <param name="body">The body of the request.</param>
             <param name="fileId">The ID of the file.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.CommentsResource.CreateRequest">
-            <summary>Creates a comment on a file.</summary>
+            <summary>
+            Creates a comment on a file. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.CreateRequest.#ctor(Google.Apis.Services.IClientService,Google.Apis.Drive.v3.Data.Comment,System.String)">
             <summary>Constructs a new Create request.</summary>
@@ -746,12 +802,22 @@
             <summary>Initializes Create parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.Delete(System.String,System.String)">
-            <summary>Deletes a comment.</summary>
+            <summary>
+            Deletes a comment. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
             <param name="fileId">The ID of the file.</param>
             <param name="commentId">The ID of the comment.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.CommentsResource.DeleteRequest">
-            <summary>Deletes a comment.</summary>
+            <summary>
+            Deletes a comment. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.DeleteRequest.#ctor(Google.Apis.Services.IClientService,System.String,System.String)">
             <summary>Constructs a new Delete request.</summary>
@@ -775,12 +841,22 @@
             <summary>Initializes Delete parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.Get(System.String,System.String)">
-            <summary>Gets a comment by ID.</summary>
+            <summary>
+            Gets a comment by ID. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
             <param name="fileId">The ID of the file.</param>
             <param name="commentId">The ID of the comment.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.CommentsResource.GetRequest">
-            <summary>Gets a comment by ID.</summary>
+            <summary>
+            Gets a comment by ID. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.GetRequest.#ctor(Google.Apis.Services.IClientService,System.String,System.String)">
             <summary>Constructs a new Get request.</summary>
@@ -809,11 +885,21 @@
             <summary>Initializes Get parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.List(System.String)">
-            <summary>Lists a file's comments.</summary>
+            <summary>
+            Lists a file's comments. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
             <param name="fileId">The ID of the file.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.CommentsResource.ListRequest">
-            <summary>Lists a file's comments.</summary>
+            <summary>
+            Lists a file's comments. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.ListRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
             <summary>Constructs a new List request.</summary>
@@ -851,13 +937,23 @@
             <summary>Initializes List parameter list.</summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.Update(Google.Apis.Drive.v3.Data.Comment,System.String,System.String)">
-            <summary>Updates a comment with patch semantics.</summary>
+            <summary>
+            Updates a comment with patch semantics. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
             <param name="body">The body of the request.</param>
             <param name="fileId">The ID of the file.</param>
             <param name="commentId">The ID of the comment.</param>
         </member>
         <member name="T:Google.Apis.Drive.v3.CommentsResource.UpdateRequest">
-            <summary>Updates a comment with patch semantics.</summary>
+            <summary>
+            Updates a comment with patch semantics. For more information, see [Manage comments and
+            replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter
+            must be set. To return the exact fields you need, see [Return specific
+            fields](https://developers.google.com/drive/api/guides/fields-parameter).
+            </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.CommentsResource.UpdateRequest.#ctor(Google.Apis.Services.IClientService,Google.Apis.Drive.v3.Data.Comment,System.String,System.String)">
             <summary>Constructs a new Update request.</summary>
@@ -2331,7 +2427,7 @@
             `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether
             the cancellation succeeded or whether the operation completed despite cancellation. On successful
             cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value
-            with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+            with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
             </summary>
             <param name="name">The name of the operation resource to be cancelled.</param>
         </member>
@@ -2342,7 +2438,7 @@
             `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether
             the cancellation succeeded or whether the operation completed despite cancellation. On successful
             cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value
-            with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+            with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`.
             </summary>
         </member>
         <member name="M:Google.Apis.Drive.v3.OperationResource.CancelRequest.#ctor(Google.Apis.Services.IClientService,System.String)">
@@ -5181,8 +5277,11 @@
         <member name="T:Google.Apis.Drive.v3.Data.Permission">
             <summary>
             A permission for a file. A permission grants a user, group, domain, or the world access to a file or a folder
-            hierarchy. Some resource methods (such as `permissions.update`) require a `permissionId`. Use the
-            `permissions.list` method to retrieve the ID for a file, folder, or shared drive.
+            hierarchy. By default, permissions requests only return a subset of fields. Permission kind, ID, type, and role
+            are always returned. To retrieve specific fields, see
+            https://developers.google.com/drive/api/guides/fields-parameter. Some resource methods (such as
+            `permissions.update`) require a `permissionId`. Use the `permissions.list` method to retrieve the ID for a file,
+            folder, or shared drive.
             </summary>
         </member>
         <member name="P:Google.Apis.Drive.v3.Data.Permission.AllowFileDiscovery">

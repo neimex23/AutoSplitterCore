@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.GroupBox groupBox1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
             this.listViewFiles = new System.Windows.Forms.ListView();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,11 +47,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
-            this.btnInstall = new ReaLTaiizor.Controls.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBoxManagment.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,7 +68,7 @@
             groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             groupBox1.HeaderColor = System.Drawing.Color.PowderBlue;
-            groupBox1.Location = new System.Drawing.Point(25, 383);
+            groupBox1.Location = new System.Drawing.Point(20, 305);
             groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
@@ -112,11 +116,11 @@
             this.btnLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnLogin.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnLogin.EnteredColor = System.Drawing.Color.Red;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnLogin.Image = null;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnLogin.InactiveColor = System.Drawing.Color.Tomato;
             this.btnLogin.Location = new System.Drawing.Point(1512, 55);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -168,14 +172,14 @@
             this.groupBoxUpload.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxUpload.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBoxUpload.HeaderColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBoxUpload.Location = new System.Drawing.Point(25, 104);
+            this.groupBoxUpload.Location = new System.Drawing.Point(20, 26);
             this.groupBoxUpload.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxUpload.Name = "groupBoxUpload";
             this.groupBoxUpload.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
             this.groupBoxUpload.Size = new System.Drawing.Size(660, 246);
             this.groupBoxUpload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpload.TabIndex = 4;
-            this.groupBoxUpload.Text = "Upload";
+            this.groupBoxUpload.Text = "Upload Current Profile";
             // 
             // btnUploadProfile
             // 
@@ -307,7 +311,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox5.HeaderColor = System.Drawing.Color.DarkOrange;
-            this.groupBox5.Location = new System.Drawing.Point(755, 383);
+            this.groupBox5.Location = new System.Drawing.Point(750, 305);
             this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
@@ -333,39 +337,53 @@
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
             // 
-            // btnInstall
+            // groupBoxManagment
             // 
-            this.btnInstall.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInstall.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnInstall.Image = null;
-            this.btnInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInstall.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Location = new System.Drawing.Point(1012, 854);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.Size = new System.Drawing.Size(183, 33);
-            this.btnInstall.TabIndex = 25;
-            this.btnInstall.Text = "Download and Install";
-            this.btnInstall.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.groupBoxManagment.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxManagment.BackGColor = System.Drawing.Color.Transparent;
+            this.groupBoxManagment.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxManagment.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxManagment.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxManagment.Controls.Add(this.textBox1);
+            this.groupBoxManagment.Controls.Add(this.groupBoxUpload);
+            this.groupBoxManagment.Controls.Add(groupBox1);
+            this.groupBoxManagment.Controls.Add(this.groupBox5);
+            this.groupBoxManagment.Enabled = false;
+            this.groupBoxManagment.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxManagment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxManagment.HeaderColor = System.Drawing.Color.ForestGreen;
+            this.groupBoxManagment.Location = new System.Drawing.Point(25, 78);
+            this.groupBoxManagment.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxManagment.Name = "groupBoxManagment";
+            this.groupBoxManagment.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBoxManagment.Size = new System.Drawing.Size(1469, 787);
+            this.groupBoxManagment.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxManagment.TabIndex = 26;
+            this.groupBoxManagment.Text = "Cloud Profiles";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Yellow;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(849, 50);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(472, 222);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1651, 1014);
-            this.Controls.Add(this.btnInstall);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBoxUpload);
+            this.ClientSize = new System.Drawing.Size(1651, 890);
+            this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnForgetLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(groupBox1);
             this.Image = null;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
@@ -375,6 +393,8 @@
             this.groupBoxUpload.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBoxManagment.ResumeLayout(false);
+            this.groupBoxManagment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,6 +419,8 @@
         private System.Windows.Forms.Label label3;
         private ReaLTaiizor.Controls.GroupBox groupBox5;
         internal System.Windows.Forms.TextBox TextBoxSummary;
-        private ReaLTaiizor.Controls.Button btnInstall;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ReaLTaiizor.Controls.GroupBox groupBoxManagment;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
