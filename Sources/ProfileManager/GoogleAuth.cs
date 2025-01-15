@@ -262,7 +262,7 @@ namespace AutoSplitterCore
                     listViewFiles.Columns.Add("Author", 100);
                     listViewFiles.Columns.Add("Date", 100);
                     listViewFiles.Columns.Add("Description", 200);
-                    listViewFiles.Columns.Add("MIME Type", 100);
+                    listViewFiles.Columns.Add("Games", 100);
                 }
 
                 listViewFiles.Items.Clear(); // Clean Elements
@@ -275,9 +275,13 @@ namespace AutoSplitterCore
                     item.SubItems.Add(file.Properties != null && file.Properties.ContainsKey("author")
                         ? file.Properties["author"]
                         : "Unknown"); // Author
-                    item.SubItems.Add(file.CreatedTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); //Date of Creation
+                    item.SubItems.Add(file.CreatedTimeDateTimeOffset?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Date of Creation
                     item.SubItems.Add(file.Description ?? "No description"); // Description
-                    item.SubItems.Add(file.MimeType); //MIME
+
+                    string games = file.Properties != null && file.Properties.ContainsKey("games")
+                    ? file.Properties["games"]
+                    : "None"; 
+                    item.SubItems.Add(games); 
 
                     listViewFiles.Items.Add(item);
                 }
@@ -302,6 +306,8 @@ namespace AutoSplitterCore
                 MessageBox.Show("You must use a profile name, author, and description different from default.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (checkedListBoxGames.CheckedItems.Count == 0) { MessageBox.Show("You must select games for the profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  return; }
 
             if (!File.Exists(currentProfilePath))
             {
@@ -341,7 +347,8 @@ namespace AutoSplitterCore
                     Properties = new Dictionary<string, string>
                     {
                         { "author", saveModule.GetAuthor() },
-                        { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
+                        { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") },
+                        { "games", string.Join(", ", checkedListBoxGames.CheckedItems.Cast<object>().Select(g => g.ToString())) }
                     }
                 };
 
@@ -497,7 +504,11 @@ namespace AutoSplitterCore
 
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
-
+            checkedListBoxGames.Items.Clear();
+            foreach (var a in GameConstruction.GameList)
+            {
+                checkedListBoxGames.Items.Add(a);
+            }
         }
     }
 }

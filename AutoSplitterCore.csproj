@@ -79,6 +79,8 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -97,6 +99,20 @@
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
+    <Compile Include="Sources\ProfileManager\EncryptedFileDataStore.cs" />
+    <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProfileManager\GoogleAuth.Designer.cs">
+      <DependentUpon>GoogleAuth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ProfileManager\ProfileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProfileManager\ProfileManager.Designer.cs">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ProfileManager\SaveModule.cs" />
     <Compile Include="Sources\ProgramModule\AutoSplitter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,19 +141,9 @@
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
-    <Compile Include="Sources\ProgramModule\EncryptedFileDataStore.cs" />
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
-    <Compile Include="Sources\ProgramModule\GoogleAuth.cs" />
-    <Compile Include="Sources\ProgramModule\GoogleAuth.Designer.cs">
-      <DependentUpon>GoogleAuth.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
-    <Compile Include="Sources\ProgramModule\ProfileManager.cs" />
-    <Compile Include="Sources\ProgramModule\ProfileManager.Designer.cs">
-      <DependentUpon>ProfileManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sources\ProgramModule\Program.cs" />
-    <Compile Include="Sources\ProgramModule\SaveModule.cs" />
     <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
     <Compile Include="Sources\ProgramModule\UpdateModule.cs" />
     <Compile Include="Sources\ProgramModule\UpdateShowDialog.cs">
@@ -158,17 +164,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProfileManager\GoogleAuth.resx">
+      <DependentUpon>GoogleAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProfileManager\ProfileManager.resx">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\AutoSplitter.resx">
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\ProgramModule\GoogleAuth.resx">
-      <DependentUpon>GoogleAuth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\ProgramModule\ProfileManager.resx">
-      <DependentUpon>ProfileManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>

@@ -50,6 +50,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkedListBoxGames = new System.Windows.Forms.CheckedListBox();
+            this.label6 = new System.Windows.Forms.Label();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
@@ -160,6 +162,8 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxUpload.Controls.Add(this.label6);
+            this.groupBoxUpload.Controls.Add(this.checkedListBoxGames);
             this.groupBoxUpload.Controls.Add(this.btnUploadProfile);
             this.groupBoxUpload.Controls.Add(this.textBoxDate);
             this.groupBoxUpload.Controls.Add(this.label3);
@@ -176,7 +180,7 @@
             this.groupBoxUpload.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxUpload.Name = "groupBoxUpload";
             this.groupBoxUpload.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBoxUpload.Size = new System.Drawing.Size(660, 246);
+            this.groupBoxUpload.Size = new System.Drawing.Size(834, 246);
             this.groupBoxUpload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpload.TabIndex = 4;
             this.groupBoxUpload.Text = "Upload Current Profile";
@@ -366,13 +370,31 @@
             this.textBox1.BackColor = System.Drawing.Color.Yellow;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(849, 50);
+            this.textBox1.Location = new System.Drawing.Point(930, 50);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(472, 222);
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
+            // checkedListBoxGames
+            // 
+            this.checkedListBoxGames.FormattingEnabled = true;
+            this.checkedListBoxGames.Location = new System.Drawing.Point(605, 54);
+            this.checkedListBoxGames.Name = "checkedListBoxGames";
+            this.checkedListBoxGames.Size = new System.Drawing.Size(207, 157);
+            this.checkedListBoxGames.TabIndex = 39;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(605, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 14);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Select Games For Profile";
             // 
             // GoogleAuth
             // 
@@ -422,5 +444,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ReaLTaiizor.Controls.GroupBox groupBoxManagment;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox checkedListBoxGames;
     }
 }
