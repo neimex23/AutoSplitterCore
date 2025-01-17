@@ -30,12 +30,17 @@
         {
             ReaLTaiizor.Controls.GroupBox groupBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
+            this.checkedListBoxGamesSearch = new System.Windows.Forms.CheckedListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.listViewFiles = new System.Windows.Forms.ListView();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new ReaLTaiizor.Controls.Button();
             this.btnForgetLogin = new ReaLTaiizor.Controls.Button();
             this.groupBoxUpload = new ReaLTaiizor.Controls.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkedListBoxGames = new System.Windows.Forms.CheckedListBox();
             this.btnUploadProfile = new ReaLTaiizor.Controls.Button();
             this.textBoxDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,8 +55,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkedListBoxGames = new System.Windows.Forms.CheckedListBox();
-            this.label6 = new System.Windows.Forms.Label();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
@@ -66,6 +69,9 @@
             groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
+            groupBox1.Controls.Add(this.label7);
+            groupBox1.Controls.Add(this.textBoxSearch);
             groupBox1.Controls.Add(this.listViewFiles);
             groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
@@ -74,17 +80,47 @@
             groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            groupBox1.Size = new System.Drawing.Size(704, 456);
+            groupBox1.Size = new System.Drawing.Size(704, 474);
             groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "Download";
             // 
+            // checkedListBoxGamesSearch
+            // 
+            this.checkedListBoxGamesSearch.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxGamesSearch.FormattingEnabled = true;
+            this.checkedListBoxGamesSearch.Location = new System.Drawing.Point(22, 104);
+            this.checkedListBoxGamesSearch.Name = "checkedListBoxGamesSearch";
+            this.checkedListBoxGamesSearch.Size = new System.Drawing.Size(176, 157);
+            this.checkedListBoxGamesSearch.TabIndex = 5;
+            this.checkedListBoxGamesSearch.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxGamesSearch_ItemCheck);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(19, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 14);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Search";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.Location = new System.Drawing.Point(22, 60);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(176, 21);
+            this.textBoxSearch.TabIndex = 3;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
             // listViewFiles
             // 
+            this.listViewFiles.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewFiles.HideSelection = false;
-            this.listViewFiles.Location = new System.Drawing.Point(28, 31);
+            this.listViewFiles.Location = new System.Drawing.Point(224, 39);
             this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(652, 396);
+            this.listViewFiles.Size = new System.Drawing.Size(453, 427);
             this.listViewFiles.TabIndex = 2;
             this.listViewFiles.UseCompatibleStateImageBehavior = false;
             this.listViewFiles.View = System.Windows.Forms.View.List;
@@ -184,6 +220,24 @@
             this.groupBoxUpload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpload.TabIndex = 4;
             this.groupBoxUpload.Text = "Upload Current Profile";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(605, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 14);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "Select Games For Profile";
+            // 
+            // checkedListBoxGames
+            // 
+            this.checkedListBoxGames.FormattingEnabled = true;
+            this.checkedListBoxGames.Location = new System.Drawing.Point(605, 54);
+            this.checkedListBoxGames.Name = "checkedListBoxGames";
+            this.checkedListBoxGames.Size = new System.Drawing.Size(207, 157);
+            this.checkedListBoxGames.TabIndex = 39;
             // 
             // btnUploadProfile
             // 
@@ -319,7 +373,7 @@
             this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox5.Size = new System.Drawing.Size(691, 456);
+            this.groupBox5.Size = new System.Drawing.Size(691, 474);
             this.groupBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox5.TabIndex = 24;
             this.groupBox5.Text = "Selected Profile Summary";
@@ -337,7 +391,7 @@
             this.TextBoxSummary.Name = "TextBoxSummary";
             this.TextBoxSummary.ReadOnly = true;
             this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBoxSummary.Size = new System.Drawing.Size(667, 417);
+            this.TextBoxSummary.Size = new System.Drawing.Size(667, 435);
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
             // 
@@ -360,7 +414,7 @@
             this.groupBoxManagment.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxManagment.Name = "groupBoxManagment";
             this.groupBoxManagment.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBoxManagment.Size = new System.Drawing.Size(1469, 787);
+            this.groupBoxManagment.Size = new System.Drawing.Size(1469, 795);
             this.groupBoxManagment.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxManagment.TabIndex = 26;
             this.groupBoxManagment.Text = "Cloud Profiles";
@@ -378,24 +432,6 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // checkedListBoxGames
-            // 
-            this.checkedListBoxGames.FormattingEnabled = true;
-            this.checkedListBoxGames.Location = new System.Drawing.Point(605, 54);
-            this.checkedListBoxGames.Name = "checkedListBoxGames";
-            this.checkedListBoxGames.Size = new System.Drawing.Size(207, 157);
-            this.checkedListBoxGames.TabIndex = 39;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(605, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 14);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Select Games For Profile";
-            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -411,6 +447,7 @@
             this.Text = "Google Auth";
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             this.groupBoxUpload.ResumeLayout(false);
             this.groupBoxUpload.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -446,5 +483,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox checkedListBoxGames;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.CheckedListBox checkedListBoxGamesSearch;
     }
 }

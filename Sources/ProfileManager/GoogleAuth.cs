@@ -42,15 +42,16 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Diagnostics;
 using System.Web;
 using Google.Apis.Download;
+using System.Drawing;
 
 namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = {"https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive, DriveService.Scope.DriveReadonly };
+        static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive, DriveService.Scope.DriveReadonly };
         static string ApplicationName = "autosplittercore";
 
-        string machineName = Environment.MachineName; 
+        string machineName = Environment.MachineName;
         static DriveService driveService = null;
         static Oauth2Service oauth2Service = null;
         UserCredential credential;
@@ -63,6 +64,37 @@ namespace AutoSplitterCore
             InitializeComponent();
             this.saveModule = saveModule;
             this.currentProfilePath = currentProfilePath;
+        }
+
+        private void GoogleAuth_Load(object sender, EventArgs e)
+        {
+            checkedListBoxGames.Items.Clear();
+            foreach (var games in GameConstruction.GameList)
+            {
+                if (!games.Contains("None"))
+                {
+                    checkedListBoxGames.Items.Add(games);
+                    checkedListBoxGamesSearch.Items.Add(games);
+                }
+            }
+        }
+
+        private DataAutoSplitter DeserializeXmlFile(string filePath)
+        {
+            using (Stream myStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter),
+                    new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2),
+                         typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
+                try
+                {
+                    return (DataAutoSplitter)formatter.Deserialize(myStream);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error deserializing XML file: {ex.Message}");
+                }
+            }
         }
 
         #region AuthProcess
@@ -86,7 +118,7 @@ namespace AutoSplitterCore
             catch (Exception ex)
             {
                 Console.WriteLine("Error during logout process: " + ex.Message);
-                MessageBox.Show("Error during logout process:" +  ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error during logout process:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -213,7 +245,7 @@ namespace AutoSplitterCore
             });
 
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
-            string email = userInfo.Email;       
+            string email = userInfo.Email;
             linkLabel1.Invoke(new Action(() =>
             {
                 linkLabel1.Text = email;
@@ -224,7 +256,7 @@ namespace AutoSplitterCore
             {
                 groupBoxManagment.Enabled = true;
             }));
-            
+
         }
         #endregion
         #region LoadFilesOnDrive
@@ -240,6 +272,7 @@ namespace AutoSplitterCore
             textBoxDate.Text = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
+        List<ListViewItem> allFiles = new List<ListViewItem>();
         private void LoadFilesFromPublicFolder()
         {
             string folderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
@@ -287,6 +320,7 @@ namespace AutoSplitterCore
                 }
 
                 listViewFiles.Refresh();
+                allFiles = new List<ListViewItem>(listViewFiles.Items.Cast<ListViewItem>());
             }
             catch (Exception ex)
             {
@@ -406,7 +440,6 @@ namespace AutoSplitterCore
                 var request = driveService.Files.Get(fileId);
                 using (var stream = new MemoryStream())
                 {
-                    // Descarga el contenido del archivo en el flujo
                     request.MediaDownloader.ProgressChanged += progress =>
                     {
                         switch (progress.Status)
@@ -431,7 +464,7 @@ namespace AutoSplitterCore
                         using (var fileStream = new FileStream(destinationPath, FileMode.Create, FileAccess.Write))
                         {
                             stream.CopyTo(fileStream);
-                            fileStream.Close();// Escribe los datos en el archivo local
+                            fileStream.Close();
                         }
                         Console.WriteLine($"File saved to {destinationPath}");
                     }
@@ -483,32 +516,36 @@ namespace AutoSplitterCore
             }
         }
 
-        private DataAutoSplitter DeserializeXmlFile(string filePath)
-        {
-            using (Stream myStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter),
-                    new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2),
-                         typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
-                try
-                {
-                    return (DataAutoSplitter)formatter.Deserialize(myStream);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Error deserializing XML file: {ex.Message}");
-                }
-            }
-        }
+        List<ListViewItem> filteredItems = null;
+        private void textBoxSearch_TextChanged(object sender, EventArgs e) => AplyFilters();
 
+        private void checkedListBoxGamesSearch_ItemCheck(object sender, ItemCheckEventArgs e) => this.BeginInvoke((MethodInvoker)AplyFilters);
 
-        private void GoogleAuth_Load(object sender, EventArgs e)
+        private void AplyFilters() 
         {
-            checkedListBoxGames.Items.Clear();
-            foreach (var a in GameConstruction.GameList)
+            filteredItems = allFiles;
+
+            // TextFilter
+            string filterText = textBoxSearch.Text;
+            if (!string.IsNullOrWhiteSpace(filterText))
             {
-                checkedListBoxGames.Items.Add(a);
+                filteredItems = filteredItems
+                    .Where(item => item.SubItems[0].Text.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
+                    .ToList();
             }
+
+            // CheckBoxFilter
+            var checkedItems = checkedListBoxGamesSearch.CheckedItems.Cast<string>().ToList();
+            if (checkedItems.Any())
+            {
+                filteredItems = filteredItems
+                    .Where(item => checkedItems.Any(game => item.SubItems[5].Text.Contains(game)))
+                    .ToList();
+            }
+
+            //Refresh Listvirew
+            listViewFiles.Items.Clear();
+            listViewFiles.Items.AddRange(filteredItems.ToArray());
         }
     }
 }
