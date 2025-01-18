@@ -61,7 +61,10 @@ namespace AutoSplitterCore
 
         SaveModule saveModule;
 
-        string EmailLoged = null; 
+        string EmailLoged = null;
+
+        static readonly string folderASCId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
+        static readonly string folderHCMId = "1jpyGxDdaiaaHGcXdSE0YhDjLNy3DTh3-";
 
         public GoogleAuth(SaveModule saveModule)
         {
@@ -82,16 +85,14 @@ namespace AutoSplitterCore
             }
         }
 
-        private DataAutoSplitter DeserializeXmlFile(string filePath)
+        private object DeserializeXmlFile(string filePath, Type targetType)
         {
             using (Stream myStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter),
-                    new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2),
-                         typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
+                XmlSerializer formatter = new XmlSerializer(targetType);
                 try
                 {
-                    return (DataAutoSplitter)formatter.Deserialize(myStream);
+                    return formatter.Deserialize(myStream);
                 }
                 catch (Exception ex)
                 {
@@ -297,7 +298,7 @@ namespace AutoSplitterCore
         {
             btnLogin.Enabled = false;
             btnForgetLogin.Enabled = true;
-            LoadFilesFromPublicFolder();
+            LoadFilesFromPublicFolder(folderASCId);
 
             textBoxCurrrentProfile.Text = saveModule.GetProfileName();
             textBoxAuthor.Text = saveModule.GetAuthor();
@@ -306,9 +307,9 @@ namespace AutoSplitterCore
         }
 
         List<ListViewItem> allFiles = new List<ListViewItem>();
-        private void LoadFilesFromPublicFolder()
+        private void LoadFilesFromPublicFolder(string folderId)
         {
-            string folderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
+
             var request = driveService.Files.List();
             request.Q = $"'{folderId}' in parents and mimeType != 'application/vnd.google-apps.folder' and trashed = false";
             request.Fields = "files(id, name, description, properties, createdTime, mimeType)";
@@ -366,10 +367,14 @@ namespace AutoSplitterCore
 
         private void btnUploadProfile_Click(object sender, EventArgs e)
         {
+            string profileName = textBoxCurrrentProfile.Text;
+            string author = textBoxAuthor.Text;
+            string description = TextboxDescription.Text;
+
             // Profile validation
-            if (saveModule.GetProfileName() == "Default" ||
-                saveModule.GetAuthor() == "Owner" ||
-                saveModule.GetDescription() == "Default Profile")
+            if (profileName == "Default" ||
+                author == "Owner" ||
+                description == "Default Profile")
             {
                 MessageBox.Show("You must use a profile name, author, and description different from default.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -392,11 +397,8 @@ namespace AutoSplitterCore
             }
 
             //Existing Validation
-            string parentFolderId = aloneRadioButtonASC.Checked
-                ? "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV" // ASC Folder
-                : "1jpyGxDdaiaaHGcXdSE0YhDjLNy3DTh3-"; // HCM Folder
+            string parentFolderId = radioButtonUAsc.Checked ? folderASCId : folderHCMId;
 
-            string profileName = textBoxCurrrentProfile.Text;
 
             if (IsFileNameRepeated(profileName, parentFolderId))
             {
@@ -412,7 +414,7 @@ namespace AutoSplitterCore
             object tempData;
             XmlSerializer serializer;
 
-            if (aloneRadioButtonASC.Checked)
+            if (radioButtonUAsc.Checked)
             {
                 serializer = new XmlSerializer(typeof(DataAutoSplitter));
 
@@ -487,7 +489,10 @@ namespace AutoSplitterCore
                     if (uploadResult.Status == Google.Apis.Upload.UploadStatus.Completed)
                     {
                         MessageBox.Show("File uploaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadFilesFromPublicFolder();
+                        if (parentFolderId == folderASCId)
+                        {
+                            radioButtonDAsc.Checked = true;
+                        }else {  radioButtonDHcm.Checked = true; }
                     }
                     else
                     {
@@ -522,6 +527,44 @@ namespace AutoSplitterCore
             }
         }
 
+        #region KindUpload
+        private bool _isHandlingCheckedChanged;
+        private void radioButtonUAsc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_isHandlingCheckedChanged) return;
+
+            _isHandlingCheckedChanged = true;
+            radioButtonUHcm.Checked = !radioButtonUAsc.Checked;
+            _isHandlingCheckedChanged = false;
+        }
+
+        private void radioButtonUHcm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_isHandlingCheckedChanged) return;
+
+            _isHandlingCheckedChanged = true;
+            radioButtonUHcm.Checked = !radioButtonUAsc.Checked;
+
+            if (radioButtonUHcm.Checked)
+            {
+                textBoxCurrrentProfile.Text = SplitterControl.GetControl().GetHCMProfileName();
+                TextboxDescription.Enabled = true;
+                textBoxAuthor.Enabled = true;
+            }
+            else
+            {
+                textBoxCurrrentProfile.Text = saveModule.GetProfileName();
+                textBoxAuthor.Text = saveModule.GetAuthor();
+                TextboxDescription.Text = saveModule.GetDescription();
+                TextboxDescription.Enabled = false;
+                textBoxAuthor.Enabled = false;
+            }
+
+            _isHandlingCheckedChanged = false;
+        }
+
+
+        #endregion
         #endregion
         #region DownloadFile
         public void DownloadFile(string fileId, string destinationPath)
@@ -590,14 +633,21 @@ namespace AutoSplitterCore
                     string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName); ;
                     DownloadFile(fileId, tempFilePath);
 
-                    var configuration = DeserializeXmlFile(tempFilePath);
+                    if (radioButtonDAsc.Checked)
+                    {
+                        var configuration = DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter)) as DataAutoSplitter;
+                        SaveModule saveModuleLocal = new SaveModule();
+                        saveModuleLocal.dataAS = configuration;
+                        saveModuleLocal.MainModule = this.saveModule.MainModule;
 
-                    SaveModule saveModuleLocal = new SaveModule();
-                    saveModuleLocal.dataAS = configuration;
-                    saveModuleLocal.MainModule = this.saveModule.MainModule;
+                        TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
+                    }
+                    else
+                    {
+                        var profileHCm = DeserializeXmlFile(tempFilePath, typeof(ProfileHCM)) as ProfileHCM;
+                        TextBoxSummary.Text = ProfileManager.BuildSummaryProfile(profileHCm);
+                    }
 
-                    TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
-                    
                     File.Delete(tempFilePath);
                 }
                 catch (Exception ex)
@@ -641,6 +691,24 @@ namespace AutoSplitterCore
         }
         #endregion
 
+        private void radioButtonDHcm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonDHcm.Checked)
+            {
+                radioButtonDAsc.Checked = false;
+                LoadFilesFromPublicFolder(folderHCMId);
+            }
+        }
+
+        private void radioButtonDAsc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonDAsc.Checked)
+            {
+                radioButtonDHcm.Checked = false;
+                LoadFilesFromPublicFolder(folderASCId);
+            }
+        }
+
         private void btnInstall_Click(object sender, EventArgs e)
         {
             if (listViewFilesASC.SelectedItems.Count > 0)
@@ -652,18 +720,32 @@ namespace AutoSplitterCore
                 string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName); ;
                 DownloadFile(fileId, tempFilePath);
 
-                //Set current GeneralSettings before download the profile
-                var configuration = DeserializeXmlFile(tempFilePath);
-                configuration.GeneralSettings = saveModule.dataAS.GeneralSettings;
-
-                string finalFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), fileName); 
-
-                XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
-                using (Stream stream = new FileStream(finalFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                if (radioButtonDAsc.Checked)
                 {
-                    serializer.Serialize(stream, configuration);
-                    stream.Close();
+                    //Set current GeneralSettings before download the profile
+                    var configuration = (DataAutoSplitter)DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter));
+                    configuration.GeneralSettings = saveModule.dataAS.GeneralSettings;
+
+                    string finalFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), fileName);
+
+                    XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
+                    using (Stream stream = new FileStream(finalFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                    {
+                        serializer.Serialize(stream, configuration);
+                        stream.Close();
+                    }          
+                }else
+                {
+                    var profileHCm = (ProfileHCM)DeserializeXmlFile(tempFilePath, typeof(ProfileHCM));
+                    var splitterControl = SplitterControl.GetControl();
+
+                    splitterControl.NewProfile();
+                    foreach (var split in  profileHCm.Splits)
+                    {
+                        splitterControl.AddSplit(split);
+                    }
                 }
+
 
                 File.Delete(tempFilePath);
                 if (MessageBox.Show("Install Complete, you can Switch the profile on Profile Manager\nDo you want close this windows?", "Susesfully",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) Close();
@@ -672,41 +754,8 @@ namespace AutoSplitterCore
                 MessageBox.Show("You must Select File to download", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
-
-        private bool _isHandlingCheckedChanged;
-
-        private void aloneRadioButtonHCM_CheckedChanged(object sender, EventArgs e)
-        {
-            if (_isHandlingCheckedChanged) return;
-
-            _isHandlingCheckedChanged = true;
-            aloneRadioButtonASC.Checked = !aloneRadioButtonHCM.Checked;
-
-            if (aloneRadioButtonASC.Checked)
-            {
-                textBoxCurrrentProfile.Text = SplitterControl.GetControl().GetHCMProfileName();
-                TextboxDescription.Enabled = true;
-                textBoxAuthor.Enabled = true;
-            }
-            else
-            {
-                textBoxCurrrentProfile.Text = saveModule.GetProfileName();
-                TextboxDescription.Enabled = false;
-                textBoxAuthor.Enabled = false;
-            }
-
-            _isHandlingCheckedChanged = false;
-        }
-
-        private void aloneRadioButtonASC_CheckedChanged(object sender, EventArgs e)
-        {
-            if (_isHandlingCheckedChanged) return;
-
-            _isHandlingCheckedChanged = true;
-            aloneRadioButtonHCM.Checked = !aloneRadioButtonASC.Checked;
-            _isHandlingCheckedChanged = false;
-        }
 
     }
 }

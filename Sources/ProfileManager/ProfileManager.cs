@@ -607,6 +607,33 @@ namespace AutoSplitterCore
             return Summary;
         }
 
+        public static string BuildSummaryProfile(ProfileHCM profile)
+        {
+            String Summary = String.Empty;
+            String Line = "\r\n";
+            string Space = "      ";
+            Summary += "=======================================================" + Line;
+            Summary += "General:" + Line;
+            Summary += "=======================================================" + Line;
+            Summary += "Profile: " + profile.ProfileName + Line;
+            Summary += "Author: " + profile.Author + Line;
+            Summary += "Description: " + profile.Description + Line;
+            Summary += "=======================================================" + Line;
+            Summary += Line;
+            Summary += "=======================================================" + Line;
+            Summary += "Splits:" + Line;
+            Summary += "=======================================================" + Line;
+            foreach (var Splits in profile.Splits) 
+            {
+                Summary += Space + Splits + Line;
+            }
+
+            if (profile.Splits.Count == 0) { Summary += Space + "Not Have Splits" + Line; }
+
+            Summary += "=======================================================" + Line;
+            return Summary;
+        }
+
         private void btnLoadProfile_Click(object sender, EventArgs e)
         {
             if (comboBoxProfiles.Items.Count > 0)

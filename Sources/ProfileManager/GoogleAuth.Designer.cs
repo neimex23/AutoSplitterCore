@@ -30,10 +30,7 @@
         {
             ReaLTaiizor.Controls.GroupBox groupBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
-            this.hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
-            this.tabPageASC = new System.Windows.Forms.TabPage();
             this.listViewFilesASC = new System.Windows.Forms.ListView();
-            this.tabPageHCM = new System.Windows.Forms.TabPage();
             this.btnInstall = new ReaLTaiizor.Controls.Button();
             this.checkedListBoxGamesSearch = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,6 +40,8 @@
             this.btnLogin = new ReaLTaiizor.Controls.Button();
             this.btnForgetLogin = new ReaLTaiizor.Controls.Button();
             this.groupBoxUpload = new ReaLTaiizor.Controls.GroupBox();
+            this.radioButtonUHcm = new System.Windows.Forms.RadioButton();
+            this.radioButtonUAsc = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.checkedListBoxGames = new System.Windows.Forms.CheckedListBox();
             this.btnUploadProfile = new ReaLTaiizor.Controls.Button();
@@ -62,15 +61,15 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.aloneRadioButtonASC = new ReaLTaiizor.Controls.AloneRadioButton();
-            this.aloneRadioButtonHCM = new ReaLTaiizor.Controls.AloneRadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButtonDHcm = new System.Windows.Forms.RadioButton();
+            this.radioButtonDAsc = new System.Windows.Forms.RadioButton();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
-            this.hopeTabPage1.SuspendLayout();
-            this.tabPageASC.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBoxManagment.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,7 +79,9 @@
             groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            groupBox1.Controls.Add(this.hopeTabPage1);
+            groupBox1.Controls.Add(this.radioButtonDHcm);
+            groupBox1.Controls.Add(this.radioButtonDAsc);
+            groupBox1.Controls.Add(this.panel1);
             groupBox1.Controls.Add(this.btnInstall);
             groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
             groupBox1.Controls.Add(this.label7);
@@ -92,66 +93,22 @@
             groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            groupBox1.Size = new System.Drawing.Size(744, 474);
+            groupBox1.Size = new System.Drawing.Size(744, 454);
             groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "Download";
-            // 
-            // hopeTabPage1
-            // 
-            this.hopeTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.hopeTabPage1.Controls.Add(this.tabPageASC);
-            this.hopeTabPage1.Controls.Add(this.tabPageHCM);
-            this.hopeTabPage1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeTabPage1.ForeColorA = System.Drawing.Color.Silver;
-            this.hopeTabPage1.ForeColorB = System.Drawing.Color.Gray;
-            this.hopeTabPage1.ForeColorC = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.hopeTabPage1.ItemSize = new System.Drawing.Size(120, 40);
-            this.hopeTabPage1.Location = new System.Drawing.Point(222, 31);
-            this.hopeTabPage1.Name = "hopeTabPage1";
-            this.hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.hopeTabPage1.SelectedIndex = 0;
-            this.hopeTabPage1.Size = new System.Drawing.Size(514, 435);
-            this.hopeTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.hopeTabPage1.TabIndex = 40;
-            this.hopeTabPage1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hopeTabPage1.ThemeColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeTabPage1.ThemeColorB = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
-            // 
-            // tabPageASC
-            // 
-            this.tabPageASC.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.tabPageASC.Controls.Add(this.listViewFilesASC);
-            this.tabPageASC.Location = new System.Drawing.Point(0, 40);
-            this.tabPageASC.Name = "tabPageASC";
-            this.tabPageASC.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageASC.Size = new System.Drawing.Size(514, 395);
-            this.tabPageASC.TabIndex = 0;
-            this.tabPageASC.Text = "ASC";
             // 
             // listViewFilesASC
             // 
             this.listViewFilesASC.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewFilesASC.HideSelection = false;
-            this.listViewFilesASC.Location = new System.Drawing.Point(6, 6);
+            this.listViewFilesASC.Location = new System.Drawing.Point(8, 8);
             this.listViewFilesASC.Name = "listViewFilesASC";
-            this.listViewFilesASC.Size = new System.Drawing.Size(502, 383);
+            this.listViewFilesASC.Size = new System.Drawing.Size(498, 394);
             this.listViewFilesASC.TabIndex = 2;
             this.listViewFilesASC.UseCompatibleStateImageBehavior = false;
             this.listViewFilesASC.View = System.Windows.Forms.View.List;
             this.listViewFilesASC.SelectedIndexChanged += new System.EventHandler(this.listViewFiles_SelectedIndexChanged);
-            // 
-            // tabPageHCM
-            // 
-            this.tabPageHCM.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.tabPageHCM.Location = new System.Drawing.Point(0, 40);
-            this.tabPageHCM.Name = "tabPageHCM";
-            this.tabPageHCM.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHCM.Size = new System.Drawing.Size(514, 395);
-            this.tabPageHCM.TabIndex = 1;
-            this.tabPageHCM.Text = "HCM";
             // 
             // btnInstall
             // 
@@ -164,7 +121,7 @@
             this.btnInstall.Image = null;
             this.btnInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInstall.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Location = new System.Drawing.Point(48, 317);
+            this.btnInstall.Location = new System.Drawing.Point(49, 341);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnInstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -276,8 +233,8 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxUpload.Controls.Add(this.aloneRadioButtonHCM);
-            this.groupBoxUpload.Controls.Add(this.aloneRadioButtonASC);
+            this.groupBoxUpload.Controls.Add(this.radioButtonUHcm);
+            this.groupBoxUpload.Controls.Add(this.radioButtonUAsc);
             this.groupBoxUpload.Controls.Add(this.label6);
             this.groupBoxUpload.Controls.Add(this.checkedListBoxGames);
             this.groupBoxUpload.Controls.Add(this.btnUploadProfile);
@@ -303,6 +260,32 @@
             this.groupBoxUpload.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpload.TabIndex = 4;
             this.groupBoxUpload.Text = "Upload Current Profile";
+            // 
+            // radioButtonUHcm
+            // 
+            this.radioButtonUHcm.AutoSize = true;
+            this.radioButtonUHcm.ForeColor = System.Drawing.Color.White;
+            this.radioButtonUHcm.Location = new System.Drawing.Point(414, 221);
+            this.radioButtonUHcm.Name = "radioButtonUHcm";
+            this.radioButtonUHcm.Size = new System.Drawing.Size(127, 18);
+            this.radioButtonUHcm.TabIndex = 44;
+            this.radioButtonUHcm.Text = "Upload HCM Profile";
+            this.radioButtonUHcm.UseVisualStyleBackColor = true;
+            this.radioButtonUHcm.CheckedChanged += new System.EventHandler(this.radioButtonUHcm_CheckedChanged);
+            // 
+            // radioButtonUAsc
+            // 
+            this.radioButtonUAsc.AutoSize = true;
+            this.radioButtonUAsc.Checked = true;
+            this.radioButtonUAsc.ForeColor = System.Drawing.Color.White;
+            this.radioButtonUAsc.Location = new System.Drawing.Point(414, 199);
+            this.radioButtonUAsc.Name = "radioButtonUAsc";
+            this.radioButtonUAsc.Size = new System.Drawing.Size(125, 18);
+            this.radioButtonUAsc.TabIndex = 43;
+            this.radioButtonUAsc.TabStop = true;
+            this.radioButtonUAsc.Text = "Upload ASC Profile";
+            this.radioButtonUAsc.UseVisualStyleBackColor = true;
+            this.radioButtonUAsc.CheckedChanged += new System.EventHandler(this.radioButtonUAsc_CheckedChanged);
             // 
             // label6
             // 
@@ -334,7 +317,7 @@
             this.btnUploadProfile.Image = null;
             this.btnUploadProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUploadProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnUploadProfile.Location = new System.Drawing.Point(268, 204);
+            this.btnUploadProfile.Location = new System.Drawing.Point(280, 204);
             this.btnUploadProfile.Name = "btnUploadProfile";
             this.btnUploadProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnUploadProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -425,7 +408,6 @@
             this.textBoxAuthor.Enabled = false;
             this.textBoxAuthor.Location = new System.Drawing.Point(189, 70);
             this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.ReadOnly = true;
             this.textBoxAuthor.Size = new System.Drawing.Size(194, 22);
             this.textBoxAuthor.TabIndex = 32;
             this.textBoxAuthor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -488,7 +470,7 @@
             this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox5.Size = new System.Drawing.Size(669, 474);
+            this.groupBox5.Size = new System.Drawing.Size(669, 454);
             this.groupBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox5.TabIndex = 24;
             this.groupBox5.Text = "Selected Profile Summary";
@@ -506,7 +488,7 @@
             this.TextBoxSummary.Name = "TextBoxSummary";
             this.TextBoxSummary.ReadOnly = true;
             this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBoxSummary.Size = new System.Drawing.Size(645, 435);
+            this.TextBoxSummary.Size = new System.Drawing.Size(645, 415);
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
             // 
@@ -529,7 +511,7 @@
             this.groupBoxManagment.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxManagment.Name = "groupBoxManagment";
             this.groupBoxManagment.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBoxManagment.Size = new System.Drawing.Size(1469, 795);
+            this.groupBoxManagment.Size = new System.Drawing.Size(1469, 778);
             this.groupBoxManagment.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxManagment.TabIndex = 26;
             this.groupBoxManagment.Text = "Cloud Profiles";
@@ -547,39 +529,46 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // aloneRadioButtonASC
+            // panel1
             // 
-            this.aloneRadioButtonASC.BackColor = System.Drawing.Color.Transparent;
-            this.aloneRadioButtonASC.Checked = true;
-            this.aloneRadioButtonASC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneRadioButtonASC.EnabledCalc = true;
-            this.aloneRadioButtonASC.ForeColor = System.Drawing.Color.White;
-            this.aloneRadioButtonASC.Location = new System.Drawing.Point(410, 200);
-            this.aloneRadioButtonASC.Name = "aloneRadioButtonASC";
-            this.aloneRadioButtonASC.Size = new System.Drawing.Size(138, 17);
-            this.aloneRadioButtonASC.TabIndex = 41;
-            this.aloneRadioButtonASC.Text = "Upload ASC Profile";
-            this.aloneRadioButtonASC.CheckedChanged += new ReaLTaiizor.Controls.AloneRadioButton.CheckedChangedEventHandler(this.aloneRadioButtonASC_CheckedChanged);
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel1.Controls.Add(this.listViewFilesASC);
+            this.panel1.Location = new System.Drawing.Point(222, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(514, 409);
+            this.panel1.TabIndex = 40;
             // 
-            // aloneRadioButtonHCM
+            // radioButtonDHcm
             // 
-            this.aloneRadioButtonHCM.BackColor = System.Drawing.Color.Transparent;
-            this.aloneRadioButtonHCM.Checked = false;
-            this.aloneRadioButtonHCM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneRadioButtonHCM.EnabledCalc = true;
-            this.aloneRadioButtonHCM.ForeColor = System.Drawing.Color.White;
-            this.aloneRadioButtonHCM.Location = new System.Drawing.Point(410, 221);
-            this.aloneRadioButtonHCM.Name = "aloneRadioButtonHCM";
-            this.aloneRadioButtonHCM.Size = new System.Drawing.Size(138, 17);
-            this.aloneRadioButtonHCM.TabIndex = 42;
-            this.aloneRadioButtonHCM.Text = "Upload HCM Profile";
-            this.aloneRadioButtonHCM.CheckedChanged += new ReaLTaiizor.Controls.AloneRadioButton.CheckedChangedEventHandler(this.aloneRadioButtonHCM_CheckedChanged);
+            this.radioButtonDHcm.AutoSize = true;
+            this.radioButtonDHcm.ForeColor = System.Drawing.Color.Blue;
+            this.radioButtonDHcm.Location = new System.Drawing.Point(66, 300);
+            this.radioButtonDHcm.Name = "radioButtonDHcm";
+            this.radioButtonDHcm.Size = new System.Drawing.Size(86, 18);
+            this.radioButtonDHcm.TabIndex = 46;
+            this.radioButtonDHcm.Text = "HCM Profile";
+            this.radioButtonDHcm.UseVisualStyleBackColor = true;
+            this.radioButtonDHcm.CheckedChanged += new System.EventHandler(this.radioButtonDHcm_CheckedChanged);
+            // 
+            // radioButtonDAsc
+            // 
+            this.radioButtonDAsc.AutoSize = true;
+            this.radioButtonDAsc.Checked = true;
+            this.radioButtonDAsc.ForeColor = System.Drawing.Color.Blue;
+            this.radioButtonDAsc.Location = new System.Drawing.Point(66, 278);
+            this.radioButtonDAsc.Name = "radioButtonDAsc";
+            this.radioButtonDAsc.Size = new System.Drawing.Size(84, 18);
+            this.radioButtonDAsc.TabIndex = 45;
+            this.radioButtonDAsc.TabStop = true;
+            this.radioButtonDAsc.Text = "ASC Profile";
+            this.radioButtonDAsc.UseVisualStyleBackColor = true;
+            this.radioButtonDAsc.CheckedChanged += new System.EventHandler(this.radioButtonDAsc_CheckedChanged);
             // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1652, 890);
+            this.ClientSize = new System.Drawing.Size(1652, 876);
             this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnForgetLogin);
@@ -591,14 +580,13 @@
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            this.hopeTabPage1.ResumeLayout(false);
-            this.tabPageASC.ResumeLayout(false);
             this.groupBoxUpload.ResumeLayout(false);
             this.groupBoxUpload.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBoxManagment.ResumeLayout(false);
             this.groupBoxManagment.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,13 +620,13 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.CheckedListBox checkedListBoxGamesSearch;
         private ReaLTaiizor.Controls.Button btnInstall;
-        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
-        private System.Windows.Forms.TabPage tabPageASC;
-        private System.Windows.Forms.TabPage tabPageHCM;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButtonHCM;
-        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButtonASC;
+        private System.Windows.Forms.RadioButton radioButtonUHcm;
+        private System.Windows.Forms.RadioButton radioButtonUAsc;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButtonDHcm;
+        private System.Windows.Forms.RadioButton radioButtonDAsc;
     }
 }

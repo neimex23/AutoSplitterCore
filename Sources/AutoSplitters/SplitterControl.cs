@@ -22,11 +22,8 @@
 
 using HitCounterManager;
 using System;
-using System.Threading;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace AutoSplitterCore
 {
@@ -124,6 +121,17 @@ namespace AutoSplitterCore
         /// </summary>
         /// <returns></returns>
         List<string> GetSplits();
+
+        /// <summary>
+        /// Create a new Profile on HCM
+        /// </summary>
+        void NewProfile();
+
+        /// <summary>
+        /// Insert a new Split on HCM Profile
+        /// </summary>
+        /// <param name="splitTitle">Name of Split</param>
+        void AddSplit(string splitTitle);
     }
 
     public class SplitterControl : ISplitterControl
@@ -212,11 +220,15 @@ namespace AutoSplitterCore
 
         public void SetPracticeMode(bool status) => interfaceHCM.PracticeMode = status;
 
-        public void ProfileChange(string ProfileTitle) { }
+        public void ProfileChange(string profileTitle) { }
 
         public string GetHCMProfileName() => interfaceHCM.ProfileName();
 
         public List<string> GetSplits() => interfaceHCM.GetSplits();
+
+        public void NewProfile () => interfaceHCM.NewProfile();
+
+        public void AddSplit(string splitTitle) => interfaceHCM.AddSplit(splitTitle);
 
     }
 }
