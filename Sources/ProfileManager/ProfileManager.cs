@@ -795,9 +795,9 @@ namespace AutoSplitterCore
 
         private void btnCloud_Click(object sender, EventArgs e)
         {
-            string currentProfilePath = savePath + "\\" + saveModule.GetProfileName() + ".xml";
-            var form = new GoogleAuth(saveModule, currentProfilePath);
-            form.ShowDialog();  
+            var form = new GoogleAuth(saveModule);
+            form.ShowDialog();
+            RefreshForm();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

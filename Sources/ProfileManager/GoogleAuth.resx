@@ -138,7 +138,7 @@
       * Custom Profile Path,
       * AutoHitCounter,
       * Shortcuts
-will be discarded and when installing the new profile the current ones will be applied.
+will be discarded uploading default settings and when installing the new profile the current ones will be applied.
 
 - Configurations such as
    * AutoTimer

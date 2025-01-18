@@ -24,6 +24,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 using HitCounterManager;
 
@@ -31,6 +32,8 @@ namespace AutoSplitterCore
 {
     public enum StyleMode { Default, Light ,Dark};
     #region DataAutoSplitter
+
+
     /// <summary>
     /// Class Contains All Settings of AutoSplitterCore
     /// </summary>
@@ -41,12 +44,10 @@ namespace AutoSplitterCore
         public string ProfileName = "Default";
         public string Author = "Owner";
         public string Description = "Default Profile";
-        //Settings
-        public string saveProfilePath = string.Empty;
-        public bool CheckUpdatesOnStartup = true;
-        public bool PracticeMode = false;
-        public bool AutoResetSplit = false;
-        public StyleMode StyleMode = StyleMode.Default;
+
+        //General Settings
+        public GeneralAutoSplitter GeneralSettings;
+
         //AutoSplitters Config
         public DTSekiro DataSekiro;
         public DTHollow DataHollow;
@@ -57,7 +58,26 @@ namespace AutoSplitterCore
         public DTCeleste DataCeleste;
         public DTCuphead DataCuphead;
         public DTDishonored DataDishonored;
+
+        //Getters/Setters
+        public string saveProfilePath {  get { return GeneralSettings.saveProfilePath; } set { GeneralSettings.saveProfilePath = value; } }
+        public bool CheckUpdatesOnStartup { get { return GeneralSettings.CheckUpdatesOnStartup; } set { GeneralSettings.CheckUpdatesOnStartup = value; } }
+        public bool PracticeMode { get {  return GeneralSettings.PracticeMode; } set { GeneralSettings.PracticeMode = value; } }
+        public bool AutoResetSplit { get { return GeneralSettings.AutoResetSplit; } set { GeneralSettings.AutoResetSplit = value; } }
+        public StyleMode StyleMode {  get { return GeneralSettings.StyleMode; } set { GeneralSettings.StyleMode = value; } }
     }
+
+    [Serializable]
+    public class GeneralAutoSplitter
+    {
+        //Settings
+        public string saveProfilePath = string.Empty;
+        public bool CheckUpdatesOnStartup = true;
+        public bool PracticeMode = false;
+        public bool AutoResetSplit = false;
+        public StyleMode StyleMode = StyleMode.Default;
+    }
+
     #endregion
     #region SaveModule
     /// <summary>
@@ -184,6 +204,7 @@ namespace AutoSplitterCore
             if (dataCeleste == null) { dataCeleste = new DTCeleste(); }
             if (dataCuphead == null) { dataCuphead = new DTCuphead(); }
             if (dataDishonored == null) { dataDishonored = new DTDishonored(); }
+            if (dataAS.GeneralSettings == null) dataAS.GeneralSettings = new GeneralAutoSplitter();
 
             _PracticeMode = dataAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;

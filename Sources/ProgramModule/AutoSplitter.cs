@@ -1315,18 +1315,16 @@ namespace AutoSplitterCore
 
             Point parentLocation = this.Location;
 
-            // Calcula la nueva posición (por ejemplo, justo a la derecha del formulario principal)
-            int newX = parentLocation.X + this.Width + 10; // Desplazado 10 píxeles hacia la derecha
+            int newX = parentLocation.X + this.Width + 10; 
             int newY = parentLocation.Y;
 
-            // Ajusta la posición del formulario
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(newX, newY);
             form.ShowDialog();
             this.Controls.Clear();
             this.InitializeComponent();
             RefreshForm();
-            this.AutoSplitter_Load(null, null);//Load Others Games Settings
+            this.AutoSplitter_Load(null, null);
         }
 
        

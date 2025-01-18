@@ -209,6 +209,9 @@
     <PackageReference Include="Google.Apis.Oauth2.v2">
       <Version>1.68.0.1869</Version>
     </PackageReference>
+    <PackageReference Include="Google.Apis.Sheets.v4">
+      <Version>1.68.0.3658</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>

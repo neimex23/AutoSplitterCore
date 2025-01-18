@@ -25,6 +25,8 @@ using Google.Apis.Oauth2.v2;
 using Google.Apis.Oauth2.v2.Data;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Util.Store;
 using Newtonsoft.Json.Linq;
 using System;
@@ -51,19 +53,20 @@ namespace AutoSplitterCore
         static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive, DriveService.Scope.DriveReadonly };
         static string ApplicationName = "autosplittercore";
 
-        string machineName = Environment.MachineName;
-        static DriveService driveService = null;
-        static Oauth2Service oauth2Service = null;
+        private readonly string machineName = Environment.MachineName;
+        DriveService driveService = null;
+        Oauth2Service oauth2Service = null;
+        SheetsService Sheetsservice;
         UserCredential credential;
 
         SaveModule saveModule;
-        string currentProfilePath;
 
-        public GoogleAuth(SaveModule saveModule, string currentProfilePath)
+        string EmailLoged = null; 
+
+        public GoogleAuth(SaveModule saveModule)
         {
             InitializeComponent();
             this.saveModule = saveModule;
-            this.currentProfilePath = currentProfilePath;
         }
 
         private void GoogleAuth_Load(object sender, EventArgs e)
@@ -100,6 +103,7 @@ namespace AutoSplitterCore
         #region AuthProcess
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("You must select a Google account and enable all the required permissions for the drive folder where the files will be downloaded.\nThe program will generate an encrypted key in the Google.Apis.auth folder. \nDo not disclose or transfer this key under any circumstances.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             Cursor.Current = Cursors.WaitCursor;
             Task.Run(() => Auth());
             Cursor = Cursors.Default;
@@ -244,11 +248,18 @@ namespace AutoSplitterCore
                 ApplicationName = ApplicationName,
             });
 
+
+            Sheetsservice = new SheetsService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
-            string email = userInfo.Email;
+            EmailLoged = userInfo.Email;
             linkLabel1.Invoke(new Action(() =>
             {
-                linkLabel1.Text = email;
+                linkLabel1.Text = EmailLoged;
                 AfterLoginEvents();
             }));
 
@@ -257,6 +268,28 @@ namespace AutoSplitterCore
                 groupBoxManagment.Enabled = true;
             }));
 
+        }
+
+        public async Task<bool> IsEmailBannedAsync(string email)
+        {
+            var spreadsheetId = "1syCG3vchr4rHu-_9vQAS6UCJaoonZ06imyPzWNCRtRU";
+            var range = $"Sheet1!A2:B";
+            var request = Sheetsservice.Spreadsheets.Values.Get(spreadsheetId, range);
+            var response = await request.ExecuteAsync();
+            var values = response.Values;
+
+            if (values != null)
+            {
+                foreach (var row in values)
+                {
+                    if (row.Count > 0 && row[0].ToString().Equals(email, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true; // Email found
+                    }
+                }
+            }
+
+            return false; // Email not found
         }
         #endregion
         #region LoadFilesOnDrive
@@ -291,11 +324,11 @@ namespace AutoSplitterCore
                 if (listViewFiles.Columns.Count == 0)
                 {
                     listViewFiles.Columns.Add("Name", 150);
-                    listViewFiles.Columns.Add("ID", 100);
-                    listViewFiles.Columns.Add("Author", 100);
-                    listViewFiles.Columns.Add("Date", 100);
+                    listViewFiles.Columns.Add("Author", 100);       
                     listViewFiles.Columns.Add("Description", 200);
                     listViewFiles.Columns.Add("Games", 100);
+                    listViewFiles.Columns.Add("Date", 100);
+                    listViewFiles.Columns.Add("ID", 100);                  
                 }
 
                 listViewFiles.Items.Clear(); // Clean Elements
@@ -304,17 +337,18 @@ namespace AutoSplitterCore
                 foreach (var file in result.Files)
                 {
                     var item = new ListViewItem(file.Name); // FileName
-                    item.SubItems.Add(file.Id); // DriveID
+
                     item.SubItems.Add(file.Properties != null && file.Properties.ContainsKey("author")
-                        ? file.Properties["author"]
-                        : "Unknown"); // Author
-                    item.SubItems.Add(file.CreatedTimeDateTimeOffset?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Date of Creation
+                       ? file.Properties["author"]
+                       : "Unknown"); // Author
                     item.SubItems.Add(file.Description ?? "No description"); // Description
 
                     string games = file.Properties != null && file.Properties.ContainsKey("games")
-                    ? file.Properties["games"]
-                    : "None"; 
-                    item.SubItems.Add(games); 
+                   ? file.Properties["games"]
+                   : "None";
+                    item.SubItems.Add(games); // Games                  
+                    item.SubItems.Add(file.CreatedTimeDateTimeOffset?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Date of Creation
+                    item.SubItems.Add(file.Id); // DriveID
 
                     listViewFiles.Items.Add(item);
                 }
@@ -343,11 +377,6 @@ namespace AutoSplitterCore
 
             if (checkedListBoxGames.CheckedItems.Count == 0) { MessageBox.Show("You must select games for the profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  return; }
 
-            if (!File.Exists(currentProfilePath))
-            {
-                MessageBox.Show("The file path does not exist. Please verify the path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             // File name validation
             if (IsFileNameRepeated(saveModule.GetProfileName()))
@@ -356,8 +385,33 @@ namespace AutoSplitterCore
                 return;
             }
 
+            var isEmailBanned = Task.Run(() => IsEmailBannedAsync(EmailLoged)).GetAwaiter().GetResult();
+
+            if (isEmailBanned)
+            {
+                MessageBox.Show(
+                    "You are banned from uploading profiles.\nContact the administrator to appeal.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop
+                );
+                return;
+            }
+
             if (MessageBox.Show("Splitter Flags and run Will be Reset to upload profile", "Warning", MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.Cancel) return;
             saveModule.ResetFlags();
+            saveModule.UpdateAutoSplitterData();
+
+            var tempData = saveModule.dataAS;
+            tempData.GeneralSettings = new GeneralAutoSplitter();
+
+            string path = Path.GetTempPath() + saveModule.GetProfileName() + ".xml";
+            XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
+            using (Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                serializer.Serialize(stream, tempData);
+                stream.Close();
+            }
 
             try
             {
@@ -375,7 +429,7 @@ namespace AutoSplitterCore
                 // File metadata
                 var fileMetadata = new Google.Apis.Drive.v3.Data.File
                 {
-                    Name = Path.GetFileName(currentProfilePath),
+                    Name = Path.GetFileName(path),
                     Description = saveModule.GetDescription(),
                     Parents = new List<string> { parentFolderId },
                     Properties = new Dictionary<string, string>
@@ -387,10 +441,10 @@ namespace AutoSplitterCore
                 };
 
                 // Determine MIME type
-                string mimeType = MimeMapping.GetMimeMapping(currentProfilePath);
+                string mimeType = MimeMapping.GetMimeMapping(path);
 
                 // Upload file
-                using (var stream = new FileStream(currentProfilePath, FileMode.Open))
+                using (var stream = new FileStream(path, FileMode.Open))
                 {
                     var request = driveService.Files.Create(fileMetadata, stream, mimeType);
                     request.Fields = "id";
@@ -411,6 +465,9 @@ namespace AutoSplitterCore
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally {
+                File.Delete(path);
+            }           
         }
 
         public bool IsFileNameRepeated(string fileName)
@@ -432,7 +489,7 @@ namespace AutoSplitterCore
         }
 
         #endregion
-
+        #region DownloadFile
         public void DownloadFile(string fileId, string destinationPath)
         {
             try
@@ -485,7 +542,7 @@ namespace AutoSplitterCore
             if (listViewFiles.SelectedItems.Count > 0)
             {
                 var selectedItem = listViewFiles.SelectedItems[0];
-                var fileId = selectedItem.SubItems[1].Text; 
+                var fileId = selectedItem.SubItems[5].Text; 
                 var fileName = selectedItem.Text; 
 
                 if (!fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
@@ -501,11 +558,11 @@ namespace AutoSplitterCore
 
                     var configuration = DeserializeXmlFile(tempFilePath);
 
-                    SaveModule saveModule = new SaveModule();
-                    saveModule.dataAS = configuration;
-                    saveModule.MainModule = this.saveModule.MainModule;
+                    SaveModule saveModuleLocal = new SaveModule();
+                    saveModuleLocal.dataAS = configuration;
+                    saveModuleLocal.MainModule = this.saveModule.MainModule;
 
-                    TextBoxSummary.Text = ProfileManager.BuildSummary(saveModule);
+                    TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
                     
                     File.Delete(tempFilePath);
                 }
@@ -516,6 +573,7 @@ namespace AutoSplitterCore
             }
         }
 
+        #region FilterListViewFileter
         List<ListViewItem> filteredItems = null;
         private void textBoxSearch_TextChanged(object sender, EventArgs e) => AplyFilters();
 
@@ -539,7 +597,7 @@ namespace AutoSplitterCore
             if (checkedItems.Any())
             {
                 filteredItems = filteredItems
-                    .Where(item => checkedItems.Any(game => item.SubItems[5].Text.Contains(game)))
+                    .Where(item => checkedItems.Any(game => item.SubItems[3].Text.Contains(game)))
                     .ToList();
             }
 
@@ -547,5 +605,39 @@ namespace AutoSplitterCore
             listViewFiles.Items.Clear();
             listViewFiles.Items.AddRange(filteredItems.ToArray());
         }
+        #endregion
+
+        private void btnInstall_Click(object sender, EventArgs e)
+        {
+            if (listViewFiles.SelectedItems.Count > 0)
+            {
+                var selectedItem = listViewFiles.SelectedItems[0];
+                var fileId = selectedItem.SubItems[5].Text;
+                var fileName = selectedItem.Text;
+
+                string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName); ;
+                DownloadFile(fileId, tempFilePath);
+
+                //Set current GeneralSettings before download the profile
+                var configuration = DeserializeXmlFile(tempFilePath);
+                configuration.GeneralSettings = saveModule.dataAS.GeneralSettings;
+
+                string finalFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), fileName); 
+
+                XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
+                using (Stream stream = new FileStream(finalFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    serializer.Serialize(stream, configuration);
+                    stream.Close();
+                }
+
+                File.Delete(tempFilePath);
+                if (MessageBox.Show("Install Complete, you can Switch the profile on Profile Manager\nDo you want close this windows?", "Susesfully",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) Close();
+            }else
+            {
+                MessageBox.Show("You must Select File to download", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
     }
 }

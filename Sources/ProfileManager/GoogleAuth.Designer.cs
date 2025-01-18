@@ -55,6 +55,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnInstall = new ReaLTaiizor.Controls.Button();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
@@ -69,6 +70,7 @@
             groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Controls.Add(this.btnInstall);
             groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
             groupBox1.Controls.Add(this.label7);
             groupBox1.Controls.Add(this.textBoxSearch);
@@ -80,13 +82,14 @@
             groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            groupBox1.Size = new System.Drawing.Size(704, 474);
+            groupBox1.Size = new System.Drawing.Size(744, 474);
             groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "Download";
             // 
             // checkedListBoxGamesSearch
             // 
+            this.checkedListBoxGamesSearch.CheckOnClick = true;
             this.checkedListBoxGamesSearch.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxGamesSearch.FormattingEnabled = true;
             this.checkedListBoxGamesSearch.Location = new System.Drawing.Point(22, 104);
@@ -108,7 +111,7 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(22, 60);
+            this.textBoxSearch.Location = new System.Drawing.Point(22, 62);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(176, 21);
             this.textBoxSearch.TabIndex = 3;
@@ -120,7 +123,7 @@
             this.listViewFiles.HideSelection = false;
             this.listViewFiles.Location = new System.Drawing.Point(224, 39);
             this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(453, 427);
+            this.listViewFiles.Size = new System.Drawing.Size(498, 427);
             this.listViewFiles.TabIndex = 2;
             this.listViewFiles.UseCompatibleStateImageBehavior = false;
             this.listViewFiles.View = System.Windows.Forms.View.List;
@@ -233,8 +236,9 @@
             // 
             // checkedListBoxGames
             // 
+            this.checkedListBoxGames.CheckOnClick = true;
             this.checkedListBoxGames.FormattingEnabled = true;
-            this.checkedListBoxGames.Location = new System.Drawing.Point(605, 54);
+            this.checkedListBoxGames.Location = new System.Drawing.Point(605, 57);
             this.checkedListBoxGames.Name = "checkedListBoxGames";
             this.checkedListBoxGames.Size = new System.Drawing.Size(207, 157);
             this.checkedListBoxGames.TabIndex = 39;
@@ -369,11 +373,11 @@
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBox5.HeaderColor = System.Drawing.Color.DarkOrange;
-            this.groupBox5.Location = new System.Drawing.Point(750, 305);
+            this.groupBox5.Location = new System.Drawing.Point(782, 305);
             this.groupBox5.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            this.groupBox5.Size = new System.Drawing.Size(691, 474);
+            this.groupBox5.Size = new System.Drawing.Size(669, 474);
             this.groupBox5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox5.TabIndex = 24;
             this.groupBox5.Text = "Selected Profile Summary";
@@ -391,7 +395,7 @@
             this.TextBoxSummary.Name = "TextBoxSummary";
             this.TextBoxSummary.ReadOnly = true;
             this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBoxSummary.Size = new System.Drawing.Size(667, 435);
+            this.TextBoxSummary.Size = new System.Drawing.Size(645, 435);
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
             // 
@@ -431,6 +435,27 @@
             this.textBox1.Size = new System.Drawing.Size(472, 222);
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
+            // btnInstall
+            // 
+            this.btnInstall.BackColor = System.Drawing.Color.Transparent;
+            this.btnInstall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstall.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstall.Image = null;
+            this.btnInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstall.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Location = new System.Drawing.Point(48, 317);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.Size = new System.Drawing.Size(118, 47);
+            this.btnInstall.TabIndex = 39;
+            this.btnInstall.Text = "Install Selected";
+            this.btnInstall.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // GoogleAuth
             // 
@@ -486,5 +511,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.CheckedListBox checkedListBoxGamesSearch;
+        private ReaLTaiizor.Controls.Button btnInstall;
     }
 }
