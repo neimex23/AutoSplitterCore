@@ -45,8 +45,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HitCounterManager.PCL">
-      <HintPath>Sources\HitCounterManager.PCL.dll</HintPath>
+    <Reference Include="HitCounterManager">
+      <HintPath>Sources\HitCounterManager.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
@@ -173,6 +173,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Remember ADD PCL on HCMv2.txt" />
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
   <ItemGroup>

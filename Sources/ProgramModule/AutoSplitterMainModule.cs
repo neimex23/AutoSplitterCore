@@ -146,10 +146,18 @@ namespace AutoSplitterCore
             }
 
             interfaceASC.SplitterResetMethod = ResetSplitterFlags;
+
+            #if !HCMv2
+            interfaceASC.ProfileChange =splitterControl.ProfileChange;
+            #endif
             splitterControl.SetInterface(interfaceASC);
+
+            
         }
 
         public void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
+
+
 
         #endregion
         #region SplitterManagement

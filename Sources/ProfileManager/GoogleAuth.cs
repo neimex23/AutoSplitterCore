@@ -317,21 +317,21 @@ namespace AutoSplitterCore
             {
                 var result = request.Execute();
 
-                listViewFiles.View = View.Details; 
-                listViewFiles.FullRowSelect = true; 
-                listViewFiles.GridLines = true; 
+                listViewFilesASC.View = View.Details; 
+                listViewFilesASC.FullRowSelect = true; 
+                listViewFilesASC.GridLines = true; 
 
-                if (listViewFiles.Columns.Count == 0)
+                if (listViewFilesASC.Columns.Count == 0)
                 {
-                    listViewFiles.Columns.Add("Name", 150);
-                    listViewFiles.Columns.Add("Author", 100);       
-                    listViewFiles.Columns.Add("Description", 200);
-                    listViewFiles.Columns.Add("Games", 100);
-                    listViewFiles.Columns.Add("Date", 100);
-                    listViewFiles.Columns.Add("ID", 100);                  
+                    listViewFilesASC.Columns.Add("Name", 150);
+                    listViewFilesASC.Columns.Add("Author", 100);       
+                    listViewFilesASC.Columns.Add("Description", 200);
+                    listViewFilesASC.Columns.Add("Games", 100);
+                    listViewFilesASC.Columns.Add("Date", 100);
+                    listViewFilesASC.Columns.Add("ID", 100);                  
                 }
 
-                listViewFiles.Items.Clear(); // Clean Elements
+                listViewFilesASC.Items.Clear(); // Clean Elements
 
                 // Process and add files to ListView
                 foreach (var file in result.Files)
@@ -350,11 +350,11 @@ namespace AutoSplitterCore
                     item.SubItems.Add(file.CreatedTimeDateTimeOffset?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Unknown"); // Date of Creation
                     item.SubItems.Add(file.Id); // DriveID
 
-                    listViewFiles.Items.Add(item);
+                    listViewFilesASC.Items.Add(item);
                 }
 
-                listViewFiles.Refresh();
-                allFiles = new List<ListViewItem>(listViewFiles.Items.Cast<ListViewItem>());
+                listViewFilesASC.Refresh();
+                allFiles = new List<ListViewItem>(listViewFilesASC.Items.Cast<ListViewItem>());
             }
             catch (Exception ex)
             {
@@ -375,18 +375,11 @@ namespace AutoSplitterCore
                 return;
             }
 
+            //Game Validation
             if (checkedListBoxGames.CheckedItems.Count == 0) { MessageBox.Show("You must select games for the profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  return; }
 
-
-            // File name validation
-            if (IsFileNameRepeated(saveModule.GetProfileName()))
-            {
-                MessageBox.Show("Profile name already exists, please use another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
+            //Email Validation
             var isEmailBanned = Task.Run(() => IsEmailBannedAsync(EmailLoged)).GetAwaiter().GetResult();
-
             if (isEmailBanned)
             {
                 MessageBox.Show(
@@ -398,26 +391,67 @@ namespace AutoSplitterCore
                 return;
             }
 
-            if (MessageBox.Show("Splitter Flags and run Will be Reset to upload profile", "Warning", MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.Cancel) return;
-            saveModule.ResetFlags();
-            saveModule.UpdateAutoSplitterData();
+            //Existing Validation
+            string parentFolderId = aloneRadioButtonASC.Checked
+                ? "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV" // ASC Folder
+                : "1jpyGxDdaiaaHGcXdSE0YhDjLNy3DTh3-"; // HCM Folder
 
-            var tempData = saveModule.dataAS;
-            tempData.GeneralSettings = new GeneralAutoSplitter();
+            string profileName = textBoxCurrrentProfile.Text;
 
-            string path = Path.GetTempPath() + saveModule.GetProfileName() + ".xml";
-            XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
+            if (IsFileNameRepeated(profileName, parentFolderId))
+            {
+                MessageBox.Show("Profile name already exists, please use another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Profile Selecction Validations
+            string path = Path.Combine(Path.GetTempPath(), $"{profileName}.xml");
+
+
+            // Serializador basado en el tipo de perfil
+            object tempData;
+            XmlSerializer serializer;
+
+            if (aloneRadioButtonASC.Checked)
+            {
+                serializer = new XmlSerializer(typeof(DataAutoSplitter));
+
+                if (MessageBox.Show("Splitter Flags and run will be reset to upload profile.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                    return;
+
+                saveModule.ResetFlags();
+                saveModule.UpdateAutoSplitterData();
+
+                var tempDataASC = saveModule.dataAS;
+                tempDataASC.GeneralSettings = new GeneralAutoSplitter();
+                tempData = tempDataASC;
+            }
+            else
+            {
+                serializer = new XmlSerializer(typeof(ProfileHCM));
+
+                var tempDataHCM = new ProfileHCM
+                {
+                    ProfileName = profileName,
+                    Author = textBoxAuthor.Text,
+                    Description = TextboxDescription.Text,
+                    Splits = SplitterControl.GetControl().GetSplits()
+                };
+                tempData = tempDataHCM;
+            }
             using (Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 serializer.Serialize(stream, tempData);
-                stream.Close();
             }
+ 
+            UploadFile(parentFolderId, path);
+        }
 
+        private void UploadFile(string parentFolderId, string path)
+        {
+            //Upload Drive Processs
             try
             {
-                var parentFolderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
-
-                // Validate folder
                 var folderRequest = driveService.Files.Get(parentFolderId);
                 var folder = folderRequest.Execute();
                 if (folder == null || folder.Trashed == true)
@@ -429,12 +463,12 @@ namespace AutoSplitterCore
                 // File metadata
                 var fileMetadata = new Google.Apis.Drive.v3.Data.File
                 {
-                    Name = Path.GetFileName(path),
-                    Description = saveModule.GetDescription(),
+                    Name = string.Concat(textBoxCurrrentProfile.Text,".xml"),
+                    Description = TextboxDescription.Text,
                     Parents = new List<string> { parentFolderId },
                     Properties = new Dictionary<string, string>
                     {
-                        { "author", saveModule.GetAuthor() },
+                        { "author", textBoxAuthor.Text },
                         { "date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") },
                         { "games", string.Join(", ", checkedListBoxGames.CheckedItems.Cast<object>().Select(g => g.ToString())) }
                     }
@@ -465,16 +499,16 @@ namespace AutoSplitterCore
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally {
+            finally
+            {
                 File.Delete(path);
-            }           
+            }
         }
 
-        public bool IsFileNameRepeated(string fileName)
+        public bool IsFileNameRepeated(string fileName, string parentFolderId)
         {
             try
             {
-                var parentFolderId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
                 var request = driveService.Files.List();
                 request.Q = $"name = '{fileName}' and '{parentFolderId}' in parents and trashed = false";
                 request.Fields = "files(id, name)";
@@ -539,9 +573,9 @@ namespace AutoSplitterCore
 
         private void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewFiles.SelectedItems.Count > 0)
+            if (listViewFilesASC.SelectedItems.Count > 0)
             {
-                var selectedItem = listViewFiles.SelectedItems[0];
+                var selectedItem = listViewFilesASC.SelectedItems[0];
                 var fileId = selectedItem.SubItems[5].Text; 
                 var fileName = selectedItem.Text; 
 
@@ -602,16 +636,16 @@ namespace AutoSplitterCore
             }
 
             //Refresh Listvirew
-            listViewFiles.Items.Clear();
-            listViewFiles.Items.AddRange(filteredItems.ToArray());
+            listViewFilesASC.Items.Clear();
+            listViewFilesASC.Items.AddRange(filteredItems.ToArray());
         }
         #endregion
 
         private void btnInstall_Click(object sender, EventArgs e)
         {
-            if (listViewFiles.SelectedItems.Count > 0)
+            if (listViewFilesASC.SelectedItems.Count > 0)
             {
-                var selectedItem = listViewFiles.SelectedItems[0];
+                var selectedItem = listViewFilesASC.SelectedItems[0];
                 var fileId = selectedItem.SubItems[5].Text;
                 var fileName = selectedItem.Text;
 
@@ -639,5 +673,40 @@ namespace AutoSplitterCore
             }
         }
         #endregion
+
+        private bool _isHandlingCheckedChanged;
+
+        private void aloneRadioButtonHCM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_isHandlingCheckedChanged) return;
+
+            _isHandlingCheckedChanged = true;
+            aloneRadioButtonASC.Checked = !aloneRadioButtonHCM.Checked;
+
+            if (aloneRadioButtonASC.Checked)
+            {
+                textBoxCurrrentProfile.Text = SplitterControl.GetControl().GetHCMProfileName();
+                TextboxDescription.Enabled = true;
+                textBoxAuthor.Enabled = true;
+            }
+            else
+            {
+                textBoxCurrrentProfile.Text = saveModule.GetProfileName();
+                TextboxDescription.Enabled = false;
+                textBoxAuthor.Enabled = false;
+            }
+
+            _isHandlingCheckedChanged = false;
+        }
+
+        private void aloneRadioButtonASC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_isHandlingCheckedChanged) return;
+
+            _isHandlingCheckedChanged = true;
+            aloneRadioButtonHCM.Checked = !aloneRadioButtonASC.Checked;
+            _isHandlingCheckedChanged = false;
+        }
+
     }
 }

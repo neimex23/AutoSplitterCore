@@ -106,6 +106,24 @@ namespace AutoSplitterCore
         /// </summary>
         /// <returns>Returns true if the Timer is running, or false if Timer is Stop.</returns>
         bool GetTimerRunning();
+
+        /// <summary>
+        /// Trigger of HCM when a profile is changed
+        /// </summary>
+        /// <param name="ProfileTitle"></param>
+        void ProfileChange(string ProfileTitle);
+
+        /// <summary>
+        /// Get current Profile name of HCM
+        /// </summary>
+        /// <returns></returns>
+        string GetHCMProfileName();
+
+        /// <summary>
+        /// Return All Splits of current HCM Profile
+        /// </summary>
+        /// <returns></returns>
+        List<string> GetSplits();
     }
 
     public class SplitterControl : ISplitterControl
@@ -193,6 +211,12 @@ namespace AutoSplitterCore
         public void SetActiveGameIndex(int index) => interfaceHCM.ActiveGameIndex = index;
 
         public void SetPracticeMode(bool status) => interfaceHCM.PracticeMode = status;
+
+        public void ProfileChange(string ProfileTitle) { }
+
+        public string GetHCMProfileName() => interfaceHCM.ProfileName();
+
+        public List<string> GetSplits() => interfaceHCM.GetSplits();
 
     }
 }

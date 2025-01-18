@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 using HitCounterManager;
 
 namespace AutoSplitterCore
@@ -76,6 +77,16 @@ namespace AutoSplitterCore
         public bool PracticeMode = false;
         public bool AutoResetSplit = false;
         public StyleMode StyleMode = StyleMode.Default;
+    }
+
+    [Serializable]
+    public class ProfileHCM
+    {
+        public string ProfileName = "Default";
+        public string Author = "Owner";
+        public string Description = "Default Profile";
+        
+        public List<string> Splits = new List<string>();
     }
 
     #endregion

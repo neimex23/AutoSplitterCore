@@ -30,10 +30,14 @@
         {
             ReaLTaiizor.Controls.GroupBox groupBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
+            this.hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
+            this.tabPageASC = new System.Windows.Forms.TabPage();
+            this.listViewFilesASC = new System.Windows.Forms.ListView();
+            this.tabPageHCM = new System.Windows.Forms.TabPage();
+            this.btnInstall = new ReaLTaiizor.Controls.Button();
             this.checkedListBoxGamesSearch = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.listViewFiles = new System.Windows.Forms.ListView();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new ReaLTaiizor.Controls.Button();
@@ -42,12 +46,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.checkedListBoxGames = new System.Windows.Forms.CheckedListBox();
             this.btnUploadProfile = new ReaLTaiizor.Controls.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.textBoxDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TextboxDescription = new ReaLTaiizor.Controls.HopeTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBoxCurrrentProfile = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
@@ -55,9 +62,12 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnInstall = new ReaLTaiizor.Controls.Button();
+            this.aloneRadioButtonASC = new ReaLTaiizor.Controls.AloneRadioButton();
+            this.aloneRadioButtonHCM = new ReaLTaiizor.Controls.AloneRadioButton();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
+            this.hopeTabPage1.SuspendLayout();
+            this.tabPageASC.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBoxManagment.SuspendLayout();
@@ -70,11 +80,11 @@
             groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Controls.Add(this.hopeTabPage1);
             groupBox1.Controls.Add(this.btnInstall);
             groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
             groupBox1.Controls.Add(this.label7);
             groupBox1.Controls.Add(this.textBoxSearch);
-            groupBox1.Controls.Add(this.listViewFiles);
             groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             groupBox1.HeaderColor = System.Drawing.Color.PowderBlue;
@@ -86,6 +96,83 @@
             groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "Download";
+            // 
+            // hopeTabPage1
+            // 
+            this.hopeTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.hopeTabPage1.Controls.Add(this.tabPageASC);
+            this.hopeTabPage1.Controls.Add(this.tabPageHCM);
+            this.hopeTabPage1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeTabPage1.ForeColorA = System.Drawing.Color.Silver;
+            this.hopeTabPage1.ForeColorB = System.Drawing.Color.Gray;
+            this.hopeTabPage1.ForeColorC = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hopeTabPage1.ItemSize = new System.Drawing.Size(120, 40);
+            this.hopeTabPage1.Location = new System.Drawing.Point(222, 31);
+            this.hopeTabPage1.Name = "hopeTabPage1";
+            this.hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.hopeTabPage1.SelectedIndex = 0;
+            this.hopeTabPage1.Size = new System.Drawing.Size(514, 435);
+            this.hopeTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.hopeTabPage1.TabIndex = 40;
+            this.hopeTabPage1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hopeTabPage1.ThemeColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeTabPage1.ThemeColorB = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
+            // 
+            // tabPageASC
+            // 
+            this.tabPageASC.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tabPageASC.Controls.Add(this.listViewFilesASC);
+            this.tabPageASC.Location = new System.Drawing.Point(0, 40);
+            this.tabPageASC.Name = "tabPageASC";
+            this.tabPageASC.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageASC.Size = new System.Drawing.Size(514, 395);
+            this.tabPageASC.TabIndex = 0;
+            this.tabPageASC.Text = "ASC";
+            // 
+            // listViewFilesASC
+            // 
+            this.listViewFilesASC.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewFilesASC.HideSelection = false;
+            this.listViewFilesASC.Location = new System.Drawing.Point(6, 6);
+            this.listViewFilesASC.Name = "listViewFilesASC";
+            this.listViewFilesASC.Size = new System.Drawing.Size(502, 383);
+            this.listViewFilesASC.TabIndex = 2;
+            this.listViewFilesASC.UseCompatibleStateImageBehavior = false;
+            this.listViewFilesASC.View = System.Windows.Forms.View.List;
+            this.listViewFilesASC.SelectedIndexChanged += new System.EventHandler(this.listViewFiles_SelectedIndexChanged);
+            // 
+            // tabPageHCM
+            // 
+            this.tabPageHCM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tabPageHCM.Location = new System.Drawing.Point(0, 40);
+            this.tabPageHCM.Name = "tabPageHCM";
+            this.tabPageHCM.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageHCM.Size = new System.Drawing.Size(514, 395);
+            this.tabPageHCM.TabIndex = 1;
+            this.tabPageHCM.Text = "HCM";
+            // 
+            // btnInstall
+            // 
+            this.btnInstall.BackColor = System.Drawing.Color.Transparent;
+            this.btnInstall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstall.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstall.Image = null;
+            this.btnInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstall.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstall.Location = new System.Drawing.Point(48, 317);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstall.Size = new System.Drawing.Size(118, 47);
+            this.btnInstall.TabIndex = 39;
+            this.btnInstall.Text = "Install Selected";
+            this.btnInstall.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // checkedListBoxGamesSearch
             // 
@@ -116,18 +203,6 @@
             this.textBoxSearch.Size = new System.Drawing.Size(176, 21);
             this.textBoxSearch.TabIndex = 3;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            // 
-            // listViewFiles
-            // 
-            this.listViewFiles.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewFiles.HideSelection = false;
-            this.listViewFiles.Location = new System.Drawing.Point(224, 39);
-            this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(498, 427);
-            this.listViewFiles.TabIndex = 2;
-            this.listViewFiles.UseCompatibleStateImageBehavior = false;
-            this.listViewFiles.View = System.Windows.Forms.View.List;
-            this.listViewFiles.SelectedIndexChanged += new System.EventHandler(this.listViewFiles_SelectedIndexChanged);
             // 
             // linkLabel1
             // 
@@ -201,15 +276,20 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxUpload.Controls.Add(this.aloneRadioButtonHCM);
+            this.groupBoxUpload.Controls.Add(this.aloneRadioButtonASC);
             this.groupBoxUpload.Controls.Add(this.label6);
             this.groupBoxUpload.Controls.Add(this.checkedListBoxGames);
             this.groupBoxUpload.Controls.Add(this.btnUploadProfile);
+            this.groupBoxUpload.Controls.Add(this.label11);
             this.groupBoxUpload.Controls.Add(this.textBoxDate);
             this.groupBoxUpload.Controls.Add(this.label3);
             this.groupBoxUpload.Controls.Add(this.label5);
             this.groupBoxUpload.Controls.Add(this.TextboxDescription);
+            this.groupBoxUpload.Controls.Add(this.label9);
             this.groupBoxUpload.Controls.Add(this.textBoxAuthor);
             this.groupBoxUpload.Controls.Add(this.label4);
+            this.groupBoxUpload.Controls.Add(this.label8);
             this.groupBoxUpload.Controls.Add(this.textBoxCurrrentProfile);
             this.groupBoxUpload.Controls.Add(this.label2);
             this.groupBoxUpload.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -263,6 +343,16 @@
             this.btnUploadProfile.Text = "Upload";
             this.btnUploadProfile.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnUploadProfile.Click += new System.EventHandler(this.btnUploadProfile_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(389, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 14);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Date";
             // 
             // textBoxDate
             // 
@@ -319,6 +409,16 @@
             this.TextboxDescription.TabStop = false;
             this.TextboxDescription.UseSystemPasswordChar = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(113, 73);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 14);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Author";
+            // 
             // textBoxAuthor
             // 
             this.textBoxAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -339,6 +439,17 @@
             this.label4.Size = new System.Drawing.Size(45, 14);
             this.label4.TabIndex = 31;
             this.label4.Text = "Author";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(88, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 16);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Current Profile";
             // 
             // textBoxCurrrentProfile
             // 
@@ -436,32 +547,39 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // btnInstall
+            // aloneRadioButtonASC
             // 
-            this.btnInstall.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInstall.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInstall.Image = null;
-            this.btnInstall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInstall.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstall.Location = new System.Drawing.Point(48, 317);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstall.Size = new System.Drawing.Size(118, 47);
-            this.btnInstall.TabIndex = 39;
-            this.btnInstall.Text = "Install Selected";
-            this.btnInstall.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
+            this.aloneRadioButtonASC.BackColor = System.Drawing.Color.Transparent;
+            this.aloneRadioButtonASC.Checked = true;
+            this.aloneRadioButtonASC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneRadioButtonASC.EnabledCalc = true;
+            this.aloneRadioButtonASC.ForeColor = System.Drawing.Color.White;
+            this.aloneRadioButtonASC.Location = new System.Drawing.Point(410, 200);
+            this.aloneRadioButtonASC.Name = "aloneRadioButtonASC";
+            this.aloneRadioButtonASC.Size = new System.Drawing.Size(138, 17);
+            this.aloneRadioButtonASC.TabIndex = 41;
+            this.aloneRadioButtonASC.Text = "Upload ASC Profile";
+            this.aloneRadioButtonASC.CheckedChanged += new ReaLTaiizor.Controls.AloneRadioButton.CheckedChangedEventHandler(this.aloneRadioButtonASC_CheckedChanged);
+            // 
+            // aloneRadioButtonHCM
+            // 
+            this.aloneRadioButtonHCM.BackColor = System.Drawing.Color.Transparent;
+            this.aloneRadioButtonHCM.Checked = false;
+            this.aloneRadioButtonHCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aloneRadioButtonHCM.EnabledCalc = true;
+            this.aloneRadioButtonHCM.ForeColor = System.Drawing.Color.White;
+            this.aloneRadioButtonHCM.Location = new System.Drawing.Point(410, 221);
+            this.aloneRadioButtonHCM.Name = "aloneRadioButtonHCM";
+            this.aloneRadioButtonHCM.Size = new System.Drawing.Size(138, 17);
+            this.aloneRadioButtonHCM.TabIndex = 42;
+            this.aloneRadioButtonHCM.Text = "Upload HCM Profile";
+            this.aloneRadioButtonHCM.CheckedChanged += new ReaLTaiizor.Controls.AloneRadioButton.CheckedChangedEventHandler(this.aloneRadioButtonHCM_CheckedChanged);
             // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1651, 890);
+            this.ClientSize = new System.Drawing.Size(1652, 890);
             this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnForgetLogin);
@@ -473,6 +591,8 @@
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            this.hopeTabPage1.ResumeLayout(false);
+            this.tabPageASC.ResumeLayout(false);
             this.groupBoxUpload.ResumeLayout(false);
             this.groupBoxUpload.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -489,7 +609,7 @@
         private ReaLTaiizor.Controls.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listViewFiles;
+        private System.Windows.Forms.ListView listViewFilesASC;
         private ReaLTaiizor.Controls.Button btnForgetLogin;
         private ReaLTaiizor.Controls.GroupBox groupBoxUpload;
         private System.Windows.Forms.Label label5;
@@ -512,5 +632,13 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.CheckedListBox checkedListBoxGamesSearch;
         private ReaLTaiizor.Controls.Button btnInstall;
+        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
+        private System.Windows.Forms.TabPage tabPageASC;
+        private System.Windows.Forms.TabPage tabPageHCM;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButtonHCM;
+        private ReaLTaiizor.Controls.AloneRadioButton aloneRadioButtonASC;
     }
 }
