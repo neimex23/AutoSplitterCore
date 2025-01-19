@@ -589,6 +589,15 @@ namespace AutoSplitterCore
             this.materialCheckBox10 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.groupBoxProfileLink = new ReaLTaiizor.Controls.GroupBox();
+            this.listBoxLinkProfile = new System.Windows.Forms.ListBox();
+            this.skyComboBoxHcmProfile = new ReaLTaiizor.Controls.SkyComboBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label93 = new System.Windows.Forms.Label();
+            this.skyComboBoxAscProfile = new ReaLTaiizor.Controls.SkyComboBox();
+            this.buttonAddLinkProfile = new ReaLTaiizor.Controls.Button();
+            this.label95 = new System.Windows.Forms.Label();
+            this.metroCheckBoxResetProfile = new ReaLTaiizor.Controls.MetroCheckBox();
             this.TabControlGeneral.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -730,6 +739,7 @@ namespace AutoSplitterCore
             this.tabDishonored.SuspendLayout();
             this.groupBoxEventsDishonored.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBoxProfileLink.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControlGeneral
@@ -751,7 +761,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 0;
+            this.TabControlGeneral.SelectedIndex = 1;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
@@ -1401,6 +1411,7 @@ namespace AutoSplitterCore
             // 
             this.lostBorderPanel2.BackColor = System.Drawing.Color.LightBlue;
             this.lostBorderPanel2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel2.Controls.Add(this.groupBoxProfileLink);
             this.lostBorderPanel2.Controls.Add(this.groupBox1);
             this.lostBorderPanel2.Controls.Add(this.groupBox2);
             this.lostBorderPanel2.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -1409,7 +1420,7 @@ namespace AutoSplitterCore
             this.lostBorderPanel2.Name = "lostBorderPanel2";
             this.lostBorderPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.lostBorderPanel2.ShowText = false;
-            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 322);
+            this.lostBorderPanel2.Size = new System.Drawing.Size(471, 325);
             this.lostBorderPanel2.TabIndex = 31;
             // 
             // groupBox1
@@ -1424,7 +1435,7 @@ namespace AutoSplitterCore
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.HeaderColor = System.Drawing.Color.SlateBlue;
-            this.groupBox1.Location = new System.Drawing.Point(240, 14);
+            this.groupBox1.Location = new System.Drawing.Point(240, 8);
             this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1497,7 +1508,7 @@ namespace AutoSplitterCore
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.HeaderColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(18, 14);
+            this.groupBox2.Location = new System.Drawing.Point(18, 8);
             this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -13078,6 +13089,193 @@ namespace AutoSplitterCore
             this.materialCheckBox12.UseAccentColor = true;
             this.materialCheckBox12.UseVisualStyleBackColor = true;
             // 
+            // groupBoxProfileLink
+            // 
+            this.groupBoxProfileLink.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxProfileLink.BackGColor = System.Drawing.Color.PowderBlue;
+            this.groupBoxProfileLink.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxProfileLink.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxProfileLink.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxProfileLink.Controls.Add(this.metroCheckBoxResetProfile);
+            this.groupBoxProfileLink.Controls.Add(this.label95);
+            this.groupBoxProfileLink.Controls.Add(this.buttonAddLinkProfile);
+            this.groupBoxProfileLink.Controls.Add(this.skyComboBoxAscProfile);
+            this.groupBoxProfileLink.Controls.Add(this.label93);
+            this.groupBoxProfileLink.Controls.Add(this.label90);
+            this.groupBoxProfileLink.Controls.Add(this.skyComboBoxHcmProfile);
+            this.groupBoxProfileLink.Controls.Add(this.listBoxLinkProfile);
+            this.groupBoxProfileLink.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxProfileLink.ForeColor = System.Drawing.Color.White;
+            this.groupBoxProfileLink.HeaderColor = System.Drawing.Color.Navy;
+            this.groupBoxProfileLink.Location = new System.Drawing.Point(27, 108);
+            this.groupBoxProfileLink.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxProfileLink.Name = "groupBoxProfileLink";
+            this.groupBoxProfileLink.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxProfileLink.Size = new System.Drawing.Size(414, 211);
+            this.groupBoxProfileLink.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxProfileLink.TabIndex = 20;
+            this.groupBoxProfileLink.TabStop = false;
+            this.groupBoxProfileLink.Text = "Profile Link";
+            // 
+            // listBoxLinkProfile
+            // 
+            this.listBoxLinkProfile.FormattingEnabled = true;
+            this.listBoxLinkProfile.ItemHeight = 14;
+            this.listBoxLinkProfile.Location = new System.Drawing.Point(20, 54);
+            this.listBoxLinkProfile.Name = "listBoxLinkProfile";
+            this.listBoxLinkProfile.Size = new System.Drawing.Size(223, 144);
+            this.listBoxLinkProfile.TabIndex = 0;
+            this.listBoxLinkProfile.DoubleClick += new System.EventHandler(this.listBoxLinkProfile_DoubleClick);
+            // 
+            // skyComboBoxHcmProfile
+            // 
+            this.skyComboBoxHcmProfile.BackColor = System.Drawing.Color.Transparent;
+            this.skyComboBoxHcmProfile.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.skyComboBoxHcmProfile.BGColorB = System.Drawing.Color.SkyBlue;
+            this.skyComboBoxHcmProfile.BorderColorA = System.Drawing.Color.Black;
+            this.skyComboBoxHcmProfile.BorderColorB = System.Drawing.Color.Teal;
+            this.skyComboBoxHcmProfile.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxHcmProfile.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.skyComboBoxHcmProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyComboBoxHcmProfile.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.skyComboBoxHcmProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.skyComboBoxHcmProfile.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.skyComboBoxHcmProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxHcmProfile.FormattingEnabled = true;
+            this.skyComboBoxHcmProfile.ItemHeight = 16;
+            this.skyComboBoxHcmProfile.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.skyComboBoxHcmProfile.LineColorA = System.Drawing.Color.White;
+            this.skyComboBoxHcmProfile.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxHcmProfile.LineColorC = System.Drawing.Color.White;
+            this.skyComboBoxHcmProfile.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHcmProfile.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.skyComboBoxHcmProfile.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.skyComboBoxHcmProfile.ListForeColor = System.Drawing.Color.Black;
+            this.skyComboBoxHcmProfile.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHcmProfile.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHcmProfile.Location = new System.Drawing.Point(252, 77);
+            this.skyComboBoxHcmProfile.Name = "skyComboBoxHcmProfile";
+            this.skyComboBoxHcmProfile.Size = new System.Drawing.Size(146, 22);
+            this.skyComboBoxHcmProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.skyComboBoxHcmProfile.StartIndex = 0;
+            this.skyComboBoxHcmProfile.TabIndex = 29;
+            this.skyComboBoxHcmProfile.TriangleColorA = System.Drawing.Color.Black;
+            this.skyComboBoxHcmProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.ForeColor = System.Drawing.Color.Black;
+            this.label90.Location = new System.Drawing.Point(288, 57);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(68, 14);
+            this.label90.TabIndex = 30;
+            this.label90.Text = "HCM Profile";
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.ForeColor = System.Drawing.Color.Black;
+            this.label93.Location = new System.Drawing.Point(289, 108);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(66, 14);
+            this.label93.TabIndex = 31;
+            this.label93.Text = "ASC Profile";
+            // 
+            // skyComboBoxAscProfile
+            // 
+            this.skyComboBoxAscProfile.BackColor = System.Drawing.Color.Transparent;
+            this.skyComboBoxAscProfile.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.skyComboBoxAscProfile.BGColorB = System.Drawing.Color.Yellow;
+            this.skyComboBoxAscProfile.BorderColorA = System.Drawing.Color.Black;
+            this.skyComboBoxAscProfile.BorderColorB = System.Drawing.Color.DarkSlateGray;
+            this.skyComboBoxAscProfile.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxAscProfile.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.skyComboBoxAscProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyComboBoxAscProfile.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.skyComboBoxAscProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.skyComboBoxAscProfile.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.skyComboBoxAscProfile.ForeColor = System.Drawing.Color.Black;
+            this.skyComboBoxAscProfile.FormattingEnabled = true;
+            this.skyComboBoxAscProfile.ItemHeight = 16;
+            this.skyComboBoxAscProfile.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.skyComboBoxAscProfile.LineColorA = System.Drawing.Color.White;
+            this.skyComboBoxAscProfile.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxAscProfile.LineColorC = System.Drawing.Color.White;
+            this.skyComboBoxAscProfile.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxAscProfile.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.skyComboBoxAscProfile.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.skyComboBoxAscProfile.ListForeColor = System.Drawing.Color.Black;
+            this.skyComboBoxAscProfile.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxAscProfile.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxAscProfile.Location = new System.Drawing.Point(250, 128);
+            this.skyComboBoxAscProfile.Name = "skyComboBoxAscProfile";
+            this.skyComboBoxAscProfile.Size = new System.Drawing.Size(146, 22);
+            this.skyComboBoxAscProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.skyComboBoxAscProfile.StartIndex = 0;
+            this.skyComboBoxAscProfile.TabIndex = 32;
+            this.skyComboBoxAscProfile.TriangleColorA = System.Drawing.Color.Black;
+            this.skyComboBoxAscProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            // 
+            // buttonAddLinkProfile
+            // 
+            this.buttonAddLinkProfile.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddLinkProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddLinkProfile.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddLinkProfile.Image = null;
+            this.buttonAddLinkProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddLinkProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.Location = new System.Drawing.Point(290, 181);
+            this.buttonAddLinkProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAddLinkProfile.Name = "buttonAddLinkProfile";
+            this.buttonAddLinkProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonAddLinkProfile.Size = new System.Drawing.Size(73, 25);
+            this.buttonAddLinkProfile.TabIndex = 33;
+            this.buttonAddLinkProfile.Text = "Add";
+            this.buttonAddLinkProfile.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.buttonAddLinkProfile.Click += new System.EventHandler(this.buttonAddLinkProfile_Click);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Font = new System.Drawing.Font("Verdana", 7F);
+            this.label95.ForeColor = System.Drawing.Color.Red;
+            this.label95.Location = new System.Drawing.Point(61, 26);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(269, 24);
+            this.label95.TabIndex = 35;
+            this.label95.Text = "Any Configuration not saved will lost on change\r\nCheck Profile Manager before con" +
+    "tinue";
+            // 
+            // metroCheckBoxResetProfile
+            // 
+            this.metroCheckBoxResetProfile.BackColor = System.Drawing.Color.Transparent;
+            this.metroCheckBoxResetProfile.BackgroundColor = System.Drawing.Color.White;
+            this.metroCheckBoxResetProfile.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.metroCheckBoxResetProfile.Checked = false;
+            this.metroCheckBoxResetProfile.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroCheckBoxResetProfile.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Unchecked;
+            this.metroCheckBoxResetProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBoxResetProfile.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.metroCheckBoxResetProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroCheckBoxResetProfile.IsDerivedStyle = true;
+            this.metroCheckBoxResetProfile.Location = new System.Drawing.Point(249, 155);
+            this.metroCheckBoxResetProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroCheckBoxResetProfile.Name = "metroCheckBoxResetProfile";
+            this.metroCheckBoxResetProfile.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
+            this.metroCheckBoxResetProfile.Size = new System.Drawing.Size(159, 16);
+            this.metroCheckBoxResetProfile.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroCheckBoxResetProfile.StyleManager = null;
+            this.metroCheckBoxResetProfile.TabIndex = 36;
+            this.metroCheckBoxResetProfile.Text = "Reset Flags on Change";
+            this.metroCheckBoxResetProfile.ThemeAuthor = "Taiizor";
+            this.metroCheckBoxResetProfile.ThemeName = "MetroLight";
+            this.metroCheckBoxResetProfile.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.metroCheckBoxResetProfile_CheckedChanged);
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -13310,6 +13508,8 @@ namespace AutoSplitterCore
             this.tabDishonored.PerformLayout();
             this.groupBoxEventsDishonored.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBoxProfileLink.ResumeLayout(false);
+            this.groupBoxProfileLink.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -13874,5 +14074,14 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.SkyComboBox HowAddAllIdol;
         private ReaLTaiizor.Controls.HopeSimpleButton XAddAllIdol;
         private System.Windows.Forms.Label label29;
+        private ReaLTaiizor.Controls.GroupBox groupBoxProfileLink;
+        private System.Windows.Forms.Label label90;
+        private ReaLTaiizor.Controls.SkyComboBox skyComboBoxHcmProfile;
+        private System.Windows.Forms.ListBox listBoxLinkProfile;
+        private ReaLTaiizor.Controls.Button buttonAddLinkProfile;
+        private ReaLTaiizor.Controls.SkyComboBox skyComboBoxAscProfile;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label95;
+        private ReaLTaiizor.Controls.MetroCheckBox metroCheckBoxResetProfile;
     }
 }

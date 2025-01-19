@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,8 @@ using HitCounterManager;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Windows.Forms;
+using System.IO;
 
 namespace AutoSplitterCore
 {
@@ -34,6 +36,13 @@ namespace AutoSplitterCore
         /// </summary>
         /// <param name="interfaceHcm">An instance of IAutoSplitterCoreInterface to interact with HCM main program.</param>
         void SetInterface(IAutoSplitterCoreInterface interfaceHcm);
+
+
+        /// <summary>
+        /// Set SaveModule intance
+        /// </summary>
+        /// <param name="savemodule"></param>
+        void SetSaveModule(SaveModule savemodule);
 
         /// <summary>
         /// Enables or disables the internal timer to check the SplitGo value when splitters call SpliterCheck() and a "Splitter State" is reached.
@@ -47,6 +56,12 @@ namespace AutoSplitterCore
         /// </summary>
         /// <param name="status">True to enable the timer, false to disable it.</param>
         void SetDebug(bool status);
+
+        /// <summary>
+        /// Get DebugStatus
+        /// </summary>
+        /// <returns></returns>
+        bool GetDebug();
 
         // <summary>
         /// Start or Stop Timer of HCM
@@ -90,7 +105,6 @@ namespace AutoSplitterCore
         /// <returns>Returns true/false if CurrentSplit = LastSplit</returns>
         bool CurrentFinalSplit();
 
-
         /// <summary>
         /// Returns the current SplitStatus value.
         /// SplitStatus is set to false if the user activates Practice mode after a flag check has been executed.
@@ -117,6 +131,11 @@ namespace AutoSplitterCore
         string GetHCMProfileName();
 
         /// <summary>
+        /// Get all Profiles of HCM
+        /// </summary>
+        List<string> GetAllHcmProfile();
+
+        /// <summary>
         /// Return All Splits of current HCM Profile
         /// </summary>
         /// <returns></returns>
@@ -125,7 +144,7 @@ namespace AutoSplitterCore
         /// <summary>
         /// Create a new Profile on HCM
         /// </summary>
-        void NewProfile();
+        void NewProfile(string ProfileTitle);
 
         /// <summary>
         /// Insert a new Split on HCM Profile
@@ -154,12 +173,15 @@ namespace AutoSplitterCore
         private bool enableChecking = true;
         private bool DebugMode = false;
 
-        //Checking Splits Procedures Functions
+        #region Splits Procedures Functions
         private bool _SplitGo = false;
         private bool SplitStatus = false;
         private IAutoSplitterCoreInterface interfaceHCM;
+        private SaveModule savemodule;
 
         public void SetInterface(IAutoSplitterCoreInterface interfaceHcm) => interfaceHCM = interfaceHcm;
+
+        public void SetSaveModule(SaveModule savemodule) => this.savemodule = savemodule;
 
         public void SetChecking(bool checking)
         {
@@ -202,9 +224,13 @@ namespace AutoSplitterCore
                 _SplitGo = false;
             }
         }
+        #endregion
 
-        // Chequing to HCM Interface functions
+        #region HCM Interface Functions
+
         public void SetDebug(bool status) => DebugMode = status;
+
+        public bool GetDebug() => DebugMode;
 
         public bool GetTimerRunning() => interfaceHCM.TimerRunning;
 
@@ -220,15 +246,41 @@ namespace AutoSplitterCore
 
         public void SetPracticeMode(bool status) => interfaceHCM.PracticeMode = status;
 
-        public void ProfileChange(string profileTitle) { }
 
         public string GetHCMProfileName() => interfaceHCM.ProfileName();
 
+        public List<string> GetAllHcmProfile() => interfaceHCM.GetProfiles();
+
         public List<string> GetSplits() => interfaceHCM.GetSplits();
 
-        public void NewProfile () => interfaceHCM.NewProfile();
+        public void NewProfile (string profileTitle) => interfaceHCM.NewProfile(profileTitle);
 
         public void AddSplit(string splitTitle) => interfaceHCM.AddSplit(splitTitle);
 
+        public void ProfileChange(string profileTitle)
+        {
+            if (savemodule.ProfileLinkReady())
+            {
+                var findProfileLink = savemodule.generalAS.profileLinks.Find(x => x.profileHCM == profileTitle);
+                if (findProfileLink != null)
+                {
+                    var savePath = savemodule.generalAS.saveProfilePath;
+
+                    var selectItem = savePath + "\\" + findProfileLink.profileASC;
+                    if (!File.Exists(selectItem))
+                        MessageBox.Show("ASC Profile Corrupt or not Exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        string mainSave = Path.GetFullPath("SaveDataAutoSplitter.xml");
+                        File.Delete(mainSave);
+                        File.Copy(selectItem, mainSave);
+                        savemodule.ReLoadAutoSplitterSettings();
+                        if (savemodule.generalAS.ResetProfile) savemodule.ResetFlags();
+                    }
+                }             
+            }
+        }
+
+        #endregion
     }
 }

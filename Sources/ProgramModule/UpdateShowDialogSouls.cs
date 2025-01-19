@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 //Based on Update.cs of HitCounterManager by Peter Kirmeier - License: MIT
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 //Based on Update.cs of HitCounterManager by Peter Kirmeier - License: MIT
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +45,6 @@ namespace AutoSplitterCore
         private static List<Version> SoulsMemoryRelease = new List<Version>();
         private Assembly dll;
         private Assembly SoulDll;
-        public bool DebugMode = false;
 
         public void CheckUpdates(bool ForceUpdate)
         {
@@ -76,7 +75,7 @@ namespace AutoSplitterCore
                 }
                 cloudVer = Releases[0].ToString() + ".0";
                 cloudVerNotDot = Releases[0].ToString();
-                if (!DebugMode)
+                if (!SplitterControl.GetControl().GetDebug())
                 {
                     dll = Assembly.LoadFrom("AutoSplitterCore.dll");
                     currentVer = dll.GetName().Version.ToString();

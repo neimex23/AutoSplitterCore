@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 //Copyright (c) 2024 Peter Kirmeier (Update new HCM interface)
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,7 +49,6 @@ namespace AutoSplitterCore
         #if !HCMv2
         public Debug debugForm;
         #endif
-        public bool DebugMode = false;
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };
@@ -118,7 +117,7 @@ namespace AutoSplitterCore
             }
 
             //interfaceASC.ActiveGameIndex = GetSplitterEnable(); //Before HCM Interface Change, ASC control mannualy on start the index of ComboBoxGame in Main Program
-            interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //Afrer HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
+            interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //After HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
             interfaceASC.SetActiveGameIndexMethod = (splitter) =>
             {
                 //Disable all games
@@ -147,16 +146,13 @@ namespace AutoSplitterCore
 
             interfaceASC.SplitterResetMethod = ResetSplitterFlags;
 
-            #if !HCMv2
-            interfaceASC.ProfileChange =splitterControl.ProfileChange;
-            #endif
+            interfaceASC.ProfileChange = splitterControl.ProfileChange;
             splitterControl.SetInterface(interfaceASC);
-
+            splitterControl.SetSaveModule(saveModule);
             
         }
 
         public void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
-
 
 
         #endregion
@@ -499,7 +495,7 @@ namespace AutoSplitterCore
         public void CheckAutoResetSplit()
         {
             //AutoResetSplits Checking
-            if (saveModule.dataAS.AutoResetSplit)
+            if (saveModule.generalAS.AutoResetSplit)
             {
                 int inGameTime = -1;
                 bool SpecialCaseReset = false;
@@ -527,7 +523,7 @@ namespace AutoSplitterCore
                                 {
                                     profileResetDone = true;
                                     ResetSplitterFlags();
-                                    if (!DebugMode)
+                                    if (!splitterControl.GetDebug())
                                     {
                                         splitterControl.StartStopTimer(false);
                                         splitterControl.ProfileReset();
@@ -549,7 +545,7 @@ namespace AutoSplitterCore
                                 profileResetDone = true;
                                 ResetSplitterFlags();
 
-                                if (!DebugMode)
+                                if (!splitterControl.GetDebug())
                                 {
                                     splitterControl.StartStopTimer(false);
                                     splitterControl.ProfileReset();
@@ -571,7 +567,7 @@ namespace AutoSplitterCore
                             profileResetDone = true;
                             ResetSplitterFlags();
 
-                            if (!DebugMode)
+                            if (!splitterControl.GetDebug())
                             {
                                 splitterControl.StartStopTimer(false);
                                 splitterControl.ProfileReset();

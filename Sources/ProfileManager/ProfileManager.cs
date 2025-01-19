@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -28,13 +28,14 @@ using System.Xml;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace AutoSplitterCore
 {
     public partial class ProfileManager : ReaLTaiizor.Forms.MetroForm
     {
         private static string savePath = String.Empty;
-        private readonly string defaultPath = Path.GetFullPath("./AutoSplitterProfiles");
         private SaveModule saveModule = null;
 
         public ProfileManager(SaveModule saveModule, bool dark)
@@ -50,9 +51,7 @@ namespace AutoSplitterCore
             btnSetAuthor.Hide();
             btnSetDescription.Hide();
 
-            savePath = saveModule.dataAS.saveProfilePath;
-
-            _ = savePath == string.Empty ? savePath = defaultPath : savePath;
+            savePath = saveModule.generalAS.saveProfilePath;
            
             if (!Directory.Exists(savePath))
             {
@@ -111,10 +110,6 @@ namespace AutoSplitterCore
             Summary += "Profile: " + saveModule.GetProfileName() + Line;
             Summary += "Author: " + saveModule.GetAuthor() + Line;
             Summary += "Description: " + saveModule.GetDescription() + Line;
-            Summary += "Practice Mode: " + saveModule.GetPracticeMode() + Line;
-            Summary += "Game Selected: " + saveModule.GetGameSelected() + Line;
-            Summary += "Reset Split New Game: " + saveModule.GetResetNewGame() + Line;
-            Summary += "Overwrite Style View: " + saveModule.GetStyle() + Line;
             Summary += Line;
             #endregion
             #region TimingSummary
@@ -634,6 +629,31 @@ namespace AutoSplitterCore
             return Summary;
         }
 
+        public static string BuildSummaryGeneral(SaveModule saveModule)
+        {
+            String Summary = String.Empty;
+            String Line = "\r\n";
+            string Space = "      ";
+            Summary += "=======================================================" + Line;
+            Summary += "General Settings:" + Line;
+            Summary += "=======================================================" + Line;
+            Summary += "SaveProfilePath: " + saveModule.generalAS.saveProfilePath + Line;
+            Summary += "CheckUpdatesOnStartup: " + saveModule.generalAS.CheckUpdatesOnStartup + Line;
+            Summary += "PracticeMode: " + saveModule.generalAS.PracticeMode + Line;
+            Summary += "AutoResetSplit: " + saveModule.generalAS.AutoResetSplit + Line;
+            Summary += "StyleMode: " + saveModule.generalAS.StyleMode + Line;
+            Summary += "=======================================================" + Line;
+            Summary += "Profile Link:" + Line;
+            Summary += Space + "Reset Profile: " + saveModule.generalAS.ResetProfile + Line;
+            foreach (var splits in saveModule.generalAS.profileLinks)
+            {
+                Summary += Space + $"{splits.profileHCM} - {splits.profileASC}" + Line;
+            }
+            if (saveModule.generalAS.profileLinks.Count == 0) { Summary += Space + "Not Profile Links Established" + Line; }
+            Summary += "=======================================================" + Line;
+            return Summary;
+        }
+
         private void btnLoadProfile_Click(object sender, EventArgs e)
         {
             if (comboBoxProfiles.Items.Count > 0)
@@ -648,7 +668,7 @@ namespace AutoSplitterCore
                         btnSaveProfile_Click(null, null);
                     if (result != DialogResult.Cancel)
                     {
-                        string mainSave = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
+                        string mainSave = Path.GetFullPath("SaveDataAutoSplitter.xml");
                         File.Delete(mainSave);
                         File.Copy(selectItem, mainSave);
                         saveModule.ReLoadAutoSplitterSettings();
@@ -692,7 +712,7 @@ namespace AutoSplitterCore
             saveModule.ResetFlags();
             saveModule.SaveAutoSplitterSettings();
             RefreshForm();
-            string mainSave = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
+            string mainSave = Path.GetFullPath("SaveDataAutoSplitter.xml");
             string destSave = savePath + "\\" + saveModule.GetProfileName() + ".xml";
 
             bool FilesAreEqual(string file1, string file2) //Check If Files are same or not
@@ -831,6 +851,9 @@ namespace AutoSplitterCore
         {
             Close();
         }
+
+        private void checkBoxViewGeneralSettings_CheckedChanged(object sender, EventArgs e) =>  
+            _ = checkBoxViewGeneralSettings.Checked ? TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule) :TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule);
 
     }
 }

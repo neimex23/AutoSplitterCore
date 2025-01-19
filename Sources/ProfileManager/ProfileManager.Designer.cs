@@ -41,6 +41,7 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.comboBoxProfiles = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.checkBoxViewGeneralSettings = new System.Windows.Forms.CheckBox();
             this.btnSetDescription = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new ReaLTaiizor.Controls.GroupBox();
@@ -165,7 +166,7 @@
             this.TextBoxSummary.Multiline = true;
             this.TextBoxSummary.Name = "TextBoxSummary";
             this.TextBoxSummary.ReadOnly = true;
-            this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBoxSummary.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TextBoxSummary.Size = new System.Drawing.Size(527, 237);
             this.TextBoxSummary.TabIndex = 3;
             this.TextBoxSummary.TabStop = false;
@@ -187,6 +188,7 @@
             this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
             this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox2.Controls.Add(this.checkBoxViewGeneralSettings);
             this.groupBox2.Controls.Add(this.btnSetDescription);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.groupBox4);
@@ -216,6 +218,18 @@
             this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox2.TabIndex = 2;
             this.groupBox2.Text = "Managment";
+            // 
+            // checkBoxViewGeneralSettings
+            // 
+            this.checkBoxViewGeneralSettings.AutoSize = true;
+            this.checkBoxViewGeneralSettings.Font = new System.Drawing.Font("Verdana", 7F);
+            this.checkBoxViewGeneralSettings.Location = new System.Drawing.Point(36, 695);
+            this.checkBoxViewGeneralSettings.Name = "checkBoxViewGeneralSettings";
+            this.checkBoxViewGeneralSettings.Size = new System.Drawing.Size(144, 16);
+            this.checkBoxViewGeneralSettings.TabIndex = 28;
+            this.checkBoxViewGeneralSettings.Text = "View General Settings";
+            this.checkBoxViewGeneralSettings.UseVisualStyleBackColor = true;
+            this.checkBoxViewGeneralSettings.CheckedChanged += new System.EventHandler(this.checkBoxViewGeneralSettings_CheckedChanged);
             // 
             // btnSetDescription
             // 
@@ -507,5 +521,6 @@
         private System.Windows.Forms.PictureBox btnSetDescription;
         private System.Windows.Forms.Label label5;
         private ReaLTaiizor.Controls.HopeTextBox TextboxDescription;
+        private System.Windows.Forms.CheckBox checkBoxViewGeneralSettings;
     }
 }

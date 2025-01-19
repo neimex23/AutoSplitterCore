@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,7 @@ using System.Globalization;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using ReaLTaiizor.Forms;
+using System.IO;
 
 namespace AutoSplitterCore
 {
@@ -165,7 +166,7 @@ namespace AutoSplitterCore
             labelCloudVer.Text = updateModule.cloudVer;
             #endregion
             //Override StyleMode
-            switch (saveModule.dataAS.StyleMode)
+            switch (saveModule.generalAS.StyleMode)
             {
                 case StyleMode.Light: //Light by Default
                     break;
@@ -640,9 +641,42 @@ namespace AutoSplitterCore
             #endregion
 
             #region GeneralSettings
-            checkBoxResetSplitNg.Checked = saveModule.dataAS.AutoResetSplit;
-            skyComboBoxOverrideStyleMode.SelectedItem = saveModule.dataAS.StyleMode.ToString();
-            
+            checkBoxResetSplitNg.Checked = saveModule.generalAS.AutoResetSplit;
+            skyComboBoxOverrideStyleMode.SelectedItem = saveModule.generalAS.StyleMode.ToString();
+
+            #region ProfileLink
+            if (!SplitterControl.GetControl().GetDebug())
+            {
+                foreach (var profile in SplitterControl.GetControl().GetAllHcmProfile())
+                {
+                    skyComboBoxHcmProfile.Items.Add(profile);
+                }
+            }
+
+            var savepath = saveModule.generalAS.saveProfilePath;
+            if (!Directory.Exists(savepath))
+            {
+                Directory.CreateDirectory(savepath);
+            }
+
+            foreach (string file in Directory.GetFiles(savepath))
+            {
+                var auxfile = file.Remove(0, savepath.Length + 1);
+                if (auxfile.Contains("xml"))
+                {
+                    skyComboBoxAscProfile.Items.Add(auxfile);
+                }
+            }
+
+            foreach (var profileLink in saveModule.generalAS.profileLinks)
+            {
+                string getProfileLink = $"{profileLink.profileHCM} - {profileLink.profileASC}";
+                listBoxLinkProfile.Items.Add(getProfileLink);
+            }
+
+            metroCheckBoxResetProfile.Checked = saveModule.generalAS.ResetProfile;
+
+            #endregion
 
             #endregion
 
@@ -981,7 +1015,7 @@ namespace AutoSplitterCore
 
         private void checkBoxResetSplitNg_CheckedChanged(object sender, EventArgs e)
         {
-            saveModule.dataAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
+            saveModule.generalAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
         }
 
         private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -990,7 +1024,7 @@ namespace AutoSplitterCore
 
             if (Enum.TryParse(skyComboBoxOverrideStyleMode.SelectedItem.ToString(), out StyleMode selectedStyleMode))
             {
-                saveModule.dataAS.StyleMode = selectedStyleMode;
+                saveModule.generalAS.StyleMode = selectedStyleMode;
 
                 DialogResult result = MessageBox.Show("Do you want update Interface?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -3558,6 +3592,46 @@ namespace AutoSplitterCore
             }
         }
         #endregion
+
+        private void listBoxLinkProfile_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.listBoxLinkProfile.SelectedItem != null)
+            {
+                int index = listBoxLinkProfile.SelectedIndex;
+                if (index >= 0)
+                {
+                    saveModule.RemoveProfileLink(index);
+                    listBoxLinkProfile.Items.RemoveAt(index);
+                }
+            }
+        }
+
+        private void buttonAddLinkProfile_Click(object sender, EventArgs e)
+        {
+            if (skyComboBoxAscProfile.SelectedIndex > -1 && skyComboBoxHcmProfile.SelectedIndex > -1)
+            {
+                string profileHcm = skyComboBoxHcmProfile.SelectedItem.ToString();
+                string profileAsc = skyComboBoxAscProfile.SelectedItem.ToString();
+
+
+                string profileLink = $"{profileHcm} - {profileAsc}";
+                if (!listBoxLinkProfile.Items.Contains(profileLink))
+                {
+                    saveModule.AddProfileLink(profileHcm, profileAsc); 
+                    listBoxLinkProfile.Items.Add(profileLink); 
+                }
+                else
+                {
+                    MessageBox.Show("You have already added this ProfileLink", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select HCM and ASC Profile to link", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void metroCheckBoxResetProfile_CheckedChanged(object sender) => saveModule.generalAS.ResetProfile = metroCheckBoxResetProfile.Checked;
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -28,26 +28,36 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using HitCounterManager;
+using ReaLTaiizor.Extension;
 
 namespace AutoSplitterCore
 {
     public enum StyleMode { Default, Light ,Dark};
+    /// <summary>
+    /// Classes Contains All Settings of AutoSplitterCore
+    /// </summary>
     #region DataAutoSplitter
 
 
     /// <summary>
-    /// Class Contains All Settings of AutoSplitterCore
+    /// Class Contains All Splits Configurations of AutoSplitterCore
     /// </summary>
     [Serializable]
+    [XmlInclude(typeof(DTSekiro))]
+    [XmlInclude(typeof(DTHollow))]
+    [XmlInclude(typeof(DTElden))]
+    [XmlInclude(typeof(DTDs3))]
+    [XmlInclude(typeof(DTDs2))]
+    [XmlInclude(typeof(DTDs1))]
+    [XmlInclude(typeof(DTCeleste))]
+    [XmlInclude(typeof(DTCuphead))]
+    [XmlInclude(typeof(DTDishonored))]
     public class DataAutoSplitter
     {
         //Profile
         public string ProfileName = "Default";
         public string Author = "Owner";
         public string Description = "Default Profile";
-
-        //General Settings
-        public GeneralAutoSplitter GeneralSettings;
 
         //AutoSplitters Config
         public DTSekiro DataSekiro;
@@ -59,26 +69,41 @@ namespace AutoSplitterCore
         public DTCeleste DataCeleste;
         public DTCuphead DataCuphead;
         public DTDishonored DataDishonored;
-
-        //Getters/Setters
-        public string saveProfilePath {  get { return GeneralSettings.saveProfilePath; } set { GeneralSettings.saveProfilePath = value; } }
-        public bool CheckUpdatesOnStartup { get { return GeneralSettings.CheckUpdatesOnStartup; } set { GeneralSettings.CheckUpdatesOnStartup = value; } }
-        public bool PracticeMode { get {  return GeneralSettings.PracticeMode; } set { GeneralSettings.PracticeMode = value; } }
-        public bool AutoResetSplit { get { return GeneralSettings.AutoResetSplit; } set { GeneralSettings.AutoResetSplit = value; } }
-        public StyleMode StyleMode {  get { return GeneralSettings.StyleMode; } set { GeneralSettings.StyleMode = value; } }
     }
 
+    /// <summary>
+    /// Class Contains General User Settings of AutoSplitterCore
+    /// </summary>
     [Serializable]
     public class GeneralAutoSplitter
     {
         //Settings
-        public string saveProfilePath = string.Empty;
+        public string saveProfilePath = Path.GetFullPath("./AutoSplitterProfiles");
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
         public bool AutoResetSplit = false;
+        public bool ResetProfile = false;
         public StyleMode StyleMode = StyleMode.Default;
+
+        public List<ProfileLink> profileLinks = new List<ProfileLink>();
     }
 
+    /// <summary>
+    /// Represent a ProfileLink
+    /// </summary>
+    [Serializable]
+    public class ProfileLink
+    {
+        public string profileHCM = string.Empty;
+        public string profileASC = string.Empty;
+
+        public ProfileLink() { }
+        public ProfileLink(string profileHCM, string profileASC) { this.profileHCM = profileHCM; this.profileASC = profileASC; }
+    }
+
+    /// <summary>
+    /// Represent Profile of HitCounterManager
+    /// </summary>
     [Serializable]
     public class ProfileHCM
     {
@@ -97,8 +122,8 @@ namespace AutoSplitterCore
     public class SaveModule
     {
         public DataAutoSplitter dataAS = new DataAutoSplitter();
+        public GeneralAutoSplitter generalAS = new GeneralAutoSplitter();
         public bool _PracticeMode = false;
-        public bool _DebugMode = false;
         private SekiroSplitter sekiroSplitter = null;
         private Ds1Splitter ds1Splitter = null;
         private Ds2Splitter ds2Splitter = null;
@@ -140,8 +165,8 @@ namespace AutoSplitterCore
             dataAS.DataCeleste = celesteSplitter.GetDataCeleste();
             dataAS.DataCuphead = cupSplitter.GetDataCuphead();
             dataAS.DataDishonored = dishonoredSplitter.GetDataDishonored();
-            dataAS.PracticeMode = _PracticeMode;
-            dataAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
+            generalAS.PracticeMode = _PracticeMode;
+            generalAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
         }
 
         /// <summary>
@@ -149,9 +174,12 @@ namespace AutoSplitterCore
         /// </summary>
         public void SaveAutoSplitterSettings()
         {
+            UpdateAutoSplitterData();
+
+            //DataAutoSplitter
             bool newSave = false;
-            string savePath = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml");
-            string saveBakPath = Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml.bak");
+            string savePath = Path.GetFullPath("SaveDataAutoSplitter.xml");
+            string saveBakPath = Path.GetFullPath("SaveDataAutoSplitter.xml.bak");
             if (!File.Exists(savePath))
             {
                 newSave = true;
@@ -164,10 +192,31 @@ namespace AutoSplitterCore
 
             if (!newSave) { File.Move(savePath, saveBakPath); }
             File.Delete(savePath);
-            Stream myStream = new FileStream("HitCounterManagerSaveAutoSplitter.xml", FileMode.Create, FileAccess.Write, FileShare.None);
-            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead),typeof(DTDishonored) });
-            UpdateAutoSplitterData();
+            Stream myStream = new FileStream("SaveDataAutoSplitter.xml", FileMode.Create, FileAccess.Write, FileShare.None);
+            XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter));
             formatter.Serialize(myStream, dataAS);
+            myStream.Close();
+
+            //GeneralAutoSplitter
+            newSave = false;
+            savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml");
+            savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml.bak");
+
+            if (!File.Exists(savePath))
+            {
+                newSave = true;
+            }
+
+            if (File.Exists(saveBakPath))
+            {
+                File.Delete(saveBakPath);
+            }
+
+            if (!newSave) { File.Move(savePath, saveBakPath); }
+            File.Delete(savePath);
+            myStream = new FileStream("SaveGeneralAutoSplitter.xml", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter = new XmlSerializer(typeof(GeneralAutoSplitter));
+            formatter.Serialize(myStream, generalAS);
             myStream.Close();
         }
 
@@ -189,8 +238,8 @@ namespace AutoSplitterCore
 
             try
             {
-                Stream myStream = new FileStream("HitCounterManagerSaveAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
-                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter), new Type[] { typeof(DTSekiro), typeof(DTHollow), typeof(DTElden), typeof(DTDs3), typeof(DTDs2), typeof(DTDs1), typeof(DTCeleste), typeof(DTCuphead), typeof(DTDishonored) });
+                Stream myStream = new FileStream("SaveDataAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
+                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter));
                 dataAS = (DataAutoSplitter)formatter.Deserialize(myStream);
                 dataSekiro = dataAS.DataSekiro;
                 dataHollow = dataAS.DataHollow;
@@ -201,6 +250,11 @@ namespace AutoSplitterCore
                 dataCeleste = dataAS.DataCeleste;
                 dataCuphead = dataAS.DataCuphead;
                 dataDishonored = dataAS.DataDishonored;
+                myStream.Close();
+
+                myStream = new FileStream("SaveGeneralAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
+                formatter = new XmlSerializer(typeof(DataAutoSplitter));
+                generalAS = (GeneralAutoSplitter)formatter.Deserialize(myStream);
                 myStream.Close();
             }
             catch (Exception) { }
@@ -215,10 +269,9 @@ namespace AutoSplitterCore
             if (dataCeleste == null) { dataCeleste = new DTCeleste(); }
             if (dataCuphead == null) { dataCuphead = new DTCuphead(); }
             if (dataDishonored == null) { dataDishonored = new DTDishonored(); }
-            if (dataAS.GeneralSettings == null) dataAS.GeneralSettings = new GeneralAutoSplitter();
 
-            _PracticeMode = dataAS.PracticeMode;
-            updateModule.CheckUpdatesOnStartup = dataAS.CheckUpdatesOnStartup;
+            _PracticeMode = generalAS.PracticeMode;
+            updateModule.CheckUpdatesOnStartup = generalAS.CheckUpdatesOnStartup;
             sekiroSplitter.SetDataSekiro(dataSekiro);
             hollowSplitter.SetDataHollow(dataHollow);
             eldenSplitter.SetDataElden(dataElden);
@@ -243,11 +296,11 @@ namespace AutoSplitterCore
             }catch (Exception e)
             {
                 MessageBox.Show("Error to load Profile, file corrupt or not compatible\r\nLoaded Default Settings\r\nError: "+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                File.Delete(Path.GetFullPath("HitCounterManagerSaveAutoSplitter.xml"));
+                File.Delete(Path.GetFullPath("SaveDataAutoSplitter.xml"));
                 LoadAutoSplitterSettings();
             }
             
-            if (!_DebugMode)
+            if (!SplitterControl.GetControl().GetDebug())
             {
                 SplitterControl.GetControl().SetActiveGameIndex(mainModule.GetSplitterEnable());
                 SplitterControl.GetControl().SetPracticeMode(mainModule.GetPracticeMode());
@@ -278,13 +331,26 @@ namespace AutoSplitterCore
             return GameConstruction.GameList[game];
         }
 
-        public bool GetResetNewGame() => dataAS.AutoResetSplit;
+        public bool GetResetNewGame() => generalAS.AutoResetSplit;
 
         public void ResetFlags() => mainModule.ResetSplitterFlags();
 
-        public string GetStyle() => dataAS.StyleMode.ToString();
+        public string GetStyle() => generalAS.StyleMode.ToString();
 
         public string GetDescription() => dataAS.Description;
+
+        public void AddProfileLink(string hcmProfile, string ascProfile)
+        {
+            generalAS.profileLinks.Add(new ProfileLink(hcmProfile, ascProfile));
+        }
+
+        public void RemoveProfileLink(int index)
+        {
+            generalAS.profileLinks.RemoveAt(index);
+        }
+
+        public bool ProfileLinkReady() => generalAS.profileLinks.Count > 0;
+
 
         public AutoSplitterMainModule MainModule { get { return mainModule; } set { mainModule = value; } }
 

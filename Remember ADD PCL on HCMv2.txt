@@ -25,7 +25,7 @@ Cloud Profiles
 ---------------------------------
 - ASC Profiles Upload/Download to Drive Folder: Completed on 15-Jan-2025  
 - HCM Profiles Upload/Download to Drive Folder: In Progress  
-- Restructuring Saves Profiles: Completed on 16-Jan-2025  
+- Restructuring Saves Profiles: Completed on 16-Jan-2025  -> Rename NewSaves to: SaveDataAutoSplitter.xml
 
 AutoHitCounter (Based on Damage)
 ---------------------------------

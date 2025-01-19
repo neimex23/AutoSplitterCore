@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2024 Ezequiel Medina
+//Copyright (c) 2022-2025 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -424,20 +424,21 @@ namespace AutoSplitterCore
                 saveModule.ResetFlags();
                 saveModule.UpdateAutoSplitterData();
 
-                var tempDataASC = saveModule.dataAS;
-                tempDataASC.GeneralSettings = new GeneralAutoSplitter();
-                tempData = tempDataASC;
+                tempData = saveModule.dataAS;
             }
             else
             {
                 serializer = new XmlSerializer(typeof(ProfileHCM));
+
+                List<string> splits = new List<string>();
+                if (!SplitterControl.GetControl().GetDebug()) splits = SplitterControl.GetControl().GetSplits();
 
                 var tempDataHCM = new ProfileHCM
                 {
                     ProfileName = profileName,
                     Author = textBoxAuthor.Text,
                     Description = TextboxDescription.Text,
-                    Splits = SplitterControl.GetControl().GetSplits()
+                    Splits = splits
                 };
                 tempData = tempDataHCM;
             }
@@ -547,7 +548,9 @@ namespace AutoSplitterCore
 
             if (radioButtonUHcm.Checked)
             {
-                textBoxCurrrentProfile.Text = SplitterControl.GetControl().GetHCMProfileName();
+                string currentProfile = string.Empty;
+                if (!SplitterControl.GetControl().GetDebug()) currentProfile = SplitterControl.GetControl().GetHCMProfileName();
+                textBoxCurrrentProfile.Text = currentProfile;
                 TextboxDescription.Enabled = true;
                 textBoxAuthor.Enabled = true;
             }
@@ -722,30 +725,34 @@ namespace AutoSplitterCore
 
                 if (radioButtonDAsc.Checked)
                 {
-                    //Set current GeneralSettings before download the profile
-                    var configuration = (DataAutoSplitter)DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter));
-                    configuration.GeneralSettings = saveModule.dataAS.GeneralSettings;
+                    //Check Integrity
+                    _ = (DataAutoSplitter)DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter));
 
                     string finalFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), fileName);
 
-                    XmlSerializer serializer = new XmlSerializer(typeof(DataAutoSplitter));
-                    using (Stream stream = new FileStream(finalFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
-                    {
-                        serializer.Serialize(stream, configuration);
-                        stream.Close();
-                    }          
+                    File.Move(tempFilePath, finalFilePath);      
                 }else
                 {
-                    var profileHCm = (ProfileHCM)DeserializeXmlFile(tempFilePath, typeof(ProfileHCM));
                     var splitterControl = SplitterControl.GetControl();
-
-                    splitterControl.NewProfile();
-                    foreach (var split in  profileHCm.Splits)
+                    if (!splitterControl.GetDebug())
                     {
-                        splitterControl.AddSplit(split);
-                    }
-                }
+                        var profileHCM = (ProfileHCM)DeserializeXmlFile(tempFilePath, typeof(ProfileHCM));
 
+                        if (splitterControl.GetAllHcmProfile().Exists(x => x.Equals(profileHCM.ProfileName)))
+                        {
+                            MessageBox.Show("A profile with this name already exists!\nChange name and try again.", "Profile already exists", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            File.Delete(tempFilePath);
+                            return;
+                        }
+
+                        splitterControl.NewProfile(profileHCM.ProfileName);
+                        foreach (var split in profileHCM.Splits)
+                        {
+                            splitterControl.AddSplit(split);
+                        }
+                    }
+                    else Console.WriteLine("Debug Mode on Install Profile HCM: InterfaceHCM not Setted");
+                }
 
                 File.Delete(tempFilePath);
                 if (MessageBox.Show("Install Complete, you can Switch the profile on Profile Manager\nDo you want close this windows?", "Susesfully",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) Close();

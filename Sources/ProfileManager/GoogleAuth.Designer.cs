@@ -30,6 +30,9 @@
         {
             ReaLTaiizor.Controls.GroupBox groupBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
+            this.radioButtonDHcm = new System.Windows.Forms.RadioButton();
+            this.radioButtonDAsc = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.listViewFilesASC = new System.Windows.Forms.ListView();
             this.btnInstall = new ReaLTaiizor.Controls.Button();
             this.checkedListBoxGamesSearch = new System.Windows.Forms.CheckedListBox();
@@ -61,15 +64,12 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButtonDHcm = new System.Windows.Forms.RadioButton();
-            this.radioButtonDAsc = new System.Windows.Forms.RadioButton();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBoxManagment.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +97,41 @@
             groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             groupBox1.TabIndex = 1;
             groupBox1.Text = "Download";
+            // 
+            // radioButtonDHcm
+            // 
+            this.radioButtonDHcm.AutoSize = true;
+            this.radioButtonDHcm.ForeColor = System.Drawing.Color.Blue;
+            this.radioButtonDHcm.Location = new System.Drawing.Point(66, 300);
+            this.radioButtonDHcm.Name = "radioButtonDHcm";
+            this.radioButtonDHcm.Size = new System.Drawing.Size(86, 18);
+            this.radioButtonDHcm.TabIndex = 46;
+            this.radioButtonDHcm.Text = "HCM Profile";
+            this.radioButtonDHcm.UseVisualStyleBackColor = true;
+            this.radioButtonDHcm.CheckedChanged += new System.EventHandler(this.radioButtonDHcm_CheckedChanged);
+            // 
+            // radioButtonDAsc
+            // 
+            this.radioButtonDAsc.AutoSize = true;
+            this.radioButtonDAsc.Checked = true;
+            this.radioButtonDAsc.ForeColor = System.Drawing.Color.Blue;
+            this.radioButtonDAsc.Location = new System.Drawing.Point(66, 278);
+            this.radioButtonDAsc.Name = "radioButtonDAsc";
+            this.radioButtonDAsc.Size = new System.Drawing.Size(84, 18);
+            this.radioButtonDAsc.TabIndex = 45;
+            this.radioButtonDAsc.TabStop = true;
+            this.radioButtonDAsc.Text = "ASC Profile";
+            this.radioButtonDAsc.UseVisualStyleBackColor = true;
+            this.radioButtonDAsc.CheckedChanged += new System.EventHandler(this.radioButtonDAsc_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel1.Controls.Add(this.listViewFilesASC);
+            this.panel1.Location = new System.Drawing.Point(222, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(514, 409);
+            this.panel1.TabIndex = 40;
             // 
             // listViewFilesASC
             // 
@@ -529,41 +564,6 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel1.Controls.Add(this.listViewFilesASC);
-            this.panel1.Location = new System.Drawing.Point(222, 31);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 409);
-            this.panel1.TabIndex = 40;
-            // 
-            // radioButtonDHcm
-            // 
-            this.radioButtonDHcm.AutoSize = true;
-            this.radioButtonDHcm.ForeColor = System.Drawing.Color.Blue;
-            this.radioButtonDHcm.Location = new System.Drawing.Point(66, 300);
-            this.radioButtonDHcm.Name = "radioButtonDHcm";
-            this.radioButtonDHcm.Size = new System.Drawing.Size(86, 18);
-            this.radioButtonDHcm.TabIndex = 46;
-            this.radioButtonDHcm.Text = "HCM Profile";
-            this.radioButtonDHcm.UseVisualStyleBackColor = true;
-            this.radioButtonDHcm.CheckedChanged += new System.EventHandler(this.radioButtonDHcm_CheckedChanged);
-            // 
-            // radioButtonDAsc
-            // 
-            this.radioButtonDAsc.AutoSize = true;
-            this.radioButtonDAsc.Checked = true;
-            this.radioButtonDAsc.ForeColor = System.Drawing.Color.Blue;
-            this.radioButtonDAsc.Location = new System.Drawing.Point(66, 278);
-            this.radioButtonDAsc.Name = "radioButtonDAsc";
-            this.radioButtonDAsc.Size = new System.Drawing.Size(84, 18);
-            this.radioButtonDAsc.TabIndex = 45;
-            this.radioButtonDAsc.TabStop = true;
-            this.radioButtonDAsc.Text = "ASC Profile";
-            this.radioButtonDAsc.UseVisualStyleBackColor = true;
-            this.radioButtonDAsc.CheckedChanged += new System.EventHandler(this.radioButtonDAsc_CheckedChanged);
-            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -580,13 +580,13 @@
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.groupBoxUpload.ResumeLayout(false);
             this.groupBoxUpload.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBoxManagment.ResumeLayout(false);
             this.groupBoxManagment.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
