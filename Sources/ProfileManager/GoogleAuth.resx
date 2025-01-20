@@ -120,14 +120,11 @@
   <metadata name="groupBox1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="textBox1.Text" xml:space="preserve">
     <value>Considerations when uploading or downloading a profile:
 
 - The currently active profile will be uploaded, you can see the information in the corresponding box, the description and name must be clear.
-
+- Any Upload Profile must be suggestion to approved, check Terms and Conditions to avoid problems.
 - When uploading the autosplitter flags will be reset
 
 - Configurations such as:

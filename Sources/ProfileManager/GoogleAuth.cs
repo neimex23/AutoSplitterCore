@@ -104,7 +104,15 @@ namespace AutoSplitterCore
         #region AuthProcess
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You must select a Google account and enable all the required permissions for the drive folder where the files will be downloaded.\nThe program will generate an encrypted key in the Google.Apis.auth folder. \nDo not disclose or transfer this key under any circumstances.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(
+                "You must select a Google account and enable all the required permissions for the drive folder where the files will be downloaded.\n" +
+                "The program will generate an encrypted key in the Google.Apis.auth folder.\n" +
+                "Do not disclose or transfer this key under any circumstances.\n\n" +
+                "By continuing, you accept our Privacy Policy and Terms & Conditions.",
+                "Warning",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation
+            );
             Cursor.Current = Cursors.WaitCursor;
             Task.Run(() => Auth());
             Cursor = Cursors.Default;
@@ -764,5 +772,10 @@ namespace AutoSplitterCore
 
         #endregion
 
+        private void linkLabelPrivacy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/blob/master/PrivacyPolicy"));
+
+        private void linkLabelTerms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/blob/master/Terms%26Conditions_CloudProfile"));
     }
 }

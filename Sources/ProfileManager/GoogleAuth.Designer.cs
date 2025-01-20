@@ -61,9 +61,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.linkLabelPrivacy = new System.Windows.Forms.LinkLabel();
+            this.linkLabelTerms = new System.Windows.Forms.LinkLabel();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -268,6 +269,8 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxUpload.Controls.Add(this.linkLabelTerms);
+            this.groupBoxUpload.Controls.Add(this.linkLabelPrivacy);
             this.groupBoxUpload.Controls.Add(this.radioButtonUHcm);
             this.groupBoxUpload.Controls.Add(this.radioButtonUAsc);
             this.groupBoxUpload.Controls.Add(this.label6);
@@ -564,6 +567,32 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
+            // linkLabelPrivacy
+            // 
+            this.linkLabelPrivacy.AutoSize = true;
+            this.linkLabelPrivacy.ForeColor = System.Drawing.Color.White;
+            this.linkLabelPrivacy.LinkColor = System.Drawing.Color.White;
+            this.linkLabelPrivacy.Location = new System.Drawing.Point(8, 210);
+            this.linkLabelPrivacy.Name = "linkLabelPrivacy";
+            this.linkLabelPrivacy.Size = new System.Drawing.Size(78, 14);
+            this.linkLabelPrivacy.TabIndex = 26;
+            this.linkLabelPrivacy.TabStop = true;
+            this.linkLabelPrivacy.Text = "Privacy Policy";
+            this.linkLabelPrivacy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrivacy_LinkClicked);
+            // 
+            // linkLabelTerms
+            // 
+            this.linkLabelTerms.AutoSize = true;
+            this.linkLabelTerms.ForeColor = System.Drawing.Color.White;
+            this.linkLabelTerms.LinkColor = System.Drawing.Color.White;
+            this.linkLabelTerms.Location = new System.Drawing.Point(8, 227);
+            this.linkLabelTerms.Name = "linkLabelTerms";
+            this.linkLabelTerms.Size = new System.Drawing.Size(125, 14);
+            this.linkLabelTerms.TabIndex = 27;
+            this.linkLabelTerms.TabStop = true;
+            this.linkLabelTerms.Text = "Terms and Conditions";
+            this.linkLabelTerms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelTerms_LinkClicked);
+            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -611,7 +640,6 @@
         private System.Windows.Forms.Label label3;
         private ReaLTaiizor.Controls.GroupBox groupBox5;
         internal System.Windows.Forms.TextBox TextBoxSummary;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ReaLTaiizor.Controls.GroupBox groupBoxManagment;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
@@ -628,5 +656,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButtonDHcm;
         private System.Windows.Forms.RadioButton radioButtonDAsc;
+        private System.Windows.Forms.LinkLabel linkLabelTerms;
+        private System.Windows.Forms.LinkLabel linkLabelPrivacy;
     }
 }
