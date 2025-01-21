@@ -55,11 +55,11 @@ namespace AutoSplitterCore
                 client.Encoding = System.Text.Encoding.UTF8;
 
                 // https://developer.github.com/v3/#user-agent-required
-                client.Headers.Add("User-Agent", "HitCounterManager/" + Application.ProductVersion.ToString());
+                client.Headers.Add("User-Agent", "AutoSplitterCore/" + Application.ProductVersion.ToString());
                 // https://developer.github.com/v3/media/#request-specific-version
                 client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
                 // https://developer.github.com/v3/repos/releases/#get-a-single-release
-                string response = client.DownloadString("http://api.github.com/repos/neimex23/HitCounterManager/releases");
+                string response = client.DownloadString("http://api.github.com/repos/neimex23/AutoSplitterCore/releases");
 
                 var auxReleases = response.FromJson<List<Dictionary<string, object>>>();
 

@@ -777,9 +777,9 @@ namespace AutoSplitterCore
         #endregion
 
         private void linkLabelPrivacy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/blob/master/PrivacyPolicy"));
+            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html"));
 
         private void linkLabelTerms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/blob/master/Terms%26Conditions_CloudProfile"));
+            => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html"));
     }
 }

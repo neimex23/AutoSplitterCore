@@ -7,7 +7,7 @@
 [![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
-![AutoSplitterCore](https://github.com/neimex23/HitCounterManager/blob/master/Images/Wiki/AutoSplitterCore.png)
+![AutoSplitterCore](https://raw.githubusercontent.com/neimex23/HitCounterManager/master/Images/Wiki/AutoSplitterCore.png)
 
 * This is a Extension for HitCounterManager can give you the possibility to Automatically split when an event happen in a game
 
@@ -30,20 +30,23 @@
 
 ## AutoSplitter Flags
 
-- Sekiro || **[Inmediatly/Loading After]**
+- Sekiro 
+	**[Inmediatly/Loading After]**
 	- Kill a Boss
 	- Is Activated a Idol
 	- Trigger a position.
 	- Custom Flag
 
 
-- Elden Ring || **[Inmediatly/Loading After]**
+- Elden Ring 
+	**[Inmediatly/Loading After]**
 	- Kill a Boss
 	- Is Activated a Grace
 	- Trigger a position
 
 
-- DarkSouls 1 || **[Inmediatly/Loading Game After]**
+- DarkSouls 1 
+	**[Inmediatly/Loading Game After]**
 	- Kill a Boss
 	- Active a Bonfire
 	- Level the Charapter
@@ -51,19 +54,22 @@
 	- Obtain a Item
 
 
-- DarkSouls 2 || **[Inmediatly/Loading After]**
+- DarkSouls 2 
+	**[Inmediatly/Loading After]**
 	- Kill a Boss
 	- Level the Charapter
 	- Trigger a position
 
 
-- DarkSouls 3 || **[Inmediatly/Loading After]**
-	 - Kill a Boss
+- DarkSouls 3 
+	**[Inmediatly/Loading After]**
+	- Kill a Boss
 	- Is Activated a Bonfire
 	- Level the Charapter
 	
 
-- Hollow Knight || **[Inmediatly]**
+- Hollow Knight 
+	**[Inmediatly]**
 	- Kill a Boss/Minibosses
 	- Dreamers/Kills Events
 	- Colosseum
@@ -72,17 +78,20 @@
 	- Trigger a position
 
 
-- Celeste || **[Inmediatly]**
+- Celeste 
+	**[Inmediatly]**
 	- Chapter
 	- Checkpoints
 
 
-- Cuphead || **[Inmediatly]**
+- Cuphead 
+	**[Inmediatly]**
 	- Kill a Boss
 	- Complete a Level
 
 
-- Dishonored || **[Inmediatly]**
+- Dishonored 
+	**[Inmediatly]**
 	- Intro End
 	- Mission End
 	- Prision Escape (Sewer Entrace)
@@ -112,10 +121,10 @@
 ## Installation:
 
 - Portable:
-	- Decompress .zip File _"AutoSplitterCore_Portable_v2.x.0"_ in a folder and copy content to Installation dir of HitCounterManager
+	- Decompress .zip File _"AutoSplitterCore_Portable_v3.x.0"_ in a folder and copy content to Installation dir of HitCounterManager
 
 - Installator:
-	- Install _"AutoSplitterCore_Installer_v2.X.0.msi"_ in same folder than HitCounterManager
+	- Install _"AutoSplitterCore_Installer_v3.X.0.msi"_ in same folder than HitCounterManager
 
 > This uninstall previous version automatically and install the new version.
 

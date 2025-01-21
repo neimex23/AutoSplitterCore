@@ -22,6 +22,34 @@ Contact: <joop.jooop@gmail.com>
 Licence: MIT
 
 DLL Used:
+    - Google API
+		DLL Name: Google.Apis
+		Title: Google API Library
+		Author: Google LLC
+		Source: https://github.com/googleapis/google-api-dotnet-client
+		Licence: Apache License 2.0
+		
+	- OAuth2
+		DLL Name: Google.Apis.Auth
+		Title: Google API Authentication Library
+		Author: Google LLC
+		Source: https://github.com/googleapis/google-api-dotnet-client
+		Licence: Apache License 2.0
+		
+	- Google Drive
+		DLL Name: Google.Apis.Drive.v3
+		Title: Google Drive API Client
+		Author: Google LLC
+		Source: https://github.com/googleapis/google-api-dotnet-client
+		Licence: Apache License 2.0
+		
+	- Google Sheets
+		DLL Name: Google.Apis.Sheets.v4
+		Title: Google Sheets API Client
+		Author: Google LLC
+		Source: https://github.com/googleapis/google-api-dotnet-client
+		Licence: Apache License 2.0
+
     - DLL SoulsMemory from:
         Title: SoulSplitter
         Author:  F.stam (FrankvdStam)
@@ -151,3 +179,18 @@ d.any suggestion that there is an endorsement of products and services by depict
 Please be aware that while all Images and Videos on Pixabay are free to use for commercial and non-commercial purposes, depicted items in the Images or Videos, such as identifiable people, logos, brands, etc. may be subject to additional copyrights, property rights, privacy rights, trademarks etc. and may require the consent of a third party or the license of these rights - particularly for commercial applications. Pixabay does not represent or warrant that such consents or licenses have been obtained, and expressly disclaims any liability in this respect.
 
 URL: https://pixabay.com/de/service/license/
+
+==============================================================================
+Apache 2.0
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

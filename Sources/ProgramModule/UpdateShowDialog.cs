@@ -49,7 +49,7 @@ namespace AutoSplitterCore
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
         {
-            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/releases/latest"));
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/releases/latest"));
             Close();
         }
 
@@ -84,7 +84,7 @@ namespace AutoSplitterCore
         {
             WebClient webClient = new WebClient();
             string ver = updateModule.cloudVerNotDot;
-            string url = "https://github.com/neimex23/HitCounterManager/releases/download/ASC_v" + ver + "/AutoSplitterCore_";
+            string url = "https://github.com/neimex23/AutoSplitterCore/releases/download/ASC_v" + ver + "/AutoSplitterCore_";
             string to = string.Empty;
             string extractPath = Directory.GetCurrentDirectory() + "/Update";
 

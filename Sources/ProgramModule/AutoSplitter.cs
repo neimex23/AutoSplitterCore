@@ -1003,7 +1003,7 @@ namespace AutoSplitterCore
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
         {
-            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/releases/latest"));
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/releases/latest"));
         }
 
         private void btnCheckVersion_Click(object sender, EventArgs e)
@@ -1235,7 +1235,7 @@ namespace AutoSplitterCore
         #endregion
         private void btnHowSetup_Click(object sender, EventArgs e)
         {
-            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/HitCounterManager/wiki"));
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki"));
         }
 
         private void btnAbout_Click(object sender, EventArgs e)

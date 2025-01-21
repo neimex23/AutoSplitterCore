@@ -65,6 +65,7 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnReport = new ReaLTaiizor.Controls.Button();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -80,6 +81,7 @@
             groupBox1.BaseColor = System.Drawing.Color.Transparent;
             groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            groupBox1.Controls.Add(this.btnReport);
             groupBox1.Controls.Add(this.radioButtonDHcm);
             groupBox1.Controls.Add(this.radioButtonDAsc);
             groupBox1.Controls.Add(this.panel1);
@@ -593,6 +595,26 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnReport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnReport.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnReport.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Image = null;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnReport.Location = new System.Drawing.Point(75, 398);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnReport.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnReport.Size = new System.Drawing.Size(69, 47);
+            this.btnReport.TabIndex = 47;
+            this.btnReport.Text = "Report";
+            this.btnReport.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -658,5 +680,6 @@
         private System.Windows.Forms.RadioButton radioButtonDAsc;
         private System.Windows.Forms.LinkLabel linkLabelTerms;
         private System.Windows.Forms.LinkLabel linkLabelPrivacy;
+        private ReaLTaiizor.Controls.Button btnReport;
     }
 }
