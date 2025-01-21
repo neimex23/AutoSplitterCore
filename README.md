@@ -1,10 +1,10 @@
 # **AutoSplitterCore Extension for HCM**
-[![Download latest version here](https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge)](../../releases/latest)
+[![Download latest version here](https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge)](https://github.com/neimex23/AutoSplitterCore/releases/latest)
 [![Setup Guide / Wiki](https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge)](../../wiki)
 
 
-[![Releases](https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases/latest)
-[![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
+[![Releases](https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF)](https://github.com/neimex23/AutoSplitterCore/releases/latest)
+[![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](https://github.com/neimex23/AutoSplitterCore/releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
 [![Third-Party Licenses](https://img.shields.io/badge/-Third%20Party%20Licenses-lightgrey?longCache=true&style=for-the-badge)](https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html)
@@ -138,7 +138,7 @@
 
 ## Issues or Bugs
 
-* Open a [Issue Case](https://github.com/neimex23/HitCounterManager/issues)
+* Open a [Issue Case](https://github.com/neimex23/AutoSplitterCore/issues)
 * Contact to <ezequielmedina23@gmail.com>
 * Twitch: [Neimex23](https://www.twitch.tv/neimex23)
 * Discord: **Neimex23#6674**
