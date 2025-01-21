@@ -7,6 +7,11 @@
 [![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
+Additional Information:
+- [Third-Party Licenses](https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html)
+- [Privacy Policy](https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html)
+- [Terms and Conditions](https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html)
+
 ![AutoSplitterCore](https://raw.githubusercontent.com/neimex23/HitCounterManager/master/Images/Wiki/AutoSplitterCore.png)
 
 * This is a Extension for HitCounterManager can give you the possibility to Automatically split when an event happen in a game
@@ -156,7 +161,7 @@ All Awesome Peoples that Develop AutoSplitters for LiveSplit that i Use to do Th
   - Dishonored
 * **[LiveSplit Developers](https://github.com/LiveSplit)**
   - LiveSplitCore 
-* Read More into [THIRDPARTYLICENSEREADME](https://github.com/neimex23/HitCounterManager/blob/master/THIRDPARTYLICENSEREADME)
+* Read More into [THIRDPARTYLICENSEREADME](https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html)
 
 Thanks to Beta Testers of AutoSplit(in alphabetical order):
 
