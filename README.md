@@ -7,10 +7,9 @@
 [![GitHub Releases](https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF)](../../releases)
 [![GitHub](https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF)](LICENSE)
 
-Additional Information:
-- [Third-Party Licenses](https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html)
-- [Privacy Policy](https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html)
-- [Terms and Conditions](https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html)
+[![Third-Party Licenses](https://img.shields.io/badge/-Third%20Party%20Licenses-lightgrey?longCache=true&style=for-the-badge)](https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html)
+[![Privacy Policy](https://img.shields.io/badge/-Privacy%20Policy-lightgrey?longCache=true&style=for-the-badge)](https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html)
+[![Terms and Conditions](https://img.shields.io/badge/-Terms%20and%20Conditions-lightgrey?longCache=true&style=for-the-badge)](https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html)
 
 ![AutoSplitterCore](https://raw.githubusercontent.com/neimex23/HitCounterManager/master/Images/Wiki/AutoSplitterCore.png)
 
