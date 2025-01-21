@@ -83,6 +83,7 @@ namespace AutoSplitterCore
                     checkedListBoxGamesSearch.Items.Add(games);
                 }
             }
+            btnForgetLogin.Hide();
         }
 
         private object DeserializeXmlFile(string filePath, Type targetType)
@@ -115,7 +116,6 @@ namespace AutoSplitterCore
             );
             Cursor.Current = Cursors.WaitCursor;
             Task.Run(() => Auth());
-            Cursor = Cursors.Default;
         }
 
         private void btnForgetLogin_Click(object sender, EventArgs e)
@@ -126,7 +126,8 @@ namespace AutoSplitterCore
 
                 dataStore.Clear(); // Remove all credentials
 
-                Console.WriteLine("Logout completed. All stored credentials have been cleared.");
+                MessageBox.Show("Logout completed. All stored credentials have been cleared.", "Sussesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             catch (Exception ex)
             {
@@ -162,6 +163,7 @@ namespace AutoSplitterCore
             {
                 Console.WriteLine("Error on Authentification process: " + e.Message);
             }
+            Cursor = Cursors.Default;
         }
 
 
@@ -275,6 +277,7 @@ namespace AutoSplitterCore
             groupBoxManagment.Invoke(new Action(() =>
             {
                 groupBoxManagment.Enabled = true;
+                groupBoxManagment.BackColor = System.Drawing.Color.Transparent;
             }));
 
         }
@@ -306,6 +309,7 @@ namespace AutoSplitterCore
         {
             btnLogin.Enabled = false;
             btnForgetLogin.Enabled = true;
+            btnForgetLogin.Show();
             LoadFilesFromPublicFolder(folderASCId);
 
             textBoxCurrrentProfile.Text = saveModule.GetProfileName();

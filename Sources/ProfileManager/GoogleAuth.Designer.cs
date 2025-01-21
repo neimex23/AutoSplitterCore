@@ -43,6 +43,8 @@
             this.btnLogin = new ReaLTaiizor.Controls.Button();
             this.btnForgetLogin = new ReaLTaiizor.Controls.Button();
             this.groupBoxUpload = new ReaLTaiizor.Controls.GroupBox();
+            this.linkLabelTerms = new System.Windows.Forms.LinkLabel();
+            this.linkLabelPrivacy = new System.Windows.Forms.LinkLabel();
             this.radioButtonUHcm = new System.Windows.Forms.RadioButton();
             this.radioButtonUAsc = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,8 +65,6 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.linkLabelPrivacy = new System.Windows.Forms.LinkLabel();
-            this.linkLabelTerms = new System.Windows.Forms.LinkLabel();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -299,6 +299,32 @@
             this.groupBoxUpload.TabIndex = 4;
             this.groupBoxUpload.Text = "Upload Current Profile";
             // 
+            // linkLabelTerms
+            // 
+            this.linkLabelTerms.AutoSize = true;
+            this.linkLabelTerms.ForeColor = System.Drawing.Color.White;
+            this.linkLabelTerms.LinkColor = System.Drawing.Color.White;
+            this.linkLabelTerms.Location = new System.Drawing.Point(8, 227);
+            this.linkLabelTerms.Name = "linkLabelTerms";
+            this.linkLabelTerms.Size = new System.Drawing.Size(125, 14);
+            this.linkLabelTerms.TabIndex = 27;
+            this.linkLabelTerms.TabStop = true;
+            this.linkLabelTerms.Text = "Terms and Conditions";
+            this.linkLabelTerms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelTerms_LinkClicked);
+            // 
+            // linkLabelPrivacy
+            // 
+            this.linkLabelPrivacy.AutoSize = true;
+            this.linkLabelPrivacy.ForeColor = System.Drawing.Color.White;
+            this.linkLabelPrivacy.LinkColor = System.Drawing.Color.White;
+            this.linkLabelPrivacy.Location = new System.Drawing.Point(8, 210);
+            this.linkLabelPrivacy.Name = "linkLabelPrivacy";
+            this.linkLabelPrivacy.Size = new System.Drawing.Size(78, 14);
+            this.linkLabelPrivacy.TabIndex = 26;
+            this.linkLabelPrivacy.TabStop = true;
+            this.linkLabelPrivacy.Text = "Privacy Policy";
+            this.linkLabelPrivacy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrivacy_LinkClicked);
+            // 
             // radioButtonUHcm
             // 
             this.radioButtonUHcm.AutoSize = true;
@@ -532,7 +558,7 @@
             // 
             // groupBoxManagment
             // 
-            this.groupBoxManagment.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxManagment.BackColor = System.Drawing.Color.DimGray;
             this.groupBoxManagment.BackGColor = System.Drawing.Color.Transparent;
             this.groupBoxManagment.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxManagment.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
@@ -566,32 +592,6 @@
             this.textBox1.Size = new System.Drawing.Size(472, 222);
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
-            // 
-            // linkLabelPrivacy
-            // 
-            this.linkLabelPrivacy.AutoSize = true;
-            this.linkLabelPrivacy.ForeColor = System.Drawing.Color.White;
-            this.linkLabelPrivacy.LinkColor = System.Drawing.Color.White;
-            this.linkLabelPrivacy.Location = new System.Drawing.Point(8, 210);
-            this.linkLabelPrivacy.Name = "linkLabelPrivacy";
-            this.linkLabelPrivacy.Size = new System.Drawing.Size(78, 14);
-            this.linkLabelPrivacy.TabIndex = 26;
-            this.linkLabelPrivacy.TabStop = true;
-            this.linkLabelPrivacy.Text = "Privacy Policy";
-            this.linkLabelPrivacy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrivacy_LinkClicked);
-            // 
-            // linkLabelTerms
-            // 
-            this.linkLabelTerms.AutoSize = true;
-            this.linkLabelTerms.ForeColor = System.Drawing.Color.White;
-            this.linkLabelTerms.LinkColor = System.Drawing.Color.White;
-            this.linkLabelTerms.Location = new System.Drawing.Point(8, 227);
-            this.linkLabelTerms.Name = "linkLabelTerms";
-            this.linkLabelTerms.Size = new System.Drawing.Size(125, 14);
-            this.linkLabelTerms.TabIndex = 27;
-            this.linkLabelTerms.TabStop = true;
-            this.linkLabelTerms.Text = "Terms and Conditions";
-            this.linkLabelTerms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelTerms_LinkClicked);
             // 
             // GoogleAuth
             // 
