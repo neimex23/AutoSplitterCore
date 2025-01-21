@@ -50,7 +50,7 @@ namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive, DriveService.Scope.DriveReadonly };
+        static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive };
         static string ApplicationName = "autosplittercore";
 
         private readonly string machineName = Environment.MachineName;

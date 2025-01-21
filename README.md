@@ -1,6 +1,6 @@
 # **AutoSplitterCore Extension for HCM**
 [![Download latest version here](https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge)](https://github.com/neimex23/AutoSplitterCore/releases/latest)
-[![Setup Guide / Wiki](https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge)](../../wiki)
+[![Setup Guide / Wiki](https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge)](https://github.com/neimex23/AutoSplitterCore/wiki)
 
 
 [![Releases](https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF)](https://github.com/neimex23/AutoSplitterCore/releases/latest)
