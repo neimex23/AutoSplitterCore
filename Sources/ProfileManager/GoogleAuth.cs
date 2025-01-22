@@ -56,7 +56,7 @@ namespace AutoSplitterCore
         private readonly string machineName = Environment.MachineName;
         DriveService driveService = null;
         Oauth2Service oauth2Service = null;
-        SheetsService Sheetsservice;
+        SheetsService sheetService;
         UserCredential credential;
 
         SaveModule saveModule;
@@ -260,7 +260,7 @@ namespace AutoSplitterCore
             });
 
 
-            Sheetsservice = new SheetsService(new BaseClientService.Initializer()
+            sheetService = new SheetsService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
@@ -286,7 +286,7 @@ namespace AutoSplitterCore
         {
             var spreadsheetId = "1syCG3vchr4rHu-_9vQAS6UCJaoonZ06imyPzWNCRtRU";
             var range = $"Sheet1!A2:B";
-            var request = Sheetsservice.Spreadsheets.Values.Get(spreadsheetId, range);
+            var request = sheetService.Spreadsheets.Values.Get(spreadsheetId, range);
             var response = await request.ExecuteAsync();
             var values = response.Values;
 
@@ -781,5 +781,22 @@ namespace AutoSplitterCore
 
         private void linkLabelTerms_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html"));
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            if (listViewFilesASC.SelectedItems.Count > 0)
+            {
+                var selectedItem = listViewFilesASC.SelectedItems[0];
+                var fileId = selectedItem.SubItems[5].Text;
+                var fileName = selectedItem.Text;
+                Form form = new Report(EmailLoged, sheetService, fileId, fileName);
+                var buttonLocation = btnReport.PointToScreen(new System.Drawing.Point(0, 0));
+
+                // Ajustar la posición del formulario para que aparezca sobre el botón
+                form.StartPosition = FormStartPosition.Manual;
+                form.Location = buttonLocation;
+                form.ShowDialog();
+            }
+        }
     }
 }

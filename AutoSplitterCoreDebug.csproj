@@ -111,6 +111,12 @@
     <Compile Include="Sources\ProfileManager\ProfileManager.Designer.cs">
       <DependentUpon>ProfileManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ProfileManager\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProfileManager\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\ProfileManager\SaveModule.cs" />
     <Compile Include="Sources\ProgramModule\AutoSplitter.cs">
       <SubType>Form</SubType>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProfileManager\ProfileManager.resx">
       <DependentUpon>ProfileManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProfileManager\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\AutoSplitter.resx">
       <DependentUpon>AutoSplitter.cs</DependentUpon>
