@@ -790,9 +790,8 @@ namespace AutoSplitterCore
                 var fileId = selectedItem.SubItems[5].Text;
                 var fileName = selectedItem.Text;
                 Form form = new Report(EmailLoged, sheetService, fileId, fileName);
-                var buttonLocation = btnReport.PointToScreen(new System.Drawing.Point(0, 0));
+                var buttonLocation = checkedListBoxGamesSearch.PointToScreen(new System.Drawing.Point(0, 0));
 
-                // Ajustar la posición del formulario para que aparezca sobre el botón
                 form.StartPosition = FormStartPosition.Manual;
                 form.Location = buttonLocation;
                 form.ShowDialog();

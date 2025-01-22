@@ -47,7 +47,7 @@ namespace AutoSplitterCore
                 {
                     IList<IList<object>> values = new List<IList<object>>
                     {
-                        new List<object> { EmailLoged, idFile, nameFile, rason, detail }
+                        new List<object> { EmailLoged, idFile, nameFile, rason, detail, DateTime.Now.ToString("dd/MM/yyyy") }
                     };
 
                     string range = "Sheet1!G2:L2"; 
