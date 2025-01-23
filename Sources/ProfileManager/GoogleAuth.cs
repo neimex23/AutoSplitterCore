@@ -790,7 +790,7 @@ namespace AutoSplitterCore
                 var fileId = selectedItem.SubItems[5].Text;
                 var fileName = selectedItem.Text;
                 Form form = new Report(EmailLoged, sheetService, fileId, fileName);
-                var buttonLocation = checkedListBoxGamesSearch.PointToScreen(new System.Drawing.Point(0, 0));
+                var buttonLocation = checkedListBoxGamesSearch.Location;
 
                 form.StartPosition = FormStartPosition.Manual;
                 form.Location = buttonLocation;
