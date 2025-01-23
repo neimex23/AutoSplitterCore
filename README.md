@@ -192,4 +192,4 @@ Thanks to Beta Testers of AutoSplit(in alphabetical order):
 
 > Praise the sun! :sunny: . . . :fire: . . . :running: :dash:
 <meta name="google-site-verification" content="LKMcIo0p7OTWvmskwPXyNjXRtcItFtbkdA1okHgM7MM">
-![GoogleAuth](https://neimex23.github.io/AutoSplitterCore/google6f3528338950ae47.html)
+[GoogleAuth](https://neimex23.github.io/AutoSplitterCore/google6f3528338950ae47.html)
