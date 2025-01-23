@@ -1,200 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <<meta name="google-site-verification" content="imWdszh8pQLMKvUU-8Pm4vveWLRlLqbiQwU6kqTydek" />
-  <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-</head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        a {
-            color: #0088FF;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .badge {
-            display: inline-block;
-            margin: 5px 0;
-        }
-        .img-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin: 5px 0;
-        }
-        blockquote {
-            margin: 20px 0;
-            padding: 10px 20px;
-            background: #f9f9f9;
-            border-left: 5px solid #ccc;
-        }
-    </style>
+  <meta name="google-site-verification" content="imWdszh8pQLMKvUU-8Pm4vveWLRlLqbiQwU6kqTydek" />
+  <title>AutoSplitterCore</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/neimex23/AutoSplitterCore/refs/heads/master/Images/AutoSplitterSetupIcon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    a {
+      color: #0088FF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      margin: 5px 0;
+    }
+    .img-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+	  text-align: center;
+	  items-align: center;
+    }
+    .section h2 {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 20px 0;
+      padding: 10px 20px;
+      background: #f9f9f9;
+      border-left: 5px solid #ccc;
+    }
+    header {
+      background: #0078D7;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #FFD700;
+    }
+    .img2-container {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+    .img2-container img {
+      width: 50px;
+      height: 50px;
+    }
+	ul li {
+		list-style:none;
+	}
+  </style>
 </head>
 <body>
-
-<h1>AutoSplitterCore Extension for HCM</h1>
-
-<div class="badge">
-    <a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
-        <img src="https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge" alt="Download latest version here">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://github.com/neimex23/AutoSplitterCore/wiki">
-        <img src="https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge" alt="Setup Guide / Wiki">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
-        <img src="https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Latest Release">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://github.com/neimex23/AutoSplitterCore/releases">
-        <img src="https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Downloads">
-    </a>
-</div>
-<div class="badge">
-    <a href="LICENSE">
-        <img src="https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF" alt="License">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html">
-        <img src="https://img.shields.io/badge/-Third%20Party%20Licenses-lightgrey?longCache=true&style=for-the-badge" alt="Third Party Licenses">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html">
-        <img src="https://img.shields.io/badge/-Privacy%20Policy-lightgrey?longCache=true&style=for-the-badge" alt="Privacy Policy">
-    </a>
-</div>
-<div class="badge">
-    <a href="https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html">
-        <img src="https://img.shields.io/badge/-Terms%20and%20Conditions-lightgrey?longCache=true&style=for-the-badge" alt="Terms and Conditions">
-    </a>
-</div>
+<header>
+  <h1>AutoSplitterCore</h1>
+  <h2>Extension for HitCounterManager</h2>
+  <div class="img2-container">
+    <img src="https://raw.githubusercontent.com/neimex23/AutoSplitterCore/refs/heads/master/Images/AutoSplitterSetupIcon.ico" alt="AutoSplitterCore">
+  </div>
+</header>
 
 <div class="img-container">
-    <img src="https://raw.githubusercontent.com/neimex23/HitCounterManager/master/Images/Wiki/AutoSplitterCore.png" alt="AutoSplitterCore">
+  <img src="https://raw.githubusercontent.com/neimex23/HitCounterManager/master/Images/Wiki/AutoSplitterCore.png" alt="AutoSplitterCore">
 </div>
 
-<p>This is an extension for HitCounterManager that allows you to automatically split when an event happens in a game.</p>
+<div class="section" id="features">
+  <h2 style = "color: gold">Features</h2>
+  <ul>
+    <li>AutoSplit for various games including Dark Souls, Sekiro, Elden Ring, Hollow Knight, and more.</li>
+    <li>Auto-start timer when the game run starts.</li>
+    <li>Support for In-Game Time or Real-Time values in OBS layouts.</li>
+    <li>Save settings with a compatible XML file.</li>
+  </ul>
+</div>
 
-<h2>Features</h2>
-<ul>
-    <li>AutoSplit for:
-        <ul>
-            <li>Dark Souls 1</li>
-            <li>Dark Souls 2</li>
-            <li>Dark Souls 3</li>
-            <li>Sekiro: Shadows Die Twice</li>
-            <li>Elden Ring</li>
-            <li>Hollow Knight</li>
-            <li>Celeste</li>
-            <li>Cuphead</li>
-            <li>Dishonored</li>
-        </ul>
-    </li>
-    <li>Auto-start timer when the game run is started.</li>
-    <li>Use <strong>In-Game Time</strong> or <strong>Real-Time</strong> values on the internal timer, delta, total time, and PB in OBS layout.</li>
-    <li>Save file for all settings of AutoSplit: <code>HitCounterManagerSaveAutoSplitter.xml</code> (compatible with future versions).</li>
-</ul>
+<div class="section" id="autosplitter-flags">
+  <h2 style = "color: red">AutoSplitter Flags</h2>
+  <p>Flags specific to supported games like Sekiro, Elden Ring, and Dark Souls for events like boss kills, position triggers, and more.</p>
+</div>
 
-<h2>AutoSplitter Flags</h2>
-<ul>
-    <li><strong>Sekiro:</strong>
-        <ul>
-            <li>Kill a Boss</li>
-            <li>Activate an Idol</li>
-            <li>Trigger a position</li>
-            <li>Custom flag</li>
-        </ul>
-    </li>
-    <li><strong>Elden Ring:</strong>
-        <ul>
-            <li>Kill a Boss</li>
-            <li>Activate a Grace</li>
-            <li>Trigger a position</li>
-        </ul>
-    </li>
-    <li><strong>Dark Souls 1:</strong>
-        <ul>
-            <li>Kill a Boss</li>
-            <li>Activate a Bonfire</li>
-            <li>Level up the character</li>
-            <li>Trigger a position</li>
-            <li>Obtain an item</li>
-        </ul>
-    </li>
-    <!-- Add other games similarly -->
-</ul>
+<div class="section" id="automods-features">
+  <h2 style = "color: green">AutoMods Features</h2>
+  <ul>
+    <li>Sekiro: No Logos Intro, No Tutorials.</li>
+    <li>Elden Ring: No Logos Intro.</li>
+  </ul>
+</div>
 
-<h2>AutoMods Features</h2>
-<ul>
-    <li><strong>Sekiro:</strong> No Logos Intro, No Tutorials</li>
-    <li><strong>Elden Ring:</strong> No Logos Intro</li>
-</ul>
+<div class="section" id="installation">
+  <h2 style = "color: violet">Installation</h2>
+  <ul>
+    <li><strong>Portable:</strong> Decompress the ZIP file and copy its content to the installation directory of HitCounterManager.</li>
+    <li><strong>Installer:</strong> Install the MSI file in the same folder as HitCounterManager. The installer will handle previous versions automatically.</li>
+  </ul>
+  <blockquote>
+    Ensure MSI is installed before updating to a new version.
+  </blockquote>
+</div>
 
-<h2>Requirements</h2>
-<ul>
-    <li>Software: <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework">.NET Framework 4.8.1 or newer</a>.</li>
-    <li>OS: Windows (<strong>64-bit only</strong>).</li>
-    <li>Execute the program as Administrator.</li>
-</ul>
+<div class="section" id="issues-bugs">
+  <h2>Issues or Bugs</h2>
+  <ul>
+    <li>Report issues via <a href="https://github.com/neimex23/AutoSplitterCore/issues">GitHub Issues</a>.</li>
+    <li>Contact via email: <a href="mailto:ezequielmedina23@gmail.com">ezequielmedina23@gmail.com</a>.</li>
+    <li>Twitch: <a href="https://www.twitch.tv/neimex23">Neimex23</a>.</li>
+    <li>Discord: <strong>Neimex23#6674</strong>.</li>
+  </ul>
+</div>
 
-<h2>Installation</h2>
-<ul>
-    <li><strong>Portable:</strong>
-        <ul>
-            <li>Decompress the <code>.zip</code> file "<code>AutoSplitterCore_Portable_v3.x.0</code>" into a folder and copy the content to the installation directory of HitCounterManager.</li>
-        </ul>
-    </li>
-    <li><strong>Installer:</strong>
-        <ul>
-            <li>Install "<code>AutoSplitterCore_Installer_v3.X.0.msi</code>" in the same folder as HitCounterManager.</li>
-        </ul>
-    </li>
-</ul>
-<blockquote>
-    This uninstalls the previous version automatically and installs the new version. You must have installed the MSI before updating.
-</blockquote>
+<div class="section" id="special-thanks">
+  <h2>Special Thanks</h2>
+  <p>Special thanks to contributors and beta testers who made this project possible.</p>
+  <ul>
+    <li>Developers: FrankvdStam, DevilSquirrel, Fatalis.</li>
+    <li>Beta Testers: AvegaX, Bajamuten, and others.</li>
+  </ul>
+</div>
 
-<h2>Issues or Bugs</h2>
-<ul>
-    <li>Open an <a href="https://github.com/neimex23/AutoSplitterCore/issues">Issue Case</a>.</li>
-    <li>Contact: <a href="mailto:ezequielmedina23@gmail.com">ezequielmedina23@gmail.com</a></li>
-    <li>Twitch: <a href="https://www.twitch.tv/neimex23">Neimex23</a></li>
-    <li>Discord: <strong>Neimex23#6674</strong></li>
-</ul>
-
-<h2>Special Thanks</h2>
-<p>Thanks to all the awesome people who developed AutoSplitters for LiveSplit, making this possible:</p>
-<ul>
-    <li><a href="https://github.com/FrankvdStam">FrankvdStam</a>: Sekiro, Dark Souls 1, 2, 3, Elden Ring</li>
-    <li><a href="https://github.com/ShootMe">DevilSquirrel</a>: Hollow Knight, Celeste</li>
-    <li><a href="https://github.com/fatalis">Fatalis</a>: Dishonored</li>
-    <li><a href="https://github.com/LiveSplit">LiveSplit Developers</a>: LiveSplitCore</li>
-</ul>
-<p>Thanks to Beta Testers (in alphabetical order):
-    <a href="https://www.twitch.tv/avegax">AvegaX</a>, <a href="https://www.twitch.tv/bajamuten">Bajamuten</a>, ... (more testers listed).
-</p>
-
-<h2>Praise the sun! ☀️</h2>
-<p>🔥 🏃 💨</p>
-
+<footer>
+  <p>Praise the sun! ☀️</p>
+  <p>🔥 🏃 💨</p>
+</footer>
 </body>
 </html>
