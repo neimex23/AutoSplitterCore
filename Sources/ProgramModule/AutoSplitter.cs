@@ -69,22 +69,29 @@ namespace AutoSplitterCore
         public void RefreshForm()
         {
             #region ControlTab
-            this.TabControlGeneral.Controls.Remove(this.tabInfo);
-            this.TabControlGeneral.Controls.Remove(this.tabLicense);
-            this.TabControlGeneral.Controls.Remove(this.tabGeneral);
-            this.TabControlGeneral.Controls.Remove(this.tabSekiro);
-            this.TabControlGeneral.Controls.Remove(this.tabDs1);
-            this.TabControlGeneral.Controls.Remove(this.tabDs2);
-            this.TabControlGeneral.Controls.Remove(this.tabDs3);
-            this.TabControlGeneral.Controls.Remove(this.tabElden);
-            this.TabControlGeneral.Controls.Remove(this.tabHollow);
-            this.TabControlGeneral.Controls.Remove(this.tabCeleste);
-            this.TabControlGeneral.Controls.Remove(this.tabCuphead);
-            this.TabControlGeneral.Controls.Remove(this.tabDishonored);
-            TabControlGeneral.SelectTab(tabConfig);
+            try
+            {
+                this.TabControlGeneral.Controls.Remove(this.tabInfo);
+                this.TabControlGeneral.Controls.Remove(this.tabLicense);
+                this.TabControlGeneral.Controls.Remove(this.tabGeneral);
+                this.TabControlGeneral.Controls.Remove(this.tabSekiro);
+                this.TabControlGeneral.Controls.Remove(this.tabDs1);
+                this.TabControlGeneral.Controls.Remove(this.tabDs2);
+                this.TabControlGeneral.Controls.Remove(this.tabDs3);
+                this.TabControlGeneral.Controls.Remove(this.tabElden);
+                this.TabControlGeneral.Controls.Remove(this.tabHollow);
+                this.TabControlGeneral.Controls.Remove(this.tabCeleste);
+                this.TabControlGeneral.Controls.Remove(this.tabCuphead);
+                this.TabControlGeneral.Controls.Remove(this.tabDishonored);
+                TabControlGeneral.SelectTab(tabConfig);
+            }catch (Exception)
+            {  
+                //Catch exception for remove controls that not in tabControlGeneral*/
+            }
+
             #endregion
             #region SekiroTab       
-            panelPositionS.Hide();
+                panelPositionS.Hide();
             panelBossS.Hide();
             panelCfSekiro.Hide();
             panelIdolsS.Hide();

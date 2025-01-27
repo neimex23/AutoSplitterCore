@@ -83,7 +83,7 @@ namespace AutoSplitterCore
                     checkedListBoxGamesSearch.Items.Add(games);
                 }
             }
-            btnForgetLogin.Hide();
+            btnForgetLogin.InactiveColor = System.Drawing.Color.Gray;
         }
 
         private object DeserializeXmlFile(string filePath, Type targetType)
@@ -307,9 +307,12 @@ namespace AutoSplitterCore
         #region LoadFilesOnDrive
         private void AfterLoginEvents()
         {
+            btnLogin.InactiveColor = System.Drawing.Color.Gray;
             btnLogin.Enabled = false;
+            
             btnForgetLogin.Enabled = true;
-            btnForgetLogin.Show();
+            btnForgetLogin.InactiveColor = System.Drawing.Color.Black;
+
             LoadFilesFromPublicFolder(folderASCId);
 
             textBoxCurrrentProfile.Text = saveModule.GetProfileName();

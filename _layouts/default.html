@@ -76,6 +76,18 @@
 	ul li {
 		list-style:none;
 	}
+	
+	.main-footer {
+      background-color: #0078D7;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #e7e7e7;
+    }
+    .main-footer a {
+      color: #0088FF;
+      margin: 0 10px;
+    }
   </style>
 </head>
 <body>
@@ -92,45 +104,49 @@
 </div>
 
 <div class="section" id="features">
-	<div class="badge">
-		<a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
-			<img src="https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge" alt="Download latest version here">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://github.com/neimex23/AutoSplitterCore/wiki">
-			<img src="https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge" alt="Setup Guide / Wiki">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
-			<img src="https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Latest Release">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://github.com/neimex23/AutoSplitterCore/releases">
-			<img src="https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Downloads">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="LICENSE">
-			<img src="https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF" alt="License">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html">
-			<img src="https://img.shields.io/badge/-Third%20Party%20Licenses-lightgrey?longCache=true&style=for-the-badge" alt="Third Party Licenses">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html">
-			<img src="https://img.shields.io/badge/-Privacy%20Policy-lightgrey?longCache=true&style=for-the-badge" alt="Privacy Policy">
-		</a>
-	</div>
-	<div class="badge">
-		<a href="https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html">
-			<img src="https://img.shields.io/badge/-Terms%20and%20Conditions-lightgrey?longCache=true&style=for-the-badge" alt="Terms and Conditions">
-		</a>
+	<nav>
+		<div class="badge">
+			<a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
+				<img src="https://img.shields.io/badge/-Download%20latest%20version%20here-brightgreen?longCache=true&style=for-the-badge" alt="Download latest version here">
+			</a>
+		</div>
+		<div class="badge">
+			<a href="https://github.com/neimex23/AutoSplitterCore/wiki">
+				<img src="https://img.shields.io/badge/-Setup%20Guide%20%2F%20Wiki-blue?longCache=true&style=for-the-badge" alt="Setup Guide / Wiki">
+			</a>
+		</div>
+		<div class="badge">
+			<a href="https://github.com/neimex23/AutoSplitterCore/releases/latest">
+				<img src="https://img.shields.io/github/release/neimex23/HitCounterManager.svg?label=Latest%20release:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Latest Release">
+			</a>
+		</div>
+		<div class="badge">
+			<a href="https://github.com/neimex23/AutoSplitterCore/releases">
+				<img src="https://img.shields.io/github/downloads/neimex23/HitCounterManager/total.svg?label=Downloads:&longCache=true&style=for-the-badge&colorB=0088FF" alt="Downloads">
+			</a>
+		</div>
+		<div class="badge">
+			<a href="LICENSE">
+				<img src="https://img.shields.io/github/license/neimex23/HitCounterManager.svg?label=License:&longCache=true&style=for-the-badge&colorB=0088FF" alt="License">
+			</a>
+		</div>
+		<nav>
+			<div class="badge">
+				<a href="https://neimex23.github.io/AutoSplitterCore/THIRDPARTYLICENSEREADME.html">
+					<img src="https://img.shields.io/badge/-Third%20Party%20Licenses-darkblue?longCache=true&style=for-the-badge" alt="Third Party Licenses">
+				</a>
+			</div>
+			<div class="badge">
+				<a href="https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html">
+					<img src="https://img.shields.io/badge/-Privacy%20Policy-red?longCache=true&style=for-the-badge" alt="Privacy Policy">
+				</a>
+			</div>
+			<div class="badge">
+				<a href="https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html">
+					<img src="https://img.shields.io/badge/-Terms%20and%20Conditions-red?longCache=true&style=for-the-badge" alt="Terms and Conditions">
+				</a>
+		</nav>
+	</nav>
 </div>
 
 <div class="section" id="features">
@@ -140,6 +156,7 @@
     <li>Auto-start timer when the game run starts.</li>
     <li>Support for In-Game Time or Real-Time values in OBS layouts.</li>
     <li>Save settings with a compatible XML file.</li>
+	<li>Upload and Download Profile Configurations in Cloud Profile</li>
   </ul>
 </div>
 
@@ -186,9 +203,13 @@
   </ul>
 </div>
 
-<footer>
-  <p>Praise the sun! ☀️</p>
-  <p>🔥 🏃 💨</p>
-</footer>
+ <footer class="main-footer">
+    <p>
+      <a href="https://github.com/neimex23/AutoSplitterCore" target="_blank" rel="noopener noreferrer" style = "color: white">Open Source on GitHub</a> |
+      <a href="https://neimex23.github.io/AutoSplitterCore/TermsAndConditions.html" target="_blank" rel="noopener noreferrer" style = "color: white">Terms and Conditions</a> |
+      <a href="https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy.html" target="_blank" rel="noopener noreferrer" style = "color: white">Privacy Policy</a>
+    </p>
+    <p>© 2025 AutoSplitterCore. Open Source Proyect.</p>
+  </footer>
 </body>
 </html>

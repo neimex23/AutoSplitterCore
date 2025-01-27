@@ -66,12 +66,14 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBoxManagment.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -253,7 +255,7 @@
             this.btnLogin.Image = null;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.InactiveColor = System.Drawing.Color.Tomato;
-            this.btnLogin.Location = new System.Drawing.Point(1512, 55);
+            this.btnLogin.Location = new System.Drawing.Point(60, 31);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -269,13 +271,13 @@
             this.btnForgetLogin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.btnForgetLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnForgetLogin.Enabled = false;
-            this.btnForgetLogin.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnForgetLogin.EnteredBorderColor = System.Drawing.Color.Red;
             this.btnForgetLogin.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.btnForgetLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnForgetLogin.Image = null;
             this.btnForgetLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnForgetLogin.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnForgetLogin.Location = new System.Drawing.Point(1512, 104);
+            this.btnForgetLogin.Location = new System.Drawing.Point(60, 77);
             this.btnForgetLogin.Name = "btnForgetLogin";
             this.btnForgetLogin.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnForgetLogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -292,8 +294,6 @@
             this.groupBoxUpload.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxUpload.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxUpload.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxUpload.Controls.Add(this.linkLabelTerms);
-            this.groupBoxUpload.Controls.Add(this.linkLabelPrivacy);
             this.groupBoxUpload.Controls.Add(this.radioButtonUHcm);
             this.groupBoxUpload.Controls.Add(this.radioButtonUAsc);
             this.groupBoxUpload.Controls.Add(this.label6);
@@ -327,12 +327,12 @@
             this.linkLabelTerms.AutoSize = true;
             this.linkLabelTerms.ForeColor = System.Drawing.Color.White;
             this.linkLabelTerms.LinkColor = System.Drawing.Color.White;
-            this.linkLabelTerms.Location = new System.Drawing.Point(8, 227);
+            this.linkLabelTerms.Location = new System.Drawing.Point(164, 125);
             this.linkLabelTerms.Name = "linkLabelTerms";
-            this.linkLabelTerms.Size = new System.Drawing.Size(125, 14);
+            this.linkLabelTerms.Size = new System.Drawing.Size(65, 28);
             this.linkLabelTerms.TabIndex = 27;
             this.linkLabelTerms.TabStop = true;
-            this.linkLabelTerms.Text = "Terms and Conditions";
+            this.linkLabelTerms.Text = "Terms and\r\nConditions";
             this.linkLabelTerms.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelTerms_LinkClicked);
             // 
             // linkLabelPrivacy
@@ -340,7 +340,7 @@
             this.linkLabelPrivacy.AutoSize = true;
             this.linkLabelPrivacy.ForeColor = System.Drawing.Color.White;
             this.linkLabelPrivacy.LinkColor = System.Drawing.Color.White;
-            this.linkLabelPrivacy.Location = new System.Drawing.Point(8, 210);
+            this.linkLabelPrivacy.Location = new System.Drawing.Point(13, 132);
             this.linkLabelPrivacy.Name = "linkLabelPrivacy";
             this.linkLabelPrivacy.Size = new System.Drawing.Size(78, 14);
             this.linkLabelPrivacy.TabIndex = 26;
@@ -352,7 +352,7 @@
             // 
             this.radioButtonUHcm.AutoSize = true;
             this.radioButtonUHcm.ForeColor = System.Drawing.Color.White;
-            this.radioButtonUHcm.Location = new System.Drawing.Point(414, 221);
+            this.radioButtonUHcm.Location = new System.Drawing.Point(364, 221);
             this.radioButtonUHcm.Name = "radioButtonUHcm";
             this.radioButtonUHcm.Size = new System.Drawing.Size(127, 18);
             this.radioButtonUHcm.TabIndex = 44;
@@ -365,7 +365,7 @@
             this.radioButtonUAsc.AutoSize = true;
             this.radioButtonUAsc.Checked = true;
             this.radioButtonUAsc.ForeColor = System.Drawing.Color.White;
-            this.radioButtonUAsc.Location = new System.Drawing.Point(414, 199);
+            this.radioButtonUAsc.Location = new System.Drawing.Point(364, 199);
             this.radioButtonUAsc.Name = "radioButtonUAsc";
             this.radioButtonUAsc.Size = new System.Drawing.Size(125, 18);
             this.radioButtonUAsc.TabIndex = 43;
@@ -404,7 +404,7 @@
             this.btnUploadProfile.Image = null;
             this.btnUploadProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUploadProfile.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnUploadProfile.Location = new System.Drawing.Point(280, 204);
+            this.btnUploadProfile.Location = new System.Drawing.Point(230, 204);
             this.btnUploadProfile.Name = "btnUploadProfile";
             this.btnUploadProfile.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnUploadProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -616,16 +616,37 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BackGColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox2.Controls.Add(this.linkLabelTerms);
+            this.groupBox2.Controls.Add(this.btnLogin);
+            this.groupBox2.Controls.Add(this.linkLabelPrivacy);
+            this.groupBox2.Controls.Add(this.btnForgetLogin);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox2.HeaderColor = System.Drawing.Color.DarkSeaGreen;
+            this.groupBox2.Location = new System.Drawing.Point(1518, 45);
+            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox2.Size = new System.Drawing.Size(247, 160);
+            this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox2.TabIndex = 27;
+            // 
             // GoogleAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1652, 876);
+            this.ClientSize = new System.Drawing.Size(1812, 876);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.btnForgetLogin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogin);
             this.Image = null;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
@@ -639,6 +660,8 @@
             this.groupBox5.PerformLayout();
             this.groupBoxManagment.ResumeLayout(false);
             this.groupBoxManagment.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,5 +705,6 @@
         private System.Windows.Forms.LinkLabel linkLabelTerms;
         private System.Windows.Forms.LinkLabel linkLabelPrivacy;
         private ReaLTaiizor.Controls.Button btnReport;
+        private ReaLTaiizor.Controls.GroupBox groupBox2;
     }
 }
