@@ -52,7 +52,11 @@ if %1 equ 1 (
     rem
     echo ========= Stage 2: Updating Dll =========
     del .\SoulMemory.dll
+    del .\soulmemory_rs_x64.dll
+    del .\soulmods_x64.dll
     copy .\Update\SoulMemory.dll .\
+    copy .\Update\soulmemory_rs_x64.dll .\
+    copy .\Update\soulmods_x64.dll .\
     rem     
     echo ========= Stage 3: Cleaning =========
     rmdir /S /Q .\Update
