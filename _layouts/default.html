@@ -88,6 +88,46 @@
       color: #0088FF;
       margin: 0 10px;
     }
+	
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+    .card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .card ul li {
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -157,13 +197,103 @@
     <li>Support for In-Game Time or Real-Time values in OBS layouts.</li>
     <li>Save settings with a compatible XML file.</li>
 	<li>Upload and Download Profile Configurations in Cloud Profile</li>
+	<li>Links Profiles HCM with ASC</li>
   </ul>
 </div>
 
 <div class="section" id="autosplitter-flags">
   <h2 style = "color: red">AutoSplitter Flags</h2>
   <p>Flags specific to supported games like Sekiro, Elden Ring, and Dark Souls for events like boss kills, position triggers, and more.</p>
-</div>
+    <div class="grid">
+      <div class="card">
+        <h2>Sekiro</h2>
+        <p>Immediately/Loading After</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Is Activated a Idol</li>
+          <li>Trigger a position</li>
+          <li>Custom Flag</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Elden Ring</h2>
+        <p>Immediately/Loading After</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Is Activated a Grace</li>
+          <li>Trigger a position</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Dark Souls 1</h2>
+        <p>Immediately/Loading Game After</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Active a Bonfire</li>
+          <li>Level the Character</li>
+          <li>Trigger a Position</li>
+          <li>Obtain an Item</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Dark Souls 2</h2>
+        <p>Immediately/Loading After</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Level the Character</li>
+          <li>Trigger a position</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Dark Souls 3</h2>
+        <p>Immediately/Loading After</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Is Activated a Bonfire</li>
+          <li>Level the Character</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Hollow Knight</h2>
+        <p>Immediately</p>
+        <ul>
+          <li>Kill a Boss/Minibosses</li>
+          <li>Dreamers/Kills Events</li>
+          <li>Colosseum</li>
+          <li>Pantheons</li>
+          <li>Charms/Skills</li>
+          <li>Trigger a position</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Celeste</h2>
+        <p>Immediately</p>
+        <ul>
+          <li>Chapter</li>
+          <li>Checkpoints</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Cuphead</h2>
+        <p>Immediately</p>
+        <ul>
+          <li>Kill a Boss</li>
+          <li>Complete a Level</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Dishonored</h2>
+        <p>Immediately</p>
+        <ul>
+          <li>Intro End</li>
+          <li>Mission End</li>
+          <li>Prison Escape (Sewer Entrance)</li>
+          <li>Outsider's Dream</li>
+          <li>Weepers</li>
+        </ul>
+      </div>
+    </div>
+	</div>
 
 <div class="section" id="automods-features">
   <h2 style = "color: green">AutoMods Features</h2>
