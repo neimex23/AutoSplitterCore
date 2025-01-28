@@ -95,6 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
@@ -146,6 +151,12 @@
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
+    <Compile Include="Sources\ProgramModule\DebugControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\DebugControl.Designer.cs">
+      <DependentUpon>DebugControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
     <Compile Include="Sources\ProgramModule\Program.cs" />
@@ -165,6 +176,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProfileManager\GoogleAuth.resx">
       <DependentUpon>GoogleAuth.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\DebugControl.resx">
+      <DependentUpon>DebugControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>

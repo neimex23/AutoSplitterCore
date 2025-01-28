@@ -31,6 +31,8 @@ namespace AutoSplitterCore
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.PoisonTabControl();
+            this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabGeneral = new ReaLTaiizor.Controls.PoisonTabPage();
             this.TabPageGeneral = new ReaLTaiizor.Controls.AirTabPage();
             this.tabPageControl = new System.Windows.Forms.TabPage();
@@ -148,8 +150,6 @@ namespace AutoSplitterCore
             this.btnDs1 = new ReaLTaiizor.Controls.Button();
             this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
             this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
-            this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabSekiro = new ReaLTaiizor.Controls.PoisonTabPage();
             this.panelPositionS = new ReaLTaiizor.Controls.LostBorderPanel();
             this.btnGetPositionS = new ReaLTaiizor.Controls.Button();
@@ -599,6 +599,7 @@ namespace AutoSplitterCore
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.TabControlGeneral.SuspendLayout();
+            this.tabLicense.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.TabPageGeneral.SuspendLayout();
             this.tabPageControl.SuspendLayout();
@@ -644,7 +645,6 @@ namespace AutoSplitterCore
             this.groupBoxUpdate.SuspendLayout();
             this.groupBoxSplitters.SuspendLayout();
             this.tabInfo.SuspendLayout();
-            this.tabLicense.SuspendLayout();
             this.tabSekiro.SuspendLayout();
             this.panelPositionS.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -761,11 +761,46 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 0;
+            this.TabControlGeneral.SelectedIndex = 4;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
             this.TabControlGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BackColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.HorizontalScrollbarBarColor = true;
+            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabLicense.HorizontalScrollbarSize = 10;
+            this.tabLicense.Location = new System.Drawing.Point(4, 44);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 352);
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.UseCustomBackColor = true;
+            this.tabLicense.VerticalScrollbarBarColor = true;
+            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
+            this.tabLicense.VerticalScrollbarSize = 10;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
             // 
             // tabGeneral
             // 
@@ -2915,41 +2950,6 @@ namespace AutoSplitterCore
             this.TextboxManual.TabStop = false;
             this.TextboxManual.Text = resources.GetString("TextboxManual.Text");
             this.TextboxManual.UseSystemPasswordChar = false;
-            // 
-            // tabLicense
-            // 
-            this.tabLicense.BackColor = System.Drawing.Color.White;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabLicense.HorizontalScrollbarBarColor = true;
-            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabLicense.HorizontalScrollbarSize = 10;
-            this.tabLicense.Location = new System.Drawing.Point(4, 44);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 352);
-            this.tabLicense.TabIndex = 3;
-            this.tabLicense.Text = "License";
-            this.tabLicense.UseCustomBackColor = true;
-            this.tabLicense.VerticalScrollbarBarColor = true;
-            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
-            this.tabLicense.VerticalScrollbarSize = 10;
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
             // 
             // tabSekiro
             // 
@@ -13297,6 +13297,8 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
             this.tabGeneral.ResumeLayout(false);
             this.TabPageGeneral.ResumeLayout(false);
             this.tabPageControl.ResumeLayout(false);
@@ -13367,8 +13369,6 @@ namespace AutoSplitterCore
             this.groupBoxUpdate.PerformLayout();
             this.groupBoxSplitters.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
             this.panelPositionS.ResumeLayout(false);

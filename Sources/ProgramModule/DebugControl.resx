@@ -117,266 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBoxLicenses.Text" xml:space="preserve">
-    <value>Licence information:
-
-The software aims to only use licenses that allow commercial and non-commercial use.
-Moreover it aims to use the whole software without any charge.
-Therefore it should be free for everyone to use it without any costs.
-DISCLAIMER: Above notice comes without warranty, so please refer to the explicit licenses below.
-
-==============================================================================
-Title: AutoSplitterCore
-Author: Ezequiel Medina (Neimex23)
-Contact: &lt;ezequielmedina23@gmail.com&gt;
-Licence: MIT
-
-Title: IGT Timer Track
-Author: Hauke Lasinger 
-Contact: &lt;hauke@haukinger.de&gt;
-Licence: MIT
-
-Title: IGT Timer Track Test
-Author: Mario Schulz
-Contact: &lt;joop.jooop@gmail.com&gt;
-Licence: MIT
-
-DLL Used:
-    - Google API
-		DLL Name: Google.Apis
-		Title: Google API Library
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- OAuth2
-		DLL Name: Google.Apis.Auth
-		Title: Google API Authentication Library
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- Google Drive
-		DLL Name: Google.Apis.Drive.v3
-		Title: Google Drive API Client
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- Google Sheets
-		DLL Name: Google.Apis.Sheets.v4
-		Title: Google Sheets API Client
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-
-    - DLL SoulsMemory from:
-        Title: SoulSplitter
-        Author:  F.stam (FrankvdStam)
-        Source:  https://github.com/FrankvdStam/SoulSplitter.git
-        Licence: GNU
-    [=] Attributions:
-          [-] Title: IGT Save File Dark Souls 1
-			Author: CapitaineToinon
-			Source: https://github.com/CapitaineToinon/LiveSplit.DarkSoulsIGT
-             License: GNU	     
-          [-] Title: DarkSouls3RemoveIntroScreens
-			Author: Blade (bladecoding)
-			Source: https://github.com/bladecoding/DarkSouls3RemoveIntroScreens
-			License: MIT            		   
-
-    - DLL LiveSplit.HollowKnight
-        Title: LiveSplit.HollowKnight
-        Author: DevilSquirrel
-        Source: https://github.com/ShootMe/LiveSplit.HollowKnight.git
-        Licence: MIT
-
-    - DLL LiveSplit.Celeste
-        Title: LiveSplit.HollowKnight
-        Author: DevilSquirrel
-        Source: https://github.com/ShootMe/LiveSplit.Celeste.git
-        Licence: MIT
-	
-    - DLL LiveSplit.Cuphead
-        Title: LiveSplit.Cuphead
-        Author: DevilSquirrel
-        Source: https://github.com/ShootMe/LiveSplit.Cuphead.git
-        Licence: MIT			   
-
-    - DLL LiveSplit.Dishonored (Modified)
-        Title: LiveSplit.Dishonored
-        Author: Fatalis
-        Source: https://github.com/fatalis/LiveSplit.Dishonored.git
-        Licence: MIT(WTFPL)	
-		
-    - DLL LiveSplit.Core
-        Title: LiveSplit
-        Author: LiveSplit
-        Source: https://github.com/LiveSplit/LiveSplit
-        Licence: MIT		  
-		
-    - DLL Newtonsoft.Json (Dependency of SoulsMemory)
-		Title: Newtonsoft.Json
-		Author: James Newton-King (JamesNK)
-		Source: https://github.com/JamesNK/Newtonsoft.Json.git
-		Licence: MIT
-		
-	- DLL ReaLTaiizor
-		Title: ReaLTaiizor
-		Author: Taiizor
-		Source: https://github.com/Taiizor/ReaLTaiizor
-		Licence: MIT
-
-Addon Developed for HitCounterManager:
-	Title: HitCounterManager
-	Author: Peter Kirmeier &lt;topeterk@freenet.de&gt;
-	Source: https://github.com/topeterk/HitCounterManager
-	Licence: MIT
-	
-
-Resources:
-==============================================================================	
-Setup AutoSplitterCore Banner Image
-
-Title: -
-Author: Neimex23
-Licence: MIT
-Using: Setup AutoSplitterCore Icon
-
-==============================================================================	
-Setup AutoSplitterCore Icon
-
-Title: -
-File Title: AutoSplitterSetupIcon.ico
-Author: Elionas
-Source: https://pixabay.com/images/id-1345869/
-Licence: Pixabay License
-
-==============================================================================	
-Check Icon
-
-Title: icono-símbolo-confirmación-gancho-803718
-Author: Leovinus
-Source: https://pixabay.com/images/id-803718/
-Licence: Pixabay License
-
-
-Licenses:
-==============================================================================
-The MIT License (MIT)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-URL: https://opensource.org/licenses/MIT
-
-==============================================================================
-The General Public License (GNU)[GPL-3.0]
-(Complete License on LICENSE - SOULSMEMORY)
-
-The GNU General Public License is a free, copyleft license for software and other kinds of works.
-
-The licenses for most software and other practical works are designed to take away your freedom to share and change the works. 
-By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. 
-We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.
-
-URL: https://opensource.org/licenses/GPL-3.0
-
-==============================================================================
-Pixabay License
-
-Images and Videos on Pixabay are made available under the Pixabay License on the following terms.Under the Pixabay License you are granted an irrevocable, worldwide, non-exclusive and royalty free right to use, download, copy, modify or adapt the Images and Videos for commercial or non-commercial purposes.Attribution of the photographer or Pixabay is not required but is always appreciated. 
-
-The Pixabay License does not allow:
-a.sale or distribution of Images or Videos as digital stock photos or as digital wallpapers;
-b.sale or distribution of Images or Videos e.g. as a posters, digital prints or physical products, without adding any additional elements or otherwise adding value;
-c.depiction of identifiable persons in an offensive, pornographic, obscene, immoral, defamatory or libelous way; or
-d.any suggestion that there is an endorsement of products and services by depicted persons, brands, and organisations, unless permission was granted.
-
-Please be aware that while all Images and Videos on Pixabay are free to use for commercial and non-commercial purposes, depicted items in the Images or Videos, such as identifiable people, logos, brands, etc. may be subject to additional copyrights, property rights, privacy rights, trademarks etc. and may require the consent of a third party or the license of these rights - particularly for commercial applications. Pixabay does not represent or warrant that such consents or licenses have been obtained, and expressly disclaims any liability in this respect.
-
-URL: https://pixabay.com/de/service/license/
-
-==============================================================================
-Apache 2.0
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.</value>
-  </data>
-  <data name="TextboxManual.Text" xml:space="preserve">
-    <value>Notes:
-===========================================
-AutoSplitting:
-- If You have problems to setup Extencion visit: https://github.com/neimex23/HitCounterManager/wiki
-
-- To activate any autosplitting you should select in main program "Game to Split".
-
-- To Auto initialize Timer should select in main program "Game to Split" and check the game in Configuration AutoSplitter AutoTimer
-
-- Is recommended to configure everything before setting the game to spliter, to avoid autosplitting
-
--Depends on Configurable Autosplit, the addons autosplitting a split (+1 in the actually position), 
-regardless of what is written on them
-
-- When an event of autosplit happens, an internal variable is set, for evit that event is repit. 
-Use the "Reset Run" button, Shortcut or AutoReset Option, to reset this state.
-
-- AutoTimer with RealTime Method in Celeste only start timer when join into a level, don't stop after this.
-
-- Dark souls 2 don't have tracking game time to get exact values to give AutoSplitterCore and process it, failing that, the timer is controlled manually when there is a load event
-
-- Currently Elden Ring is only supported with Easy Anti-Cheat disabled.
-To disable Easy Anti-Cheat, visit this video
-https://youtu.be/nGlhoGcb8pI?si=sRLffw7AnMf3CgyE
-
-- Split by Attributes and some custom flags in DS3 dont work on versions previous to 1.15
-
-
-===========================================
-Sekiro Features:
-- No Intro
-- No Tutorials
-
-Elden Ring Features:
-- No Intro</value>
-  </data>
-  <data name="hopeTextBoxMortal.Text" xml:space="preserve">
-    <value>Mortal Journey run should be activated if you run play this gauntlet,
-Work by trigger of positions and split after loading events.
-And not check if you run not is this.
-Split Automatically the next bosses in this order 
-17 splits no more and no less:
-Gyoubu
-Lady Butterfly
-Genichiro
-Guardian Ape
-Corrupted Monk
-Owl
-Double Apes
-Emma
-Isshin
-True Monk
-Owl Father
-Demon of Hatred
-Genichiro Way of Tomoe
-Sword Saint Isshin
-Inner Genichiro
-Inner Father
-Inner Isshin
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2119,6 +1859,24 @@ Inner Isshin
         eAAAANwAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAACUAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAw+MAAMADAADAAwAAwAMAAPADAADgBwAAwAMA
         AMADAADAAwAA4AMAAPADAAD4BwAA/B8AAP4fAAD/HwAA/z8AAA==
+</value>
+  </data>
+  <data name="$this.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKxSURBVFhHxddJqE1xAMfxaw4LJPM8JkMRKTZiJZEFG1kQ
+        KT1SIiQiSQlJFspCKYlCGUIhKwtSWBAWhlDYGBbI/P3ee/7173Teu//73rvv/erTO+d/3zn/M/ynU2ql
+        TMPIymb7ZBXuo0t5rx1yHv+ws7zXxpmJv/ACvmEI2iyD8BJWHhxDm6QfniCuXD/gb3VNT9jo8pUHW1C3
+        dMBlFFUcPELdsgtFlcZslEMxGDPQapmNPyiqNG8JuuI9RqDF6YTHKKqsSGgHb3Gzstm89M/+rkZRRY3Z
+        AfMU7s8r79UYK91d2Sw9QL6SpmyEeQ33z5T3aki44wUYkG3XYj664Ve2/xW+xqSMwXd44CRMz7ZTfUYP
+        LI/K5LmSchzhIO9+QrSfYhN64U1UpuR2EI/vzvPeTWr3uwAHqzBDxpIv4AvCQbMsIPcQn6yIldv390dl
+        MZ9kUm4jHLTWArIO8cnyTsBGZq8p+v0dfDJJWYpw4EN0hC36RVaW5xTsyQ9FZXmhWybnFMLBeywgvg6n
+        2/jEV+EFbo7K8g6g5nTGQfyGJ3ESMosQuuhH9MVY/MzKYq4XFqNFseEchkPqFYyGT+IVNsCsgQ33BnwN
+        KzAZye88NS5EwmqnD+zrxrHCNpKPPWIinBkHWpCaUbiFs9gL73AOLG9sOHW8WAmf1iU8Q9xePmEYknIa
+        8buMufL15Odgyx6HhbDrhraR54XcxXgkxbtwNCxqWEVsHw7fDfAjxb9H4AW6iOmOZqU3HBPWYzu8y5Qh
+        2ZnvDhyctsF2YK9Kiv84FX5wuJoJJ3Vet4XbDb0Yh+Yw1TbFnmJ39jUsQ9WchAd+QH4V9BxbYW8wTlKh
+        DfiUjuI6bCPha8n3Ho73NVVNvPLxir1ye8NcOOKlxoWoF+W4cRE2wimoGlcy17APw1HHr5xS6T+0rWQU
+        YusaSwAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

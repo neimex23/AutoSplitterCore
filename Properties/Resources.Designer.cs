@@ -59,15 +59,5 @@ namespace AutoSplitterCore.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap installer_banner_autosplitter {
-            get {
-                object obj = ResourceManager.GetObject("installer-banner-autosplitter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
