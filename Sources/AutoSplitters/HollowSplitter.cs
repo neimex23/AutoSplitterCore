@@ -26,6 +26,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.HollowKnight;
+using System.Xml.Linq;
 
 namespace AutoSplitterCore
 {
@@ -308,8 +309,8 @@ namespace AutoSplitterCore
                     foreach (var element in BossToSplit)
                     {
                         if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
-                        {                            
-                            splitterControl.SplitCheck();
+                        {
+                            splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT BOSS -> {element.Title}");
                             element.IsSplited = splitterControl.GetSplitStatus();
                         }
                     }
@@ -333,16 +334,16 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {                                    
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT MINIBOSS -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
-                                {                                    
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT MINIBOSS -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -368,23 +369,23 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {                                   
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset) && !element.kingSoulsCase)
-                                {                                    
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                                 else
                                 {
                                     if (hollow.Memory.PlayerData<int>(Offset.charmCost_36) == 5 && hollow.Memory.PlayerData<int>(Offset.royalCharmState) == 3)
-                                    {                                        
-                                        splitterControl.SplitCheck();
+                                    {
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                         element.IsSplited = splitterControl.GetSplitStatus();
                                     }
                                 }
@@ -411,16 +412,16 @@ namespace AutoSplitterCore
                             if (element.intMethod)
                             {
                                 if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
-                                {                                   
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT SKILL -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
                             else
                             {
                                 if (hollow.Memory.PlayerData<bool>(element.Offset))
-                                {                                   
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT SKILL -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -448,8 +449,8 @@ namespace AutoSplitterCore
                             var rangeY = ((currentlyPosition.position.Y - p.position.Y) <= dataHollow.positionMargin) && ((currentlyPosition.position.Y - p.position.Y) >= -dataHollow.positionMargin);
                             var rangeZ = currentPosition.sceneName == p.sceneName;
                             if (rangeX && rangeY && rangeZ)
-                            {                              
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT Position -> {p.Title} - {p.position}");
                                 p.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -569,8 +570,8 @@ namespace AutoSplitterCore
                         foreach (var element in PantheonToSplit)
                         {
                             if (!element.IsSplited && PantheonCase(element.Title))
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                 element.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -583,7 +584,7 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Nailmasters") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -593,7 +594,7 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Painter") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -602,7 +603,7 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Sly") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
 
@@ -612,7 +613,7 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.previousScene.StartsWith("GG_Hollow_Knight") && !currentPosition.sceneName.StartsWith("GG_Atrium"))
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -621,7 +622,7 @@ namespace AutoSplitterCore
                             {
                                 if (currentPosition.sceneName.StartsWith("Cinematic_Ending_E"))
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT PHANTEON -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }

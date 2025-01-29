@@ -46,9 +46,6 @@ namespace AutoSplitterCore
 
         private ISplitterControl splitterControl = SplitterControl.GetControl();
 
-        #if !HCMv2
-        public Debug debugForm;
-        #endif
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };

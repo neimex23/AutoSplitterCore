@@ -38,10 +38,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.LabelVersion = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnSplitCf = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxCfID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Running = new System.Windows.Forms.Label();
             this.NotRunning = new System.Windows.Forms.Label();
@@ -68,8 +64,6 @@
             this.comboBoxGame.BackColor = System.Drawing.SystemColors.Control;
             this.comboBoxGame.FormattingEnabled = true;
             this.comboBoxGame.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.comboBoxGame.Items.AddRange(new object[] {
-            "None"});
             this.comboBoxGame.Location = new System.Drawing.Point(203, 24);
             this.comboBoxGame.Name = "comboBoxGame";
             this.comboBoxGame.Size = new System.Drawing.Size(243, 21);
@@ -123,10 +117,6 @@
             this.groupBoxDebug.Controls.Add(this.label8);
             this.groupBoxDebug.Controls.Add(this.LabelVersion);
             this.groupBoxDebug.Controls.Add(this.label7);
-            this.groupBoxDebug.Controls.Add(this.label6);
-            this.groupBoxDebug.Controls.Add(this.btnSplitCf);
-            this.groupBoxDebug.Controls.Add(this.label5);
-            this.groupBoxDebug.Controls.Add(this.textBoxCfID);
             this.groupBoxDebug.Controls.Add(this.label4);
             this.groupBoxDebug.Controls.Add(this.Running);
             this.groupBoxDebug.Controls.Add(this.NotRunning);
@@ -183,43 +173,6 @@
             this.label7.Size = new System.Drawing.Size(124, 13);
             this.label7.TabIndex = 67;
             this.label7.Text = "Version AutoSplitterCore:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(262, 192);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 26);
-            this.label6.TabIndex = 66;
-            this.label6.Text = "Check DTFiles for Ids\r\n   Only SoulsGames\r\n";
-            // 
-            // btnSplitCf
-            // 
-            this.btnSplitCf.BackColor = System.Drawing.Color.Red;
-            this.btnSplitCf.Location = new System.Drawing.Point(371, 161);
-            this.btnSplitCf.Name = "btnSplitCf";
-            this.btnSplitCf.Size = new System.Drawing.Size(30, 32);
-            this.btnSplitCf.TabIndex = 57;
-            this.btnSplitCf.UseVisualStyleBackColor = false;
-            this.btnSplitCf.Click += new System.EventHandler(this.btnSplitCf_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(281, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "CheckFlag ID:";
-            // 
-            // textBoxCfID
-            // 
-            this.textBoxCfID.Location = new System.Drawing.Point(265, 168);
-            this.textBoxCfID.Name = "textBoxCfID";
-            this.textBoxCfID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCfID.TabIndex = 64;
-            this.textBoxCfID.TextChanged += new System.EventHandler(this.textBoxCfID_TextChanged);
             // 
             // label4
             // 
@@ -383,7 +336,6 @@
             this.btnResetFlags.Size = new System.Drawing.Size(75, 23);
             this.btnResetFlags.TabIndex = 72;
             this.btnResetFlags.Text = "Reset Flags";
-            
             this.btnResetFlags.Click += new System.EventHandler(this.btnResetFlags_Click);
             // 
             // Debug
@@ -432,10 +384,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Running;
         private System.Windows.Forms.Label NotRunning;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnSplitCf;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxCfID;
         private System.Windows.Forms.CheckBox checkBoxPracticeMode;
         private System.Windows.Forms.Label labelCloudVer;
         private System.Windows.Forms.Label label8;

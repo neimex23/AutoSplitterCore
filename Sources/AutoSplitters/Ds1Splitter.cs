@@ -293,37 +293,37 @@ namespace AutoSplitterCore
                         if (!Ds1.IsPlayerLoaded())
                         {
                             foreach (var boss in listPendingB)
-                            {
-                                splitterControl.SplitCheck();
+                            {           
                                 var b = dataDs1.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* BOSS -> {dataDs1.bossToSplit[b].Title}");
                                 dataDs1.bossToSplit[b].IsSplited = true;
                             }
 
                             foreach (var bone in listPendingBon)
                             {
-                                splitterControl.SplitCheck();
                                 var bo = dataDs1.bonfireToSplit.FindIndex(Ibone => Ibone.Id == bone.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* BONFIRE -> {dataDs1.bonfireToSplit[bo].Title}");
                                 dataDs1.bonfireToSplit[bo].IsSplited = true;
                             }
 
                             foreach (var lvl in listPendingLvl)
                             {
-                                splitterControl.SplitCheck();
                                 var l = dataDs1.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* LEVEL -> {dataDs1.lvlToSplit[l].Attribute.ToString()} - {dataDs1.lvlToSplit[l].Value.ToString()}");
                                 dataDs1.lvlToSplit[l].IsSplited = true;
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                splitterControl.SplitCheck();
                                 var p = dataDs1.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* POSITION -> {dataDs1.positionsToSplit[p].Title} - {dataDs1.positionsToSplit[p].vector.ToString()}");
                                 dataDs1.positionsToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingItem)
                             {
-                                splitterControl.SplitCheck();
                                 var c = dataDs1.itemToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* ITEM -> {dataDs1.itemToSplit[c].Title}");
                                 dataDs1.itemToSplit[c].IsSplited = true;
                             }
 
@@ -359,8 +359,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 BOSS -> {b.Title}");
                                 b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -391,8 +391,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 BONFIRE -> {bonfire.Title}");
                                 bonfire.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -422,8 +422,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                                
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 LEVEL -> {lvl.Attribute} - {lvl.Value}");
                                 lvl.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -459,8 +459,8 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {                                    
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS1 POSITION -> {p.Title} - {p.vector.ToString()}");
                                     p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -1193,8 +1193,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS1 ITEM -> {item.Title}");
                                 item.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }

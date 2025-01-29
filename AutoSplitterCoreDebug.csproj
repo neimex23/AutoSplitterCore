@@ -67,10 +67,6 @@
       <HintPath>Sources\SoulMemory.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.CodeDom, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.CodeDom.9.0.0\lib\net462\System.CodeDom.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -80,6 +76,7 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -151,12 +148,6 @@
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
-    <Compile Include="Sources\ProgramModule\DebugControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sources\ProgramModule\DebugControl.Designer.cs">
-      <DependentUpon>DebugControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
     <Compile Include="Sources\ProgramModule\Program.cs" />
@@ -195,9 +186,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sources\ProgramModule\DebugControl.resx">
-      <DependentUpon>DebugControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>

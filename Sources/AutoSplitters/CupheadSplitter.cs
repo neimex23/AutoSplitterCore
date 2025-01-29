@@ -251,7 +251,7 @@ namespace AutoSplitterCore
                     {
                         if (!element.IsSplited && ElementCase(element.Title))
                         {                         
-                            splitterControl.SplitCheck();
+                            splitterControl.SplitCheck($"SplitFlags is produced by: Cuphead -> {element.Title}");
                             element.IsSplited = splitterControl.GetSplitStatus();
                         }
                     }

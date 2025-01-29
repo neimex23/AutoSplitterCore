@@ -23,6 +23,7 @@
 using System;
 using LiveSplit.Dishonored;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace AutoSplitterCore
 {
@@ -127,7 +128,7 @@ namespace AutoSplitterCore
                     || (type == GameMemory.AreaCompletionType.Weepers && dataDish.DishonoredOptions[4].Enable)
                     || (type == GameMemory.AreaCompletionType.DLC06IntroEnd && dataDish.DishonoredOptions[5].Enable))
                 {
-                    splitterControl.SplitCheck();
+                    splitterControl.SplitCheck($"SplitFlags is produced by: Dishonored -> {type.ToString()}");
                 }
             }
         }

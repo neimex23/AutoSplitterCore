@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace AutoSplitterCore
 {
@@ -76,7 +77,6 @@ namespace AutoSplitterCore
         /// <param name="index">index >-1: Set Index Combobox </param>
         void SetActiveGameIndex(int index);
 
-
         // <summary>
         /// Set ComboBox Practice on HCM
         /// </summary>
@@ -86,7 +86,8 @@ namespace AutoSplitterCore
         /// <summary>
         /// Processes a split in the main HCM program.
         /// </summary>
-        void SplitCheck();
+        /// <param name="DebugLog">DebugMode: for Log String</param>
+        void SplitCheck(string DebugLog);
 
         /// <summary>
         /// Force to Internal Proces of HCM update timer values to current value
@@ -201,7 +202,7 @@ namespace AutoSplitterCore
 
 
         private static readonly object _object = new object(); //To look multiple threadings
-        public void SplitCheck() //SplitStatus is seted false if user set Practice mode after a flagcheck is produced 
+        public void SplitCheck(string DebugLog) //SplitStatus is seted false if user set Practice mode after a flagcheck is produced 
         {
             lock (_object)
             {
@@ -209,6 +210,9 @@ namespace AutoSplitterCore
                     SplitStatus = false;
                 else
                 {
+                    var iDebug = Debug.GetDebugInterface();
+                    if (iDebug != null) iDebug.LogMessage(DebugLog);
+
                     if (_SplitGo) { Thread.Sleep(2000); }
                     _SplitGo = true;
                     SplitStatus = true;
