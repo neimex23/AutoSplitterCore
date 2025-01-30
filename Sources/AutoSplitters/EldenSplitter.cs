@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SoulMemory.EldenRing;
 using System.Threading;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace AutoSplitterCore
 {
@@ -249,29 +250,29 @@ namespace AutoSplitterCore
                         {
                             foreach (var boss in listPendingB)
                             {
-                                splitterControl.SplitCheck();
                                 var b = dataElden.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* BOSS -> {dataElden.bossToSplit[b].Title}");
                                 dataElden.bossToSplit[b].IsSplited = true;
                             }
 
                             foreach (var grace in listPendingG)
                             {
-                                splitterControl.SplitCheck();
                                 var g = dataElden.graceToSplit.FindIndex(igrace => igrace.Id == grace.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* GRACE -> {dataElden.graceToSplit[g].Title}");
                                 dataElden.graceToSplit[g].IsSplited = true;
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                splitterControl.SplitCheck();
                                 var p = dataElden.positionToSplit.FindIndex(iposition => iposition.vector == position.vector);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* POSITION -> {dataElden.positionToSplit[p].Title} - {dataElden.positionToSplit[p].vector.ToString()}");
                                 dataElden.positionToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingCf)
                             {
-                                splitterControl.SplitCheck();
                                 var c = dataElden.flagsToSplit.FindIndex(iflag => iflag.Id == cf.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* CUSTOM_FLAGS -> {dataElden.flagsToSplit[c].Title} - {dataElden.flagsToSplit[c].Id}");
                                 dataElden.flagsToSplit[c].IsSplited = true;
                             }
 
@@ -307,7 +308,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING BOSS -> {b.Title}");
                                 b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -337,8 +338,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING GRACE -> {i.Title}");
                                 i.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -370,7 +371,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
                                 cf.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -407,7 +408,7 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING POSITION -> {p.Title} - {p.vector.ToString()}");
                                     p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }

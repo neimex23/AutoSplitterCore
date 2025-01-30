@@ -24,6 +24,7 @@ using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -482,44 +483,44 @@ namespace AutoSplitterCore
                         {
                             foreach (var idol in listPendingI)
                             {
-                                splitterControl.SplitCheck();
                                 var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* IDOL -> {dataSekiro.idolsTosplit[i].Title}");
                                 dataSekiro.idolsTosplit[i].IsSplited = true;
                             }
 
                             foreach (var boss in listPendingB)
                             {
-                                splitterControl.SplitCheck();
                                 var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* BOSS -> {dataSekiro.bossToSplit[b].Title}");
                                 dataSekiro.bossToSplit[b].IsSplited = true;
 
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                splitterControl.SplitCheck();
                                 var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* POSITION -> {dataSekiro.positionsToSplit[p].Title} - {dataSekiro.positionsToSplit[p].vector.ToString()}");
                                 dataSekiro.positionsToSplit[p].IsSplited = true;
                             }
 
                             foreach (var cf in listPendingCf)
                             {
-                                splitterControl.SplitCheck();
                                 var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* CUSTOM_FLAG -> {dataSekiro.flagToSplit[c].Title} - {dataSekiro.flagToSplit[c].Id}");
                                 dataSekiro.flagToSplit[c].IsSplited = true;
                             }
 
                             foreach (var mb in listPendingMb)
                             {
-                                splitterControl.SplitCheck();
                                 var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* MINIBOSS -> {dataSekiro.miniBossToSplit[mbo].Title}");
                                 dataSekiro.miniBossToSplit[mbo].IsSplited = true;
                             }
 
                             foreach (var lvl in listPendingLevel)
                             {
-                                splitterControl.SplitCheck();
                                 var l = dataSekiro.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* LEVEL -> {dataSekiro.lvlToSplit[l].Attribute} - {dataSekiro.lvlToSplit[l].Value}");
                                 dataSekiro.lvlToSplit[l].IsSplited = true;
                             }
 
@@ -556,7 +557,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO BOSS -> {b.Title}");
                                 b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -588,8 +589,8 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {                                  
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS -> {mb.Title}");
                                     mb.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -611,8 +612,8 @@ namespace AutoSplitterCore
                                         }
                                     }
                                     else
-                                    {                                      
-                                        splitterControl.SplitCheck();
+                                    {
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS POSITION -> {mb.Title} - {mb.vector}");
                                         mb.IsSplited = splitterControl.GetSplitStatus();
                                     }
                                 }
@@ -692,7 +693,7 @@ namespace AutoSplitterCore
                         {
                             if (!sekiro.IsPlayerLoaded())
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MORTAL JOURNEY -> {p.vector}");
                                 if (splitterControl.GetSplitStatus())
                                 {
                                     p.IsSplited = true;
@@ -731,8 +732,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO IDOL -> {i.Title}");
                                 i.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -767,8 +768,8 @@ namespace AutoSplitterCore
                                     }
                                 }
                                 else
-                                {                                   
-                                    splitterControl.SplitCheck();
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO POSITION -> {p.Title} - {p.vector.ToString()}");
                                     p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
@@ -800,7 +801,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO LEVEL -> {lvl.Attribute} - {lvl.Value}");
                                 lvl.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -830,8 +831,8 @@ namespace AutoSplitterCore
                                 }
                             }
                             else
-                            {                               
-                                splitterControl.SplitCheck();
+                            {
+                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
                                 cf.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }

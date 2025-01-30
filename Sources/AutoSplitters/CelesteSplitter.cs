@@ -370,7 +370,7 @@ namespace AutoSplitterCore
 
                             if (shouldSplit)
                             {                       
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: Celeste -> {element.Title}");
                                 element.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }

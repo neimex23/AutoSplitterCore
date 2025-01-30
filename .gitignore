@@ -6,6 +6,7 @@
 bin/
 obj/
 packages/
+packages
 /publish
 /FinalFiles
 /appsettings.json

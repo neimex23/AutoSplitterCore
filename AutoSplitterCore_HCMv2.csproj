@@ -121,12 +121,14 @@
     <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
     <EmbeddedResource Include="appsettings.json" />
     <None Include="app.config" />
-    <None Include="Sources\ProgramModule\Debug.cs">
+    <Compile Include="Sources\ProgramModule\Debug.cs">
       <!--<SubType>Form</SubType>-->
-    </None>
-    <None Include="Sources\ProgramModule\Debug.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\Debug.Designer.cs">
       <!--<DependentUpon>Debug.cs</DependentUpon>-->
-    </None>
+      <DependentUpon>Debug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\AutoSplitters\Ds1Splitter.cs" />
     <Compile Include="Sources\AutoSplitters\Ds2Splitter.cs" />
     <Compile Include="Sources\AutoSplitters\Ds3Splitter.cs" />

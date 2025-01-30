@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 using SoulMemory.DarkSouls2;
 using SoulMemory;
 using System.Threading;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace AutoSplitterCore
 {
@@ -238,22 +239,22 @@ namespace AutoSplitterCore
                         {
                             foreach (var boss in listPendingB)
                             {
-                                splitterControl.SplitCheck();
                                 var b = dataDs2.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* BOSS -> {dataDs2.bossToSplit[b].Title}");
                                 dataDs2.bossToSplit[b].IsSplited = true;
                             }
 
                             foreach (var position in listPendingP)
                             {
-                                splitterControl.SplitCheck();
                                 var p = dataDs2.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {dataDs2.positionsToSplit[p].Title} - {dataDs2.positionsToSplit[p].vector.ToString()}");
                                 dataDs2.positionsToSplit[p].IsSplited = true;
                             }
 
                             foreach (var lvl in listPendingLvl)
                             {
-                                splitterControl.SplitCheck();
                                 var l = dataDs2.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* LEVEL -> {dataDs2.lvlToSplit[l].Attribute} - {dataDs2.lvlToSplit[l].Value}");
                                 dataDs2.lvlToSplit[l].IsSplited = true;
                             }
 
@@ -288,7 +289,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 BOSS -> {b.Title}");
                                 b.IsSplited = splitterControl.GetSplitStatus();                               
                             }
                         }
@@ -319,7 +320,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                splitterControl.SplitCheck();
+                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 LEVEL -> {lvl.Attribute} - {lvl.Value}");
                                 lvl.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
@@ -357,7 +358,7 @@ namespace AutoSplitterCore
                                 }
                                 else
                                 {
-                                    splitterControl.SplitCheck();
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {p.Title} - {p.vector.ToString()}");
                                     p.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }

@@ -305,12 +305,6 @@ namespace AutoSplitterCore
                 SplitterControl.GetControl().SetActiveGameIndex(mainModule.GetSplitterEnable());
                 SplitterControl.GetControl().SetPracticeMode(mainModule.GetPracticeMode());
             }
-            else
-            {
-                #if !HCMv2
-                    mainModule.debugForm.UpdateBoxes();
-                #endif
-            }
         }
 
         public string GetProfileName() => dataAS.ProfileName;
