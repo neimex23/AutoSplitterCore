@@ -25,9 +25,7 @@ using Google.Apis.Oauth2.v2;
 using Google.Apis.Oauth2.v2.Data;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
-using Google.Apis.Sheets.v4;
-using Google.Apis.Sheets.v4.Data;
-using Google.Apis.Util.Store;
+using Google.Apis.Download;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
@@ -40,31 +38,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using System.Runtime.InteropServices.ComTypes;
-using System.Diagnostics;
 using System.Web;
-using Google.Apis.Download;
-using System.Drawing;
+using Google.Apis.Util.Store;
+using Google.Cloud.Firestore;
+
 
 namespace AutoSplitterCore
 {
     public partial class GoogleAuth : ReaLTaiizor.Forms.LostForm
     {
-        static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email", DriveService.Scope.Drive };
+        static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email"};
         static string ApplicationName = "autosplittercore";
+        static FirestoreDb _firestoreDb;
 
-        private readonly string machineName = Environment.MachineName;
-        DriveService driveService = null;
-        Oauth2Service oauth2Service = null;
-        SheetsService sheetService;
+        readonly string machineName = Environment.MachineName;
+        DriveService driveService;
+        Oauth2Service oauth2Service;    
         UserCredential credential;
 
         SaveModule saveModule;
 
         string EmailLoged = null;
 
-        static readonly string folderASCId = "16Y9MeL_Zbi5NgfTbBvbG-7JzGpPkCEqV";
-        static readonly string folderHCMId = "1jpyGxDdaiaaHGcXdSE0YhDjLNy3DTh3-";
+        static readonly string folderASCId = "1S1dSAHxxap3dzl1Y9tgrTUVxpiVmOXEJ";
+        static readonly string folderHCMId = "1hYzCVP8GutPLnDwmsBvjui-dxQJoXOSj";
+        static string credentialsPath;
 
         public GoogleAuth(SaveModule saveModule)
         {
@@ -83,7 +81,6 @@ namespace AutoSplitterCore
                     checkedListBoxGamesSearch.Items.Add(games);
                 }
             }
-            btnForgetLogin.InactiveColor = System.Drawing.Color.Gray;
         }
 
         private object DeserializeXmlFile(string filePath, Type targetType)
@@ -106,34 +103,15 @@ namespace AutoSplitterCore
         private void btnLogin_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "You must select a Google account and enable all the required permissions for the drive folder where the files will be downloaded.\n" +
-                "The program will generate an encrypted key in the Google.Apis.auth folder.\n" +
+                "You must select a Google account and enable all the required permissions for the drive folder where the files will be downloaded.\n\n" +
+                "The program will generate an encrypted key in the AutoSplitterCore_Tokens folder.\n" +
                 "Do not disclose or transfer this key under any circumstances.\n\n" +
                 "By continuing, you accept our Privacy Policy and Terms & Conditions.",
                 "Warning",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation
             );
-            Cursor.Current = Cursors.WaitCursor;
             Task.Run(() => Auth());
-        }
-
-        private void btnForgetLogin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var dataStore = new EncryptedDataStore("Google.Apis.Auth");
-
-                dataStore.Clear(); // Remove all credentials
-
-                MessageBox.Show("Logout completed. All stored credentials have been cleared.", "Sussesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error during logout process: " + ex.Message);
-                MessageBox.Show("Error during logout process:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private async Task Auth()
@@ -143,15 +121,12 @@ namespace AutoSplitterCore
                 string googleCredentialsJson = await GetGoogleCredentials();
                 using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(googleCredentialsJson)))
                 {
-                    // Authenticate with the obtained credentials
-                    var dataStore = new EncryptedDataStore("Google.Apis.Auth");
-
                     credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.FromStream(stream).Secrets,
                         Scopes,
                         machineName,
                         CancellationToken.None,
-                        new FileDataStoreAdapter(dataStore)
+                        new FileDataStore("AutoSplitterCore_Tokens", true) 
                     );
 
 
@@ -166,7 +141,6 @@ namespace AutoSplitterCore
             Cursor = Cursors.Default;
         }
 
-
         //Dev should create a appsettings.json on root source code and using "Incrusting resource method" with url of AWS_ApiGateWay with name GetGoogleCredentials_ApiGateWay = api.url
         // For more info read my investigation: https://www.notion.so/Manejo-de-Secretos-c781ca2f65c449f4b9a6aa82fef3ab0a?pvs=4 (web on Spanish language)
         public static string GetAPIUrl()
@@ -180,6 +154,44 @@ namespace AutoSplitterCore
                     string jsonContent = reader.ReadToEnd();
                     var jsonObject = JObject.Parse(jsonContent);
                     return jsonObject["ApiSettings"]["GetGoogleCredentials_ApiGateWay"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on Incrusted Resource: ", ex);
+            }
+        }
+
+        public static string GetIAMGoogleKey()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    return jsonObject["IAMJson"]["Google"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on Incrusted Resource: ", ex);
+            }
+        }
+
+        public static string GetIAMFireBaseKey()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    return jsonObject["IAMJson"]["FireBase"].ToString();
                 }
             }
             catch (Exception ex)
@@ -242,76 +254,61 @@ namespace AutoSplitterCore
             }
         }
 
+
         private static readonly HttpClient client = new HttpClient();
 
         private void CreateService()
         {
-            // Create the Google Drive service
-            driveService = new DriveService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-
+            // Oauth
             oauth2Service = new Oauth2Service(new BaseClientService.Initializer
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
+            // Drive
+            GoogleCredential IAMcredential = GoogleCredential.FromJson(GetIAMGoogleKey())
+                .CreateScoped(new[] { DriveService.Scope.Drive });
 
-            sheetService = new SheetsService(new BaseClientService.Initializer()
+            driveService = new DriveService(new BaseClientService.Initializer()
             {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
+                HttpClientInitializer = IAMcredential,
+                ApplicationName = ApplicationName
             });
 
+            //FireStore
+            InitializeFirestore();
+           
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
             EmailLoged = userInfo.Email;
-            linkLabel1.Invoke(new Action(() =>
-            {
-                linkLabel1.Text = EmailLoged;
-                AfterLoginEvents();
-            }));
 
             groupBoxManagment.Invoke(new Action(() =>
             {
+                AfterLoginEvents();
+
+                linkLabel1.Text = EmailLoged;
                 groupBoxManagment.Enabled = true;
                 groupBoxManagment.BackColor = System.Drawing.Color.Transparent;
             }));
 
         }
 
-        public async Task<bool> IsEmailBannedAsync(string email)
+        public static void InitializeFirestore()
         {
-            var spreadsheetId = "1syCG3vchr4rHu-_9vQAS6UCJaoonZ06imyPzWNCRtRU";
-            var range = $"Sheet1!A2:B";
-            var request = sheetService.Spreadsheets.Values.Get(spreadsheetId, range);
-            var response = await request.ExecuteAsync();
-            var values = response.Values;
+            credentialsPath = Path.Combine(Path.GetTempPath(), "firebase_credentials.json");
 
-            if (values != null)
-            {
-                foreach (var row in values)
-                {
-                    if (row.Count > 0 && row[0].ToString().Equals(email, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true; // Email found
-                    }
-                }
-            }
+            File.WriteAllText(credentialsPath, GetIAMFireBaseKey());
 
-            return false; // Email not found
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialsPath);
+
+            _firestoreDb = FirestoreDb.Create(ApplicationName);
         }
-        #endregion
-        #region LoadFilesOnDrive
+
         private void AfterLoginEvents()
         {
-            btnLogin.InactiveColor = System.Drawing.Color.Gray;
+            btnLogin.BackColor = System.Drawing.Color.Gray;
             btnLogin.Enabled = false;
-            
-            btnForgetLogin.Enabled = true;
-            btnForgetLogin.InactiveColor = System.Drawing.Color.Black;
+            groupBoxLogin.BackColor = System.Drawing.Color.Gray;
 
             LoadFilesFromPublicFolder(folderASCId);
 
@@ -321,13 +318,19 @@ namespace AutoSplitterCore
             textBoxDate.Text = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
+        
+        #endregion
+        #region LoadFilesOnDrive
+      
         List<ListViewItem> allFiles = new List<ListViewItem>();
         private void LoadFilesFromPublicFolder(string folderId)
         {
-
             var request = driveService.Files.List();
-            request.Q = $"'{folderId}' in parents and mimeType != 'application/vnd.google-apps.folder' and trashed = false";
-            request.Fields = "files(id, name, description, properties, createdTime, mimeType)";
+            request.Q = $"'{folderId}' in parents and trashed=false";
+            request.Fields = "files(id, name, description, properties, createdTime, mimeType, parents)";
+            request.IncludeItemsFromAllDrives = true;
+            request.SupportsAllDrives = true;
+            request.Corpora = "allDrives";
 
             try
             {
@@ -344,7 +347,7 @@ namespace AutoSplitterCore
                     listViewFilesASC.Columns.Add("Description", 200);
                     listViewFilesASC.Columns.Add("Games", 100);
                     listViewFilesASC.Columns.Add("Date", 100);
-                    listViewFilesASC.Columns.Add("ID", 100);                  
+                    listViewFilesASC.Columns.Add("ID", 100);
                 }
 
                 listViewFilesASC.Items.Clear(); // Clean Elements
@@ -398,6 +401,10 @@ namespace AutoSplitterCore
             //Game Validation
             if (checkedListBoxGames.CheckedItems.Count == 0) { MessageBox.Show("You must select games for the profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);  return; }
 
+            //Concentitation check
+            if (MessageBox.Show("Your email is registered in our database to respect the terms and conditions when uploading this profile", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel) return;
+            
+
             //Email Validation
             var isEmailBanned = Task.Run(() => IsEmailBannedAsync(EmailLoged)).GetAwaiter().GetResult();
             if (isEmailBanned)
@@ -411,21 +418,13 @@ namespace AutoSplitterCore
                 return;
             }
 
+            Cursor = Cursors.WaitCursor;
             //Existing Validation
             string parentFolderId = radioButtonUAsc.Checked ? folderASCId : folderHCMId;
-
-
-            if (IsFileNameRepeated(profileName, parentFolderId))
-            {
-                MessageBox.Show("Profile name already exists, please use another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             //Profile Selecction Validations
             string path = Path.Combine(Path.GetTempPath(), $"{profileName}.xml");
 
-
-            // Serializador basado en el tipo de perfil
             object tempData;
             XmlSerializer serializer;
 
@@ -463,6 +462,7 @@ namespace AutoSplitterCore
             }
  
             UploadFile(parentFolderId, path);
+            Cursor = Cursors.Default;
         }
 
         private void UploadFile(string parentFolderId, string path)
@@ -470,14 +470,6 @@ namespace AutoSplitterCore
             //Upload Drive Processs
             try
             {
-                var folderRequest = driveService.Files.Get(parentFolderId);
-                var folder = folderRequest.Execute();
-                if (folder == null || folder.Trashed == true)
-                {
-                    MessageBox.Show("The specified parent folder is invalid or trashed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 // File metadata
                 var fileMetadata = new Google.Apis.Drive.v3.Data.File
                 {
@@ -500,15 +492,21 @@ namespace AutoSplitterCore
                 {
                     var request = driveService.Files.Create(fileMetadata, stream, mimeType);
                     request.Fields = "id";
-                    var uploadResult = request.Upload();
+                    var uploadResult = request.Upload();;
 
                     if (uploadResult.Status == Google.Apis.Upload.UploadStatus.Completed)
                     {
+                        var uploadedFile = request.ResponseBody;
+                        SetFilePublic(uploadedFile.Id);
+
+
+                        Task.Run(() => SendInformation(uploadedFile.Id).GetAwaiter());
+
                         MessageBox.Show("File uploaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (parentFolderId == folderASCId)
                         {
                             radioButtonDAsc.Checked = true;
-                        }else {  radioButtonDHcm.Checked = true; }
+                        }else {  radioButtonDHcm.Checked = true; }                   
                     }
                     else
                     {
@@ -525,22 +523,55 @@ namespace AutoSplitterCore
                 File.Delete(path);
             }
         }
-
-        public bool IsFileNameRepeated(string fileName, string parentFolderId)
+        private void SetFilePublic(string fileId)
         {
             try
             {
-                var request = driveService.Files.List();
-                request.Q = $"name = '{fileName}' and '{parentFolderId}' in parents and trashed = false";
-                request.Fields = "files(id, name)";
+                Google.Apis.Drive.v3.Data.Permission userPermission = new Google.Apis.Drive.v3.Data.Permission()
+                {
+                    Type = "anyone",
+                    Role = "reader"
+                };
 
-                var result = request.Execute();
-                return result.Files.Count > 0;
+                var request = driveService.Permissions.Create(userPermission, fileId);
+                request.Fields = "id";
+                request.Execute();
+
+                var updateFile = new Google.Apis.Drive.v3.Data.File
+                {
+                    ViewersCanCopyContent = true,
+                    CopyRequiresWriterPermission = false
+                };
+
+                var updateRequest = driveService.Files.Update(updateFile, fileId);
+                updateRequest.Fields = "id, name, webViewLink, shared";
+                var updatedFile = updateRequest.Execute();
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error: {ex.Message}");
+                MessageBox.Show($"Error to Settings Permissions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async Task SendInformation(string idFile)
+        {
+            CollectionReference collection = _firestoreDb.Collection("uploadHistory");
+            Dictionary<string, object> register = new Dictionary<string, object>
+            {
+                { "Email", EmailLoged },
+                { "IDFile", idFile },
+                { "NameFile", string.Concat(textBoxCurrrentProfile.Text, ".xml") },
+                { "Date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
+            };
+            await collection.AddAsync(register);
+            Console.WriteLine($"Upload Register on Firestore: {idFile} by {EmailLoged}");
+        }
+
+        public async Task<bool> IsEmailBannedAsync(string email)
+        {
+            CollectionReference coleccion = _firestoreDb.Collection("bannedEmails");
+            QuerySnapshot snapshot = await coleccion.WhereEqualTo("Email", email).GetSnapshotAsync();
+            return snapshot.Count > 0;
         }
 
         #region KindUpload
@@ -654,9 +685,11 @@ namespace AutoSplitterCore
                     if (radioButtonDAsc.Checked)
                     {
                         var configuration = DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter)) as DataAutoSplitter;
-                        SaveModule saveModuleLocal = new SaveModule();
-                        saveModuleLocal.dataAS = configuration;
-                        saveModuleLocal.MainModule = this.saveModule.MainModule;
+                        SaveModule saveModuleLocal = new SaveModule
+                        {
+                            dataAS = configuration,
+                            MainModule = this.saveModule.MainModule
+                        };
 
                         TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
                     }
@@ -792,13 +825,20 @@ namespace AutoSplitterCore
                 var selectedItem = listViewFilesASC.SelectedItems[0];
                 var fileId = selectedItem.SubItems[5].Text;
                 var fileName = selectedItem.Text;
-                Form form = new Report(EmailLoged, sheetService, fileId, fileName);
-                var buttonLocation = checkedListBoxGamesSearch.Location;
+                string baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScn76IddWwTunZdWiL-stkafrewrTWf6MLS8VcseH-awIyJYA/viewform?usp=pp_url";
 
-                form.StartPosition = FormStartPosition.Manual;
-                form.Location = buttonLocation;
-                form.ShowDialog();
+                string encodedFileID = HttpUtility.UrlEncode(fileId);
+                string encodedFileName = HttpUtility.UrlEncode(fileName);
+
+                string fullUrl = $"{baseUrl}&entry.293656606={encodedFileID}&entry.1666283038={encodedFileName}";
+
+                AutoSplitterMainModule.OpenWithBrowser(new Uri(fullUrl));
             }
+        }
+
+        private void GoogleAuth_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.Delete(credentialsPath);
         }
     }
 }
