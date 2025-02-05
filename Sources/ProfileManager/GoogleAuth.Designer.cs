@@ -626,7 +626,6 @@
             this.Image = null;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GoogleAuth_FormClosing);
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

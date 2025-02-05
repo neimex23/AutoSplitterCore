@@ -41,6 +41,9 @@ using System.Xml.Serialization;
 using System.Web;
 using Google.Apis.Util.Store;
 using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
+using Grpc.Auth;
+using Grpc.Core;
 
 
 namespace AutoSplitterCore
@@ -62,7 +65,7 @@ namespace AutoSplitterCore
 
         static readonly string folderASCId = "1S1dSAHxxap3dzl1Y9tgrTUVxpiVmOXEJ";
         static readonly string folderHCMId = "1hYzCVP8GutPLnDwmsBvjui-dxQJoXOSj";
-        static string credentialsPath;
+
 
         public GoogleAuth(SaveModule saveModule)
         {
@@ -181,7 +184,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public static string GetIAMFireBaseKey()
+        public static byte[] GetIAMFireBaseKeyBytes()
         {
             try
             {
@@ -191,7 +194,7 @@ namespace AutoSplitterCore
                 {
                     string jsonContent = reader.ReadToEnd();
                     var jsonObject = JObject.Parse(jsonContent);
-                    return jsonObject["IAMJson"]["FireBase"].ToString();
+                    return Encoding.UTF8.GetBytes(jsonObject["IAMJson"]["FireBase"].ToString());
                 }
             }
             catch (Exception ex)
@@ -295,20 +298,30 @@ namespace AutoSplitterCore
 
         public static void InitializeFirestore()
         {
-            credentialsPath = Path.Combine(Path.GetTempPath(), "firebase_credentials.json");
+            byte[] firebaseCredentials = GetIAMFireBaseKeyBytes();
 
-            File.WriteAllText(credentialsPath, GetIAMFireBaseKey());
+            using (var stream = new MemoryStream(firebaseCredentials))
+            {
+                var credentials = GoogleCredential.FromStream(stream)
+                    .CreateScoped(FirestoreClient.DefaultScopes);
 
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialsPath);
+                Channel channel = new Channel(FirestoreClient.DefaultEndpoint.ToString(), credentials.ToChannelCredentials());
 
-            _firestoreDb = FirestoreDb.Create(ApplicationName);
+                FirestoreClient _firestoreClient = new FirestoreClientBuilder
+                {
+                    Endpoint = FirestoreClient.DefaultEndpoint,
+                    ChannelCredentials = credentials.ToChannelCredentials()
+                }.Build();
+
+                _firestoreDb = FirestoreDb.Create(ApplicationName, _firestoreClient);
+            }
         }
 
         private void AfterLoginEvents()
         {
             btnLogin.BackColor = System.Drawing.Color.Gray;
             btnLogin.Enabled = false;
-            groupBoxLogin.BackColor = System.Drawing.Color.Gray;
+            groupBoxLogin.BackGColor = System.Drawing.Color.Gray;
 
             LoadFilesFromPublicFolder(folderASCId);
 
@@ -834,11 +847,6 @@ namespace AutoSplitterCore
 
                 AutoSplitterMainModule.OpenWithBrowser(new Uri(fullUrl));
             }
-        }
-
-        private void GoogleAuth_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            File.Delete(credentialsPath);
         }
     }
 }

@@ -139,6 +139,12 @@
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
     <None Include="Sources\ProgramModule\Program.cs" />
     <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
+    <Compile Include="Sources\ProgramModule\MultiSelectionMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\ProgramModule\MultiSelectionMode.Designer.cs">
+      <DependentUpon>MultiSelectionMode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\ProgramModule\UpdateModule.cs" />
     <Compile Include="Sources\ProgramModule\UpdateShowDialog.cs">
       <SubType>Form</SubType>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\ProgramModule\MultiSelectionMode.resx">
+      <DependentUpon>MultiSelectionMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialog.resx">
       <DependentUpon>UpdateShowDialog.cs</DependentUpon>

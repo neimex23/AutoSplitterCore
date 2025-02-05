@@ -119,7 +119,9 @@ namespace AutoSplitterCore
         {
             DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(idol);
             cIdol.Mode = mode;
-            dataSekiro.idolsTosplit.Add(cIdol);
+            if (!dataSekiro.idolsTosplit.Exists(x => x.Id == cIdol.Id)) {
+                dataSekiro.idolsTosplit.Add(cIdol);
+            }     
         }
 
         public List<String> GetAllIdols() => defS.GetAllIdols();

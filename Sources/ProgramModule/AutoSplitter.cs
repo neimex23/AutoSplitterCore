@@ -29,6 +29,10 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using ReaLTaiizor.Forms;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using ReaLTaiizor.Controls;
+using System.Threading;
 
 namespace AutoSplitterCore
 {
@@ -1024,7 +1028,7 @@ namespace AutoSplitterCore
         {
             saveModule.generalAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
         }
-
+        #region General
         private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isInitializing) return;
@@ -1046,6 +1050,46 @@ namespace AutoSplitterCore
             }
         }
 
+        private void listBoxLinkProfile_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.listBoxLinkProfile.SelectedItem != null)
+            {
+                int index = listBoxLinkProfile.SelectedIndex;
+                if (index >= 0)
+                {
+                    saveModule.RemoveProfileLink(index);
+                    listBoxLinkProfile.Items.RemoveAt(index);
+                }
+            }
+        }
+
+        private void buttonAddLinkProfile_Click(object sender, EventArgs e)
+        {
+            if (skyComboBoxAscProfile.SelectedIndex > -1 && skyComboBoxHcmProfile.SelectedIndex > -1)
+            {
+                string profileHcm = skyComboBoxHcmProfile.SelectedItem.ToString();
+                string profileAsc = skyComboBoxAscProfile.SelectedItem.ToString();
+
+
+                string profileLink = $"{profileHcm} - {profileAsc}";
+                if (!listBoxLinkProfile.Items.Contains(profileLink))
+                {
+                    saveModule.AddProfileLink(profileHcm, profileAsc);
+                    listBoxLinkProfile.Items.Add(profileLink);
+                }
+                else
+                {
+                    MessageBox.Show("You have already added this ProfileLink", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select HCM and ASC Profile to link", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void metroCheckBoxResetProfile_CheckedChanged(object sender) => saveModule.generalAS.ResetProfile = metroCheckBoxResetProfile.Checked;
+        #endregion
         #region TimmingConfg
         private void comboBoxTGame_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1535,7 +1579,7 @@ namespace AutoSplitterCore
 
         //Bosses Triggers
 
-        private void btn_AddBoss_Click(object sender, EventArgs e)
+        private void btn_AddBossS_Click(object sender, EventArgs e)
         {
             if (comboBoxBossS.SelectedIndex == -1 || comboBoxHowBossS.SelectedIndex == -1)
             {
@@ -1577,7 +1621,7 @@ namespace AutoSplitterCore
                 for (int i = 0; i < comboBoxBossS.Items.Count; i++) 
                 {
                     comboBoxBossS.SelectedIndex = i;
-                    btn_AddBoss_Click(null, null);
+                    btn_AddBossS_Click(null, null);
                 }
             }
         }
@@ -2156,7 +2200,7 @@ namespace AutoSplitterCore
 
         private void btnAddMiniBossSekiro_Click(object sender, EventArgs e)
         {
-            if (comboBoxMiniBossSekiro.SelectedIndex == -1 || comboBoxHowMiniBoss.SelectedIndex == -1)
+            if (comboBoxMiniBossSekiro.SelectedIndex == -1 || comboBoxHowMiniBossS.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select boss and 'How' do you want split  ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -2166,8 +2210,8 @@ namespace AutoSplitterCore
                 var contains2 = !listBoxMiniBossesS.Items.Contains(comboBoxMiniBossSekiro.Text.ToString() + " - " + "Loading game after");
                 if (contains1 && contains2)
                 {
-                    sekiroSplitter.AddMiniBoss(comboBoxMiniBossSekiro.Text.ToString(), comboBoxHowMiniBoss.Text.ToString());
-                    listBoxMiniBossesS.Items.Add(comboBoxMiniBossSekiro.Text.ToString() + " - " + comboBoxHowMiniBoss.Text.ToString());
+                    sekiroSplitter.AddMiniBoss(comboBoxMiniBossSekiro.Text.ToString(), comboBoxHowMiniBossS.Text.ToString());
+                    listBoxMiniBossesS.Items.Add(comboBoxMiniBossSekiro.Text.ToString() + " - " + comboBoxHowMiniBossS.Text.ToString());
                 }
                 else
                 {
@@ -2193,7 +2237,7 @@ namespace AutoSplitterCore
 
         private void btnAddAllMiniBossesS_Click(object sender, EventArgs e)
         {
-            if (comboBoxHowMiniBoss.SelectedIndex == -1)
+            if (comboBoxHowMiniBossS.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -2274,6 +2318,22 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnAddAllBossesDs1_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBossDs1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxBossDs1.Items.Count; i++)
+                {
+                    comboBoxBossDs1.SelectedIndex = i;
+                    btnAddBossDs1_Click(null, null);
+                }
+            }
+        }
+
         private void btnAddBonfireDs1_Click(object sender, EventArgs e)
         {
             if (comboBoxBonfireDs1.SelectedIndex == -1 || comboBoxHowBonfireDs1.SelectedIndex == -1 || comboBoxStateDs1.SelectedIndex == -1)
@@ -2333,6 +2393,26 @@ namespace AutoSplitterCore
                 {
                     MessageBox.Show("Check Value and try again", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+        private void btnAddAllBonfireDs1_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBonfireDs1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (comboBoxStateDs1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'State' for do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            for (int i = 0; i < comboBoxBonfireDs1.Items.Count; i++)
+            {
+                comboBoxBonfireDs1.SelectedIndex = i;
+                btnAddBonfireDs1_Click(null, null);
             }
         }
 
@@ -2414,7 +2494,7 @@ namespace AutoSplitterCore
             }           
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void btnAddItemDs1_Click(object sender, EventArgs e)
         {
 
             if (comboBoxItemDs1.SelectedIndex == -1 || comboBoxHowItemDs1.SelectedIndex == -1)
@@ -2444,6 +2524,21 @@ namespace AutoSplitterCore
                 int i = listBoxItemDs1.Items.IndexOf(listBoxItemDs1.SelectedItem);
                 ds1Splitter.RemoveItem(i);
                 listBoxItemDs1.Items.Remove(listBoxItemDs1.SelectedItem);
+            }
+        }
+        private void btnAddAllItemsDs1_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowItemDs1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxItemDs1.Items.Count; i++)
+                {
+                    comboBoxItemDs1.SelectedIndex = i;
+                    btnAddItemDs1_Click(null, null);
+                }
             }
         }
 
@@ -2508,6 +2603,22 @@ namespace AutoSplitterCore
                 int i = listBoxBossDs2.Items.IndexOf(listBoxBossDs2.SelectedItem);
                 ds2Splitter.RemoveBoss(i);
                 listBoxBossDs2.Items.Remove(listBoxBossDs2.SelectedItem);
+            }
+        }
+
+        private void btnAddAllBossesDs2_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBossDs2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxBossDs2.Items.Count; i++)
+                {
+                    comboBoxBossDs2.SelectedIndex = i;
+                    btnAddBossDS2_Click(null, null);
+                }
             }
         }
         private void btnAddAttributeDs2_Click(object sender, EventArgs e)
@@ -2704,7 +2815,23 @@ namespace AutoSplitterCore
             }
         }
 
-        private void btnAddBonfire_Click(object sender, EventArgs e)
+        private void btnAddAllBossesDS3_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBossDs3.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxBossDs3.Items.Count; i++)
+                {
+                    comboBoxBossDs3.SelectedIndex = i;
+                    btnAddBossDs3_Click(null, null);
+                }
+            }
+        }
+
+        private void btnAddBonfireDs3_Click(object sender, EventArgs e)
         {
             if (comboBoxBonfireDs3.SelectedIndex == -1 || comboBoxHowBonfireDs3.SelectedIndex == -1)
             {
@@ -2736,6 +2863,21 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnAddAllBonefireDs3_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBonfireDs3.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxBonfireDs3.Items.Count; i++)
+                {
+                    comboBoxBonfireDs3.SelectedIndex = i;
+                    btnAddBonfireDs3_Click(null, null);
+                }
+            }
+        }
 
         private void btnAddAttributeDs3_Click(object sender, EventArgs e)
         {
@@ -2942,7 +3084,7 @@ namespace AutoSplitterCore
 
         private void checkBoxDLC_CheckStateChanged(object sender, EventArgs e)
         {
-            if (checkBoxDLCBoss.Checked) 
+            if (checkBoxDLCBossER.Checked) 
             {
                 comboBoxBossER_DLC.Show();
                 comboBoxBossER.Hide();
@@ -2957,7 +3099,7 @@ namespace AutoSplitterCore
         private void btnAddBossER_Click(object sender, EventArgs e)
         {
             string comboBoxTextSelected = string.Empty;
-            _ = checkBoxDLCBoss.Checked ? comboBoxTextSelected = comboBoxTextSelected = comboBoxBossER_DLC.Text : comboBoxTextSelected = comboBoxBossER.Text;
+            _ = checkBoxDLCBossER.Checked ? comboBoxTextSelected = comboBoxTextSelected = comboBoxBossER_DLC.Text : comboBoxTextSelected = comboBoxBossER.Text;
 
             if (comboBoxTextSelected == string.Empty || comboBoxHowBossER.SelectedIndex == -1)
             {
@@ -3003,6 +3145,28 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnAddAllBossesER_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowBossER.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxBossER.Items.Count; i++)
+                {
+                    comboBoxBossER.SelectedIndex = i;
+                    btnAddBossER_Click(null, null);
+                }
+                checkBoxDLCBossER.Checked = true;
+                for (int i = 0; i < comboBoxBossER_DLC.Items.Count; i++)
+                {
+                    comboBoxBossER_DLC.SelectedIndex = i;
+                    btnAddBossER_Click(null, null);
+                }
+            }
+        }
+
         private void btnAddGraceER_Click(object sender, EventArgs e)
         {
             string comboBoxTextSelected = string.Empty;
@@ -3035,6 +3199,28 @@ namespace AutoSplitterCore
                 int i = listBoxGrace.Items.IndexOf(listBoxGrace.SelectedItem);
                 eldenSplitter.RemoveGrace(i);
                 listBoxGrace.Items.Remove(listBoxGrace.SelectedItem);
+            }
+        }
+
+        private void btnAddAllGraceER_Click(object sender, EventArgs e)
+        {
+            if (comboBoxHowGraceER.SelectedIndex == -1)
+            {
+                MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                for (int i = 0; i < comboBoxGraceER.Items.Count; i++)
+                {
+                    comboBoxGraceER.SelectedIndex = i;
+                    btnAddGraceER_Click(null, null);
+                }
+                checkBoxViewDlcGrace.Checked = true;
+                for (int i = 0; i < comboBoxGraceDLC_ER.Items.Count; i++)
+                {
+                    comboBoxGraceDLC_ER.SelectedIndex = i;
+                    btnAddGraceER_Click(null, null);
+                }
             }
         }
 
@@ -3600,45 +3786,158 @@ namespace AutoSplitterCore
         }
         #endregion
 
-        private void listBoxLinkProfile_DoubleClick(object sender, EventArgs e)
+        #region MultiSelectionMode
+        private Dictionary<string, Func<List<string>>> GetSelectionListMapping()
         {
-            if (this.listBoxLinkProfile.SelectedItem != null)
+            return new Dictionary<string, Func<List<string>>>
             {
-                int index = listBoxLinkProfile.SelectedIndex;
-                if (index >= 0)
-                {
-                    saveModule.RemoveProfileLink(index);
-                    listBoxLinkProfile.Items.RemoveAt(index);
-                }
-            }
+                { "panelBossS", () => comboBoxBossS.Items.OfType<string>().ToList() },
+                { "panelMinibossSekiro", () => comboBoxMiniBossSekiro.Items.OfType<string>().ToList() },
+                { "panelIdolsS", () => sekiroSplitter.GetAllIdols() },
+                { "panelBossER", () => comboBoxBossER.Items.OfType<string>().Concat(comboBoxBossER_DLC.Items.OfType<string>()).ToList() },
+                { "panelGraceER", () => comboBoxGraceER.Items.OfType<string>().Concat(comboBoxGraceDLC_ER.Items.OfType<string>()).ToList() },
+                { "panelBossDs1", () => comboBoxBossDs1.Items.OfType<string>().ToList() },
+                { "panelBonfireDs1", () => comboBoxBonfireDs1.Items.OfType<string>().ToList() },
+                { "panelItemDs1", () => comboBoxItemDs1.Items.OfType<string>().ToList() },
+                { "panelBossDS2", () => comboBoxBossDs2.Items.OfType<string>().ToList() },
+                { "panelBossDs3", () => comboBoxBossDs3.Items.OfType<string>().ToList() },
+                { "panelBonfireDs3", () => comboBoxBonfireDs3.Items.OfType<string>().ToList() }
+            };
+        }
+        private List<string> GetSelectionList(string panelName)
+        {
+            var selectionListMapping = GetSelectionListMapping();
+            return selectionListMapping.TryGetValue(panelName, out var getList) ? getList() : new List<string>();
         }
 
-        private void buttonAddLinkProfile_Click(object sender, EventArgs e)
+        private void linkLabelMultiSelection_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (skyComboBoxAscProfile.SelectedIndex > -1 && skyComboBoxHcmProfile.SelectedIndex > -1)
+            if (sender is LinkLabel linkLabel && linkLabel.Parent is LostBorderPanel panel)
             {
-                string profileHcm = skyComboBoxHcmProfile.SelectedItem.ToString();
-                string profileAsc = skyComboBoxAscProfile.SelectedItem.ToString();
+                Cursor = Cursors.WaitCursor;
+                var list = GetSelectionList(panel.Name);
+                var form = new MultiSelectionMode(list);
+                form.Show();
+                Cursor = Cursors.Default;
 
+                Task.Run(() =>
+                {
+                    while (!form.ReadyToRead)
+                    {
+                        Thread.Sleep(700);
+                    }
 
-                string profileLink = $"{profileHcm} - {profileAsc}";
-                if (!listBoxLinkProfile.Items.Contains(profileLink))
-                {
-                    saveModule.AddProfileLink(profileHcm, profileAsc); 
-                    listBoxLinkProfile.Items.Add(profileLink); 
-                }
-                else
-                {
-                    MessageBox.Show("You have already added this ProfileLink", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        foreach (var item in form.ReadyElements)
+                        {
+                            ProccessSelection(item, panel.Name);
+                        }
+                        form.Close();
+                    });
+                });
             }
             else
             {
-                MessageBox.Show("You must select HCM and ASC Profile to link", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The LinkLabel is not inside an expected panel");
             }
         }
 
-        private void metroCheckBoxResetProfile_CheckedChanged(object sender) => saveModule.generalAS.ResetProfile = metroCheckBoxResetProfile.Checked;
+        private void ProccessSelection(KeyValuePair<string, string> item, string Panel)
+        {
+            switch (Panel) {
+                #region Sekiro
+                case "panelBossS":
+                    comboBoxBossS.SelectedIndex = comboBoxBossS.FindString(item.Key.ToString());
+                    comboBoxHowBossS.SelectedIndex = comboBoxHowBossS.FindString(item.Value.ToString());
 
+                    btn_AddBossS_Click(null, null);
+                    break;
+                case "panelMinibossSekiro":
+                    comboBoxMiniBossSekiro.SelectedIndex = comboBoxMiniBossSekiro.FindString(item.Key.ToString());
+                    comboBoxHowMiniBossS.SelectedIndex = comboBoxHowBossS.FindString(item.Value.ToString());
+
+                    btnAddMiniBossSekiro_Click(null, null);
+                    break;
+                case "panelIdolsS":
+                    sekiroSplitter.AddIdol(item.Key, item.Value);
+                    this.Controls.Clear();
+                    this.InitializeComponent();
+                    RefreshForm();
+                    this.AutoSplitter_Load(null, null);//Load Others Games Settings
+                    TabControlGeneral.TabPages.Add(tabSekiro);
+                    TabControlGeneral.SelectTab(tabSekiro);
+                    toSplitSelectSekiro.SelectedIndex = 2;
+                    comboBoxZoneSelectS.SelectedIndex = 0;
+                    groupBoxAshinaOutskirts.Show();
+                    break;
+                #endregion
+                #region ER
+                case "panelBossER":
+                    comboBoxBossER.SelectedIndex = comboBoxBossER.FindString(item.Key.ToString());
+                    comboBoxBossER_DLC.SelectedIndex = comboBoxBossER_DLC.FindString(item.Key.ToString());
+                    comboBoxHowBossER.SelectedIndex = comboBoxHowBossER.FindString(item.Value.ToString());
+
+                    checkBoxDLCBossER.Checked = comboBoxBossER_DLC.SelectedIndex > -1;
+                    btnAddBossER_Click(null, null);
+                    break;
+                case "panelGraceER":
+                    comboBoxGraceER.SelectedIndex = comboBoxGraceER.FindString(item.Key.ToString());
+                    comboBoxGraceDLC_ER.SelectedIndex = comboBoxGraceDLC_ER.FindString(item.Key.ToString());
+                    comboBoxHowGraceER.SelectedIndex = comboBoxHowGraceER.FindString(item.Value.ToString());
+
+                    checkBoxViewDlcGrace.Checked = comboBoxGraceDLC_ER.SelectedIndex > -1;
+                    btnAddGraceER_Click(null, null);
+                    break;
+                #endregion
+                #region DS1
+                case "panelBossDs1":
+                    comboBoxBossDs1.SelectedIndex = comboBoxBossDs1.FindString(item.Key.ToString());
+                    comboBoxHowBossDs1.SelectedIndex = comboBoxHowBossDs1.FindString(item.Value.ToString());
+
+                    btnAddBossDs1_Click(null, null);
+                    break;
+                case "panelBonfireDs1":
+                    comboBoxStateDs1.SelectedIndex = 1; // Unlocked Default add
+                    comboBoxBonfireDs1.SelectedIndex = comboBoxBonfireDs1.FindString(item.Key.ToString());
+                    comboBoxHowBonfireDs1.SelectedIndex = comboBoxHowBonfireDs1.FindString(item.Value.ToString());
+
+                    btnAddBonfireDs1_Click(null, null);
+                    break;
+                case "panelItemDs1":
+                    comboBoxItemDs1.SelectedIndex = comboBoxItemDs1.FindString(item.Key.ToString());
+                    comboBoxHowItemDs1.SelectedIndex = comboBoxHowItemDs1.FindString(item.Value.ToString());
+
+                    btnAddItemDs1_Click(null, null);
+                    break;
+                #endregion
+                #region DS2
+                case "panelBossDS2":
+                    comboBoxBossDs2.SelectedIndex = comboBoxBossDs2.FindString(item.Key.ToString());
+                    comboBoxHowBossDs2.SelectedIndex = comboBoxHowBossDs2.FindString(item.Value.ToString());
+
+                    btnAddBossDS2_Click(null, null);
+                    break;
+                #endregion
+                #region DS3
+                case "panelBossDs3":
+                    comboBoxBossDs3.SelectedIndex = comboBoxBossDs3.FindString(item.Key.ToString());
+                    comboBoxHowBossDs3.SelectedIndex = comboBoxHowBossDs3.FindString(item.Value.ToString());
+
+                    btnAddBossDs3_Click(null, null);
+                    break;
+                case "panelBonfireDs3":
+                    comboBoxBonfireDs3.SelectedIndex = comboBoxBonfireDs3.FindString(item.Key.ToString());
+                    comboBoxHowBonfireDs3.SelectedIndex = comboBoxHowBonfireDs3.FindString(item.Value.ToString());
+
+                    btnAddBonfireDs3_Click(null, null);
+                    break;
+                #endregion
+                default:
+                    MessageBox.Show("The LinkLabel is not inside an expected panel");
+                    break;
+            }
+        }
+        #endregion
     }
 }
