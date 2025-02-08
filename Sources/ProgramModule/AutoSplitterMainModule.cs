@@ -48,7 +48,7 @@ namespace AutoSplitterCore
 
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
-        private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 500 };
+        private Timer updateTimer;
 
         public List<string> GetGames() { return GameConstruction.GameList; }
 
@@ -98,12 +98,9 @@ namespace AutoSplitterCore
             //LoadSettings
             saveModule.LoadAutoSplitterSettings();
 
-            #if !AutoSplitterCoreDebug
-            _update_timer.Tick += (senderT, args) => CheckAutoTimers();
-            #endif
-
-            _update_timer.Tick += (senderT, args) => CheckAutoResetSplit();
-            _update_timer.Enabled = true;
+            updateTimer = new Timer { Interval = 500 }; 
+            updateTimer.Tick += UpdateTimer_Tick; // Check AutoTimers, AutoResets
+            updateTimer.Start();
 
             updateModule.CheckUpdates(false);
 
@@ -258,7 +255,7 @@ namespace AutoSplitterCore
             {
                 try
                 {
-                    igtTime = (long)igtModule.ReturnCurrentIGT();
+                    igtTime = igtModule.ReturnCurrentIGT();
                 }
                 catch (Exception) { igtTime = -1; }
             }else { igtTime = -1; }
@@ -269,6 +266,14 @@ namespace AutoSplitterCore
         public bool GetIsIGTActive()
         {
             return this.anyGameTime && ReturnCurrentIGT() > 0;
+        }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            #if !AutoSplitterCoreDebug
+                CheckAutoTimers();
+            #endif
+            CheckAutoResetSplit();
         }
 
         public int gameActive = 0;
@@ -444,7 +449,7 @@ namespace AutoSplitterCore
             //AutoTimerReset Checking
             if (autoTimer && anyGameTime)
             {                
-                int inGameTime = -1;
+                long inGameTime = -1;
                 if (GameOn()) {
                     try {
                         inGameTime = igtModule.ReturnCurrentIGT(); 
@@ -471,7 +476,7 @@ namespace AutoSplitterCore
 
             if (autoTimer && !anyGameTime)
             {
-                int inGameTime = -1;
+                long inGameTime = -1;
                 if (GameOn())
                 {
                     try
@@ -494,7 +499,7 @@ namespace AutoSplitterCore
             //AutoResetSplits Checking
             if (saveModule.generalAS.AutoResetSplit)
             {
-                int inGameTime = -1;
+                long inGameTime = -1;
                 bool SpecialCaseReset = false;
                 if (GameOn())
                 {

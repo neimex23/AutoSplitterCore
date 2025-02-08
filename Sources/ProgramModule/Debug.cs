@@ -35,13 +35,11 @@ namespace AutoSplitterCore
 
         private readonly AutoSplitterMainModule mainModule;
         private int gameActive;
-        private readonly SynchronizationContext syncContext;
 
         public Debug(AutoSplitterMainModule mainModule)
         {
             InitializeComponent();
             this.mainModule = mainModule;
-            this.syncContext = SynchronizationContext.Current;
 
             mainModule.InitDebug();
             mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
@@ -126,66 +124,70 @@ namespace AutoSplitterCore
         private bool UpdateGameSpecificInfo()
         {
             var status = false;
-            switch (gameActive)
+            try
             {
-                case GameConstruction.SekiroSplitterIndex:
-                    var sekiroPosition = mainModule.sekiroSplitter.GetCurrentPosition();
-                    Vector3 sekiroFormat = new Vector3(sekiroPosition.X, sekiroPosition.Y, sekiroPosition.Z);
-                    UpdatePositionTextBoxes(sekiroFormat);
-                    status = mainModule.sekiroSplitter._StatusSekiro;
-                    break;
+                switch (gameActive)
+                {
+                    case GameConstruction.SekiroSplitterIndex:
+                        var sekiroPosition = mainModule.sekiroSplitter.GetCurrentPosition();
+                        Vector3 sekiroFormat = new Vector3(sekiroPosition.X, sekiroPosition.Y, sekiroPosition.Z);
+                        UpdatePositionTextBoxes(sekiroFormat);
+                        status = mainModule.sekiroSplitter._StatusSekiro;
+                        break;
 
-                case GameConstruction.Ds1SplitterIndex:
-                    var ds1Position = mainModule.ds1Splitter.GetCurrentPosition();
-                    Vector3 ds1Format = new Vector3(ds1Position.X, ds1Position.Y, ds1Position.Z);
-                    UpdatePositionTextBoxes(ds1Format);
-                    status = mainModule.ds1Splitter._StatusDs1;
-                    break;
+                    case GameConstruction.Ds1SplitterIndex:
+                        var ds1Position = mainModule.ds1Splitter.GetCurrentPosition();
+                        Vector3 ds1Format = new Vector3(ds1Position.X, ds1Position.Y, ds1Position.Z);
+                        UpdatePositionTextBoxes(ds1Format);
+                        status = mainModule.ds1Splitter._StatusDs1;
+                        break;
 
-                case GameConstruction.Ds2SplitterIndex:
-                    var ds2Position = mainModule.ds2Splitter.GetCurrentPosition();
-                    Vector3 ds2Format = new Vector3(ds2Position.X, ds2Position.Y, ds2Position.Z);
-                    UpdatePositionTextBoxes(ds2Format);
-                    status = mainModule.ds2Splitter._StatusDs2;
-                    break;
+                    case GameConstruction.Ds2SplitterIndex:
+                        var ds2Position = mainModule.ds2Splitter.GetCurrentPosition();
+                        Vector3 ds2Format = new Vector3(ds2Position.X, ds2Position.Y, ds2Position.Z);
+                        UpdatePositionTextBoxes(ds2Format);
+                        status = mainModule.ds2Splitter._StatusDs2;
+                        break;
 
-                case GameConstruction.Ds3SplitterIndex:
-                    var ds3Position = mainModule.ds3Splitter.GetCurrentPosition();
-                    Vector3 ds3Format = new Vector3(ds3Position.X, ds3Position.Y, ds3Position.Z);
-                    UpdatePositionTextBoxes(ds3Format);
-                    status = mainModule.ds3Splitter._StatusDs3;
-                    break;
+                    case GameConstruction.Ds3SplitterIndex:
+                        var ds3Position = mainModule.ds3Splitter.GetCurrentPosition();
+                        Vector3 ds3Format = new Vector3(ds3Position.X, ds3Position.Y, ds3Position.Z);
+                        UpdatePositionTextBoxes(ds3Format);
+                        status = mainModule.ds3Splitter._StatusDs3;
+                        break;
 
-                case GameConstruction.EldenSplitterIndex:
-                    var eldenPosition = mainModule.eldenSplitter.GetCurrentPosition();
-                    Vector3 eldenFormat = new Vector3(eldenPosition.X, eldenPosition.Y, eldenPosition.Z);
-                    UpdatePositionTextBoxes(eldenFormat);
-                    status = mainModule.eldenSplitter._StatusElden;
-                    break;
+                    case GameConstruction.EldenSplitterIndex:
+                        var eldenPosition = mainModule.eldenSplitter.GetCurrentPosition();
+                        Vector3 eldenFormat = new Vector3(eldenPosition.X, eldenPosition.Y, eldenPosition.Z);
+                        UpdatePositionTextBoxes(eldenFormat);
+                        status = mainModule.eldenSplitter._StatusElden;
+                        break;
 
-                case GameConstruction.HollowSplitterIndex:
-                    var hollowPosition = mainModule.hollowSplitter.GetCurrentPosition();
-                    Vector3 hollowFormat = new Vector3(hollowPosition.X, hollowPosition.Y, 0);
-                    UpdatePositionTextBoxes(hollowFormat);
-                    this.textBoxSceneName.Paste(mainModule.hollowSplitter.currentPosition.sceneName.ToString());
-                    status = mainModule.hollowSplitter._StatusHollow;
-                    break;
+                    case GameConstruction.HollowSplitterIndex:
+                        var hollowPosition = mainModule.hollowSplitter.GetCurrentPosition();
+                        Vector3 hollowFormat = new Vector3(hollowPosition.X, hollowPosition.Y, 0);
+                        UpdatePositionTextBoxes(hollowFormat);
+                        this.textBoxSceneName.Paste(mainModule.hollowSplitter.currentPosition.sceneName.ToString());
+                        status = mainModule.hollowSplitter._StatusHollow;
+                        break;
 
-                case GameConstruction.CelesteSplitterIndex:
-                    this.textBoxSceneName.Paste(mainModule.celesteSplitter.GetLevelName());
-                    status = mainModule.celesteSplitter._StatusCeleste;
-                    break;
+                    case GameConstruction.CelesteSplitterIndex:
+                        this.textBoxSceneName.Paste(mainModule.celesteSplitter.GetLevelName());
+                        status = mainModule.celesteSplitter._StatusCeleste;
+                        break;
 
-                case GameConstruction.CupheadSplitterIndex:
-                    this.textBoxSceneName.Paste(mainModule.cupSplitter.GetSceneName());
-                    status = mainModule.cupSplitter._StatusCuphead;
-                    break;
+                    case GameConstruction.CupheadSplitterIndex:
+                        this.textBoxSceneName.Paste(mainModule.cupSplitter.GetSceneName());
+                        status = mainModule.cupSplitter._StatusCuphead;
+                        break;
 
-                case GameConstruction.DishonoredSplitterIndex:
-                    status = mainModule.dishonoredSplitter._StatusDish;
-                    break;
+                    case GameConstruction.DishonoredSplitterIndex:
+                        status = mainModule.dishonoredSplitter._StatusDish;
+                        break;
 
+                }
             }
+            catch (Exception ex) { LogMessage($"Exception Produce on CheckBoxes: {ex.Message}"); }
             return status;
         }
 

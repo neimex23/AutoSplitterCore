@@ -20,43 +20,40 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using System.Collections.Generic;
+using System.Diagnostics;
+using System;
+
 namespace AutoSplitterCore
 {
     public class IGTModule
     {
-        public int gameSelect = 0;
+        public int gameSelect { get; set; }
+
+        private Dictionary<int, Func<long>> splitterMap;
+
         SekiroSplitter sekiroSplitter;
         EldenSplitter eldenSplitter;
         Ds3Splitter ds3Splitter;
         Ds1Splitter ds1Splitter;
         CelesteSplitter celesteSplitter;
         CupheadSplitter cupSplitter;
-        public int ReturnCurrentIGT()
-        {
-            switch (gameSelect)
-            {
-                case GameConstruction.SekiroSplitterIndex:
-                    return sekiroSplitter.GetTimeInGame();
-                case GameConstruction.Ds1SplitterIndex:
-                    return ds1Splitter.GetTimeInGame();
-                case GameConstruction.Ds3SplitterIndex:
-                    return ds3Splitter.GetTimeInGame();
-                case GameConstruction.EldenSplitterIndex:
-                    return eldenSplitter.GetTimeInGame();
-                case GameConstruction.CelesteSplitterIndex:
-                    return celesteSplitter.GetTimeInGame();
-                case GameConstruction.CupheadSplitterIndex:
-                    return cupSplitter.GetTimeInGame();
 
-                case GameConstruction.Ds2SplitterIndex:
-                case GameConstruction.HollowSplitterIndex:
-                case GameConstruction.DishonoredSplitterIndex:
-                case GameConstruction.NoneSplitterIndex:
-                default:
-                    return -1;
-            }
+        public IGTModule()
+        {
+            splitterMap = new Dictionary<int, Func<long>>
+            {
+                { GameConstruction.SekiroSplitterIndex, () => sekiroSplitter.GetTimeInGame() },
+                { GameConstruction.Ds1SplitterIndex, () => ds1Splitter.GetTimeInGame() },
+                { GameConstruction.Ds3SplitterIndex, () => ds3Splitter.GetTimeInGame() },
+                { GameConstruction.EldenSplitterIndex, () => eldenSplitter.GetTimeInGame() }, 
+                { GameConstruction.CelesteSplitterIndex, () => celesteSplitter.GetTimeInGame() },
+                { GameConstruction.CupheadSplitterIndex, () => cupSplitter.GetTimeInGame() }
+            };
         }
 
+        public long ReturnCurrentIGT() => splitterMap.ContainsKey(gameSelect)? splitterMap[gameSelect]() : -1;
+     
         public void SetSplitterPointers(SekiroSplitter sekiroSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter)
         {
             this.sekiroSplitter = sekiroSplitter;

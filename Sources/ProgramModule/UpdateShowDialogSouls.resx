@@ -118,12 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TextBoxWarning.Text" xml:space="preserve">
-    <value>Soul Memory is a extension for Livesplit developed by FrankvdStam to AutoSplit for all SoulsGames, is a big dependency of AutoSplitterCore and is highly recommended keep updated, 
-To avoid bugs and improve performance issues.
- 
-If you have problems with any new update of this dependency contact immediately with me by Discord to give support.
+    <value>Soul Memory is an extension for LiveSplit, developed by FrankvdStam, designed to enhance AutoSplit functionality across all Souls games.
+It is a major dependency for AutoSplitterCore, and keeping it up-to-date is highly recommended to avoid bugs and improve performance.
 
-Save Profiles and Settings Before Update</value>
+[-] Why Keep Soul Memory Updated?
+   Bug Prevention: Outdated versions can cause unexpected issues.
+   Optimized Performance: New updates often include performance improvements.
+   Compatibility: Ensures smooth integration with the latest versions of AutoSplitterCore.
+
+If you encounter any problems with new updates and compatibilitation with ASC, please contact me directly via Discord for support.
+
+⚠️ Before Updating:
+Make sure to save your profiles and settings to prevent data loss during the update process.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

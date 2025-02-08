@@ -27,27 +27,19 @@ using System.Net;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Diagnostics;
+using ReaLTaiizor.Forms;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
-    public partial class UpdateShowDialogSouls : Form
+    public partial class UpdateShowDialogSouls : MaterialForm
     {
         private UpdateModule updateModule;
+
         public UpdateShowDialogSouls(UpdateModule updateModule)
         {
             InitializeComponent();
             this.updateModule = updateModule;
-        }
-
-        private void btnGoToDownloadPage_Click(object sender, EventArgs e)
-        {
-            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/FrankvdStam/SoulSplitter/releases/latest"));
-            Close();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void UpdateShowDialogSouls_Load(object sender, EventArgs e)
@@ -57,37 +49,70 @@ namespace AutoSplitterCore
             groupBoxUpdating.Hide();
         }
 
+        private void btnGoToDownloadPage_Click(object sender, EventArgs e)
+        {
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/FrankvdStam/SoulSplitter/releases/latest"));
+            Close();
+        }
 
-        private void btnDownload_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e) => Close();
+
+        private async void btnDownload_Click(object sender, EventArgs e)
         {
             groupBoxUpdate.Hide();
             groupBoxUpdating.Show();
             Refresh();
-            WebClient webClient = new WebClient();
+
+            await DownloadAndUpdateAsync();
+        }
+
+        private async Task DownloadAndUpdateAsync()
+        {
             string ver = updateModule.cloudSoulsVerNotDot;
-            string url = "https://github.com/FrankvdStam/SoulSplitter/releases/download/" + ver + "/"+ ver + ".zip";
-            string to = Path.GetFullPath("SoulMemory.dll").ToString() + ".zip";
-            string extractPath = Directory.GetCurrentDirectory() + "/Update";
-            progressBarUpdating.Increment(20);
-            webClient.DownloadFile(url, to);
-            
-            if (!Directory.Exists(extractPath)) Directory.CreateDirectory(extractPath);
-            DirectoryInfo directory = new DirectoryInfo(extractPath);
-            foreach (FileInfo file in directory.GetFiles()) file.Delete();
+            string url = $"https://github.com/FrankvdStam/SoulSplitter/releases/download/{ver}/{ver}.zip";
+            string zipFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SoulMemory.zip");
+            string extractPath = Path.Combine(Directory.GetCurrentDirectory(), "Update");
 
-            progressBarUpdating.Increment(30);
-            ZipFile.ExtractToDirectory(to, extractPath);
-            File.Delete(to);
-            progressBarUpdating.Increment(50);
-            MessageBox.Show("Download Successfully \n The Program will close to Install Update", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Path.GetFullPath("UpdateScriptASC.bat");
-            startInfo.Arguments = "3";
-            startInfo.WindowStyle = ProcessWindowStyle.Normal;
+            progressBarUpdating.Value = 0;
 
-            Process.Start(startInfo);
+            try
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    progressBarUpdating.PerformStep(); // 20%
+                    await webClient.DownloadFileTaskAsync(new Uri(url), zipFilePath);
+                }
 
-            Close();
+                if (!Directory.Exists(extractPath))
+                    Directory.CreateDirectory(extractPath);
+
+                foreach (var file in Directory.GetFiles(extractPath))
+                    File.Delete(file);
+
+                progressBarUpdating.PerformStep(); // 50%
+
+                ZipFile.ExtractToDirectory(zipFilePath, extractPath);
+                File.Delete(zipFilePath);
+
+                progressBarUpdating.PerformStep(); // 100%
+
+                MessageBox.Show("Download Successful. The program will close to install the update.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = Path.GetFullPath("UpdateScriptASC.bat"),
+                    Arguments = "3",
+                    WindowStyle = ProcessWindowStyle.Normal
+                };
+
+                Process.Start(startInfo);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Update failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
+
