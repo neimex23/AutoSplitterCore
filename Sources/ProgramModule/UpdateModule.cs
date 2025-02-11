@@ -46,6 +46,14 @@ namespace AutoSplitterCore
         private Assembly dll;
         private Assembly SoulDll;
 
+        #region SingletonFactory
+        private static UpdateModule _intance = new UpdateModule();
+
+        private UpdateModule() { }
+
+        public static UpdateModule GetIntance() { return _intance; }
+        #endregion
+
         public void CheckUpdates(bool ForceUpdate)
         {
             bool update = false;
@@ -119,14 +127,14 @@ namespace AutoSplitterCore
                 if (Releases.Count > 0 && dll != null && Releases[0] > dll.GetName().Version)
                 {
                     update = true;
-                    Form aux = new UpdateShowDialog(this);
+                    Form aux = new UpdateShowDialog();
                     aux.ShowDialog();
                 }
 
                 if (SoulsMemoryRelease.Count > 0 && SoulDll != null && cloudSoulsVer != SoulDll.GetName().Version.ToString())
                 {
                     update = true;
-                    Form aux2 = new UpdateShowDialogSouls(this);
+                    Form aux2 = new UpdateShowDialogSouls();
                     aux2.ShowDialog();
                 }
 

@@ -74,7 +74,7 @@
             this.groupBoxUpdating.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxUpdating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBoxUpdating.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxUpdating.Location = new System.Drawing.Point(203, 248);
+            this.groupBoxUpdating.Location = new System.Drawing.Point(203, 245);
             this.groupBoxUpdating.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxUpdating.Name = "groupBoxUpdating";
             this.groupBoxUpdating.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
@@ -120,7 +120,7 @@
             this.groupBoxUpdate.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBoxUpdate.HeaderColor = System.Drawing.Color.CornflowerBlue;
-            this.groupBoxUpdate.Location = new System.Drawing.Point(203, 248);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(203, 245);
             this.groupBoxUpdate.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);

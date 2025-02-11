@@ -39,6 +39,13 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
+        #region SingletonFactory
+        private static CupheadSplitter _intance = new CupheadSplitter();
+
+        private CupheadSplitter() { }
+
+        public static CupheadSplitter GetIntance() { return _intance; }
+        #endregion
 
         #region Control Management
         public DTCuphead GetDataCuphead() => dataCuphead;

@@ -42,6 +42,14 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
+        #region SingletonFactory
+        private static Ds2Splitter _intance = new Ds2Splitter();
+
+        private Ds2Splitter() { }
+
+        public static Ds2Splitter GetIntance() { return _intance; }
+        #endregion
+
         #region Control Management
         public DTDs2 GetDataDs2() => dataDs2;
 

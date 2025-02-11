@@ -11,12 +11,11 @@ namespace AutoSplitterCore
 {
     public partial class UpdateShowDialog : MaterialForm
     {
-        private UpdateModule updateModule;
+        private UpdateModule updateModule = UpdateModule.GetIntance();
 
-        public UpdateShowDialog(UpdateModule updateModule)
+        public UpdateShowDialog()
         {
             InitializeComponent();
-            this.updateModule = updateModule;
         }
 
         private void UpdateShowDialog_Load(object sender, EventArgs e)
@@ -75,7 +74,8 @@ namespace AutoSplitterCore
             };
 
             progressBarUpdating.Value = 0;
-            progressBarUpdating.Step = 20;
+            progressBarUpdating.Step = 50;
+            progressBarUpdating.PerformStep();
 
             try
             {

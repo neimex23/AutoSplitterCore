@@ -45,35 +45,21 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FirebaseAdmin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=97c8d00c348326ed, processorArchitecture=MSIL">
-      <HintPath>packages\FirebaseAdmin.3.1.0\lib\net462\FirebaseAdmin.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Api.CommonProtos, Version=2.16.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Api.CommonProtos.2.16.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Api.Gax.Rest, Version=4.8.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Api.Gax.Rest.4.8.0\lib\net462\Google.Api.Gax.Rest.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Cloud.Firestore, Version=3.9.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Cloud.Firestore.3.9.0\lib\net462\Google.Cloud.Firestore.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Cloud.Firestore.V1, Version=3.9.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Cloud.Firestore.V1.3.9.0\lib\net462\Google.Cloud.Firestore.V1.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Cloud.Location, Version=2.3.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
-      <HintPath>packages\Google.Cloud.Location.2.3.0\lib\net462\Google.Cloud.Location.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.LongRunning, Version=3.3.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
-      <HintPath>packages\Google.LongRunning.3.3.0\lib\net462\Google.LongRunning.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>packages\Grpc.Core.2.46.6\lib\net45\Grpc.Core.dll</HintPath>
+    <Reference Include="Google.Api.Gax.Rest, Version=4.10.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.Rest.4.10.0\lib\net462\Google.Api.Gax.Rest.dll</HintPath>
     </Reference>
     <Reference Include="HitCounterManager">
       <HintPath>Sources\HitCounterManager.dll</HintPath>
     </Reference>
+    <Reference Include="Irony, Version=1.5.3.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>packages\Irony.1.5.3\lib\netstandard2.0\Irony.dll</HintPath>
+    </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveSplit.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Sources\LiveSplit.Core.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Cuphead">
       <HintPath>Sources\LiveSplit.Cuphead.dll</HintPath>
@@ -86,11 +72,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
+    <Reference Include="LiveSplit.ScriptableAutoSplit">
+      <HintPath>Sources\LiveSplit.ScriptableAutoSplit.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SoulMemory, Version=1.2.1.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Sources\SoulMemory.dll</HintPath>
+    </Reference>
+    <Reference Include="SpeedrunComSharp">
+      <HintPath>Sources\SpeedrunComSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -101,17 +93,10 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Linq.Async, Version=6.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>packages\System.Linq.Async.6.0.1\lib\net48\System.Linq.Async.dll</HintPath>
-    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -129,6 +114,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sources\AutoSplitters\ASLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\AutoSplitters\ASLForm.Designer.cs">
+      <DependentUpon>ASLForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\AutoSplitters\ASLSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
@@ -201,6 +193,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\AutoSplitters\ASLForm.resx">
+      <DependentUpon>ASLForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\ProfileManager\GoogleAuth.resx">
       <DependentUpon>GoogleAuth.cs</DependentUpon>

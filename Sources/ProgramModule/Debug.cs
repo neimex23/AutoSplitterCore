@@ -1,6 +1,9 @@
 ﻿using HitCounterManager;
+using Microsoft.Extensions.Logging.Abstractions;
+using SoulMemory.DarkSouls1;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,7 +24,6 @@ namespace AutoSplitterCore
     {
         #region SingletonFactory
         private static IDebugLogger _logger;
-        private static readonly object _lock = new object ();
 
         public static void RegisterDebugInterfaces(Debug debugForm)
         {
@@ -49,11 +51,26 @@ namespace AutoSplitterCore
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();
             updateTimer.Start();
+
+            InitializeLogListView();
+        }
+
+        private void InitializeLogListView()
+        {
+            listViewLog.View = View.Details;
+            listViewLog.FullRowSelect = true;
+            listViewLog.GridLines = true;
+            listViewLog.Columns.Add("Timestamp", 150);
+            listViewLog.Columns.Add("Message", 500);
+
+            listViewLog.VirtualMode = true;
+            listViewLog.RetrieveVirtualItem += ListViewLog_RetrieveVirtualItem;
+
+            listViewLog.MouseDoubleClick += ListViewLog_MouseDoubleClick;
         }
 
         private void Debug_Load(object sender, EventArgs e)
         {
-            comboBoxIGTConversion.SelectedIndex = 1;
             checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
 
             var gameList = mainModule.GetGames();
@@ -63,7 +80,7 @@ namespace AutoSplitterCore
             LabelVersion.Text = mainModule.updateModule.currentVer;
             labelCloudVer.Text = mainModule.updateModule.cloudVer;
 
-            listBoxLog.Items.Clear();
+            listViewLog.Items.Clear();
         }
 
         private void comboBoxGame_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,17 +114,12 @@ namespace AutoSplitterCore
             ClearTextBoxes();
 
             bool status = false;
-            int conversionFactor = 1;
 
-            switch (comboBoxIGTConversion.SelectedIndex)
-            {
-                case 0: conversionFactor = 1; break;
-                case 1: conversionFactor = 1000; break;
-                case 2: conversionFactor = 60000; break;
-            }
 
             status = UpdateGameSpecificInfo();
-            textBoxIGT.Text = (mainModule.ReturnCurrentIGT() / conversionFactor).ToString();
+
+            TimeSpan tiempo = TimeSpan.FromMilliseconds(mainModule.ReturnCurrentIGT());
+            textBoxIGT.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", tiempo.Hours, tiempo.Minutes, tiempo.Seconds);
 
             if (status)
             {
@@ -128,61 +140,61 @@ namespace AutoSplitterCore
             {
                 switch (gameActive)
                 {
-                    case GameConstruction.SekiroSplitterIndex:
-                        var sekiroPosition = mainModule.sekiroSplitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.Sekiro:
+                        var sekiroPosition = SekiroSplitter.GetIntance().GetCurrentPosition();
                         Vector3 sekiroFormat = new Vector3(sekiroPosition.X, sekiroPosition.Y, sekiroPosition.Z);
                         UpdatePositionTextBoxes(sekiroFormat);
-                        status = mainModule.sekiroSplitter._StatusSekiro;
+                        status = SekiroSplitter.GetIntance()._StatusSekiro;
                         break;
 
-                    case GameConstruction.Ds1SplitterIndex:
-                        var ds1Position = mainModule.ds1Splitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.DarkSouls1:
+                        var ds1Position = Ds1Splitter.GetIntance().GetCurrentPosition();
                         Vector3 ds1Format = new Vector3(ds1Position.X, ds1Position.Y, ds1Position.Z);
                         UpdatePositionTextBoxes(ds1Format);
-                        status = mainModule.ds1Splitter._StatusDs1;
+                        status = Ds1Splitter.GetIntance()._StatusDs1;
                         break;
 
-                    case GameConstruction.Ds2SplitterIndex:
-                        var ds2Position = mainModule.ds2Splitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.DarkSouls2:
+                        var ds2Position = Ds2Splitter.GetIntance().GetCurrentPosition();
                         Vector3 ds2Format = new Vector3(ds2Position.X, ds2Position.Y, ds2Position.Z);
                         UpdatePositionTextBoxes(ds2Format);
-                        status = mainModule.ds2Splitter._StatusDs2;
+                        status = Ds2Splitter.GetIntance()._StatusDs2;
                         break;
 
-                    case GameConstruction.Ds3SplitterIndex:
-                        var ds3Position = mainModule.ds3Splitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.DarkSouls3:
+                        var ds3Position = Ds3Splitter.GetIntance().GetCurrentPosition();
                         Vector3 ds3Format = new Vector3(ds3Position.X, ds3Position.Y, ds3Position.Z);
                         UpdatePositionTextBoxes(ds3Format);
-                        status = mainModule.ds3Splitter._StatusDs3;
+                        status = Ds3Splitter.GetIntance()._StatusDs3;
                         break;
 
-                    case GameConstruction.EldenSplitterIndex:
-                        var eldenPosition = mainModule.eldenSplitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.EldenRing:
+                        var eldenPosition = EldenSplitter.GetIntance().GetCurrentPosition();
                         Vector3 eldenFormat = new Vector3(eldenPosition.X, eldenPosition.Y, eldenPosition.Z);
                         UpdatePositionTextBoxes(eldenFormat);
-                        status = mainModule.eldenSplitter._StatusElden;
+                        status = EldenSplitter.GetIntance()._StatusElden;
                         break;
 
-                    case GameConstruction.HollowSplitterIndex:
-                        var hollowPosition = mainModule.hollowSplitter.GetCurrentPosition();
+                    case (int)GameConstruction.Game.HollowKnight:
+                        var hollowPosition = HollowSplitter.GetIntance().GetCurrentPosition();
                         Vector3 hollowFormat = new Vector3(hollowPosition.X, hollowPosition.Y, 0);
                         UpdatePositionTextBoxes(hollowFormat);
-                        this.textBoxSceneName.Paste(mainModule.hollowSplitter.currentPosition.sceneName.ToString());
-                        status = mainModule.hollowSplitter._StatusHollow;
+                        this.textBoxSceneName.Paste(HollowSplitter.GetIntance().currentPosition.sceneName.ToString());
+                        status = HollowSplitter.GetIntance()._StatusHollow;
                         break;
 
-                    case GameConstruction.CelesteSplitterIndex:
-                        this.textBoxSceneName.Paste(mainModule.celesteSplitter.GetLevelName());
-                        status = mainModule.celesteSplitter._StatusCeleste;
+                    case (int)GameConstruction.Game.Celeste:
+                        this.textBoxSceneName.Paste(CelesteSplitter.GetIntance().GetLevelName());
+                        status = CelesteSplitter.GetIntance()._StatusCeleste;
                         break;
 
-                    case GameConstruction.CupheadSplitterIndex:
-                        this.textBoxSceneName.Paste(mainModule.cupSplitter.GetSceneName());
-                        status = mainModule.cupSplitter._StatusCuphead;
+                    case (int)GameConstruction.Game.Cuphead:
+                        this.textBoxSceneName.Paste(CupheadSplitter.GetIntance().GetSceneName());
+                        status = CupheadSplitter.GetIntance()._StatusCuphead;
                         break;
 
-                    case GameConstruction.DishonoredSplitterIndex:
-                        status = mainModule.dishonoredSplitter._StatusDish;
+                    case (int)GameConstruction.Game.Dishonored:
+                        status = DishonoredSplitter.GetIntance()._StatusDish;
                         break;
 
                 }
@@ -207,54 +219,77 @@ namespace AutoSplitterCore
             textBoxZ.Text = position.Z.ToString("0.00");
         }
 
+        private List<LogEntry> logEntries = new List<LogEntry>();
+
+
         public void LogMessage(string message)
         {
-            if (listBoxLog.InvokeRequired)
+            if (listViewLog.InvokeRequired)
             {
-                listBoxLog.Invoke(new Action<string>(LogMessage), message);
+                listViewLog.Invoke(new Action<string>(LogMessage), message);
                 return;
             }
 
-            listBoxLog.Items.Add(message);
-            if (listBoxLog.Items.Count > 1)
+            logEntries.Add(new LogEntry
             {
-                listBoxLog.SelectedIndex = listBoxLog.Items.Count - 1;
+                Timestamp = DateTime.Now,
+                Message = message
+            });
+
+            listViewLog.VirtualListSize = logEntries.Count;
+            listViewLog.Invalidate();
+        }
+
+        private void ListViewLog_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
+        {
+            if (e.ItemIndex >= 0 && e.ItemIndex < logEntries.Count)
+            {
+                var log = logEntries[e.ItemIndex];
+                var item = new ListViewItem(log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss"))
+                {
+                    SubItems = { log.Message }
+                };
+
+                if (e.ItemIndex % 2 == 0)
+                {
+                    item.BackColor = Color.LightGray;
+                }
+
+                e.Item = item;
             }
         }
 
+        private void ListViewLog_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo hit = listViewLog.HitTest(e.Location);
+            if (hit.Item != null)
+            {
+                int index = hit.Item.Index;
+                if (index >= 0 && index < logEntries.Count)
+                {
+                    MessageBox.Show(logEntries[index].Message, "FullLog", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private readonly Dictionary<int, Func<bool>> splitterRefreshProcess = new Dictionary<int, Func<bool>>
+        {
+            { (int)GameConstruction.Game.Sekiro, () => SekiroSplitter.GetIntance().GetSekiroStatusProcess(0) },
+            { (int)GameConstruction.Game.DarkSouls1, () => Ds1Splitter.GetIntance().GetDs1StatusProcess(0) },
+            { (int)GameConstruction.Game.DarkSouls2, () => Ds2Splitter.GetIntance().GetDs2StatusProcess(0) },
+            { (int)GameConstruction.Game.DarkSouls3, () => Ds3Splitter.GetIntance().GetDs3StatusProcess(0) },
+            { (int)GameConstruction.Game.EldenRing, () => EldenSplitter.GetIntance().GetEldenStatusProcess(0) },
+            { (int)GameConstruction.Game.HollowKnight, () => HollowSplitter.GetIntance().GetHollowStatusProcess(0) },
+            { (int)GameConstruction.Game.Celeste, () => CelesteSplitter.GetIntance().GetCelesteStatusProcess(0) },
+            { (int)GameConstruction.Game.Dishonored, () => DishonoredSplitter.GetIntance().GetDishonoredStatusProcess() },
+            { (int)GameConstruction.Game.Cuphead, () => CupheadSplitter.GetIntance().GetCupheadStatusProcess(0) }
+        };
+
         private void btnRefreshGame_Click(object sender, EventArgs e)
         {
-            switch (gameActive)
+            if (splitterRefreshProcess.TryGetValue(gameActive, out var action))
             {
-                case GameConstruction.SekiroSplitterIndex:
-                    mainModule.sekiroSplitter.GetSekiroStatusProcess(0);
-                    break;
-                case GameConstruction.Ds1SplitterIndex:
-                    mainModule.ds1Splitter.GetDs1StatusProcess(0);
-                    break;
-                case GameConstruction.Ds2SplitterIndex:
-                    mainModule.ds2Splitter.GetDs2StatusProcess(0);
-                    break;
-                case GameConstruction.Ds3SplitterIndex:
-                    mainModule.ds3Splitter.GetDs3StatusProcess(0);
-                    break;
-                case GameConstruction.EldenSplitterIndex:
-                    mainModule.eldenSplitter.GetEldenStatusProcess(0);
-                    break;
-                case GameConstruction.HollowSplitterIndex:
-                    mainModule.hollowSplitter.GetHollowStatusProcess(0);
-                    break;
-                case GameConstruction.CelesteSplitterIndex:
-                    mainModule.celesteSplitter.GetCelesteStatusProcess(0);
-                    break;
-                case GameConstruction.CupheadSplitterIndex:
-                    mainModule.cupSplitter.GetCupheadStatusProcess(0);
-                    break;
-                case GameConstruction.DishonoredSplitterIndex:
-                    mainModule.dishonoredSplitter.GetDishonoredStatusProcess();
-                    break;
-                case GameConstruction.NoneSplitterIndex:
-                default: break;
+                action.Invoke();
             }
             LogMessage("Refreshed Process");
         }
@@ -282,5 +317,11 @@ namespace AutoSplitterCore
             UpdateBoxes();
         }
 
+    }
+
+    public class LogEntry
+    {
+        public DateTime Timestamp { get; set; }
+        public string Message { get; set; }
     }
 }

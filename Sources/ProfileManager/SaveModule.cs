@@ -124,32 +124,18 @@ namespace AutoSplitterCore
         public DataAutoSplitter dataAS = new DataAutoSplitter();
         public GeneralAutoSplitter generalAS = new GeneralAutoSplitter();
         public bool _PracticeMode = false;
-        private SekiroSplitter sekiroSplitter = null;
-        private Ds1Splitter ds1Splitter = null;
-        private Ds2Splitter ds2Splitter = null;
-        private Ds3Splitter ds3Splitter = null;
-        private EldenSplitter eldenSplitter = null;
-        private HollowSplitter hollowSplitter = null;
-        private CelesteSplitter celesteSplitter = null;
-        private CupheadSplitter cupSplitter = null;
-        private DishonoredSplitter dishonoredSplitter = null;
-        private UpdateModule updateModule = null;
-        private AutoSplitterMainModule mainModule = null;
+        private SekiroSplitter sekiroSplitter = SekiroSplitter.GetIntance();
+        private Ds1Splitter ds1Splitter = Ds1Splitter.GetIntance();
+        private Ds2Splitter ds2Splitter = Ds2Splitter.GetIntance();
+        private Ds3Splitter ds3Splitter = Ds3Splitter.GetIntance();
+        private EldenSplitter eldenSplitter = EldenSplitter.GetIntance();
+        private HollowSplitter hollowSplitter = HollowSplitter.GetIntance();
+        private CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
+        private CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
+        private DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
+        private UpdateModule updateModule = UpdateModule.GetIntance();
+        public AutoSplitterMainModule mainModule { get; set; } = null;
 
-        public void SetPointers(SekiroSplitter sekiroSplitter,Ds1Splitter ds1Splitter,Ds2Splitter ds2Splitter,Ds3Splitter ds3Splitter,EldenSplitter eldenSplitter,HollowSplitter hollowSplitter,CelesteSplitter celesteSplitter, CupheadSplitter cupheadSplitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, AutoSplitterMainModule mainModule)
-        {
-            this.sekiroSplitter = sekiroSplitter;
-            this.ds1Splitter = ds1Splitter;
-            this.ds2Splitter = ds2Splitter;
-            this.ds3Splitter = ds3Splitter;
-            this.eldenSplitter = eldenSplitter;
-            this.hollowSplitter = hollowSplitter;
-            this.celesteSplitter = celesteSplitter;
-            this.cupSplitter = cupheadSplitter;
-            this.dishonoredSplitter = dishonoredSplitter;
-            this.updateModule = updateModule;
-            this.mainModule = mainModule;
-        }
 
         /// <summary>
         /// Update Values of DataAutoSplitter

@@ -41,6 +41,13 @@ namespace AutoSplitterCore
         public bool isLoading = false;
         private System.Windows.Forms.Timer _update_timer = new System.Windows.Forms.Timer() { Interval = 1000 };
 
+        #region SingletonFactory
+        private static DishonoredSplitter _intance = new DishonoredSplitter();
+
+        private DishonoredSplitter() { }
+
+        public static DishonoredSplitter GetIntance() { return _intance; }
+        #endregion
 
         #region Control Management
         public DTDishonored GetDataDishonored() => dataDish;

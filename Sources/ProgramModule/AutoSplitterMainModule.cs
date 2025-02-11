@@ -24,6 +24,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using HitCounterManager;
 
@@ -31,18 +32,19 @@ namespace AutoSplitterCore
 {
     public class AutoSplitterMainModule
     {
-        public SekiroSplitter sekiroSplitter = new SekiroSplitter();
-        public Ds1Splitter ds1Splitter = new Ds1Splitter();
-        public Ds2Splitter ds2Splitter = new Ds2Splitter();
-        public Ds3Splitter ds3Splitter = new Ds3Splitter();
-        public EldenSplitter eldenSplitter = new EldenSplitter();
-        public HollowSplitter hollowSplitter = new HollowSplitter();
-        public CelesteSplitter celesteSplitter = new CelesteSplitter();
-        public CupheadSplitter cupSplitter = new CupheadSplitter();
-        public DishonoredSplitter dishonoredSplitter = new DishonoredSplitter();
+        public static SekiroSplitter sekiroSplitter = SekiroSplitter.GetIntance();
+        public static Ds1Splitter ds1Splitter = Ds1Splitter.GetIntance();
+        public static Ds2Splitter ds2Splitter = Ds2Splitter.GetIntance();
+        public static Ds3Splitter ds3Splitter = Ds3Splitter.GetIntance();
+        public static EldenSplitter eldenSplitter = EldenSplitter.GetIntance();
+        public static HollowSplitter hollowSplitter = HollowSplitter.GetIntance();
+        public static CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
+        public static CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
+        public static DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
+
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
-        public UpdateModule updateModule = new UpdateModule();
+        public UpdateModule updateModule = UpdateModule.GetIntance();
 
         private ISplitterControl splitterControl = SplitterControl.GetControl();
 
@@ -62,39 +64,23 @@ namespace AutoSplitterCore
         public void AutoSplitterForm(bool darkMode)
         {
             SetShowSettings(true);
-            ReaLTaiizor.Forms.PoisonForm form = new AutoSplitter
-                   (sekiroSplitter, 
-                    hollowSplitter, 
-                    eldenSplitter, 
-                    ds3Splitter,
-                    celesteSplitter, 
-                    ds2Splitter, 
-                    cupSplitter,
-                    ds1Splitter,
-                    dishonoredSplitter, 
-                    updateModule, 
-                    saveModule, 
-                    darkMode);
-            form.ShowDialog();
-            SetShowSettings(false);
+            ReaLTaiizor.Forms.PoisonForm form = new AutoSplitter(saveModule, darkMode);
+
+            if (splitterControl.GetDebug()) 
+            { 
+                form.Show();
+                form.FormClosed += new FormClosedEventHandler(SetShowDialogClose);
+            } else 
+            {
+                form.ShowDialog();
+                SetShowSettings(false);
+            }          
         }
+
+        private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open
 
         public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)
         {
-            //SetPointers
-            igtModule.SetSplitterPointers(sekiroSplitter, eldenSplitter, ds3Splitter, celesteSplitter, cupSplitter, ds1Splitter);
-            saveModule.SetPointers
-                    (sekiroSplitter,
-                    ds1Splitter,
-                    ds2Splitter,
-                    ds3Splitter,
-                    eldenSplitter,
-                    hollowSplitter,
-                    celesteSplitter,
-                    cupSplitter,
-                    dishonoredSplitter,
-                    updateModule,
-                    this);
             //LoadSettings
             saveModule.LoadAutoSplitterSettings();
 
@@ -184,53 +170,71 @@ namespace AutoSplitterCore
             splitterControl.SetChecking(!status);
         }
 
+        private readonly Dictionary<GameConstruction.Game, Func<bool>> splitterEnablerCheckers = new Dictionary<GameConstruction.Game, Func<bool>>()
+        {
+            { GameConstruction.Game.Sekiro, () => sekiroSplitter.GetDataSekiro().enableSplitting },
+            { GameConstruction.Game.DarkSouls1, () => ds1Splitter.GetDataDs1().enableSplitting },
+            { GameConstruction.Game.DarkSouls2, () => ds2Splitter.GetDataDs2().enableSplitting },
+            { GameConstruction.Game.DarkSouls3, () => ds3Splitter.GetDataDs3().enableSplitting },
+            { GameConstruction.Game.EldenRing, () => eldenSplitter.GetDataElden().enableSplitting },
+            { GameConstruction.Game.HollowKnight, () => hollowSplitter.GetDataHollow().enableSplitting },
+            { GameConstruction.Game.Celeste, () => celesteSplitter.GetDataCeleste().enableSplitting },
+            { GameConstruction.Game.Dishonored, () => dishonoredSplitter.GetDataDishonored().enableSplitting },
+            { GameConstruction.Game.Cuphead, () => cupSplitter.GetDataCuphead().enableSplitting }
+        };
         public int GetSplitterEnable()
         {
-            if (sekiroSplitter.GetDataSekiro().enableSplitting) { return GameConstruction.SekiroSplitterIndex; }
-            if (ds1Splitter.GetDataDs1().enableSplitting) { return GameConstruction.Ds1SplitterIndex; }
-            if (ds2Splitter.GetDataDs2().enableSplitting) { return GameConstruction.Ds2SplitterIndex; }
-            if (ds3Splitter.GetDataDs3().enableSplitting) { return GameConstruction.Ds3SplitterIndex; }
-            if (eldenSplitter.GetDataElden().enableSplitting) { return GameConstruction.EldenSplitterIndex; }
-            if (hollowSplitter.GetDataHollow().enableSplitting) { return GameConstruction.HollowSplitterIndex; }
-            if (celesteSplitter.GetDataCeleste().enableSplitting) { return GameConstruction.CelesteSplitterIndex; }
-            if (dishonoredSplitter.GetDataDishonored().enableSplitting) { return GameConstruction.DishonoredSplitterIndex; }
-            if (cupSplitter.GetDataCuphead().enableSplitting) { return GameConstruction.CupheadSplitterIndex; }
-            return GameConstruction.NoneSplitterIndex;
+            var activeSplitter = splitterEnablerCheckers.FirstOrDefault(kv => kv.Value()).Key;
+
+            return GameConstruction.GetGameIndex(activeSplitter != 0 ? activeSplitter : GameConstruction.Game.None);
         }
+
+        private readonly Dictionary<int, Action<bool>> splitterActions = new Dictionary<int, Action<bool>>()
+        {
+            { GameConstruction.GetGameIndex(GameConstruction.Game.Sekiro), status => sekiroSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.DarkSouls1), status => ds1Splitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.DarkSouls2), status => ds2Splitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.DarkSouls3), status => ds3Splitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.EldenRing), status => eldenSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.HollowKnight), status => hollowSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.Celeste), status => celesteSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.Dishonored), status => dishonoredSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.Cuphead), status => cupSplitter.SetStatusSplitting(status) }
+        };
 
         public void EnableSplitting(int splitter)
         {
             gameActive = splitter;
             igtModule.gameSelect = splitter;
             anyGameTime = false;
-            if (splitter == GameConstruction.NoneSplitterIndex)
+
+            if (splitter == GameConstruction.GetGameIndex(GameConstruction.Game.None))
             {
                 splitterControl.SetChecking(false);
-                sekiroSplitter.SetStatusSplitting(false);
-                ds1Splitter.SetStatusSplitting(false);
-                ds2Splitter.SetStatusSplitting(false);
-                ds3Splitter.SetStatusSplitting(false);
-                eldenSplitter.SetStatusSplitting(false);
-                hollowSplitter.SetStatusSplitting(false);
-                celesteSplitter.SetStatusSplitting(false);
-                dishonoredSplitter.SetStatusSplitting(false);
-                cupSplitter.SetStatusSplitting(false);
+
+                // Disable all Splitters
+                foreach (var action in splitterActions.Values)
+                {
+                    action(false);
+                }
             }
             else
             {
-                switch (splitter)
+                foreach (var action in splitterActions.Values)
                 {
-                    case GameConstruction.SekiroSplitterIndex: sekiroSplitter.SetStatusSplitting(true); break;
-                    case GameConstruction.Ds1SplitterIndex: ds1Splitter.SetStatusSplitting(true); break;
-                    case GameConstruction.Ds2SplitterIndex: ds2Splitter.SetStatusSplitting(true); break;
-                    case GameConstruction.Ds3SplitterIndex: ds3Splitter.SetStatusSplitting(true); break;
-                    case GameConstruction.EldenSplitterIndex: eldenSplitter.SetStatusSplitting(true); break;
-                    case GameConstruction.HollowSplitterIndex: hollowSplitter.SetStatusSplitting(true); break;
-                    case GameConstruction.CelesteSplitterIndex: celesteSplitter.SetStatusSplitting(true); break;
-                    case GameConstruction.DishonoredSplitterIndex: dishonoredSplitter.SetStatusSplitting(true); break;
-                    case GameConstruction.CupheadSplitterIndex: cupSplitter.SetStatusSplitting(true); break;
-                    default: EnableSplitting(0); break;
+                    action(false);
                 }
+
+                if (splitterActions.TryGetValue(splitter, out var enableAction))
+                {
+                    enableAction(true);
+                }
+                else
+                {
+                    EnableSplitting(0);
+                    return;
+                }
+
                 splitterControl.SetChecking(true);
             }
         }
@@ -289,7 +293,7 @@ namespace AutoSplitterCore
             autoTimer = false;        
             switch (gameActive)
             {
-                case GameConstruction.SekiroSplitterIndex: //Sekiro
+                case (int)GameConstruction.Game.Sekiro: //Sekiro
                     if (sekiroSplitter.GetDataSekiro().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -299,7 +303,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case GameConstruction.Ds1SplitterIndex: //DS1
+                case (int)GameConstruction.Game.DarkSouls1: //DS1
                     if (ds1Splitter.GetDataDs1().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -309,7 +313,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case GameConstruction.Ds3SplitterIndex: //Ds3
+                case (int)GameConstruction.Game.DarkSouls3: //Ds3
                     if (ds3Splitter.GetDataDs3().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -319,7 +323,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case GameConstruction.EldenSplitterIndex: //Elden
+                case (int)GameConstruction.Game.EldenRing: //Elden
                     if (eldenSplitter.GetDataElden().autoTimer && !_PracticeMode)
                     {
                         autoTimer = true;
@@ -331,7 +335,7 @@ namespace AutoSplitterCore
                     break;
 
                 //Special Case
-                case GameConstruction.CelesteSplitterIndex: //Celeste
+                case (int)GameConstruction.Game.Celeste: //Celeste
                     if (celesteSplitter.GetDataCeleste().autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.GetDataCeleste().gameTimer)
@@ -364,7 +368,7 @@ namespace AutoSplitterCore
                         }
                     }
                     break;
-                case GameConstruction.CupheadSplitterIndex: //Cuphead
+                case (int)GameConstruction.Game.Cuphead: //Cuphead
                     if (cupSplitter.GetDataCuphead().autoTimer && !_PracticeMode)
                     {
                         if (!cupSplitter.GetDataCuphead().gameTimer)
@@ -398,7 +402,7 @@ namespace AutoSplitterCore
                     break;
 
                 //Manual Controller with Loading Events           
-                case GameConstruction.Ds2SplitterIndex: //DS2
+                case (int)GameConstruction.Game.DarkSouls2: //DS2
                     if (ds2Splitter.GetDataDs2().autoTimer && !_PracticeMode)
                     {
                         if (ds2Splitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
@@ -408,7 +412,7 @@ namespace AutoSplitterCore
                             splitterControl.StartStopTimer(false);
                     }
                     break;
-                case GameConstruction.HollowSplitterIndex: //Hollow
+                case (int)GameConstruction.Game.HollowKnight: //Hollow
                     if (hollowSplitter.GetDataHollow().autoTimer && !_PracticeMode)
                     {
                         if (hollowSplitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
@@ -418,7 +422,7 @@ namespace AutoSplitterCore
                             splitterControl.StartStopTimer(false);
                     }
                     break;
-                case GameConstruction.DishonoredSplitterIndex:
+                case (int)GameConstruction.Game.Dishonored:
                     if (dishonoredSplitter.GetDataDishonored().autoTimer && !_PracticeMode)
                     {
                         if (!dishonoredSplitter.GetDataDishonored().gameTimer)
@@ -441,7 +445,7 @@ namespace AutoSplitterCore
                     break;
 
 
-                case GameConstruction.NoneSplitterIndex:               
+                case (int)GameConstruction.Game.None:               
                 default: anyGameTime = false; autoTimer = false; break;
             }
 
@@ -510,7 +514,7 @@ namespace AutoSplitterCore
                     catch (Exception) { inGameTime = -1; }
 
                     //Ds2 and Hollow Cases
-                    if (gameActive == GameConstruction.Ds2SplitterIndex)
+                    if (gameActive == (int)GameConstruction.Game.DarkSouls2)
                     {
                         SpecialCaseReset = true;
                         var loading = ds2Splitter.Ds2IsLoading();
@@ -537,7 +541,7 @@ namespace AutoSplitterCore
                         }
                     }
 
-                    if (gameActive == GameConstruction.HollowSplitterIndex)
+                    if (gameActive == (int)GameConstruction.Game.HollowKnight)
                     {
                         SpecialCaseReset = true;
                         if (hollowSplitter.IsNewgame())
@@ -584,31 +588,27 @@ namespace AutoSplitterCore
             }
         }
 
+        private readonly Dictionary<int, Func<bool>> splitterStatusCheckers = new Dictionary<int, Func<bool>>
+        {
+            { (int) GameConstruction.Game.Sekiro, () => sekiroSplitter._StatusSekiro },
+            { (int) GameConstruction.Game.DarkSouls1, () => ds1Splitter._StatusDs1 },
+            { (int) GameConstruction.Game.DarkSouls2, () => ds2Splitter._StatusDs2 },
+            { (int) GameConstruction.Game.DarkSouls3, () => ds3Splitter._StatusDs3},
+            { (int) GameConstruction.Game.EldenRing, () => eldenSplitter._StatusElden },
+            { (int) GameConstruction.Game.HollowKnight, () => hollowSplitter._StatusHollow },
+            { (int) GameConstruction.Game.Celeste, () => celesteSplitter._StatusCeleste },
+            { (int) GameConstruction.Game.Dishonored, () => dishonoredSplitter._StatusDish },
+            { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead }
+        };
+
         public bool GameOn()
         {
-            switch (gameActive)
+            if (splitterStatusCheckers.TryGetValue(gameActive, out var statusChecker))
             {
-                case GameConstruction.SekiroSplitterIndex: 
-                    return sekiroSplitter._StatusSekiro;
-                case GameConstruction.Ds1SplitterIndex: 
-                    return ds1Splitter._StatusDs1;
-                case GameConstruction.Ds2SplitterIndex:
-                    return ds2Splitter._StatusDs2;
-                case GameConstruction.Ds3SplitterIndex:
-                    return ds3Splitter._StatusDs3;
-                case GameConstruction.EldenSplitterIndex:
-                    return eldenSplitter._StatusElden;
-                case GameConstruction.HollowSplitterIndex:
-                    return hollowSplitter._StatusHollow;
-                case GameConstruction.CelesteSplitterIndex:
-                    return celesteSplitter._StatusCeleste;
-                case GameConstruction.DishonoredSplitterIndex:
-                    return dishonoredSplitter._StatusDish;
-                case GameConstruction.CupheadSplitterIndex:
-                    return cupSplitter._StatusCuphead;  
-                case GameConstruction.NoneSplitterIndex:
-                default: return false;
+                return statusChecker.Invoke(); 
             }
+
+            return false;
         }
         #endregion
         #region Common

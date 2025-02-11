@@ -33,6 +33,7 @@ using System.Linq;
 using System.Collections.Generic;
 using ReaLTaiizor.Controls;
 using System.Threading;
+using AutoSplitterCore.Sources.AutoSplitters;
 
 namespace AutoSplitterCore
 {
@@ -40,32 +41,22 @@ namespace AutoSplitterCore
     {
         bool isInitializing = false;
         bool darkModeHCM = false;
-        SekiroSplitter sekiroSplitter;
-        HollowSplitter hollowSplitter;
-        EldenSplitter eldenSplitter;
-        Ds3Splitter ds3Splitter;
-        Ds2Splitter ds2Splitter;
-        Ds1Splitter ds1Splitter;
-        CelesteSplitter celesteSplitter;
-        DishonoredSplitter dishonoredSplitter;
-        CupheadSplitter cupSplitter;
-        UpdateModule updateModule;
+        SekiroSplitter sekiroSplitter = SekiroSplitter.GetIntance();
+        HollowSplitter hollowSplitter = HollowSplitter.GetIntance();
+        EldenSplitter eldenSplitter = EldenSplitter.GetIntance();
+        Ds3Splitter ds3Splitter = Ds3Splitter.GetIntance();
+        Ds2Splitter ds2Splitter = Ds2Splitter.GetIntance();
+        Ds1Splitter ds1Splitter = Ds1Splitter.GetIntance();
+        CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
+        DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
+        CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
+        UpdateModule updateModule = UpdateModule.GetIntance();
         SaveModule saveModule;
-        public AutoSplitter(SekiroSplitter sekiroSplitter, HollowSplitter hollowSplitter, EldenSplitter eldenSplitter, Ds3Splitter ds3Splitter, CelesteSplitter celesteSplitter, Ds2Splitter ds2Splitter, CupheadSplitter cupSplitter, Ds1Splitter ds1Splitter, DishonoredSplitter dishonoredSplitter, UpdateModule updateModule, SaveModule saveModule, bool darkMode)
+        public AutoSplitter(SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-            
-            this.sekiroSplitter = sekiroSplitter;
-            this.hollowSplitter = hollowSplitter;
-            this.eldenSplitter = eldenSplitter;
-            this.ds3Splitter = ds3Splitter;
-            this.ds2Splitter = ds2Splitter;
-            this.ds1Splitter = ds1Splitter;
-            this.celesteSplitter = celesteSplitter;
-            this.cupSplitter = cupSplitter;
-            this.dishonoredSplitter = dishonoredSplitter;
-            this.updateModule = updateModule;
+
             this.saveModule = saveModule;
             this.darkModeHCM = darkMode;
         }
@@ -3939,5 +3930,18 @@ namespace AutoSplitterCore
             }
         }
         #endregion
+
+        private void btnASL_Click(object sender, EventArgs e)
+        {
+            var form = new ASLForm();
+            Point parentLocation = this.Location;
+
+            int newX = parentLocation.X + this.Width + 10;
+            int newY = parentLocation.Y;
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(newX, newY);
+            form.Show();
+        }
     }
 }

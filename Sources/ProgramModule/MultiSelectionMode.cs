@@ -14,8 +14,6 @@ namespace AutoSplitterCore
         private List<ItemList> ListItemList = new List<ItemList>();
         public Dictionary<string, string> ReadyElements { get; private set; } = new Dictionary<string, string>();
         public bool ReadyToRead { get; private set; }
-        private TextBox searchBox;
-        private System.Windows.Forms.Button searchButton;
 
         public MultiSelectionMode(List<string> Items)
         {
@@ -53,7 +51,7 @@ namespace AutoSplitterCore
         private void ExecuteSearch()
         {
             Cursor = Cursors.WaitCursor;
-            string searchText = searchBox.Text.ToLower();
+            string searchText = searchTextBox.Text.ToLower();
             foreach (var item in ListItemList)
             {
                 item.flowPanel.Visible = item.itemName.Text.ToLower().Contains(searchText);

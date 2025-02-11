@@ -40,6 +40,13 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
+        #region SingletonFactory
+        private static EldenSplitter _intance = new EldenSplitter();
+
+        private EldenSplitter() { }
+
+        public static EldenSplitter GetIntance() { return _intance; }
+        #endregion
 
         #region Control Management
         public DTElden GetDataElden() => dataElden;

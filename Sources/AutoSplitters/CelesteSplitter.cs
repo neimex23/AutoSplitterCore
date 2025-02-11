@@ -40,6 +40,14 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
+        #region SingletonFactory
+        private static CelesteSplitter _intance = new CelesteSplitter();
+
+        private CelesteSplitter() { }
+
+        public static CelesteSplitter GetIntance() { return _intance; }
+        #endregion
+
         #region Control Management
         public DTCeleste GetDataCeleste() => dataCeleste;
 

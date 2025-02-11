@@ -28,33 +28,67 @@ using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
-    public class GameConstruction //Dont Use Intance of This reference by "GameConstruction.X"
+    public static class GameConstruction 
     {
-        //List All Games
-        public static List<string> GameList = new List<string>()
+        public enum Game
         {
-            "None", //NoneSplitterIndex
-            "Sekiro",
-            "Dark Souls 1",
-            "Dark Souls 2",
-            "Dark Souls 3",
-            "Elden Ring",
-            "Hollow Knight",
-            "Celeste",
-            "Cuphead",
-            "Dishonored"
+            None,          // 0
+            Sekiro,        // 1
+            DarkSouls1,    // 2
+            DarkSouls2,    // 3
+            DarkSouls3,    // 4
+            EldenRing,     // 5
+            HollowKnight,  // 6
+            Celeste,       // 7
+            Cuphead,       // 8
+            Dishonored,    // 9
+            Skyrim,        // 10
+            ASLMethod      // 11
+        }
+
+        private static Dictionary<Game, string> AliasGames = new Dictionary<Game, string>()
+        {
+            { Game.None, "None" },
+            { Game.Sekiro, "Sekiro: Shadows Die Twice" },
+            { Game.DarkSouls1, "Dark Souls 1" },
+            { Game.DarkSouls2, "Dark Souls 2" },
+            { Game.DarkSouls3, "Dark Souls 3" },
+            { Game.EldenRing, "Elden Ring" },
+            { Game.HollowKnight, "Hollow Knight" },
+            { Game.Celeste, "Celeste" },
+            { Game.Cuphead, "Cuphead" },
+            { Game.Dishonored, "Dishonored" },
+            { Game.Skyrim, "Skyrim" },
+            { Game.ASLMethod, "ASL Method" }
         };
 
-        //SplitterIndex: Use For if Want Add a new Game change index it do more easier
-        public const int NoneSplitterIndex = 0; //Dont Change, is Seted Always in HCM program
-        public const int SekiroSplitterIndex = 1;
-        public const int Ds1SplitterIndex = 2;
-        public const int Ds2SplitterIndex = 3;
-        public const int Ds3SplitterIndex = 4;
-        public const int EldenSplitterIndex = 5;
-        public const int HollowSplitterIndex = 6;
-        public const int CelesteSplitterIndex = 7;
-        public const int CupheadSplitterIndex = 8;
-        public const int DishonoredSplitterIndex = 9; 
+        public static readonly List<string> GameList = AliasGames.Values.ToList();
+
+        public static string GetGameName(int index)
+        {
+            return Enum.IsDefined(typeof(Game), index) ? ((Game)index).ToString() : "Unknown";
+        }
+
+        public static int GetGameIndex(string gameName)
+        {
+            return Enum.TryParse(gameName, out Game game) ? (int)game : -1;
+        }
+
+        public static bool IsValidGameIndex(int index)
+        {
+            return Enum.IsDefined(typeof(Game), index);
+        }
+
+        public static int GetGameIndex(Game game)
+        {
+            return (int)game;
+        }
+
+        public static Game GetGameEnum(string gameName)
+        {
+            return Enum.TryParse(gameName, out Game game) && Enum.IsDefined(typeof(Game), game)
+                ? game
+                : Game.None;
+        }
     }
 }

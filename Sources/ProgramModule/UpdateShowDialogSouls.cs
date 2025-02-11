@@ -34,12 +34,11 @@ namespace AutoSplitterCore
 {
     public partial class UpdateShowDialogSouls : MaterialForm
     {
-        private UpdateModule updateModule;
+        private UpdateModule updateModule = UpdateModule.GetIntance();
 
-        public UpdateShowDialogSouls(UpdateModule updateModule)
+        public UpdateShowDialogSouls()
         {
             InitializeComponent();
-            this.updateModule = updateModule;
         }
 
         private void UpdateShowDialogSouls_Load(object sender, EventArgs e)
@@ -74,12 +73,12 @@ namespace AutoSplitterCore
             string extractPath = Path.Combine(Directory.GetCurrentDirectory(), "Update");
 
             progressBarUpdating.Value = 0;
-
+            progressBarUpdating.Step = 35;
             try
             {
                 using (WebClient webClient = new WebClient())
                 {
-                    progressBarUpdating.PerformStep(); // 20%
+                    progressBarUpdating.PerformStep();
                     await webClient.DownloadFileTaskAsync(new Uri(url), zipFilePath);
                 }
 
@@ -89,12 +88,12 @@ namespace AutoSplitterCore
                 foreach (var file in Directory.GetFiles(extractPath))
                     File.Delete(file);
 
-                progressBarUpdating.PerformStep(); // 50%
+                progressBarUpdating.PerformStep();
 
                 ZipFile.ExtractToDirectory(zipFilePath, extractPath);
                 File.Delete(zipFilePath);
 
-                progressBarUpdating.PerformStep(); // 100%
+                progressBarUpdating.PerformStep(); 
 
                 MessageBox.Show("Download Successful. The program will close to install the update.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

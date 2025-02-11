@@ -44,6 +44,14 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         public bool _runStarted = false;
 
+        #region SingletonFactory
+        private static HollowSplitter _intance = new HollowSplitter();
+
+        private HollowSplitter() { }
+
+        public static HollowSplitter GetIntance() { return _intance; }
+        #endregion
+
         #region Control Management
         public DTHollow GetDataHollow() => dataHollow;
 

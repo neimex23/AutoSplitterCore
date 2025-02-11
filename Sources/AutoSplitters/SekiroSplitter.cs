@@ -39,7 +39,15 @@ namespace AutoSplitterCore
 
         public bool _StatusSekiro = false;
         public bool _PracticeMode = false;        
-        public bool _ShowSettings = false;     
+        public bool _ShowSettings = false;
+
+        #region SingletonFactory
+        private static SekiroSplitter _intance = new SekiroSplitter();
+
+        private SekiroSplitter() { }
+
+        public static SekiroSplitter GetIntance() { return _intance; }
+        #endregion
 
         #region Control Management
         public DTSekiro GetDataSekiro() => dataSekiro;

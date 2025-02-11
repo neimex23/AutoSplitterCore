@@ -41,6 +41,15 @@ namespace AutoSplitterCore
         public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
+
+        #region SingletonFactory
+        private static Ds3Splitter _intance = new Ds3Splitter();
+
+        private Ds3Splitter() { }
+
+        public static Ds3Splitter GetIntance() { return _intance; }
+        #endregion
+
         #region Control Management
         public DTDs3 GetDataDs3() => dataDs3;
 
