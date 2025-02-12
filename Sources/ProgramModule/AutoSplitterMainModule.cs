@@ -41,6 +41,7 @@ namespace AutoSplitterCore
         public static CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
         public static CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
         public static DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
+        public static ASLSplitter aslSplitter = ASLSplitter.GetInstance();
 
         public IGTModule igtModule = new IGTModule();
         public SaveModule saveModule = new SaveModule();
@@ -52,7 +53,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         private Timer updateTimer;
 
-        public List<string> GetGames() { return GameConstruction.GameList; }
+        public List<string> GetGames() => GameConstruction.GameList; 
 
 
         #region Settings
@@ -152,6 +153,7 @@ namespace AutoSplitterCore
             celesteSplitter._PracticeMode = status;
             cupSplitter._PracticeMode = status;
             dishonoredSplitter._PracticeMode = status;
+            aslSplitter._PracticeMode = status;
             splitterControl.SetChecking(!status);
         }
 
@@ -180,7 +182,8 @@ namespace AutoSplitterCore
             { GameConstruction.Game.HollowKnight, () => hollowSplitter.GetDataHollow().enableSplitting },
             { GameConstruction.Game.Celeste, () => celesteSplitter.GetDataCeleste().enableSplitting },
             { GameConstruction.Game.Dishonored, () => dishonoredSplitter.GetDataDishonored().enableSplitting },
-            { GameConstruction.Game.Cuphead, () => cupSplitter.GetDataCuphead().enableSplitting }
+            { GameConstruction.Game.Cuphead, () => cupSplitter.GetDataCuphead().enableSplitting },
+            { GameConstruction.Game.ASLMethod, () => aslSplitter._AslActive }
         };
         public int GetSplitterEnable()
         {
@@ -199,7 +202,8 @@ namespace AutoSplitterCore
             { GameConstruction.GetGameIndex(GameConstruction.Game.HollowKnight), status => hollowSplitter.SetStatusSplitting(status) },
             { GameConstruction.GetGameIndex(GameConstruction.Game.Celeste), status => celesteSplitter.SetStatusSplitting(status) },
             { GameConstruction.GetGameIndex(GameConstruction.Game.Dishonored), status => dishonoredSplitter.SetStatusSplitting(status) },
-            { GameConstruction.GetGameIndex(GameConstruction.Game.Cuphead), status => cupSplitter.SetStatusSplitting(status) }
+            { GameConstruction.GetGameIndex(GameConstruction.Game.Cuphead), status => cupSplitter.SetStatusSplitting(status) },
+            { GameConstruction.GetGameIndex(GameConstruction.Game.ASLMethod), status => aslSplitter.SetStatusSplitting(status) }
         };
 
         public void EnableSplitting(int splitter)
@@ -332,6 +336,9 @@ namespace AutoSplitterCore
                             anyGameTime = true;
                         }
                     }
+                    break;
+                case (int)GameConstruction.Game.ASLMethod:
+                    if (saveModule.generalAS.ASLIgt && !_PracticeMode) { autoTimer = true; anyGameTime = true; }
                     break;
 
                 //Special Case
@@ -598,7 +605,8 @@ namespace AutoSplitterCore
             { (int) GameConstruction.Game.HollowKnight, () => hollowSplitter._StatusHollow },
             { (int) GameConstruction.Game.Celeste, () => celesteSplitter._StatusCeleste },
             { (int) GameConstruction.Game.Dishonored, () => dishonoredSplitter._StatusDish },
-            { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead }
+            { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead },
+            { (int) GameConstruction.Game.ASLMethod, ()=> aslSplitter.GetStatusGame() }
         };
 
         public bool GameOn()

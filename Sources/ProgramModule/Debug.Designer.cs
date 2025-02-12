@@ -54,6 +54,7 @@
             this.LabelLog = new System.Windows.Forms.Label();
             this.btnResetFlags = new System.Windows.Forms.Button();
             this.listViewLog = new System.Windows.Forms.ListView();
+            this.btnClearLog = new System.Windows.Forms.Button();
             this.groupBoxDebug.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -305,7 +306,7 @@
             // 
             // btnResetFlags
             // 
-            this.btnResetFlags.Location = new System.Drawing.Point(804, 318);
+            this.btnResetFlags.Location = new System.Drawing.Point(808, 284);
             this.btnResetFlags.Name = "btnResetFlags";
             this.btnResetFlags.Size = new System.Drawing.Size(75, 23);
             this.btnResetFlags.TabIndex = 72;
@@ -322,11 +323,21 @@
             this.listViewLog.TabIndex = 73;
             this.listViewLog.UseCompatibleStateImageBehavior = false;
             // 
+            // btnClearLog
+            // 
+            this.btnClearLog.Location = new System.Drawing.Point(808, 312);
+            this.btnClearLog.Name = "btnClearLog";
+            this.btnClearLog.Size = new System.Drawing.Size(75, 23);
+            this.btnClearLog.TabIndex = 74;
+            this.btnClearLog.Text = "Clear Log";
+            this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
+            // 
             // Debug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 691);
+            this.Controls.Add(this.btnClearLog);
             this.Controls.Add(this.listViewLog);
             this.Controls.Add(this.btnResetFlags);
             this.Controls.Add(this.LabelLog);
@@ -376,5 +387,6 @@
         private System.Windows.Forms.Label LabelLog;
         private System.Windows.Forms.Button btnResetFlags;
         private System.Windows.Forms.ListView listViewLog;
+        private System.Windows.Forms.Button btnClearLog;
     }
 }

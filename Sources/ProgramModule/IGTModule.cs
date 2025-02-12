@@ -38,6 +38,7 @@ namespace AutoSplitterCore
         Ds1Splitter ds1Splitter = Ds1Splitter.GetIntance();
         CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
         CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
+        ASLSplitter aslSplitter = ASLSplitter.GetInstance();
 
         public IGTModule()
         {
@@ -48,7 +49,8 @@ namespace AutoSplitterCore
                 { (int) GameConstruction.Game.DarkSouls3, () => ds3Splitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.EldenRing, () => eldenSplitter.GetTimeInGame() }, 
                 { (int) GameConstruction.Game.Celeste, () => celesteSplitter.GetTimeInGame() },
-                { (int) GameConstruction.Game.Cuphead , () => cupSplitter.GetTimeInGame() }
+                { (int) GameConstruction.Game.Cuphead , () => cupSplitter.GetTimeInGame() },
+                { (int) GameConstruction.Game.ASLMethod, () =>  aslSplitter.GetIngameTime()}
             };
         }
 

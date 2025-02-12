@@ -105,7 +105,6 @@
     <Compile Include="Sources\AutoSplitters\ASLSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
-    <Compile Include="Sources\AutoSplitters\SplitterFactory.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
       <SubType>Form</SubType>

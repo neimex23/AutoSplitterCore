@@ -33,7 +33,6 @@ using System.Linq;
 using System.Collections.Generic;
 using ReaLTaiizor.Controls;
 using System.Threading;
-using AutoSplitterCore.Sources.AutoSplitters;
 
 namespace AutoSplitterCore
 {
@@ -3933,7 +3932,7 @@ namespace AutoSplitterCore
 
         private void btnASL_Click(object sender, EventArgs e)
         {
-            var form = new ASLForm();
+            var form = new ASLForm(saveModule);
             Point parentLocation = this.Location;
 
             int newX = parentLocation.X + this.Width + 10;
@@ -3941,7 +3940,7 @@ namespace AutoSplitterCore
 
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(newX, newY);
-            form.Show();
+            form.ShowDialog();
         }
     }
 }

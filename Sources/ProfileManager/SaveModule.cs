@@ -29,6 +29,7 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using HitCounterManager;
 using ReaLTaiizor.Extension;
+using Grpc.Core.Logging;
 
 namespace AutoSplitterCore
 {
@@ -86,6 +87,14 @@ namespace AutoSplitterCore
         public StyleMode StyleMode = StyleMode.Default;
 
         public List<ProfileLink> profileLinks = new List<ProfileLink>();
+
+        /*
+         * The variables in ASL scripts are very limited and require a special method to be saved in a serialized file and deserialized. 
+         * For this reason, I decided to exclude them from DataAutoSplitter (which is used to save splitter configurations) to avoid complications when processing them after uploading to Google Drive.
+         */
+        public bool ASLActive = false; 
+        public bool ASLIgt = false;
+        //XML Node of ASL
     }
 
     /// <summary>
@@ -133,6 +142,7 @@ namespace AutoSplitterCore
         private CelesteSplitter celesteSplitter = CelesteSplitter.GetIntance();
         private CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
         private DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
+        private ASLSplitter aslSplitter = ASLSplitter.GetInstance();
         private UpdateModule updateModule = UpdateModule.GetIntance();
         public AutoSplitterMainModule mainModule { get; set; } = null;
 
@@ -153,6 +163,8 @@ namespace AutoSplitterCore
             dataAS.DataDishonored = dishonoredSplitter.GetDataDishonored();
             generalAS.PracticeMode = _PracticeMode;
             generalAS.CheckUpdatesOnStartup = updateModule.CheckUpdatesOnStartup;
+            generalAS.ASLActive = aslSplitter._AslActive;
+            generalAS.ASLIgt = aslSplitter.IGTEnable;
         }
 
         /// <summary>
@@ -186,7 +198,7 @@ namespace AutoSplitterCore
             //GeneralAutoSplitter
             newSave = false;
             savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml");
-            savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml.bak");
+            saveBakPath = Path.GetFullPath("SaveGeneralAutoSplitter.xml.bak");
 
             if (!File.Exists(savePath))
             {
@@ -204,6 +216,15 @@ namespace AutoSplitterCore
             formatter = new XmlSerializer(typeof(GeneralAutoSplitter));
             formatter.Serialize(myStream, generalAS);
             myStream.Close();
+
+            //ASL data on XMLNode
+            XmlDocument Save = new XmlDocument();
+            Save.Load(savePath);
+            XmlNode Asl = Save.CreateElement("DataASL");
+            XmlNode AslData = aslSplitter.getData(Save);
+            Asl.AppendChild(AslData);
+            Save.DocumentElement.AppendChild(Asl);
+            Save.Save(savePath);
         }
 
 
@@ -224,26 +245,36 @@ namespace AutoSplitterCore
 
             try
             {
-                Stream myStream = new FileStream("SaveDataAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
-                XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter));
-                dataAS = (DataAutoSplitter)formatter.Deserialize(myStream);
-                dataSekiro = dataAS.DataSekiro;
-                dataHollow = dataAS.DataHollow;
-                dataElden = dataAS.DataElden;
-                dataDs3 = dataAS.DataDs3;
-                dataDs2 = dataAS.DataDs2;
-                dataDs1 = dataAS.DataDs1;
-                dataCeleste = dataAS.DataCeleste;
-                dataCuphead = dataAS.DataCuphead;
-                dataDishonored = dataAS.DataDishonored;
-                myStream.Close();
+                using (Stream myStream = new FileStream("SaveDataAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    XmlSerializer formatter = new XmlSerializer(typeof(DataAutoSplitter));
+                    dataAS = (DataAutoSplitter)formatter.Deserialize(myStream);
+                    dataSekiro = dataAS.DataSekiro;
+                    dataHollow = dataAS.DataHollow;
+                    dataElden = dataAS.DataElden;
+                    dataDs3 = dataAS.DataDs3;
+                    dataDs2 = dataAS.DataDs2;
+                    dataDs1 = dataAS.DataDs1;
+                    dataCeleste = dataAS.DataCeleste;
+                    dataCuphead = dataAS.DataCuphead;
+                    dataDishonored = dataAS.DataDishonored;
+                }
 
-                myStream = new FileStream("SaveGeneralAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.None);
-                formatter = new XmlSerializer(typeof(DataAutoSplitter));
-                generalAS = (GeneralAutoSplitter)formatter.Deserialize(myStream);
-                myStream.Close();
+                using (Stream myStream = new FileStream("SaveGeneralAutoSplitter.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    XmlSerializer formatter = new XmlSerializer(typeof(GeneralAutoSplitter));
+                    generalAS = (GeneralAutoSplitter)formatter.Deserialize(myStream);
+                    aslSplitter.SetStatusSplitting(generalAS.ASLActive);
+                    aslSplitter.IGTEnable = generalAS.ASLIgt;
+                }
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                if (SplitterControl.GetControl().GetDebug())
+                {
+                    DebugLog.LogMessage("Error to load Configurations: " + ex.Message);
+                }    
+            }
 
             //Case Old Savefile or New file;
             if (dataSekiro == null) { dataSekiro = new DTSekiro(); }
@@ -267,7 +298,30 @@ namespace AutoSplitterCore
             celesteSplitter.SetDataCeleste(dataCeleste);
             cupSplitter.SetDataCuphead(dataCuphead);
             dishonoredSplitter.SetDataDishonored(dataDishonored);
-          
+
+            //Deserialization Data ASL on XMLNode
+            try
+            {
+                string savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml");
+                XmlDocument doc = new XmlDocument();
+                doc.Load(savePath);
+
+                XmlElement docElements = doc.DocumentElement;
+                XmlNodeList nodeList = docElements.SelectNodes("//DataASL");
+
+                foreach (XmlNode node in nodeList)
+                {
+                    aslSplitter.setData(node.FirstChild);
+                }
+            }
+            catch (Exception ex) 
+            {
+                aslSplitter.setData(null);
+                if (SplitterControl.GetControl().GetDebug())
+                {
+                    DebugLog.LogMessage("Error to load ASL Node Configuration: " + ex.Message);
+                }
+            }
         }
 
         /// <summary>

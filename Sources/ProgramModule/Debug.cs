@@ -11,30 +11,8 @@ using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
-    public interface IDebugLogger
+    public partial class Debug : Form
     {
-        /// <summary>
-        /// Set a Log Message on ListBOXLog on debug mode
-        /// </summary>
-        /// <param name="message"></param>
-        void LogMessage(string message);
-    }
-
-    public partial class Debug : Form, IDebugLogger
-    {
-        #region SingletonFactory
-        private static IDebugLogger _logger;
-
-        public static void RegisterDebugInterfaces(Debug debugForm)
-        {
-            _logger = debugForm;
-        }
-
-        public static IDebugLogger GetDebugInterface() => _logger;
-
-        #endregion
-
-
         private readonly AutoSplitterMainModule mainModule;
         private int gameActive;
 
@@ -46,13 +24,14 @@ namespace AutoSplitterCore
             mainModule.InitDebug();
             mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
 
-            RegisterDebugInterfaces(this);
+            DebugLog.Initialize(this);
 
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();
             updateTimer.Start();
 
             InitializeLogListView();
+            ListenerASL.Initialize();
         }
 
         private void InitializeLogListView()
@@ -61,7 +40,7 @@ namespace AutoSplitterCore
             listViewLog.FullRowSelect = true;
             listViewLog.GridLines = true;
             listViewLog.Columns.Add("Timestamp", 150);
-            listViewLog.Columns.Add("Message", 500);
+            listViewLog.Columns.Add("Message", 750);
 
             listViewLog.VirtualMode = true;
             listViewLog.RetrieveVirtualItem += ListViewLog_RetrieveVirtualItem;
@@ -114,8 +93,6 @@ namespace AutoSplitterCore
             ClearTextBoxes();
 
             bool status = false;
-
-
             status = UpdateGameSpecificInfo();
 
             TimeSpan tiempo = TimeSpan.FromMilliseconds(mainModule.ReturnCurrentIGT());
@@ -197,6 +174,10 @@ namespace AutoSplitterCore
                         status = DishonoredSplitter.GetIntance()._StatusDish;
                         break;
 
+                    case (int)GameConstruction.Game.ASLMethod:
+                        status = ASLSplitter.GetInstance().GetStatusGame();
+                        break;
+
                 }
             }
             catch (Exception ex) { LogMessage($"Exception Produce on CheckBoxes: {ex.Message}"); }
@@ -272,6 +253,9 @@ namespace AutoSplitterCore
             }
         }
 
+        private void btnClearLog_Click(object sender, EventArgs e) => listViewLog.Clear();
+
+
         private readonly Dictionary<int, Func<bool>> splitterRefreshProcess = new Dictionary<int, Func<bool>>
         {
             { (int)GameConstruction.Game.Sekiro, () => SekiroSplitter.GetIntance().GetSekiroStatusProcess(0) },
@@ -309,6 +293,7 @@ namespace AutoSplitterCore
         private void checkBoxPracticeMode_CheckedChanged(object sender, EventArgs e)
         {
             mainModule.SetPracticeMode(checkBoxPracticeMode.Checked);
+            LogMessage($"Practice Mode change: {checkBoxPracticeMode.Checked}");
         }
 
         private void btnSplitter_Click(object sender, EventArgs e)
@@ -317,11 +302,27 @@ namespace AutoSplitterCore
             UpdateBoxes();
         }
 
+
     }
 
     public class LogEntry
     {
         public DateTime Timestamp { get; set; }
         public string Message { get; set; }
+    }
+
+    public static class DebugLog
+    {
+        private static Debug _logger;
+
+        public static void Initialize(Debug logger)
+        {
+            _logger = logger;
+        }
+
+        public static void LogMessage(string message)
+        {
+            _logger?.LogMessage(message);
+        }
     }
 }

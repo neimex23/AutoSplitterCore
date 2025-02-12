@@ -202,17 +202,19 @@ namespace AutoSplitterCore
 
 
         private static readonly object _object = new object(); //To look multiple threadings
-        public void SplitCheck(string DebugLog) //SplitStatus is seted false if user set Practice mode after a flagcheck is produced 
+        public void SplitCheck(string DebugLogMessage) //SplitStatus is seted false if user set Practice mode after a flagcheck is produced 
         {
             lock (_object)
             {
+                if (DebugMode)
+                {
+                    DebugLog.LogMessage(DebugLogMessage); 
+                }
+
                 if (!enableChecking)
                     SplitStatus = false;
                 else
                 {
-                    var iDebug = Debug.GetDebugInterface();
-                    if (iDebug != null) iDebug.LogMessage(DebugLog);
-
                     if (_SplitGo) { Thread.Sleep(2000); }
                     _SplitGo = true;
                     SplitStatus = true;
