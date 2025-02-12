@@ -3935,7 +3935,7 @@ namespace AutoSplitterCore
             var form = new ASLForm(saveModule);
             Point parentLocation = this.Location;
 
-            int newX = parentLocation.X + this.Width + 10;
+            int newX = parentLocation.X + this.Width - 20;
             int newY = parentLocation.Y;
 
             form.StartPosition = FormStartPosition.Manual;

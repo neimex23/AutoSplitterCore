@@ -35,6 +35,7 @@ using LiveSplit.Options;
 using System.Diagnostics;
 using System.Threading;
 using System.Xml;
+using LiveSplit.Model.RunFactories;
 
 namespace AutoSplitterCore 
 { 
@@ -58,8 +59,9 @@ namespace AutoSplitterCore
     {
         public bool _PracticeMode = false;
 
-        LiveSplitState state = null;
-        ASLComponent asl;
+        public LiveSplitState state = null;
+        public ASLComponent asl;
+
         ISplitterControl splitterControl = SplitterControl.GetControl();
         System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer() { Interval = 100 };
 
@@ -86,7 +88,7 @@ namespace AutoSplitterCore
             var layout = new Layout();
 
             IComparisonGeneratorsFactory comparisonFactory = new StandardComparisonGeneratorsFactory();
-            var run = new Run(comparisonFactory)
+            IRun run = new Run(comparisonFactory)
             {
                 GameName = "Example Game",
                 CategoryName = "Any%"
@@ -151,9 +153,14 @@ namespace AutoSplitterCore
         }
 
         #endregion
+        #region Checking
         public bool IGTEnable { get; set; } = false;
+
         public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
 
+        public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
+        #endregion
+        #region CheckFlag Init()
 
         private void ASCOnSplit(object sender, EventArgs e)
         {
@@ -166,10 +173,10 @@ namespace AutoSplitterCore
            if (splitterControl.GetDebug())
            {
                 DebugLog.LogMessage("Trace ASL: Start Run Trigger Produced on ASL");
-                return; //StartStopTimer not implemented on debugmode
+                return; //StartStopTimer and timmer not implemented on debugmode
            }
 
-            if (!_PracticeMode && _AslActive && !IGTEnable)
+            if (!_PracticeMode && _AslActive && !IGTEnable && !splitterControl.GetTimerRunning())
             {
                 splitterControl.StartStopTimer(true);
             }
@@ -186,9 +193,6 @@ namespace AutoSplitterCore
             if (!_PracticeMode && _AslActive)
                 splitterControl.ProfileReset();
         }
-
-        public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
-        
-
+        #endregion
     }
 }

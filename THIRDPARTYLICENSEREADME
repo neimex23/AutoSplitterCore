@@ -22,34 +22,135 @@ Contact: <joop.jooop@gmail.com>
 Licence: MIT
 
 DLL Used:
-    - Google API
-		DLL Name: Google.Apis
-		Title: Google API Library
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- OAuth2
-		DLL Name: Google.Apis.Auth
-		Title: Google API Authentication Library
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- Google Drive
-		DLL Name: Google.Apis.Drive.v3
-		Title: Google Drive API Client
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
-		
-	- Google Sheets
-		DLL Name: Google.Apis.Sheets.v4
-		Title: Google Sheets API Client
-		Author: Google LLC
-		Source: https://github.com/googleapis/google-api-dotnet-client
-		Licence: Apache License 2.0
+APIS
+	Google API Libraries
 
+	1. Google.Api.CommonProtos  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/gax-dotnet  
+	2. Google.Api.Gax  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/gax-dotnet  
+	3. Google.Api.Gax.Grpc  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/gax-dotnet  
+	4. Google.Api.Gax.Rest  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/gax-dotnet  
+	5. Google.Apis  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/google-api-dotnet-client  
+	6. Google.Apis.Auth  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/google-api-dotnet-client  
+	7. Google.Apis.Core  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/google-api-dotnet-client  
+	8. Google.Apis.Drive.v3  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/google-api-dotnet-client  
+	9. Google.Apis.Oauth2.v2  
+	   Author: Google LLC  
+	   Source: https://github.com/googleapis/google-api-dotnet-client  
+	10. Google.Cloud.Firestore  
+		Author: Google LLC  
+		Source: https://github.com/googleapis/google-cloud-dotnet  
+	11. Google.Cloud.Firestore.V1  
+		Author: Google LLC  
+		Source: https://github.com/googleapis/google-cloud-dotnet  
+	12. Google.Cloud.Location  
+		Author: Google LLC  
+		Source: https://github.com/googleapis/google-cloud-dotnet  
+	13. Google.LongRunning  
+		Author: Google LLC  
+		Source: https://github.com/googleapis/google-cloud-dotnet  
+	14. Google.Protobuf  
+		Author: Google LLC  
+		Source: https://github.com/protocolbuffers/protobuf
+
+	License: Apache License 2.0
+
+	GRPC Libraries
+
+	15. Grpc.Auth  
+		Author: The gRPC Authors  
+		Source: https://github.com/grpc/grpc  
+	16. Grpc.Core  
+		Author: The gRPC Authors  
+		Source: https://github.com/grpc/grpc  
+	17. Grpc.Core.Api  
+		Author: The gRPC Authors  
+		Source: https://github.com/grpc/grpc  
+	18. Grpc.Net.Client  
+		Author: The gRPC Authors  
+		Source: https://github.com/grpc/grpc-dotnet  
+	19. Grpc.Net.Common  
+		Author: The gRPC Authors  
+		Source: https://github.com/grpc/grpc-dotnet
+
+	License: Apache License 2.0
+
+	Other Libraries
+
+	20. Irony  
+		Author: Roman Ivantsov  
+		Source: https://github.com/IronyProject/Irony  
+	21. Microsoft.Bcl.AsyncInterfaces  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	22. Microsoft.Extensions.DependencyInjection.Abstractions  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/extensions  
+	23. Microsoft.Extensions.Logging.Abstractions  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/extensions  
+	24. Newtonsoft.Json  
+		Author: James Newton-King  
+		Source: https://github.com/JamesNK/Newtonsoft.Json
+		
+	License: MIT
+
+	System Libraries
+
+	25. System.Buffers  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	26. System.CodeDom  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	27. System.Collections.Immutable  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	28. System.Diagnostics.DiagnosticSource  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	29. System.Linq.Async  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/reactive  
+	30. System.Management  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	31. System.Memory  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	32. System.Net.Http.WinHttpHandler  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	33. System.Numerics.Vectors  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	34. System.Runtime.CompilerServices.Unsafe  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	35. System.Threading.Tasks.Extensions  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime  
+	36. System.ValueTuple  
+		Author: Microsoft Corporation  
+		Source: https://github.com/dotnet/runtime
+
+
+CUSTOMS	
     - DLL SoulsMemory from:
         Title: SoulSplitter
         Author:  F.stam (FrankvdStam)
@@ -93,13 +194,8 @@ DLL Used:
         Title: LiveSplit
         Author: LiveSplit
         Source: https://github.com/LiveSplit/LiveSplit
-        Licence: MIT		  
-		
-    - DLL Newtonsoft.Json (Dependency of SoulsMemory)
-		Title: Newtonsoft.Json
-		Author: James Newton-King (JamesNK)
-		Source: https://github.com/JamesNK/Newtonsoft.Json.git
-		Licence: MIT
+        Licence: MIT
+		//Some Code of LiveSplit.View is aplicated on the proyect
 		
 	- DLL ReaLTaiizor
 		Title: ReaLTaiizor
