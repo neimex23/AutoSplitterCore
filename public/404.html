@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='/?redirect=true'" />
+  </head>
+  <body>
+    <script>
+      var path = window.location.pathname;
+      if (path.startsWith("/AutoSplitterCore/")) {
+        var newPath =
+          "/AutoSplitterCore/#" + path.replace("/AutoSplitterCore", "");
+        window.location.replace(newPath);
+      }
+    </script>
+  </body>
+</html>
