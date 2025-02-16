@@ -21,10 +21,14 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinyJson;
 
@@ -54,20 +58,35 @@ namespace AutoSplitterCore
         public static UpdateModule GetIntance() { return _intance; }
         #endregion
 
+        private void AddAuthorization()
+        {
+            string jsonresult = string.Empty;
+            var assembly = Assembly.GetExecutingAssembly();
+            using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string jsonContent = reader.ReadToEnd();
+                var jsonObject = JObject.Parse(jsonContent);
+                jsonresult = jsonObject["GitHubApi"]["PublicRepoToken"].ToString();
+            }
+            // Authorization Token with PublicRepo Permissions
+            client.Headers.Add("Authorization", jsonresult);
+        }
+
         public void CheckUpdates(bool ForceUpdate)
         {
             bool update = false;
             try
             {
                 //AutoSplitterCore GetVersions
-                client.Encoding = System.Text.Encoding.UTF8;
 
                 // https://developer.github.com/v3/#user-agent-required
                 client.Headers.Add("User-Agent", "AutoSplitterCore/" + Application.ProductVersion.ToString());
                 // https://developer.github.com/v3/media/#request-specific-version
-                client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
+                client.Headers.Add("Accept", "application/vnd.github.v3.text+json");     
+                AddAuthorization();
                 // https://developer.github.com/v3/repos/releases/#get-a-single-release
-                string response = client.DownloadString("http://api.github.com/repos/neimex23/AutoSplitterCore/releases");
+                string response = client.DownloadString("https://api.github.com/repos/neimex23/AutoSplitterCore/releases");
 
                 var auxReleases = response.FromJson<List<Dictionary<string, object>>>();
 
@@ -103,7 +122,8 @@ namespace AutoSplitterCore
                 currentSoulsVer = SoulDll.GetName().Version.ToString();
                 client.Headers.Add("User-Agent", "SoulSplitter/" + SoulDll.ToString());
                 client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
-                response = client.DownloadString("http://api.github.com/repos/FrankvdStam/SoulSplitter/releases");
+                AddAuthorization();
+                response = client.DownloadString("https://api.github.com/repos/FrankvdStam/SoulSplitter/releases");
                 auxReleases = response.FromJson<List<Dictionary<string, object>>>();
                 foreach (var aux in auxReleases)
                 {
@@ -121,7 +141,7 @@ namespace AutoSplitterCore
                     cloudSoulsVer = SoulsMemoryRelease[0].ToString() + ".0";
                 }
             }
-            catch (Exception) { };
+            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message); };
             if ((CheckUpdatesOnStartup)) //|| (DebugMode))
             {
                 if (Releases.Count > 0 && dll != null && Releases[0] > dll.GetName().Version)

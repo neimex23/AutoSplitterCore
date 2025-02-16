@@ -52,6 +52,8 @@ namespace AutoSplitterCore
             var listener = new ListenerASL();
             listener.Filter = new EventTypeFilter(SourceLevels.All);
             Trace.Listeners.Add(listener);
+
+            Log.Info("Started Successfully");
         }
     }
 

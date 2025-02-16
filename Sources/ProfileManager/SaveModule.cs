@@ -292,12 +292,12 @@ namespace AutoSplitterCore
                     aslSplitter.IGTEnable = generalAS.ASLIgt;
                 }
             }
+            catch (FileNotFoundException)
+            {
+            }
             catch (Exception ex)
             {
-                if (SplitterControl.GetControl().GetDebug())
-                {
-                    DebugLog.LogMessage("Error to load Configurations: " + ex.Message);
-                }    
+                DebugLog.LogMessage("Error to load Configurations: " + ex.Message);
             }
 
             //Case Old Savefile or New file;
@@ -358,10 +358,14 @@ namespace AutoSplitterCore
                     throw new Exception("XML Document does not have a root element.");
                 }
             }
-            catch (Exception ex)
+            catch (FileNotFoundException)
             {
                 aslSplitter.setData(null);
+            }
+            catch (Exception ex)
+            {
                 DebugLog.LogMessage("Error loading XML Node for ASL: " + ex.Message + "\n" + ex.StackTrace);
+                aslSplitter.setData(null);
             }
 
         }

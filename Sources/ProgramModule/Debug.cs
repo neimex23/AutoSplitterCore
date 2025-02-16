@@ -21,17 +21,19 @@ namespace AutoSplitterCore
             InitializeComponent();
             this.mainModule = mainModule;
 
-            mainModule.InitDebug();
-            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
-
             DebugLog.Initialize(this);
+            DebugLog.LogMessage("Log System Started successfully");
+
+            ListenerASL.Initialize();
+
+            mainModule.InitDebug();
+            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));          
 
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();
             updateTimer.Start();
 
-            InitializeLogListView();
-            ListenerASL.Initialize();
+            InitializeLogListView();        
         }
 
         private void InitializeLogListView()
@@ -275,13 +277,13 @@ namespace AutoSplitterCore
             {
                 action.Invoke();
             }
-            LogMessage("Refreshed Process");
+            DebugLog.LogMessage("Refreshed Process");
         }
 
         private void btnResetFlags_Click(object sender, EventArgs e)
         {
             mainModule.ResetSplitterFlags();
-            LogMessage($"Reset Flags of: {comboBoxGame.Text}");
+            DebugLog.LogMessage($"Reset Flags of: {comboBoxGame.Text}");
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
@@ -293,7 +295,7 @@ namespace AutoSplitterCore
         private void checkBoxPracticeMode_CheckedChanged(object sender, EventArgs e)
         {
             mainModule.SetPracticeMode(checkBoxPracticeMode.Checked);
-            LogMessage($"Practice Mode change: {checkBoxPracticeMode.Checked}");
+            DebugLog.LogMessage($"Practice Mode change: {checkBoxPracticeMode.Checked}");
         }
 
         private void btnSplitter_Click(object sender, EventArgs e)
