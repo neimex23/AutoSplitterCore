@@ -7,7 +7,7 @@ import App from "./App";
 import "tailwindcss";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/AutoSplitterCore">
     <App />
   </BrowserRouter>
 );

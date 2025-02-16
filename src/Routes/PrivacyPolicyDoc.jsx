@@ -7,7 +7,7 @@ export const PrivacyPolicyDoc = () => {
     <>
       <div className="relative w-full h-screen">
         <img
-          src="/assets/hol.webp"
+          src={`${import.meta.env.BASE_URL}assets/hol.webp`}
           alt="Privacy Background"
           className="fixed inset-0 w-full h-full object-cover -z-10"
         />

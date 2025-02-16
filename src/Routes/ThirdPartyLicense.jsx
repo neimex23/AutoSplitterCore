@@ -14,7 +14,7 @@ export const ThirdPartyLicense = () => {
     <>
       <div className="relative w-full h-screen">
         <img
-          src="/assets/ds4B.jpg"
+          src={`${import.meta.env.BASE_URL}assets/ds4B.jpg`}
           alt="Privacy Background"
           className="fixed inset-0 w-full h-full object-cover -z-10"
         />
