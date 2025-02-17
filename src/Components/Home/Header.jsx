@@ -6,7 +6,7 @@ export const Header = ({ h2Valor }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="mx-auto flex items-center justify-between gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+    <div className="mx-auto flex items-center justify-between gap-x-4 rounded-xl bg-slate-800 p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
       <header className="flex flex-col items-center flex-1">
         <h1 className="text-3xl text-white font-bold">AutoSplitterCore</h1>
         <h2 className="text-lg text-yellow-500 dark:text-yellow-500">
