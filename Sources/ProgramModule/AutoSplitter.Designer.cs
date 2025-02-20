@@ -51,7 +51,6 @@ namespace AutoSplitterCore
             this.groupBoxSplitters = new ReaLTaiizor.Controls.GroupBox();
             this.btnASL = new ReaLTaiizor.Controls.Button();
             this.btnSekiro = new ReaLTaiizor.Controls.Button();
-            this.btnSkyrim = new ReaLTaiizor.Controls.Button();
             this.btnDishonored = new ReaLTaiizor.Controls.Button();
             this.btnCuphead = new ReaLTaiizor.Controls.Button();
             this.btnCeleste = new ReaLTaiizor.Controls.Button();
@@ -777,7 +776,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 3;
+            this.TabControlGeneral.SelectedIndex = 0;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
@@ -1126,7 +1125,6 @@ namespace AutoSplitterCore
             this.groupBoxSplitters.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
             this.groupBoxSplitters.Controls.Add(this.btnASL);
             this.groupBoxSplitters.Controls.Add(this.btnSekiro);
-            this.groupBoxSplitters.Controls.Add(this.btnSkyrim);
             this.groupBoxSplitters.Controls.Add(this.btnDishonored);
             this.groupBoxSplitters.Controls.Add(this.btnCuphead);
             this.groupBoxSplitters.Controls.Add(this.btnCeleste);
@@ -1161,7 +1159,7 @@ namespace AutoSplitterCore
             this.btnASL.Image = null;
             this.btnASL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnASL.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnASL.Location = new System.Drawing.Point(210, 149);
+            this.btnASL.Location = new System.Drawing.Point(139, 149);
             this.btnASL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnASL.Name = "btnASL";
             this.btnASL.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -1193,27 +1191,6 @@ namespace AutoSplitterCore
             this.btnSekiro.Text = "Sekiro";
             this.btnSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnSekiro.Click += new System.EventHandler(this.btnSekiro_Click);
-            // 
-            // btnSkyrim
-            // 
-            this.btnSkyrim.BackColor = System.Drawing.Color.Transparent;
-            this.btnSkyrim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSkyrim.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSkyrim.Image = null;
-            this.btnSkyrim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSkyrim.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Location = new System.Drawing.Point(72, 149);
-            this.btnSkyrim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSkyrim.Name = "btnSkyrim";
-            this.btnSkyrim.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnSkyrim.Size = new System.Drawing.Size(132, 32);
-            this.btnSkyrim.TabIndex = 11;
-            this.btnSkyrim.Text = "Skyrim";
-            this.btnSkyrim.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // btnDishonored
             // 
@@ -14098,7 +14075,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.ComboBox comboBoxBossER_DLC;
         private System.Windows.Forms.CheckBox checkBoxViewDlcGrace;
         private System.Windows.Forms.ComboBox comboBoxGraceDLC_ER;
-        private ReaLTaiizor.Controls.Button btnSkyrim;
         private ReaLTaiizor.Controls.Panel panel1;
         private ReaLTaiizor.Controls.HopeTextBox TextboxManual;
         private ReaLTaiizor.Controls.Button btnClose;

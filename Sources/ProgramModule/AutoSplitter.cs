@@ -85,7 +85,7 @@ namespace AutoSplitterCore
 
             #endregion
             #region SekiroTab       
-                panelPositionS.Hide();
+            panelPositionS.Hide();
             panelBossS.Hide();
             panelCfSekiro.Hide();
             panelIdolsS.Hide();
@@ -114,7 +114,6 @@ namespace AutoSplitterCore
             groupBoxCharms.Hide();
             groupBoxSkillsH.Hide();
             panelPositionH.Hide();
-
             #endregion
             #region EldenTab
             panelBossER.Hide();
@@ -992,10 +991,7 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Config UI
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void btnClose_Click(object sender, EventArgs e) => Close();
 
         private void cbCheckUpdatesOnStartup_CheckedChanged(object sender)
         {

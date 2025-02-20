@@ -89,8 +89,8 @@ namespace AutoSplitterCore
         public List<ProfileLink> profileLinks = new List<ProfileLink>();
 
         /*
-         * The variables in ASL scripts are very limited and require a special method to be saved in a serialized file and deserialized. 
-         * For this reason, I decided to exclude them from DataAutoSplitter (which is used to save splitter configurations) to avoid complications when processing them after uploading to Google Drive.
+         * The variables in ASL scripts are very limited, have paths and exclusive files in configurations
+         * For this reason, I decided to exclude them from DataAutoSplitter
          */
         public bool ASLActive = false; 
         public bool ASLIgt = false;
@@ -217,37 +217,49 @@ namespace AutoSplitterCore
             formatter.Serialize(myStream, generalAS);
             myStream.Close();
 
-            //ASL data on XMLNode
+            SaveXmlData("SaveDataAutoSplitter.xml", "DataASL", aslSplitter.getData);
+        }
+
+        void SaveXmlData(string filePath, string nodeName, Func<XmlDocument, XmlNode> getDataFunc)
+        {
             try
             {
-                XmlDocument Save = new XmlDocument();
-                Save.Load(savePath);
+                XmlDocument doc = new XmlDocument();
 
-                if (Save.DocumentElement == null)
+                if (File.Exists(filePath))
                 {
-                    XmlElement root = Save.CreateElement("Root");
-                    Save.AppendChild(root);
-                }
-
-                XmlNode Asl = Save.CreateElement("DataASL");
-                XmlNode AslData = aslSplitter.getData(Save);
-                if (AslData != null)
-                {
-                    Asl.AppendChild(AslData);
+                    doc.Load(filePath);
                 }
                 else
                 {
-                    DebugLog.LogMessage("Warning: aslSplitter.getData(Save) is null.");
+                    XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                    doc.AppendChild(xmlDeclaration);
                 }
 
-                Save.DocumentElement.AppendChild(Asl);
+                if (doc.DocumentElement == null)
+                {
+                    XmlElement root = doc.CreateElement("Root");
+                    doc.AppendChild(root);
+                }
 
-                Save.Save(savePath);
+                XmlNode newNode = doc.CreateElement(nodeName);
+                XmlNode dataNode = getDataFunc(doc);
+
+                if (dataNode != null)
+                {
+                    newNode.AppendChild(dataNode);
+                }
+                else
+                {
+                    DebugLog.LogMessage($"Warning: {nodeName}.getData(doc) is null.");
+                }
+
+                doc.DocumentElement.AppendChild(newNode);
+                doc.Save(filePath);
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error to proccess XML: {ex.Message}");
-
+                DebugLog.LogMessage($"Error processing XML for {nodeName}: {ex.Message}");
             }
         }
 
@@ -323,51 +335,36 @@ namespace AutoSplitterCore
             cupSplitter.SetDataCuphead(dataCuphead);
             dishonoredSplitter.SetDataDishonored(dataDishonored);
 
-            //Deserialization Data ASL on XMLNode
+            LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
+        }
+
+        void LoadXmlData(string filePath, string nodeName, Action<XmlNode> setDataAction)
+        {
             try
             {
-                string savePath = Path.GetFullPath("SaveGeneralAutoSplitter.xml");
-
+                string savePath = Path.GetFullPath(filePath);
                 XmlDocument doc = new XmlDocument();
                 doc.Load(savePath);
 
-                XmlElement docElements = doc.DocumentElement;
+                XmlNode dataNode = doc.DocumentElement?.SelectSingleNode($"//{nodeName}");
 
-                if (docElements != null)
-                {
-                    XmlNode dataAslNode = docElements.SelectSingleNode("//DataASL");
+                if (dataNode == null)
+                    throw new Exception($"Node {nodeName} does not exist.");
 
-                    if (dataAslNode != null)
-                    {
-                        if (dataAslNode.HasChildNodes)
-                        {
-                            aslSplitter.setData(dataAslNode.FirstChild);
-                        }
-                        else
-                        {
-                            throw new Exception("Node DataASL is empty.");
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("Node DataASL does not exist.");
-                    }
-                }
-                else
-                {
-                    throw new Exception("XML Document does not have a root element.");
-                }
+                if (!dataNode.HasChildNodes)
+                    throw new Exception($"Node {nodeName} is empty.");
+
+                setDataAction(dataNode.FirstChild);
             }
             catch (FileNotFoundException)
             {
-                aslSplitter.setData(null);
+                setDataAction(null);
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage("Error loading XML Node for ASL: " + ex.Message + "\n" + ex.StackTrace);
-                aslSplitter.setData(null);
+                DebugLog.LogMessage($"Error loading XML Node for {nodeName}: {ex.Message}\n{ex.StackTrace}");
+                setDataAction(null);
             }
-
         }
 
         /// <summary>

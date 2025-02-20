@@ -602,6 +602,39 @@ namespace AutoSplitterCore
             return Summary;
         }
 
+        private static string GenerateXmlNodeSummary(XmlNode node, int indentLevel = 0)
+        {
+            if (node == null)
+                return "The XML Node is null.";
+
+            StringBuilder summary = new StringBuilder();
+            string indent = new string(' ', indentLevel * 4);
+
+            if (node is XmlElement element)
+            {
+                summary.AppendLine($"{indent}< {element.Name} >");
+
+                foreach (XmlAttribute attr in element.Attributes)
+                {
+                    summary.AppendLine($"{indent}    @ {attr.Name}: {attr.Value}");
+                }
+
+                foreach (XmlNode child in element.ChildNodes)
+                {
+                    summary.Append(GenerateXmlNodeSummary(child, indentLevel + 1));
+                }
+
+                summary.AppendLine($"{indent}</ {element.Name} >");
+            }
+            else if (node is XmlText text)
+            {
+                summary.AppendLine($"{indent}{text.Value}");
+            }
+
+            return summary.ToString();
+        }
+
+
         public static string BuildSummaryProfile(ProfileHCM profile)
         {
             String Summary = String.Empty;
@@ -650,6 +683,10 @@ namespace AutoSplitterCore
                 Summary += Space + $"{splits.profileHCM} - {splits.profileASC}" + Line;
             }
             if (saveModule.generalAS.profileLinks.Count == 0) { Summary += Space + "Not Profile Links Established" + Line; }
+            Summary += "=======================================================" + Line;
+            Summary += "ASL Settings:" + Line;
+            Summary += "=======================================================" + Line;
+            GenerateXmlNodeSummary(ASLSplitter.GetInstance().getData(new XmlDocument()));
             Summary += "=======================================================" + Line;
             return Summary;
         }

@@ -42,8 +42,7 @@ namespace AutoSplitterCore
             Celeste,       // 7
             Cuphead,       // 8
             Dishonored,    // 9
-            Skyrim,        // 10
-            ASLMethod      // 11
+            ASLMethod      // 10
         }
 
         private static Dictionary<Game, string> AliasGames = new Dictionary<Game, string>()
@@ -58,7 +57,6 @@ namespace AutoSplitterCore
             { Game.Celeste, "Celeste" },
             { Game.Cuphead, "Cuphead" },
             { Game.Dishonored, "Dishonored" },
-            { Game.Skyrim, "Skyrim" },
             { Game.ASLMethod, "ASL Method" }
         };
 

@@ -53,8 +53,7 @@ namespace AutoSplitterCore
         public bool _ShowSettings = false;
         private Timer updateTimer;
 
-        public List<string> GetGames() => GameConstruction.GameList; 
-
+        public List<string> GetGames() => GameConstruction.GameList;
 
         #region Settings
         public void InitDebug()
@@ -66,16 +65,8 @@ namespace AutoSplitterCore
         {
             SetShowSettings(true);
             ReaLTaiizor.Forms.PoisonForm form = new AutoSplitter(saveModule, darkMode);
-
-            if (splitterControl.GetDebug()) 
-            { 
-                form.Show();
-                form.FormClosed += new FormClosedEventHandler(SetShowDialogClose);
-            } else 
-            {
-                form.ShowDialog();
-                SetShowSettings(false);
-            }          
+            form.ShowDialog();
+            SetShowSettings(false);         
         }
 
         private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open
