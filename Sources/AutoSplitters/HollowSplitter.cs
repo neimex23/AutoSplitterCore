@@ -32,7 +32,7 @@ namespace AutoSplitterCore
 {
     public class HollowSplitter
     {   
-        private static HollowKnightInfo hollow = new HollowKnightInfo();
+        private static HollowKnightMemory hollow = new HollowKnightMemory();
         private ISplitterControl splitterControl = SplitterControl.GetControl();
         private DefinitionHollow defH = new DefinitionHollow();      
         private DTHollow dataHollow;
@@ -62,7 +62,7 @@ namespace AutoSplitterCore
             Thread.Sleep(delay);
             try
             {
-                _StatusHollow = hollow.Memory.HookProcess();
+                _StatusHollow = hollow.HookProcess();
             } catch (Exception) { _StatusHollow = false; }
             return _StatusHollow;
         }
@@ -73,6 +73,7 @@ namespace AutoSplitterCore
             if (status) { LoadAutoSplitterProcedure(); }
         }
 
+        public void EnableDebugMode() => hollow.EnableDebug(true);
         public void ResetSplited()
         {
             if (dataHollow.GetBosstoSplit().Count > 0)
@@ -224,6 +225,11 @@ namespace AutoSplitterCore
             if (!_StatusHollow) GetHollowStatusProcess(0);
             return currentPosition.sceneName.StartsWith("Opening_Sequence");
         }
+
+        public int GetHealth()
+        {
+            return _StatusHollow ? hollow.PlayerData<int>(Offset.health) : -1;
+        }
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()
@@ -246,7 +252,7 @@ namespace AutoSplitterCore
             GetHollowStatusProcess(0);
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(100);
                 GetHollowStatusProcess(delay);
                 if (!_StatusHollow) { delay = 2000; } else { delay = 5000; }
             }
@@ -259,20 +265,20 @@ namespace AutoSplitterCore
                 Thread.Sleep(500);
                 if (_StatusHollow && !_PracticeMode && !_ShowSettings)
                 {
-                    if (hollow.Memory.GameState() == GameState.PLAYING)
+                    if (hollow.GameState() == GameState.PLAYING)
                     {
                         _runStarted = true;
                     }
-                    if (dataHollow.gameTimer && (hollow.Memory.GameState() == GameState.LOADING || hollow.Memory.GameState() == GameState.CUTSCENE))
+                    if (dataHollow.gameTimer && (hollow.GameState() == GameState.LOADING || hollow.GameState() == GameState.CUTSCENE))
                     {
                         do
                         {
                             _runStarted = false;
-                        } while (hollow.Memory.GameState() == GameState.LOADING || hollow.Memory.GameState() == GameState.ENTERING_LEVEL || hollow.Memory.GameState() == GameState.EXITING_LEVEL);
+                        } while (hollow.GameState() == GameState.LOADING || hollow.GameState() == GameState.ENTERING_LEVEL || hollow.GameState() == GameState.EXITING_LEVEL);
                         _runStarted = true;
                     }
 
-                    if (currentPosition.sceneName.StartsWith("Quit_To_Menu") || currentPosition.sceneName.StartsWith("Menu_Title") || currentPosition.sceneName.StartsWith("PermaDeath") || hollow.Memory.GameState() == GameState.MAIN_MENU)
+                    if (currentPosition.sceneName.StartsWith("Quit_To_Menu") || currentPosition.sceneName.StartsWith("Menu_Title") || currentPosition.sceneName.StartsWith("PermaDeath") || hollow.GameState() == GameState.MAIN_MENU)
                     {
                         _runStarted = false;
                     }
@@ -284,14 +290,15 @@ namespace AutoSplitterCore
         {     
             while (dataHollow.enableSplitting)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(100);
                 if (_StatusHollow)
                 {
-                    currentPosition.position = hollow.Memory.GetCameraTarget();
-                    if (hollow.Memory.SceneName() != currentPosition.sceneName)
+                    var playerdata = hollow.PlayerDataStringList(0);
+                    currentPosition.position = hollow.GetCameraTarget();
+                    if (hollow.SceneName() != currentPosition.sceneName)
                     {
                         currentPosition.previousScene = currentPosition.sceneName;
-                        currentPosition.sceneName = hollow.Memory.SceneName();
+                        currentPosition.sceneName = hollow.SceneName();
                     }
                 }
             }
@@ -300,8 +307,8 @@ namespace AutoSplitterCore
         private void ManualRefreshPosition()
         {
             GetHollowStatusProcess(0);
-            currentPosition.position = hollow.Memory.GetCameraTarget();
-            currentPosition.sceneName = hollow.Memory.SceneName();
+            currentPosition.position = hollow.GetCameraTarget();
+            currentPosition.sceneName = hollow.SceneName();
         }
 
        
@@ -316,7 +323,7 @@ namespace AutoSplitterCore
                     if (BossToSplit != dataHollow.GetBosstoSplit()) BossToSplit = dataHollow.GetBosstoSplit();
                     foreach (var element in BossToSplit)
                     {
-                        if (!element.IsSplited && hollow.Memory.PlayerData<bool>(element.Offset))
+                        if (!element.IsSplited && hollow.PlayerData<bool>(element.Offset))
                         {
                             splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT BOSS -> {element.Title}");
                             element.IsSplited = splitterControl.GetSplitStatus();
@@ -341,7 +348,7 @@ namespace AutoSplitterCore
                         {
                             if (element.intMethod)
                             {
-                                if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
+                                if (_StatusHollow && hollow.PlayerData<int>(element.Offset) == element.intCompare)
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT MINIBOSS -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
@@ -349,7 +356,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                if (hollow.Memory.PlayerData<bool>(element.Offset))
+                                if (hollow.PlayerData<bool>(element.Offset))
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT MINIBOSS -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
@@ -376,7 +383,7 @@ namespace AutoSplitterCore
                         {
                             if (element.intMethod)
                             {
-                                if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
+                                if (_StatusHollow && hollow.PlayerData<int>(element.Offset) == element.intCompare)
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
@@ -384,14 +391,14 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                if (hollow.Memory.PlayerData<bool>(element.Offset) && !element.kingSoulsCase)
+                                if (hollow.PlayerData<bool>(element.Offset) && !element.kingSoulsCase)
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
                                 }
                                 else
                                 {
-                                    if (hollow.Memory.PlayerData<int>(Offset.charmCost_36) == 5 && hollow.Memory.PlayerData<int>(Offset.royalCharmState) == 3)
+                                    if (hollow.PlayerData<int>(Offset.charmCost_36) == 5 && hollow.PlayerData<int>(Offset.royalCharmState) == 3)
                                     {
                                         splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT CHARM -> {element.Title}");
                                         element.IsSplited = splitterControl.GetSplitStatus();
@@ -419,7 +426,7 @@ namespace AutoSplitterCore
                         {
                             if (element.intMethod)
                             {
-                                if (_StatusHollow && hollow.Memory.PlayerData<int>(element.Offset) == element.intCompare)
+                                if (_StatusHollow && hollow.PlayerData<int>(element.Offset) == element.intCompare)
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT SKILL -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();
@@ -427,7 +434,7 @@ namespace AutoSplitterCore
                             }
                             else
                             {
-                                if (hollow.Memory.PlayerData<bool>(element.Offset))
+                                if (hollow.PlayerData<bool>(element.Offset))
                                 {
                                     splitterControl.SplitCheck($"SplitFlags is produced by: HOLLOW KNIGHT SKILL -> {element.Title}");
                                     element.IsSplited = splitterControl.GetSplitStatus();

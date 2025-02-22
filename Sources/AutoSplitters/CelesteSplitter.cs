@@ -25,6 +25,11 @@ using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Celeste;
 using HitCounterManager;
+using System.Reflection.Emit;
+using System.Reflection;
+using System.IO.Pipes;
+using System.IO;
+using System.Diagnostics;
 
 namespace AutoSplitterCore
 {
@@ -140,6 +145,14 @@ namespace AutoSplitterCore
                 return string.Empty;
         }
 
+        public int GetDeaths() {
+            if (_StatusCeleste)
+            {
+                return infoPlayer.deaths;
+            }
+            return -1;
+        }
+
         public bool IsInGame()
         {
             if (!_StatusCeleste) GetCelesteStatusProcess(0);
@@ -152,9 +165,11 @@ namespace AutoSplitterCore
             Task.Run(() => RefreshCeleste());
             Task.Run(() => CheckInfoPlayer());
             Task.Run(() => ChapterToSplit());
+            Task.Run(() => CheckDeaths());
         }
         #endregion
         #region CheckFlag Init()   
+
         private void RefreshCeleste()
         {
             int delay = 2000;
@@ -173,7 +188,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 if (_StatusCeleste)
-                {
+                {      
                     try
                     {
                         infoPlayer.elapsed = celeste.GameTime();
@@ -185,6 +200,57 @@ namespace AutoSplitterCore
                 }
             }
         }
+
+        private void CheckDeaths()
+        {
+            try
+            {
+                DebugLog.LogMessage("Trying Connecting NamedPipe");
+                NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", "DeathCounterPipe", PipeDirection.InOut);
+                pipeClient.Connect(3000); 
+                DebugLog.LogMessage("NamedPipe Connected.");
+
+                StreamWriter writer = new StreamWriter(pipeClient) { AutoFlush = true };
+                StreamReader reader = new StreamReader(pipeClient);
+
+                while (dataCeleste.enableSplitting && pipeClient.IsConnected)
+                {
+                    Thread.Sleep(1000); 
+
+                    // Send Command to obtain Deaths
+                    writer.WriteLine("get_deaths");
+                    string response = reader.ReadLine();
+
+                    if (!string.IsNullOrEmpty(response) && int.TryParse(response, out int deaths))
+                    {
+                        infoPlayer.deaths = deaths;
+                        //DebugLog.LogMessage($"Muertes actuales: {deaths}");
+                    }
+                    else
+                    {
+                        DebugLog.LogMessage($"Response Error: {response}");
+                    }
+                }
+
+                // Cerrar conexiones
+                writer.Close();
+                reader.Close();
+                pipeClient.Close();
+            }
+            catch (TimeoutException)
+            {
+                DebugLog.LogMessage("Error: Time Out not finde PipeNamed");
+            }
+            catch (IOException ioEx)
+            {
+                DebugLog.LogMessage($"Error connection NamedPipe: {ioEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}");
+            }
+        }
+
 
 
         private int lastCassettes;

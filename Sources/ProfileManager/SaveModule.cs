@@ -34,6 +34,7 @@ using Grpc.Core.Logging;
 namespace AutoSplitterCore
 {
     public enum StyleMode { Default, Light ,Dark};
+    public enum HitMode { Way, Boss};
     /// <summary>
     /// Classes Contains All Settings of AutoSplitterCore
     /// </summary>
@@ -87,6 +88,11 @@ namespace AutoSplitterCore
         public StyleMode StyleMode = StyleMode.Default;
 
         public List<ProfileLink> profileLinks = new List<ProfileLink>();
+
+        //AutoHitter Settings
+        public HitMode HitMode = HitMode.Way;
+        public bool AutoHitHollow = false;
+        public bool AutoHitCeleste = false;
 
         /*
          * The variables in ASL scripts are very limited, have paths and exclusive files in configurations
@@ -144,6 +150,7 @@ namespace AutoSplitterCore
         private DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
         private ASLSplitter aslSplitter = ASLSplitter.GetInstance();
         private UpdateModule updateModule = UpdateModule.GetIntance();
+        private HitterControl hitterControl = HitterControl.GetControl();
         public AutoSplitterMainModule mainModule { get; set; } = null;
 
 
@@ -302,6 +309,9 @@ namespace AutoSplitterCore
                     generalAS = (GeneralAutoSplitter)formatter.Deserialize(myStream);
                     aslSplitter.SetStatusSplitting(generalAS.ASLActive);
                     aslSplitter.IGTEnable = generalAS.ASLIgt;
+
+                    if (generalAS.AutoHitCeleste) hitterControl.StartCeleste();
+                    if (generalAS.AutoHitHollow) hitterControl.StartHollow();
                 }
             }
             catch (FileNotFoundException)

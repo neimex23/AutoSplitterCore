@@ -104,7 +104,8 @@
     </Compile>
     <Compile Include="Sources\AutoSplitters\ASLSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
-    <Compile Include="Sources\AutoSplitters\SplitterControl.cs" />
+    <Compile Include="Sources\Control\HitterControl.cs" />
+    <Compile Include="Sources\Control\SplitterControl.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
       <SubType>Form</SubType>
@@ -202,6 +203,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CelesteBridge.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Remember ADD PCL on HCMv2.txt" />
     <Content Include="soulmemory_rs_x64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

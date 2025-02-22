@@ -51,13 +51,18 @@ namespace AutoSplitterCore
         CupheadSplitter cupSplitter = CupheadSplitter.GetIntance();
         UpdateModule updateModule = UpdateModule.GetIntance();
         SaveModule saveModule;
+
+        HitterControl hitterControl = HitterControl.GetControl();
+        
         public AutoSplitter(SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-
+            
             this.saveModule = saveModule;
             this.darkModeHCM = darkMode;
+
+            HitterControl._saveModule = saveModule;
         }
 
         public void RefreshForm()
@@ -78,8 +83,9 @@ namespace AutoSplitterCore
                 this.TabControlGeneral.Controls.Remove(this.tabCuphead);
                 this.TabControlGeneral.Controls.Remove(this.tabDishonored);
                 TabControlGeneral.SelectTab(tabConfig);
-            }catch (Exception)
-            {  
+            }
+            catch (Exception)
+            {
                 //Catch exception for remove controls that not in tabControlGeneral*/
             }
 
@@ -260,7 +266,7 @@ namespace AutoSplitterCore
             }
             else
             {
-                 labelWarning.Show();
+                labelWarning.Show();
             }
             #endregion
 
@@ -456,7 +462,7 @@ namespace AutoSplitterCore
             #endregion
             DTElden eldenData = eldenSplitter.GetDataElden();
             #region EldenLoad.Boss
-            comboBoxBossER_DLC.Hide();  
+            comboBoxBossER_DLC.Hide();
             foreach (DefinitionsElden.BossER boss in eldenData.GetBossToSplit())
             {
                 listBoxBossER.Items.Add(boss.Title + " - " + boss.Mode);
@@ -678,6 +684,11 @@ namespace AutoSplitterCore
 
             #endregion
 
+            if (saveModule.generalAS.HitMode == HitMode.Way) skyComboBoxHitMode.SelectedIndex = 0;
+                else skyComboBoxHitMode.SelectedIndex = 1;
+
+            checkBoxHitCeleste.Checked = saveModule.generalAS.AutoHitCeleste;
+            checkBoxHitHollow.Checked = saveModule.generalAS.AutoHitHollow;
             #endregion
 
             #region Timming
@@ -1270,6 +1281,43 @@ namespace AutoSplitterCore
             }
         }
         #endregion
+        #region AutoHitter
+
+        private void skyComboBoxHitMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            saveModule.generalAS.HitMode = skyComboBoxHitMode.SelectedIndex == 0
+                ? HitMode.Way
+                : HitMode.Boss;
+        }
+
+        private void checkBoxHitCeleste_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxHitCeleste.Checked)
+            {
+                saveModule.generalAS.AutoHitCeleste = true;
+                hitterControl.StartCeleste();
+            }
+            else
+            {
+                saveModule.generalAS.AutoHitCeleste = false;
+                hitterControl.StopCeleste();
+            }
+        }
+
+        private void checkBoxHitHollow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxHitHollow.Checked)
+            {
+                saveModule.generalAS.AutoHitHollow = true;
+                hitterControl.StartHollow();
+            }
+            else
+            {
+                saveModule.generalAS.AutoHitHollow = false;
+                hitterControl.StopHollow();
+            }
+        }
+        #endregion
         private void btnHowSetup_Click(object sender, EventArgs e)
         {
             AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki"));
@@ -1386,7 +1434,7 @@ namespace AutoSplitterCore
 
             Point parentLocation = this.Location;
 
-            int newX = parentLocation.X + this.Width + 10; 
+            int newX = parentLocation.X + this.Width + 10;
             int newY = parentLocation.Y;
 
             form.StartPosition = FormStartPosition.Manual;
@@ -1398,7 +1446,7 @@ namespace AutoSplitterCore
             this.AutoSplitter_Load(null, null);
         }
 
-       
+
         #endregion
         #region SekiroUI
         private void toSplitSelectSekiro_SelectedIndexChanged(object sender, EventArgs e)
@@ -1484,7 +1532,7 @@ namespace AutoSplitterCore
                                     textBoxTitlePositionS.Text = string.Empty;
                                 }
 
-                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPositionS.Text.ToString() + title);                                
+                                listBoxPositionsS.Items.Add(X + "; " + Y + "; " + Z + " - " + comboBoxHowPositionS.Text.ToString() + title);
                                 sekiroSplitter.AddPosition(X, Y, Z, comboBoxHowPositionS.Text.ToString(), title);
                             }
                         }
@@ -1602,9 +1650,10 @@ namespace AutoSplitterCore
             if (comboBoxHowBossS.SelectedIndex == -1)
             {
                 MessageBox.Show("Plase select 'How' do you want split ", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }else
+            }
+            else
             {
-                for (int i = 0; i < comboBoxBossS.Items.Count; i++) 
+                for (int i = 0; i < comboBoxBossS.Items.Count; i++)
                 {
                     comboBoxBossS.SelectedIndex = i;
                     btn_AddBossS_Click(null, null);
@@ -2229,12 +2278,12 @@ namespace AutoSplitterCore
             }
             else
             {
-                if (MessageBox.Show ("Some triggers are incompatible with each other, do you want to continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                for (int i = 0; i < comboBoxMiniBossSekiro.Items.Count; i++)
-                {
-                    comboBoxMiniBossSekiro.SelectedIndex = i;
-                    btnAddMiniBossSekiro_Click(null, null);
-                }
+                if (MessageBox.Show("Some triggers are incompatible with each other, do you want to continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    for (int i = 0; i < comboBoxMiniBossSekiro.Items.Count; i++)
+                    {
+                        comboBoxMiniBossSekiro.SelectedIndex = i;
+                        btnAddMiniBossSekiro_Click(null, null);
+                    }
             }
         }
 
@@ -2445,7 +2494,7 @@ namespace AutoSplitterCore
             var X = float.Parse(textBoxXDs1.Text, new CultureInfo("en-US"));
             var Y = float.Parse(textBoxYDs1.Text, new CultureInfo("en-US"));
             var Z = float.Parse(textBoxZDs1.Text, new CultureInfo("en-US"));
-            VectorDs1 = new Vector3f(X, Y, Z); 
+            VectorDs1 = new Vector3f(X, Y, Z);
             var contains1 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Inmediatly");
             var contains2 = !listBoxPositionsDs1.Items.Contains(this.VectorDs1 + " - " + "Loading game after");
             if (contains1 && contains2)
@@ -2470,14 +2519,14 @@ namespace AutoSplitterCore
                         }
 
                         listBoxPositionsDs1.Items.Add(this.VectorDs1 + " - " + comboBoxHowPositionsDs1.Text.ToString() + title);
-                        ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString(),title);
+                        ds1Splitter.AddPosition(this.VectorDs1, comboBoxHowPositionsDs1.Text.ToString(), title);
                     }
                 }
             }
             else
             {
                 MessageBox.Show("You have already added this trigger", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }           
+            }
         }
 
         private void btnAddItemDs1_Click(object sender, EventArgs e)
@@ -2932,7 +2981,7 @@ namespace AutoSplitterCore
                             textBoxTitleCFDs3.Text = string.Empty;
                         }
 
-                        ds3Splitter.AddCustomFlag(id, comboBoxHowCfDs3.Text.ToString(),title);
+                        ds3Splitter.AddCustomFlag(id, comboBoxHowCfDs3.Text.ToString(), title);
                         listBoxCfDs3.Items.Add(id + " - " + comboBoxHowCfDs3.Text.ToString() + title);
                     }
                     else
@@ -3070,7 +3119,7 @@ namespace AutoSplitterCore
 
         private void checkBoxDLC_CheckStateChanged(object sender, EventArgs e)
         {
-            if (checkBoxDLCBossER.Checked) 
+            if (checkBoxDLCBossER.Checked)
             {
                 comboBoxBossER_DLC.Show();
                 comboBoxBossER.Hide();
@@ -3831,7 +3880,8 @@ namespace AutoSplitterCore
 
         private void ProccessSelection(KeyValuePair<string, string> item, string Panel)
         {
-            switch (Panel) {
+            switch (Panel)
+            {
                 #region Sekiro
                 case "panelBossS":
                     comboBoxBossS.SelectedIndex = comboBoxBossS.FindString(item.Key.ToString());
@@ -3938,5 +3988,9 @@ namespace AutoSplitterCore
             form.Location = new Point(newX, newY);
             form.ShowDialog();
         }
+
+        private void linkLabelEverest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://everestapi.github.io/"));
+
+        private void linkLabelDeathCounter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://gamebanana.com/mods/577187"));
     }
 }

@@ -59,6 +59,7 @@ namespace AutoSplitterCore
         public void InitDebug()
         {
             splitterControl.SetDebug(true);
+            hollowSplitter.EnableDebugMode();
         }
 
         public void AutoSplitterForm(bool darkMode)

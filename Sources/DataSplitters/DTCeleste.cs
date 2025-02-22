@@ -40,7 +40,8 @@ namespace AutoSplitterCore
             public Area areaID;
             public string levelName;
             public double elapsed;
-            public bool completed;        
+            public bool completed;
+            public int deaths = -1;
         }
     }
     public class DTCeleste

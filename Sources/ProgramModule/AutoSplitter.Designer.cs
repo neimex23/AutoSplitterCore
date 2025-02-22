@@ -144,6 +144,18 @@ namespace AutoSplitterCore
             this.radioRealTimerDs3 = new System.Windows.Forms.RadioButton();
             this.tabPageHitCounter = new System.Windows.Forms.TabPage();
             this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.foreverTabPage1 = new ReaLTaiizor.Controls.ForeverTabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label99 = new System.Windows.Forms.Label();
+            this.checkBoxHitCeleste = new System.Windows.Forms.CheckBox();
+            this.linkLabelDeathCounter = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEverest = new System.Windows.Forms.LinkLabel();
+            this.label98 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBoxHitHollow = new System.Windows.Forms.CheckBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.skyComboBoxHitMode = new ReaLTaiizor.Controls.SkyComboBox();
             this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
             this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
             this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
@@ -658,6 +670,10 @@ namespace AutoSplitterCore
             this.groupBoxATDs3.SuspendLayout();
             this.groupBoxTMDs3.SuspendLayout();
             this.tabPageHitCounter.SuspendLayout();
+            this.lostBorderPanel5.SuspendLayout();
+            this.foreverTabPage1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
             this.tabSekiro.SuspendLayout();
@@ -760,8 +776,8 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabGeneral);
+            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
@@ -776,7 +792,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 0;
+            this.TabControlGeneral.SelectedIndex = 1;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
@@ -1398,11 +1414,11 @@ namespace AutoSplitterCore
             this.TabPageGeneral.Location = new System.Drawing.Point(3, 3);
             this.TabPageGeneral.Multiline = true;
             this.TabPageGeneral.Name = "TabPageGeneral";
-            this.TabPageGeneral.NormalTextColor = System.Drawing.Color.LightGray;
+            this.TabPageGeneral.NormalTextColor = System.Drawing.Color.LightSlateGray;
             this.TabPageGeneral.SelectedIndex = 0;
             this.TabPageGeneral.SelectedTabBackColor = System.Drawing.Color.White;
             this.TabPageGeneral.SelectedTextColor = System.Drawing.Color.Black;
-            this.TabPageGeneral.ShowOuterBorders = true;
+            this.TabPageGeneral.ShowOuterBorders = false;
             this.TabPageGeneral.Size = new System.Drawing.Size(606, 342);
             this.TabPageGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabPageGeneral.SquareColor = System.Drawing.Color.SteelBlue;
@@ -2854,6 +2870,9 @@ namespace AutoSplitterCore
             // 
             this.lostBorderPanel5.BackColor = System.Drawing.Color.LightBlue;
             this.lostBorderPanel5.BorderColor = System.Drawing.Color.SteelBlue;
+            this.lostBorderPanel5.Controls.Add(this.foreverTabPage1);
+            this.lostBorderPanel5.Controls.Add(this.label96);
+            this.lostBorderPanel5.Controls.Add(this.skyComboBoxHitMode);
             this.lostBorderPanel5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lostBorderPanel5.ForeColor = System.Drawing.Color.White;
             this.lostBorderPanel5.Location = new System.Drawing.Point(6, 6);
@@ -2862,6 +2881,182 @@ namespace AutoSplitterCore
             this.lostBorderPanel5.ShowText = false;
             this.lostBorderPanel5.Size = new System.Drawing.Size(471, 322);
             this.lostBorderPanel5.TabIndex = 33;
+            // 
+            // foreverTabPage1
+            // 
+            this.foreverTabPage1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.foreverTabPage1.ActiveFontColor = System.Drawing.Color.White;
+            this.foreverTabPage1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.foreverTabPage1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.foreverTabPage1.Controls.Add(this.tabPage1);
+            this.foreverTabPage1.Controls.Add(this.tabPage2);
+            this.foreverTabPage1.DeactiveFontColor = System.Drawing.Color.White;
+            this.foreverTabPage1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.foreverTabPage1.ItemSize = new System.Drawing.Size(120, 40);
+            this.foreverTabPage1.Location = new System.Drawing.Point(26, 53);
+            this.foreverTabPage1.Name = "foreverTabPage1";
+            this.foreverTabPage1.SelectedIndex = 0;
+            this.foreverTabPage1.Size = new System.Drawing.Size(429, 262);
+            this.foreverTabPage1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.foreverTabPage1.TabIndex = 33;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage1.Controls.Add(this.label99);
+            this.tabPage1.Controls.Add(this.checkBoxHitCeleste);
+            this.tabPage1.Controls.Add(this.linkLabelDeathCounter);
+            this.tabPage1.Controls.Add(this.linkLabelEverest);
+            this.tabPage1.Controls.Add(this.label98);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(421, 214);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Celeste";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.ForeColor = System.Drawing.Color.Firebrick;
+            this.label99.Location = new System.Drawing.Point(112, 107);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(204, 38);
+            this.label99.TabIndex = 36;
+            this.label99.Text = "     (Mod Develop by Neimex23)\r\n        (With integration ASC)";
+            // 
+            // checkBoxHitCeleste
+            // 
+            this.checkBoxHitCeleste.AutoSize = true;
+            this.checkBoxHitCeleste.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold);
+            this.checkBoxHitCeleste.ForeColor = System.Drawing.Color.Orange;
+            this.checkBoxHitCeleste.Location = new System.Drawing.Point(165, 164);
+            this.checkBoxHitCeleste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxHitCeleste.Name = "checkBoxHitCeleste";
+            this.checkBoxHitCeleste.Size = new System.Drawing.Size(102, 27);
+            this.checkBoxHitCeleste.TabIndex = 1;
+            this.checkBoxHitCeleste.Text = "Enable";
+            this.checkBoxHitCeleste.UseVisualStyleBackColor = true;
+            this.checkBoxHitCeleste.CheckedChanged += new System.EventHandler(this.checkBoxHitCeleste_CheckedChanged);
+            // 
+            // linkLabelDeathCounter
+            // 
+            this.linkLabelDeathCounter.AutoSize = true;
+            this.linkLabelDeathCounter.LinkColor = System.Drawing.Color.Red;
+            this.linkLabelDeathCounter.Location = new System.Drawing.Point(105, 84);
+            this.linkLabelDeathCounter.Name = "linkLabelDeathCounter";
+            this.linkLabelDeathCounter.Size = new System.Drawing.Size(229, 19);
+            this.linkLabelDeathCounter.TabIndex = 35;
+            this.linkLabelDeathCounter.TabStop = true;
+            this.linkLabelDeathCounter.Text = "Download and Install DeathCounter";
+            this.linkLabelDeathCounter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelDeathCounter_LinkClicked);
+            // 
+            // linkLabelEverest
+            // 
+            this.linkLabelEverest.AutoSize = true;
+            this.linkLabelEverest.LinkColor = System.Drawing.Color.White;
+            this.linkLabelEverest.Location = new System.Drawing.Point(106, 56);
+            this.linkLabelEverest.Name = "linkLabelEverest";
+            this.linkLabelEverest.Size = new System.Drawing.Size(219, 19);
+            this.linkLabelEverest.TabIndex = 34;
+            this.linkLabelEverest.TabStop = true;
+            this.linkLabelEverest.Text = "Download and Install Everest Mod";
+            this.linkLabelEverest.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEverest_LinkClicked);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(36, 5);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(354, 38);
+            this.label98.TabIndex = 33;
+            this.label98.Text = "This AutoHitter Only Work with Everest Mod Integration\r\n                        B" +
+    "ased on Deaths Amount";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage2.Controls.Add(this.checkBoxHitHollow);
+            this.tabPage2.Controls.Add(this.label97);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(421, 214);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Hollow Knight";
+            // 
+            // checkBoxHitHollow
+            // 
+            this.checkBoxHitHollow.AutoSize = true;
+            this.checkBoxHitHollow.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxHitHollow.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.checkBoxHitHollow.Location = new System.Drawing.Point(163, 120);
+            this.checkBoxHitHollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxHitHollow.Name = "checkBoxHitHollow";
+            this.checkBoxHitHollow.Size = new System.Drawing.Size(102, 27);
+            this.checkBoxHitHollow.TabIndex = 1;
+            this.checkBoxHitHollow.Text = "Enable";
+            this.checkBoxHitHollow.UseVisualStyleBackColor = true;
+            this.checkBoxHitHollow.CheckedChanged += new System.EventHandler(this.checkBoxHitHollow_CheckedChanged);
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(125, 66);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(187, 38);
+            this.label97.TabIndex = 2;
+            this.label97.Text = "Based on Health Reduction \r\nNot counting blue containers";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label96.ForeColor = System.Drawing.Color.Black;
+            this.label96.Location = new System.Drawing.Point(124, 20);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(65, 16);
+            this.label96.TabIndex = 31;
+            this.label96.Text = "Hit Mode";
+            // 
+            // skyComboBoxHitMode
+            // 
+            this.skyComboBoxHitMode.BackColor = System.Drawing.Color.Transparent;
+            this.skyComboBoxHitMode.BGColorA = System.Drawing.Color.WhiteSmoke;
+            this.skyComboBoxHitMode.BGColorB = System.Drawing.Color.SkyBlue;
+            this.skyComboBoxHitMode.BorderColorA = System.Drawing.Color.Black;
+            this.skyComboBoxHitMode.BorderColorB = System.Drawing.Color.Teal;
+            this.skyComboBoxHitMode.BorderColorC = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxHitMode.BorderColorD = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.skyComboBoxHitMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.skyComboBoxHitMode.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.skyComboBoxHitMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.skyComboBoxHitMode.Font = new System.Drawing.Font("Verdana", 7.9F, System.Drawing.FontStyle.Bold);
+            this.skyComboBoxHitMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxHitMode.FormattingEnabled = true;
+            this.skyComboBoxHitMode.ItemHeight = 16;
+            this.skyComboBoxHitMode.ItemHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(176)))), ((int)(((byte)(214)))));
+            this.skyComboBoxHitMode.Items.AddRange(new object[] {
+            "WAY",
+            "BOSS"});
+            this.skyComboBoxHitMode.LineColorA = System.Drawing.Color.White;
+            this.skyComboBoxHitMode.LineColorB = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.skyComboBoxHitMode.LineColorC = System.Drawing.Color.White;
+            this.skyComboBoxHitMode.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHitMode.ListBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.skyComboBoxHitMode.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.skyComboBoxHitMode.ListForeColor = System.Drawing.Color.Black;
+            this.skyComboBoxHitMode.ListSelectedBackColorA = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHitMode.ListSelectedBackColorB = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.skyComboBoxHitMode.Location = new System.Drawing.Point(195, 17);
+            this.skyComboBoxHitMode.Name = "skyComboBoxHitMode";
+            this.skyComboBoxHitMode.Size = new System.Drawing.Size(143, 22);
+            this.skyComboBoxHitMode.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.skyComboBoxHitMode.StartIndex = 0;
+            this.skyComboBoxHitMode.TabIndex = 30;
+            this.skyComboBoxHitMode.TriangleColorA = System.Drawing.Color.Black;
+            this.skyComboBoxHitMode.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxHitMode.SelectedIndexChanged += new System.EventHandler(this.skyComboBoxHitMode_SelectedIndexChanged);
             // 
             // tabInfo
             // 
@@ -13659,6 +13854,13 @@ namespace AutoSplitterCore
             this.groupBoxTMDs3.ResumeLayout(false);
             this.groupBoxTMDs3.PerformLayout();
             this.tabPageHitCounter.ResumeLayout(false);
+            this.lostBorderPanel5.ResumeLayout(false);
+            this.lostBorderPanel5.PerformLayout();
+            this.foreverTabPage1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabInfo.ResumeLayout(false);
             this.tabLicense.ResumeLayout(false);
             this.tabLicense.PerformLayout();
@@ -14392,5 +14594,17 @@ namespace AutoSplitterCore
         private ReaLTaiizor.Controls.Button btnAddAllBonefireDs3;
         private System.Windows.Forms.LinkLabel linkLabel10;
         private ReaLTaiizor.Controls.Button btnASL;
+        private System.Windows.Forms.CheckBox checkBoxHitHollow;
+        private System.Windows.Forms.CheckBox checkBoxHitCeleste;
+        private System.Windows.Forms.Label label96;
+        private ReaLTaiizor.Controls.SkyComboBox skyComboBoxHitMode;
+        private System.Windows.Forms.Label label97;
+        private ReaLTaiizor.Controls.ForeverTabPage foreverTabPage1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.LinkLabel linkLabelDeathCounter;
+        private System.Windows.Forms.LinkLabel linkLabelEverest;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label99;
     }
 }
