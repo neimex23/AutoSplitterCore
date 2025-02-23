@@ -83,43 +83,47 @@ namespace AutoSplitterCore
 
             updateModule.CheckUpdates(false);
 
-            interfaceASC.GameList.Clear();
-            foreach (string game in GetGames())
+            if (interfaceASC != null)
             {
-                interfaceASC.GameList.Add(game);
-            }
-
-            //interfaceASC.ActiveGameIndex = GetSplitterEnable(); //Before HCM Interface Change, ASC control mannualy on start the index of ComboBoxGame in Main Program
-            interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //After HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
-            interfaceASC.SetActiveGameIndexMethod = (splitter) =>
-            {
-                //Disable all games
-                EnableSplitting(0);
-                //Ask Selected index
-                EnableSplitting(splitter);
-            };
-            interfaceASC.PracticeMode = GetPracticeMode();
-            interfaceASC.SetPracticeModeMethod = SetPracticeMode;
-
-            interfaceASC.OpenSettingsMethod = AutoSplitterForm;
-            interfaceASC.SaveSettingsMethod = SaveAutoSplitterSettings;
-
-            interfaceASC.GetCurrentInGameTimeMethod = GetCurrentInGameTime;
-            bool GetCurrentInGameTime(out long totalTimeMs)
-            {
-                if (GetIsIGTActive())
+                interfaceASC.GameList.Clear();
+                foreach (string game in GetGames())
                 {
-                    totalTimeMs = ReturnCurrentIGT();
-                    return true;
+                    interfaceASC.GameList.Add(game);
                 }
 
-                totalTimeMs = 0;
-                return false;
+                //interfaceASC.ActiveGameIndex = GetSplitterEnable(); //Before HCM Interface Change, ASC control mannualy on start the index of ComboBoxGame in Main Program
+                interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //After HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
+                interfaceASC.SetActiveGameIndexMethod = (splitter) =>
+                {
+                    //Disable all games
+                    EnableSplitting(0);
+                    //Ask Selected index
+                    EnableSplitting(splitter);
+                };
+                interfaceASC.PracticeMode = GetPracticeMode();
+                interfaceASC.SetPracticeModeMethod = SetPracticeMode;
+
+                interfaceASC.OpenSettingsMethod = AutoSplitterForm;
+                interfaceASC.SaveSettingsMethod = SaveAutoSplitterSettings;
+
+                interfaceASC.GetCurrentInGameTimeMethod = GetCurrentInGameTime;
+                bool GetCurrentInGameTime(out long totalTimeMs)
+                {
+                    if (GetIsIGTActive())
+                    {
+                        totalTimeMs = ReturnCurrentIGT();
+                        return true;
+                    }
+
+                    totalTimeMs = 0;
+                    return false;
+                }
+
+                interfaceASC.SplitterResetMethod = ResetSplitterFlags;
+
+                interfaceASC.ProfileChange = splitterControl.ProfileChange;
             }
 
-            interfaceASC.SplitterResetMethod = ResetSplitterFlags;
-
-            interfaceASC.ProfileChange = splitterControl.ProfileChange;
             splitterControl.SetInterface(interfaceASC);
             splitterControl.SetSaveModule(saveModule);
             

@@ -1,7 +1,7 @@
 @echo off
 Color 1F
 echo ======== AutoSpliterCore Update Script ========
-echo                      v1.1
+echo                      v1.2
 echo ============================================
 echo Warning: This script must not be run individually, 
 echo you must download the files from the program first 
@@ -54,9 +54,9 @@ if %1 equ 1 (
     del .\SoulMemory.dll
     del .\soulmemory_rs_x64.dll
     del .\soulmods_x64.dll
-    copy .\Update\SoulMemory.dll .\
-    copy .\Update\soulmemory_rs_x64.dll .\
-    copy .\Update\soulmods_x64.dll .\
+
+    xcopy ".\Update\CliTimer\*" ".\" /E /H /C /I /Y
+
     rem     
     echo ========= Stage 3: Cleaning =========
     rmdir /S /Q .\Update

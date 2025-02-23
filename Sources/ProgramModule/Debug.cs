@@ -1,5 +1,4 @@
 ﻿using HitCounterManager;
-using Microsoft.Extensions.Logging.Abstractions;
 using SoulMemory.DarkSouls1;
 using System;
 using System.Collections.Generic;
@@ -27,7 +26,10 @@ namespace AutoSplitterCore
             ListenerASL.Initialize();
 
             mainModule.InitDebug();
-            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));          
+            #if !HCMv2
+            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));     
+            #endif
+
 
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();

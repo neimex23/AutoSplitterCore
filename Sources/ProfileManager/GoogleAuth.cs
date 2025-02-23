@@ -129,7 +129,8 @@ namespace AutoSplitterCore
                         Scopes,
                         machineName,
                         CancellationToken.None,
-                        new FileDataStore("AutoSplitterCore_Tokens", true) 
+                        new FileDataStore("AutoSplitterCore_Tokens", true),
+                        new LocalServerCodeReceiver()
                     );
 
 
@@ -498,7 +499,7 @@ namespace AutoSplitterCore
                 };
 
                 // Determine MIME type
-                string mimeType = MimeMapping.GetMimeMapping(path);
+                string mimeType = System.Web.MimeMapping.GetMimeMapping(path);
 
                 // Upload file
                 using (var stream = new FileStream(path, FileMode.Open))

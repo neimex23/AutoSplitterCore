@@ -1,18 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.2.32630.192
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore", "AutoSplitterCore.csproj", "{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore", "AutoSplitterCore.csproj", "{8B064806-9FF6-403D-8075-E8DEB3A287A7}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AutoSplitterCore Installer", "AutoSplitterCoreInstaller.vdproj", "{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCoreDebug", "AutoSplitterCoreDebug.csproj", "{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "AutoSplitterCore_HCMv2.csproj", "{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "AutoSplitterCore_HCMv2.csproj", "{D9BFE327-142C-4921-AB3A-998C8B7E17DE}"
 	ProjectSection(ProjectDependencies) = postProject
-		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A} = {8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}
+		{8B064806-9FF6-403D-8075-E8DEB3A287A7} = {8B064806-9FF6-403D-8075-E8DEB3A287A7}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCoreDebug", "AutoSplitterCoreDebug.csproj", "{2F97331B-E44A-4271-9956-A8D3AF3DB388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,25 +18,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Debug|Any CPU.ActiveCfg = Debug
-		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Release|Any CPU.ActiveCfg = Release
-		{4C1799DB-0C3E-45E4-BC53-E8F1EDA0512D}.Release|Any CPU.Build.0 = Release
-		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B1E13CC-1ED8-4CDB-808C-661232E0B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9B6FF2B-017D-44CE-8F2F-20E37B989D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B064806-9FF6-403D-8075-E8DEB3A287A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B064806-9FF6-403D-8075-E8DEB3A287A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B064806-9FF6-403D-8075-E8DEB3A287A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BFE327-142C-4921-AB3A-998C8B7E17DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BFE327-142C-4921-AB3A-998C8B7E17DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BFE327-142C-4921-AB3A-998C8B7E17DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F97331B-E44A-4271-9956-A8D3AF3DB388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F97331B-E44A-4271-9956-A8D3AF3DB388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F97331B-E44A-4271-9956-A8D3AF3DB388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AF039EA1-4006-4FDC-88C9-D93C336C2B1D}
 	EndGlobalSection
 EndGlobal

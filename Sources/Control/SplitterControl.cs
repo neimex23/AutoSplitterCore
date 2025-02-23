@@ -37,7 +37,7 @@ namespace AutoSplitterCore
         // --------------------------------------------------------------------------------
 
         /// For Api Calls initialice ASC without interface or HCM
-        // SplitterControl.Initialize(); Initializations
+        // SplitterControl.Initialize(); Initializations 
         // SplitterControl.GetControl(); Get Intance of SplitterControl
 
         /// <summary>
@@ -132,17 +132,6 @@ namespace AutoSplitterCore
         /// </summary>
         void ProfileReset();
 
-        /// <summary>
-        /// Return Handler Activated on Split is produced on ASC
-        /// </summary>
-        EventHandler OnSplit();
-
-        /// <summary>
-        /// Return Handler Activated on Hit is produced on ASC
-        /// Also stops and resets the timer.
-        /// </summary>
-        EventHandler OnHit();
-
 
         // --------------------------------------------------------------------------------
         // Profile Management
@@ -231,7 +220,7 @@ namespace AutoSplitterCore
         {
             AutoSplitterMainModule autoSplitterMainModule = new AutoSplitterMainModule();
             autoSplitterMainModule.InitDebug();
-            autoSplitterMainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
+            autoSplitterMainModule.RegisterHitCounterManagerInterface(null);
         }
 
         #endregion
@@ -243,8 +232,6 @@ namespace AutoSplitterCore
         private bool splitStatus = false;
         private IAutoSplitterCoreInterface interfaceHCM;
         private SaveModule saveModule;
-        private EventHandler _onSplit;
-        private EventHandler _onHit;
         private static readonly object splitLock = new object();
         private static readonly object hitLock = new object();
         #endregion
@@ -278,7 +265,6 @@ namespace AutoSplitterCore
                 if (splitGo) Thread.Sleep(2000);
                 splitGo = true;
                 splitStatus = true;
-                _onSplit?.Invoke(null, EventArgs.Empty);
             }
         }
 
@@ -291,12 +277,8 @@ namespace AutoSplitterCore
                 {
                     interfaceHCM.ProfileHitGo(1, saveModule.generalAS.HitMode == HitMode.Way);           
                 }
-                _onHit?.Invoke(null, EventArgs.Empty);
             }
         }
-
-        public EventHandler OnSplit() => _onSplit;
-        public EventHandler OnHit() => _onHit;
 
         public void UpdateDuration() => interfaceHCM.UpdateDuration();
         public void ProfileReset() => interfaceHCM.ProfileReset();

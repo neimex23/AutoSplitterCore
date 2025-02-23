@@ -35,11 +35,11 @@ if not exist %PR_FINAL% mkdir %PR_FINAL%
 echo Packing Portable AutoSplitterCore Release:
 set PR_BASE=bin\Release
 set PR_TARGET=%PR_FINAL%\AutoSplitterCorePortable
-set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v2.x.0.zip
+set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v3.x.0.zip
 rmdir /S /Q %PR_TARGET% 2>nul
 mkdir %PR_TARGET%
 del %PR_OUTPUT% 2>nul
-FOR %%G IN (AutoSplitterCore.dll HitCounterManager.dll Irony.dll LiveSplit.Celeste.dll LiveSplit.Core.dll LiveSplit.Cuphead.dll LiveSplit.HollowKnight.dll LiveSplit.Dishonored.dll Newtonsoft.Json.dll SoulMemory.dll soulmemory_rs_x64.dll soulmods_x64.dll UpdateScriptASC.bat) DO copy %PR_BASE%\%%G %PR_TARGET%
+xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y
 
 echo Copying PreProfiles
 mkdir %PR_TARGET%\AutoSplitterProfiles

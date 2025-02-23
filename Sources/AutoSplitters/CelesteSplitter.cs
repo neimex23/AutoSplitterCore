@@ -224,7 +224,7 @@ namespace AutoSplitterCore
                     if (!string.IsNullOrEmpty(response) && int.TryParse(response, out int deaths))
                     {
                         infoPlayer.deaths = deaths;
-                        //DebugLog.LogMessage($"Muertes actuales: {deaths}");
+                        //DebugLog.LogMessage($"Deaths: {deaths}");
                     }
                     else
                     {
@@ -232,7 +232,7 @@ namespace AutoSplitterCore
                     }
                 }
 
-                // Cerrar conexiones
+                // Close Conections
                 writer.Close();
                 reader.Close();
                 pipeClient.Close();

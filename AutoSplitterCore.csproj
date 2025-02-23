@@ -1,20 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8AD88022-E50C-45E6-B3DE-A6A8AFC46D9A}</ProjectGuid>
+    <ProjectGuid>{8B064806-9FF6-403D-8075-E8DEB3A287A7}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutoSplitterCore</RootNamespace>
     <AssemblyName>AutoSplitterCore</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,56 +24,69 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningsAsErrors />
+    <NoWarn>MSB3277</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
     <NoWarn>MSB3277</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Sources\ProgramModule\AutoSplitterSetupIcon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Api.Gax.Rest, Version=4.10.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.Rest.4.10.0\lib\net462\Google.Api.Gax.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Firestore.V1, Version=3.9.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Cloud.Firestore.V1.3.9.0\lib\net462\Google.Cloud.Firestore.V1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Location, Version=2.3.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Cloud.Location.2.3.0\lib\net462\Google.Cloud.Location.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.LongRunning, Version=3.3.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.LongRunning.3.3.0\lib\net462\Google.LongRunning.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Net.Client, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Net.Client.2.67.0\lib\net462\Grpc.Net.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Net.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Net.Common.2.67.0\lib\netstandard2.0\Grpc.Net.Common.dll</HintPath>
+    </Reference>
     <Reference Include="HitCounterManager">
       <HintPath>Sources\HitCounterManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.5.3.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>packages\Irony.1.5.3\lib\netstandard2.0\Irony.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Celeste">
       <HintPath>Sources\LiveSplit.Celeste.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="LiveSplit.Core">
       <HintPath>Sources\LiveSplit.Core.dll</HintPath>
     </Reference>
     <Reference Include="LiveSplit.Cuphead">
       <HintPath>Sources\LiveSplit.Cuphead.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.Dishonored, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="LiveSplit.Dishonored">
       <HintPath>Sources\LiveSplit.Dishonored.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.HollowKnight, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="LiveSplit.HollowKnight">
       <HintPath>Sources\LiveSplit.HollowKnight.dll</HintPath>
     </Reference>
-    <Reference Include="LiveSplit.ScriptableAutoSplit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="LiveSplit.ScriptableAutoSplit">
       <HintPath>Sources\LiveSplit.ScriptableAutoSplit.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="SoulMemory, Version=1.2.6.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SoulMemory">
       <HintPath>Sources\SoulMemory.dll</HintPath>
     </Reference>
     <Reference Include="SpeedrunComSharp">
@@ -79,30 +94,29 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Design" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Linq.Async, Version=6.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Async.6.0.1\lib\net48\System.Linq.Async.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Sources\AutoSplitters\ASLForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,10 +124,26 @@
       <DependentUpon>ASLForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\AutoSplitters\ASLSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\DishonoredSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\Ds1Splitter.cs" />
+    <Compile Include="Sources\AutoSplitters\Ds2Splitter.cs" />
+    <Compile Include="Sources\AutoSplitters\Ds3Splitter.cs" />
+    <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
+    <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
     <Compile Include="Sources\Control\HitterControl.cs" />
     <Compile Include="Sources\Control\SplitterControl.cs" />
+    <Compile Include="Sources\DataSplitters\DTCeleste.cs" />
+    <Compile Include="Sources\DataSplitters\DTCuphead.cs" />
     <Compile Include="Sources\DataSplitters\DTDishonored.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs1.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs2.cs" />
+    <Compile Include="Sources\DataSplitters\DTDs3.cs" />
+    <Compile Include="Sources\DataSplitters\DTElden.cs" />
+    <Compile Include="Sources\DataSplitters\DTHollow.cs" />
+    <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,27 +164,12 @@
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
-    <Compile Include="Sources\AutoSplitters\CelesteSplitter.cs" />
-    <Compile Include="Sources\AutoSplitters\CupheadSplitter.cs" />
     <Compile Include="Sources\ProgramModule\Debug.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sources\ProgramModule\Debug.Designer.cs">
       <DependentUpon>Debug.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\AutoSplitters\Ds1Splitter.cs" />
-    <Compile Include="Sources\AutoSplitters\Ds2Splitter.cs" />
-    <Compile Include="Sources\AutoSplitters\Ds3Splitter.cs" />
-    <Compile Include="Sources\DataSplitters\DTCeleste.cs" />
-    <Compile Include="Sources\DataSplitters\DTCuphead.cs" />
-    <Compile Include="Sources\DataSplitters\DTDs1.cs" />
-    <Compile Include="Sources\DataSplitters\DTDs2.cs" />
-    <Compile Include="Sources\DataSplitters\DTDs3.cs" />
-    <Compile Include="Sources\DataSplitters\DTElden.cs" />
-    <Compile Include="Sources\DataSplitters\DTHollow.cs" />
-    <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
-    <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
-    <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
     <Compile Include="Sources\ProgramModule\GameConstruction.cs" />
     <Compile Include="Sources\ProgramModule\IGTModule.cs" />
     <Compile Include="Sources\ProgramModule\MultiSelectionMode.cs">
@@ -164,7 +179,6 @@
       <DependentUpon>MultiSelectionMode.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\ProgramModule\Program.cs" />
-    <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
     <Compile Include="Sources\ProgramModule\UpdateModule.cs" />
     <Compile Include="Sources\ProgramModule\UpdateShowDialog.cs">
       <SubType>Form</SubType>
@@ -178,12 +192,15 @@
     <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.Designer.cs">
       <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Sources\AutoSplitters\ASLForm.resx">
       <DependentUpon>ASLForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,58 +225,121 @@
     <EmbeddedResource Include="Sources\ProgramModule\UpdateShowDialogSouls.resx">
       <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".editorconfig" />
     <EmbeddedResource Include="appsettings.json" />
-    <None Include="app.config" />
-    <None Include="Images\installer-banner-autosplitter.png" />
-    <Content Include="CelesteBridge.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="soulmemory_rs_x64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="soulmods_x64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="PrepareReleaseAutoSplitter.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="protos\google\api\annotations.proto" />
+    <None Include="protos\google\api\auth.proto" />
+    <None Include="protos\google\api\backend.proto" />
+    <None Include="protos\google\api\billing.proto" />
+    <None Include="protos\google\api\client.proto" />
+    <None Include="protos\google\api\config_change.proto" />
+    <None Include="protos\google\api\consumer.proto" />
+    <None Include="protos\google\api\context.proto" />
+    <None Include="protos\google\api\control.proto" />
+    <None Include="protos\google\api\distribution.proto" />
+    <None Include="protos\google\api\documentation.proto" />
+    <None Include="protos\google\api\endpoint.proto" />
+    <None Include="protos\google\api\error_reason.proto" />
+    <None Include="protos\google\api\field_behavior.proto" />
+    <None Include="protos\google\api\field_info.proto" />
+    <None Include="protos\google\api\http.proto" />
+    <None Include="protos\google\api\httpbody.proto" />
+    <None Include="protos\google\api\label.proto" />
+    <None Include="protos\google\api\launch_stage.proto" />
+    <None Include="protos\google\api\log.proto" />
+    <None Include="protos\google\api\logging.proto" />
+    <None Include="protos\google\api\metric.proto" />
+    <None Include="protos\google\api\monitored_resource.proto" />
+    <None Include="protos\google\api\monitoring.proto" />
+    <None Include="protos\google\api\policy.proto" />
+    <None Include="protos\google\api\quota.proto" />
+    <None Include="protos\google\api\resource.proto" />
+    <None Include="protos\google\api\routing.proto" />
+    <None Include="protos\google\api\service.proto" />
+    <None Include="protos\google\api\source_info.proto" />
+    <None Include="protos\google\api\system_parameter.proto" />
+    <None Include="protos\google\api\usage.proto" />
+    <None Include="protos\google\api\visibility.proto" />
+    <None Include="protos\google\rpc\code.proto" />
+    <None Include="protos\google\rpc\context\attribute_context.proto" />
+    <None Include="protos\google\rpc\context\audit_context.proto" />
+    <None Include="protos\google\rpc\error_details.proto" />
+    <None Include="protos\google\rpc\http.proto" />
+    <None Include="protos\google\rpc\status.proto" />
+    <None Include="protos\google\type\calendar_period.proto" />
+    <None Include="protos\google\type\color.proto" />
+    <None Include="protos\google\type\date.proto" />
+    <None Include="protos\google\type\datetime.proto" />
+    <None Include="protos\google\type\dayofweek.proto" />
+    <None Include="protos\google\type\decimal.proto" />
+    <None Include="protos\google\type\expr.proto" />
+    <None Include="protos\google\type\fraction.proto" />
+    <None Include="protos\google\type\interval.proto" />
+    <None Include="protos\google\type\latlng.proto" />
+    <None Include="protos\google\type\localized_text.proto" />
+    <None Include="protos\google\type\money.proto" />
+    <None Include="protos\google\type\month.proto" />
+    <None Include="protos\google\type\phone_number.proto" />
+    <None Include="protos\google\type\postal_address.proto" />
+    <None Include="protos\google\type\quaternion.proto" />
+    <None Include="protos\google\type\timeofday.proto" />
     <None Include="UpdateScriptASC.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Api.Gax.Rest">
-      <Version>4.10.0</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis">
-      <Version>1.69.0</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis.Auth">
-      <Version>1.69.0</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis.Drive.v3">
-      <Version>1.69.0.3693</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis.Oauth2.v2">
-      <Version>1.68.0.1869</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Cloud.Firestore">
-      <Version>3.9.0</Version>
-    </PackageReference>
-    <PackageReference Include="Irony">
-      <Version>1.5.3</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="ReaLTaiizor">
-      <Version>3.8.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>@echo off
+echo ========= Post-Build Copy =========
+
+set SOURCE_DIR=$(ProjectDir)Sources
+set TARGET_DIR=$(TargetDir)
+
+echo Copying files from %25SOURCE_DIR%25 to %25TARGET_DIR%25...
+
+copy /y "%25SOURCE_DIR%25\soulmods_x64.dll" "%25TARGET_DIR%25"
+copy /y "%25SOURCE_DIR%25\soulmods_x86.dll" "%25TARGET_DIR%25"
+copy /y "%25SOURCE_DIR%25\CliTimer.exe" "%25TARGET_DIR%25"
+
+echo All files have been copied successfully.
+echo ============================================
+
+echo ========= Post-Build Cleanup =========
+
+if "$(ConfigurationName)"=="Release" (
+    echo Release build detected. Deleting .pdb files...
+    del /q "$(TargetDir)*.pdb"
+    echo All .pdb files have been deleted.
+) else (
+    echo Non-release build detected. Skipping .pdb deletion.
+)
+
+echo ============================================</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="packages\Google.Api.CommonProtos.2.16.0\build\Google.Api.CommonProtos.targets" Condition="Exists('packages\Google.Api.CommonProtos.2.16.0\build\Google.Api.CommonProtos.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Google.Api.CommonProtos.2.16.0\build\Google.Api.CommonProtos.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Google.Api.CommonProtos.2.16.0\build\Google.Api.CommonProtos.targets'))" />
+    <Error Condition="!Exists('packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets'))" />
+  </Target>
+  <Import Project="packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.46.6\build\net45\Grpc.Core.targets')" />
+  <PropertyGroup>
+    <WarningsAsErrors>$(WarningsAsErrors);-MSB3277</WarningsAsErrors>
+  </PropertyGroup>
 </Project>
