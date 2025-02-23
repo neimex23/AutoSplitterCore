@@ -3992,5 +3992,25 @@ namespace AutoSplitterCore
         private void linkLabelEverest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://everestapi.github.io/"));
 
         private void linkLabelDeathCounter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://gamebanana.com/mods/577187"));
+
+        private void skyComboBox_DropDown(object sender, EventArgs e)
+        {
+            SkyComboBox comboBox = sender as SkyComboBox;
+
+            int maxWidth = comboBox.Width;
+            using (Graphics g = comboBox.CreateGraphics())
+            {
+                foreach (var item in comboBox.Items)
+                {
+                    int itemWidth = (int)g.MeasureString(item.ToString(), comboBox.Font).Width;
+                    if (itemWidth > maxWidth)
+                    {
+                        maxWidth = itemWidth;
+                    }
+                }
+            }
+
+            comboBox.DropDownWidth = maxWidth + 20;
+        }
     }
 }

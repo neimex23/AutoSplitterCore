@@ -151,7 +151,6 @@ namespace AutoSplitterCore
         private ASLSplitter aslSplitter = ASLSplitter.GetInstance();
         private UpdateModule updateModule = UpdateModule.GetIntance();
         private HitterControl hitterControl = HitterControl.GetControl();
-        public AutoSplitterMainModule mainModule { get; set; } = null;
 
 
         /// <summary>
@@ -395,8 +394,8 @@ namespace AutoSplitterCore
             
             if (!SplitterControl.GetControl().GetDebug())
             {
-                SplitterControl.GetControl().SetActiveGameIndex(mainModule.GetSplitterEnable());
-                SplitterControl.GetControl().SetPracticeMode(mainModule.GetPracticeMode());
+                SplitterControl.GetControl().SetActiveGameIndex(AutoSplitterMainModule.GetSplitterEnable());
+                SplitterControl.GetControl().SetPracticeMode(AutoSplitterMainModule.GetPracticeMode());
             }
         }
 
@@ -410,17 +409,17 @@ namespace AutoSplitterCore
 
         public void SetDescription(string Description) => dataAS.Description = Description;
 
-        public bool GetPracticeMode() => mainModule.GetPracticeMode();
+        public bool GetPracticeMode() => AutoSplitterMainModule.GetPracticeMode();
 
-        public string GetGameSelected()
+        public static string GetGameSelected()
         {
-            int game = mainModule.GetSplitterEnable();
+            int game = AutoSplitterMainModule.GetSplitterEnable();
             return GameConstruction.GameList[game];
         }
 
         public bool GetResetNewGame() => generalAS.AutoResetSplit;
 
-        public void ResetFlags() => mainModule.ResetSplitterFlags();
+        public void ResetFlags() => AutoSplitterMainModule.ResetSplitterFlags();
 
         public string GetStyle() => generalAS.StyleMode.ToString();
 
@@ -438,8 +437,6 @@ namespace AutoSplitterCore
 
         public bool ProfileLinkReady() => generalAS.profileLinks.Count > 0;
 
-
-        public AutoSplitterMainModule MainModule { get { return mainModule; } set { mainModule = value; } }
 
         #endregion
     }

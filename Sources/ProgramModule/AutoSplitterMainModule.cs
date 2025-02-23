@@ -43,9 +43,9 @@ namespace AutoSplitterCore
         public static DishonoredSplitter dishonoredSplitter = DishonoredSplitter.GetIntance();
         public static ASLSplitter aslSplitter = ASLSplitter.GetInstance();
 
-        public IGTModule igtModule = new IGTModule();
-        public SaveModule saveModule = new SaveModule();
-        public UpdateModule updateModule = UpdateModule.GetIntance();
+        public static IGTModule igtModule = new IGTModule();
+        public static SaveModule saveModule = new SaveModule();
+        public static UpdateModule updateModule = UpdateModule.GetIntance();
 
         private ISplitterControl splitterControl = SplitterControl.GetControl();
 
@@ -129,12 +129,12 @@ namespace AutoSplitterCore
             
         }
 
-        public void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
+        public static void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
 
 
         #endregion
         #region SplitterManagement
-        public bool GetPracticeMode() => saveModule._PracticeMode;
+        public static bool GetPracticeMode() => saveModule._PracticeMode;
 
         public void SetPracticeMode(bool status)
         {
@@ -168,7 +168,7 @@ namespace AutoSplitterCore
             splitterControl.SetChecking(!status);
         }
 
-        private readonly Dictionary<GameConstruction.Game, Func<bool>> splitterEnablerCheckers = new Dictionary<GameConstruction.Game, Func<bool>>()
+        private static readonly Dictionary<GameConstruction.Game, Func<bool>> splitterEnablerCheckers = new Dictionary<GameConstruction.Game, Func<bool>>()
         {
             { GameConstruction.Game.Sekiro, () => sekiroSplitter.GetDataSekiro().enableSplitting },
             { GameConstruction.Game.DarkSouls1, () => ds1Splitter.GetDataDs1().enableSplitting },
@@ -181,7 +181,7 @@ namespace AutoSplitterCore
             { GameConstruction.Game.Cuphead, () => cupSplitter.GetDataCuphead().enableSplitting },
             { GameConstruction.Game.ASLMethod, () => aslSplitter._AslActive }
         };
-        public int GetSplitterEnable()
+        public static int GetSplitterEnable()
         {
             var activeSplitter = splitterEnablerCheckers.FirstOrDefault(kv => kv.Value()).Key;
 
@@ -239,7 +239,7 @@ namespace AutoSplitterCore
             }
         }
 
-        public void ResetSplitterFlags()
+        public static void ResetSplitterFlags()
         {
             sekiroSplitter.ResetSplited();
             ds1Splitter.ResetSplited();
@@ -621,7 +621,7 @@ namespace AutoSplitterCore
         /// (See: https://github.com/dotnet/runtime/issues/21798)
         /// </summary>
         /// <param name="uri">URI that shall be opened</param>
-        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true });
+        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true});
         #endregion
     }
 }

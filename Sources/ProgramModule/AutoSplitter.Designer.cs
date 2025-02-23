@@ -776,8 +776,8 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.TabControlGeneral.Controls.Add(this.tabGeneral);
             this.TabControlGeneral.Controls.Add(this.tabConfig);
+            this.TabControlGeneral.Controls.Add(this.tabGeneral);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
@@ -1575,6 +1575,7 @@ namespace AutoSplitterCore
             this.skyComboBoxAscProfile.TabIndex = 32;
             this.skyComboBoxAscProfile.TriangleColorA = System.Drawing.Color.Black;
             this.skyComboBoxAscProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxAscProfile.DropDown += new System.EventHandler(this.skyComboBox_DropDown);
             // 
             // label93
             // 
@@ -1630,6 +1631,7 @@ namespace AutoSplitterCore
             this.skyComboBoxHcmProfile.TabIndex = 29;
             this.skyComboBoxHcmProfile.TriangleColorA = System.Drawing.Color.Black;
             this.skyComboBoxHcmProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
+            this.skyComboBoxHcmProfile.DropDown += new System.EventHandler(this.skyComboBox_DropDown);
             // 
             // listBoxLinkProfile
             // 

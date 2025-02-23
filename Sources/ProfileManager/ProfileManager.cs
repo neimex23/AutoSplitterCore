@@ -890,7 +890,7 @@ namespace AutoSplitterCore
         }
 
         private void checkBoxViewGeneralSettings_CheckedChanged(object sender, EventArgs e) =>  
-            _ = checkBoxViewGeneralSettings.Checked ? TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule) :TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule);
+            _ = checkBoxViewGeneralSettings.Checked ? TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule) :TextBoxSummary.Text = BuildSummary(this.saveModule);
 
     }
 }

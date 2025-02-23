@@ -54,14 +54,14 @@ namespace AutoSplitterCore
 
         private void Debug_Load(object sender, EventArgs e)
         {
-            checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
+            checkBoxPracticeMode.Checked = AutoSplitterMainModule.GetPracticeMode();
 
             var gameList = mainModule.GetGames();
             comboBoxGame.Items.AddRange(gameList.ToArray());
-            comboBoxGame.SelectedIndex = mainModule.GetSplitterEnable();
+            comboBoxGame.SelectedIndex = AutoSplitterMainModule.GetSplitterEnable();
 
-            LabelVersion.Text = mainModule.updateModule.currentVer;
-            labelCloudVer.Text = mainModule.updateModule.cloudVer;
+            LabelVersion.Text = AutoSplitterMainModule.updateModule.currentVer;
+            labelCloudVer.Text = AutoSplitterMainModule.updateModule.cloudVer;
 
             listViewLog.Items.Clear();
         }
@@ -70,7 +70,7 @@ namespace AutoSplitterCore
         {
             gameActive = comboBoxGame.SelectedIndex;
             mainModule.EnableSplitting(gameActive);
-            mainModule.igtModule.gameSelect = gameActive;
+            AutoSplitterMainModule.igtModule.gameSelect = gameActive;
             LogMessage($"CheckFlags is changed by: {comboBoxGame.Text}");
         }
 
@@ -82,8 +82,8 @@ namespace AutoSplitterCore
                 return;
             }
 
-            comboBoxGame.SelectedIndex = mainModule.GetSplitterEnable();
-            checkBoxPracticeMode.Checked = mainModule.GetPracticeMode();
+            comboBoxGame.SelectedIndex = AutoSplitterMainModule.GetSplitterEnable();
+            checkBoxPracticeMode.Checked = AutoSplitterMainModule.GetPracticeMode();
         }
 
         private void CheckInfo()
@@ -284,13 +284,13 @@ namespace AutoSplitterCore
 
         private void btnResetFlags_Click(object sender, EventArgs e)
         {
-            mainModule.ResetSplitterFlags();
+            AutoSplitterMainModule.ResetSplitterFlags();
             DebugLog.LogMessage($"Reset Flags of: {comboBoxGame.Text}");
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
-            mainModule.SaveAutoSplitterSettings();
+            AutoSplitterMainModule.SaveAutoSplitterSettings();
             MessageBox.Show("Save Successfully", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

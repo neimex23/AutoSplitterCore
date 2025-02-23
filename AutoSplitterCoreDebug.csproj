@@ -274,6 +274,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <Version>9.0.2</Version>
     </PackageReference>
+    <PackageReference Include="MimeTypesMap">
+      <Version>1.0.9</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>

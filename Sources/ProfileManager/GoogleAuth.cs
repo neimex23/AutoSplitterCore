@@ -44,7 +44,12 @@ using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using Grpc.Auth;
 using Grpc.Core;
-
+using Google.Apis.Auth.OAuth2.Requests;
+using Google.Apis.Auth.OAuth2.Responses;
+using System.Net;
+using System.Diagnostics;
+using HeyRed.Mime;
+using System.Drawing;
 
 namespace AutoSplitterCore
 {
@@ -130,7 +135,7 @@ namespace AutoSplitterCore
                         machineName,
                         CancellationToken.None,
                         new FileDataStore("AutoSplitterCore_Tokens", true),
-                        new LocalServerCodeReceiver()
+                        new CrossPlatformLocalServerCodeReceiver()
                     );
 
 
@@ -499,7 +504,7 @@ namespace AutoSplitterCore
                 };
 
                 // Determine MIME type
-                string mimeType = System.Web.MimeMapping.GetMimeMapping(path);
+                string mimeType = MimeTypesMap.GetMimeType(path);
 
                 // Upload file
                 using (var stream = new FileStream(path, FileMode.Open))
@@ -681,6 +686,7 @@ namespace AutoSplitterCore
         {
             if (listViewFilesASC.SelectedItems.Count > 0)
             {
+                Cursor = Cursors.WaitCursor;
                 var selectedItem = listViewFilesASC.SelectedItems[0];
                 var fileId = selectedItem.SubItems[5].Text; 
                 var fileName = selectedItem.Text; 
@@ -702,7 +708,6 @@ namespace AutoSplitterCore
                         SaveModule saveModuleLocal = new SaveModule
                         {
                             dataAS = configuration,
-                            MainModule = this.saveModule.MainModule
                         };
 
                         TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
@@ -719,6 +724,7 @@ namespace AutoSplitterCore
                 {
                     MessageBox.Show($"Error to process file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                Cursor = Cursors.Default;
             }
         }
 
@@ -778,6 +784,7 @@ namespace AutoSplitterCore
         {
             if (listViewFilesASC.SelectedItems.Count > 0)
             {
+                Cursor = Cursors.WaitCursor;
                 var selectedItem = listViewFilesASC.SelectedItems[0];
                 var fileId = selectedItem.SubItems[5].Text;
                 var fileName = selectedItem.Text;
@@ -792,6 +799,27 @@ namespace AutoSplitterCore
 
                     string finalFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), fileName);
 
+                    if (File.Exists(finalFilePath))
+                    {
+                        // Get file name without extension and extension
+                        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+                        string extension = Path.GetExtension(fileName);
+
+                        // Generate the name with suffix _2, and if it exists, increment the number (_3, _4, etc.)
+                        int count = 2;
+                        string newFileName;
+
+                        do
+                        {
+                            newFileName = $"{fileNameWithoutExtension}_{count}{extension}";
+                            count++;
+                        } while (File.Exists(Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), newFileName)));
+
+                        // Rename Exist File
+                        string renamedFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), newFileName);
+                        File.Move(finalFilePath, renamedFilePath);
+                    }
+
                     File.Move(tempFilePath, finalFilePath);      
                 }else
                 {
@@ -802,8 +830,9 @@ namespace AutoSplitterCore
 
                         if (splitterControl.GetAllHcmProfile().Exists(x => x.Equals(profileHCM.ProfileName)))
                         {
+                            Cursor = Cursors.Default;
                             MessageBox.Show("A profile with this name already exists!\nChange name and try again.", "Profile already exists", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                            File.Delete(tempFilePath);
+                            File.Delete(tempFilePath);                 
                             return;
                         }
 
@@ -817,11 +846,12 @@ namespace AutoSplitterCore
                 }
 
                 File.Delete(tempFilePath);
+                Cursor = Cursors.Default;
                 if (MessageBox.Show("Install Complete, you can Switch the profile on Profile Manager\nDo you want close this windows?", "Susesfully",MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) Close();
             }else
             {
                 MessageBox.Show("You must Select File to download", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }    
         }
 
         #endregion
@@ -848,6 +878,74 @@ namespace AutoSplitterCore
 
                 AutoSplitterMainModule.OpenWithBrowser(new Uri(fullUrl));
             }
+        }
+    }
+
+    public class CrossPlatformLocalServerCodeReceiver : ICodeReceiver
+    {
+        public string RedirectUri => "http://127.0.0.1:55088/";
+
+        public async Task<AuthorizationCodeResponseUrl> ReceiveCodeAsync(
+            AuthorizationCodeRequestUrl url,
+            CancellationToken cancellationToken)
+        {
+            AutoSplitterMainModule.OpenWithBrowser(new Uri(url.Build().ToString()));
+
+            var listener = new HttpListener();
+            listener.Prefixes.Add(RedirectUri);
+            listener.Start();
+
+            try
+            {
+                var getContextTask = GetContextAsync(listener);
+                var cancellationTask = Task.Delay(-1, cancellationToken);
+                var completedTask = await Task.WhenAny(getContextTask, cancellationTask);
+
+                if (completedTask == getContextTask)
+                {
+                    var context = await getContextTask;
+                    var response = context.Request.Url.Query;
+
+                    if (response.StartsWith("?"))
+                    {
+                        response = response.Substring(1);
+                    }
+
+                    var authorizationCodeResponse = new AuthorizationCodeResponseUrl()
+                    {
+                        Code = System.Web.HttpUtility.ParseQueryString(response).Get("code"),
+                        Error = System.Web.HttpUtility.ParseQueryString(response).Get("error"),
+                        ErrorDescription = System.Web.HttpUtility.ParseQueryString(response).Get("error_description")
+                    };
+
+                    context.Response.StatusCode = 200;
+                    context.Response.ContentType = "text/html";
+                    string responseHtml = "<html><body><h2>Authentication completed successfully. You may close this window..</h2></body></html>";
+                    byte[] responseBytes = Encoding.UTF8.GetBytes(responseHtml);
+
+                    #if NET6_0_OR_GREATER
+                    await context.Response.OutputStream.WriteAsync(responseBytes);
+                    #else
+                    await context.Response.OutputStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+                    #endif
+
+                    return authorizationCodeResponse;
+                }
+                else
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    throw new OperationCanceledException();
+                }
+            }
+            finally
+            {
+                listener.Stop();
+            }
+        }
+
+        private Task<HttpListenerContext> GetContextAsync(HttpListener listener)
+        {
+            return listener.GetContextAsync();
         }
     }
 }
