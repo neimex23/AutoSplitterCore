@@ -920,7 +920,7 @@ namespace AutoSplitterCore
 
                     context.Response.StatusCode = 200;
                     context.Response.ContentType = "text/html";
-                    string responseHtml = "<html><body><h2>Authentication completed successfully. You may close this window..</h2></body></html>";
+                    string responseHtml = ConstructHTML();
                     byte[] responseBytes = Encoding.UTF8.GetBytes(responseHtml);
 
                     #if NET6_0_OR_GREATER
@@ -947,5 +947,49 @@ namespace AutoSplitterCore
         {
             return listener.GetContextAsync();
         }
+
+        private string ConstructHTML()
+        {
+            return @"
+            <html lang=""en"">
+              <head>
+                <meta charset=""UTF-8"" />
+                <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" />
+                <title>Authentication Complete</title>
+                <link href=""https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"" rel=""stylesheet"" />
+              </head>
+              <body class=""bg-black min-h-screen flex flex-col items-center justify-center text-center px-4"">
+                <header class=""w-full bg-gray-800 text-white py-4"">
+                  <div class=""container mx-auto"">
+                    <h1 class=""text-3xl font-bold"">AutoSplitterCore</h1>
+                  </div>
+                </header>
+
+                <main class=""flex-grow flex items-center justify-center"">
+                  <div class=""bg-white text-black rounded-lg shadow-lg p-6 max-w-lg w-full"">
+                    <h2 class=""text-3xl font-bold mb-4"">Authentication Complete</h2>
+                    <p class=""text-lg mb-6"">You can now close this window.</p>
+                  </div>
+                </main>
+
+                <footer class=""w-full bg-gray-900 text-white py-4 text-center"">
+                  <div class=""container mx-auto flex flex-col items-center gap-2"">
+                    <div class=""flex flex-wrap justify-center gap-3 text-sm md:text-base"">
+                      <a href=""https://github.com/neimex23/AutoSplitterCore"" target=""_blank"" rel=""noopener noreferrer"" class=""hover:underline"">Open Source on GitHub</a>
+                      <span class=""opacity-50"">|</span>
+                      <a href=""https://neimex23.github.io/AutoSplitterCore/TermsAndConditions"" target=""_blank"" rel=""noopener noreferrer"" class=""hover:underline"">Terms and Conditions</a>
+                      <span class=""opacity-50"">|</span>
+                      <a href=""https://neimex23.github.io/AutoSplitterCore/PrivacyPolicy"" target=""_blank"" rel=""noopener noreferrer"" class=""hover:underline"">Privacy Policy</a>
+                        <span class=""opacity-50"">|</span>
+                      <a href=""https://neimex23.github.io/AutoSplitterCore/"" target=""_blank"" rel=""noopener noreferrer"" class=""hover:underline"">Home Page</a>
+                    </div>
+                    <p class=""text-xs md:text-sm opacity-75"">© 2025 AutoSplitterCore. Open Source Project.</p>
+                  </div>
+                </footer>
+              </body>
+            </html>
+            ";
+        }
+
     }
 }
