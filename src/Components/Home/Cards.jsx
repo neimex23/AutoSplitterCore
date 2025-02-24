@@ -89,8 +89,9 @@ const games = [
   {
     title: "ASL Scripting",
     description: "Split whatreaver game that have a asl with autosplitter",
+    flags: [],
     image:
-      "https://play-lh.googleusercontent.com/2M4yN2S6iyQjCRIs4SRcflxzkw3pSJ93rChQDPijq4KUy8OwbK4TSq8h4QPjpiyiB3k",
+      "https://www.shutterstock.com/image-vector/gamer-joypad-console-controller-gamepad-600nw-2274436813.jpg",
   },
 ];
 
