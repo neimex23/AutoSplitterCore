@@ -1,3 +1,4 @@
+import { image } from "framer-motion/client";
 import React, { useState } from "react";
 
 const games = [
@@ -43,8 +44,7 @@ const games = [
     title: "Dark Souls 3",
     description: "Immediately/Loading After",
     flags: ["Kill a Boss", "Is Activated a Bonfire", "Level the Character"],
-    image:
-      "https://easycdn.es/1/v/video_34812.jpg",
+    image: "https://easycdn.es/1/v/video_34812.jpg",
   },
   {
     title: "Hollow Knight",
@@ -64,8 +64,7 @@ const games = [
     title: "Celeste",
     description: "Immediately",
     flags: ["Chapter", "Checkpoints"],
-    image:
-      "https://i.blogs.es/442f82/020119-celeste/1366_2000.jpg",
+    image: "https://i.blogs.es/442f82/020119-celeste/1366_2000.jpg",
   },
   {
     title: "Cuphead",
@@ -86,6 +85,12 @@ const games = [
     ],
     image:
       "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/07/dishonored-2-1981503.jpg",
+  },
+  {
+    title: "ASL Scripting",
+    description: "Split whatreaver game that have a asl with autosplitter",
+    image:
+      "https://play-lh.googleusercontent.com/2M4yN2S6iyQjCRIs4SRcflxzkw3pSJ93rChQDPijq4KUy8OwbK4TSq8h4QPjpiyiB3k",
   },
 ];
 
@@ -126,8 +131,7 @@ export const AutoSplitterFlags = () => {
             backgroundBlendMode: "overlay",
             backgroundColor: "rgba(0, 0, 0, 0.6)",
             backdropFilter: "blur(10px)",
-          }}
-        >
+          }}>
           <h2 className="text-xl font-bold text-yellow-600">
             {games[currentIndex].title}
           </h2>
@@ -147,14 +151,12 @@ export const AutoSplitterFlags = () => {
         <div className="flex justify-between mt-2">
           <button
             onClick={() => changeCard("prev")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-          >
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
             ◀ Prev
           </button>
           <button
             onClick={() => changeCard("next")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-          >
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
             Next ▶
           </button>
         </div>
