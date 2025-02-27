@@ -557,6 +557,7 @@ namespace AutoSplitterCore
                 }
             }
             #endregion
+            labelCurrentPiped.Text = celesteSplitter.pipeConnected ? "Enabled" : "Disable";
             DTDs2 ds2Data = ds2Splitter.GetDataDs2();
             #region Ds2Load.Boss
             foreach (DefinitionsDs2.BossDs2 boss in ds2Data.GetBossToSplit())
@@ -3978,6 +3979,16 @@ namespace AutoSplitterCore
 
         private void btnASL_Click(object sender, EventArgs e)
         {
+#if HCMv2 //ASL Not Compatible with HCMv2 For LiveSplit.Core and Livesplit.ScripteableASL dependencies only work NetFramework
+            MessageBox.Show(
+            "Unfortunately, ASL is not available in HCMv2 due to its dependencies on Livesplit.Core, which only work in .NET Framework environments, whereas HCMv2 runs on .NET 7.",
+            "Information",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information
+            );
+            return;
+#endif
+
             var form = new ASLForm(saveModule);
             Point parentLocation = this.Location;
 

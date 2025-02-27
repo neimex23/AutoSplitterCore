@@ -216,14 +216,21 @@ namespace AutoSplitterCore
         #region Checking
         public PointF GetCurrentPosition()
         {
-            ManualRefreshPosition();
-            return this.currentPosition.position;
+            if (!_StatusHollow) GetHollowStatusProcess(0);
+            if (_StatusHollow)
+            {
+                ManualRefreshPosition();
+                return this.currentPosition.position;
+            } else
+            {
+                return new PointF(0, 0);
+            }           
         }
 
         public bool IsNewgame()
         {
             if (!_StatusHollow) GetHollowStatusProcess(0);
-            return currentPosition.sceneName.StartsWith("Opening_Sequence");
+            return _StatusHollow ? currentPosition.sceneName.StartsWith("Opening_Sequence") : false;
         }
 
         public int GetHealth()

@@ -216,18 +216,13 @@ namespace AutoSplitterCore
         public int GetTimeInGame()
         {
             if (!_StatusDs3) GetDs3StatusProcess(0);
-            return Ds3.GetInGameTimeMilliseconds();
+            return _StatusDs3 ? Ds3.GetInGameTimeMilliseconds() : -1;
         }
 
         public Vector3f GetCurrentPosition()
         {
             if(!_StatusDs3) GetDs3StatusProcess(0);
-            if (!_StatusDs3)
-            {
-                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
-                return vector;
-            }
-            return Ds3.GetPosition();
+            return _StatusDs3 ? Ds3.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
         #endregion
         #region Procedure

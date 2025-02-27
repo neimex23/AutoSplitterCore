@@ -626,6 +626,9 @@ namespace AutoSplitterCore
             this.materialCheckBox10 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.labelCurrentPiped = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
             this.TabControlGeneral.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -776,8 +779,8 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabGeneral);
+            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
@@ -2905,6 +2908,9 @@ namespace AutoSplitterCore
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage1.Controls.Add(this.label101);
+            this.tabPage1.Controls.Add(this.labelCurrentPiped);
+            this.tabPage1.Controls.Add(this.label100);
             this.tabPage1.Controls.Add(this.label99);
             this.tabPage1.Controls.Add(this.checkBoxHitCeleste);
             this.tabPage1.Controls.Add(this.linkLabelDeathCounter);
@@ -13767,6 +13773,34 @@ namespace AutoSplitterCore
             this.materialCheckBox12.UseAccentColor = true;
             this.materialCheckBox12.UseVisualStyleBackColor = true;
             // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(6, 192);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(97, 19);
+            this.label100.TabIndex = 37;
+            this.label100.Text = "Current Piped:";
+            // 
+            // labelCurrentPiped
+            // 
+            this.labelCurrentPiped.AutoSize = true;
+            this.labelCurrentPiped.Location = new System.Drawing.Point(362, 192);
+            this.labelCurrentPiped.Name = "labelCurrentPiped";
+            this.labelCurrentPiped.Size = new System.Drawing.Size(53, 19);
+            this.labelCurrentPiped.TabIndex = 38;
+            this.labelCurrentPiped.Text = "Disable";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.ForeColor = System.Drawing.Color.SandyBrown;
+            this.label101.Location = new System.Drawing.Point(1, 154);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(102, 38);
+            this.label101.TabIndex = 39;
+            this.label101.Text = "Considering \r\nLunch ASC first";
+            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -14608,5 +14642,8 @@ namespace AutoSplitterCore
         private System.Windows.Forms.LinkLabel linkLabelEverest;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Label labelCurrentPiped;
+        private System.Windows.Forms.Label label101;
     }
 }

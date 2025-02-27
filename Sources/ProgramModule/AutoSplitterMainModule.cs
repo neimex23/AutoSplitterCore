@@ -75,6 +75,7 @@ namespace AutoSplitterCore
         public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)
         {
             //LoadSettings
+            HitterControl._saveModule = saveModule;
             saveModule.LoadAutoSplitterSettings();
 
             updateTimer = new Timer { Interval = 500 }; 
@@ -338,11 +339,11 @@ namespace AutoSplitterCore
                     break;
 
                 //Special Case
-                case (int)GameConstruction.Game.Celeste: //Celeste
+                case (int)GameConstruction.Game.Celeste: // Celeste
                     if (celesteSplitter.GetDataCeleste().autoTimer && !_PracticeMode)
                     {
                         if (!celesteSplitter.GetDataCeleste().gameTimer)
-                        {                           
+                        {
                             if (!celesteSplitter._runStarted && celesteSplitter.IsInGame())
                             {
                                 if (!splitterControl.GetTimerRunning() && GameOn())
@@ -354,19 +355,19 @@ namespace AutoSplitterCore
                         {
                             anyGameTime = true;
                             var currentCelesteTime = celesteSplitter.GetTimeInGame();
-                            if (currentCelesteTime > 0 && currentCelesteTime != _lastCelesteTime && celesteSplitter.IsInGame() && GameOn())
+
+                            if (currentCelesteTime > 0 && celesteSplitter.IsInGame() && GameOn())
                             {
                                 if (!splitterControl.GetTimerRunning())
                                     splitterControl.StartStopTimer(true);
                             }
-                            else
+                            else if (currentCelesteTime <= 0) 
                             {
                                 if (splitterControl.GetTimerRunning())
                                     splitterControl.StartStopTimer(false);
                             }
-                                
 
-                            if (currentCelesteTime > 0)
+                            if (currentCelesteTime > _lastCelesteTime)
                                 _lastCelesteTime = currentCelesteTime;
                         }
                     }

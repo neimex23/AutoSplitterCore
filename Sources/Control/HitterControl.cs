@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -61,11 +62,10 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error in CheckingHollow: {ex.Message}");
+                DebugLog.LogMessage($"Error in CheckingHitHollow: {ex.Message}");
             }
         }
         #endregion
-
         #region Celeste
         private CancellationTokenSource _ctsCeleste;
         public void StartCeleste()
@@ -84,21 +84,32 @@ namespace AutoSplitterCore
         {
             try
             {
-                int lastDeaths = CelesteSplitter.GetIntance().GetDeaths();
+                int lastDeaths = -1;  // Inicializado en -1 para detectar el primer caso
 
                 while (!token.IsCancellationRequested)
                 {
-                    if (!_saveModule.generalAS.AutoHitHollow) StopHollow();
+                    if (!_saveModule.generalAS.AutoHitCeleste) StopCeleste();
                     await Task.Delay(1000, token);
 
-                    int currentDeaths = CelesteSplitter.GetIntance().GetDeaths();
-                    //DebugLog.LogMessage($"Death Celeste: {currentDeaths}");
-                    if (currentDeaths < lastDeaths)
+                    // Solo obtenemos muertes si el jugador está en el juego
+                    if (CelesteSplitter.GetIntance().IsInGame())
                     {
-                        _splitterControl.HitCheck("HitFlag produced on Celeste");
-                    }
+                        int currentDeaths = CelesteSplitter.GetIntance().GetDeaths();
+                        DebugLog.LogMessage($"Deaths: {currentDeaths} - LastDeath {lastDeaths}");
 
-                    lastDeaths = currentDeaths;
+                        if (lastDeaths == -1)
+                        {
+                            // Primer caso cuando el jugador entra al juego
+                            lastDeaths = currentDeaths;
+                        }
+                        else if (currentDeaths > lastDeaths) 
+                        {
+                            _splitterControl.HitCheck("HitFlag produced on Celeste");
+                        }
+
+                        // Asegurar que lastDeaths se actualiza siempre
+                        lastDeaths = currentDeaths;
+                    }
                 }
             }
             catch (TaskCanceledException)
@@ -106,9 +117,10 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error in CheckingHollow: {ex.Message}");
+                DebugLog.LogMessage($"Error in CheckingHIT Celeste: {ex.Message}");
             }
         }
+
         #endregion
     }
 }

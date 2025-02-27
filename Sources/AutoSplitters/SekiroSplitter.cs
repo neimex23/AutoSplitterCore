@@ -407,18 +407,13 @@ namespace AutoSplitterCore
         public Vector3f GetCurrentPosition()
         {
             if (!_StatusSekiro) GetSekiroStatusProcess(0);
-            if (!_StatusSekiro)
-            {
-                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
-                return vector;
-            }
-            return sekiro.GetPlayerPosition();
+            return _StatusSekiro ? sekiro.GetPlayerPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
 
         public int GetTimeInGame()
         {
             if (!_StatusSekiro) GetSekiroStatusProcess(0);
-            return sekiro.GetInGameTimeMilliseconds();
+            return _StatusSekiro ? sekiro.GetInGameTimeMilliseconds() : -1;
         }
 
         public bool CheckFlag(uint id)

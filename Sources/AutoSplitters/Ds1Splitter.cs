@@ -220,17 +220,13 @@ namespace AutoSplitterCore
         public int GetTimeInGame()
         {
             if (!_StatusDs1) GetDs1StatusProcess(0);
-            return Ds1.GetInGameTimeMilliseconds();
+            return _StatusDs1 ? Ds1.GetInGameTimeMilliseconds() : -1;
         }
 
         public Vector3f GetCurrentPosition()
         {
             if (!_StatusDs1) GetDs1StatusProcess(0);
-            if (!_StatusDs1)
-            {
-                return new Vector3f() { X = 0, Y = 0, Z = 0 };
-            }
-            return Ds1.GetPosition();
+            return _StatusDs1 ? Ds1.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
 
         public bool CheckFlag(uint id)

@@ -203,12 +203,9 @@ namespace AutoSplitterCore
     {
         #region Singleton
         private static readonly Lazy<SplitterControl> instance = new Lazy<SplitterControl>(() => new SplitterControl());
-        private readonly System.Windows.Forms.Timer updateTimer;
 
         private SplitterControl()
         {
-            updateTimer = new System.Windows.Forms.Timer { Interval = 1000 };
-            updateTimer.Tick += (sender, args) => SplitGo();
         }
 
         public static ISplitterControl GetControl() => instance.Value;
@@ -239,32 +236,36 @@ namespace AutoSplitterCore
         #region Interface Methods
         public void SetInterface(IAutoSplitterCoreInterface interfaceHcm) => interfaceHCM = interfaceHcm;
         public void SetSaveModule(SaveModule savemodule) => saveModule = savemodule;
-        public void SetChecking(bool checking)
-        {
-            enableChecking = checking;
-            updateTimer.Enabled = checking;
-        }
+        public void SetChecking(bool checking) => enableChecking = checking;
 
         public void SetDebug(bool status) => debugMode = status;
         public bool GetDebug() => debugMode;
-        public void StartStopTimer(bool stop) => interfaceHCM.StartStopTimer(stop);
-        public void SetActiveGameIndex(int index) => interfaceHCM.ActiveGameIndex = index;
-        public void SetPracticeMode(bool status) => interfaceHCM.PracticeMode = status;
+        public void StartStopTimer(bool stop) => InvokeOnMainThread(() => interfaceHCM.StartStopTimer(stop));
+        public void SetActiveGameIndex(int index) => InvokeOnMainThread(() => interfaceHCM.ActiveGameIndex = index);
+        public void SetPracticeMode(bool status) => InvokeOnMainThread(() => interfaceHCM.PracticeMode = status);
 
         public void SplitCheck(string debugLog)
         {
             lock (splitLock)
             {
-                if (debugMode) DebugLog.LogMessage(debugLog);
-                if (!enableChecking)
+                DebugLog.LogMessage(debugLog);
+
+                if (enableChecking)
+                {
+                    if (!debugMode) InvokeOnMainThread(() => interfaceHCM.ProfileSplitGo(1));
+                    splitStatus = true;
+                }else 
                 {
                     splitStatus = false;
-                    return;
-                }
-            
-                if (splitGo) Thread.Sleep(2000);
-                splitGo = true;
-                splitStatus = true;
+                }            
+            }
+        }
+
+        public bool GetSplitStatus()
+        {
+            lock (splitLock)
+            {
+                return splitStatus;
             }
         }
 
@@ -272,18 +273,18 @@ namespace AutoSplitterCore
         {
             lock (hitLock)
             {
-                if (debugMode) DebugLog.LogMessage(debugLog);
+                DebugLog.LogMessage(debugLog);
                 if (enableChecking && !debugMode)
                 {
-                    interfaceHCM.ProfileHitGo(1, saveModule.generalAS.HitMode == HitMode.Way);           
+                    InvokeOnMainThread(() => interfaceHCM.ProfileHitGo(1, saveModule.generalAS.HitMode == HitMode.Way));           
                 }
             }
         }
 
-        public void UpdateDuration() => interfaceHCM.UpdateDuration();
-        public void ProfileReset() => interfaceHCM.ProfileReset();
+        public void UpdateDuration() => InvokeOnMainThread(() => interfaceHCM.UpdateDuration());
+        public void ProfileReset() => InvokeOnMainThread(() => interfaceHCM.ProfileReset());
         public bool CurrentFinalSplit() => interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
-        public bool GetSplitStatus() => splitStatus;
+
         public bool GetTimerRunning() => interfaceHCM.TimerRunning;
 
         public void ProfileChange(string profileTitle)
@@ -311,18 +312,23 @@ namespace AutoSplitterCore
         public string GetHCMProfileName() => interfaceHCM.ProfileName();
         public List<string> GetAllHcmProfile() => interfaceHCM.GetProfiles();
         public List<string> GetSplits() => interfaceHCM.GetSplits();
-        public void NewProfile(string profileTitle) => interfaceHCM.NewProfile(profileTitle);
-        public void AddSplit(string splitTitle) => interfaceHCM.AddSplit(splitTitle);
+        public void NewProfile(string profileTitle) => InvokeOnMainThread(() => interfaceHCM.NewProfile(profileTitle));
+        public void AddSplit(string splitTitle) => InvokeOnMainThread(() => interfaceHCM.AddSplit(splitTitle));
         #endregion
 
-        #region Private Methods
-        private void SplitGo()
+        private static readonly SynchronizationContext syncContext = SynchronizationContext.Current ?? new WindowsFormsSynchronizationContext();
+
+        private void InvokeOnMainThread(Action action)
         {
-            if (!splitGo || debugMode) return;
-
-            interfaceHCM.ProfileSplitGo(1);
+            if (syncContext == null || SynchronizationContext.Current == syncContext)
+            {
+                action();
+            }
+            else
+            {
+                syncContext.Post(_ => action(), null);
+            }
         }
-        #endregion
     }
 }
 

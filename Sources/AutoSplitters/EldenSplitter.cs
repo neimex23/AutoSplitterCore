@@ -176,18 +176,13 @@ namespace AutoSplitterCore
         public SoulMemory.EldenRing.Position GetCurrentPosition()
         {
             if (!_StatusElden) GetEldenStatusProcess(0);
-            if (!_StatusElden)
-            {
-                SoulMemory.EldenRing.Position vector = new SoulMemory.EldenRing.Position() { X = 0, Y = 0, Z = 0 };
-                return vector;
-            }
-            return elden.GetPosition();
+            return _StatusElden ? elden.GetPosition() : new SoulMemory.EldenRing.Position() { X = 0, Y = 0, Z = 0 };
         }
 
         public int GetTimeInGame()
         {
             if (!_StatusElden) GetEldenStatusProcess(0);
-            return elden.GetInGameTimeMilliseconds();
+            return _StatusElden ? elden.GetInGameTimeMilliseconds() : -1;
         }
 
         public bool CheckFlag(uint id)

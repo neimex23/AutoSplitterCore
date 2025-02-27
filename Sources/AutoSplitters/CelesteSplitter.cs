@@ -112,7 +112,7 @@ namespace AutoSplitterCore
         {
             //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
             if (!_StatusCeleste) GetCelesteStatusProcess(0);
-            return (int)celeste.GameTime()*1000+1; 
+            return _StatusCeleste ? (int)celeste.GameTime() * 1000 + 1 : -1;
         }
 
         public string GetLevelName()
@@ -146,7 +146,7 @@ namespace AutoSplitterCore
         }
 
         public int GetDeaths() {
-            if (_StatusCeleste)
+            if (_StatusCeleste && pipeConnected && IsInGame())
             {
                 return infoPlayer.deaths;
             }
@@ -201,56 +201,67 @@ namespace AutoSplitterCore
             }
         }
 
+        public bool pipeConnected = false;
         private void CheckDeaths()
         {
-            try
+            while (dataCeleste.enableSplitting)
             {
-                DebugLog.LogMessage("Trying Connecting NamedPipe");
-                NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", "DeathCounterPipe", PipeDirection.InOut);
-                pipeClient.Connect(3000); 
-                DebugLog.LogMessage("NamedPipe Connected.");
-
-                StreamWriter writer = new StreamWriter(pipeClient) { AutoFlush = true };
-                StreamReader reader = new StreamReader(pipeClient);
-
-                while (dataCeleste.enableSplitting && pipeClient.IsConnected)
+                try
                 {
-                    Thread.Sleep(1000); 
-
-                    // Send Command to obtain Deaths
-                    writer.WriteLine("get_deaths");
-                    string response = reader.ReadLine();
-
-                    if (!string.IsNullOrEmpty(response) && int.TryParse(response, out int deaths))
+                    DebugLog.LogMessage("Trying Connecting NamedPipe");
+                    using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", "DeathCounterPipe", PipeDirection.InOut))
                     {
-                        infoPlayer.deaths = deaths;
-                        //DebugLog.LogMessage($"Deaths: {deaths}");
-                    }
-                    else
-                    {
-                        DebugLog.LogMessage($"Response Error: {response}");
+                        while (dataCeleste.enableSplitting)
+                        {
+                            try
+                            {
+                                pipeClient.Connect(5000); 
+                                DebugLog.LogMessage("NamedPipe Connected.");
+                                break; // Exit the connection loop if connection is successful
+                            }
+                            catch (TimeoutException)
+                            {
+                                DebugLog.LogMessage("Timeout: NamedPipeServer not available, retrying...");
+                                Thread.Sleep(3000); // Wait before retrying
+                            }
+                            catch (IOException ioEx)
+                            {
+                                DebugLog.LogMessage($"Error connection NamedPipe: {ioEx.Message}, retrying...");
+                                Thread.Sleep(3000); 
+                            }
+                        }
+
+                        using (StreamWriter writer = new StreamWriter(pipeClient) { AutoFlush = true })
+                        using (StreamReader reader = new StreamReader(pipeClient))
+                        {
+                            pipeConnected = pipeClient.IsConnected;
+                            while (dataCeleste.enableSplitting && pipeClient.IsConnected)
+                            {
+                                Thread.Sleep(1000);
+
+                                // Send Command to obtain Deaths
+                                writer.WriteLine("get_deaths");
+                                string response = reader.ReadLine();
+
+                                if (!string.IsNullOrEmpty(response) && int.TryParse(response, out int deaths))
+                                {
+                                    infoPlayer.deaths = deaths;
+                                }
+                                else
+                                {
+                                    DebugLog.LogMessage($"Response Error: {response}");
+                                }
+                            }
+                        }
                     }
                 }
-
-                // Close Conections
-                writer.Close();
-                reader.Close();
-                pipeClient.Close();
-            }
-            catch (TimeoutException)
-            {
-                DebugLog.LogMessage("Error: Time Out not finde PipeNamed");
-            }
-            catch (IOException ioEx)
-            {
-                DebugLog.LogMessage($"Error connection NamedPipe: {ioEx.Message}");
-            }
-            catch (Exception ex)
-            {
-                DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}");
+                catch (Exception ex)
+                {
+                    DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}");
+                    Thread.Sleep(3000); 
+                }
             }
         }
-
 
 
         private int lastCassettes;

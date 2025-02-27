@@ -41,6 +41,7 @@ using LiveSplit.UI.Components;
 using System.Net;
 using System.Security.Policy;
 using Google.Protobuf.Collections;
+using System.Reflection;
 
 namespace AutoSplitterCore
 {
@@ -70,6 +71,7 @@ namespace AutoSplitterCore
             btnWebsite.Enabled = false;
             cbxGameName.Enabled = false;
 
+            #if !HCMv2
             Task.Run(async () =>
             {
                 try
@@ -87,8 +89,14 @@ namespace AutoSplitterCore
                     labelLoading.Invoke((Action)(() => Application.UseWaitCursor = false));
                 }
             });
-
+            
             FillCbxGameName();
+#else
+            groupBoxDownloadASL.Enabled = false;
+            labelLoading.Text = "Not Compatible on HCMv2\n System.Web and System.Web.Extensions of LiveSplit.Core";
+            labelLoading.Top -= 10;
+#endif
+
         }
 
         private void metroCheckBoxIGT_CheckedChanged(object sender)
@@ -103,11 +111,12 @@ namespace AutoSplitterCore
         private bool loadedGames = false;
         private void FillCbxGameName()
         {
-            Task.Factory.StartNew(() =>
+            Task.Run(() =>
             {
                 try
                 {
-                    IEnumerable<string> cachedGameNames = CompositeGameList.Instance.GetGameNames(false);
+                    IEnumerable<string> cachedGameNames = CompositeGameList.Instance.GetGameNames(true);
+
                     if (cachedGameNames != null)
                     {
                         gameNames = cachedGameNames.ToArray();
@@ -214,6 +223,9 @@ namespace AutoSplitterCore
                 }
             }
         }
+
+        private void btnGetASL_Click(object sender, EventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki/English#asl-scripts"));
+
     }
     internal static class FormControl
     {

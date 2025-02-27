@@ -156,12 +156,7 @@ namespace AutoSplitterCore
         public Vector3f GetCurrentPosition()
         {
             if (!_StatusDs2) GetDs2StatusProcess(0);
-            if (!_StatusDs2)
-            {
-                Vector3f vector = new Vector3f() { X = 0, Y = 0, Z = 0 };
-                return vector;
-            }
-            return Ds2.GetPosition();
+            return _StatusDs2 ? Ds2.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
 
         public bool CheckFlag(uint id)
@@ -173,7 +168,7 @@ namespace AutoSplitterCore
         public bool Ds2IsLoading()
         {
             if (!_StatusDs2) GetDs2StatusProcess(0);
-            return Ds2.IsLoading();
+            return _StatusDs2 ? Ds2.IsLoading() : false;
         }
         #endregion
         #region Procedure

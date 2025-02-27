@@ -24,7 +24,6 @@ using System;
 using System.Threading.Tasks;
 using System.Threading;
 using LiveSplit.Cuphead;
-using HitCounterManager;
 
 
 namespace AutoSplitterCore
@@ -115,7 +114,7 @@ namespace AutoSplitterCore
         public string GetSceneName()
         {
             if (!_StatusCuphead) GetCupheadStatusProcess(0);
-            return cup.SceneName();
+            return _StatusCuphead ? cup.SceneName() : string.Empty;
         }
 
         public bool LevelCompleted()

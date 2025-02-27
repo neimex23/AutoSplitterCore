@@ -920,10 +920,10 @@ namespace AutoSplitterCore
 
                     context.Response.StatusCode = 200;
                     context.Response.ContentType = "text/html";
-                    string responseHtml = ConstructHTML();
+                    string responseHtml = GenerateHTML();
                     byte[] responseBytes = Encoding.UTF8.GetBytes(responseHtml);
 
-                    #if NET6_0_OR_GREATER
+                    #if NET7_0_OR_GREATER
                     await context.Response.OutputStream.WriteAsync(responseBytes);
                     #else
                     await context.Response.OutputStream.WriteAsync(responseBytes, 0, responseBytes.Length);
@@ -948,7 +948,7 @@ namespace AutoSplitterCore
             return listener.GetContextAsync();
         }
 
-        private string ConstructHTML()
+        private string GenerateHTML()
         {
             return @"
             <html lang=""en"">

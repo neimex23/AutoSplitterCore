@@ -35,7 +35,7 @@ using LiveSplit.Options;
 using System.Diagnostics;
 using System.Threading;
 using System.Xml;
-using LiveSplit.Model.RunFactories;
+using LiveSplit.Web;
 
 namespace AutoSplitterCore 
 { 
@@ -73,10 +73,11 @@ namespace AutoSplitterCore
 
         private ASLSplitter()
         {
+            Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
             state = GeneratorState();
             asl = new ASLComponent(state);
             _timer.Tick += ASCHandlerSetters;        
-        }
+        }     
 
         private LiveSplitState GeneratorState() {
             Form liveSplitForm = new Form
@@ -90,7 +91,7 @@ namespace AutoSplitterCore
             var layout = new Layout();
 
             IComparisonGeneratorsFactory comparisonFactory = new StandardComparisonGeneratorsFactory();
-            IRun run = new Run(comparisonFactory)
+            IRun run = new LiveSplit.Model.Run(comparisonFactory)
             {
                 GameName = "Example Game",
                 CategoryName = "Any%"
