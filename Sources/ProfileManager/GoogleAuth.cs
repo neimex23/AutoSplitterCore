@@ -42,13 +42,11 @@ using System.Web;
 using Google.Apis.Util.Store;
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
-using Grpc.Auth;
-using Grpc.Core;
 using Google.Apis.Auth.OAuth2.Requests;
 using Google.Apis.Auth.OAuth2.Responses;
 using System.Net;
-using System.Diagnostics;
-using System.Drawing;
+using Google.Apis.Http;
+using Newtonsoft.Json;
 
 namespace AutoSplitterCore
 {
@@ -56,7 +54,6 @@ namespace AutoSplitterCore
     {
         static string[] Scopes = { "https://www.googleapis.com/auth/userinfo.email"};
         static string ApplicationName = "autosplittercore";
-        static FirestoreDb _firestoreDb;
 
         readonly string machineName = Environment.MachineName;
         DriveService driveService;
@@ -191,25 +188,6 @@ namespace AutoSplitterCore
             }
         }
 
-        public static byte[] GetIAMFireBaseKeyBytes()
-        {
-            try
-            {
-                var assembly = Assembly.GetExecutingAssembly();
-                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    string jsonContent = reader.ReadToEnd();
-                    var jsonObject = JObject.Parse(jsonContent);
-                    return Encoding.UTF8.GetBytes(jsonObject["IAMJson"]["FireBase"].ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error on Incrusted Resource: ", ex);
-            }
-        }
-
         public async Task<string> GetGoogleCredentials()
         {
             // API Gateway URL
@@ -287,7 +265,7 @@ namespace AutoSplitterCore
             });
 
             //FireStore
-            InitializeFirestore();
+            Task.Run(async () => await FirestoreRestClient.InitializeFirestoreAsync());
            
             Userinfo userInfo = oauth2Service.Userinfo.Get().Execute();
             EmailLoged = userInfo.Email;
@@ -303,26 +281,6 @@ namespace AutoSplitterCore
 
         }
 
-        public static void InitializeFirestore()
-        {
-            byte[] firebaseCredentials = GetIAMFireBaseKeyBytes();
-
-            using (var stream = new MemoryStream(firebaseCredentials))
-            {
-                var credentials = GoogleCredential.FromStream(stream)
-                    .CreateScoped(FirestoreClient.DefaultScopes);
-
-                Channel channel = new Channel(FirestoreClient.DefaultEndpoint.ToString(), credentials.ToChannelCredentials());
-
-                FirestoreClient _firestoreClient = new FirestoreClientBuilder
-                {
-                    Endpoint = FirestoreClient.DefaultEndpoint,
-                    ChannelCredentials = credentials.ToChannelCredentials()
-                }.Build();
-
-                _firestoreDb = FirestoreDb.Create(ApplicationName, _firestoreClient);
-            }
-        }
 
         private void AfterLoginEvents()
         {
@@ -575,24 +533,29 @@ namespace AutoSplitterCore
 
         private async Task SendInformation(string idFile)
         {
-            CollectionReference collection = _firestoreDb.Collection("uploadHistory");
-            Dictionary<string, object> register = new Dictionary<string, object>
+            try
             {
-                { "Email", EmailLoged },
-                { "IDFile", idFile },
-                { "NameFile", string.Concat(textBoxCurrrentProfile.Text, ".xml") },
-                { "Date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
-            };
-            await collection.AddAsync(register);
-            Console.WriteLine($"Upload Register on Firestore: {idFile} by {EmailLoged}");
+                Dictionary<string, object> register = new Dictionary<string, object>
+                {
+                    { "Email", EmailLoged },
+                    { "IDFile", idFile },
+                    { "NameFile", $"{textBoxCurrrentProfile.Text}.xml" },
+                    { "Date", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }
+                };
+
+                await FirestoreRestClient.AddDocumentAsync("uploadHistory", idFile, register);
+                DebugLog.LogMessage($"📤 Record uploaded to Firestore: {idFile} por {EmailLoged}");
+            }
+            catch (Exception ex) { DebugLog.LogMessage($"🔥 Error writing to Firestore {idFile}: {ex.Message}"); }
         }
+
+
 
         public async Task<bool> IsEmailBannedAsync(string email)
         {
-            CollectionReference coleccion = _firestoreDb.Collection("bannedEmails");
-            QuerySnapshot snapshot = await coleccion.WhereEqualTo("Email", email).GetSnapshotAsync();
-            return snapshot.Count > 0;
+            return await FirestoreRestClient.IsDocumentExistsAsync("bannedEmails", "Email", email);
         }
+
 
         #region KindUpload
         private bool _isHandlingCheckedChanged;
@@ -991,6 +954,129 @@ namespace AutoSplitterCore
             </html>
             ";
         }
+
+
+    }
+    public static class FirestoreRestClient
+    {
+        private static string _firestoreBaseUrl;
+        private static string _accessToken;
+
+        private static byte[] GetIAMFireBaseKeyBytes()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    return Encoding.UTF8.GetBytes(jsonObject["IAMJson"]["FireBase"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error on Incrusted Resource: ", ex);
+            }
+        }
+
+        public static async Task InitializeFirestoreAsync()
+        {
+            try
+            {
+                // Obtener las credenciales en formato JSON
+                byte[] firebaseCredentials = GetIAMFireBaseKeyBytes();
+                string jsonCredentials = Encoding.UTF8.GetString(firebaseCredentials);
+
+                // Autenticación usando GoogleCredential sin Protobuf
+                GoogleCredential credential = GoogleCredential.FromJson(jsonCredentials)
+                    .CreateScoped("https://www.googleapis.com/auth/datastore");
+
+                // Obtener un token de acceso
+                _accessToken = await credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
+
+                // Construir la URL base de Firestore
+                string projectId = JsonConvert.DeserializeObject<dynamic>(jsonCredentials)["project_id"];
+                _firestoreBaseUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents";
+
+                Console.WriteLine("Firestore REST API Client Initialized.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al inicializar Firestore: {ex.Message}");
+                throw;
+            }
+        }
+
+        public static async Task AddDocumentAsync(string collection, string documentId, Dictionary<string, object> data)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _accessToken);
+
+                string url = $"{_firestoreBaseUrl}/{collection}/{documentId}";
+
+                // Formatear los datos para la API REST de Firestore
+                var firestoreData = new Dictionary<string, object>();
+                foreach (var kvp in data)
+                {
+                    firestoreData[kvp.Key] = new Dictionary<string, object>
+                    {
+                        { "stringValue", kvp.Value.ToString() }
+                    };
+                }
+
+                var jsonContent = JsonConvert.SerializeObject(new { fields = firestoreData });
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                var request = new HttpRequestMessage(new HttpMethod("PATCH"), url)
+                {
+                    Content = content
+                };
+
+                HttpResponseMessage response = await client.SendAsync(request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    throw new Exception(errorMessage);
+                }
+            }
+        }
+
+
+        public static async Task<bool> IsDocumentExistsAsync(string collection, string fieldName, string value)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _accessToken);
+
+                string url = $"{_firestoreBaseUrl}/{collection}?pageSize=10";
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Error querying Firestore: {await response.Content.ReadAsStringAsync()}");
+                    return false;
+                }
+
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+                var documents = JsonConvert.DeserializeObject<dynamic>(jsonResponse);
+
+                foreach (var doc in documents["documents"])
+                {
+                    var fields = doc["fields"];
+                    if (fields != null && fields[fieldName] != null && fields[fieldName]["stringValue"].ToString() == value)
+                    {
+                        return true; // The email is on the banned list
+                    }
+                }
+
+                return false;
+            }
+        }
+
 
     }
 }

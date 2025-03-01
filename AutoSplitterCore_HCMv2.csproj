@@ -18,13 +18,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>MSB3277</NoWarn>
+    <NoWarn>MSB3277;;NU1605</NoWarn>
     <DefineConstants>$(DefineConstants);HCMv2</DefineConstants>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>MSB3277</NoWarn>
+    <NoWarn>MSB3277;;NU1605</NoWarn>
     <DefineConstants>$(DefineConstants);HCMv2</DefineConstants>
+    <WarningsAsErrors />
   </PropertyGroup>
 
     
@@ -43,13 +45,12 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Api.CommonProtos" Version="2.16.0" />
-    <PackageReference Include="Google.Apis" Version="1.69.0" />
-    <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
-    <PackageReference Include="Google.Apis.Core" Version="1.69.0" />
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3699" />
+      <PackageReference Include="Google.Apis" Version="1.69.0" />
+      <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
+      <PackageReference Include="Google.Apis.Core" Version="1.69.0" />
+      <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3699" />
     <PackageReference Include="Google.Apis.Oauth2.v2" Version="1.68.0.1869" />
     <PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
-    <PackageReference Include="Google.Cloud.Firestore.V1" Version="3.9.0" />
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="Irony" Version="1.5.3" />
     <PackageReference Include="MimeTypes" Version="2.5.2">
