@@ -24,7 +24,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using HitCounterManager;
 
@@ -54,6 +56,10 @@ namespace AutoSplitterCore
         private Timer updateTimer;
 
         public List<string> GetGames() => GameConstruction.GameList;
+
+        public AutoSplitterMainModule () {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+        }
 
         #region Settings
         public void InitDebug()

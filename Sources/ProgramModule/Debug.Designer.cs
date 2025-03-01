@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Debug));
             this.comboBoxGame = new System.Windows.Forms.ComboBox();
             this.GameToSplitLabel = new System.Windows.Forms.Label();
             this.btnSplitter = new System.Windows.Forms.Button();

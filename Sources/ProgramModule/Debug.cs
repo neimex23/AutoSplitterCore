@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Numerics;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,6 +55,7 @@ namespace AutoSplitterCore
 
         private void Debug_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
             checkBoxPracticeMode.Checked = AutoSplitterMainModule.GetPracticeMode();
 
             var gameList = mainModule.GetGames();
@@ -64,6 +66,13 @@ namespace AutoSplitterCore
             labelCloudVer.Text = AutoSplitterMainModule.updateModule.cloudVer;
 
             listViewLog.Items.Clear();
+
+            var assembly = Assembly.GetExecutingAssembly();
+
+            foreach (var resourceName in assembly.GetManifestResourceNames())
+            {
+                DebugLog.LogMessage($"Recursos incrustados en el ensamblado: {resourceName}");
+            }
         }
 
         private void comboBoxGame_SelectedIndexChanged(object sender, EventArgs e)

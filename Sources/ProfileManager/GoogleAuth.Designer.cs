@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ReaLTaiizor.Controls.GroupBox groupBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoogleAuth));
+            this.groupBox1 = new ReaLTaiizor.Controls.GroupBox();
             this.btnReport = new ReaLTaiizor.Controls.Button();
             this.radioButtonDHcm = new System.Windows.Forms.RadioButton();
             this.radioButtonDAsc = new System.Windows.Forms.RadioButton();
@@ -64,10 +64,9 @@
             this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.groupBoxManagment = new ReaLTaiizor.Controls.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxWarning = new System.Windows.Forms.TextBox();
             this.groupBoxLogin = new ReaLTaiizor.Controls.GroupBox();
-            groupBox1 = new ReaLTaiizor.Controls.GroupBox();
-            groupBox1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxUpload.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -77,30 +76,30 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = System.Drawing.Color.Transparent;
-            groupBox1.BackGColor = System.Drawing.Color.Khaki;
-            groupBox1.BaseColor = System.Drawing.Color.Transparent;
-            groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
-            groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            groupBox1.Controls.Add(this.btnReport);
-            groupBox1.Controls.Add(this.radioButtonDHcm);
-            groupBox1.Controls.Add(this.radioButtonDAsc);
-            groupBox1.Controls.Add(this.panel1);
-            groupBox1.Controls.Add(this.btnInstall);
-            groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
-            groupBox1.Controls.Add(this.label7);
-            groupBox1.Controls.Add(this.textBoxSearch);
-            groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
-            groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            groupBox1.HeaderColor = System.Drawing.Color.PowderBlue;
-            groupBox1.Location = new System.Drawing.Point(20, 305);
-            groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
-            groupBox1.Size = new System.Drawing.Size(744, 454);
-            groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            groupBox1.TabIndex = 1;
-            groupBox1.Text = "Download";
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackGColor = System.Drawing.Color.Khaki;
+            this.groupBox1.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBox1.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBox1.Controls.Add(this.btnReport);
+            this.groupBox1.Controls.Add(this.radioButtonDHcm);
+            this.groupBox1.Controls.Add(this.radioButtonDAsc);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.btnInstall);
+            this.groupBox1.Controls.Add(this.checkedListBoxGamesSearch);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBoxSearch);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBox1.HeaderColor = System.Drawing.Color.PowderBlue;
+            this.groupBox1.Location = new System.Drawing.Point(20, 305);
+            this.groupBox1.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBox1.Size = new System.Drawing.Size(744, 454);
+            this.groupBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Text = "Download";
             // 
             // btnReport
             // 
@@ -563,9 +562,9 @@
             this.groupBoxManagment.BaseColor = System.Drawing.Color.Transparent;
             this.groupBoxManagment.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBoxManagment.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBoxManagment.Controls.Add(this.textBox1);
+            this.groupBoxManagment.Controls.Add(this.textBoxWarning);
             this.groupBoxManagment.Controls.Add(this.groupBoxUpload);
-            this.groupBoxManagment.Controls.Add(groupBox1);
+            this.groupBoxManagment.Controls.Add(this.groupBox1);
             this.groupBoxManagment.Controls.Add(this.groupBox5);
             this.groupBoxManagment.Enabled = false;
             this.groupBoxManagment.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -580,18 +579,18 @@
             this.groupBoxManagment.TabIndex = 26;
             this.groupBoxManagment.Text = "Cloud Profiles";
             // 
-            // textBox1
+            // textBoxWarning
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Yellow;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(930, 50);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(472, 222);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBoxWarning.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxWarning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxWarning.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxWarning.Location = new System.Drawing.Point(930, 50);
+            this.textBoxWarning.Multiline = true;
+            this.textBoxWarning.Name = "textBoxWarning";
+            this.textBoxWarning.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxWarning.Size = new System.Drawing.Size(472, 222);
+            this.textBoxWarning.TabIndex = 25;
+            this.textBoxWarning.Text = "ProfileWarning";
             // 
             // groupBoxLogin
             // 
@@ -623,12 +622,11 @@
             this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
-            this.Image = null;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
             this.Load += new System.EventHandler(this.GoogleAuth_Load);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBoxUpload.ResumeLayout(false);
             this.groupBoxUpload.PerformLayout();
@@ -662,7 +660,7 @@
         private ReaLTaiizor.Controls.GroupBox groupBox5;
         internal System.Windows.Forms.TextBox TextBoxSummary;
         private ReaLTaiizor.Controls.GroupBox groupBoxManagment;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxWarning;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox checkedListBoxGames;
         private System.Windows.Forms.Label label7;
@@ -681,5 +679,6 @@
         private System.Windows.Forms.LinkLabel linkLabelPrivacy;
         private ReaLTaiizor.Controls.Button btnReport;
         private ReaLTaiizor.Controls.GroupBox groupBoxLogin;
+        private ReaLTaiizor.Controls.GroupBox groupBox1;
     }
 }

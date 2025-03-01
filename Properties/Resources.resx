@@ -117,4 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ASLInfo" xml:space="preserve">
+    <value>Start: Triggered when the Start Trigger produces an HCM Timer activation.
+Split: Triggered when the SplitFlag Trigger generates an HCM Split.
+Reset: Triggered when the Reset Trigger initiates an HCM Restart Run.</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AUTOSPLITTERREADME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\AUTOSPLITTERREADME;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AutoSplitterSetupIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AutoSplitterSetupIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProfileWarning" xml:space="preserve">
+    <value>Considerations when uploading or downloading a profile:
+
+- The currently active profile will be uploaded, you can see the information in the corresponding box, the description and name must be clear.
+- Any Upload Profile must be suggestion to approved, check Terms and Conditions to avoid problems.
+- When uploading the autosplitter flags will be reset
+
+- Configurations such as:
+     * Selected Splitter,
+      * Update Check
+      * AutoResetSplits,
+      * Visual Style
+      * Custom Profile Path,
+      * AutoHitCounter,
+      * ASL Configuration
+will be discarded this settings is managment by GeneralSettings Save
+
+- Configurations such as
+   * AutoTimer
+   * GameTime
+   * Splits Configuration
+All will be applied when the new profile is selected</value>
+  </data>
+  <data name="SoulsMemoryNotice" xml:space="preserve">
+    <value>Soul Memory is an extension for LiveSplit, developed by FrankvdStam, designed to enhance AutoSplit functionality across all Souls games.
+It is a major dependency for AutoSplitterCore, and keeping it up-to-date is highly recommended to avoid bugs and improve performance.
+
+[-] Why Keep Soul Memory Updated?
+   Bug Prevention: Outdated versions can cause unexpected issues.
+   Optimized Performance: New updates often include performance improvements.
+   Compatibility: Ensures smooth integration with the latest versions of AutoSplitterCore.
+
+If you encounter any problems with new updates and compatibilitation with ASC, please contact me directly via Discord for support.
+
+⚠️ Before Updating:
+Make sure to save your profiles and settings to prevent data loss during the update process.</value>
+  </data>
+  <data name="THIRDPARTYLICENSEREADME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\THIRDPARTYLICENSEREADME;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

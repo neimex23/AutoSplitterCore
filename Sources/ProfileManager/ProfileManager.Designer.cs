@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileManager));
-            this.btnSetAuthor = new System.Windows.Forms.PictureBox();
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnSetProfile = new System.Windows.Forms.PictureBox();
             this.textBoxCurrrentProfile = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,30 +46,21 @@
             this.TextboxDescription = new ReaLTaiizor.Controls.HopeTextBox();
             this.button3 = new ReaLTaiizor.Controls.Button();
             this.groupBox5 = new ReaLTaiizor.Controls.GroupBox();
+            this.btnSetAuthor = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new ReaLTaiizor.Controls.GroupBox();
             this.btnLoadProfile = new ReaLTaiizor.Controls.Button();
             this.btnRemoveProfiles = new ReaLTaiizor.Controls.Button();
             this.btnBrowse = new ReaLTaiizor.Controls.Button();
+            this.btnSetProfile = new System.Windows.Forms.PictureBox();
             this.btnClose = new ReaLTaiizor.Controls.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetDescription)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSetAuthor
-            // 
-            this.btnSetAuthor.Image = ((System.Drawing.Image)(resources.GetObject("btnSetAuthor.Image")));
-            this.btnSetAuthor.Location = new System.Drawing.Point(424, 268);
-            this.btnSetAuthor.Name = "btnSetAuthor";
-            this.btnSetAuthor.Size = new System.Drawing.Size(22, 21);
-            this.btnSetAuthor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSetAuthor.TabIndex = 22;
-            this.btnSetAuthor.TabStop = false;
-            this.btnSetAuthor.Click += new System.EventHandler(this.btnSetAuthor_Click);
             // 
             // textBoxAuthor
             // 
@@ -93,17 +81,6 @@
             this.label4.Size = new System.Drawing.Size(45, 14);
             this.label4.TabIndex = 20;
             this.label4.Text = "Author";
-            // 
-            // btnSetProfile
-            // 
-            this.btnSetProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnSetProfile.Image")));
-            this.btnSetProfile.Location = new System.Drawing.Point(518, 233);
-            this.btnSetProfile.Name = "btnSetProfile";
-            this.btnSetProfile.Size = new System.Drawing.Size(22, 21);
-            this.btnSetProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSetProfile.TabIndex = 17;
-            this.btnSetProfile.TabStop = false;
-            this.btnSetProfile.Click += new System.EventHandler(this.btnSetProfile_Click);
             // 
             // textBoxCurrrentProfile
             // 
@@ -233,7 +210,7 @@
             // 
             // btnSetDescription
             // 
-            this.btnSetDescription.Image = ((System.Drawing.Image)(resources.GetObject("btnSetDescription.Image")));
+            this.btnSetDescription.Image = global::AutoSplitterCore.Properties.Resources.Check;
             this.btnSetDescription.Location = new System.Drawing.Point(531, 348);
             this.btnSetDescription.Name = "btnSetDescription";
             this.btnSetDescription.Size = new System.Drawing.Size(22, 21);
@@ -360,6 +337,17 @@
             this.groupBox5.TabIndex = 23;
             this.groupBox5.Text = "Current Summary";
             // 
+            // btnSetAuthor
+            // 
+            this.btnSetAuthor.Image = global::AutoSplitterCore.Properties.Resources.Check;
+            this.btnSetAuthor.Location = new System.Drawing.Point(424, 268);
+            this.btnSetAuthor.Name = "btnSetAuthor";
+            this.btnSetAuthor.Size = new System.Drawing.Size(22, 21);
+            this.btnSetAuthor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSetAuthor.TabIndex = 22;
+            this.btnSetAuthor.TabStop = false;
+            this.btnSetAuthor.Click += new System.EventHandler(this.btnSetAuthor_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
@@ -447,6 +435,17 @@
             this.btnBrowse.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
+            // btnSetProfile
+            // 
+            this.btnSetProfile.Image = global::AutoSplitterCore.Properties.Resources.Check;
+            this.btnSetProfile.Location = new System.Drawing.Point(518, 233);
+            this.btnSetProfile.Name = "btnSetProfile";
+            this.btnSetProfile.Size = new System.Drawing.Size(22, 21);
+            this.btnSetProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSetProfile.TabIndex = 17;
+            this.btnSetProfile.TabStop = false;
+            this.btnSetProfile.Click += new System.EventHandler(this.btnSetProfile_Click);
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
@@ -477,21 +476,20 @@
             this.ClientSize = new System.Drawing.Size(669, 835);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(669, 835);
             this.MinimumSize = new System.Drawing.Size(669, 835);
             this.Name = "ProfileManager";
             this.Text = "Profile Manager";
             this.Load += new System.EventHandler(this.ProfileManager_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetDescription)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetAuthor)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnSetProfile)).EndInit();
             this.ResumeLayout(false);
 
         }

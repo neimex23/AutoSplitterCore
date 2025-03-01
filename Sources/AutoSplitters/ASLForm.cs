@@ -58,6 +58,8 @@ namespace AutoSplitterCore
 
         private void ASLForm_Load(object sender, EventArgs e)
         {
+            labelInfoASL.Text = Properties.Resources.ASLInfo;
+            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
             Control controlObteined = aslSplitter.AslControl;
             controlObteined.Margin = new Padding(5);
             controlObteined.Padding = new Padding(5);
@@ -71,7 +73,6 @@ namespace AutoSplitterCore
             btnWebsite.Enabled = false;
             cbxGameName.Enabled = false;
 
-            #if !HCMv2
             Task.Run(async () =>
             {
                 try
@@ -89,14 +90,8 @@ namespace AutoSplitterCore
                     labelLoading.Invoke((Action)(() => Application.UseWaitCursor = false));
                 }
             });
-            
-            FillCbxGameName();
-#else
-            groupBoxDownloadASL.Enabled = false;
-            labelLoading.Text = "Not Compatible on HCMv2\n System.Web and System.Web.Extensions of LiveSplit.Core";
-            labelLoading.Top -= 10;
-#endif
 
+            FillCbxGameName();
         }
 
         private void metroCheckBoxIGT_CheckedChanged(object sender)

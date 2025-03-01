@@ -57,8 +57,6 @@ namespace AutoSplitterCore
         public AutoSplitter(SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-            
             this.saveModule = saveModule;
             this.darkModeHCM = darkMode;
 
@@ -268,6 +266,12 @@ namespace AutoSplitterCore
             {
                 labelWarning.Show();
             }
+            #endregion
+            #region Loading Texts
+            var ASCReadme = Properties.Resources.AUTOSPLITTERREADME;
+            var ThirdPartyLicence = Properties.Resources.THIRDPARTYLICENSEREADME;
+            textBoxManual.Text = ASCReadme;
+            textBoxLicenses.Text = ThirdPartyLicence;
             #endregion
 
             DTSekiro sekiroData = sekiroSplitter.GetDataSekiro();

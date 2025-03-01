@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="groupBox1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>Considerations when uploading or downloading a profile:
-
-- The currently active profile will be uploaded, you can see the information in the corresponding box, the description and name must be clear.
-- Any Upload Profile must be suggestion to approved, check Terms and Conditions to avoid problems.
-- When uploading the autosplitter flags will be reset
-
-- Configurations such as:
-     * Selected Splitter,
-      * Update Check
-      * AutoResetSplits,
-      * Visual Style
-      * Custom Profile Path,
-      * AutoHitCounter,
-      * ASL Configuration
-will be discarded this settings is managment by GeneralSettings Save
-
-- Configurations such as
-   * AutoTimer
-   * GameTime
-   * Splits Configuration
-All will be applied when the new profile is selected
-</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
 </root>

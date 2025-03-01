@@ -225,7 +225,6 @@ namespace AutoSplitterCore
         #region Fields
         private bool enableChecking = true;
         private bool debugMode = false;
-        private bool splitGo = false;
         private bool splitStatus = false;
         private IAutoSplitterCoreInterface interfaceHCM;
         private SaveModule saveModule;

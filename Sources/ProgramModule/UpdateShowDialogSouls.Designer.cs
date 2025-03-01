@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateShowDialogSouls));
             this.TextBoxWarning = new System.Windows.Forms.TextBox();
             this.groupBoxUpdating = new ReaLTaiizor.Controls.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,7 +59,7 @@
             this.TextBoxWarning.Size = new System.Drawing.Size(745, 160);
             this.TextBoxWarning.TabIndex = 8;
             this.TextBoxWarning.TabStop = false;
-            this.TextBoxWarning.Text = resources.GetString("TextBoxWarning.Text");
+            this.TextBoxWarning.Text = "Resource";
             // 
             // groupBoxUpdating
             // 
@@ -239,7 +238,6 @@
             this.Controls.Add(this.groupBoxUpdate);
             this.Controls.Add(this.groupBoxUpdating);
             this.Controls.Add(this.TextBoxWarning);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(768, 425);
             this.MinimizeBox = false;

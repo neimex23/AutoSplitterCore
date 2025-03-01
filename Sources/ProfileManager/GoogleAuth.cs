@@ -48,7 +48,6 @@ using Google.Apis.Auth.OAuth2.Requests;
 using Google.Apis.Auth.OAuth2.Responses;
 using System.Net;
 using System.Diagnostics;
-using HeyRed.Mime;
 using System.Drawing;
 
 namespace AutoSplitterCore
@@ -80,6 +79,8 @@ namespace AutoSplitterCore
 
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
+            textBoxWarning.Text = Properties.Resources.ProfileWarning;
+            this.Image = Properties.Resources.AutoSplitterSetupIcon.ToBitmap();
             checkedListBoxGames.Items.Clear();
             foreach (var games in GameConstruction.GameList)
             {
@@ -504,7 +505,7 @@ namespace AutoSplitterCore
                 };
 
                 // Determine MIME type
-                string mimeType = MimeTypesMap.GetMimeType(path);
+                string mimeType = MimeTypes.GetMimeType(path);
 
                 // Upload file
                 using (var stream = new FileStream(path, FileMode.Open))

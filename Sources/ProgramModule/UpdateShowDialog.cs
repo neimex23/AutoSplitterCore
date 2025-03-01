@@ -20,6 +20,7 @@ namespace AutoSplitterCore
 
         private void UpdateShowDialog_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
             LabelVersion.Text = updateModule.currentVer;
             labelCloudVer.Text = updateModule.cloudVer;
             groupBoxInstallerSelect.Hide();

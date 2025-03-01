@@ -43,6 +43,8 @@ namespace AutoSplitterCore
 
         private void UpdateShowDialogSouls_Load(object sender, EventArgs e)
         {
+            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
+            TextBoxWarning.Text = Properties.Resources.SoulsMemoryNotice;
             LabelVersion.Text = updateModule.currentSoulsVer;
             labelCloudVer.Text = updateModule.cloudSoulsVer;
             groupBoxUpdating.Hide();

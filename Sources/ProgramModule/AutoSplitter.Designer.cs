@@ -29,8 +29,11 @@ namespace AutoSplitterCore
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoSplitter));
             this.TabControlGeneral = new ReaLTaiizor.Controls.PoisonTabControl();
+            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.textBoxManual = new System.Windows.Forms.TextBox();
+            this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabConfig = new ReaLTaiizor.Controls.PoisonTabPage();
             this.labelWarning = new System.Windows.Forms.Label();
             this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
@@ -146,6 +149,9 @@ namespace AutoSplitterCore
             this.lostBorderPanel5 = new ReaLTaiizor.Controls.LostBorderPanel();
             this.foreverTabPage1 = new ReaLTaiizor.Controls.ForeverTabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label101 = new System.Windows.Forms.Label();
+            this.labelCurrentPiped = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
             this.checkBoxHitCeleste = new System.Windows.Forms.CheckBox();
             this.linkLabelDeathCounter = new System.Windows.Forms.LinkLabel();
@@ -156,10 +162,6 @@ namespace AutoSplitterCore
             this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
             this.skyComboBoxHitMode = new ReaLTaiizor.Controls.SkyComboBox();
-            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.TextboxManual = new ReaLTaiizor.Controls.HopeTextBox();
-            this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.textBoxLicenses = new System.Windows.Forms.TextBox();
             this.tabSekiro = new ReaLTaiizor.Controls.PoisonTabPage();
             this.panelBossS = new ReaLTaiizor.Controls.LostBorderPanel();
             this.linkLabelMultiSelection = new System.Windows.Forms.LinkLabel();
@@ -626,10 +628,9 @@ namespace AutoSplitterCore
             this.materialCheckBox10 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.label100 = new System.Windows.Forms.Label();
-            this.labelCurrentPiped = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
             this.TabControlGeneral.SuspendLayout();
+            this.tabInfo.SuspendLayout();
+            this.tabLicense.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -677,8 +678,6 @@ namespace AutoSplitterCore
             this.foreverTabPage1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabInfo.SuspendLayout();
-            this.tabLicense.SuspendLayout();
             this.tabSekiro.SuspendLayout();
             this.panelBossS.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -779,10 +778,10 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.TabControlGeneral.Controls.Add(this.tabGeneral);
-            this.TabControlGeneral.Controls.Add(this.tabConfig);
-            this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
+            this.TabControlGeneral.Controls.Add(this.tabInfo);
+            this.TabControlGeneral.Controls.Add(this.tabConfig);
+            this.TabControlGeneral.Controls.Add(this.tabGeneral);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
             this.TabControlGeneral.Controls.Add(this.tabElden);
             this.TabControlGeneral.Controls.Add(this.tabDs1);
@@ -795,11 +794,82 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 1;
+            this.TabControlGeneral.SelectedIndex = 0;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
             this.TabControlGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // tabInfo
+            // 
+            this.tabInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.tabInfo.BackColor = System.Drawing.Color.White;
+            this.tabInfo.Controls.Add(this.textBoxManual);
+            this.tabInfo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabInfo.HorizontalScrollbarBarColor = true;
+            this.tabInfo.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabInfo.HorizontalScrollbarSize = 10;
+            this.tabInfo.Location = new System.Drawing.Point(4, 44);
+            this.tabInfo.Name = "tabInfo";
+            this.tabInfo.Size = new System.Drawing.Size(609, 352);
+            this.tabInfo.TabIndex = 2;
+            this.tabInfo.Text = "Info";
+            this.tabInfo.UseCustomBackColor = true;
+            this.tabInfo.VerticalScrollbarBarColor = true;
+            this.tabInfo.VerticalScrollbarHighlightOnWheel = false;
+            this.tabInfo.VerticalScrollbarSize = 10;
+            // 
+            // textBoxManual
+            // 
+            this.textBoxManual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxManual.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxManual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxManual.Location = new System.Drawing.Point(4, 5);
+            this.textBoxManual.Multiline = true;
+            this.textBoxManual.Name = "textBoxManual";
+            this.textBoxManual.ReadOnly = true;
+            this.textBoxManual.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxManual.Size = new System.Drawing.Size(600, 343);
+            this.textBoxManual.TabIndex = 4;
+            this.textBoxManual.TabStop = false;
+            this.textBoxManual.Text = "AUTOSPLITTERREADME";
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BackColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.HorizontalScrollbarBarColor = true;
+            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabLicense.HorizontalScrollbarSize = 10;
+            this.tabLicense.Location = new System.Drawing.Point(4, 44);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 352);
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.UseCustomBackColor = true;
+            this.tabLicense.VerticalScrollbarBarColor = true;
+            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
+            this.tabLicense.VerticalScrollbarSize = 10;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = "THIRDPARTYLICENSEREADME";
             // 
             // tabConfig
             // 
@@ -2923,6 +2993,34 @@ namespace AutoSplitterCore
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Celeste";
             // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.ForeColor = System.Drawing.Color.SandyBrown;
+            this.label101.Location = new System.Drawing.Point(1, 154);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(102, 38);
+            this.label101.TabIndex = 39;
+            this.label101.Text = "Considering \r\nLunch ASC first";
+            // 
+            // labelCurrentPiped
+            // 
+            this.labelCurrentPiped.AutoSize = true;
+            this.labelCurrentPiped.Location = new System.Drawing.Point(362, 192);
+            this.labelCurrentPiped.Name = "labelCurrentPiped";
+            this.labelCurrentPiped.Size = new System.Drawing.Size(53, 19);
+            this.labelCurrentPiped.TabIndex = 38;
+            this.labelCurrentPiped.Text = "Disable";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(6, 192);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(97, 19);
+            this.label100.TabIndex = 37;
+            this.label100.Text = "Current Piped:";
+            // 
             // label99
             // 
             this.label99.AutoSize = true;
@@ -3065,84 +3163,6 @@ namespace AutoSplitterCore
             this.skyComboBoxHitMode.TriangleColorA = System.Drawing.Color.Black;
             this.skyComboBoxHitMode.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
             this.skyComboBoxHitMode.SelectedIndexChanged += new System.EventHandler(this.skyComboBoxHitMode_SelectedIndexChanged);
-            // 
-            // tabInfo
-            // 
-            this.tabInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.tabInfo.BackColor = System.Drawing.Color.White;
-            this.tabInfo.Controls.Add(this.TextboxManual);
-            this.tabInfo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabInfo.HorizontalScrollbarBarColor = true;
-            this.tabInfo.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabInfo.HorizontalScrollbarSize = 10;
-            this.tabInfo.Location = new System.Drawing.Point(4, 44);
-            this.tabInfo.Name = "tabInfo";
-            this.tabInfo.Size = new System.Drawing.Size(609, 352);
-            this.tabInfo.TabIndex = 2;
-            this.tabInfo.Text = "Info";
-            this.tabInfo.UseCustomBackColor = true;
-            this.tabInfo.VerticalScrollbarBarColor = true;
-            this.tabInfo.VerticalScrollbarHighlightOnWheel = false;
-            this.tabInfo.VerticalScrollbarSize = 10;
-            // 
-            // TextboxManual
-            // 
-            this.TextboxManual.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TextboxManual.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.TextboxManual.BorderColorA = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.TextboxManual.BorderColorB = System.Drawing.Color.DarkSlateGray;
-            this.TextboxManual.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextboxManual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.TextboxManual.Hint = "";
-            this.TextboxManual.Location = new System.Drawing.Point(1, 3);
-            this.TextboxManual.MaxLength = 32767;
-            this.TextboxManual.Multiline = true;
-            this.TextboxManual.Name = "TextboxManual";
-            this.TextboxManual.PasswordChar = '\0';
-            this.TextboxManual.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextboxManual.SelectedText = "";
-            this.TextboxManual.SelectionLength = 0;
-            this.TextboxManual.SelectionStart = 0;
-            this.TextboxManual.Size = new System.Drawing.Size(605, 333);
-            this.TextboxManual.TabIndex = 0;
-            this.TextboxManual.TabStop = false;
-            this.TextboxManual.Text = resources.GetString("TextboxManual.Text");
-            this.TextboxManual.UseSystemPasswordChar = false;
-            // 
-            // tabLicense
-            // 
-            this.tabLicense.BackColor = System.Drawing.Color.White;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabLicense.HorizontalScrollbarBarColor = true;
-            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabLicense.HorizontalScrollbarSize = 10;
-            this.tabLicense.Location = new System.Drawing.Point(4, 44);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 352);
-            this.tabLicense.TabIndex = 3;
-            this.tabLicense.Text = "License";
-            this.tabLicense.UseCustomBackColor = true;
-            this.tabLicense.VerticalScrollbarBarColor = true;
-            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
-            this.tabLicense.VerticalScrollbarSize = 10;
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = resources.GetString("textBoxLicenses.Text");
             // 
             // tabSekiro
             // 
@@ -5364,7 +5384,6 @@ namespace AutoSplitterCore
             this.hopeTextBoxMortal.Size = new System.Drawing.Size(444, 131);
             this.hopeTextBoxMortal.TabIndex = 28;
             this.hopeTextBoxMortal.TabStop = false;
-            this.hopeTextBoxMortal.Text = resources.GetString("hopeTextBoxMortal.Text");
             this.hopeTextBoxMortal.UseSystemPasswordChar = false;
             // 
             // groupBoxMJS
@@ -13773,34 +13792,6 @@ namespace AutoSplitterCore
             this.materialCheckBox12.UseAccentColor = true;
             this.materialCheckBox12.UseVisualStyleBackColor = true;
             // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(6, 192);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(97, 19);
-            this.label100.TabIndex = 37;
-            this.label100.Text = "Current Piped:";
-            // 
-            // labelCurrentPiped
-            // 
-            this.labelCurrentPiped.AutoSize = true;
-            this.labelCurrentPiped.Location = new System.Drawing.Point(362, 192);
-            this.labelCurrentPiped.Name = "labelCurrentPiped";
-            this.labelCurrentPiped.Size = new System.Drawing.Size(53, 19);
-            this.labelCurrentPiped.TabIndex = 38;
-            this.labelCurrentPiped.Text = "Disable";
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.ForeColor = System.Drawing.Color.SandyBrown;
-            this.label101.Location = new System.Drawing.Point(1, 154);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(102, 38);
-            this.label101.TabIndex = 39;
-            this.label101.Text = "Considering \r\nLunch ASC first";
-            // 
             // AutoSplitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -13810,7 +13801,6 @@ namespace AutoSplitterCore
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -13822,6 +13812,10 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
+            this.tabInfo.ResumeLayout(false);
+            this.tabInfo.PerformLayout();
+            this.tabLicense.ResumeLayout(false);
+            this.tabLicense.PerformLayout();
             this.tabConfig.ResumeLayout(false);
             this.tabConfig.PerformLayout();
             this.groupBoxOtherS.ResumeLayout(false);
@@ -13897,9 +13891,6 @@ namespace AutoSplitterCore
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabInfo.ResumeLayout(false);
-            this.tabLicense.ResumeLayout(false);
-            this.tabLicense.PerformLayout();
             this.tabSekiro.ResumeLayout(false);
             this.tabSekiro.PerformLayout();
             this.panelBossS.ResumeLayout(false);
@@ -14314,7 +14305,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.CheckBox checkBoxViewDlcGrace;
         private System.Windows.Forms.ComboBox comboBoxGraceDLC_ER;
         private ReaLTaiizor.Controls.Panel panel1;
-        private ReaLTaiizor.Controls.HopeTextBox TextboxManual;
         private ReaLTaiizor.Controls.Button btnClose;
         private ReaLTaiizor.Controls.DungeonComboBox toSplitSelectSekiro;
         private ReaLTaiizor.Controls.MetroCheckBox checkBoxMortalJourneyRun;
@@ -14645,5 +14635,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label labelCurrentPiped;
         private System.Windows.Forms.Label label101;
+        internal System.Windows.Forms.TextBox textBoxManual;
     }
 }
