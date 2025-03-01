@@ -15,7 +15,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
     <GenerateSatelliteAssembliesForCore>false</GenerateSatelliteAssembliesForCore>
-
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -58,7 +57,7 @@
     <PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
     <PackageReference Include="Google.Protobuf" Version="3.28.2" />
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
-    <PackageReference Include="Irony" Version="1.5.3" />
+    <PackageReference Include="Irony" Version="1.1.0" />
     <PackageReference Include="MimeTypes" Version="2.5.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -68,7 +67,6 @@
     <PackageReference Include="System.CodeDom" Version="9.0.2" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
-    <PackageReference Include="System.Resources.Extensions" Version="9.0.2" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.3" />
   </ItemGroup>
 

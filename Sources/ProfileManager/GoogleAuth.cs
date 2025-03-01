@@ -544,9 +544,9 @@ namespace AutoSplitterCore
                 };
 
                 await FirestoreRestClient.AddDocumentAsync("uploadHistory", idFile, register);
-                DebugLog.LogMessage($"📤 Record uploaded to Firestore: {idFile} por {EmailLoged}");
+                DebugLog.LogMessage($"Record uploaded to Firestore: {idFile} por {EmailLoged}");
             }
-            catch (Exception ex) { DebugLog.LogMessage($"🔥 Error writing to Firestore {idFile}: {ex.Message}"); }
+            catch (Exception ex) { DebugLog.LogMessage($"Error writing to Firestore {idFile}: {ex.Message}"); }
         }
 
 
