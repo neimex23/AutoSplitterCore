@@ -275,7 +275,7 @@ namespace AutoSplitterCore
                 DebugLog.LogMessage(debugLog);
                 if (enableChecking && !debugMode)
                 {
-                    InvokeOnMainThread(() => interfaceHCM.ProfileHitGo(1, saveModule.generalAS.HitMode == HitMode.Way));           
+                    InvokeOnMainThread(() => interfaceHCM.HitSumUp(1, saveModule.generalAS.HitMode == HitMode.Way));           
                 }
             }
         }
@@ -308,11 +308,11 @@ namespace AutoSplitterCore
             if (saveModule.generalAS.ResetProfile) saveModule.ResetFlags();
         }
 
-        public string GetHCMProfileName() => interfaceHCM.ProfileName();
-        public List<string> GetAllHcmProfile() => interfaceHCM.GetProfiles();
-        public List<string> GetSplits() => interfaceHCM.GetSplits();
-        public void NewProfile(string profileTitle) => InvokeOnMainThread(() => interfaceHCM.NewProfile(profileTitle));
-        public void AddSplit(string splitTitle) => InvokeOnMainThread(() => interfaceHCM.AddSplit(splitTitle));
+        public string GetHCMProfileName() => interfaceHCM.ProfileName;
+        public List<string> GetAllHcmProfile() => interfaceHCM.ProfileNames;
+        public List<string> GetSplits() => interfaceHCM.SplitsNames;
+        public void NewProfile(string profileTitle) => InvokeOnMainThread(() => interfaceHCM.ProfileNew(profileTitle));
+        public void AddSplit(string splitTitle) => InvokeOnMainThread(() => interfaceHCM.SplitAppendNew(splitTitle));
         #endregion
 
         private static readonly SynchronizationContext syncContext = SynchronizationContext.Current ?? new WindowsFormsSynchronizationContext();

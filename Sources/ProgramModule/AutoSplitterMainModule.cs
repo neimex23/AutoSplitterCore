@@ -128,7 +128,7 @@ namespace AutoSplitterCore
 
                 interfaceASC.SplitterResetMethod = ResetSplitterFlags;
 
-                interfaceASC.ProfileChange = splitterControl.ProfileChange;
+                interfaceASC.ProfileSelectedMethod = splitterControl.ProfileChange;
             }
 
             splitterControl.SetInterface(interfaceASC);

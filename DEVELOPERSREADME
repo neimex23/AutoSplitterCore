@@ -1,0 +1,73 @@
+# Developer Guide - Project Setup
+
+## Prerequisites
+
+Before compiling the project, you must create a `appsettings.json` file in the root directory with the following structure:
+
+{
+    "ApiSettings": {
+        "GetGoogleCredentials_ApiGateWay": "https://your-api-gateway-url/GetGoogleDriveCredentials"
+    },
+
+    "IAMJson": {
+        "Google": {
+            "type": "service_account",
+            "project_id": "your-project-id",
+            "private_key_id": "your-private-key-id",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY\n-----END PRIVATE KEY-----\n",
+            "client_email": "your-service-account-email",
+            "client_id": "your-client-id",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email",
+            "universe_domain": "googleapis.com"
+        },
+
+        "FireBase": {
+            "type": "service_account",
+            "project_id": "your-project-id",
+            "private_key_id": "your-private-key-id",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY\n-----END PRIVATE KEY-----\n",
+            "client_email": "your-service-account-email",
+            "client_id": "your-client-id",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email",
+            "universe_domain": "googleapis.com"
+        }
+    },
+
+    "GitHubApi": {
+        "PublicRepoToken": "your-github-token"
+    }
+}
+
+** Important:**  
+- Replace all placeholders (e.g., `your-project-id`, `your-private-key-id`, `YOUR_PRIVATE_KEY`, etc.) with actual values.
+- Never commit sensitive keys or credentials to version control.
+
+---
+
+## Compilation Notes
+
+The project **autosplittercore.csproj**, which operates with **HCMv1**, must be compiled with **API 1.68**.  
+If API version **1.69** is set, the project must be recompiled to ensure compatibility.
+
+### Steps to Compile:
+1. Ensure you have API 1.68 installed.
+2. Open the project in your preferred IDE.
+3. Verify that `appsettings.json` is properly configured.
+4. Build the project.
+
+If switching to API 1.69:
+- Update the API reference.
+- Try Executing Dotnet Build ./AutoSplitterCore.csproject and then copile normally again
+- Recompile the project to reflect changes.
+
+---
+
+## Additional Information
+
+For further details or issues, please contact the project maintainer.
