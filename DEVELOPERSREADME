@@ -49,6 +49,9 @@ Before compiling the project, you must create a `appsettings.json` file in the r
 - Never commit sensitive keys or credentials to version control.
 - You Can Just Create The file empty if you dont test or modify Cloud Profiles Functions on Sources/ProfileManager/GoogleAuth.cs
 
+**MISC**
+If You want know how i made Secrets read my investigation: https://www.notion.so/Manejo-de-Secretos-c781ca2f65c449f4b9a6aa82fef3ab0a?pvs=4 (web on Spanish language)
+
 ---
 
 ## Compilation Notes

@@ -165,7 +165,10 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                throw new Exception("Error on Incrusted Resource: ", ex);
+                string Message = $"Error on Incrusted Resource APIUrl GoogleAuth: {ex.Message}";
+                DebugLog.LogMessage(Message);
+                MessageBox.Show(Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
             }
         }
 
@@ -184,7 +187,10 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                throw new Exception("Error on Incrusted Resource: ", ex);
+                string Message = $"Error on Incrusted Resource IAMGoogle GoogleAuth: {ex.Message}";
+                DebugLog.LogMessage(Message);
+                MessageBox.Show(Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
             }
         }
 
@@ -977,7 +983,10 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                throw new Exception("Error on Incrusted Resource: ", ex);
+                string Message = $"Error on Incrusted Resource IAMFirebase GoogleAuth: {ex.Message}";
+                DebugLog.LogMessage(Message);
+                MessageBox.Show(Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 
@@ -1004,7 +1013,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al inicializar Firestore: {ex.Message}");
+                Console.WriteLine($"Error initializing Firestore: {ex.Message}");
                 throw;
             }
         }

@@ -60,17 +60,23 @@ namespace AutoSplitterCore
 
         private void AddAuthorization()
         {
-            string jsonresult = string.Empty;
-            var assembly = Assembly.GetExecutingAssembly();
-            using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
-            using (StreamReader reader = new StreamReader(stream))
+            try 
             {
-                string jsonContent = reader.ReadToEnd();
-                var jsonObject = JObject.Parse(jsonContent);
-                jsonresult = jsonObject["GitHubApi"]["PublicRepoToken"].ToString();
+                string jsonresult = string.Empty;
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    jsonresult = jsonObject["GitHubApi"]["PublicRepoToken"].ToString();
+                }
+                // Authorization Token with PublicRepo Permissions
+                client.Headers.Add("Authorization", jsonresult);
+            } catch (Exception ex)
+            {
+                DebugLog.LogMessage($"Exception produced on Authorization JSON on UpdateModule: {ex.Message}");
             }
-            // Authorization Token with PublicRepo Permissions
-            client.Headers.Add("Authorization", jsonresult);
         }
 
         public void CheckUpdates(bool ForceUpdate)
