@@ -47,12 +47,13 @@ Before compiling the project, you must create a `appsettings.json` file in the r
 ** Important:**  
 - Replace all placeholders (e.g., `your-project-id`, `your-private-key-id`, `YOUR_PRIVATE_KEY`, etc.) with actual values.
 - Never commit sensitive keys or credentials to version control.
+- You Can Just Create The file empty if you dont test or modify Cloud Profiles Functions on Sources/ProfileManager/GoogleAuth.cs
 
 ---
 
 ## Compilation Notes
 
-The project **autosplittercore.csproj**, which operates with **HCMv1**, must be compiled with **API 1.68**.  
+The project **AutoSplitterCore.csproj**, which operates with **HCMv1**, must be compiled with **GOOGLE APIs 1.68**.  
 If API version **1.69** is set, the project must be recompiled to ensure compatibility.
 
 ### Steps to Compile:
@@ -63,7 +64,7 @@ If API version **1.69** is set, the project must be recompiled to ensure compati
 
 If switching to API 1.69:
 - Update the API reference.
-- Try Executing Dotnet Build ./AutoSplitterCore.csproject and then copile normally again
+- Try Executing ¨Dotnet Build ./AutoSplitterCore.csproject¨
 - Recompile the project to reflect changes.
 
 ---
