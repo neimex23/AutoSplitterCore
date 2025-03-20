@@ -49,7 +49,24 @@ copy AutoSplitterProfiles\ProfilesForHCM %PR_TARGET%\AutoSplitterProfiles\Profil
 
 7z a %PR_OUTPUT% .\%PR_TARGET%\*
 
+echo Packing Portable AutoSplitterCoreV2 Release:
+set PR_BASE=bin\ReleaseHCMv2
+set PR_TARGET=%PR_FINAL%\AutoSplitterCorePortableV2
+set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_HCMv2_v3.x.0.zip
+rmdir /S /Q %PR_TARGET% 2>nul
+mkdir %PR_TARGET%
+del %PR_OUTPUT% 2>nul
+xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y
+
+echo Copying PreProfiles
+mkdir %PR_TARGET%\AutoSplitterProfiles
+mkdir %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
+copy AutoSplitterProfiles %PR_TARGET%\AutoSplitterProfiles
+copy AutoSplitterProfiles\ProfilesForHCM %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
+
+7z a %PR_OUTPUT% .\%PR_TARGET%\*
+
 echo Copying AutoSplitterCore Installer Release:
-copy bin\AutoSplitterCoreInstaller\AutoSplitterCore_Installer_v2.x.0.msi %PR_FINAL%
+copy bin\AutoSplitterCoreInstaller\AutoSplitterCore_Installer_v3.x.0.msi %PR_FINAL%
 
 echo PrepareReleaseAutoSplitter.bat END ===========

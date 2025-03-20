@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateShowDialog));
             this.label76 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.labelCloudVer = new System.Windows.Forms.Label();
@@ -36,17 +35,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxUpdate = new ReaLTaiizor.Controls.GroupBox();
-            this.btnUpdate = new ReaLTaiizor.Controls.Button();
-            this.btnGoToDownloadPage = new ReaLTaiizor.Controls.Button();
-            this.progressBarUpdating = new ReaLTaiizor.Controls.MaterialProgressBar();
             this.btnClose = new ReaLTaiizor.Controls.Button();
+            this.btnGoToDownloadPage = new ReaLTaiizor.Controls.Button();
+            this.btnUpdate = new ReaLTaiizor.Controls.Button();
+            this.progressBarUpdating = new ReaLTaiizor.Controls.MaterialProgressBar();
             this.groupBoxInstallerSelect = new ReaLTaiizor.Controls.GroupBox();
-            this.btnInstaller = new ReaLTaiizor.Controls.Button();
             this.btnPortable = new ReaLTaiizor.Controls.Button();
+            this.btnInstaller = new ReaLTaiizor.Controls.Button();
             this.groupBoxUpdating = new ReaLTaiizor.Controls.GroupBox();
+            this.groupBoxHCMversion = new ReaLTaiizor.Controls.GroupBox();
+            this.buttonHCMv2 = new ReaLTaiizor.Controls.Button();
+            this.buttonHCM = new ReaLTaiizor.Controls.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxUpdate.SuspendLayout();
             this.groupBoxInstallerSelect.SuspendLayout();
             this.groupBoxUpdating.SuspendLayout();
+            this.groupBoxHCMversion.SuspendLayout();
             this.SuspendLayout();
             // 
             // label76
@@ -132,27 +136,27 @@
             this.groupBoxUpdate.TabIndex = 83;
             this.groupBoxUpdate.Text = "ASC Update";
             // 
-            // btnUpdate
+            // btnClose
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnUpdate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnUpdate.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.btnUpdate.Image = null;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnUpdate.Location = new System.Drawing.Point(86, 107);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnUpdate.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnUpdate.Size = new System.Drawing.Size(136, 21);
-            this.btnUpdate.TabIndex = 84;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnClose.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnClose.Image = null;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.InactiveColor = System.Drawing.Color.Red;
+            this.btnClose.Location = new System.Drawing.Point(162, 132);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.PressedBorderColor = System.Drawing.Color.Blue;
+            this.btnClose.PressedColor = System.Drawing.Color.Blue;
+            this.btnClose.Size = new System.Drawing.Size(136, 21);
+            this.btnClose.TabIndex = 86;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnGoToDownloadPage
             // 
@@ -176,6 +180,28 @@
             this.btnGoToDownloadPage.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGoToDownloadPage.Click += new System.EventHandler(this.btnGoToDownloadPage_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnUpdate.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnUpdate.Image = null;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnUpdate.Location = new System.Drawing.Point(86, 107);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnUpdate.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnUpdate.Size = new System.Drawing.Size(136, 21);
+            this.btnUpdate.TabIndex = 84;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // progressBarUpdating
             // 
             this.progressBarUpdating.Depth = 0;
@@ -185,28 +211,6 @@
             this.progressBarUpdating.Size = new System.Drawing.Size(219, 23);
             this.progressBarUpdating.TabIndex = 2;
             this.progressBarUpdating.UseAccentColor = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnClose.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.btnClose.Image = null;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.InactiveColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(162, 132);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.PressedBorderColor = System.Drawing.Color.Blue;
-            this.btnClose.PressedColor = System.Drawing.Color.Blue;
-            this.btnClose.Size = new System.Drawing.Size(136, 21);
-            this.btnClose.TabIndex = 86;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBoxInstallerSelect
             // 
@@ -230,28 +234,6 @@
             this.groupBoxInstallerSelect.TabIndex = 84;
             this.groupBoxInstallerSelect.Text = "Installer Select";
             // 
-            // btnInstaller
-            // 
-            this.btnInstaller.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstaller.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstaller.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInstaller.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstaller.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstaller.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.btnInstaller.Image = null;
-            this.btnInstaller.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInstaller.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.btnInstaller.Location = new System.Drawing.Point(19, 87);
-            this.btnInstaller.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInstaller.Name = "btnInstaller";
-            this.btnInstaller.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstaller.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnInstaller.Size = new System.Drawing.Size(126, 21);
-            this.btnInstaller.TabIndex = 87;
-            this.btnInstaller.Text = "Installer";
-            this.btnInstaller.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnInstaller.Click += new System.EventHandler(this.btnInstaller_Click);
-            // 
             // btnPortable
             // 
             this.btnPortable.BackColor = System.Drawing.Color.Transparent;
@@ -274,6 +256,28 @@
             this.btnPortable.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnPortable.Click += new System.EventHandler(this.btnPortable_Click);
             // 
+            // btnInstaller
+            // 
+            this.btnInstaller.BackColor = System.Drawing.Color.Transparent;
+            this.btnInstaller.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstaller.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstaller.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstaller.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstaller.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnInstaller.Image = null;
+            this.btnInstaller.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInstaller.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.btnInstaller.Location = new System.Drawing.Point(19, 87);
+            this.btnInstaller.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInstaller.Name = "btnInstaller";
+            this.btnInstaller.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstaller.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnInstaller.Size = new System.Drawing.Size(126, 21);
+            this.btnInstaller.TabIndex = 87;
+            this.btnInstaller.Text = "Installer";
+            this.btnInstaller.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnInstaller.Click += new System.EventHandler(this.btnInstaller_Click);
+            // 
             // groupBoxUpdating
             // 
             this.groupBoxUpdating.BackColor = System.Drawing.Color.Transparent;
@@ -294,15 +298,91 @@
             this.groupBoxUpdating.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBoxUpdating.TabIndex = 85;
             // 
+            // groupBoxHCMversion
+            // 
+            this.groupBoxHCMversion.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxHCMversion.BackGColor = System.Drawing.Color.Firebrick;
+            this.groupBoxHCMversion.BaseColor = System.Drawing.Color.Transparent;
+            this.groupBoxHCMversion.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
+            this.groupBoxHCMversion.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
+            this.groupBoxHCMversion.Controls.Add(this.buttonHCMv2);
+            this.groupBoxHCMversion.Controls.Add(this.buttonHCM);
+            this.groupBoxHCMversion.Controls.Add(this.label3);
+            this.groupBoxHCMversion.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.groupBoxHCMversion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
+            this.groupBoxHCMversion.HeaderColor = System.Drawing.Color.DarkOrange;
+            this.groupBoxHCMversion.Location = new System.Drawing.Point(18, 69);
+            this.groupBoxHCMversion.MinimumSize = new System.Drawing.Size(136, 50);
+            this.groupBoxHCMversion.Name = "groupBoxHCMversion";
+            this.groupBoxHCMversion.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
+            this.groupBoxHCMversion.Size = new System.Drawing.Size(305, 163);
+            this.groupBoxHCMversion.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.groupBoxHCMversion.TabIndex = 89;
+            this.groupBoxHCMversion.Text = "HCM Version";
+            // 
+            // buttonHCMv2
+            // 
+            this.buttonHCMv2.BackColor = System.Drawing.Color.Transparent;
+            this.buttonHCMv2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHCMv2.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.buttonHCMv2.Image = null;
+            this.buttonHCMv2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHCMv2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.Location = new System.Drawing.Point(160, 87);
+            this.buttonHCMv2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHCMv2.Name = "buttonHCMv2";
+            this.buttonHCMv2.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCMv2.Size = new System.Drawing.Size(124, 21);
+            this.buttonHCMv2.TabIndex = 88;
+            this.buttonHCMv2.Text = "v2.x";
+            this.buttonHCMv2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.buttonHCMv2.Click += new System.EventHandler(this.buttonHCM_Click);
+            // 
+            // buttonHCM
+            // 
+            this.buttonHCM.BackColor = System.Drawing.Color.Transparent;
+            this.buttonHCM.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHCM.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCM.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCM.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.buttonHCM.Image = null;
+            this.buttonHCM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHCM.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.buttonHCM.Location = new System.Drawing.Point(19, 87);
+            this.buttonHCM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonHCM.Name = "buttonHCM";
+            this.buttonHCM.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCM.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.buttonHCM.Size = new System.Drawing.Size(126, 21);
+            this.buttonHCM.TabIndex = 87;
+            this.buttonHCM.Text = "v1.x";
+            this.buttonHCM.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.buttonHCM.Click += new System.EventHandler(this.buttonHCM_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(56, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 14);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "Select HitCounterManager Version";
+            // 
             // UpdateShowDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 240);
-            this.Controls.Add(this.groupBoxUpdate);
+            this.Controls.Add(this.groupBoxHCMversion);
             this.Controls.Add(this.groupBoxInstallerSelect);
+            this.Controls.Add(this.groupBoxUpdate);
             this.Controls.Add(this.groupBoxUpdating);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(345, 240);
             this.MinimizeBox = false;
@@ -316,6 +396,8 @@
             this.groupBoxInstallerSelect.PerformLayout();
             this.groupBoxUpdating.ResumeLayout(false);
             this.groupBoxUpdating.PerformLayout();
+            this.groupBoxHCMversion.ResumeLayout(false);
+            this.groupBoxHCMversion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -336,5 +418,9 @@
         private ReaLTaiizor.Controls.Button btnPortable;
         private ReaLTaiizor.Controls.Button btnInstaller;
         private ReaLTaiizor.Controls.GroupBox groupBoxUpdating;
+        private ReaLTaiizor.Controls.GroupBox groupBoxHCMversion;
+        private ReaLTaiizor.Controls.Button buttonHCMv2;
+        private ReaLTaiizor.Controls.Button buttonHCM;
+        private System.Windows.Forms.Label label3;
     }
 }

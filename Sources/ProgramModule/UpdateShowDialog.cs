@@ -25,6 +25,7 @@ namespace AutoSplitterCore
             labelCloudVer.Text = updateModule.cloudVer;
             groupBoxInstallerSelect.Hide();
             groupBoxUpdating.Hide();
+            groupBoxHCMversion.Hide();
         }
 
         private void btnGoToDownloadPage_Click(object sender, EventArgs e)
@@ -48,11 +49,21 @@ namespace AutoSplitterCore
             await DownloadAndInstallAsync(1);
         }
 
-        private async void btnPortable_Click(object sender, EventArgs e)
+        private void btnPortable_Click(object sender, EventArgs e) 
+        {
+            groupBoxInstallerSelect.Hide();
+            groupBoxHCMversion.Show();
+        }
+
+        private async void buttonHCM_Click(object sender, EventArgs e)
         {
             groupBoxUpdating.Show();
             groupBoxInstallerSelect.Hide();
-            await DownloadAndInstallAsync(2);
+
+            Button senderButton = (Button)sender;
+
+            int method = ((Button)sender).Text == "v1.x" ? 2 : 3;
+            await DownloadAndInstallAsync(method);
         }
 
         private async Task DownloadAndInstallAsync(int method)
@@ -89,16 +100,24 @@ namespace AutoSplitterCore
                             await webClient.DownloadFileTaskAsync(new Uri(url), "UpdateASCInstaller.msi");
                             break;
                         case 2:
-                            url += $"Portable_v{ver}.zip";
-                            string zipPath = "UpdateASCPortable.zip";
-                            await webClient.DownloadFileTaskAsync(new Uri(url), zipPath);
-                            ZipFile.ExtractToDirectory(zipPath, extractPath);
-                            File.Delete(zipPath);
+                            url += $"Portable_v{ver}.zip";                          
+                            break;
+                        case 3:
+                            url += $"Portable_HCMv2_v{ver}.zip";
+                            method = 2; // UpdateASC Script not change
                             break;
                         default:
                             throw new ArgumentException("Invalid update method.");
                     }
-                }
+
+                    if (method == 2)
+                    {
+                        string zipPath = "UpdateASCPortable.zip";
+                        await webClient.DownloadFileTaskAsync(new Uri(url), zipPath);
+                        ZipFile.ExtractToDirectory(zipPath, extractPath);
+                        File.Delete(zipPath);
+                    }
+                }            
 
                 progressBarUpdating.PerformStep();
 
@@ -110,6 +129,6 @@ namespace AutoSplitterCore
             {
                 MessageBox.Show($"Update failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }        
     }
 }
