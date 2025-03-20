@@ -27,6 +27,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using HitCounterManager;
 
@@ -98,8 +99,8 @@ namespace AutoSplitterCore
                     interfaceASC.GameList.Add(game);
                 }
 
-                //interfaceASC.ActiveGameIndex = GetSplitterEnable(); //Before HCM Interface Change, ASC control mannualy on start the index of ComboBoxGame in Main Program
-                interfaceASC.GetActiveGameIndexMethod = () => GetSplitterEnable(); //After HCM Interface Change, HCM ask on Start The index of ComboBoxgame on ASC
+                interfaceASC.ActiveGameIndex = GetSplitterEnable();
+
                 interfaceASC.SetActiveGameIndexMethod = (splitter) =>
                 {
                     //Disable all games

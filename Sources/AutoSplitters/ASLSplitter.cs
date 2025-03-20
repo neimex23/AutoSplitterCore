@@ -93,7 +93,7 @@ namespace AutoSplitterCore
             IComparisonGeneratorsFactory comparisonFactory = new StandardComparisonGeneratorsFactory();
             IRun run = new LiveSplit.Model.Run(comparisonFactory)
             {
-                GameName = "Example Game",
+                GameName = "Cuphead", //For Definitions of Irun but its not used
                 CategoryName = "Any%"
             };
             run.AddSegment("Start");
