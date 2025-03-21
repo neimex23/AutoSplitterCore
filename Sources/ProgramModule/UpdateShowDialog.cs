@@ -60,9 +60,9 @@ namespace AutoSplitterCore
             groupBoxUpdating.Show();
             groupBoxInstallerSelect.Hide();
 
-            Button senderButton = (Button)sender;
+            ReaLTaiizor.Controls.Button senderButton = (ReaLTaiizor.Controls.Button)sender;
 
-            int method = ((Button)sender).Text == "v1.x" ? 2 : 3;
+            int method = ((ReaLTaiizor.Controls.Button)sender).Text == "v1.x" ? 2 : 3;
             await DownloadAndInstallAsync(method);
         }
 

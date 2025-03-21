@@ -148,7 +148,12 @@ namespace AutoSplitterCore
                 }
             }
             catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message); };
-            if ((CheckUpdatesOnStartup)) //|| (DebugMode))
+
+            //Debug Propouses
+            //new UpdateShowDialog().ShowDialog();
+            //new UpdateShowDialogSouls().ShowDialog();
+
+            if (CheckUpdatesOnStartup)
             {
                 if (Releases.Count > 0 && dll != null && Releases[0] > dll.GetName().Version)
                 {

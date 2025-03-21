@@ -104,7 +104,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(106, 61);
+            this.label2.Location = new System.Drawing.Point(112, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 19);
             this.label2.TabIndex = 0;
@@ -290,7 +290,7 @@
             this.groupBoxUpdating.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBoxUpdating.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.groupBoxUpdating.HeaderColor = System.Drawing.Color.Gold;
-            this.groupBoxUpdating.Location = new System.Drawing.Point(18, 67);
+            this.groupBoxUpdating.Location = new System.Drawing.Point(18, 72);
             this.groupBoxUpdating.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBoxUpdating.Name = "groupBoxUpdating";
             this.groupBoxUpdating.Padding = new System.Windows.Forms.Padding(5, 28, 5, 5);
@@ -379,10 +379,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 240);
+            this.Controls.Add(this.groupBoxUpdating);
             this.Controls.Add(this.groupBoxHCMversion);
             this.Controls.Add(this.groupBoxInstallerSelect);
             this.Controls.Add(this.groupBoxUpdate);
-            this.Controls.Add(this.groupBoxUpdating);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(345, 240);
             this.MinimizeBox = false;
