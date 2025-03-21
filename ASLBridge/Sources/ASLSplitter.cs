@@ -39,6 +39,7 @@ using LiveSplit.Web;
 
 namespace ASLBridge 
 { 
+
     public class ListenerASL : TraceListener
     {
         public override void Write(string message) => RegisterLog(message);
@@ -60,6 +61,10 @@ namespace ASLBridge
     public class ASLSplitter
     {
         public bool PracticeMode { get; set; } = false;
+        public event EventHandler ASCOnSplitHandler;
+        public event EventHandler ASCOnStartHandler;
+        public event EventHandler ASCOnResetHandler;
+
 
         public LiveSplitState state = null;
         public ASLComponent asl;
@@ -128,6 +133,9 @@ namespace ASLBridge
             }                
         }
 
+        /// <summary>
+        /// Obtain ASLScripteable Control
+        /// </summary>
         public Control AslControl 
         { 
             get 
@@ -162,7 +170,8 @@ namespace ASLBridge
         {
             if (!PracticeMode)
             {
-                Console.WriteLine("ASCOnSplit");
+                Log.Info("ASCOnSplit");
+                ASCOnSplitHandler?.Invoke(this, e);
             }
         }
 
@@ -170,7 +179,8 @@ namespace ASLBridge
         {
             if (!PracticeMode)
             {
-                Console.WriteLine("ASCOnStart");
+                Log.Info("ASCOnStart");
+                ASCOnStartHandler?.Invoke(this, e);
             }
         }
 
@@ -178,7 +188,8 @@ namespace ASLBridge
         {
             if (!PracticeMode)
             {
-                Console.WriteLine("ASCOnReset");
+                Log.Info("ASCOnReset");
+                ASCOnResetHandler?.Invoke(this, e);
             }
         }
         #endregion

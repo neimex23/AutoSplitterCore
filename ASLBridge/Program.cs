@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,102 +13,106 @@ namespace ASLBridge
 {
     public class Program
     {
-        private static ASLSplitter splitter = ASLSplitter.GetInstance();
-        private static NamedPipeServerStream pipeServer;
-        private static Thread pipeThread;
+        public static ASLSplitter Splitter { get; private set; } = ASLSplitter.GetInstance();
+        private static bool run = true;
 
-        public static void InitializePipe()
+        public static async Task Main(string[] args)
         {
-            pipeServer = new NamedPipeServerStream("ASLServerPipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
-            pipeThread = new Thread(PipeListener);
-            pipeThread.Start();
-        }
+            HttpListener httpListener = new HttpListener();
+            httpListener.Prefixes.Add("http://localhost:5000/ws/");
+            httpListener.Start();
+            Console.WriteLine("WebSocket server started at ws://localhost:5000/ws/");
 
-        private static void PipeListener()
-        {
-            while (true)
+            while (run)
             {
-                pipeServer.WaitForConnection();
-                Console.WriteLine("Cliente connected.");
+                HttpListenerContext context = await httpListener.GetContextAsync();
 
-                while (pipeServer.IsConnected)
+                if (context.Request.IsWebSocketRequest)
                 {
-                    try
-                    {
-                        // Lee el mensaje del cliente
-                        byte[] buffer = new byte[256];
-                        int bytesRead = pipeServer.Read(buffer, 0, buffer.Length);
-                        string clientMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-
-                        Console.WriteLine($"Command Recived by Client: {clientMessage}");
-
-                        // Procesar el mensaje recibido
-                        ProcessMessage(clientMessage);
-
-                        // Enviar una respuesta al cliente
-                        string response = "Command Recived Successfully.";
-                        byte[] responseBytes = Encoding.UTF8.GetBytes(response);
-                        pipeServer.Write(responseBytes, 0, responseBytes.Length);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error on comunication: {ex.Message}");
-                        break;
-                    }
+                    HttpListenerWebSocketContext wsContext = await context.AcceptWebSocketAsync(null);
+                    _ = HandleConnection(wsContext.WebSocket);
+                }
+                else
+                {
+                    context.Response.StatusCode = 400;
+                    context.Response.Close();
                 }
             }
+
         }
 
-        private static void ProcessMessage(string message)
+        private static async Task HandleConnection(WebSocket socket)
         {
-            // Aquí procesamos los comandos
-            if (message == "GetStatusGame")
+            byte[] buffer = new byte[1024];
+
+            while (socket.State == WebSocketState.Open)
             {
-                bool status = splitter.GetStatusGame();
-                SendMessageToClient($"Status: {status}");
-            }
-            else if (message == "GetIngameTime")
-            {
-                long time = splitter.GetIngameTime();
-                SendMessageToClient($"IngameTime: {time}");
-            }
-            else if (message == "PracticeActive")
-            {
-                splitter.PracticeMode = true;
-            }
-            else if (message == "PracticeDisable")
-            {
-                splitter.PracticeMode = false;
-            }else
-            if (message.StartsWith("setData"))
-            {
-                // Recibe el XML desde el cliente
-                string xmlData = message.Substring(8); // Eliminar el "setData " del principio
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(xmlData);
-                splitter.setData(xmlDoc);
-                SendMessageToClient("Data received and processed.");
-            }
-            else if (message == "getData")
-            {
-                //send xmlnode
-            }
-            else
-            {
-                SendMessageToClient("Unknow Command.");
+                var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                if (result.MessageType == WebSocketMessageType.Close)
+                {
+                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None);
+                    break;
+                }
+
+                var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                string response = HandleCommand(message.Trim());
+                var bytes = Encoding.UTF8.GetBytes(response);
+                await socket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
             }
         }
 
-        private static void SendMessageToClient(string message)
+        private static string HandleCommand(string command)
         {
-            byte[] buffer = Encoding.UTF8.GetBytes(message);
-            pipeServer.Write(buffer, 0, buffer.Length);
-        }
+            if (command.StartsWith("set xml:"))
+            {
+                string xmlContent = command.Substring("set xml:".Length);
+                try
+                {
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(xmlContent);
+                    Splitter.setData(doc.DocumentElement);
+                    return "XML settings loaded";
+                }
+                catch (Exception ex)
+                {
+                    return $"Error parsing XML: {ex.Message}";
+                }
+            }
+            if (command == "get xml")
+            {
+                try
+                {
+                    XmlDocument doc = new XmlDocument();
+                    XmlNode node = Splitter.getData(doc);
+                    doc.AppendChild(doc.ImportNode(node, true));
+                    return doc.OuterXml;
+                }
+                catch (Exception ex)
+                {
+                    return $"Error generating XML: {ex.Message}";
+                }
+            }
 
-        public static void Main(string[] args)
-        {
-            InitializePipe();
-
+            switch (command.ToLower())
+            {
+                case "getPractice":
+                    return Splitter.PracticeMode.ToString();
+                case "enablePractice":
+                    Splitter.PracticeMode = true;
+                    return "PracticeMode set to true";
+                case "disablePractice":
+                    Splitter.PracticeMode = false;
+                    return "PracticeMode set to false";
+                case "status":
+                    return Splitter.GetStatusGame() ? "Attached" : "Not attached";
+                case "igt":
+                    return $"IGT: {Splitter.GetIngameTime()} ms";
+                case "exit":
+                    run = false;
+                    return "Finished Process";
+                default:
+                    return "Unknown command";
+            }
         }
     }
 }

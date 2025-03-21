@@ -77,7 +77,12 @@ namespace AutoSplitterCore
             state = GeneratorState();
             asl = new ASLComponent(state);
             _timer.Tick += ASCHandlerSetters;        
-        }     
+        }  
+        
+        private ASLSplitter(bool HCMv2)
+        {
+
+        }
 
         private LiveSplitState GeneratorState() {
             Form liveSplitForm = new Form
