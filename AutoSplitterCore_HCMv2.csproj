@@ -35,6 +35,13 @@
         <OutputPath>bin\ReleaseHCMv2\</OutputPath>
     </PropertyGroup>
 
+    
+    <ItemGroup>
+      <Compile Remove="ASLBridge\**" />
+      <EmbeddedResource Remove="ASLBridge\**" />
+      <None Remove="ASLBridge\**" />
+    </ItemGroup>
+
   <ItemGroup>
     <Content Include="AutoSplitterSetupIcon.ico" />
   </ItemGroup>

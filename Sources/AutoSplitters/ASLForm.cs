@@ -39,9 +39,6 @@ using System.IO;
 using HitCounterManager;
 using LiveSplit.UI.Components;
 using System.Net;
-using System.Security.Policy;
-using Google.Protobuf.Collections;
-using System.Reflection;
 
 namespace AutoSplitterCore
 {

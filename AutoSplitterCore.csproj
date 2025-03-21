@@ -39,6 +39,12 @@
         <OutputPath>bin\Release\</OutputPath>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="ASLBridge\**" />
+      <EmbeddedResource Remove="ASLBridge\**" />
+      <None Remove="ASLBridge\**" />
+    </ItemGroup>
+
   <ItemGroup>
     <Content Include="AutoSplitterSetupIcon.ico" />
   </ItemGroup>
@@ -49,11 +55,11 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Api.CommonProtos" Version="2.16.0" />
-    <PackageReference Include="Google.Api.Gax.Grpc" Version="4.9.0" PrivateAssets="all"/>
-    <PackageReference Include="Google.Apis" Version="1.68.0" PrivateAssets="all"/>
-    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" PrivateAssets="all"/>
-    <PackageReference Include="Google.Apis.Core" Version="1.68.0" PrivateAssets="all"/>
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.68.0.3627" PrivateAssets="all"/>    
+    <PackageReference Include="Google.Api.Gax.Grpc" Version="4.9.0" PrivateAssets="all" />
+    <PackageReference Include="Google.Apis" Version="1.68.0" PrivateAssets="all" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" PrivateAssets="all" />
+    <PackageReference Include="Google.Apis.Core" Version="1.68.0" PrivateAssets="all" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.68.0.3627" PrivateAssets="all" />    
     <PackageReference Include="Google.Apis.Oauth2.v2" Version="1.68.0.1869" />
     <PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
     <PackageReference Include="Google.Protobuf" Version="3.28.2" />

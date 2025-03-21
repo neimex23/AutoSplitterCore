@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "A
 		{33A7C9F6-4FDB-419D-B7E6-68A5BC4D4091} = {33A7C9F6-4FDB-419D-B7E6-68A5BC4D4091}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASLBridge", "ASLBridge\ASLBridge.csproj", "{7F05285E-E796-4578-A9D0-94299D972640}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{535A2579-7503-4576-AD92-F6887C3D620A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{535A2579-7503-4576-AD92-F6887C3D620A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{535A2579-7503-4576-AD92-F6887C3D620A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F05285E-E796-4578-A9D0-94299D972640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F05285E-E796-4578-A9D0-94299D972640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F05285E-E796-4578-A9D0-94299D972640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F05285E-E796-4578-A9D0-94299D972640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
