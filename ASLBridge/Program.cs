@@ -95,14 +95,6 @@ namespace ASLBridge
 
             switch (command.ToLower())
             {
-                case "getPractice":
-                    return Splitter.PracticeMode.ToString();
-                case "enablePractice":
-                    Splitter.PracticeMode = true;
-                    return "PracticeMode set to true";
-                case "disablePractice":
-                    Splitter.PracticeMode = false;
-                    return "PracticeMode set to false";
                 case "status":
                     return Splitter.GetStatusGame() ? "Attached" : "Not attached";
                 case "igt":

@@ -60,7 +60,6 @@ namespace ASLBridge
 
     public class ASLSplitter
     {
-        public bool PracticeMode { get; set; } = false;
         public event EventHandler ASCOnSplitHandler;
         public event EventHandler ASCOnStartHandler;
         public event EventHandler ASCOnResetHandler;
@@ -168,29 +167,20 @@ namespace ASLBridge
 
         private void ASCOnSplit(object sender, EventArgs e)
         {
-            if (!PracticeMode)
-            {
-                Log.Info("ASCOnSplit");
-                ASCOnSplitHandler?.Invoke(this, e);
-            }
+            Log.Info("ASCOnSplit");
+            ASCOnSplitHandler?.Invoke(this, e);
         }
 
         private void ASCOnStart(object sender, EventArgs e)
         {
-            if (!PracticeMode)
-            {
-                Log.Info("ASCOnStart");
-                ASCOnStartHandler?.Invoke(this, e);
-            }
+            Log.Info("ASCOnStart");
+            ASCOnStartHandler?.Invoke(this, e);
         }
 
         private void ASCOnReset(object sender, EventArgs e)
         {
-            if (!PracticeMode)
-            {
-                Log.Info("ASCOnReset");
-                ASCOnResetHandler?.Invoke(this, e);
-            }
+            Log.Info("ASCOnReset");
+            ASCOnResetHandler?.Invoke(this, e);
         }
         #endregion
     }

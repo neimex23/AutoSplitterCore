@@ -36,6 +36,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Xml;
 using LiveSplit.Web;
+using System.IO;
 
 namespace AutoSplitterCore 
 { 
@@ -59,7 +60,7 @@ namespace AutoSplitterCore
 
     public class ASLSplitter
     {
-        public bool _PracticeMode = false;
+        private bool _PracticeMode = false;
 
         public LiveSplitState state = null;
         public ASLComponent asl;
@@ -73,15 +74,33 @@ namespace AutoSplitterCore
 
         private ASLSplitter()
         {
+            #if !HCMv2
             Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
             state = GeneratorState();
             asl = new ASLComponent(state);
-            _timer.Tick += ASCHandlerSetters;        
-        }  
-        
-        private ASLSplitter(bool HCMv2)
-        {
+            _timer.Tick += ASCHandlerSetters;
+            #endif
+        }
 
+        private WebSocketClient _client;
+        public async Task InitializeWebSocket()
+        {
+            var exeName = "ASLBridge"; // sin .exe
+            if (!Process.GetProcessesByName(exeName).Any())
+            {
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ASLBridge.exe");
+                Process.Start(path);
+                Console.WriteLine("ASLBridge iniciado.");
+                Thread.Sleep(2000); // Espera opcional para que el WebSocket se prepare
+            }
+
+            _client = new WebSocketClient();
+
+            _client.OnSplit += (s, e) => ASCOnSplit(s,e);
+            _client.OnStart += (s, e) => ASCOnStart(s,e);
+            _client.OnReset += (s, e) => ASCOnReset(s,e);
+
+            await _client.ConnectAsync();
         }
 
         private LiveSplitState GeneratorState() {
@@ -135,6 +154,7 @@ namespace AutoSplitterCore
 
         public Control AslControl 
         { 
+            //HCMv2 Controlled on ASLBridge
             get 
             { 
                 return asl != null ? asl.GetSettingsControl(LayoutMode.Vertical) : null; 
@@ -145,12 +165,26 @@ namespace AutoSplitterCore
         #region Control Management
         public void setData(XmlNode node)
         {
-            if (node != null) { asl.SetSettings(node); } 
+            if (node != null) 
+            {
+#if !HCMv2
+                asl.SetSettings(node);
+#else
+                _client.SendCommand($"set xml:{node}");
+#endif
+            } 
         }
 
         public XmlNode getData(XmlDocument doc)
         {
+            #if !HCMv2
             return asl.GetSettings(doc);
+#else
+            string xmlString = _client.SendCommand("get xml");
+            XmlDocument responseDoc = new XmlDocument();
+            responseDoc.LoadXml(xmlString);
+            return responseDoc.DocumentElement;
+#endif
         }
 
         public bool _AslActive { get; private set; } = false;
@@ -160,14 +194,25 @@ namespace AutoSplitterCore
             if (!ASCHandlerSetted) _timer.Start();
         }
 
-        #endregion
+#endregion
         #region Checking
         public bool IGTEnable { get; set; } = false;
 
-        public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
+        public bool GetStatusGame() {
+            #if HCMv2
+            return _client.SendCommand("status");
+            #endif
+            return asl.Script != null ? asl.Script.ProccessAtached() : false;         
+         }
 
-        public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
-        #endregion
+        public long GetIngameTime()
+        {
+#if HCMv2
+        return _client.SendCommand("igt");
+#endif
+            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
+            #endregion
+        }
         #region CheckFlag Init()
 
         private void ASCOnSplit(object sender, EventArgs e)
