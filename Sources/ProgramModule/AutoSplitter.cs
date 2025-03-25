@@ -3983,13 +3983,8 @@ namespace AutoSplitterCore
 
         private void btnASL_Click(object sender, EventArgs e)
         {
-#if HCMv2 //ASL Not Compatible with HCMv2 For LiveSplit.Core and Livesplit.ScripteableASL dependencies only work NetFramework
-            MessageBox.Show(
-            "Unfortunately, ASL is not available in HCMv2 due to its dependencies on Livesplit.Core, which only work in .NET Framework environments, whereas HCMv2 runs on .NET 7.",
-            "Information",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information
-            );
+#if HCMv2 
+            ASLSplitter.GetInstance().OpenForm();
             return;
 #endif
 

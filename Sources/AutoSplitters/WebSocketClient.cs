@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Concurrent;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
@@ -11,6 +10,8 @@ namespace AutoSplitterCore
     public class WebSocketClient
     {
         private readonly ClientWebSocket _socket = new ClientWebSocket();
+        private readonly SemaphoreSlim _sendLock = new SemaphoreSlim(1, 1);
+        private TaskCompletionSource<string> _responseTcs;
 
         public async Task ConnectAsync()
         {
@@ -22,8 +23,24 @@ namespace AutoSplitterCore
 
         public async Task SendCommand(string command)
         {
-            var buffer = Encoding.UTF8.GetBytes(command);
-            await _socket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+            await _sendLock.WaitAsync();
+            try
+            {
+                var buffer = Encoding.UTF8.GetBytes(command);
+                await _socket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+            }
+            finally
+            {
+                _sendLock.Release();
+            }
+        }
+
+        // Nueva función: espera una respuesta textual del servidor
+        public async Task<string> SendCommandWithResponse(string command)
+        {
+            _responseTcs = new TaskCompletionSource<string>();
+            await SendCommand(command);
+            return await _responseTcs.Task;
         }
 
         private async Task ReceiveLoop()
@@ -39,15 +56,16 @@ namespace AutoSplitterCore
 
                     if (message.StartsWith("event:split"))
                         OnSplit?.Invoke(this, EventArgs.Empty);
-                    if (message.StartsWith("event:start"))
+                    else if (message.StartsWith("event:start"))
                         OnStart?.Invoke(this, EventArgs.Empty);
-                    if (message.StartsWith("event:reset"))
+                    else if (message.StartsWith("event:reset"))
                         OnReset?.Invoke(this, EventArgs.Empty);
+                    else
+                        _responseTcs?.TrySetResult(message); // Respuesta normal
                 }
             }
         }
 
-        // Eventos públicos para que el cliente los use
         public event EventHandler OnSplit;
         public event EventHandler OnStart;
         public event EventHandler OnReset;

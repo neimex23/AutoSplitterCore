@@ -157,7 +157,7 @@ namespace AutoSplitterCore
             celesteSplitter._PracticeMode = status;
             cupSplitter._PracticeMode = status;
             dishonoredSplitter._PracticeMode = status;
-            aslSplitter._PracticeMode = status;
+            aslSplitter.PracticeMode = status;
             splitterControl.SetChecking(!status);
         }
 

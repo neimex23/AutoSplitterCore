@@ -60,7 +60,7 @@ namespace AutoSplitterCore
 
     public class ASLSplitter
     {
-        private bool _PracticeMode = false;
+        public bool PracticeMode { get; set; } = false;
 
         public LiveSplitState state = null;
         public ASLComponent asl;
@@ -175,16 +175,17 @@ namespace AutoSplitterCore
             } 
         }
 
-        public XmlNode getData(XmlDocument doc)
+        public async Task<XmlNode> getData(XmlDocument doc)
         {
-            #if !HCMv2
-            return asl.GetSettings(doc);
-#else
-            string xmlString = _client.SendCommand("get xml");
-            XmlDocument responseDoc = new XmlDocument();
-            responseDoc.LoadXml(xmlString);
-            return responseDoc.DocumentElement;
-#endif
+#if !HCMv2
+                    await Task.Delay(10);
+                    return asl.GetSettings(doc);
+        #else
+                   string xmlString = await _client.SendCommandWithResponse("get xml");
+                    XmlDocument responseDoc = new XmlDocument();
+                    responseDoc.LoadXml(xmlString);
+                    return responseDoc.DocumentElement;
+        #endif
         }
 
         public bool _AslActive { get; private set; } = false;
@@ -194,22 +195,33 @@ namespace AutoSplitterCore
             if (!ASCHandlerSetted) _timer.Start();
         }
 
+        public async Task OpenForm()
+        {
+            await _client.SendCommand("openform");
+        }
+
 #endregion
         #region Checking
         public bool IGTEnable { get; set; } = false;
 
-        public bool GetStatusGame() {
-            #if HCMv2
-            return _client.SendCommand("status");
-            #endif
+        public async Task<bool> GetStatusGame() {
+#if HCMv2
+            string status = _client.SendCommandWithResponse("status").GetAwaiter().GetResult();
+            return status == "Attached";
+#endif
             return asl.Script != null ? asl.Script.ProccessAtached() : false;         
          }
 
-        public long GetIngameTime()
+        public async Task<long> GetIngameTime()
         {
 #if HCMv2
-        return _client.SendCommand("igt");
+        
+string response = _client.SendCommandWithResponse("igt").GetAwaiter().GetResult();
+long time = -1;
+long.TryParse(response, out time);
+return time;
 #endif
+
             return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
             #endregion
         }
@@ -217,7 +229,7 @@ namespace AutoSplitterCore
 
         private void ASCOnSplit(object sender, EventArgs e)
         {
-            if (!_PracticeMode && _AslActive)
+            if (!PracticeMode && _AslActive)
                 splitterControl.SplitCheck("Trace ASL: SplitFlag Produced on ASL");
         }
 
@@ -229,7 +241,7 @@ namespace AutoSplitterCore
                 return; //StartStopTimer and timmer not implemented on debugmode
            }
 
-            if (!_PracticeMode && _AslActive && !IGTEnable && !splitterControl.GetTimerRunning())
+            if (!PracticeMode && _AslActive && !IGTEnable && !splitterControl.GetTimerRunning())
             {
                 splitterControl.StartStopTimer(true);
             }
@@ -243,7 +255,7 @@ namespace AutoSplitterCore
                 return; //ProfileReset not implemented on debugmode
             }
 
-            if (!_PracticeMode && _AslActive)
+            if (!PracticeMode && _AslActive)
                 splitterControl.ProfileReset();
         }
         #endregion
