@@ -220,49 +220,53 @@ namespace AutoSplitterCore
             formatter.Serialize(myStream, generalAS);
             myStream.Close();
 
-            SaveXmlData("SaveDataAutoSplitter.xml", "DataASL", aslSplitter.getData);
+#if !HCMv2
+            SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
+#endif
         }
 
         void SaveXmlData(string filePath, string nodeName, Func<XmlDocument, XmlNode> getDataFunc)
         {
-            try
+            if (getDataFunc != null)
             {
-                XmlDocument doc = new XmlDocument();
-
-                if (File.Exists(filePath))
+                try
                 {
-                    doc.Load(filePath);
-                }
-                else
-                {
-                    XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
-                    doc.AppendChild(xmlDeclaration);
-                }
+                    XmlDocument doc = new XmlDocument();
 
-                if (doc.DocumentElement == null)
-                {
-                    XmlElement root = doc.CreateElement("Root");
-                    doc.AppendChild(root);
-                }
+                    if (File.Exists(filePath))
+                    {
+                        doc.Load(filePath);
+                    }
+                    else
+                    {
+                        XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                        doc.AppendChild(xmlDeclaration);
+                    }
 
-                XmlNode newNode = doc.CreateElement(nodeName);
-                XmlNode dataNode = getDataFunc(doc);
+                    if (doc.DocumentElement == null)
+                    {
+                        XmlElement root = doc.CreateElement("Root");
+                        doc.AppendChild(root);
+                    }
 
-                if (dataNode != null)
-                {
-                    newNode.AppendChild(dataNode);
-                }
-                else
-                {
-                    DebugLog.LogMessage($"Warning: {nodeName}.getData(doc) is null.");
-                }
+                    XmlNode newNode = doc.CreateElement(nodeName);
+                    XmlNode dataNode = getDataFunc(doc);
 
-                doc.DocumentElement.AppendChild(newNode);
-                doc.Save(filePath);
-            }
-            catch (Exception ex)
-            {
-                DebugLog.LogMessage($"Error processing XML for {nodeName}: {ex.Message}");
+                    if (dataNode != null)
+                    {
+                        newNode.AppendChild(dataNode);
+                    }
+                    else
+                    {
+                        DebugLog.LogMessage($"Warning: {nodeName}.getData(doc) is null.");
+                    }
+                    doc.DocumentElement.AppendChild(newNode);
+                    doc.Save(filePath);
+                }
+                catch (Exception ex)
+                {
+                    DebugLog.LogMessage($"Error processing XML for {nodeName}: {ex.Message}");
+                }
             }
         }
 
@@ -341,7 +345,9 @@ namespace AutoSplitterCore
             cupSplitter.SetDataCuphead(dataCuphead);
             dishonoredSplitter.SetDataDishonored(dataDishonored);
 
+#if !HCMv2
             LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
+#endif
         }
 
         void LoadXmlData(string filePath, string nodeName, Action<XmlNode> setDataAction)

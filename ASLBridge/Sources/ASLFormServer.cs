@@ -30,9 +30,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LiveSplit.Model;
-using LiveSplit;
-using LiveSplit.UI;
-using System.Diagnostics;
 using LiveSplit.Web;
 using System.Threading;
 using System.IO;
@@ -41,11 +38,11 @@ using System.Net;
 
 namespace ASLBridge
 {
-    public partial class ASLForm : ReaLTaiizor.Forms.MaterialForm
+    public partial class ASLFormServer : ReaLTaiizor.Forms.MaterialForm
     {
-        ASLSplitter aslSplitter = ASLSplitter.GetInstance();
+        ASLSplitterServer aslSplitter = ASLSplitterServer.GetInstance();
 
-        public ASLForm()
+        public ASLFormServer()
         {
             InitializeComponent();
         }

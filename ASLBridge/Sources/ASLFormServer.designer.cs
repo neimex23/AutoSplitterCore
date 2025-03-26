@@ -1,6 +1,6 @@
 ﻿namespace ASLBridge
 {
-    partial class ASLForm
+    partial class ASLFormServer
     {
         /// <summary>
         /// Required designer variable.
@@ -107,6 +107,7 @@
             // labelInfoASL
             // 
             this.labelInfoASL.AutoSize = true;
+            this.labelInfoASL.BackColor = System.Drawing.Color.Transparent;
             this.labelInfoASL.Location = new System.Drawing.Point(61, 537);
             this.labelInfoASL.Name = "labelInfoASL";
             this.labelInfoASL.Size = new System.Drawing.Size(52, 13);
@@ -303,7 +304,7 @@
             this.lostBorderPanelASLConfig.Size = new System.Drawing.Size(477, 513);
             this.lostBorderPanelASLConfig.TabIndex = 4;
             // 
-            // ASLForm
+            // ASLFormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +312,7 @@
             this.Controls.Add(this.poisonTabControl);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ASLForm";
+            this.Name = "ASLFormServer";
             this.Text = "ASL";
             this.Load += new System.EventHandler(this.ASLForm_Load);
             this.poisonTabControl.ResumeLayout(false);

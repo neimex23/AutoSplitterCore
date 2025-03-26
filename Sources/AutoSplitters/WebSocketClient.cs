@@ -9,16 +9,28 @@ namespace AutoSplitterCore
 {
     public class WebSocketClient
     {
-        private readonly ClientWebSocket _socket = new ClientWebSocket();
+        private ClientWebSocket _socket = new ClientWebSocket();
         private readonly SemaphoreSlim _sendLock = new SemaphoreSlim(1, 1);
         private TaskCompletionSource<string> _responseTcs;
 
-        public async Task ConnectAsync()
+        public async Task ConnectAsync(int retryDelayMs = 2000)
         {
-            await _socket.ConnectAsync(new Uri("ws://localhost:5000/ws/"), CancellationToken.None);
-            Console.WriteLine("Conectado a WebSocket");
-
-            _ = ReceiveLoop();
+            while (_socket.State != WebSocketState.Open)
+            {
+                try
+                {
+                    Console.WriteLine("Trying connect WebSocket...");
+                    await _socket.ConnectAsync(new Uri("ws://localhost:5000/ws/"), CancellationToken.None);
+                    Console.WriteLine("Connected WebSocket");
+                    _ = ReceiveLoop(); // importante no bloquear
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Connection Error: {ex.Message}. Retring en {retryDelayMs}ms...");
+                    await Task.Delay(retryDelayMs);
+                }
+            }
         }
 
         public async Task SendCommand(string command)
@@ -34,13 +46,19 @@ namespace AutoSplitterCore
                 _sendLock.Release();
             }
         }
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<string>> _pendingResponses = new ConcurrentDictionary<string, TaskCompletionSource<string>>();
 
         // Nueva función: espera una respuesta textual del servidor
         public async Task<string> SendCommandWithResponse(string command)
         {
-            _responseTcs = new TaskCompletionSource<string>();
-            await SendCommand(command);
-            return await _responseTcs.Task;
+            string id = Guid.NewGuid().ToString(); // ID único
+            string taggedCommand = $"id:{id}|{command}";
+
+            var tcs = new TaskCompletionSource<string>();
+            _pendingResponses[id] = tcs;
+
+            await SendCommand(taggedCommand);
+            return await tcs.Task;
         }
 
         private async Task ReceiveLoop()
@@ -52,7 +70,7 @@ namespace AutoSplitterCore
                 if (result.MessageType == WebSocketMessageType.Text)
                 {
                     string message = Encoding.UTF8.GetString(buffer, 0, result.Count);
-                    Console.WriteLine($"Mensaje del servidor: {message}");
+                    Console.WriteLine($"message server: {message}");
 
                     if (message.StartsWith("event:split"))
                         OnSplit?.Invoke(this, EventArgs.Empty);
@@ -60,8 +78,17 @@ namespace AutoSplitterCore
                         OnStart?.Invoke(this, EventArgs.Empty);
                     else if (message.StartsWith("event:reset"))
                         OnReset?.Invoke(this, EventArgs.Empty);
-                    else
-                        _responseTcs?.TrySetResult(message); // Respuesta normal
+                    else if (message.StartsWith("id:"))
+                    {
+                        var separatorIndex = message.IndexOf('|');
+                        if (separatorIndex > 3)
+                        {
+                            string id = message.Substring(3, separatorIndex - 3);
+                            string response = message.Substring(separatorIndex + 1);
+                            if (_pendingResponses.TryRemove(id, out var tcs))
+                                tcs.TrySetResult(response);
+                        }
+                    }
                 }
             }
         }

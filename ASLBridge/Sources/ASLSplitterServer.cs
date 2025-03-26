@@ -58,7 +58,7 @@ namespace ASLBridge
         }
     }
 
-    public class ASLSplitter
+    public class ASLSplitterServer
     {
         public event EventHandler ASCOnSplitHandler;
         public event EventHandler ASCOnStartHandler;
@@ -71,10 +71,10 @@ namespace ASLBridge
         System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer() { Interval = 100 };
 
         #region ASLConstructor
-        private static ASLSplitter _instance = new ASLSplitter();
-        public static ASLSplitter GetInstance() => _instance;
+        private static ASLSplitterServer _instance = new ASLSplitterServer();
+        public static ASLSplitterServer GetInstance() => _instance;
 
-        private ASLSplitter()
+        private ASLSplitterServer()
         {
             ListenerASL.Initialize();
             state = GeneratorState();
@@ -124,9 +124,9 @@ namespace ASLBridge
 
             if (asl.Script != null)
             {
-                asl.Script.ShouldSplit += ASCOnSplit;
-                asl.Script.StartRun += ASCOnStart;
-                asl.Script.ResetRun += ASCOnReset;
+                asl.Script.ShouldSplit += ASCOnSplitHandler;
+                asl.Script.StartRun += ASCOnStartHandler;
+                asl.Script.ResetRun += ASCOnResetHandler;
                 ASCHandlerSetted = true;
                 Log.Info("Handlers ASL Setted");
             }                
@@ -162,26 +162,6 @@ namespace ASLBridge
         public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
 
         public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
-        #endregion
-        #region CheckFlag Init()
-
-        private void ASCOnSplit(object sender, EventArgs e)
-        {
-            Log.Info("ASCOnSplit");
-            ASCOnSplitHandler?.Invoke(this, e);
-        }
-
-        private void ASCOnStart(object sender, EventArgs e)
-        {
-            Log.Info("ASCOnStart");
-            ASCOnStartHandler?.Invoke(this, e);
-        }
-
-        private void ASCOnReset(object sender, EventArgs e)
-        {
-            Log.Info("ASCOnReset");
-            ASCOnResetHandler?.Invoke(this, e);
-        }
         #endregion
     }
 }

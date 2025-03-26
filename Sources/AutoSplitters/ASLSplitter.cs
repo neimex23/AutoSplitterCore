@@ -79,6 +79,8 @@ namespace AutoSplitterCore
             state = GeneratorState();
             asl = new ASLComponent(state);
             _timer.Tick += ASCHandlerSetters;
+            #else
+            InitializeWebSocket().GetAwaiter();
             #endif
         }
 
@@ -95,12 +97,11 @@ namespace AutoSplitterCore
             }
 
             _client = new WebSocketClient();
+            await _client.ConnectAsync();
 
             _client.OnSplit += (s, e) => ASCOnSplit(s,e);
             _client.OnStart += (s, e) => ASCOnStart(s,e);
-            _client.OnReset += (s, e) => ASCOnReset(s,e);
-
-            await _client.ConnectAsync();
+            _client.OnReset += (s, e) => ASCOnReset(s,e);        
         }
 
         private LiveSplitState GeneratorState() {
@@ -161,31 +162,19 @@ namespace AutoSplitterCore
             } 
         }
 
-        #endregion
+#endregion
         #region Control Management
         public void setData(XmlNode node)
         {
-            if (node != null) 
+            if (node != null && asl != null) 
             {
-#if !HCMv2
                 asl.SetSettings(node);
-#else
-                _client.SendCommand($"set xml:{node}");
-#endif
             } 
         }
 
-        public async Task<XmlNode> getData(XmlDocument doc)
+        public XmlNode getData(XmlDocument doc)
         {
-#if !HCMv2
-                    await Task.Delay(10);
-                    return asl.GetSettings(doc);
-        #else
-                   string xmlString = await _client.SendCommandWithResponse("get xml");
-                    XmlDocument responseDoc = new XmlDocument();
-                    responseDoc.LoadXml(xmlString);
-                    return responseDoc.DocumentElement;
-        #endif
+            return asl != null ? asl.GetSettings(doc) : null;
         }
 
         public bool _AslActive { get; private set; } = false;
@@ -200,13 +189,18 @@ namespace AutoSplitterCore
             await _client.SendCommand("openform");
         }
 
+        public async Task CloseSockets()
+        {
+            await _client.SendCommand("exit");
+        }
+
 #endregion
         #region Checking
         public bool IGTEnable { get; set; } = false;
 
         public async Task<bool> GetStatusGame() {
 #if HCMv2
-            string status = _client.SendCommandWithResponse("status").GetAwaiter().GetResult();
+            string status = await _client.SendCommandWithResponse("status");
             return status == "Attached";
 #endif
             return asl.Script != null ? asl.Script.ProccessAtached() : false;         
@@ -214,17 +208,17 @@ namespace AutoSplitterCore
 
         public async Task<long> GetIngameTime()
         {
-#if HCMv2
+            #if HCMv2
         
-string response = _client.SendCommandWithResponse("igt").GetAwaiter().GetResult();
-long time = -1;
-long.TryParse(response, out time);
-return time;
-#endif
+            string response = await _client.SendCommandWithResponse("igt");
+            long time = -1;
+            long.TryParse(response, out time);
+            return time;
+            #endif
 
-            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
-            #endregion
+            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;        
         }
+        #endregion
         #region CheckFlag Init()
 
         private void ASCOnSplit(object sender, EventArgs e)

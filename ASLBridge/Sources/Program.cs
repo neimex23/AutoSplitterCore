@@ -1,4 +1,26 @@
-﻿using System;
+﻿//MIT License
+
+//Copyright (c) 2022-2025 Ezequiel Medina
+
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
+
+using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
@@ -15,9 +37,10 @@ namespace ASLBridge
 {
     public class Program
     {
-        public static ASLSplitter Splitter { get; private set; } = ASLSplitter.GetInstance();
-        private static ReaLTaiizor.Forms.MaterialForm form = new ASLForm();
-        private static bool run = true;
+        public static ASLSplitterServer Splitter { get; private set; } = ASLSplitterServer.GetInstance();
+        private static SaveModuleServer SaveModule = new SaveModuleServer();
+        private static ReaLTaiizor.Forms.MaterialForm form = new ASLFormServer();
+        private static bool process = true;
 
 
         public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
@@ -27,7 +50,8 @@ namespace ASLBridge
             Splitter.ASCOnSplitHandler += async (s, e) => await BroadcastEvent("event:split");
             Splitter.ASCOnStartHandler += async (s, e) => await BroadcastEvent("event:start");
             Splitter.ASCOnResetHandler += async (s, e) => await BroadcastEvent("event:reset");
-            await Task.Run(async() => { await startServer(); }); //Form puede ser abierto por lo que el hilo principal no deberia acabar pero tampoco interruptir si abre form para que siga mandando mensajes
+            SaveModule.LoadASLSettings();
+            await Task.Run(async() => { await startServer(); });
         }
 
         private static async Task startServer()
@@ -37,7 +61,7 @@ namespace ASLBridge
             httpListener.Start();
             Console.WriteLine("WebSocket server started at ws://localhost:5000/ws/");
 
-            while (run)
+            while (process)
             {
                 HttpListenerContext context = await httpListener.GetContextAsync();
 
@@ -52,6 +76,14 @@ namespace ASLBridge
                     context.Response.Close();
                 }
             }
+
+            foreach (var client in connectedClients)
+            {
+                try { await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Server shutting down", CancellationToken.None); }
+                catch { }
+            }
+            connectedClients.Clear();
+            SaveModule.SaveASLSettings();
         }
 
         private static async Task HandleConnection(WebSocket socket)
@@ -68,9 +100,22 @@ namespace ASLBridge
                 }
 
                 var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
-                string response = HandleCommand(message.Trim());
-                var bytes = Encoding.UTF8.GetBytes(response);
-                await socket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
+
+                if (message.StartsWith("id:"))
+                {
+                    var separatorIndex = message.IndexOf('|');
+                    if (separatorIndex > 3)
+                    {
+                        string id = message.Substring(3, separatorIndex - 3);
+                        string command = message.Substring(separatorIndex + 1);
+
+                        string response = HandleCommand(command);
+                        string taggedResponse = $"id:{id}|{response}";
+
+                        var responseBytes = Encoding.UTF8.GetBytes(taggedResponse);
+                        await socket.SendAsync(new ArraySegment<byte>(responseBytes), WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
+                }
             }
         }
 
@@ -109,36 +154,8 @@ namespace ASLBridge
 
         private static string HandleCommand(string command)
         {
-            if (command.StartsWith("set xml:"))
-            {
-                string xmlContent = command.Substring("set xml:".Length);
-                try
-                {
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(xmlContent);
-                    Splitter.setData(doc.DocumentElement);
-                    return "XML settings loaded";
-                }
-                catch (Exception ex)
-                {
-                    return $"Error parsing XML: {ex.Message}";
-                }
-            }
-
             switch (command.ToLower())
             {
-                case "get xml":
-                    try
-                    {
-                        XmlDocument doc = new XmlDocument();
-                        XmlNode node = Splitter.getData(doc);
-                        doc.AppendChild(doc.ImportNode(node, true));
-                        return doc.OuterXml;
-                    }
-                    catch (Exception ex)
-                    {
-                        return $"Error generating XML: {ex.Message}";
-                    }
                 case "status":
                     return Splitter.GetStatusGame() ? "Attached" : "Not attached";
                 case "igt":
@@ -147,7 +164,7 @@ namespace ASLBridge
                     form.ShowDialog();
                     return "Opened Form";
                 case "exit":
-                    run = false;
+                    process = false;
                     return "Finished Process";
                 default:
                     return "Unknown command";
