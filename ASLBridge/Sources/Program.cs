@@ -20,141 +20,25 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using ASLBridge;
 using System;
 using System.Collections.Generic;
-using System.IO.Pipes;
 using System.Linq;
-using System.Net.WebSockets;
-using System.Net;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Diagnostics;
-using System.Net.Sockets;
-using Fleck;
 using System.Windows.Forms;
-using ReaLTaiizor.Forms;
-using System.Runtime.CompilerServices;
 
-namespace ASLBridge
+
+namespace AutoSplitterCore
 {
     public class Program
     {
-        public static ASLSplitterServer Splitter { get; private set; } = ASLSplitterServer.GetInstance();
-        private static SaveModuleServer SaveModule = new SaveModuleServer();
-        private static event EventHandler OpenForm;
-        private static WebSocketServer server;
-
-        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
-
-
-        private static List<IWebSocketConnection> connectedClients = new List<IWebSocketConnection>();
         [STAThread]
-        public static void Main(string[] args)
+        static void Main()
         {
-            Splitter.ASCOnSplitHandler += (s, e) => BroadcastEvent("event:split");
-            Splitter.ASCOnStartHandler += (s, e) => BroadcastEvent("event:start");
-            Splitter.ASCOnResetHandler += (s, e) => BroadcastEvent("event:reset");
-            OpenForm += new EventHandler(ShowForm);
-
-            SaveModule.LoadASLSettings();
-
-            server = new WebSocketServer("ws://0.0.0.0:9000");
-            server.Start(socket =>
-            {
-                socket.OnOpen = () =>
-                {
-                    Console.WriteLine("Client connected");
-                    connectedClients.Add(socket);
-                };
-
-                socket.OnClose = () =>
-                {
-                    Console.WriteLine("Client disconnected");
-                    connectedClients.Remove(socket);
-                };
-
-                socket.OnMessage = message =>
-                {
-                    Console.WriteLine($"Message: {message}");
-                    if (message.StartsWith("id:"))
-                    {
-                        var separatorIndex = message.IndexOf('|');
-                        if (separatorIndex > 3)
-                        {
-                            string id = message.Substring(3, separatorIndex - 3);
-                            string command = message.Substring(separatorIndex + 1);
-                            string response = HandleCommand(command);
-                            socket.Send($"id:{id}|{response}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Unknown Message");
-                    }
-                };
-            });
-
-            Console.WriteLine("Fleck WebSocket server started at ws://localhost:9000");
-            //new ASLFormServer().ShowDialog();
-            Console.ReadLine(); 
-
-            SaveModule.SaveASLSettings();
-        }
-
-        private static void BroadcastEvent(string eventMessage)
-        {
-            foreach (var client in connectedClients.ToArray())
-            {
-                if (client.IsAvailable)
-                    client.Send(eventMessage);
-            }
-        }
-
-        private static string HandleCommand(string command)
-        {
-            switch (command.ToLower())
-            {
-                case "status":
-                    return Splitter.GetStatusGame() ? "Attached" : "Not attached";
-                case "igt":
-                    return $"{Splitter.GetIngameTime()}";
-                case "openform":
-                    OpenForm?.Invoke(null, EventArgs.Empty);
-                    return "Opened Form";         
-                case "exit":
-                    foreach (var client in connectedClients.ToArray())
-                    {
-                        try { client.Close(); } catch { }
-                    }
-                    connectedClients.Clear();
-                    server.Dispose();
-                    Environment.Exit(0);
-                    return null;
-                default:
-                    return "Unknown command";
-            }
-        }
-
-        private static void ShowForm(object sender, EventArgs e)
-        {
-            Thread t = new Thread(() =>
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
-                var form = new ASLFormServer();
-                form.TopMost = true;
-                form.Shown += (s, ev) =>
-                {
-                    form.Activate();
-                    form.BringToFront();
-                };
-                Application.Run(form);
-            });
-            t.SetApartmentState(ApartmentState.STA);
-            t.Start();
+            MainModuleServer mainModuleServer = new MainModuleServer();
+            MainModuleServer.LoadProcess();
+            Application.EnableVisualStyles();
+            Application.Run(mainModuleServer);
         }
     }
 }

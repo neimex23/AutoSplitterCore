@@ -162,7 +162,7 @@ namespace ASLBridge
         private void btnWebsite_Click(object sender, EventArgs e)
         {
             var url = new Uri(splitter.Website);
-            Program.OpenWithBrowser(url);
+            MainModuleServer.OpenWithBrowser(url);
         }
 
         private void btnActivate_Click(object sender, EventArgs e)
@@ -207,7 +207,7 @@ namespace ASLBridge
             }
         }
 
-        private void btnGetASL_Click(object sender, EventArgs e) => Program.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki/English#asl-scripts"));
+        private void btnGetASL_Click(object sender, EventArgs e) => MainModuleServer.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki/English#asl-scripts"));
 
     }
     internal static class FormControl
