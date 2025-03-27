@@ -2,6 +2,12 @@
   "version": 1,
   "dependencies": {
     ".NETFramework,Version=v4.8.1": {
+      "Fleck": {
+        "type": "Direct",
+        "requested": "[1.2.0, )",
+        "resolved": "1.2.0",
+        "contentHash": "bPLXn6QbLAFoviur6XbrKB0Zn6x04E8VibHXyHZeJsoC7bkUl5DVtzM5cZgDuqHkIrBqAXJyTNJwSNIc6wBJ2Q=="
+      },
       "Google.Api.CommonProtos": {
         "type": "Direct",
         "requested": "[2.16.0, )",
@@ -11,42 +17,58 @@
           "Google.Protobuf": "[3.28.2, 4.0.0)"
         }
       },
+      "Google.Api.Gax.Grpc": {
+        "type": "Direct",
+        "requested": "[4.9.0, )",
+        "resolved": "4.9.0",
+        "contentHash": "ToCx/0cs+wJ9j7vzKRcPAKneJVZrz/s9JhW9QsFx1dar9WzTxawQZ8xTjyieSy8tY0UiYCL1qYkn/iRrklYnSA==",
+        "dependencies": {
+          "Google.Api.CommonProtos": "2.16.0",
+          "Google.Api.Gax": "4.9.0",
+          "Google.Apis.Auth": "1.68.0",
+          "Grpc.Auth": "2.66.0",
+          "Grpc.Core.Api": "2.66.0",
+          "Grpc.Net.Client": "2.66.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        }
+      },
       "Google.Apis": {
         "type": "Direct",
-        "requested": "[1.69.0, )",
-        "resolved": "1.69.0",
-        "contentHash": "1TfjsXFejwIf7iWaE7A0FbnOEsk8FPlbdFAt1r+I8aSMQfLLdSVWCLdZz6TzuWVwoCGEuJUHTZ/FXdptdU3qWw==",
+        "requested": "[1.68.0, )",
+        "resolved": "1.68.0",
+        "contentHash": "s2MymhdpH+ybZNBeZ2J5uFgFHApBp+QXf9FjZSdM1lk/vx5VqIknJwnaWiuAzXxPrLEkesX0Q+UsiWn39yZ9zw==",
         "dependencies": {
-          "Google.Apis.Core": "1.69.0"
+          "Google.Apis.Core": "1.68.0"
         }
       },
       "Google.Apis.Auth": {
         "type": "Direct",
-        "requested": "[1.69.0, )",
-        "resolved": "1.69.0",
-        "contentHash": "ar07yxn/s41jdqQ3sMh8EAehiSvXQ9yE1MS4McmZINeSWvolnLHmIZ9Yxj4tHVIYYz0c7H/lpToVqm7C2aYx9g==",
+        "requested": "[1.68.0, )",
+        "resolved": "1.68.0",
+        "contentHash": "hFx8Qz5bZ4w0hpnn4tSmZaaFpjAMsgVElZ+ZgVLUZ2r9i+AKcoVgwiNfv1pruNS5cCvpXqhKECbruBCfRezPHA==",
         "dependencies": {
-          "Google.Apis": "1.69.0",
-          "Google.Apis.Core": "1.69.0"
+          "Google.Apis": "1.68.0",
+          "Google.Apis.Core": "1.68.0",
+          "System.Management": "7.0.2"
         }
       },
       "Google.Apis.Core": {
         "type": "Direct",
-        "requested": "[1.69.0, )",
-        "resolved": "1.69.0",
-        "contentHash": "SXUcurNUPxYMtOnawvB2Av18VrPBC9W7So9q9ikmXIXLGiv4RX7Zbu4kc+8PbwTdd8wLt54r0PBGOT5RaKoTjQ==",
+        "requested": "[1.68.0, )",
+        "resolved": "1.68.0",
+        "contentHash": "pAqwa6pfu53UXCR2b7A/PAPXeuVg6L1OFw38WckN27NU2+mf+KTjoEg2YGv/f0UyKxzz7DxF1urOTKg/6dTP9g==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
         }
       },
       "Google.Apis.Drive.v3": {
         "type": "Direct",
-        "requested": "[1.69.0.3699, )",
-        "resolved": "1.69.0.3699",
-        "contentHash": "vOSgE0l7uWA2mcD/SszYoqWJX1bmmOgukdheImuTZloCV5wzI8P7suyaTgA+xYhyCGrVYJ7JLxPWsEMqrpo4Ng==",
+        "requested": "[1.68.0.3627, )",
+        "resolved": "1.68.0.3627",
+        "contentHash": "i5nTOSm+Bv6UjU7Gu97JT5Tc0iaqPPf9EzY+ArnoNpabMxB9W3NC2CdPHBi67QYIrxYaZQ5m99PBuOyiVp+MnQ==",
         "dependencies": {
-          "Google.Apis": "1.69.0",
-          "Google.Apis.Auth": "1.69.0"
+          "Google.Apis": "1.68.0",
+          "Google.Apis.Auth": "1.68.0"
         }
       },
       "Google.Apis.Oauth2.v2": {
@@ -71,6 +93,15 @@
           "System.Linq.Async": "6.0.1"
         }
       },
+      "Google.Protobuf": {
+        "type": "Direct",
+        "requested": "[3.28.2, )",
+        "resolved": "3.28.2",
+        "contentHash": "Z86ZKAB+v1B/m0LTM+EVamvZlYw/g3VND3/Gs4M/+aDIxa2JE9YPKjDxTpf0gv2sh26hrve3eI03brxBmzn92g==",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        }
+      },
       "Grpc.Core": {
         "type": "Direct",
         "requested": "[2.46.6, )",
@@ -83,9 +114,9 @@
       },
       "Irony": {
         "type": "Direct",
-        "requested": "[1.5.3, )",
-        "resolved": "1.5.3",
-        "contentHash": "wy0LlNq9Bhqy2C9O5burGCJPB9CyWuWf/JHwcnaxnM5wapPEc7uW6MBBzkymrV/pS2UwETK/0nJXzhh5Y6wv4Q=="
+        "requested": "[1.1.0, )",
+        "resolved": "1.1.0",
+        "contentHash": "+xDcxwKcrEDZTcMqWNJomuVBjWDFu1nCLLt+NPpjudZNC/Nk3zgimZlHTpkg2wHRgq1HhQuyqGyriqhMzjX1xw=="
       },
       "MimeTypes": {
         "type": "Direct",
@@ -111,11 +142,28 @@
         "resolved": "9.0.2",
         "contentHash": "VnlzS7afE8LaXXwKdHOe2D6FcDekqThzU1E67CONV7gp71q3zposqcSeXH+PxARMXC5j31efwXrxP8VGvD70Ug=="
       },
+      "System.Memory": {
+        "type": "Direct",
+        "requested": "[4.5.4, )",
+        "resolved": "4.5.4",
+        "contentHash": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        }
+      },
       "System.Reflection": {
         "type": "Direct",
         "requested": "[4.3.0, )",
         "resolved": "4.3.0",
         "contentHash": "KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ=="
+      },
+      "System.Runtime.CompilerServices.Unsafe": {
+        "type": "Direct",
+        "requested": "[4.5.3, )",
+        "resolved": "4.5.3",
+        "contentHash": "3TIsJhD1EiiT0w2CcDMN/iSSwnNnsrnbzeVHSKkaEgV85txMprmuO+Yq2AdSbeVGcg28pdNDTPK87tJhX7VFHw=="
       },
       "Google.Api.Gax": {
         "type": "Transitive",
@@ -126,20 +174,6 @@
           "Newtonsoft.Json": "13.0.3",
           "System.Diagnostics.DiagnosticSource": "6.0.1",
           "System.ValueTuple": "4.5.0"
-        }
-      },
-      "Google.Api.Gax.Grpc": {
-        "type": "Transitive",
-        "resolved": "4.9.0",
-        "contentHash": "ToCx/0cs+wJ9j7vzKRcPAKneJVZrz/s9JhW9QsFx1dar9WzTxawQZ8xTjyieSy8tY0UiYCL1qYkn/iRrklYnSA==",
-        "dependencies": {
-          "Google.Api.CommonProtos": "2.16.0",
-          "Google.Api.Gax": "4.9.0",
-          "Google.Apis.Auth": "1.68.0",
-          "Grpc.Auth": "2.66.0",
-          "Grpc.Core.Api": "2.66.0",
-          "Grpc.Net.Client": "2.66.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
         }
       },
       "Google.Cloud.Firestore.V1": {
@@ -169,14 +203,6 @@
         "dependencies": {
           "Google.Api.Gax.Grpc": "[4.8.0, 5.0.0)",
           "Grpc.Core": "[2.46.6, 3.0.0)"
-        }
-      },
-      "Google.Protobuf": {
-        "type": "Transitive",
-        "resolved": "3.28.2",
-        "contentHash": "Z86ZKAB+v1B/m0LTM+EVamvZlYw/g3VND3/Gs4M/+aDIxa2JE9YPKjDxTpf0gv2sh26hrve3eI03brxBmzn92g==",
-        "dependencies": {
-          "System.Memory": "4.5.3"
         }
       },
       "Grpc.Auth": {
@@ -273,14 +299,12 @@
           "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
         }
       },
-      "System.Memory": {
+      "System.Management": {
         "type": "Transitive",
-        "resolved": "4.5.5",
-        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+        "resolved": "7.0.2",
+        "contentHash": "/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
         "dependencies": {
-          "System.Buffers": "4.5.1",
-          "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+          "System.CodeDom": "7.0.0"
         }
       },
       "System.Net.Http.WinHttpHandler": {
@@ -296,11 +320,6 @@
         "type": "Transitive",
         "resolved": "4.5.0",
         "contentHash": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ=="
-      },
-      "System.Runtime.CompilerServices.Unsafe": {
-        "type": "Transitive",
-        "resolved": "6.0.0",
-        "contentHash": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg=="
       },
       "System.Threading.Tasks.Extensions": {
         "type": "Transitive",

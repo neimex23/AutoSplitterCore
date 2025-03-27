@@ -32,6 +32,10 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Diagnostics;
 using System.Net.Sockets;
+using Fleck;
+using System.Windows.Forms;
+using ReaLTaiizor.Forms;
+using System.Runtime.CompilerServices;
 
 namespace ASLBridge
 {
@@ -39,117 +43,73 @@ namespace ASLBridge
     {
         public static ASLSplitterServer Splitter { get; private set; } = ASLSplitterServer.GetInstance();
         private static SaveModuleServer SaveModule = new SaveModuleServer();
-        private static ReaLTaiizor.Forms.MaterialForm form = new ASLFormServer();
-        private static bool process = true;
-
+        private static event EventHandler OpenForm;
+        private static WebSocketServer server;
 
         public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
 
-        public static async Task Main(string[] args)
+
+        private static List<IWebSocketConnection> connectedClients = new List<IWebSocketConnection>();
+        [STAThread]
+        public static void Main(string[] args)
         {
-            Splitter.ASCOnSplitHandler += async (s, e) => await BroadcastEvent("event:split");
-            Splitter.ASCOnStartHandler += async (s, e) => await BroadcastEvent("event:start");
-            Splitter.ASCOnResetHandler += async (s, e) => await BroadcastEvent("event:reset");
+            Splitter.ASCOnSplitHandler += (s, e) => BroadcastEvent("event:split");
+            Splitter.ASCOnStartHandler += (s, e) => BroadcastEvent("event:start");
+            Splitter.ASCOnResetHandler += (s, e) => BroadcastEvent("event:reset");
+            OpenForm += new EventHandler(ShowForm);
+
             SaveModule.LoadASLSettings();
-            await Task.Run(async() => { await startServer(); });
-        }
 
-        private static async Task startServer()
-        {
-            HttpListener httpListener = new HttpListener();
-            httpListener.Prefixes.Add("http://localhost:5000/ws/");
-            httpListener.Start();
-            Console.WriteLine("WebSocket server started at ws://localhost:5000/ws/");
-
-            while (process)
+            server = new WebSocketServer("ws://0.0.0.0:9000");
+            server.Start(socket =>
             {
-                HttpListenerContext context = await httpListener.GetContextAsync();
-
-                if (context.Request.IsWebSocketRequest)
+                socket.OnOpen = () =>
                 {
-                    HttpListenerWebSocketContext wsContext = await context.AcceptWebSocketAsync(null);
-                    _ = HandleConnection(wsContext.WebSocket);
-                }
-                else
-                {
-                    context.Response.StatusCode = 400;
-                    context.Response.Close();
-                }
-            }
+                    Console.WriteLine("Client connected");
+                    connectedClients.Add(socket);
+                };
 
-            foreach (var client in connectedClients)
-            {
-                try { await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Server shutting down", CancellationToken.None); }
-                catch { }
-            }
-            connectedClients.Clear();
+                socket.OnClose = () =>
+                {
+                    Console.WriteLine("Client disconnected");
+                    connectedClients.Remove(socket);
+                };
+
+                socket.OnMessage = message =>
+                {
+                    Console.WriteLine($"Message: {message}");
+                    if (message.StartsWith("id:"))
+                    {
+                        var separatorIndex = message.IndexOf('|');
+                        if (separatorIndex > 3)
+                        {
+                            string id = message.Substring(3, separatorIndex - 3);
+                            string command = message.Substring(separatorIndex + 1);
+                            string response = HandleCommand(command);
+                            socket.Send($"id:{id}|{response}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Unknown Message");
+                    }
+                };
+            });
+
+            Console.WriteLine("Fleck WebSocket server started at ws://localhost:9000");
+            //new ASLFormServer().ShowDialog();
+            Console.ReadLine(); 
+
             SaveModule.SaveASLSettings();
         }
 
-        private static async Task HandleConnection(WebSocket socket)
+        private static void BroadcastEvent(string eventMessage)
         {
-            byte[] buffer = new byte[1024];
-            connectedClients.Add(socket);
-            while (socket.State == WebSocketState.Open)
+            foreach (var client in connectedClients.ToArray())
             {
-                var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-                if (result.MessageType == WebSocketMessageType.Close)
-                {
-                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None);
-                    break;
-                }
-
-                var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
-
-                if (message.StartsWith("id:"))
-                {
-                    var separatorIndex = message.IndexOf('|');
-                    if (separatorIndex > 3)
-                    {
-                        string id = message.Substring(3, separatorIndex - 3);
-                        string command = message.Substring(separatorIndex + 1);
-
-                        string response = HandleCommand(command);
-                        string taggedResponse = $"id:{id}|{response}";
-
-                        var responseBytes = Encoding.UTF8.GetBytes(taggedResponse);
-                        await socket.SendAsync(new ArraySegment<byte>(responseBytes), WebSocketMessageType.Text, true, CancellationToken.None);
-                    }
-                }
+                if (client.IsAvailable)
+                    client.Send(eventMessage);
             }
-        }
-
-        private static List<WebSocket> connectedClients = new List<WebSocket>();
-
-        private static async Task BroadcastEvent(string eventMessage)
-        {
-            byte[] messageBytes = Encoding.UTF8.GetBytes(eventMessage);
-            var segment = new ArraySegment<byte>(messageBytes);
-
-            List<WebSocket> closedSockets = new List<WebSocket>();
-
-            foreach (var client in connectedClients)
-            {
-                if (client.State == WebSocketState.Open)
-                {
-                    try
-                    {
-                        await client.SendAsync(segment, WebSocketMessageType.Text, true, CancellationToken.None);
-                    }
-                    catch
-                    {
-                        closedSockets.Add(client);
-                    }
-                }
-                else
-                {
-                    closedSockets.Add(client);
-                }
-            }
-
-            // Limpiar clientes desconectados
-            foreach (var socket in closedSockets)
-                connectedClients.Remove(socket);
         }
 
         private static string HandleCommand(string command)
@@ -161,14 +121,40 @@ namespace ASLBridge
                 case "igt":
                     return $"{Splitter.GetIngameTime()}";
                 case "openform":
-                    form.ShowDialog();
-                    return "Opened Form";
+                    OpenForm?.Invoke(null, EventArgs.Empty);
+                    return "Opened Form";         
                 case "exit":
-                    process = false;
-                    return "Finished Process";
+                    foreach (var client in connectedClients.ToArray())
+                    {
+                        try { client.Close(); } catch { }
+                    }
+                    connectedClients.Clear();
+                    server.Dispose();
+                    Environment.Exit(0);
+                    return null;
                 default:
                     return "Unknown command";
             }
+        }
+
+        private static void ShowForm(object sender, EventArgs e)
+        {
+            Thread t = new Thread(() =>
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                var form = new ASLFormServer();
+                form.TopMost = true;
+                form.Shown += (s, ev) =>
+                {
+                    form.Activate();
+                    form.BringToFront();
+                };
+                Application.Run(form);
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
         }
     }
 }

@@ -610,7 +610,7 @@ namespace AutoSplitterCore
             { (int) GameConstruction.Game.Celeste, () => celesteSplitter._StatusCeleste },
             { (int) GameConstruction.Game.Dishonored, () => dishonoredSplitter._StatusDish },
             { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead },
-            { (int) GameConstruction.Game.ASLMethod, ()=> aslSplitter.GetStatusGame() }
+            { (int) GameConstruction.Game.ASLMethod, () => aslSplitter.GetStatusGame().Result }
         };
 
         public bool GameOn()

@@ -79,9 +79,11 @@ namespace AutoSplitterCore
             state = GeneratorState();
             asl = new ASLComponent(state);
             _timer.Tick += ASCHandlerSetters;
-            #else
+
             InitializeWebSocket().GetAwaiter();
-            #endif
+#else
+            InitializeWebSocket().GetAwaiter();
+#endif
         }
 
         private WebSocketClient _client;
@@ -92,8 +94,8 @@ namespace AutoSplitterCore
             {
                 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ASLBridge.exe");
                 Process.Start(path);
-                Console.WriteLine("ASLBridge iniciado.");
-                Thread.Sleep(2000); // Espera opcional para que el WebSocket se prepare
+                DebugLog.LogMessage("ASLBridge iniciado.");
+                await Task.Delay(2000); 
             }
 
             _client = new WebSocketClient();
@@ -200,7 +202,7 @@ namespace AutoSplitterCore
 
         public async Task<bool> GetStatusGame() {
 #if HCMv2
-            string status = await _client.SendCommandWithResponse("status");
+            string status = await _client.SendCommand("status", waitForResponse: true);
             return status == "Attached";
 #endif
             return asl.Script != null ? asl.Script.ProccessAtached() : false;         
@@ -208,13 +210,13 @@ namespace AutoSplitterCore
 
         public async Task<long> GetIngameTime()
         {
-            #if HCMv2
+#if HCMv2
         
-            string response = await _client.SendCommandWithResponse("igt");
+            string response = await _client.SendCommand("igt", waitForResponse: true);
             long time = -1;
             long.TryParse(response, out time);
             return time;
-            #endif
+#endif
 
             return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;        
         }

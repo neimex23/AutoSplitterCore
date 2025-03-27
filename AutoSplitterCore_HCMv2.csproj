@@ -51,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fleck" Version="1.2.0" />
     <PackageReference Include="Google.Api.CommonProtos" Version="2.16.0" />
       <PackageReference Include="Google.Apis" Version="1.69.0" />
       <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />

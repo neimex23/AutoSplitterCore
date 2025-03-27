@@ -3983,6 +3983,8 @@ namespace AutoSplitterCore
 
         private void btnASL_Click(object sender, EventArgs e)
         {
+            ASLSplitter.GetInstance().OpenForm();
+            return;
 #if HCMv2 
             ASLSplitter.GetInstance().OpenForm();
             return;

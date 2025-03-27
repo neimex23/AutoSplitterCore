@@ -50,7 +50,7 @@ namespace AutoSplitterCore
                 { (int) GameConstruction.Game.EldenRing, () => eldenSplitter.GetTimeInGame() }, 
                 { (int) GameConstruction.Game.Celeste, () => celesteSplitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.Cuphead , () => cupSplitter.GetTimeInGame() },
-                { (int) GameConstruction.Game.ASLMethod, () =>  aslSplitter.GetIngameTime()}
+                { (int) GameConstruction.Game.ASLMethod, () =>  aslSplitter.GetIngameTime().Result}
             };
         }
 

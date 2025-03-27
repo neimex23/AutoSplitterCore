@@ -188,7 +188,7 @@ namespace AutoSplitterCore
                         break;
 
                     case (int)GameConstruction.Game.ASLMethod:
-                        status = ASLSplitter.GetInstance().GetStatusGame();
+                        status = ASLSplitter.GetInstance().GetStatusGame().Result;
                         break;
 
                 }

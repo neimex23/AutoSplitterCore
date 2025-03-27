@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore", "AutoSplitterCore.csproj", "{33A7C9F6-4FDB-419D-B7E6-68A5BC4D4091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore_HCMv2", "AutoSplitterCore_HCMv2.csproj", "{535A2579-7503-4576-AD92-F6887C3D620A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{33A7C9F6-4FDB-419D-B7E6-68A5BC4D4091} = {33A7C9F6-4FDB-419D-B7E6-68A5BC4D4091}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASLBridge", "ASLBridge\ASLBridge.csproj", "{7F05285E-E796-4578-A9D0-94299D972640}"
 EndProject
