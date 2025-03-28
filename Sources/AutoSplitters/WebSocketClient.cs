@@ -87,6 +87,14 @@ namespace AutoSplitterCore
                         OnStart?.Invoke(this, EventArgs.Empty);
                     else if (message.StartsWith("event:reset"))
                         OnReset?.Invoke(this, EventArgs.Empty);
+                    else if (message.StartsWith("event:enableigt"))
+                    {
+                        ASLSplitter.GetInstance().setedBridge = true;
+                        ASLSplitter.GetInstance().IGTEnable = true;
+                        ASLSplitter.GetInstance().setedBridge = false;
+                    }
+                    else if (message.StartsWith("event:disableigt"))
+                        ASLSplitter.GetInstance().IGTEnable = false;
                     else if (message.StartsWith("id:"))
                     {
                         var separatorIndex = message.IndexOf('|');

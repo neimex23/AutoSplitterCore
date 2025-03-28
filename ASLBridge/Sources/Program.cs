@@ -38,7 +38,6 @@ namespace AutoSplitterCore
             MainModuleServer mainModuleServer = new MainModuleServer();
             MainModuleServer.LoadProcess();
             Application.EnableVisualStyles();
-            Application.Run(mainModuleServer);
         }
     }
 }

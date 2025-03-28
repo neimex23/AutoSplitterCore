@@ -41,6 +41,7 @@ namespace ASLBridge
     public partial class ASLFormServer : ReaLTaiizor.Forms.MaterialForm
     {
         ASLSplitterServer aslSplitter = ASLSplitterServer.GetInstance();
+        public static bool IGTActive = false;
 
         public ASLFormServer()
         {
@@ -55,7 +56,7 @@ namespace ASLBridge
             controlObteined.Padding = new Padding(5);
             lostBorderPanelASLConfig.Controls.Add(controlObteined);
 
-            //metroCheckBoxIGT.Checked = SaveModule.generalAS.ASLIgt;
+            metroCheckBoxIGT.Checked = IGTActive;
             tabPageASLConfig.Focus();
 
             btnWebsite.Show();
@@ -87,7 +88,12 @@ namespace ASLBridge
         private void metroCheckBoxIGT_CheckedChanged(object sender)
         {
             aslSplitter.IGTEnable = metroCheckBoxIGT.Checked;
-            //Send IGT Command
+            IGTActive = metroCheckBoxIGT.Checked;
+
+            if (aslSplitter.IGTEnable)
+                MainModuleServer.BroadcastEvent("event:enableigt");
+            else
+                MainModuleServer.BroadcastEvent("event:disableigt");
         }
 
         private string[] gameNames;

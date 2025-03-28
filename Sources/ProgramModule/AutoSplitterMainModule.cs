@@ -128,7 +128,6 @@ namespace AutoSplitterCore
                 }
 
                 interfaceASC.SplitterResetMethod = ResetSplitterFlags;
-
                 interfaceASC.ProfileSelectedMethod = splitterControl.ProfileChange;
             }
 
@@ -138,7 +137,6 @@ namespace AutoSplitterCore
         }
 
         public static void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
-
 
         #endregion
         #region SplitterManagement
@@ -342,7 +340,7 @@ namespace AutoSplitterCore
                     }
                     break;
                 case (int)GameConstruction.Game.ASLMethod:
-                    if (saveModule.generalAS.ASLIgt && !_PracticeMode) { autoTimer = true; anyGameTime = true; }
+                    if (aslSplitter.IGTEnable && !_PracticeMode) { autoTimer = true; anyGameTime = true; }
                     break;
 
                 //Special Case

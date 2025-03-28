@@ -86,6 +86,8 @@ namespace AutoSplitterCore
 #endif
         }
 
+        ~ASLSplitter() => CloseSockets().GetAwaiter();
+
         private WebSocketClient _client;
         public async Task InitializeWebSocket()
         {
@@ -183,7 +185,9 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             _AslActive = status;
+#if !HCMv2
             if (!ASCHandlerSetted) _timer.Start();
+#endif
         }
 
         public async Task OpenForm()
@@ -193,12 +197,30 @@ namespace AutoSplitterCore
 
         public async Task CloseSockets()
         {
-            await _client.SendCommand("exit");
+            await _client?.SendCommand("exit");
         }
 
-#endregion
+        #endregion
         #region Checking
-        public bool IGTEnable { get; set; } = false;
+        private bool _igtEnable = false;
+        public bool setedBridge = false;
+
+        public bool IGTEnable
+        {
+            get => _igtEnable;
+            set
+            {
+#if HCMv2
+        if (value == true || !setedBridge)
+            EnableAslBridgeIGT();
+#endif
+                _igtEnable = value;
+            }
+        }
+
+
+        private async Task EnableAslBridgeIGT() => await _client.SendCommand("enableigt");
+
 
         public async Task<bool> GetStatusGame() {
 #if HCMv2
@@ -220,7 +242,7 @@ namespace AutoSplitterCore
 
             return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;        
         }
-        #endregion
+#endregion
         #region CheckFlag Init()
 
         private void ASCOnSplit(object sender, EventArgs e)

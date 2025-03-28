@@ -39,7 +39,7 @@ using System.Runtime.CompilerServices;
 
 namespace ASLBridge
 {
-    public class MainModuleServer : Form
+    public class MainModuleServer
     {
         public static ASLSplitterServer Splitter { get; private set; } = ASLSplitterServer.GetInstance();
         private static SaveModuleServer SaveModule = new SaveModuleServer();
@@ -97,13 +97,26 @@ namespace ASLBridge
             });
 
             Console.WriteLine("Fleck WebSocket server started at ws://localhost:9000");
-            //new ASLFormServer().ShowDialog();
-            Console.ReadLine(); 
+         
+            while (true)
+            {
+                Console.Write("> ");
+                string input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input)) continue;
 
-            SaveModule.SaveASLSettings();
+                string result = HandleCommand(input.Trim());
+
+                if (result != null)
+                {
+                    Console.WriteLine($"[Response] {result}");
+                }
+
+                if (input.Trim().ToLower() == "exit")
+                    break;
+            }
         }
 
-        private static void BroadcastEvent(string eventMessage)
+        public static void BroadcastEvent(string eventMessage)
         {
             foreach (var client in connectedClients.ToArray())
             {
@@ -116,6 +129,9 @@ namespace ASLBridge
         {
             switch (command.ToLower())
             {
+                case "enableIGT":
+                    ASLFormServer.IGTActive = true;
+                    return "Igt Enabled";
                 case "status":
                     return Splitter.GetStatusGame() ? "Attached" : "Not attached";
                 case "igt":
@@ -130,6 +146,7 @@ namespace ASLBridge
                     }
                     connectedClients.Clear();
                     server.Dispose();
+                    SaveModule.SaveASLSettings();
                     Environment.Exit(0);
                     return null;
                 default:
@@ -137,9 +154,15 @@ namespace ASLBridge
             }
         }
 
+        static Form aslForm = null;
         private static void ShowForm(object sender, EventArgs e)
         {
-           new ASLFormServer().ShowDialog();
+            //Encontrar una forma de abrir aslform en un proceso distinto
+            // Aplication.run causa que al buscar un script este no haga nada
+            // showdialog directamente funciona pero se tranca si es llamado por openform desde el cliente
+            //SynchronizationContext no hace nada
         }
+
+
     }
 }
