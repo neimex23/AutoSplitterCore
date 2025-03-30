@@ -20,12 +20,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using SoulMemory;
 
 
 namespace AutoSplitterCore
@@ -42,7 +41,7 @@ namespace AutoSplitterCore
             public bool IsSplited;
             public string Mode;
 
-            public BossS() {}
+            public BossS() { }
 
             public BossS(string title, uint id)
             {
@@ -78,7 +77,7 @@ namespace AutoSplitterCore
             BossS selectedBoss;
             if (bossMap.ContainsKey(Nboss))
             {
-                selectedBoss = new BossS(Nboss,bossMap[Nboss]);
+                selectedBoss = new BossS(Nboss, bossMap[Nboss]);
             }
             else
             {
@@ -299,14 +298,14 @@ namespace AutoSplitterCore
             public string Mode;
         }
 
-        public SoulMemory.Sekiro.Attribute StringToEnumAttribute (string Attribute)
+        public SoulMemory.Sekiro.Attribute StringToEnumAttribute(string Attribute)
         {
             return (SoulMemory.Sekiro.Attribute)Enum.Parse(typeof(SoulMemory.Sekiro.Attribute), Attribute);
         }
         #endregion
         public enum KindSplit
         {
-            ID,Position
+            ID, Position
         }
     }
 

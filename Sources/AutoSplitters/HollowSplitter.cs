@@ -20,21 +20,20 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using LiveSplit.HollowKnight;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Threading;
-using LiveSplit.HollowKnight;
-using System.Xml.Linq;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
     public class HollowSplitter
-    {   
+    {
         private static HollowKnightMemory hollow = new HollowKnightMemory();
         private ISplitterControl splitterControl = SplitterControl.GetControl();
-        private DefinitionHollow defH = new DefinitionHollow();      
+        private DefinitionHollow defH = new DefinitionHollow();
         private DTHollow dataHollow;
 
         public DefinitionHollow.Vector3F currentPosition = new DefinitionHollow.Vector3F();
@@ -63,7 +62,8 @@ namespace AutoSplitterCore
             try
             {
                 _StatusHollow = hollow.HookProcess();
-            } catch (Exception) { _StatusHollow = false; }
+            }
+            catch (Exception) { _StatusHollow = false; }
             return _StatusHollow;
         }
 
@@ -221,10 +221,11 @@ namespace AutoSplitterCore
             {
                 ManualRefreshPosition();
                 return this.currentPosition.position;
-            } else
+            }
+            else
             {
                 return new PointF(0, 0);
-            }           
+            }
         }
 
         public bool IsNewgame()
@@ -294,7 +295,7 @@ namespace AutoSplitterCore
         }
 
         private void RefreshPosition()
-        {     
+        {
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(100);
@@ -318,7 +319,7 @@ namespace AutoSplitterCore
             currentPosition.sceneName = hollow.SceneName();
         }
 
-       
+
         private void BossToSplit()
         {
             var BossToSplit = dataHollow.GetBosstoSplit();
@@ -580,7 +581,7 @@ namespace AutoSplitterCore
 
         private void PantheonToSplit()
         {
-            List <DefinitionHollow.Pantheon> PantheonToSplit = dataHollow.GetPhanteonToSplit();
+            List<DefinitionHollow.Pantheon> PantheonToSplit = dataHollow.GetPhanteonToSplit();
             while (dataHollow.enableSplitting)
             {
                 Thread.Sleep(10);
@@ -652,8 +653,8 @@ namespace AutoSplitterCore
                     }
                 }
             }
-        } 
-       
+        }
+
         #endregion
     }
 }

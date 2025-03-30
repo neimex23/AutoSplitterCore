@@ -20,19 +20,18 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+using ReaLTaiizor.Controls;
 using SoulMemory;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
-using System.Security.Principal;
-using System.Threading.Tasks;
-using ReaLTaiizor.Forms;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
-using ReaLTaiizor.Controls;
+using System.Security.Principal;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -53,7 +52,7 @@ namespace AutoSplitterCore
         SaveModule saveModule;
 
         HitterControl hitterControl = HitterControl.GetControl();
-        
+
         public AutoSplitter(SaveModule saveModule, bool darkMode)
         {
             InitializeComponent();
@@ -690,7 +689,7 @@ namespace AutoSplitterCore
             #endregion
 
             if (saveModule.generalAS.HitMode == HitMode.Way) skyComboBoxHitMode.SelectedIndex = 0;
-                else skyComboBoxHitMode.SelectedIndex = 1;
+            else skyComboBoxHitMode.SelectedIndex = 1;
 
             checkBoxHitCeleste.Checked = saveModule.generalAS.AutoHitCeleste;
             checkBoxHitHollow.Checked = saveModule.generalAS.AutoHitHollow;

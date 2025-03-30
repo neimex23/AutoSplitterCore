@@ -20,13 +20,10 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
+using SoulMemory.DarkSouls2;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SoulMemory.DarkSouls2;
-using SoulMemory;
 
 namespace AutoSplitterCore
 {
@@ -38,13 +35,13 @@ namespace AutoSplitterCore
         {
             public string Title;
             public BossType Id;
-            public bool IsSplited =false;
+            public bool IsSplited = false;
             public string Mode;
         }
 
         public BossDs2 StringToEnumBoss(string boss)
         {
-            var bossMapping = new Dictionary<string, (string Title, BossType Id)> 
+            var bossMapping = new Dictionary<string, (string Title, BossType Id)>
             {
                 { "The Last Giant", ("The Last Giant", BossType.TheLastGiant)},
                 { "The Pursuer", ("The Pursuer", BossType.ThePursuer)},

@@ -20,10 +20,9 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
 using LiveSplit.Dishonored;
+using System;
 using System.Diagnostics;
-using System.Xml.Linq;
 
 namespace AutoSplitterCore
 {

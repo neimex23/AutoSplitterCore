@@ -20,10 +20,10 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Threading.Tasks;
-using System.Threading;
 using LiveSplit.Cuphead;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 
 namespace AutoSplitterCore
@@ -58,15 +58,16 @@ namespace AutoSplitterCore
             {
                 cup.HookProcess();
                 cup.GamePointers();
-            } catch (Exception) { return _StatusCuphead = false; }
-         
+            }
+            catch (Exception) { return _StatusCuphead = false; }
+
             return _StatusCuphead = cup.IsHooked;
         }
 
         public void SetStatusSplitting(bool status)
         {
             dataCuphead.enableSplitting = status;
-            if (status) {LoadAutoSplitterProcedure(); }
+            if (status) { LoadAutoSplitterProcedure(); }
         }
 
         public void ResetSplited()
@@ -108,7 +109,7 @@ namespace AutoSplitterCore
         {
             //Game Time return Second converted to ms and added +1 Because Condition in HCM to set Time into Split if Diferences are bigger than 1 second
             //Warning Return Time per Level and is seted to 0 after finish.
-            return (int)cup.LevelTime()*1000+1;
+            return (int)cup.LevelTime() * 1000 + 1;
         }
 
         public string GetSceneName()
@@ -172,7 +173,7 @@ namespace AutoSplitterCore
                 case "Mausoleum II":
                     shouldSplit = cup.SceneName() == "scene_level_mausoleum" && cup.LevelMode() == Mode.Normal && (cup.LevelEnding() && cup.LevelWon()); break;
                 case "Mausoleum III":
-                    shouldSplit = cup.SceneName()== "scene_level_mausoleum" && cup.LevelMode() == Mode.Hard && (cup.LevelEnding() && cup.LevelWon()); break;
+                    shouldSplit = cup.SceneName() == "scene_level_mausoleum" && cup.LevelMode() == Mode.Hard && (cup.LevelEnding() && cup.LevelWon()); break;
 
                 //Bosses
                 case "The Root Pack":
@@ -239,7 +240,7 @@ namespace AutoSplitterCore
                     shouldSplit = cup.SceneName() == "scene_level_chess_rook" && cup.LevelComplete(Levels.ChessRook); break;
                 case "Chess Queen":
                     shouldSplit = cup.SceneName() == "scene_level_chess_queen" && cup.LevelComplete(Levels.ChessQueen); break;
-                default: shouldSplit = false; break;       
+                default: shouldSplit = false; break;
             }
             return shouldSplit;
         }
@@ -256,7 +257,7 @@ namespace AutoSplitterCore
                     foreach (var element in ElementToSplit)
                     {
                         if (!element.IsSplited && ElementCase(element.Title))
-                        {                         
+                        {
                             splitterControl.SplitCheck($"SplitFlags is produced by: Cuphead -> {element.Title}");
                             element.IsSplited = splitterControl.GetSplitStatus();
                         }

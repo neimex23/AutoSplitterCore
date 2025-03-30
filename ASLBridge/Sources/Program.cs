@@ -20,24 +20,20 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using ASLBridge;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace AutoSplitterCore
+namespace ASLBridge
 {
-    public class Program
+    public static class Program
     {
         [STAThread]
         static void Main()
         {
-            MainModuleServer mainModuleServer = new MainModuleServer();
-            MainModuleServer.LoadProcess();
             Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(ASLFormServer.GetIntance());
         }
     }
 }

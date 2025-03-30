@@ -20,12 +20,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory.EldenRing;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using SoulMemory.EldenRing;
 using System.Threading;
-using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -56,9 +55,11 @@ namespace AutoSplitterCore
         public bool GetEldenStatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            try { 
-                _StatusElden = elden.TryRefresh(); 
-            }catch  (Exception) { _StatusElden = false; }
+            try
+            {
+                _StatusElden = elden.TryRefresh();
+            }
+            catch (Exception) { _StatusElden = false; }
             return _StatusElden;
         }
 
@@ -116,7 +117,7 @@ namespace AutoSplitterCore
             dataElden.bossToSplit.Add(cBoss);
         }
 
-        public void AddGrace (string grace, string mode)
+        public void AddGrace(string grace, string mode)
         {
             DefinitionsElden.GraceER cGrace = defE.StringToGraceEnum(grace);
             cGrace.Mode = mode;
@@ -127,7 +128,7 @@ namespace AutoSplitterCore
         {
             DefinitionsElden.PositionER cPosition = new DefinitionsElden.PositionER()
             { vector = vector, Mode = mode, Title = title };
-            dataElden.positionToSplit.Add(cPosition);   
+            dataElden.positionToSplit.Add(cPosition);
         }
 
         public void AddCustomFlag(uint id, string mode, string title)
@@ -187,7 +188,7 @@ namespace AutoSplitterCore
 
         public bool CheckFlag(uint id)
         {
-            if(!_StatusElden) GetEldenStatusProcess(0);
+            if (!_StatusElden) GetEldenStatusProcess(0);
             return _StatusElden && elden.ReadEventFlag(id);
         }
         #endregion
@@ -224,7 +225,8 @@ namespace AutoSplitterCore
 
                 if (_StatusElden && !_writeMemory)
                 {
-                    if (dataElden.ResetIGTNG && elden.GetInGameTimeMilliseconds() < 1) { 
+                    if (dataElden.ResetIGTNG && elden.GetInGameTimeMilliseconds() < 1)
+                    {
                         elden.WriteInGameTimeMilliseconds(0);
                         _writeMemory = true;
                     }
@@ -232,13 +234,13 @@ namespace AutoSplitterCore
             }
         }
 
-       
+
         List<DefinitionsElden.BossER> listPendingB = new List<DefinitionsElden.BossER>();
         List<DefinitionsElden.GraceER> listPendingG = new List<DefinitionsElden.GraceER>();
         List<DefinitionsElden.PositionER> listPendingP = new List<DefinitionsElden.PositionER>();
         List<DefinitionsElden.CustomFlagER> listPendingCf = new List<DefinitionsElden.CustomFlagER>();
 
-      
+
         private void CheckLoad()
         {
             while (dataElden.enableSplitting)
@@ -420,7 +422,7 @@ namespace AutoSplitterCore
             }
         }
 
-        
+
     }
     #endregion
 }

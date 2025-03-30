@@ -20,13 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
+using SoulMemory.DarkSouls3;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Threading;
-using SoulMemory.DarkSouls3;
-using SoulMemory;
-using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -58,9 +57,11 @@ namespace AutoSplitterCore
         public bool GetDs3StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            try {
+            try
+            {
                 _StatusDs3 = Ds3.TryRefresh();
-            } catch (Exception) { _StatusDs3 = false; }
+            }
+            catch (Exception) { _StatusDs3 = false; }
             return _StatusDs3;
         }
 
@@ -221,7 +222,7 @@ namespace AutoSplitterCore
 
         public Vector3f GetCurrentPosition()
         {
-            if(!_StatusDs3) GetDs3StatusProcess(0);
+            if (!_StatusDs3) GetDs3StatusProcess(0);
             return _StatusDs3 ? Ds3.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
         #endregion
@@ -241,7 +242,7 @@ namespace AutoSplitterCore
 
         private bool _writeMemory = false;
         private void RefreshDs3()
-        {           
+        {
             int delay = 2000;
             _StatusDs3 = GetDs3StatusProcess(delay);
             while (dataDs3.enableSplitting)
@@ -264,7 +265,7 @@ namespace AutoSplitterCore
                     {
                         Ds3.WriteInGameTimeMilliseconds(0);
                         _writeMemory = true;
-                    }          
+                    }
                 }
             }
         }
@@ -332,7 +333,7 @@ namespace AutoSplitterCore
                 }
             }
         }
-       
+
         private void BossToSplit()
         {
             var BossToSplit = dataDs3.GetBossToSplit();

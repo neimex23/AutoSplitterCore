@@ -20,9 +20,9 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
 using System;
 using System.Collections.Generic;
-using SoulMemory;
 
 namespace AutoSplitterCore
 {
@@ -40,7 +40,7 @@ namespace AutoSplitterCore
 
         public BossDs3 StringToEnumBoss(string boss)
         {
-            var bossMapping = new Dictionary<string, (string Title, uint Id)> 
+            var bossMapping = new Dictionary<string, (string Title, uint Id)>
             {
                 { "Iudex Gundyr", ("Iudex Gundyr", 14000800)},
                 { "Vordt of the Boreal Valley", ("Vordt of the Boreal Valley", 13000800)},
@@ -91,7 +91,7 @@ namespace AutoSplitterCore
 
         public BonfireDs3 StringToEnumBonfire(string Bonfire)
         {
-            var bonfireMapping = new Dictionary<string, (string Title, uint Id)> 
+            var bonfireMapping = new Dictionary<string, (string Title, uint Id)>
             {
                 { "Firelink Shrine", ("Firelink Shrine", 14000000)},
                 { "Cemetery of Ash", ("Cemetery of Ash", 14000001)},

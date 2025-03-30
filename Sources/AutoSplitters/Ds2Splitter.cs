@@ -20,13 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
+using SoulMemory.DarkSouls2;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using SoulMemory.DarkSouls2;
-using SoulMemory;
 using System.Threading;
-using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -54,13 +53,13 @@ namespace AutoSplitterCore
         public DTDs2 GetDataDs2() => dataDs2;
 
         public void SetDataDs2(DTDs2 data) => dataDs2 = data;
-       
+
         public bool GetDs2StatusProcess(int delay) //Use Delay 0 only for first Starts
         {
             Thread.Sleep(delay);
-            try 
-            { 
-                _StatusDs2 = Ds2.TryRefresh(); 
+            try
+            {
+                _StatusDs2 = Ds2.TryRefresh();
             }
             catch (Exception) { _StatusDs2 = false; }
             return _StatusDs2;
@@ -112,7 +111,9 @@ namespace AutoSplitterCore
         {
             var position = new DefinitionsDs2.PositionDs2()
             {
-                vector = vector, Mode = mode, Title = title
+                vector = vector,
+                Mode = mode,
+                Title = title
             };
             dataDs2.positionsToSplit.Add(position);
         }
@@ -191,7 +192,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 GetDs2StatusProcess(delay);
-                if (!_StatusDs2) { delay = 2000; }else { delay = 5000; }
+                if (!_StatusDs2) { delay = 2000; } else { delay = 5000; }
             }
         }
 
@@ -205,12 +206,14 @@ namespace AutoSplitterCore
                     var position = Ds2.GetPosition();
                     bool menu = position.X == 0.00 && position.Y == 0.00 && position.Z == 0.00;
 
-                    if (!dataDs2.gameTimer) {
+                    if (!dataDs2.gameTimer)
+                    {
                         if (menu)
                             _runStarted = false;
                         else
                             _runStarted = true;
-                    }else
+                    }
+                    else
                     {
                         if (!menu && Ds2.IsLoading())
                             _runStarted = false;
@@ -218,7 +221,7 @@ namespace AutoSplitterCore
                         if (menu && !Ds2.IsLoading())
                             _runStarted = false;
 
-                        if (!menu &&  !Ds2.IsLoading())
+                        if (!menu && !Ds2.IsLoading())
                             _runStarted = true;
                     }
                 }
@@ -293,7 +296,7 @@ namespace AutoSplitterCore
                             else
                             {
                                 splitterControl.SplitCheck($"SplitFlags is produced by: DS2 BOSS -> {b.Title}");
-                                b.IsSplited = splitterControl.GetSplitStatus();                               
+                                b.IsSplited = splitterControl.GetSplitStatus();
                             }
                         }
                     }
@@ -370,7 +373,7 @@ namespace AutoSplitterCore
                 }
             }
         }
-      
+
         #endregion
     }
 }

@@ -49,7 +49,7 @@ namespace AutoSplitterCore
             await DownloadAndInstallAsync(1);
         }
 
-        private void btnPortable_Click(object sender, EventArgs e) 
+        private void btnPortable_Click(object sender, EventArgs e)
         {
             groupBoxInstallerSelect.Hide();
             groupBoxHCMversion.Show();
@@ -100,7 +100,7 @@ namespace AutoSplitterCore
                             await webClient.DownloadFileTaskAsync(new Uri(url), "UpdateASCInstaller.msi");
                             break;
                         case 2:
-                            url += $"Portable_v{ver}.zip";                          
+                            url += $"Portable_v{ver}.zip";
                             break;
                         case 3:
                             url += $"Portable_HCMv2_v{ver}.zip";
@@ -117,7 +117,7 @@ namespace AutoSplitterCore
                         ZipFile.ExtractToDirectory(zipPath, extractPath);
                         File.Delete(zipPath);
                     }
-                }            
+                }
 
                 progressBarUpdating.PerformStep();
 
@@ -129,6 +129,6 @@ namespace AutoSplitterCore
             {
                 MessageBox.Show($"Update failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }        
+        }
     }
 }

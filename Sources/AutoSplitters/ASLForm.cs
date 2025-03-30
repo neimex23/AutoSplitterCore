@@ -20,25 +20,15 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using LiveSplit.Model;
+using LiveSplit.Web;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LiveSplit.Model;
-using LiveSplit;
-using LiveSplit.UI;
-using System.Diagnostics;
-using LiveSplit.Web;
-using System.Threading;
-using System.IO;
-using HitCounterManager;
-using LiveSplit.UI.Components;
-using System.Net;
 
 namespace AutoSplitterCore
 {
@@ -79,7 +69,7 @@ namespace AutoSplitterCore
 
                     while (!loadedGames)
                     {
-                        await Task.Delay(1000); 
+                        await Task.Delay(1000);
                     }
                 }
                 finally
@@ -160,7 +150,8 @@ namespace AutoSplitterCore
                     lblDescription.Text += "\n(NOT a ASL Script - Contact ASC Developer to develop this dll if community demand)";
                 }
 
-            } else
+            }
+            else
             {
                 lblDescription.Text = "There is no Auto Splitter available for this game.";
             }

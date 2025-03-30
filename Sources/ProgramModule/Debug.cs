@@ -1,12 +1,9 @@
 ﻿using HitCounterManager;
-using SoulMemory.DarkSouls1;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Numerics;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSplitterCore
@@ -27,16 +24,16 @@ namespace AutoSplitterCore
             ListenerASL.Initialize();
 
             mainModule.InitDebug();
-            #if !HCMv2
-            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));     
-            #endif
+#if !HCMv2
+            mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
+#endif
 
 
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();
             updateTimer.Start();
 
-            InitializeLogListView();        
+            InitializeLogListView();
         }
 
         private void InitializeLogListView()
@@ -188,7 +185,7 @@ namespace AutoSplitterCore
                         break;
 
                     case (int)GameConstruction.Game.ASLMethod:
-                        status = ASLSplitter.GetInstance().GetStatusGame().Result;
+                        status = AutoSplitterMainModule.GetStatusGameSafe();
                         break;
 
                 }

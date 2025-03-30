@@ -51,14 +51,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fleck" Version="1.2.0" />
     <PackageReference Include="Google.Api.CommonProtos" Version="2.16.0" />
       <PackageReference Include="Google.Apis" Version="1.69.0" />
       <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
       <PackageReference Include="Google.Apis.Core" Version="1.69.0" />
-      <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3699" />
+      <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3703" />
     <PackageReference Include="Google.Apis.Oauth2.v2" Version="1.68.0.1869" />
-    <PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
+    <PackageReference Include="Google.Cloud.Firestore" Version="3.10.0" />
     <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="Irony" Version="1.5.3" />
     <PackageReference Include="MimeTypes" Version="2.5.2">
@@ -67,7 +66,7 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
-    <PackageReference Include="System.CodeDom" Version="9.0.2" />
+    <PackageReference Include="System.CodeDom" Version="9.0.3" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
   </ItemGroup>
 

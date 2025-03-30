@@ -21,17 +21,16 @@
 //SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.Collections.Generic;
 
 namespace AutoSplitterCore
 {
-    public enum StyleMode { Default, Light ,Dark};
-    public enum HitMode { Way, Boss};
+    public enum StyleMode { Default, Light, Dark };
+    public enum HitMode { Way, Boss };
     /// <summary>
     /// Classes Contains All Settings of AutoSplitterCore
     /// </summary>
@@ -95,7 +94,7 @@ namespace AutoSplitterCore
          * The variables in ASL scripts are very limited, have paths and exclusive files in configurations
          * For this reason, I decided to exclude them from DataAutoSplitter
          */
-        public bool ASLActive = false; 
+        public bool ASLActive = false;
         public bool ASLIgt = false;
         //XML Node of ASL
     }
@@ -122,7 +121,7 @@ namespace AutoSplitterCore
         public string ProfileName = "Default";
         public string Author = "Owner";
         public string Description = "Default Profile";
-        
+
         public List<string> Splits = new List<string>();
     }
 
@@ -221,7 +220,7 @@ namespace AutoSplitterCore
             myStream.Close();
 
 #if !HCMv2
-            SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
+            //SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
 #endif
         }
 
@@ -346,7 +345,7 @@ namespace AutoSplitterCore
             dishonoredSplitter.SetDataDishonored(dataDishonored);
 
 #if !HCMv2
-            LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
+            //LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
 #endif
         }
 
@@ -388,13 +387,14 @@ namespace AutoSplitterCore
             try
             {
                 LoadAutoSplitterSettings();
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
-                MessageBox.Show("Error to load Profile, file corrupt or not compatible\r\nLoaded Default Settings\r\nError: "+e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error to load Profile, file corrupt or not compatible\r\nLoaded Default Settings\r\nError: " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 File.Delete(Path.GetFullPath("SaveDataAutoSplitter.xml"));
                 LoadAutoSplitterSettings();
             }
-            
+
             if (!SplitterControl.GetControl().GetDebug())
             {
                 SplitterControl.GetControl().SetActiveGameIndex(AutoSplitterMainModule.GetSplitterEnable());
@@ -406,7 +406,7 @@ namespace AutoSplitterCore
 
         public string GetAuthor() => dataAS.Author;
 
-        public void SetProfileName(string Name)  => dataAS.ProfileName = Name;
+        public void SetProfileName(string Name) => dataAS.ProfileName = Name;
 
         public void SetAuthor(string Name) => dataAS.Author = Name;
 

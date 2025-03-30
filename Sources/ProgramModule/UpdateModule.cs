@@ -26,9 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinyJson;
 
@@ -60,7 +58,7 @@ namespace AutoSplitterCore
 
         private void AddAuthorization()
         {
-            try 
+            try
             {
                 string jsonresult = string.Empty;
                 var assembly = Assembly.GetExecutingAssembly();
@@ -73,7 +71,8 @@ namespace AutoSplitterCore
                 }
                 // Authorization Token with PublicRepo Permissions
                 client.Headers.Add("Authorization", jsonresult);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 DebugLog.LogMessage($"Exception produced on Authorization JSON on UpdateModule: {ex.Message}");
             }
@@ -89,7 +88,7 @@ namespace AutoSplitterCore
                 // https://developer.github.com/v3/#user-agent-required
                 client.Headers.Add("User-Agent", "AutoSplitterCore/" + Application.ProductVersion.ToString());
                 // https://developer.github.com/v3/media/#request-specific-version
-                client.Headers.Add("Accept", "application/vnd.github.v3.text+json");     
+                client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
                 AddAuthorization();
                 // https://developer.github.com/v3/repos/releases/#get-a-single-release
                 string response = client.DownloadString("https://api.github.com/repos/neimex23/AutoSplitterCore/releases");
@@ -136,9 +135,9 @@ namespace AutoSplitterCore
                     if (aux.TryGetValue("tag_name", out var tagValue) && tagValue is string ver)
                     {
                         Version.TryParse(ver, out Version outVer);
-                        if (outVer != null) 
+                        if (outVer != null)
                             SoulsMemoryRelease.Add(outVer);
-                    }                        
+                    }
                 }
 
                 if (SoulsMemoryRelease.Count > 0)
@@ -147,7 +146,8 @@ namespace AutoSplitterCore
                     cloudSoulsVer = SoulsMemoryRelease[0].ToString() + ".0";
                 }
             }
-            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message); };
+            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message); }
+            ;
 
             //Debug Propouses
             //new UpdateShowDialog().ShowDialog();

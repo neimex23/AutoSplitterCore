@@ -20,26 +20,23 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using LiveSplit.UI.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LiveSplit;
+using AutoSplitterCore.Sources.AutoSplitters;
 using LiveSplit.Model;
-using System.Windows.Forms;
-using LiveSplit.UI;
 using LiveSplit.Model.Comparisons;
 using LiveSplit.Options;
+using LiveSplit.UI;
+using LiveSplit.UI.Components;
+using System;
 using System.Diagnostics;
-using System.Threading;
-using System.Xml;
-using LiveSplit.Web;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 
-namespace AutoSplitterCore 
-{ 
+namespace AutoSplitterCore
+{
     public class ListenerASL : TraceListener
     {
         public override void Write(string message) => RegisterLog(message);
@@ -74,41 +71,59 @@ namespace AutoSplitterCore
 
         private ASLSplitter()
         {
-            #if !HCMv2
-            Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
-            state = GeneratorState();
-            asl = new ASLComponent(state);
-            _timer.Tick += ASCHandlerSetters;
+#if !HCMv2
+            //Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
+            //state = GeneratorState();
+            //asl = new ASLComponent(state);
+            //_timer.Tick += ASCHandlerSetters;
 
-            InitializeWebSocket().GetAwaiter();
+            InitializePipeClient();
 #else
-            InitializeWebSocket().GetAwaiter();
+            InitializePipeClient().GetAwaiter();
 #endif
         }
 
-        ~ASLSplitter() => CloseSockets().GetAwaiter();
-
-        private WebSocketClient _client;
-        public async Task InitializeWebSocket()
+        ~ASLSplitter()
         {
-            var exeName = "ASLBridge"; // sin .exe
+            _client?.Disconnect();
+            Thread.Sleep(2000); //Wait for Subprocess Closings
+            var processes = Process.GetProcessesByName("ASLBridge");
+            if (processes.Any())
+            {
+                foreach (var proc in processes)
+                {
+                    proc.Kill();
+                }
+            }
+        }
+
+
+        private NamedPipeClient _client;
+        private NamedPipeClientIGT _clientIgt;
+
+        public async Task InitializePipeClient()
+        {
+            var exeName = "ASLBridge";
             if (!Process.GetProcessesByName(exeName).Any())
             {
                 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ASLBridge.exe");
                 Process.Start(path);
                 DebugLog.LogMessage("ASLBridge iniciado.");
-                await Task.Delay(2000); 
+                await Task.Delay(2000);
             }
 
-            _client = new WebSocketClient();
+            _client = new NamedPipeClient();
+            _clientIgt = new NamedPipeClientIGT();
             await _client.ConnectAsync();
+            await _clientIgt.ConnectAsync();
 
-            _client.OnSplit += (s, e) => ASCOnSplit(s,e);
-            _client.OnStart += (s, e) => ASCOnStart(s,e);
-            _client.OnReset += (s, e) => ASCOnReset(s,e);        
+            _client.OnSplit += (s, e) => ASCOnSplit(s, e);
+            _client.OnStart += (s, e) => ASCOnStart(s, e);
+            _client.OnReset += (s, e) => ASCOnReset(s, e);
         }
 
-        private LiveSplitState GeneratorState() {
+        private LiveSplitState GeneratorState()
+        {
             Form liveSplitForm = new Form
             {
                 Text = "LiveSplit Form",
@@ -132,7 +147,7 @@ namespace AutoSplitterCore
             ISettings settings = new Settings();
 
             var state = new LiveSplitState(run, liveSplitForm, layout, layoutSettings, settings);
-            ITimerModel timerModel = new TimerModel() { CurrentState = state};
+            ITimerModel timerModel = new TimerModel() { CurrentState = state };
             timerModel.InitializeGameTime();
             state.RegisterTimerModel(timerModel);
 
@@ -154,26 +169,26 @@ namespace AutoSplitterCore
                 asl.Script.ResetRun += ASCOnReset;
                 ASCHandlerSetted = true;
                 Log.Info("Handlers ASL Setted");
-            }                
+            }
         }
 
-        public Control AslControl 
-        { 
+        public Control AslControl
+        {
             //HCMv2 Controlled on ASLBridge
-            get 
-            { 
-                return asl != null ? asl.GetSettingsControl(LayoutMode.Vertical) : null; 
-            } 
+            get
+            {
+                return asl != null ? asl.GetSettingsControl(LayoutMode.Vertical) : null;
+            }
         }
 
-#endregion
+        #endregion
         #region Control Management
         public void setData(XmlNode node)
         {
-            if (node != null && asl != null) 
+            if (node != null && asl != null)
             {
                 asl.SetSettings(node);
-            } 
+            }
         }
 
         public XmlNode getData(XmlDocument doc)
@@ -186,18 +201,13 @@ namespace AutoSplitterCore
         {
             _AslActive = status;
 #if !HCMv2
-            if (!ASCHandlerSetted) _timer.Start();
+            //if (!ASCHandlerSetted) _timer.Start();
 #endif
         }
 
         public async Task OpenForm()
         {
             await _client.SendCommand("openform");
-        }
-
-        public async Task CloseSockets()
-        {
-            await _client?.SendCommand("exit");
         }
 
         #endregion
@@ -210,39 +220,47 @@ namespace AutoSplitterCore
             get => _igtEnable;
             set
             {
-#if HCMv2
-        if (value == true || !setedBridge)
-            EnableAslBridgeIGT();
-#endif
+                if (value == _igtEnable) return;
+
                 _igtEnable = value;
+
+                if (!setedBridge && value) 
+                {
+                    _ = EnableAslBridgeIGT();
+                }
             }
         }
 
 
-        private async Task EnableAslBridgeIGT() => await _client.SendCommand("enableigt");
-
-
-        public async Task<bool> GetStatusGame() {
-#if HCMv2
-            string status = await _client.SendCommand("status", waitForResponse: true);
-            return status == "Attached";
-#endif
-            return asl.Script != null ? asl.Script.ProccessAtached() : false;         
-         }
-
-        public async Task<long> GetIngameTime()
+        private async Task EnableAslBridgeIGT()
         {
+            while (_client == null || !_client.PipeOnline)
+                await Task.Delay(1000);
+            await _client?.SendCommand("enableigt");
+        }
+
+
+        public async Task<bool> GetStatusGame()
+        {
+            return true;
+#if HCMv2
+            
+#endif
+            return asl.Script != null ? asl.Script.ProccessAtached() : false;
+        }
+
+        public long GetIngameTime()        
+        {
+
+            return _clientIgt != null ? _clientIgt.LastIGT : -1;
 #if HCMv2
         
-            string response = await _client.SendCommand("igt", waitForResponse: true);
-            long time = -1;
-            long.TryParse(response, out time);
-            return time;
+            
 #endif
 
-            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;        
+            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
         }
-#endregion
+        #endregion
         #region CheckFlag Init()
 
         private void ASCOnSplit(object sender, EventArgs e)
@@ -253,11 +271,11 @@ namespace AutoSplitterCore
 
         private void ASCOnStart(object sender, EventArgs e)
         {
-           if (splitterControl.GetDebug())
-           {
+            if (splitterControl.GetDebug())
+            {
                 DebugLog.LogMessage("Trace ASL: Start Run Trigger Produced on ASL");
                 return; //StartStopTimer and timmer not implemented on debugmode
-           }
+            }
 
             if (!PracticeMode && _AslActive && !IGTEnable && !splitterControl.GetTimerRunning())
             {
@@ -265,7 +283,7 @@ namespace AutoSplitterCore
             }
         }
 
-        private void ASCOnReset(object sender, EventArgs e) 
+        private void ASCOnReset(object sender, EventArgs e)
         {
             if (splitterControl.GetDebug())
             {

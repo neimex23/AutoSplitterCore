@@ -20,10 +20,10 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using LiveSplit.HollowKnight;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using LiveSplit.HollowKnight;
 
 namespace AutoSplitterCore
 {
@@ -75,7 +75,7 @@ namespace AutoSplitterCore
                     break;
                 case "Crystal Guardian":
                     elem.SetData(Offset.defeatedMegaBeamMiner, "Crystal Guardian");
-                    break;            
+                    break;
                 case "Dung Defender":
                     elem.SetData(Offset.killedDungDefender, "Dung Defender");
                     break;
@@ -231,7 +231,7 @@ namespace AutoSplitterCore
                     break;
                 case "Colosseum Fool Completed":
                     elem.SetData(Offset.colosseumGoldCompleted, "Colosseum Fool Completed");
-                     break;
+                    break;
                 case "Aluba":
                     elem.SetData(Offset.killedLazyFlyer, "Aluba");
                     break;
@@ -403,7 +403,7 @@ namespace AutoSplitterCore
                     elem.SetData(Offset.gotCharm_37, "Sprintmaster");
                     break;
                 case "Stalwart Shell":
-                 elem.SetData(Offset.gotCharm_4, "Stalwart Shell");
+                    elem.SetData(Offset.gotCharm_4, "Stalwart Shell");
                     break;
                 case "Steady Body":
                     elem.SetData(Offset.gotCharm_14, "Steady Body");
@@ -529,7 +529,7 @@ namespace AutoSplitterCore
         [Serializable]
         public class Vector3F
         {
-            public PointF position = new PointF(0,0);
+            public PointF position = new PointF(0, 0);
             public string sceneName = "None";
             public string previousScene = "None";
             public bool IsSplited = false;

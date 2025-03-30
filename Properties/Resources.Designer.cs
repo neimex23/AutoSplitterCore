@@ -22,7 +22,7 @@ namespace AutoSplitterCore.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AutoSplitterCore.Properties {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoSplitterCore.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace AutoSplitterCore.Properties {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -65,7 +65,7 @@ namespace AutoSplitterCore.Properties {
         ///Split: Triggered when the SplitFlag Trigger generates an HCM Split.
         ///Reset: Triggered when the Reset Trigger initiates an HCM Restart Run..
         /// </summary>
-        public static string ASLInfo {
+        internal static string ASLInfo {
             get {
                 return ResourceManager.GetString("ASLInfo", resourceCulture);
             }
@@ -85,7 +85,7 @@ namespace AutoSplitterCore.Properties {
         ///
         ///-Depends on Conf [resto de la cadena truncado]&quot;;.
         /// </summary>
-        public static string AUTOSPLITTERREADME {
+        internal static string AUTOSPLITTERREADME {
             get {
                 return ResourceManager.GetString("AUTOSPLITTERREADME", resourceCulture);
             }
@@ -94,7 +94,7 @@ namespace AutoSplitterCore.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
-        public static System.Drawing.Icon AutoSplitterSetupIcon {
+        internal static System.Drawing.Icon AutoSplitterSetupIcon {
             get {
                 object obj = ResourceManager.GetObject("AutoSplitterSetupIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -104,7 +104,7 @@ namespace AutoSplitterCore.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Check {
+        internal static System.Drawing.Bitmap Check {
             get {
                 object obj = ResourceManager.GetObject("Check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -125,7 +125,7 @@ namespace AutoSplitterCore.Properties {
         ///      * Visual Style
         ///      * Custom Profile Path, [resto de la cadena truncado]&quot;;.
         /// </summary>
-        public static string ProfileWarning {
+        internal static string ProfileWarning {
             get {
                 return ResourceManager.GetString("ProfileWarning", resourceCulture);
             }
@@ -140,7 +140,7 @@ namespace AutoSplitterCore.Properties {
         ///   Optimized Performance: New updates often include performance improvements.
         ///   Compatibility: Ensures smooth integration with the la [resto de la cadena truncado]&quot;;.
         /// </summary>
-        public static string SoulsMemoryNotice {
+        internal static string SoulsMemoryNotice {
             get {
                 return ResourceManager.GetString("SoulsMemoryNotice", resourceCulture);
             }
@@ -159,7 +159,7 @@ namespace AutoSplitterCore.Properties {
         ///Author: Ezequiel Medina (Neimex23)
         ///Contact: &lt;ezequielmedina23 [resto de la cadena truncado]&quot;;.
         /// </summary>
-        public static string THIRDPARTYLICENSEREADME {
+        internal static string THIRDPARTYLICENSEREADME {
             get {
                 return ResourceManager.GetString("THIRDPARTYLICENSEREADME", resourceCulture);
             }

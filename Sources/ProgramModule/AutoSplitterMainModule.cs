@@ -21,15 +21,13 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using HitCounterManager;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HitCounterManager;
 
 namespace AutoSplitterCore
 {
@@ -58,7 +56,8 @@ namespace AutoSplitterCore
 
         public List<string> GetGames() => GameConstruction.GameList;
 
-        public AutoSplitterMainModule () {
+        public AutoSplitterMainModule()
+        {
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
         }
 
@@ -74,7 +73,7 @@ namespace AutoSplitterCore
             SetShowSettings(true);
             ReaLTaiizor.Forms.PoisonForm form = new AutoSplitter(saveModule, darkMode);
             form.ShowDialog();
-            SetShowSettings(false);         
+            SetShowSettings(false);
         }
 
         private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open
@@ -85,7 +84,7 @@ namespace AutoSplitterCore
             HitterControl._saveModule = saveModule;
             saveModule.LoadAutoSplitterSettings();
 
-            updateTimer = new Timer { Interval = 500 }; 
+            updateTimer = new Timer { Interval = 500 };
             updateTimer.Tick += UpdateTimer_Tick; // Check AutoTimers, AutoResets
             updateTimer.Start();
 
@@ -133,7 +132,7 @@ namespace AutoSplitterCore
 
             splitterControl.SetInterface(interfaceASC);
             splitterControl.SetSaveModule(saveModule);
-            
+
         }
 
         public static void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
@@ -268,7 +267,8 @@ namespace AutoSplitterCore
                     igtTime = igtModule.ReturnCurrentIGT();
                 }
                 catch (Exception) { igtTime = -1; }
-            }else { igtTime = -1; }
+            }
+            else { igtTime = -1; }
 
             return igtTime;
         }
@@ -280,9 +280,9 @@ namespace AutoSplitterCore
 
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
-            #if !AutoSplitterCoreDebug
-                CheckAutoTimers();
-            #endif
+#if !AutoSplitterCoreDebug
+            CheckAutoTimers();
+#endif
             CheckAutoResetSplit();
         }
 
@@ -296,7 +296,7 @@ namespace AutoSplitterCore
         public void CheckAutoTimers()
         {
             anyGameTime = false;
-            autoTimer = false;        
+            autoTimer = false;
             switch (gameActive)
             {
                 case (int)GameConstruction.Game.Sekiro: //Sekiro
@@ -366,7 +366,7 @@ namespace AutoSplitterCore
                                 if (!splitterControl.GetTimerRunning())
                                     splitterControl.StartStopTimer(true);
                             }
-                            else if (currentCelesteTime <= 0) 
+                            else if (currentCelesteTime <= 0)
                             {
                                 if (splitterControl.GetTimerRunning())
                                     splitterControl.StartStopTimer(false);
@@ -406,7 +406,7 @@ namespace AutoSplitterCore
                                 if (!splitterControl.GetTimerRunning())
                                     splitterControl.StartStopTimer(true);
                             }
-                        }                     
+                        }
                     }
                     break;
 
@@ -438,7 +438,7 @@ namespace AutoSplitterCore
                         {
                             if (dishonoredSplitter._runStarted && !splitterControl.GetTimerRunning() && GameOn())
                                 splitterControl.StartStopTimer(true);
-                            
+
                             if ((!dishonoredSplitter._runStarted || !GameOn()) && splitterControl.GetTimerRunning())
                                 splitterControl.StartStopTimer(false);
                         }
@@ -454,19 +454,22 @@ namespace AutoSplitterCore
                     break;
 
 
-                case (int)GameConstruction.Game.None:               
+                case (int)GameConstruction.Game.None:
                 default: anyGameTime = false; autoTimer = false; break;
             }
 
 
             //AutoTimerReset Checking
             if (autoTimer && anyGameTime)
-            {                
+            {
                 long inGameTime = -1;
-                if (GameOn()) {
-                    try {
-                        inGameTime = igtModule.ReturnCurrentIGT(); 
-                    } catch (Exception) { inGameTime = -1; }
+                if (GameOn())
+                {
+                    try
+                    {
+                        inGameTime = igtModule.ReturnCurrentIGT();
+                    }
+                    catch (Exception) { inGameTime = -1; }
                 }
 
                 if (inGameTime > 0 && _lastTime != inGameTime && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && GameOn())
@@ -475,7 +478,7 @@ namespace AutoSplitterCore
                     splitterControl.StartStopTimer(true);
                     splitterControl.UpdateDuration();
                 }
-                    
+
                 if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || splitterControl.CurrentFinalSplit() || !GameOn()) && splitterControl.GetTimerRunning())
                 {
                     splitterControl.UpdateDuration();
@@ -542,7 +545,7 @@ namespace AutoSplitterCore
                                     {
                                         splitterControl.StartStopTimer(false);
                                         splitterControl.ProfileReset();
-                                    }                                   
+                                    }
                                 }
                             }
                             else
@@ -565,7 +568,7 @@ namespace AutoSplitterCore
                                     splitterControl.StartStopTimer(false);
                                     splitterControl.ProfileReset();
                                 }
-                            }                           
+                            }
                         }
                         else
                             profileResetDone = false;
@@ -608,14 +611,50 @@ namespace AutoSplitterCore
             { (int) GameConstruction.Game.Celeste, () => celesteSplitter._StatusCeleste },
             { (int) GameConstruction.Game.Dishonored, () => dishonoredSplitter._StatusDish },
             { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead },
-            { (int) GameConstruction.Game.ASLMethod, () => aslSplitter.GetStatusGame().Result }
+            { (int) GameConstruction.Game.ASLMethod, () => GetStatusGameSafe() }
         };
+
+        private static DateTime _lastCheckTime = DateTime.MinValue;
+        private static bool _lastStatus = false;
+        private static bool _isCheckingStatus = false;
+
+        public static bool GetStatusGameSafe()
+        {
+            if ((DateTime.Now - _lastCheckTime).TotalSeconds < 1)
+                return _lastStatus;
+
+            if (_isCheckingStatus)
+                return _lastStatus;
+
+            try
+            {
+                _isCheckingStatus = true;
+                var task = aslSplitter.GetStatusGame();
+
+                if (task.Wait(1000)) // Espera hasta 1 segundo
+                {
+                    _lastStatus = task.GetAwaiter().GetResult(); // ← más seguro
+                    _lastCheckTime = DateTime.Now;
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"[ASL] Error real en GetStatusGameSafe: {ex.GetBaseException().Message}");
+            }
+            finally
+            {
+                _isCheckingStatus = false;
+            }
+
+            return _lastStatus;
+        }
+
 
         public bool GameOn()
         {
             if (splitterStatusCheckers.TryGetValue(gameActive, out var statusChecker))
             {
-                return statusChecker.Invoke(); 
+                return statusChecker.Invoke();
             }
 
             return false;
@@ -627,7 +666,7 @@ namespace AutoSplitterCore
         /// (See: https://github.com/dotnet/runtime/issues/21798)
         /// </summary>
         /// <param name="uri">URI that shall be opened</param>
-        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true});
+        public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
         #endregion
     }
 }

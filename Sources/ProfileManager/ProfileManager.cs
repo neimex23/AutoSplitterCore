@@ -21,15 +21,11 @@
 //SOFTWARE.
 
 using System;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
 using System.Xml;
-using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace AutoSplitterCore
 {
@@ -52,7 +48,7 @@ namespace AutoSplitterCore
             btnSetDescription.Hide();
 
             savePath = saveModule.generalAS.saveProfilePath;
-           
+
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
@@ -68,17 +64,17 @@ namespace AutoSplitterCore
             textBoxCurrrentProfile.Text = saveModule.GetProfileName();
             textBoxAuthor.Text = saveModule.GetAuthor();
             TextboxDescription.Text = saveModule.GetDescription();
-            
+
             prevIndex = comboBoxProfiles.SelectedIndex;
 
             comboBoxProfiles.Items.Clear();
             foreach (string file in Directory.GetFiles(savePath))
             {
-                var auxfile = file.Remove(0, savePath.Length+1);
+                var auxfile = file.Remove(0, savePath.Length + 1);
                 if (auxfile.Contains("xml"))
                 {
                     comboBoxProfiles.Items.Add(auxfile);
-                }                
+                }
             }
             comboBoxProfiles.Refresh();
             if (comboBoxProfiles.Items.Count > 0 && prevIndex < 0)
@@ -86,8 +82,8 @@ namespace AutoSplitterCore
             else
             {
                 if (comboBoxProfiles.Items.Count == 0) prevIndex = -1;
-                    comboBoxProfiles.SelectedIndex = prevIndex;
-            }          
+                comboBoxProfiles.SelectedIndex = prevIndex;
+            }
 
             RefreshSummary();
         }
@@ -651,7 +647,7 @@ namespace AutoSplitterCore
             Summary += "=======================================================" + Line;
             Summary += "Splits:" + Line;
             Summary += "=======================================================" + Line;
-            foreach (var Splits in profile.Splits) 
+            foreach (var Splits in profile.Splits)
             {
                 Summary += Space + Splits + Line;
             }
@@ -711,7 +707,8 @@ namespace AutoSplitterCore
                         saveModule.ReLoadAutoSplitterSettings();
                     }
                 }
-            }else
+            }
+            else
                 MessageBox.Show("There are no Profiles to Load", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefreshForm();
         }
@@ -889,8 +886,8 @@ namespace AutoSplitterCore
             Close();
         }
 
-        private void checkBoxViewGeneralSettings_CheckedChanged(object sender, EventArgs e) =>  
-            _ = checkBoxViewGeneralSettings.Checked ? TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule) :TextBoxSummary.Text = BuildSummary(this.saveModule);
+        private void checkBoxViewGeneralSettings_CheckedChanged(object sender, EventArgs e) =>
+            _ = checkBoxViewGeneralSettings.Checked ? TextBoxSummary.Text = BuildSummaryGeneral(this.saveModule) : TextBoxSummary.Text = BuildSummary(this.saveModule);
 
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ReaLTaiizor.Controls;
-using SoulMemory;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -159,7 +158,7 @@ namespace AutoSplitterCore
             }
         }
 
-        
+
     }
 
     public class ItemList

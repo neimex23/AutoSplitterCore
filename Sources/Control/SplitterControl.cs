@@ -23,10 +23,9 @@
 using HitCounterManager;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
 
 namespace AutoSplitterCore
 {
@@ -213,7 +212,7 @@ namespace AutoSplitterCore
 
         #region Initialize
 
-        public static void Initialize() 
+        public static void Initialize()
         {
             AutoSplitterMainModule autoSplitterMainModule = new AutoSplitterMainModule();
             autoSplitterMainModule.InitDebug();
@@ -253,10 +252,11 @@ namespace AutoSplitterCore
                 {
                     if (!debugMode) InvokeOnMainThread(() => interfaceHCM.ProfileSplitGo(1));
                     splitStatus = true;
-                }else 
+                }
+                else
                 {
                     splitStatus = false;
-                }            
+                }
             }
         }
 
@@ -275,7 +275,7 @@ namespace AutoSplitterCore
                 DebugLog.LogMessage(debugLog);
                 if (enableChecking && !debugMode)
                 {
-                    InvokeOnMainThread(() => interfaceHCM.HitSumUp(1, saveModule.generalAS.HitMode == HitMode.Way));           
+                    InvokeOnMainThread(() => interfaceHCM.HitSumUp(1, saveModule.generalAS.HitMode == HitMode.Way));
                 }
             }
         }

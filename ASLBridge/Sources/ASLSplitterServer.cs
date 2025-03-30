@@ -20,25 +20,18 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using LiveSplit.UI.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LiveSplit;
 using LiveSplit.Model;
-using System.Windows.Forms;
-using LiveSplit.UI;
 using LiveSplit.Model.Comparisons;
 using LiveSplit.Options;
+using LiveSplit.UI;
+using LiveSplit.UI.Components;
+using System;
 using System.Diagnostics;
-using System.Threading;
+using System.Windows.Forms;
 using System.Xml;
-using LiveSplit.Web;
 
-namespace ASLBridge 
-{ 
+namespace ASLBridge
+{
 
     public class ListenerASL : TraceListener
     {
@@ -81,9 +74,10 @@ namespace ASLBridge
             asl = new ASLComponent(state);
             _timer.Tick += ASCHandlerSetters;
             _timer.Start();
-        }     
+        }
 
-        private LiveSplitState GeneratorState() {
+        private LiveSplitState GeneratorState()
+        {
             Form liveSplitForm = new Form
             {
                 Text = "LiveSplit Form",
@@ -107,7 +101,7 @@ namespace ASLBridge
             ISettings settings = new Settings();
 
             var state = new LiveSplitState(run, liveSplitForm, layout, layoutSettings, settings);
-            ITimerModel timerModel = new TimerModel() { CurrentState = state};
+            ITimerModel timerModel = new TimerModel() { CurrentState = state };
             timerModel.InitializeGameTime();
             state.RegisterTimerModel(timerModel);
 
@@ -124,30 +118,30 @@ namespace ASLBridge
 
             if (asl.Script != null)
             {
-                asl.Script.ShouldSplit += ASCOnSplitHandler;
-                asl.Script.StartRun += ASCOnStartHandler;
-                asl.Script.ResetRun += ASCOnResetHandler;
+                asl.Script.ShouldSplit += ASCOnSplit;
+                asl.Script.StartRun += ASCOnStart;
+                asl.Script.ResetRun += ASCOnReset;
                 ASCHandlerSetted = true;
                 Log.Info("Handlers ASL Setted");
-            }                
+            }
         }
 
         /// <summary>
         /// Obtain ASLScripteable Control
         /// </summary>
-        public Control AslControl 
-        { 
-            get 
-            { 
-                return asl != null ? asl.GetSettingsControl(LayoutMode.Vertical) : null; 
-            } 
+        public Control AslControl
+        {
+            get
+            {
+                return asl != null ? asl.GetSettingsControl(LayoutMode.Vertical) : null;
+            }
         }
 
         #endregion
         #region Control Management
         public void setData(XmlNode node)
         {
-            if (node != null) { asl.SetSettings(node); } 
+            if (node != null) { asl.SetSettings(node); }
         }
 
         public XmlNode getData(XmlDocument doc)
@@ -157,11 +151,13 @@ namespace ASLBridge
 
         #endregion
         #region Checking
-        public bool IGTEnable { get; set; } = false;
-
         public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
 
         public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
         #endregion
+
+        private void ASCOnSplit(object sender, EventArgs e) => ASCOnSplitHandler?.Invoke(this, e);
+        private void ASCOnStart(object sender, EventArgs e) => ASCOnStartHandler?.Invoke(this, e);
+        private void ASCOnReset(object sender, EventArgs e) => ASCOnResetHandler?.Invoke(this, e);
     }
 }

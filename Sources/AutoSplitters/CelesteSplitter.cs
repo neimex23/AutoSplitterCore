@@ -20,16 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Threading.Tasks;
-using System.Threading;
 using LiveSplit.Celeste;
-using HitCounterManager;
-using System.Reflection.Emit;
-using System.Reflection;
-using System.IO.Pipes;
+using System;
 using System.IO;
-using System.Diagnostics;
+using System.IO.Pipes;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -64,7 +60,8 @@ namespace AutoSplitterCore
             try
             {
                 _StatusCeleste = celeste.HookProcess();
-            } catch (Exception) { _StatusCeleste = false; }
+            }
+            catch (Exception) { _StatusCeleste = false; }
             return _StatusCeleste;
         }
 
@@ -130,22 +127,23 @@ namespace AutoSplitterCore
                     case Area.CelestialResort: AreaID = "Celestial Resort"; break;
                     case Area.GoldenRidge: AreaID = "Golden Ridge"; break;
                     case Area.MirrorTemple: AreaID = "Mirror Temple"; break;
-                    case Area.Reflection:  AreaID = "Reflection"; break;
+                    case Area.Reflection: AreaID = "Reflection"; break;
                     case Area.TheSummit: AreaID = "TheSummit"; break;
-                    case Area.Epilogue:  AreaID = "Epilogue"; break;
+                    case Area.Epilogue: AreaID = "Epilogue"; break;
                     case Area.Core: AreaID = "Core"; break;
                     case Area.Farewell: AreaID = "Farewell"; break;
                     case Area.Menu: AreaID = "Menu"; break;
                     default: AreaID = string.Empty; break;
                 }
-                _ = infoPlayer.levelName == null ? LevelName = "None" : LevelName =  infoPlayer.levelName.ToString();
+                _ = infoPlayer.levelName == null ? LevelName = "None" : LevelName = infoPlayer.levelName.ToString();
                 return LevelName + " - " + AreaID;
             }
             else
                 return string.Empty;
         }
 
-        public int GetDeaths() {
+        public int GetDeaths()
+        {
             if (_StatusCeleste && pipeConnected && IsInGame())
             {
                 return infoPlayer.deaths;
@@ -188,7 +186,7 @@ namespace AutoSplitterCore
             {
                 Thread.Sleep(10);
                 if (_StatusCeleste)
-                {      
+                {
                     try
                     {
                         infoPlayer.elapsed = celeste.GameTime();
@@ -215,7 +213,7 @@ namespace AutoSplitterCore
                         {
                             try
                             {
-                                pipeClient.Connect(5000); 
+                                pipeClient.Connect(5000);
                                 DebugLog.LogMessage("NamedPipe Connected.");
                                 break; // Exit the connection loop if connection is successful
                             }
@@ -227,7 +225,7 @@ namespace AutoSplitterCore
                             catch (IOException ioEx)
                             {
                                 DebugLog.LogMessage($"Error connection NamedPipe: {ioEx.Message}, retrying...");
-                                Thread.Sleep(3000); 
+                                Thread.Sleep(3000);
                             }
                         }
 
@@ -258,7 +256,7 @@ namespace AutoSplitterCore
                 catch (Exception ex)
                 {
                     DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}");
-                    Thread.Sleep(3000); 
+                    Thread.Sleep(3000);
                 }
             }
         }
@@ -428,16 +426,16 @@ namespace AutoSplitterCore
                                 case "Chapter 9 - Farewell (CP 8)":
                                     shouldSplit = infoPlayer.areaID == Area.Farewell && infoPlayer.levelName == "j-16"; break;
 
-                                case "Chapter 1 - Forsaken City - Cassette":                                   
-                                case "Chapter 2 - Old Site - Cassette":                               
-                                case "Chapter 3 - Celestial Resort - Cassette":                                  
-                                case "Chapter 4 - Golden Ridge - Cassette":                                   
-                                case "Chapter 5 - Mirror Temple - Cassette":                                 
+                                case "Chapter 1 - Forsaken City - Cassette":
+                                case "Chapter 2 - Old Site - Cassette":
+                                case "Chapter 3 - Celestial Resort - Cassette":
+                                case "Chapter 4 - Golden Ridge - Cassette":
+                                case "Chapter 5 - Mirror Temple - Cassette":
                                 case "Chapter 6 - Reflection - Cassette":
-                                case "Chapter 7 - The Summit - Cassette":                                  
-                                case "Chapter 8 - Core - Cassette":                                   
-                                case "Chapter 1 - Forsaken City - Heart Gem":                                   
-                                case "Chapter 2 - Old Site - Heart Gem":                                    
+                                case "Chapter 7 - The Summit - Cassette":
+                                case "Chapter 8 - Core - Cassette":
+                                case "Chapter 1 - Forsaken City - Heart Gem":
+                                case "Chapter 2 - Old Site - Heart Gem":
                                 case "Chapter 3 - Celestial Resort - Heart Gem":
                                 case "Chapter 4 - Golden Ridge - Heart Gem":
                                 case "Chapter 5 - Mirror Temple - Heart Gem":
@@ -445,7 +443,7 @@ namespace AutoSplitterCore
                                 case "Chapter 7 - The Summit - Heart Gem":
                                 case "Chapter 8 - Core - Heart Gem":
                                     shouldSplit = CheckItems(element.Title); break;
-    
+
                                 case "===========================":
                                     RemoveChapter(element.Title); shouldSplit = false; break;
 
@@ -454,7 +452,7 @@ namespace AutoSplitterCore
                             }
 
                             if (shouldSplit)
-                            {                       
+                            {
                                 splitterControl.SplitCheck($"SplitFlags is produced by: Celeste -> {element.Title}");
                                 element.IsSplited = splitterControl.GetSplitStatus();
                             }

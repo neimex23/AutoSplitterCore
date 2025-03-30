@@ -20,10 +20,10 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Collections.Generic;
 using SoulMemory;
 using SoulMemory.DarkSouls1;
+using System;
+using System.Collections.Generic;
 
 namespace AutoSplitterCore
 {
@@ -171,7 +171,7 @@ namespace AutoSplitterCore
             public bool IsSplited = false;
             public string Mode;
         }
-        
+
         public SoulMemory.DarkSouls1.Attribute StringToEnumAttribute(string attribute)
         {
             LvlDs1 cLvl = new LvlDs1();
@@ -222,7 +222,7 @@ namespace AutoSplitterCore
 
         public ItemDs1 StringToEnumItem(string item)
         {
-           var itemMapping = new Dictionary<string, (string Title, uint Id)> 
+            var itemMapping = new Dictionary<string, (string Title, uint Id)>
            {
                 { "Catarina Helm", ("Catarina Helm", 10000)},
                 { "Catarina Armor", ("Catarina Armor", 11000)},
@@ -925,7 +925,7 @@ namespace AutoSplitterCore
 
     [Serializable]
     public class DTDs1
-    { 
+    {
         //var Settings
         public bool enableSplitting = false;
         public bool autoTimer = false;

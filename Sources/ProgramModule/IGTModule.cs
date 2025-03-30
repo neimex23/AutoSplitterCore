@@ -20,9 +20,8 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System.Collections.Generic;
-using System.Diagnostics;
 using System;
+using System.Collections.Generic;
 
 namespace AutoSplitterCore
 {
@@ -47,14 +46,14 @@ namespace AutoSplitterCore
                 { (int)GameConstruction.Game.Sekiro, () => sekiroSplitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.DarkSouls1, () => ds1Splitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.DarkSouls3, () => ds3Splitter.GetTimeInGame() },
-                { (int) GameConstruction.Game.EldenRing, () => eldenSplitter.GetTimeInGame() }, 
+                { (int) GameConstruction.Game.EldenRing, () => eldenSplitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.Celeste, () => celesteSplitter.GetTimeInGame() },
                 { (int) GameConstruction.Game.Cuphead , () => cupSplitter.GetTimeInGame() },
-                { (int) GameConstruction.Game.ASLMethod, () =>  aslSplitter.GetIngameTime().Result}
+                { (int) GameConstruction.Game.ASLMethod, () =>  aslSplitter.GetIngameTime()}
             };
         }
 
-        public long ReturnCurrentIGT() => splitterMap.ContainsKey(gameSelect)? splitterMap[gameSelect]() : -1;
+        public long ReturnCurrentIGT() => splitterMap.ContainsKey(gameSelect) ? splitterMap[gameSelect]() : -1;
 
     }
 }

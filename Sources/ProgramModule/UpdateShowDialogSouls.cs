@@ -21,14 +21,14 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.IO;
-using System.Net;
-using System.Windows.Forms;
-using System.IO.Compression;
-using System.Diagnostics;
 using ReaLTaiizor.Forms;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -95,7 +95,7 @@ namespace AutoSplitterCore
                 ZipFile.ExtractToDirectory(zipFilePath, extractPath);
                 File.Delete(zipFilePath);
 
-                progressBarUpdating.PerformStep(); 
+                progressBarUpdating.PerformStep();
 
                 MessageBox.Show("Download Successful. The program will close to install the update.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -1,11 +1,6 @@
-﻿using HitCounterManager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AutoSplitterCore
 {
@@ -17,7 +12,7 @@ namespace AutoSplitterCore
         #region Singleton
         private static readonly Lazy<HitterControl> instance = new Lazy<HitterControl>(() => new HitterControl());
 
-        private HitterControl() {}
+        private HitterControl() { }
 
         public static HitterControl GetControl() => instance.Value;
         #endregion
@@ -36,7 +31,7 @@ namespace AutoSplitterCore
         {
             _ctsHollow?.Cancel();
         }
-    
+
         private async Task CheckingHollow(CancellationToken token)
         {
             try
@@ -102,7 +97,7 @@ namespace AutoSplitterCore
                             // Primer caso cuando el jugador entra al juego
                             lastDeaths = currentDeaths;
                         }
-                        else if (currentDeaths > lastDeaths) 
+                        else if (currentDeaths > lastDeaths)
                         {
                             _splitterControl.HitCheck("HitFlag produced on Celeste");
                         }

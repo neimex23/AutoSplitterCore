@@ -21,116 +21,159 @@
 //SOFTWARE.
 
 using System;
-using System.Collections.Generic;
-using System.IO.Pipes;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Diagnostics;
-using System.Net.Sockets;
-using Fleck;
+using System.IO;
+using System.IO.Pipes;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using ReaLTaiizor.Forms;
-using System.Runtime.CompilerServices;
 
 namespace ASLBridge
 {
     public class MainModuleServer
     {
         public static ASLSplitterServer Splitter { get; private set; } = ASLSplitterServer.GetInstance();
-        private static SaveModuleServer SaveModule = new SaveModuleServer();
+        private static SaveModuleServer SaveModule = SaveModuleServer.GetIntance();
         private static event EventHandler OpenForm;
-        private static WebSocketServer server;
 
         public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
 
 
-        private static List<IWebSocketConnection> connectedClients = new List<IWebSocketConnection>();
 
+        private static bool serverRunning = true;
         public static void LoadProcess()
         {
             Splitter.ASCOnSplitHandler += (s, e) => BroadcastEvent("event:split");
             Splitter.ASCOnStartHandler += (s, e) => BroadcastEvent("event:start");
             Splitter.ASCOnResetHandler += (s, e) => BroadcastEvent("event:reset");
+
             OpenForm += new EventHandler(ShowForm);
 
-            SaveModule.LoadASLSettings();
+            Task.Run(() => StartNamedPipeServer());
+            Task.Run(() => StartNamedPipeServerIGT());
 
-            server = new WebSocketServer("ws://0.0.0.0:9000");
-            server.Start(socket =>
+
+
+            Console.WriteLine("NamedPipe server started: pipe name = ASLBridge");
+
+        }
+
+        private static StreamWriter _writer;
+        private static void StartNamedPipeServer()
+        {
+            while (serverRunning)
             {
-                socket.OnOpen = () =>
+                using (var pipeServer = new NamedPipeServerStream("ASLBridge", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous))
                 {
-                    Console.WriteLine("Client connected");
-                    connectedClients.Add(socket);
-                };
-
-                socket.OnClose = () =>
-                {
-                    Console.WriteLine("Client disconnected");
-                    connectedClients.Remove(socket);
-                };
-
-                socket.OnMessage = message =>
-                {
-                    Console.WriteLine($"Message: {message}");
-                    if (message.StartsWith("id:"))
+                    try
                     {
-                        var separatorIndex = message.IndexOf('|');
-                        if (separatorIndex > 3)
+                        Console.WriteLine("[PIPE] Esperando conexión...");
+                        pipeServer.WaitForConnection();
+
+                        Console.WriteLine("[PIPE] Cliente conectado");
+
+                        using (var reader = new StreamReader(pipeServer))
+                        using (_writer = new StreamWriter(pipeServer) { AutoFlush = true })
                         {
-                            string id = message.Substring(3, separatorIndex - 3);
-                            string command = message.Substring(separatorIndex + 1);
-                            string response = HandleCommand(command);
-                            socket.Send($"id:{id}|{response}");
+                            string line;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                Console.WriteLine($"[PIPE] Comando recibido: {line}");
+                                string response = HandleCommand(line);
+
+                                if (response != null)
+                                {
+                                    _writer.WriteLine(response);
+                                    Console.WriteLine($"[PIPE] Comando Enviado: {response}");
+                                }
+
+
+                                if (line.Trim().ToLower() == "exit")
+                                {
+                                    serverRunning = false;
+                                    break;
+                                }
+                            }
+
+                            if (line == null)
+                            {
+                                Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
+                                HandleCommand("exit");
+                            }
+                        }                       
+                    }
+                    catch (IOException ex)
+                    {
+                        Console.WriteLine($"[PIPE] Desconexión inesperada del cliente: {ex.Message}");
+                        HandleCommand("exit");
+                    }
+                }
+            }
+        }
+
+        private static StreamWriter _writerIgt;
+        private static void StartNamedPipeServerIGT()
+        {
+            while (serverRunning)
+            {
+                using (var pipeServer = new NamedPipeServerStream("ASLBridge_IGT", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous))
+                {
+                    try
+                    {
+                        pipeServer.WaitForConnection();
+
+                        using (var reader = new StreamReader(pipeServer))
+                        using (_writerIgt = new StreamWriter(pipeServer) { AutoFlush = true })
+                        {
+                            string line;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                string response = HandleCommand(line);
+
+                                if (response != null)
+                                {
+                                    _writerIgt.WriteLine(response);
+                                }
+                            }
+
+                            if (line == null)
+                            {
+                                Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
+                                HandleCommand("exit");
+                            }
                         }
                     }
-                    else
+                    catch (IOException ex)
                     {
-                        Console.WriteLine($"Unknown Message");
+                        Console.WriteLine($"[PIPE] Desconexión inesperada del cliente: {ex.Message}");
+                        HandleCommand("exit");
                     }
-                };
-            });
-
-            Console.WriteLine("Fleck WebSocket server started at ws://localhost:9000");
-         
-            while (true)
-            {
-                Console.Write("> ");
-                string input = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(input)) continue;
-
-                string result = HandleCommand(input.Trim());
-
-                if (result != null)
-                {
-                    Console.WriteLine($"[Response] {result}");
                 }
-
-                if (input.Trim().ToLower() == "exit")
-                    break;
             }
         }
 
         public static void BroadcastEvent(string eventMessage)
         {
-            foreach (var client in connectedClients.ToArray())
+            Console.WriteLine($"[PIPE-EVENT] {eventMessage}");
+            if (_writer != null)
             {
-                if (client.IsAvailable)
-                    client.Send(eventMessage);
+                try
+                {
+                    _writer.WriteLine(eventMessage);
+                }
+                catch (IOException ex)
+                {
+                    Console.WriteLine($"[PIPE] Error al enviar evento: {ex.Message}");
+                }
             }
         }
+
 
         private static string HandleCommand(string command)
         {
             switch (command.ToLower())
             {
-                case "enableIGT":
-                    ASLFormServer.IGTActive = true;
+                case "enableigt":
+                    ASLFormServer.GetIntance().SetIgt(true);
                     return "Igt Enabled";
                 case "status":
                     return Splitter.GetStatusGame() ? "Attached" : "Not attached";
@@ -138,30 +181,20 @@ namespace ASLBridge
                     return $"{Splitter.GetIngameTime()}";
                 case "openform":
                     OpenForm?.Invoke(null, EventArgs.Empty);
-                    return "Opened Form";         
+                    return "Opened Form";
                 case "exit":
-                    foreach (var client in connectedClients.ToArray())
-                    {
-                        try { client.Close(); } catch { }
-                    }
-                    connectedClients.Clear();
-                    server.Dispose();
-                    SaveModule.SaveASLSettings();
-                    Environment.Exit(0);
+                    SaveModule.SaveASLSettings();           
+                    serverRunning = false;
+                    _writer.Dispose();
+                    ASLFormServer.GetIntance().CloseForm();
+                    Application.Exit();
                     return null;
                 default:
                     return "Unknown command";
             }
         }
 
-        static Form aslForm = null;
-        private static void ShowForm(object sender, EventArgs e)
-        {
-            //Encontrar una forma de abrir aslform en un proceso distinto
-            // Aplication.run causa que al buscar un script este no haga nada
-            // showdialog directamente funciona pero se tranca si es llamado por openform desde el cliente
-            //SynchronizationContext no hace nada
-        }
+        private static void ShowForm(object sender, EventArgs e) => ASLFormServer.GetIntance().ShowForm();
 
 
     }

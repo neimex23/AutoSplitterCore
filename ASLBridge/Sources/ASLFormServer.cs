@@ -20,43 +20,76 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using LiveSplit.Model;
 using LiveSplit.Web;
-using System.Threading;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using LiveSplit.UI.Components;
+using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ASLBridge
 {
     public partial class ASLFormServer : ReaLTaiizor.Forms.MaterialForm
     {
         ASLSplitterServer aslSplitter = ASLSplitterServer.GetInstance();
-        public static bool IGTActive = false;
+        SaveModuleServer saveModuleServer = SaveModuleServer.GetIntance();
 
-        public ASLFormServer()
+        private static readonly ASLFormServer instance = new ASLFormServer();
+        public static ASLFormServer GetIntance() => instance;
+
+        private ASLFormServer()
         {
             InitializeComponent();
         }
 
+        public void ShowForm() => this.InvokeIfRequired(() =>
+        {
+            RefreshAslSettings();
+            this.Show();
+        });
+
+        public void HideForm() => this.InvokeIfRequired(() =>
+        {
+            this.Hide();
+        });
+
+        public void CloseForm() => this.InvokeIfRequired(() =>
+        {
+            this.Close();
+        });
+
+        private bool firstStart = true;
+        private void ASLFormServer_Shown(object sender, EventArgs e)
+        {
+            if (firstStart)
+            {
+                //HideForm();
+                firstStart = false;
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                HideForm();
+            }
+            base.OnFormClosing(e);
+        }
+
         private void ASLForm_Load(object sender, EventArgs e)
         {
-            labelInfoASL.Text = "Start: Triggered when the Start Trigger produces an HCM Timer activation.\r\nSplit: Triggered when the SplitFlag Trigger generates an HCM Split.\r\nReset: Triggered when the Reset Trigger initiates an HCM Restart Run.";
-            Control controlObteined = aslSplitter.AslControl;
-            controlObteined.Margin = new Padding(5);
-            controlObteined.Padding = new Padding(5);
-            lostBorderPanelASLConfig.Controls.Add(controlObteined);
+            saveModuleServer.LoadASLSettings();
+            MainModuleServer.LoadProcess();
 
-            metroCheckBoxIGT.Checked = IGTActive;
+            labelInfoASL.Text = "Start: Triggered when the Start Trigger produces an HCM Timer activation.\r\nSplit: Triggered when the SplitFlag Trigger generates an HCM Split.\r\nReset: Triggered when the Reset Trigger initiates an HCM Restart Run.";
+            RefreshAslSettings();
+
             tabPageASLConfig.Focus();
 
             btnWebsite.Show();
@@ -64,40 +97,41 @@ namespace ASLBridge
             btnWebsite.Enabled = false;
             cbxGameName.Enabled = false;
 
-            Task.Run(async () =>
-            {
-                try
-                {
-                    // Cambiar el cursor de toda la aplicación a "Wait"
-                    labelLoading.Invoke((Action)(() => Application.UseWaitCursor = true));
-
-                    while (!loadedGames)
-                    {
-                        await Task.Delay(1000); 
-                    }
-                }
-                finally
-                {
-                    labelLoading.Invoke((Action)(() => Application.UseWaitCursor = false));
-                }
-            });
-
             FillCbxGameName();
+        }
+
+        private void RefreshAslSettings()
+        {
+            Control controlObteined = aslSplitter.AslControl;
+            controlObteined.Margin = new Padding(5);
+            controlObteined.Padding = new Padding(5);
+            if (lostBorderPanelASLConfig.Controls.Count > 0) lostBorderPanelASLConfig.Controls.Clear();
+            lostBorderPanelASLConfig.Controls.Add(controlObteined);
+        }
+
+        private bool suppressIGTEvent = false;
+        public void SetIgt(bool status)
+        {
+            this.InvokeIfRequired(() =>
+            {
+                suppressIGTEvent = true;
+                metroCheckBoxIGT.Checked = status;
+                metroCheckBoxIGT.Refresh();
+                suppressIGTEvent = false;
+            });
         }
 
         private void metroCheckBoxIGT_CheckedChanged(object sender)
         {
-            aslSplitter.IGTEnable = metroCheckBoxIGT.Checked;
-            IGTActive = metroCheckBoxIGT.Checked;
+            if (suppressIGTEvent) return;
 
-            if (aslSplitter.IGTEnable)
+            if (metroCheckBoxIGT.Checked)
                 MainModuleServer.BroadcastEvent("event:enableigt");
             else
                 MainModuleServer.BroadcastEvent("event:disableigt");
         }
 
         private string[] gameNames;
-        private bool loadedGames = false;
         private void FillCbxGameName()
         {
             Task.Run(() =>
@@ -118,7 +152,6 @@ namespace ASLBridge
                             cbxGameName.Items.AddRange(gameNames);
                             labelLoading.Hide();
                             cbxGameName.Enabled = true;
-                            loadedGames = true;
                             cbxGameName.EndUpdate();
                         });
                     }
@@ -157,7 +190,8 @@ namespace ASLBridge
                     lblDescription.Text += "\n(NOT a ASL Script - Contact ASC Developer to develop this dll if community demand)";
                 }
 
-            } else
+            }
+            else
             {
                 lblDescription.Text = "There is no Auto Splitter available for this game.";
             }
@@ -196,7 +230,7 @@ namespace ASLBridge
                 }
                 catch (Exception ex2)
                 {
-                   Console.WriteLine("Error Download ASLFile: " + ex2.Message);
+                    Console.WriteLine("Error Download ASLFile: " + ex2.Message);
                 }
                 finally
                 {
@@ -214,7 +248,6 @@ namespace ASLBridge
         }
 
         private void btnGetASL_Click(object sender, EventArgs e) => MainModuleServer.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki/English#asl-scripts"));
-
     }
     internal static class FormControl
     {

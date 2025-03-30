@@ -311,10 +311,13 @@
             this.ClientSize = new System.Drawing.Size(978, 719);
             this.Controls.Add(this.poisonTabControl);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(978, 719);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(978, 719);
             this.Name = "ASLFormServer";
             this.Text = "ASL";
             this.Load += new System.EventHandler(this.ASLForm_Load);
+            this.Shown += new System.EventHandler(this.ASLFormServer_Shown);
             this.poisonTabControl.ResumeLayout(false);
             this.tabPageASLConfig.ResumeLayout(false);
             this.tabPageASLConfig.PerformLayout();

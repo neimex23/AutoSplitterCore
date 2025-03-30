@@ -21,17 +21,18 @@
 //SOFTWARE.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.IO;
+using System.Xml;
 
 namespace ASLBridge
 {
     public class SaveModuleServer
     {
+        private SaveModuleServer() { }
+        private static readonly SaveModuleServer Instance = new SaveModuleServer();
+
+        public static SaveModuleServer GetIntance() => Instance;
+
         private ASLSplitterServer aslSplitter = ASLSplitterServer.GetInstance();
 
         public void SaveASLSettings() => SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);

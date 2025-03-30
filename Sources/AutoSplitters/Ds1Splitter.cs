@@ -20,13 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using SoulMemory;
+using SoulMemory.DarkSouls1;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Threading;
-using SoulMemory.DarkSouls1;
-using SoulMemory;
-using HitCounterManager;
+using System.Threading.Tasks;
 
 namespace AutoSplitterCore
 {
@@ -134,7 +133,7 @@ namespace AutoSplitterCore
             dataDs1.bossToSplit.RemoveAt(position);
         }
 
-        public void AddBonfire(string Bonfire, string mode,string state)
+        public void AddBonfire(string Bonfire, string mode, string state)
         {
             DefinitionsDs1.BonfireDs1 cBonfire = defDs1.StringToEnumBonfire(Bonfire);
             cBonfire.Mode = mode;
@@ -170,7 +169,7 @@ namespace AutoSplitterCore
             dataDs1.lvlToSplit.RemoveAt(position);
         }
 
-        public void AddPosition(Vector3f vector, string mode, string title) 
+        public void AddPosition(Vector3f vector, string mode, string title)
         {
             var position = new DefinitionsDs1.PositionDs1()
             {
@@ -275,8 +274,8 @@ namespace AutoSplitterCore
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
-                if(_StatusDs1) inventory = Ds1.GetInventory();
-            }            
+                if (_StatusDs1) inventory = Ds1.GetInventory();
+            }
         }
 
         List<DefinitionsDs1.BossDs1> listPendingB = new List<DefinitionsDs1.BossDs1>();
@@ -297,7 +296,7 @@ namespace AutoSplitterCore
                         if (!Ds1.IsPlayerLoaded())
                         {
                             foreach (var boss in listPendingB)
-                            {           
+                            {
                                 var b = dataDs1.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
                                 splitterControl.SplitCheck($"SplitFlags is produced by: DS1 *After Login* BOSS -> {dataDs1.bossToSplit[b].Title}");
                                 dataDs1.bossToSplit[b].IsSplited = true;
@@ -350,7 +349,7 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusDs1 && !_PracticeMode && !_ShowSettings)
                 {
-                    if(BossToSplit != dataDs1.GetBossToSplit()) BossToSplit = dataDs1.GetBossToSplit();
+                    if (BossToSplit != dataDs1.GetBossToSplit()) BossToSplit = dataDs1.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && Ds1.ReadEventFlag(b.Id))

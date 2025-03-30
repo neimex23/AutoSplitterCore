@@ -24,7 +24,6 @@ using SoulMemory;
 using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -38,7 +37,7 @@ namespace AutoSplitterCore
         private ISplitterControl splitterControl = SplitterControl.GetControl();
 
         public bool _StatusSekiro = false;
-        public bool _PracticeMode = false;        
+        public bool _PracticeMode = false;
         public bool _ShowSettings = false;
 
         #region SingletonFactory
@@ -60,7 +59,9 @@ namespace AutoSplitterCore
             try
             {
                 _StatusSekiro = sekiro.TryRefresh();
-            } catch (Exception) { _StatusSekiro = false; };
+            }
+            catch (Exception) { _StatusSekiro = false; }
+            ;
             return _StatusSekiro;
         }
 
@@ -123,34 +124,35 @@ namespace AutoSplitterCore
         }
         #endregion
         #region Object Management
-        public void AddIdol(string idol,string mode)
+        public void AddIdol(string idol, string mode)
         {
             DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(idol);
             cIdol.Mode = mode;
-            if (!dataSekiro.idolsTosplit.Exists(x => x.Id == cIdol.Id)) {
+            if (!dataSekiro.idolsTosplit.Exists(x => x.Id == cIdol.Id))
+            {
                 dataSekiro.idolsTosplit.Add(cIdol);
-            }     
+            }
         }
 
         public List<String> GetAllIdols() => defS.GetAllIdols();
 
-        public void AddBoss(string boss,string mode)
+        public void AddBoss(string boss, string mode)
         {
             DefinitionsSekiro.BossS cBoss = defS.BossToEnum(boss);
             cBoss.Mode = mode;
             dataSekiro.bossToSplit.Add(cBoss);
         }
 
-        public void AddPosition(float X, float Y, float Z , string mode, string title)
+        public void AddPosition(float X, float Y, float Z, string mode, string title)
         {
             var position = new DefinitionsSekiro.PositionS();
-            position.SetVector(new Vector3f(X,Y,Z));
+            position.SetVector(new Vector3f(X, Y, Z));
             position.Mode = mode;
             position.Title = title;
             dataSekiro.positionsToSplit.Add(position);
         }
 
-        public void AddCustomFlag(uint id,string mode, string title)
+        public void AddCustomFlag(uint id, string mode, string title)
         {
             DefinitionsSekiro.CfSk cFlag = new DefinitionsSekiro.CfSk()
             {
@@ -179,7 +181,7 @@ namespace AutoSplitterCore
         }
 
 
-        public void AddMiniBoss (string miniboss, string mode)
+        public void AddMiniBoss(string miniboss, string mode)
         {
             DefinitionsSekiro.MiniBossS mBoss = new DefinitionsSekiro.MiniBossS();
             switch (miniboss)
@@ -195,7 +197,7 @@ namespace AutoSplitterCore
                 case "Ogre - Ashina Outskirts":
                     mBoss.vector = new Vector3f((float)124.60, (float)-35.50, (float)140.20);
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
-                    break; 
+                    break;
                 case "General Tenzen Yamauchi":
                     mBoss.vector = new Vector3f((float)163.30, (float)-72.40, (float)220.50);
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
@@ -257,7 +259,7 @@ namespace AutoSplitterCore
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.Position;
                     break;
                 case "Lone Shadow Vilehand": //Check
-                    mBoss.Id = 51110330; 
+                    mBoss.Id = 51110330;
                     mBoss.kindSplit = DefinitionsSekiro.KindSplit.ID;
                     break;
                 case "Ashina Elite - Ujinari Mizuo":
@@ -332,7 +334,7 @@ namespace AutoSplitterCore
         }
 
         public string GetMiniBossDescription(string mBoss) => defS.GetMiniBossDescription(mBoss);
-       
+
         public void RemoveMiniBoss(int position)
         {
             listPendingMb.RemoveAll(imb => imb.Title == dataSekiro.miniBossToSplit[position].Title);
@@ -349,7 +351,7 @@ namespace AutoSplitterCore
         {
             listPendingB.RemoveAll(iboss => iboss.Id == dataSekiro.bossToSplit[position].Id);
             dataSekiro.bossToSplit.RemoveAt(position);
-            
+
         }
 
         public void RemovePosition(int position)
@@ -357,13 +359,13 @@ namespace AutoSplitterCore
             listPendingP.RemoveAll(iposition => iposition.vector == dataSekiro.positionsToSplit[position].vector);
             dataSekiro.positionsToSplit.RemoveAt(position);
         }
-        
-        public void RemoveIdol (string fidol)
+
+        public void RemoveIdol(string fidol)
         {
             DefinitionsSekiro.Idol cIdol = defS.IdolToEnum(fidol);
             listPendingI.RemoveAll(idol => idol.Id == cIdol.Id);
             dataSekiro.idolsTosplit.RemoveAll(idol => idol.Id == cIdol.Id);
-                      
+
         }
 
         public string FindIdol(string fidol)
@@ -374,7 +376,7 @@ namespace AutoSplitterCore
             {
                 return "None";
             }
-            else { return idolReturn.Mode; }         
+            else { return idolReturn.Mode; }
         }
 
         public void SetPositionMargin(int select)
@@ -418,7 +420,7 @@ namespace AutoSplitterCore
 
         public bool CheckFlag(uint id)
         {
-            if(!_StatusSekiro) GetSekiroStatusProcess(0);
+            if (!_StatusSekiro) GetSekiroStatusProcess(0);
             return _StatusSekiro && sekiro.ReadEventFlag(id);
         }
         #endregion
@@ -445,7 +447,7 @@ namespace AutoSplitterCore
             while (dataSekiro.enableSplitting)
             {
                 Thread.Sleep(10);
-               GetSekiroStatusProcess(delay);
+                GetSekiroStatusProcess(delay);
                 if (!_StatusSekiro)
                 {
                     _writeMemory = false;
@@ -455,16 +457,16 @@ namespace AutoSplitterCore
                 {
                     delay = 5000;
                 }
-                
+
                 if (!_writeMemory && _StatusSekiro)
                 {
                     if (dataSekiro.ResetIGTNG && sekiro.GetInGameTimeMilliseconds() < 1)
                     {
                         sekiro.WriteInGameTimeMilliseconds(0);
                         _writeMemory = true;
-                    }                   
+                    }
                 }
-            }           
+            }
         }
 
         List<DefinitionsSekiro.PositionS> listPendingP = new List<DefinitionsSekiro.PositionS>();
@@ -548,7 +550,7 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if(BossToSplit != dataSekiro.GetBossToSplit()) BossToSplit = dataSekiro.GetBossToSplit();
+                    if (BossToSplit != dataSekiro.GetBossToSplit()) BossToSplit = dataSekiro.GetBossToSplit();
                     foreach (var b in BossToSplit)
                     {
                         if (!b.IsSplited && sekiro.ReadEventFlag(b.Id))
@@ -747,10 +749,11 @@ namespace AutoSplitterCore
             }
         }
 
-        private void PositionSplit() {
+        private void PositionSplit()
+        {
             var PositionsToSplit = dataSekiro.GetPositionsToSplit();
             while (dataSekiro.enableSplitting)
-            {              
+            {
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
@@ -846,5 +849,5 @@ namespace AutoSplitterCore
             }
         }
         #endregion
-    }        
+    }
 }
