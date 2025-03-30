@@ -20,12 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using AutoSplitterCore.Sources.AutoSplitters;
 using LiveSplit.Model;
 using LiveSplit.Model.Comparisons;
 using LiveSplit.Options;
 using LiveSplit.UI;
 using LiveSplit.UI.Components;
+using LiveSplit.Web;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -59,6 +59,8 @@ namespace AutoSplitterCore
     {
         public bool PracticeMode { get; set; } = false;
 
+        private bool HCMv2 = false;
+
         public LiveSplitState state = null;
         public ASLComponent asl;
 
@@ -71,28 +73,34 @@ namespace AutoSplitterCore
 
         private ASLSplitter()
         {
-#if !HCMv2
-            //Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
-            //state = GeneratorState();
-            //asl = new ASLComponent(state);
-            //_timer.Tick += ASCHandlerSetters;
-
-            InitializePipeClient();
-#else
-            InitializePipeClient().GetAwaiter();
+#if HCMv2
+            HCMv2 = true;
 #endif
+            if (HCMv2)
+                InitializePipeClient();
+            else
+            {
+                Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
+                state = GeneratorState();
+                asl = new ASLComponent(state);
+                _timer.Tick += ASCHandlerSetters;
+            }
         }
 
         ~ASLSplitter()
         {
-            _client?.Disconnect();
-            Thread.Sleep(2000); //Wait for Subprocess Closings
-            var processes = Process.GetProcessesByName("ASLBridge");
-            if (processes.Any())
+            if (HCMv2)
             {
-                foreach (var proc in processes)
+                _client?.Disconnect();
+                _clientIgt?.Disconnect();
+                Thread.Sleep(2000); //Wait for Subprocess Closings
+                var processes = Process.GetProcessesByName("ASLBridge");
+                if (processes.Any())
                 {
-                    proc.Kill();
+                    foreach (var proc in processes)
+                    {
+                        proc.Kill();
+                    }
                 }
             }
         }
@@ -107,7 +115,16 @@ namespace AutoSplitterCore
             if (!Process.GetProcessesByName(exeName).Any())
             {
                 string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ASLBridge.exe");
-                Process.Start(path);
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = path,
+                    Arguments = "--from-client",
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                });
+
                 DebugLog.LogMessage("ASLBridge iniciado.");
                 await Task.Delay(2000);
             }
@@ -121,6 +138,7 @@ namespace AutoSplitterCore
             _client.OnStart += (s, e) => ASCOnStart(s, e);
             _client.OnReset += (s, e) => ASCOnReset(s, e);
         }
+
 
         private LiveSplitState GeneratorState()
         {
@@ -200,9 +218,7 @@ namespace AutoSplitterCore
         public void SetStatusSplitting(bool status)
         {
             _AslActive = status;
-#if !HCMv2
-            //if (!ASCHandlerSetted) _timer.Start();
-#endif
+            if (!HCMv2 && !ASCHandlerSetted) _timer.Start();
         }
 
         public async Task OpenForm()
@@ -224,7 +240,8 @@ namespace AutoSplitterCore
 
                 _igtEnable = value;
 
-                if (!setedBridge && value) 
+
+                if (!HCMv2 && !setedBridge && value)
                 {
                     _ = EnableAslBridgeIGT();
                 }
@@ -240,25 +257,33 @@ namespace AutoSplitterCore
         }
 
 
-        public async Task<bool> GetStatusGame()
+        public bool GetStatusGame()
         {
-            return true;
-#if HCMv2
-            
-#endif
-            return asl.Script != null ? asl.Script.ProccessAtached() : false;
+            if (!HCMv2)
+            {
+                return asl?.Script?.ProccessAtached() ?? false;
+            }
+            else
+            {
+                // Not critical to implement. Multiple concurrent queries were causing issues, 
+                // so a similar approach to GetIngameTime should be used with a separate named pipe.
+                // Execution should be considered active only if the pipe is connected.
+                if (_client != null)
+                    return _client.PipeOnline;
+                else return false;
+            }
         }
 
-        public long GetIngameTime()        
+        public long GetIngameTime()
         {
-
-            return _clientIgt != null ? _clientIgt.LastIGT : -1;
-#if HCMv2
-        
-            
-#endif
-
-            return state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
+            if (!HCMv2)
+            {
+                return (long?)state?.CurrentTime.GameTime?.TotalMilliseconds ?? -1;
+            }
+            else
+            {
+                return _clientIgt != null ? _clientIgt.LastIGT : -1;
+            }
         }
         #endregion
         #region CheckFlag Init()

@@ -13,10 +13,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <ApplicationIcon>AutoSplitterSetupIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputType>WinExe</OutputType>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,9 +25,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <NoWarn>MSB3277;NU1605</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
     <OutputType>Library</OutputType>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -38,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <NoWarn>MSB3277;NU1605</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>AutoSplitterSetupIcon.ico</ApplicationIcon>
@@ -115,8 +115,8 @@
     <Compile Include="Sources\AutoSplitters\Ds3Splitter.cs" />
     <Compile Include="Sources\AutoSplitters\EldenSplitter.cs" />
     <Compile Include="Sources\AutoSplitters\HollowSplitter.cs" />
-    <Compile Include="Sources\AutoSplitters\NamedPipeClient.cs" />
-    <Compile Include="Sources\AutoSplitters\NamedPipeClientIGT.cs" />
+    <Compile Include="Sources\PipeConnections\NamedPipeClient.cs" />
+    <Compile Include="Sources\PipeConnections\NamedPipeClientIGT.cs" />
     <Compile Include="Sources\AutoSplitters\SekiroSplitter.cs" />
     <Compile Include="Sources\Control\HitterControl.cs" />
     <Compile Include="Sources\Control\SplitterControl.cs" />
@@ -245,14 +245,17 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.1" />
-    <PackageReference Include="System.CodeDom" Version="9.0.2" />
-    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <PackageReference Include="System.CodeDom" Version="9.0.3" />
+    <PackageReference Include="System.Memory" Version="4.6.2" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.1" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="&#xD;&#xA;    echo ========= Post-Build Copy =========&#xD;&#xA;    set SOURCE_DIR=$(ProjectDir)Sources&#xD;&#xA;    set TARGET_DIR=$(TargetDir)&#xD;&#xA;    echo Copying files from %SOURCE_DIR% to %TARGET_DIR%...&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\soulmods_x64.dll&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\soulmods_x86.dll&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\CliTimer.exe&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    echo All files have been copied successfully." />
     <Exec Condition="'$(Configuration)' == 'Release'" Command="&#xD;&#xA;    echo ========= Cleaning up .pdb files for Release =========&#xD;&#xA;    del /q &quot;$(TargetDir)*.pdb&quot;&#xD;&#xA;    echo .pdb files deleted." />
   </Target>
+  <PropertyGroup>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
 </Project>

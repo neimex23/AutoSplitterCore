@@ -219,8 +219,8 @@ namespace AutoSplitterCore
             formatter.Serialize(myStream, generalAS);
             myStream.Close();
 
-#if !HCMv2
-            //SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
+#if !HCMv2 //ASLBridge Setted your custom SaveModule for Save and Load XMLData
+            SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
 #endif
         }
 
@@ -345,7 +345,7 @@ namespace AutoSplitterCore
             dishonoredSplitter.SetDataDishonored(dataDishonored);
 
 #if !HCMv2
-            //LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
+            LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
 #endif
         }
 

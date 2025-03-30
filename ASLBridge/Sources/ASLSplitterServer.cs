@@ -153,7 +153,7 @@ namespace ASLBridge
         #region Checking
         public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
 
-        public long GetIngameTime() => state != null ? (long)state.CurrentTime.GameTime.Value.TotalMilliseconds : -1;
+        public long GetIngameTime() => (long?)state?.CurrentTime.GameTime?.TotalMilliseconds ?? -1;
         #endregion
 
         private void ASCOnSplit(object sender, EventArgs e) => ASCOnSplitHandler?.Invoke(this, e);

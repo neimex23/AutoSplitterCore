@@ -22,7 +22,6 @@
 
 using LiveSplit.Model;
 using LiveSplit.Web;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +66,7 @@ namespace ASLBridge
         {
             if (firstStart)
             {
-                //HideForm();
+                HideForm();
                 firstStart = false;
             }
         }

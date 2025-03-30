@@ -21,6 +21,7 @@
 //SOFTWARE.
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -29,8 +30,14 @@ namespace ASLBridge
     public static class Program
     {
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (!args.Contains("--from-client"))
+            {
+                MessageBox.Show("This program is not intended to be run directly. Please run the HCM + ASC application instead.", "ASLBridge", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Environment.Exit(0);
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(ASLFormServer.GetIntance());

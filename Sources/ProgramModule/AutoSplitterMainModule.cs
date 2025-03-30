@@ -458,33 +458,30 @@ namespace AutoSplitterCore
                 default: anyGameTime = false; autoTimer = false; break;
             }
 
+            if (!autoTimer && !anyGameTime) return;
+
+            bool gameIsRunning = GameOn();
+            long inGameTime = -1;
+
+            if (gameIsRunning)
+            {
+                try
+                {
+                    inGameTime = igtModule.ReturnCurrentIGT();
+                }
+                catch (Exception) { inGameTime = -1; }
+            }
+
 
             //AutoTimerReset Checking
             if (autoTimer && anyGameTime)
             {
-                long inGameTime = -1;
-                if (GameOn())
-                {
-                    try
-                    {
-                        inGameTime = igtModule.ReturnCurrentIGT();
-                    }
-                    catch (Exception) { inGameTime = -1; }
-                }
+                bool timeAdvanced = inGameTime > 0 && _lastTime != inGameTime;
+                bool shouldStart = timeAdvanced && !splitterControl.CurrentFinalSplit() && gameIsRunning;
+                bool shouldStop = (!timeAdvanced || splitterControl.CurrentFinalSplit() || !gameIsRunning);
 
-                if (inGameTime > 0 && _lastTime != inGameTime && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && GameOn())
-                {
-                    splitterControl.UpdateDuration();
-                    splitterControl.StartStopTimer(true);
-                    splitterControl.UpdateDuration();
-                }
-
-                if ((inGameTime <= 0 || (inGameTime > 0 && _lastTime == inGameTime) || splitterControl.CurrentFinalSplit() || !GameOn()) && splitterControl.GetTimerRunning())
-                {
-                    splitterControl.UpdateDuration();
-                    splitterControl.StartStopTimer(false);
-                    splitterControl.UpdateDuration();
-                }
+                if (shouldStart) TryStartTimer();
+                if (shouldStop) TryStopTimer();
 
                 if (inGameTime > 0)
                     _lastTime = inGameTime;
@@ -492,21 +489,28 @@ namespace AutoSplitterCore
 
             if (autoTimer && !anyGameTime)
             {
-                long inGameTime = -1;
-                if (GameOn())
-                {
-                    try
-                    {
-                        inGameTime = igtModule.ReturnCurrentIGT();
-                    }
-                    catch (Exception) { inGameTime = -1; }
-                }
-
-                if (inGameTime > 0 && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && GameOn())
+                if (inGameTime > 0 && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && gameIsRunning)
                     splitterControl.StartStopTimer(true);
 
-                if ((inGameTime <= 0 || splitterControl.CurrentFinalSplit() || !GameOn()) && splitterControl.GetTimerRunning())
+                if ((inGameTime <= 0 || splitterControl.CurrentFinalSplit() || !gameIsRunning) && splitterControl.GetTimerRunning())
                     splitterControl.StartStopTimer(false);
+            }
+        }
+        void TryStartTimer()
+        {
+            if (!splitterControl.GetTimerRunning())
+            {
+                splitterControl.StartStopTimer(true);
+                splitterControl.UpdateDuration();
+            }
+        }
+
+        void TryStopTimer()
+        {
+            if (splitterControl.GetTimerRunning())
+            {
+                splitterControl.StartStopTimer(false);
+                splitterControl.UpdateDuration();
             }
         }
 
@@ -611,44 +615,8 @@ namespace AutoSplitterCore
             { (int) GameConstruction.Game.Celeste, () => celesteSplitter._StatusCeleste },
             { (int) GameConstruction.Game.Dishonored, () => dishonoredSplitter._StatusDish },
             { (int) GameConstruction.Game.Cuphead, () => cupSplitter._StatusCuphead },
-            { (int) GameConstruction.Game.ASLMethod, () => GetStatusGameSafe() }
+            { (int) GameConstruction.Game.ASLMethod, () => aslSplitter.GetStatusGame() }
         };
-
-        private static DateTime _lastCheckTime = DateTime.MinValue;
-        private static bool _lastStatus = false;
-        private static bool _isCheckingStatus = false;
-
-        public static bool GetStatusGameSafe()
-        {
-            if ((DateTime.Now - _lastCheckTime).TotalSeconds < 1)
-                return _lastStatus;
-
-            if (_isCheckingStatus)
-                return _lastStatus;
-
-            try
-            {
-                _isCheckingStatus = true;
-                var task = aslSplitter.GetStatusGame();
-
-                if (task.Wait(1000)) // Espera hasta 1 segundo
-                {
-                    _lastStatus = task.GetAwaiter().GetResult(); // ← más seguro
-                    _lastCheckTime = DateTime.Now;
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugLog.LogMessage($"[ASL] Error real en GetStatusGameSafe: {ex.GetBaseException().Message}");
-            }
-            finally
-            {
-                _isCheckingStatus = false;
-            }
-
-            return _lastStatus;
-        }
-
 
         public bool GameOn()
         {

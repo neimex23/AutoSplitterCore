@@ -94,19 +94,6 @@ namespace AutoSplitterCore
             }
         }
 
-
-        private async Task WaitForPipeConnectionAsync(CancellationToken token = default)
-        {
-            while (!PipeOnline)
-            {
-                if (token.IsCancellationRequested)
-                    break;
-
-                await Task.Delay(500, token);
-            }
-        }
-
-
         public void Disconnect()
         {
             _cts.Cancel();

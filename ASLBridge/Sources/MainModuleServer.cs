@@ -99,7 +99,7 @@ namespace ASLBridge
                                 Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
                                 HandleCommand("exit");
                             }
-                        }                       
+                        }
                     }
                     catch (IOException ex)
                     {
@@ -183,7 +183,7 @@ namespace ASLBridge
                     OpenForm?.Invoke(null, EventArgs.Empty);
                     return "Opened Form";
                 case "exit":
-                    SaveModule.SaveASLSettings();           
+                    SaveModule.SaveASLSettings();
                     serverRunning = false;
                     _writer.Dispose();
                     ASLFormServer.GetIntance().CloseForm();
