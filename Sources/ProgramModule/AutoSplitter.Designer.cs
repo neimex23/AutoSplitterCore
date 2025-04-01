@@ -30,10 +30,10 @@ namespace AutoSplitterCore
         private void InitializeComponent()
         {
             this.TabControlGeneral = new ReaLTaiizor.Controls.PoisonTabControl();
-            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.textBoxManual = new System.Windows.Forms.TextBox();
             this.tabLicense = new ReaLTaiizor.Controls.PoisonTabPage();
             this.textBoxLicenses = new System.Windows.Forms.TextBox();
+            this.tabInfo = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.textBoxManual = new System.Windows.Forms.TextBox();
             this.tabConfig = new ReaLTaiizor.Controls.PoisonTabPage();
             this.labelWarning = new System.Windows.Forms.Label();
             this.groupBoxOtherS = new ReaLTaiizor.Controls.GroupBox();
@@ -629,8 +629,8 @@ namespace AutoSplitterCore
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.TabControlGeneral.SuspendLayout();
-            this.tabInfo.SuspendLayout();
             this.tabLicense.SuspendLayout();
+            this.tabInfo.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
             this.groupBoxMProfile.SuspendLayout();
@@ -794,11 +794,46 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 0;
+            this.TabControlGeneral.SelectedIndex = 5;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
             this.TabControlGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxToSplitEldenRing_SelectedIndexChanged);
+            // 
+            // tabLicense
+            // 
+            this.tabLicense.BackColor = System.Drawing.Color.White;
+            this.tabLicense.Controls.Add(this.textBoxLicenses);
+            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabLicense.HorizontalScrollbarBarColor = true;
+            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabLicense.HorizontalScrollbarSize = 10;
+            this.tabLicense.Location = new System.Drawing.Point(4, 44);
+            this.tabLicense.Name = "tabLicense";
+            this.tabLicense.Size = new System.Drawing.Size(609, 352);
+            this.tabLicense.TabIndex = 3;
+            this.tabLicense.Text = "License";
+            this.tabLicense.UseCustomBackColor = true;
+            this.tabLicense.VerticalScrollbarBarColor = true;
+            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
+            this.tabLicense.VerticalScrollbarSize = 10;
+            // 
+            // textBoxLicenses
+            // 
+            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenses.Multiline = true;
+            this.textBoxLicenses.Name = "textBoxLicenses";
+            this.textBoxLicenses.ReadOnly = true;
+            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
+            this.textBoxLicenses.TabIndex = 3;
+            this.textBoxLicenses.TabStop = false;
+            this.textBoxLicenses.Text = "THIRDPARTYLICENSEREADME";
             // 
             // tabInfo
             // 
@@ -835,41 +870,6 @@ namespace AutoSplitterCore
             this.textBoxManual.TabIndex = 4;
             this.textBoxManual.TabStop = false;
             this.textBoxManual.Text = "AUTOSPLITTERREADME";
-            // 
-            // tabLicense
-            // 
-            this.tabLicense.BackColor = System.Drawing.Color.White;
-            this.tabLicense.Controls.Add(this.textBoxLicenses);
-            this.tabLicense.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabLicense.HorizontalScrollbarBarColor = true;
-            this.tabLicense.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabLicense.HorizontalScrollbarSize = 10;
-            this.tabLicense.Location = new System.Drawing.Point(4, 44);
-            this.tabLicense.Name = "tabLicense";
-            this.tabLicense.Size = new System.Drawing.Size(609, 352);
-            this.tabLicense.TabIndex = 3;
-            this.tabLicense.Text = "License";
-            this.tabLicense.UseCustomBackColor = true;
-            this.tabLicense.VerticalScrollbarBarColor = true;
-            this.tabLicense.VerticalScrollbarHighlightOnWheel = false;
-            this.tabLicense.VerticalScrollbarSize = 10;
-            // 
-            // textBoxLicenses
-            // 
-            this.textBoxLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenses.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxLicenses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxLicenses.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenses.Multiline = true;
-            this.textBoxLicenses.Name = "textBoxLicenses";
-            this.textBoxLicenses.ReadOnly = true;
-            this.textBoxLicenses.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLicenses.Size = new System.Drawing.Size(600, 343);
-            this.textBoxLicenses.TabIndex = 3;
-            this.textBoxLicenses.TabStop = false;
-            this.textBoxLicenses.Text = "THIRDPARTYLICENSEREADME";
             // 
             // tabConfig
             // 
@@ -3167,14 +3167,13 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.Color.White;
+            this.tabSekiro.Controls.Add(this.panelMortalJourney);
             this.tabSekiro.Controls.Add(this.panelBossS);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
             this.tabSekiro.Controls.Add(this.panelMinibossSekiro);
             this.tabSekiro.Controls.Add(this.panelPositionS);
-            this.tabSekiro.Controls.Add(this.panelMortalJourney);
             this.tabSekiro.Controls.Add(this.panelLevelSekiro);
             this.tabSekiro.Controls.Add(this.panelCfSekiro);
-            this.tabSekiro.Controls.Add(this.panelCfER);
             this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
             this.tabSekiro.Controls.Add(this.btnRefreshSekiro);
             this.tabSekiro.Controls.Add(this.btnDesactiveSekiro);
@@ -5384,6 +5383,7 @@ namespace AutoSplitterCore
             this.hopeTextBoxMortal.Size = new System.Drawing.Size(444, 131);
             this.hopeTextBoxMortal.TabIndex = 28;
             this.hopeTextBoxMortal.TabStop = false;
+            this.hopeTextBoxMortal.Text = "Mortal Journey Readme";
             this.hopeTextBoxMortal.UseSystemPasswordChar = false;
             // 
             // groupBoxMJS
@@ -5835,7 +5835,7 @@ namespace AutoSplitterCore
             this.panelCfER.Controls.Add(this.label88);
             this.panelCfER.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.panelCfER.ForeColor = System.Drawing.Color.White;
-            this.panelCfER.Location = new System.Drawing.Point(34, 85);
+            this.panelCfER.Location = new System.Drawing.Point(33, 85);
             this.panelCfER.Name = "panelCfER";
             this.panelCfER.Padding = new System.Windows.Forms.Padding(5);
             this.panelCfER.ShowText = false;
@@ -6144,6 +6144,7 @@ namespace AutoSplitterCore
             // tabElden
             // 
             this.tabElden.BackColor = System.Drawing.Color.White;
+            this.tabElden.Controls.Add(this.panelCfER);
             this.tabElden.Controls.Add(this.panelGraceER);
             this.tabElden.Controls.Add(this.panelBossER);
             this.tabElden.Controls.Add(this.panelPositionsER);
@@ -12196,7 +12197,7 @@ namespace AutoSplitterCore
             this.comboBoxHowP.Name = "comboBoxHowP";
             this.comboBoxHowP.Size = new System.Drawing.Size(328, 22);
             this.comboBoxHowP.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.comboBoxHowP.StartIndex = -1;
+            this.comboBoxHowP.StartIndex = 0;
             this.comboBoxHowP.TabIndex = 35;
             this.comboBoxHowP.TriangleColorA = System.Drawing.Color.Black;
             this.comboBoxHowP.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
@@ -12446,8 +12447,8 @@ namespace AutoSplitterCore
             this.comboBoxSelectKindBoss.ColorA = System.Drawing.Color.Transparent;
             this.comboBoxSelectKindBoss.ColorB = System.Drawing.Color.LightYellow;
             this.comboBoxSelectKindBoss.ColorC = System.Drawing.Color.Cornsilk;
-            this.comboBoxSelectKindBoss.ColorD = System.Drawing.Color.Yellow;
-            this.comboBoxSelectKindBoss.ColorE = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSelectKindBoss.ColorD = System.Drawing.Color.Gold;
+            this.comboBoxSelectKindBoss.ColorE = System.Drawing.Color.Silver;
             this.comboBoxSelectKindBoss.ColorF = System.Drawing.Color.Snow;
             this.comboBoxSelectKindBoss.ColorG = System.Drawing.Color.Black;
             this.comboBoxSelectKindBoss.ColorH = System.Drawing.Color.Black;
@@ -13812,10 +13813,10 @@ namespace AutoSplitterCore
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.AutoSplitter_Load);
             this.TabControlGeneral.ResumeLayout(false);
-            this.tabInfo.ResumeLayout(false);
-            this.tabInfo.PerformLayout();
             this.tabLicense.ResumeLayout(false);
             this.tabLicense.PerformLayout();
+            this.tabInfo.ResumeLayout(false);
+            this.tabInfo.PerformLayout();
             this.tabConfig.ResumeLayout(false);
             this.tabConfig.PerformLayout();
             this.groupBoxOtherS.ResumeLayout(false);

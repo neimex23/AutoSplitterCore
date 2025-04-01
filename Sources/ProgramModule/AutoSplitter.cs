@@ -269,8 +269,10 @@ namespace AutoSplitterCore
             #region Loading Texts
             var ASCReadme = Properties.Resources.AUTOSPLITTERREADME;
             var ThirdPartyLicence = Properties.Resources.THIRDPARTYLICENSEREADME;
+            var MortalJourney = Properties.Resources.MortalJourney;
             textBoxManual.Text = ASCReadme;
             textBoxLicenses.Text = ThirdPartyLicence;
+            hopeTextBoxMortal.Text = MortalJourney;
             #endregion
 
             DTSekiro sekiroData = sekiroSplitter.GetDataSekiro();

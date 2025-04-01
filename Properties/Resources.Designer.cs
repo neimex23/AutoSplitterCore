@@ -112,6 +112,37 @@ namespace AutoSplitterCore.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Mortal Journey run should be activated if you run play this gauntlet,
+        ///Work by trigger of positions and split after loading events.
+        ///And not check if you run not is this.
+        ///Split Automatically the next bosses in this order 
+        ///17 splits no more and no less:
+        ///
+        ///Gyoubu
+        ///Lady Butterfly
+        ///Genichiro
+        ///Guardian Ape
+        ///Corrupted Monk
+        ///Owl
+        ///Double Apes
+        ///Emma
+        ///Isshin
+        ///True Monk
+        ///Owl Father
+        ///Demon of Hatred
+        ///Genichiro Way of Tomoe
+        ///Sword Saint Isshin
+        ///Inner Genichiro
+        ///Inner Father
+        ///Inner Isshin.
+        /// </summary>
+        internal static string MortalJourney {
+            get {
+                return ResourceManager.GetString("MortalJourney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Considerations when uploading or downloading a profile:
         ///
         ///- The currently active profile will be uploaded, you can see the information in the corresponding box, the description and name must be clear.

@@ -194,6 +194,9 @@
       <DependentUpon>GoogleAuth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="appsettings.json" />
+    <EmbeddedResource Include="Sources\ProgramModule\AutoSplitter.resx">
+      <DependentUpon>AutoSplitter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
