@@ -7,7 +7,12 @@ import { Features } from "../Components/Home/Features";
 import { FireParticles } from "../Components/Home/FireParticles";
 import "./Home.css";
 
+import { useNavigate } from "react-router-dom";
+
+
+
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
       <FireParticles />
@@ -25,9 +30,15 @@ export const Home = () => {
         <a
           href="https://github.com/neimex23/AutoSplitterCore/releases/latest"
           target="_blank"
-          className="max-w-[280px] bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:bg-blue-700 flex justify-center block mx-auto">
+          className="max-w-[280px] bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:bg-blue-700 flex justify-center block mx-auto"
+        >
           Download Now
         </a>
+
+        <button className="golden-button" onClick={() => navigate("OpenBeta")}>
+          Download Beta
+          <span className="sparkles" />
+        </button>
 
         <AutoSplitterFlags />
 

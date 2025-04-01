@@ -10,3 +10,48 @@
         />
 </div> para colocar imagen de fondo
 */
+.golden-button {
+  position: relative;
+  background: linear-gradient(45deg, #FFD700, #FFC700);
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #FFD700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.golden-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500;
+}
+
+.sparkles {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #fff 0%, transparent 70%) center/10px 10px repeat;
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkle 1.5s infinite linear;
+}
+
+.golden-button:hover .sparkles {
+  opacity: 0.6;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
