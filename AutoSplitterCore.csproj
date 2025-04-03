@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -22,10 +22,11 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <NoWarn>MSB3277;NU1605</NoWarn>
+    <NoWarn>MSB3277</NoWarn>
     <PlatformTarget>x64</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputType>Library</OutputType>
@@ -34,10 +35,11 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <NoWarn>MSB3277;NU1605</NoWarn>
+    <NoWarn>MSB3277</NoWarn>
     <PlatformTarget>x64</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>AutoSplitterSetupIcon.ico</ApplicationIcon>
@@ -258,7 +260,4 @@
     <Exec Command="&#xD;&#xA;    echo ========= Post-Build Copy =========&#xD;&#xA;    set SOURCE_DIR=$(ProjectDir)Sources&#xD;&#xA;    set TARGET_DIR=$(TargetDir)&#xD;&#xA;    echo Copying files from %SOURCE_DIR% to %TARGET_DIR%...&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\soulmods_x64.dll&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\soulmods_x86.dll&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    copy /y &quot;%SOURCE_DIR%\CliTimer.exe&quot; &quot;%TARGET_DIR%&quot;&#xD;&#xA;    echo All files have been copied successfully." />
     <Exec Condition="'$(Configuration)' == 'Release'" Command="&#xD;&#xA;    echo ========= Cleaning up .pdb files for Release =========&#xD;&#xA;    del /q &quot;$(TargetDir)*.pdb&quot;&#xD;&#xA;    echo .pdb files deleted." />
   </Target>
-  <PropertyGroup>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-  </PropertyGroup>
 </Project>

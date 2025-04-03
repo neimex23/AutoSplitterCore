@@ -149,14 +149,14 @@
             this.metroCheckBoxIGT.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.metroCheckBoxIGT.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroCheckBoxIGT.IsDerivedStyle = true;
-            this.metroCheckBoxIGT.Location = new System.Drawing.Point(54, 39);
+            this.metroCheckBoxIGT.Location = new System.Drawing.Point(68, 46);
             this.metroCheckBoxIGT.Name = "metroCheckBoxIGT";
             this.metroCheckBoxIGT.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
-            this.metroCheckBoxIGT.Size = new System.Drawing.Size(224, 16);
+            this.metroCheckBoxIGT.Size = new System.Drawing.Size(190, 16);
             this.metroCheckBoxIGT.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             this.metroCheckBoxIGT.StyleManager = null;
             this.metroCheckBoxIGT.TabIndex = 2;
-            this.metroCheckBoxIGT.Text = "Use Game Time (When is available)";
+            this.metroCheckBoxIGT.Text = "Use Game Time (if available)";
             this.metroCheckBoxIGT.ThemeAuthor = "Taiizor";
             this.metroCheckBoxIGT.ThemeName = "MetroLight";
             this.metroCheckBoxIGT.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.metroCheckBoxIGT_CheckedChanged);
@@ -165,11 +165,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(65, 60);
+            this.label2.Location = new System.Drawing.Point(76, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 28);
+            this.label2.Size = new System.Drawing.Size(169, 14);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Start override with Start+IGT\r\nNot use if GameTime is not available";
+            this.label2.Text = "Start override with Start+IGT";
             // 
             // groupBoxDownloadASL
             // 

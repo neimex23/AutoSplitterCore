@@ -121,7 +121,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 14);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Path Save";
+            this.label3.Text = "Save Path\t";
             // 
             // textBoxSavePath
             // 
@@ -194,7 +194,7 @@
             this.groupBox2.Size = new System.Drawing.Size(603, 734);
             this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox2.TabIndex = 2;
-            this.groupBox2.Text = "Managment";
+            this.groupBox2.Text = "Management";
             // 
             // checkBoxViewGeneralSettings
             // 

@@ -5675,7 +5675,7 @@ namespace AutoSplitterCore
             this.btnGetListFlagsSekiro.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnGetListFlagsSekiro.Size = new System.Drawing.Size(98, 24);
             this.btnGetListFlagsSekiro.TabIndex = 2;
-            this.btnGetListFlagsSekiro.Text = "Get List Flags";
+            this.btnGetListFlagsSekiro.Text = "Get List of Flags";
             this.btnGetListFlagsSekiro.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGetListFlagsSekiro.Click += new System.EventHandler(this.btnGetListFlagsSekiro_Click);
             // 
@@ -5881,7 +5881,7 @@ namespace AutoSplitterCore
             this.btnGetListER.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnGetListER.Size = new System.Drawing.Size(98, 24);
             this.btnGetListER.TabIndex = 2;
-            this.btnGetListER.Text = "Get List Flags";
+            this.btnGetListER.Text = "Get List of Flags";
             this.btnGetListER.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGetListER.Click += new System.EventHandler(this.btnGetListER_Click);
             // 
@@ -11574,7 +11574,7 @@ namespace AutoSplitterCore
             this.btnGetListFlagDs3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnGetListFlagDs3.Size = new System.Drawing.Size(98, 24);
             this.btnGetListFlagDs3.TabIndex = 2;
-            this.btnGetListFlagDs3.Text = "Get List Flags";
+            this.btnGetListFlagDs3.Text = "Get List of Flags";
             this.btnGetListFlagDs3.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGetListFlagDs3.Click += new System.EventHandler(this.btnGetListFlagDs3_Click);
             // 

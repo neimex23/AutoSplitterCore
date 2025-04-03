@@ -18,13 +18,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>MSB3277;;NU1605</NoWarn>
+    <NoWarn>MSB3277;NU1605</NoWarn>
     <DefineConstants>$(DefineConstants);HCMv2</DefineConstants>
     <WarningsAsErrors />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>MSB3277;;NU1605</NoWarn>
+    <NoWarn>MSB3277;NU1605</NoWarn>
     <DefineConstants>$(DefineConstants);HCMv2</DefineConstants>
     <WarningsAsErrors />
   </PropertyGroup>
