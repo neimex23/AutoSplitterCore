@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FireParticles } from "../Components/Home/FireParticles";
 import { Header } from "../Components/Home/Header";
+import { Footer } from "../Components/Home/Footer";
 
 const features = [
   {
@@ -30,8 +31,8 @@ export const BetaDownload = () => {
   return (
     <>
       <FireParticles />
-      <Header h2Valor={"ASC OpenBeta 3.0"} />
       <div className="bg-black">
+        <Header h2Valor={"ASC OpenBeta 3.0"} />
         <section id="visual-features" className="w-full">
           {features.map((feature, index) => (
             <div
@@ -58,6 +59,7 @@ export const BetaDownload = () => {
           ))}
         </section>
       </div>
+      <Footer />
     </>
   );
 };
