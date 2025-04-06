@@ -46,7 +46,10 @@ namespace AutoSplitterCore
         private void ASLForm_Load(object sender, EventArgs e)
         {
             labelInfoASL.Text = Properties.Resources.ASLInfo;
-            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
+            using (var stream = new System.IO.MemoryStream(Properties.Resources.AutoSplitterSetup))
+            {
+                this.Icon = new System.Drawing.Icon(stream);
+            }
             Control controlObteined = aslSplitter.AslControl;
             controlObteined.Margin = new Padding(5);
             controlObteined.Padding = new Padding(5);

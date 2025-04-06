@@ -22,7 +22,7 @@ namespace AutoSplitterCore.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AutoSplitterCore.Properties {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoSplitterCore.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace AutoSplitterCore.Properties {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -65,46 +65,46 @@ namespace AutoSplitterCore.Properties {
         ///Split: Triggered when the SplitFlag Trigger generates an HCM Split.
         ///Reset: Triggered when the Reset Trigger initiates an HCM Restart Run..
         /// </summary>
-        internal static string ASLInfo {
+        public static string ASLInfo {
             get {
                 return ResourceManager.GetString("ASLInfo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Notes:
-        ///===========================================
-        ///AutoSplitting:
-        ///- If You have problems to setup Extencion visit: https://github.com/neimex23/HitCounterManager/wiki
-        ///
-        ///- To activate any autosplitting you should select in main program &quot;Game to Split&quot;.
-        ///
-        ///- To Auto initialize Timer should select in main program &quot;Game to Split&quot; and check the game in Configuration AutoSplitter AutoTimer
-        ///
-        ///- Is recommended to configure everything before setting the game to spliter, to avoid autosplitting
-        ///
-        ///-Depends on Conf [resto de la cadena truncado]&quot;;.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static string AUTOSPLITTERREADME {
+        public static byte[] AUTOSPLITTERREADME {
             get {
-                return ResourceManager.GetString("AUTOSPLITTERREADME", resourceCulture);
+                object obj = ResourceManager.GetObject("AUTOSPLITTERREADME", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Icon AutoSplitterSetupIcon {
+        public static byte[] AutoSplitterSetup {
             get {
-                object obj = ResourceManager.GetObject("AutoSplitterSetupIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("AutoSplitterSetup", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Check {
+        public static System.Drawing.Bitmap AutoSplitterSetupIcon {
+            get {
+                object obj = ResourceManager.GetObject("AutoSplitterSetupIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Check {
             get {
                 object obj = ResourceManager.GetObject("Check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -136,7 +136,7 @@ namespace AutoSplitterCore.Properties {
         ///Inner Father
         ///Inner Isshin.
         /// </summary>
-        internal static string MortalJourney {
+        public static string MortalJourney {
             get {
                 return ResourceManager.GetString("MortalJourney", resourceCulture);
             }
@@ -156,7 +156,7 @@ namespace AutoSplitterCore.Properties {
         ///      * Visual Style
         ///      * Custom Profile Path, [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string ProfileWarning {
+        public static string ProfileWarning {
             get {
                 return ResourceManager.GetString("ProfileWarning", resourceCulture);
             }
@@ -171,28 +171,19 @@ namespace AutoSplitterCore.Properties {
         ///   Optimized Performance: New updates often include performance improvements.
         ///   Compatibility: Ensures smooth integration with the la [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string SoulsMemoryNotice {
+        public static string SoulsMemoryNotice {
             get {
                 return ResourceManager.GetString("SoulsMemoryNotice", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Licence information:
-        ///
-        ///The software aims to only use licenses that allow commercial and non-commercial use.
-        ///Moreover it aims to use the whole software without any charge.
-        ///Therefore it should be free for everyone to use it without any costs.
-        ///DISCLAIMER: Above notice comes without warranty, so please refer to the explicit licenses below.
-        ///
-        ///==============================================================================
-        ///Title: AutoSplitterCore
-        ///Author: Ezequiel Medina (Neimex23)
-        ///Contact: &lt;ezequielmedina23 [resto de la cadena truncado]&quot;;.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static string THIRDPARTYLICENSEREADME {
+        public static byte[] THIRDPARTYLICENSEREADME {
             get {
-                return ResourceManager.GetString("THIRDPARTYLICENSEREADME", resourceCulture);
+                object obj = ResourceManager.GetObject("THIRDPARTYLICENSEREADME", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

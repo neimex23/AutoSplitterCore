@@ -20,7 +20,10 @@ namespace AutoSplitterCore
 
         private void UpdateShowDialog_Load(object sender, EventArgs e)
         {
-            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
+            using (var stream = new System.IO.MemoryStream(Properties.Resources.AutoSplitterSetup))
+            {
+                this.Icon = new System.Drawing.Icon(stream);
+            }
             LabelVersion.Text = updateModule.currentVer;
             labelCloudVer.Text = updateModule.cloudVer;
             groupBoxInstallerSelect.Hide();
@@ -72,7 +75,8 @@ namespace AutoSplitterCore
             string url = $"https://github.com/neimex23/AutoSplitterCore/releases/download/ASC_v{ver}/AutoSplitterCore_";
             string extractPath = Path.Combine(Directory.GetCurrentDirectory(), "Update");
 
-            if (!Directory.Exists(extractPath)) Directory.CreateDirectory(extractPath);
+            if (Directory.Exists(extractPath)) Directory.Delete(extractPath, true);
+            Directory.CreateDirectory(extractPath);
 
             foreach (var file in Directory.GetFiles(extractPath))
             {

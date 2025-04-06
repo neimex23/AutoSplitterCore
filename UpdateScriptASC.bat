@@ -1,7 +1,7 @@
 @echo off
 Color 1F
 echo ======== AutoSpliterCore Update Script ========
-echo                      v1.2
+echo                      v1.3
 echo ============================================
 echo Warning: This script must not be run individually, 
 echo you must download the files from the program first 
@@ -51,11 +51,9 @@ if %1 equ 1 (
     TIMEOUT 3
     rem
     echo ========= Stage 2: Updating Dll =========
-    del .\SoulMemory.dll
-    del .\soulmemory_rs_x64.dll
-    del .\soulmods_x64.dll
-
-    xcopy ".\Update\CliTimer\*" ".\" /E /H /C /I /Y
+    xcopy ".\Update\SoulMemory.dll" ".\" /Y
+    xcopy ".\Update\soulmods_x64.dll" ".\" /Y
+    xcopy ".\Update\soulmods_x86.dll" ".\" /Y
 
     rem     
     echo ========= Stage 3: Cleaning =========
@@ -64,5 +62,27 @@ if %1 equ 1 (
     echo ============================================
 )
 
-@echo on
 pause
+
+@echo off
+if "%1"=="1" (
+    goto RunApp
+) else if "%1"=="2" (
+    goto RunApp
+) else if "%1"=="3" (
+    goto RunApp
+) else (
+    exit /b
+)
+
+:RunApp
+@echo on
+echo ========= Starting Application =========
+if exist "HitCounterManager.exe" (
+    powershell -Command "Start-Process 'HitCounterManager.exe' -Verb RunAs"
+) else if exist "AutoSplitterCore.exe" (
+    powershell -Command "Start-Process 'AutoSplitterCore.exe' -Verb RunAs"
+) else ( 
+    echo HitCounterManager.exe or AutoSplitterCore.exe not found
+    pause
+)

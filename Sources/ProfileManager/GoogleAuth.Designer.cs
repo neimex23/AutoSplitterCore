@@ -622,6 +622,8 @@
             this.Controls.Add(this.groupBoxManagment);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Image = global::AutoSplitterCore.Properties.Resources.AutoSplitterSetupIcon;
             this.Name = "GoogleAuth";
             this.Text = "Google Auth";
             this.Load += new System.EventHandler(this.GoogleAuth_Load);

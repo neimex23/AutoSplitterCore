@@ -29,6 +29,7 @@ using Google.Apis.Oauth2.v2;
 using Google.Apis.Oauth2.v2.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using HeyRed.Mime;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -74,7 +75,6 @@ namespace AutoSplitterCore
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
             textBoxWarning.Text = Properties.Resources.ProfileWarning;
-            this.Image = Properties.Resources.AutoSplitterSetupIcon.ToBitmap();
             checkedListBoxGames.Items.Clear();
             foreach (var games in GameConstruction.GameList)
             {
@@ -466,7 +466,7 @@ namespace AutoSplitterCore
                 };
 
                 // Determine MIME type
-                string mimeType = MimeTypes.GetMimeType(path);
+                string mimeType = MimeTypesMap.GetMimeType(path);
 
                 // Upload file
                 using (var stream = new FileStream(path, FileMode.Open))
@@ -877,27 +877,32 @@ namespace AutoSplitterCore
                     var response = context.Request.Url.Query;
 
                     if (response.StartsWith("?"))
-                    {
                         response = response.Substring(1);
-                    }
 
-                    var authorizationCodeResponse = new AuthorizationCodeResponseUrl()
+                    var parsedQuery = HttpUtility.ParseQueryString(response);
+                    var code = parsedQuery.Get("code");
+                    var error = parsedQuery.Get("error");
+                    var errorDescription = parsedQuery.Get("error_description");
+
+                    var authorizationCodeResponse = new AuthorizationCodeResponseUrl
                     {
-                        Code = System.Web.HttpUtility.ParseQueryString(response).Get("code"),
-                        Error = System.Web.HttpUtility.ParseQueryString(response).Get("error"),
-                        ErrorDescription = System.Web.HttpUtility.ParseQueryString(response).Get("error_description")
+                        Code = code,
+                        Error = error,
+                        ErrorDescription = errorDescription
                     };
 
-                    context.Response.StatusCode = 200;
-                    context.Response.ContentType = "text/html";
                     string responseHtml = GenerateHTML();
                     byte[] responseBytes = Encoding.UTF8.GetBytes(responseHtml);
 
-#if NET7_0_OR_GREATER
-                    await context.Response.OutputStream.WriteAsync(responseBytes);
-#else
-                    await context.Response.OutputStream.WriteAsync(responseBytes, 0, responseBytes.Length);
-#endif
+                    context.Response.StatusCode = 200;
+                    context.Response.ContentType = "text/html";
+                    context.Response.ContentLength64 = responseBytes.Length;
+
+                    using (var output = context.Response.OutputStream)
+                    {
+                        await output.WriteAsync(responseBytes, 0, responseBytes.Length);
+                        await output.FlushAsync();
+                    }
 
                     return authorizationCodeResponse;
                 }
@@ -912,6 +917,7 @@ namespace AutoSplitterCore
                 listener.Stop();
             }
         }
+
 
         private Task<HttpListenerContext> GetContextAsync(HttpListener listener)
         {

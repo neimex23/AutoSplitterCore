@@ -267,8 +267,8 @@ namespace AutoSplitterCore
             }
             #endregion
             #region Loading Texts
-            var ASCReadme = Properties.Resources.AUTOSPLITTERREADME;
-            var ThirdPartyLicence = Properties.Resources.THIRDPARTYLICENSEREADME;
+            var ASCReadme = System.Text.Encoding.UTF8.GetString(Properties.Resources.AUTOSPLITTERREADME);
+            var ThirdPartyLicence = System.Text.Encoding.UTF8.GetString(Properties.Resources.THIRDPARTYLICENSEREADME);
             var MortalJourney = Properties.Resources.MortalJourney;
             textBoxManual.Text = ASCReadme;
             textBoxLicenses.Text = ThirdPartyLicence;

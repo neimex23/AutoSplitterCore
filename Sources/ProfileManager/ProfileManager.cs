@@ -65,6 +65,11 @@ namespace AutoSplitterCore
             textBoxAuthor.Text = saveModule.GetAuthor();
             TextboxDescription.Text = saveModule.GetDescription();
 
+            textBoxSavePath.Refresh();
+            textBoxCurrrentProfile.Refresh();
+            textBoxAuthor.Refresh();
+            TextboxDescription.Refresh();
+
             prevIndex = comboBoxProfiles.SelectedIndex;
 
             comboBoxProfiles.Items.Clear();
@@ -162,7 +167,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "MiniBosses: " + Line;
@@ -174,7 +179,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
 
@@ -187,11 +192,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataSekiro.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataSekiro.positionMargin + Line;
             if (saveModule.dataAS.DataSekiro.positionsToSplit.Count > 0)
             {
                 foreach (var position in saveModule.dataAS.DataSekiro.positionsToSplit)
@@ -200,7 +205,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Mortal Journey: " + Line;
@@ -225,7 +230,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region DarkSouls1Summary
@@ -241,7 +246,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Bonfire: " + Line;
@@ -253,7 +258,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Attributes: " + Line;
@@ -265,11 +270,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataDs1.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataDs1.positionMargin + Line;
             if (saveModule.dataAS.DataDs1.positionsToSplit.Count > 0)
             {
                 foreach (var sb in saveModule.dataAS.DataDs1.positionsToSplit)
@@ -278,7 +283,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Attributes: " + Line;
@@ -290,7 +295,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Items: " + Line;
@@ -302,7 +307,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region DarkSouls2Summary
@@ -319,7 +324,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Attributes: " + Line;
@@ -331,11 +336,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataDs2.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataDs2.positionMargin + Line;
             if (saveModule.dataAS.DataDs2.positionsToSplit.Count > 0)
             {
                 foreach (var sb in saveModule.dataAS.DataDs2.positionsToSplit)
@@ -344,7 +349,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region DarkSouls3Summary
@@ -361,7 +366,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Attributes: " + Line;
@@ -373,7 +378,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Bonfire: " + Line;
@@ -385,7 +390,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Custom Flags: " + Line;
@@ -397,11 +402,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataDs3.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataDs3.positionMargin + Line;
             if (saveModule.dataAS.DataDs3.positionsToSplit.Count > 0)
             {
                 foreach (var sb in saveModule.dataAS.DataDs3.positionsToSplit)
@@ -410,7 +415,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region EldenRingSummary
@@ -427,7 +432,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Grace: " + Line;
@@ -439,11 +444,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataElden.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataElden.positionMargin + Line;
             if (saveModule.dataAS.DataElden.positionToSplit.Count > 0)
             {
                 foreach (var sb in saveModule.dataAS.DataDs2.positionsToSplit)
@@ -452,7 +457,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Custom Flags: " + Line;
@@ -464,7 +469,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region HollowKnightSummary
@@ -482,7 +487,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "MiniBosses: " + Line;
@@ -494,7 +499,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Pantheon: " + Line;
@@ -507,7 +512,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Skills: " + Line;
@@ -519,7 +524,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
 
@@ -532,11 +537,11 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + "Not Have Flags" + Line;
+                Summary += Space + "No Flags Available" + Line;
             Summary += Line;
 
             Summary += "Positions: " + Line;
-            Summary += Space + "Margin: " + saveModule.dataAS.DataHollow.positionMargin + Line;
+            Summary += Space + "Size: " + saveModule.dataAS.DataHollow.positionMargin + Line;
             if (saveModule.dataAS.DataHollow.positionToSplit.Count > 0)
             {
                 foreach (var p in saveModule.dataAS.DataHollow.positionToSplit)
@@ -545,7 +550,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region CelesteSummary
@@ -562,7 +567,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region CupheadSummary
@@ -578,7 +583,7 @@ namespace AutoSplitterCore
                 }
             }
             else
-                Summary += Space + Space + "Not Have Flags" + Line;
+                Summary += Space + Space + "No Flags Available" + Line;
             Summary += Line;
             #endregion
             #region Dishonored
@@ -652,7 +657,7 @@ namespace AutoSplitterCore
                 Summary += Space + Splits + Line;
             }
 
-            if (profile.Splits.Count == 0) { Summary += Space + "Not Have Splits" + Line; }
+            if (profile.Splits.Count == 0) { Summary += Space + "No Splits Available" + Line; }
 
             Summary += "=======================================================" + Line;
             return Summary;
@@ -678,7 +683,7 @@ namespace AutoSplitterCore
             {
                 Summary += Space + $"{splits.profileHCM} - {splits.profileASC}" + Line;
             }
-            if (saveModule.generalAS.profileLinks.Count == 0) { Summary += Space + "Not Profile Links Established" + Line; }
+            if (saveModule.generalAS.profileLinks.Count == 0) { Summary += Space + "No Profile Links Established" + Line; }
             Summary += "=======================================================" + Line;
             Summary += "ASL Settings:" + Line;
             Summary += "=======================================================" + Line;
@@ -731,7 +736,7 @@ namespace AutoSplitterCore
         {
             if (textBoxCurrrentProfile.Text == String.Empty)
             {
-                MessageBox.Show("Dont Set String Empty on Profile Name", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Profile name cannot be empty", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (textBoxAuthor.Text == string.Empty)
@@ -825,7 +830,7 @@ namespace AutoSplitterCore
                 RefreshSummary();
             }
             else
-                MessageBox.Show("Dont Set String Empty on Profile Name", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Profile name cannot be empty", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnSetAuthor_Click(object sender, EventArgs e)

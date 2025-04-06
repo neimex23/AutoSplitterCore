@@ -43,7 +43,10 @@ namespace AutoSplitterCore
 
         private void UpdateShowDialogSouls_Load(object sender, EventArgs e)
         {
-            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
+            using (var stream = new System.IO.MemoryStream(Properties.Resources.AutoSplitterSetup))
+            {
+                this.Icon = new System.Drawing.Icon(stream);
+            }
             TextBoxWarning.Text = Properties.Resources.SoulsMemoryNotice;
             LabelVersion.Text = updateModule.currentSoulsVer;
             labelCloudVer.Text = updateModule.cloudSoulsVer;
@@ -84,8 +87,8 @@ namespace AutoSplitterCore
                     await webClient.DownloadFileTaskAsync(new Uri(url), zipFilePath);
                 }
 
-                if (!Directory.Exists(extractPath))
-                    Directory.CreateDirectory(extractPath);
+                if (Directory.Exists(extractPath)) Directory.Delete(extractPath, true);
+                Directory.CreateDirectory(extractPath);
 
                 foreach (var file in Directory.GetFiles(extractPath))
                     File.Delete(file);

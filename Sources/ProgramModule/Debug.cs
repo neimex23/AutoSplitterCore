@@ -52,7 +52,10 @@ namespace AutoSplitterCore
 
         private void Debug_Load(object sender, EventArgs e)
         {
-            this.Icon = Properties.Resources.AutoSplitterSetupIcon;
+            using (var stream = new System.IO.MemoryStream(Properties.Resources.AutoSplitterSetup))
+            {
+                this.Icon = new System.Drawing.Icon(stream);
+            }
             checkBoxPracticeMode.Checked = AutoSplitterMainModule.GetPracticeMode();
 
             var gameList = mainModule.GetGames();
