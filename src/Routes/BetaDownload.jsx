@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FireParticles } from "../Components/Home/FireParticles";
 import { Header } from "../Components/Home/Header";
 
@@ -27,34 +27,66 @@ const features = [
 ];
 
 export const BetaDownload = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <>
       <FireParticles />
-      <Header h2Valor={"Open Beta 3.0"} />
       <div className="bg-black">
-        <section id="visual-features" className="w-full">
+        <Header h2Valor={"Open Beta 3.0"} />
+        {/* Visual Features Section */}
+        <section
+          id="visual-features"
+          className="w-full py-16 px-4 flex flex-col items-center gap-12">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative w-full h-screen overflow-hidden">
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.6 }}
+              className="w-full max-w-2xl flex flex-col items-center text-center">
+              <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">
+                {feature.text}
+              </h2>
               <img
                 src={`${import.meta.env.BASE_URL}assets/${feature.img}`}
                 alt={`Feature ${index}`}
-                className="fixed inset-0 w-full h-full object-cover -z-10"
+                className="w-full rounded-xl shadow-lg object-cover cursor-pointer"
+                onClick={() =>
+                  setSelectedImage(
+                    `${import.meta.env.BASE_URL}assets/${feature.img}`
+                  )
+                }
               />
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative w-full h-full flex items-center justify-center px-4">
-                <h2 className="text-white text-3xl md:text-5xl font-bold text-center bg-black/60 p-6 rounded-xl shadow-lg max-w-3xl">
-                  {feature.text}
-                </h2>
-              </motion.div>
-            </div>
+              <p className="text-[10px] text-yellow-400 mt-1 self-end">
+                Click image to expand
+              </p>
+            </motion.div>
           ))}
         </section>
+
+        {/* Lightbox for image preview */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}>
+              <motion.img
+                src={selectedImage}
+                alt="Expanded"
+                className="max-w-full max-h-full rounded-xl shadow-2xl"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Download Section */}
         <section
@@ -74,9 +106,7 @@ export const BetaDownload = () => {
                 href="https://www.mediafire.com/file/frx99siyfdli8lx/ASCv3.0-HCMv1_Beta1.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-white font-bold py-2 px-4 rounded-lg transition 
-             bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)]
-             hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
+                className="inline-block text-white font-bold py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
                 Download HCMv1
               </a>
             </div>
@@ -92,9 +122,7 @@ export const BetaDownload = () => {
                 href="https://www.mediafire.com/file/bwokvmkwjmm1251/ASCv3.0-HCMv2_Beta1.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-white font-bold m-1 py-2 px-4 rounded-lg transition 
-             bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)]
-             hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
+                className="inline-block text-white font-bold m-1 py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
                 Download HCMv2
               </a>
             </div>
