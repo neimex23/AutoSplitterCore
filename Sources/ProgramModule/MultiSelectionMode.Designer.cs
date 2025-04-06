@@ -125,7 +125,7 @@
             this.MaximumSize = new System.Drawing.Size(682, 521);
             this.MinimumSize = new System.Drawing.Size(682, 521);
             this.Name = "MultiSelectionMode";
-            this.Text = "MultiSelecctionMode";
+            this.Text = "MultiSelectionMode";
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
