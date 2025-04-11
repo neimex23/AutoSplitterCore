@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FireParticles } from "../Components/Home/FireParticles";
 import { Header } from "../Components/Home/Header";
@@ -28,12 +28,83 @@ const features = [
 
 export const BetaDownload = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showScrollButton, setShowScrollButton] = useState(true);
+  const afterHeaderRef = useRef(null);
+  const downloadRef = useRef(null);
+
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        setShowScrollButton(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    const downloadObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowScrollButton(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (afterHeaderRef.current) headerObserver.observe(afterHeaderRef.current);
+    if (downloadRef.current) downloadObserver.observe(downloadRef.current);
+
+    return () => {
+      if (afterHeaderRef.current)
+        headerObserver.unobserve(afterHeaderRef.current);
+      if (downloadRef.current) downloadObserver.unobserve(downloadRef.current);
+    };
+  }, []);
+
+  function smoothScrollTo(targetY, duration = 800) {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    let startTime = null;
+
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function animateScroll(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const time = currentTime - startTime;
+      const percent = Math.min(time / duration, 1);
+      const eased = easeInOutQuad(percent);
+      window.scrollTo(0, startY + diff * eased);
+
+      if (time < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+
+    requestAnimationFrame(animateScroll);
+  }
 
   return (
     <>
       <FireParticles />
       <div className="bg-black">
         <Header h2Valor={"Open Beta 3.0"} />
+        <div ref={afterHeaderRef} className="w-full h-1" />
+        {showScrollButton && (
+          <div className="fixed top-4 right-4 z-50">
+            <button
+              onClick={() => {
+                const el = document.getElementById("downloads");
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.scrollY;
+                  smoothScrollTo(y);
+                }
+              }}
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">
+              Go to Downloads ↓
+            </button>
+          </div>
+        )}
+
         {/* Visual Features Section */}
         <section
           id="visual-features"
@@ -91,6 +162,7 @@ export const BetaDownload = () => {
         {/* Download Section */}
         <section
           id="downloads"
+          ref={downloadRef}
           className="w-full py-16 px-4 flex flex-col items-center gap-12">
           <h2 className="text-white text-4xl font-bold text-center">
             Download ASC 3.0 Open Beta
@@ -126,6 +198,36 @@ export const BetaDownload = () => {
                 Download HCMv2
               </a>
             </div>
+          </div>
+        </section>
+
+        <section
+          id="migration"
+          className="w-full py-16 px-4 flex flex-col items-center gap-8">
+          <h2 className="text-white text-4xl font-bold text-center">
+            Migration from ASC 1.14 and earlier
+          </h2>
+          <div className="max-w-4xl text-white/90 text-lg text-center bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg">
+            <p className="mb-4">
+              You can migrate your data from ASC 1.14 or earlier by renaming the
+              file:
+            </p>
+            <code className="bg-black/60 text-yellow-300 p-2 rounded block my-2">
+              HitCounterManagerSaveAutoSplitter.xml
+            </code>
+            <p className="mb-4">to:</p>
+            <code className="bg-black/60 text-yellow-300 p-2 rounded block my-2">
+              SaveDataAutoSplitter.xml
+            </code>
+            <p className="mt-6">
+              Additionally, all stylesheets, splits, and configuration data
+              stored in
+              <code className="text-white px-2">
+                HitCounterManagerSave.xml
+              </code>{" "}
+              — for both HCMv1 and HCMv2 — are fully compatible with the current
+              beta version.
+            </p>
           </div>
         </section>
       </div>
