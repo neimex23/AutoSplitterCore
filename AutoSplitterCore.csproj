@@ -39,6 +39,9 @@
   <PropertyGroup>
     <ApplicationIcon>AutoSplitterSetupIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HitCounterManager, Version=1.21.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

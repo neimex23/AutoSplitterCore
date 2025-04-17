@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("AutoSplitterCore")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("HCM AutoSplitter Tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HCM.AutoSplitterCore")]

@@ -58,11 +58,6 @@ namespace AutoSplitterCore
 
         public List<string> GetGames() => GameConstruction.GameList;
 
-        public AutoSplitterMainModule()
-        {
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-        }
-
         #region Settings
         public void InitDebug()
         {
@@ -88,7 +83,7 @@ namespace AutoSplitterCore
 
             updateTimer = new Timer { Interval = 500 };
             updateTimer.Tick += UpdateTimer_Tick; // Check AutoTimers, AutoResets
-            updateTimer.Start();
+            if (!splitterControl.GetDebug()) updateTimer.Start();
 
             updateModule.CheckUpdates(false);
 
@@ -262,7 +257,7 @@ namespace AutoSplitterCore
             celesteSplitter.ResetSplited();
             cupSplitter.ResetSplited();
 
-            if (webSockets.HasConnections)
+            if (webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Reset.Enabled)
             {
                 webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Reset.Message);
             }
@@ -292,9 +287,7 @@ namespace AutoSplitterCore
 
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
-#if !AutoSplitterCoreDebug
             CheckAutoTimers();
-#endif
             CheckAutoResetSplit();
         }
 
@@ -494,7 +487,6 @@ namespace AutoSplitterCore
                 if (shouldStart) TryStartTimer();
                 if (shouldStop) TryStopTimer();
 
-                Task.Delay(500).Wait();
                 if (inGameTime > 0)
                     _lastTime = inGameTime;
             }
@@ -511,10 +503,9 @@ namespace AutoSplitterCore
 
         void TryStartTimer()
         {
-
             if (!splitterControl.GetTimerRunning())
             {
-                if (webSockets.HasConnections)
+                if (webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Start.Enabled)
                     webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Start.Message);
                 splitterControl.StartStopTimer(true);
                 splitterControl.UpdateDuration();

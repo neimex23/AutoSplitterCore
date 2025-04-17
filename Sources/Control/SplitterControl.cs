@@ -260,7 +260,7 @@ namespace AutoSplitterCore
                 if (enableChecking)
                 {
                     if (!debugMode) InvokeOnMainThread(() => interfaceHCM.ProfileSplitGo(1));
-                    if (webSockets != null && webSockets.HasConnections)
+                    if (webSockets != null && webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Split.Enabled)
                     {
                         webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Split.Message);
                     }
@@ -289,7 +289,7 @@ namespace AutoSplitterCore
                 if (enableChecking && !debugMode)
                 {
                     InvokeOnMainThread(() => interfaceHCM.HitSumUp(1, saveModule.generalAS.HitMode == HitMode.Way));
-                    if (webSockets != null && webSockets.HasConnections)
+                    if (webSockets != null && webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Hit.Enabled)
                     {
                         webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Hit.Message);
                     }

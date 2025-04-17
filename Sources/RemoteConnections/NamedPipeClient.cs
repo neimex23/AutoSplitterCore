@@ -21,40 +21,21 @@ namespace AutoSplitterCore
 
         public async Task ConnectAsync()
         {
-            while (true)
+            _cts = new CancellationTokenSource();
+            try
             {
-                try
-                {
-                    _pipe = new NamedPipeClientStream(".", "ASLBridge", PipeDirection.InOut, PipeOptions.Asynchronous);
-                    await _pipe.ConnectAsync(2000);
-                    _writer = new StreamWriter(_pipe) { AutoFlush = true };
-                    _reader = new StreamReader(_pipe);
+                _pipe = new NamedPipeClientStream(".", "ASLBridge", PipeDirection.InOut, PipeOptions.Asynchronous);
+                await _pipe.ConnectAsync(2000);
 
-                    _ = ListenAsync(_cts.Token);
-                    DebugLog.LogMessage("Connected Named Pipe ASLBridge");
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    DebugLog.LogMessage($"Error Connecting Named Pipe: {ex.Message}. Retring...");
-                    await Task.Delay(2000);
-                }
+                _writer = new StreamWriter(_pipe) { AutoFlush = true };
+                _reader = new StreamReader(_pipe);
+
+                _ = Task.Run(() => ListenAsync(_cts.Token));
             }
-        }
-
-        public async Task<string> SendCommand(string command, bool waitForResponse = false)
-        {
-            if (_pipe == null || !_pipe.IsConnected) return null;
-
-            await _writer.WriteLineAsync(command);
-
-            if (waitForResponse)
+            catch (IOException ex)
             {
-                var response = await _reader.ReadLineAsync();
-                return response;
+                DebugLog.LogMessage($"Pipe connection failed: {ex.Message}");
             }
-
-            return null;
         }
 
         private async Task ListenAsync(CancellationToken token)
@@ -93,11 +74,30 @@ namespace AutoSplitterCore
                 DebugLog.LogMessage($"Error Listen Named Pipe: {ex.Message}");
             }
         }
+        public async Task<string> SendCommand(string command, bool waitForResponse = false)
+        {
+            if (_pipe == null || !_pipe.IsConnected) return null;
+
+            await _writer.WriteLineAsync(command);
+
+            if (waitForResponse)
+            {
+                var response = await _reader.ReadLineAsync();
+                return response;
+            }
+
+            return null;
+        }
 
         public void Disconnect()
         {
-            _cts.Cancel();
-            _pipe?.Dispose();
+            try
+            {
+                _cts?.Cancel();
+                _pipe?.Close();
+                _pipe?.Dispose();
+            }
+            catch { }
         }
     }
 }
