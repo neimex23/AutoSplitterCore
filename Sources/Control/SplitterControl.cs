@@ -46,6 +46,12 @@ namespace AutoSplitterCore
         void SetInterface(IAutoSplitterCoreInterface interfaceHcm);
 
         /// <summary>
+        /// Sets the WebSockets instance for remote connections.
+        /// </summary>
+        /// <param name="webSocket"></param>
+        void SetWebSocket(WebSockets webSocket);
+
+        /// <summary>
         /// Sets the SaveModule instance.
         /// </summary>
         /// <param name="savemodule">Instance of SaveModule.</param>
@@ -226,6 +232,7 @@ namespace AutoSplitterCore
         private bool debugMode = false;
         private bool splitStatus = false;
         private IAutoSplitterCoreInterface interfaceHCM;
+        private WebSockets webSockets;
         private SaveModule saveModule;
         private static readonly object splitLock = new object();
         private static readonly object hitLock = new object();
@@ -233,6 +240,8 @@ namespace AutoSplitterCore
 
         #region Interface Methods
         public void SetInterface(IAutoSplitterCoreInterface interfaceHcm) => interfaceHCM = interfaceHcm;
+        public void SetWebSocket(WebSockets webSocket) => webSockets = webSocket;
+
         public void SetSaveModule(SaveModule savemodule) => saveModule = savemodule;
         public void SetChecking(bool checking) => enableChecking = checking;
 
@@ -251,6 +260,10 @@ namespace AutoSplitterCore
                 if (enableChecking)
                 {
                     if (!debugMode) InvokeOnMainThread(() => interfaceHCM.ProfileSplitGo(1));
+                    if (webSockets != null && webSockets.HasConnections)
+                    {
+                        webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Split.Message);
+                    }
                     splitStatus = true;
                 }
                 else
@@ -276,6 +289,10 @@ namespace AutoSplitterCore
                 if (enableChecking && !debugMode)
                 {
                     InvokeOnMainThread(() => interfaceHCM.HitSumUp(1, saveModule.generalAS.HitMode == HitMode.Way));
+                    if (webSockets != null && webSockets.HasConnections)
+                    {
+                        webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Hit.Message);
+                    }
                 }
             }
         }
@@ -290,7 +307,7 @@ namespace AutoSplitterCore
         {
             if (!saveModule.ProfileLinkReady()) return;
 
-            var profileLink = saveModule.generalAS.profileLinks.Find(x => x.profileHCM == profileTitle);
+            var profileLink = saveModule.generalAS.ProfileLinks.Find(x => x.profileHCM == profileTitle);
             if (profileLink == null) return;
 
             var selectItem = Path.Combine(saveModule.generalAS.saveProfilePath, profileLink.profileASC);

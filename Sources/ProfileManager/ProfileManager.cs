@@ -679,11 +679,11 @@ namespace AutoSplitterCore
             Summary += "=======================================================" + Line;
             Summary += "Profile Link:" + Line;
             Summary += Space + "Reset Profile: " + saveModule.generalAS.ResetProfile + Line;
-            foreach (var splits in saveModule.generalAS.profileLinks)
+            foreach (var splits in saveModule.generalAS.ProfileLinks)
             {
                 Summary += Space + $"{splits.profileHCM} - {splits.profileASC}" + Line;
             }
-            if (saveModule.generalAS.profileLinks.Count == 0) { Summary += Space + "No Profile Links Established" + Line; }
+            if (saveModule.generalAS.ProfileLinks.Count == 0) { Summary += Space + "No Profile Links Established" + Line; }
             Summary += "=======================================================" + Line;
             Summary += "ASL Settings:" + Line;
             Summary += "=======================================================" + Line;

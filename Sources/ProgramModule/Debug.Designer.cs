@@ -348,6 +348,7 @@
             this.Controls.Add(this.btnSplitter);
             this.Controls.Add(this.comboBoxGame);
             this.Controls.Add(this.GameToSplitLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(934, 730);
             this.MinimumSize = new System.Drawing.Size(934, 730);
             this.Name = "Debug";

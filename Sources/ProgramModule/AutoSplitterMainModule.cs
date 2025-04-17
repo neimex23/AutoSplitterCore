@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSplitterCore
@@ -47,6 +48,7 @@ namespace AutoSplitterCore
         public static IGTModule igtModule = new IGTModule();
         public static SaveModule saveModule = new SaveModule();
         public static UpdateModule updateModule = UpdateModule.GetIntance();
+        public static WebSockets webSockets;
 
         private ISplitterControl splitterControl = SplitterControl.GetControl();
 
@@ -81,7 +83,7 @@ namespace AutoSplitterCore
         public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)
         {
             //LoadSettings
-            HitterControl._saveModule = saveModule;
+            HitterControl._saveModule = saveModule;        
             saveModule.LoadAutoSplitterSettings();
 
             updateTimer = new Timer { Interval = 500 };
@@ -89,6 +91,10 @@ namespace AutoSplitterCore
             updateTimer.Start();
 
             updateModule.CheckUpdates(false);
+
+            WebSockets.saveModule = saveModule;
+            webSockets = WebSockets.Instance;
+            webSockets.StartAsync();
 
             if (interfaceASC != null)
             {
@@ -131,6 +137,7 @@ namespace AutoSplitterCore
             }
 
             splitterControl.SetInterface(interfaceASC);
+            splitterControl.SetWebSocket(webSockets);
             splitterControl.SetSaveModule(saveModule);
 
         }
@@ -254,6 +261,11 @@ namespace AutoSplitterCore
             hollowSplitter.ResetSplited();
             celesteSplitter.ResetSplited();
             cupSplitter.ResetSplited();
+
+            if (webSockets.HasConnections)
+            {
+                webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Reset.Message);
+            }
         }
         #endregion
         #region IGT & Timmer 
@@ -472,7 +484,6 @@ namespace AutoSplitterCore
                 catch (Exception) { inGameTime = -1; }
             }
 
-
             //AutoTimerReset Checking
             if (autoTimer && anyGameTime)
             {
@@ -483,6 +494,7 @@ namespace AutoSplitterCore
                 if (shouldStart) TryStartTimer();
                 if (shouldStop) TryStopTimer();
 
+                Task.Delay(500).Wait();
                 if (inGameTime > 0)
                     _lastTime = inGameTime;
             }
@@ -496,10 +508,14 @@ namespace AutoSplitterCore
                     splitterControl.StartStopTimer(false);
             }
         }
+
         void TryStartTimer()
         {
+
             if (!splitterControl.GetTimerRunning())
             {
+                if (webSockets.HasConnections)
+                    webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Start.Message);
                 splitterControl.StartStopTimer(true);
                 splitterControl.UpdateDuration();
             }

@@ -31,12 +31,12 @@ namespace AutoSplitterCore
                     _reader = new StreamReader(_pipe);
 
                     _ = ListenAsync(_cts.Token);
-                    DebugLog.LogMessage("Conectado por Named Pipe ASLBridge");
+                    DebugLog.LogMessage("Connected Named Pipe ASLBridge");
                     break;
                 }
                 catch (Exception ex)
                 {
-                    DebugLog.LogMessage($"Error conectando Named Pipe: {ex.Message}. Reintentando...");
+                    DebugLog.LogMessage($"Error Connecting Named Pipe: {ex.Message}. Retring...");
                     await Task.Delay(2000);
                 }
             }
@@ -90,7 +90,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error en escucha Named Pipe: {ex.Message}");
+                DebugLog.LogMessage($"Error Listen Named Pipe: {ex.Message}");
             }
         }
 

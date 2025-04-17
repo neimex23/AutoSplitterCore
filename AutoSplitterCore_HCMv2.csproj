@@ -114,8 +114,6 @@
     <Compile Include="Sources\DataSplitters\DTElden.cs" />
     <Compile Include="Sources\DataSplitters\DTHollow.cs" />
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
-    <Compile Include="Sources\PipeConnections\NamedPipeClient.cs" />
-    <Compile Include="Sources\PipeConnections\NamedPipeClientIGT.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +162,9 @@
     <Compile Include="Sources\ProgramModule\UpdateShowDialogSouls.Designer.cs">
       <DependentUpon>UpdateShowDialogSouls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\RemoteConnections\NamedPipeClient.cs" />
+    <Compile Include="Sources\RemoteConnections\NamedPipeClientIGT.cs" />
+    <Compile Include="Sources\RemoteConnections\WebSockets.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -206,16 +207,7 @@
   <ItemGroup>
     <Content Include="AutoSplitterSetupIcon.ico" />
     <None Include="Images\Check.png" />
-    <Content Include="Sources\HitCounterManager.dll" />
-    <Content Include="Sources\HitCounterManager.PCL.dll" />
-    <Content Include="Sources\LiveSplit.Celeste.dll" />
-    <Content Include="Sources\LiveSplit.Core.dll" />
-    <Content Include="Sources\LiveSplit.Cuphead.dll" />
-    <Content Include="Sources\LiveSplit.Dishonored.dll" />
-    <Content Include="Sources\LiveSplit.HollowKnight.dll" />
-    <Content Include="Sources\LiveSplit.ScriptableAutoSplit.dll" />
     <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
-    <Content Include="Sources\SpeedrunComSharp.dll" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Google.Api.CommonProtos">

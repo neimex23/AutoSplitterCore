@@ -36,6 +36,10 @@
             this.TextBoxSummary = new System.Windows.Forms.TextBox();
             this.comboBoxProfiles = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
+            this.panelLine = new System.Windows.Forms.Panel();
+            this.textBoxAuthor = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxCurrrentProfile = new ReaLTaiizor.Controls.SkyTextBox();
+            this.textBoxSavePath = new ReaLTaiizor.Controls.SkyTextBox();
             this.checkBoxViewGeneralSettings = new System.Windows.Forms.CheckBox();
             this.btnSetDescription = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.btnBrowse = new ReaLTaiizor.Controls.Button();
             this.btnSetProfile = new System.Windows.Forms.PictureBox();
             this.btnClose = new ReaLTaiizor.Controls.Button();
-            this.textBoxSavePath = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxCurrrentProfile = new ReaLTaiizor.Controls.SkyTextBox();
-            this.textBoxAuthor = new ReaLTaiizor.Controls.SkyTextBox();
-            this.panelLine = new System.Windows.Forms.Panel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSetDescription)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -170,6 +170,78 @@
             this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox2.TabIndex = 2;
             this.groupBox2.Text = "Management";
+            // 
+            // panelLine
+            // 
+            this.panelLine.BackColor = System.Drawing.Color.Khaki;
+            this.panelLine.ForeColor = System.Drawing.Color.Transparent;
+            this.panelLine.Location = new System.Drawing.Point(5, 215);
+            this.panelLine.Name = "panelLine";
+            this.panelLine.Size = new System.Drawing.Size(592, 11);
+            this.panelLine.TabIndex = 32;
+            // 
+            // textBoxAuthor
+            // 
+            this.textBoxAuthor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.textBoxAuthor.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxAuthor.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxAuthor.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxAuthor.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxAuthor.BorderColorD = System.Drawing.Color.Yellow;
+            this.textBoxAuthor.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxAuthor.ForeColor = System.Drawing.Color.Black;
+            this.textBoxAuthor.Location = new System.Drawing.Point(216, 270);
+            this.textBoxAuthor.MaxLength = 32767;
+            this.textBoxAuthor.MultiLine = false;
+            this.textBoxAuthor.Name = "textBoxAuthor";
+            this.textBoxAuthor.Size = new System.Drawing.Size(202, 21);
+            this.textBoxAuthor.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxAuthor.TabIndex = 31;
+            this.textBoxAuthor.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxAuthor.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxAuthor.UseSystemPasswordChar = false;
+            // 
+            // textBoxCurrrentProfile
+            // 
+            this.textBoxCurrrentProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.textBoxCurrrentProfile.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxCurrrentProfile.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxCurrrentProfile.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxCurrrentProfile.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxCurrrentProfile.BorderColorD = System.Drawing.Color.Yellow;
+            this.textBoxCurrrentProfile.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxCurrrentProfile.ForeColor = System.Drawing.Color.Black;
+            this.textBoxCurrrentProfile.Location = new System.Drawing.Point(120, 235);
+            this.textBoxCurrrentProfile.MaxLength = 32767;
+            this.textBoxCurrrentProfile.MultiLine = false;
+            this.textBoxCurrrentProfile.Name = "textBoxCurrrentProfile";
+            this.textBoxCurrrentProfile.Size = new System.Drawing.Size(392, 21);
+            this.textBoxCurrrentProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxCurrrentProfile.TabIndex = 30;
+            this.textBoxCurrrentProfile.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxCurrrentProfile.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxCurrrentProfile.UseSystemPasswordChar = false;
+            // 
+            // textBoxSavePath
+            // 
+            this.textBoxSavePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.textBoxSavePath.BaseColor = System.Drawing.Color.Transparent;
+            this.textBoxSavePath.BorderColorA = System.Drawing.Color.Black;
+            this.textBoxSavePath.BorderColorB = System.Drawing.Color.Black;
+            this.textBoxSavePath.BorderColorC = System.Drawing.Color.Black;
+            this.textBoxSavePath.BorderColorD = System.Drawing.Color.Yellow;
+            this.textBoxSavePath.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
+            this.textBoxSavePath.ForeColor = System.Drawing.Color.Black;
+            this.textBoxSavePath.Location = new System.Drawing.Point(39, 46);
+            this.textBoxSavePath.MaxLength = 32767;
+            this.textBoxSavePath.MultiLine = false;
+            this.textBoxSavePath.Name = "textBoxSavePath";
+            this.textBoxSavePath.Size = new System.Drawing.Size(527, 21);
+            this.textBoxSavePath.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.textBoxSavePath.TabIndex = 29;
+            this.textBoxSavePath.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxSavePath.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBoxSavePath.UseSystemPasswordChar = false;
             // 
             // checkBoxViewGeneralSettings
             // 
@@ -443,78 +515,6 @@
             this.btnClose.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // textBoxSavePath
-            // 
-            this.textBoxSavePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.textBoxSavePath.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxSavePath.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxSavePath.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxSavePath.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxSavePath.BorderColorD = System.Drawing.Color.Yellow;
-            this.textBoxSavePath.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxSavePath.ForeColor = System.Drawing.Color.Black;
-            this.textBoxSavePath.Location = new System.Drawing.Point(39, 46);
-            this.textBoxSavePath.MaxLength = 32767;
-            this.textBoxSavePath.MultiLine = false;
-            this.textBoxSavePath.Name = "textBoxSavePath";
-            this.textBoxSavePath.Size = new System.Drawing.Size(527, 21);
-            this.textBoxSavePath.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxSavePath.TabIndex = 29;
-            this.textBoxSavePath.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxSavePath.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxSavePath.UseSystemPasswordChar = false;
-            // 
-            // textBoxCurrrentProfile
-            // 
-            this.textBoxCurrrentProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.textBoxCurrrentProfile.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxCurrrentProfile.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxCurrrentProfile.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxCurrrentProfile.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxCurrrentProfile.BorderColorD = System.Drawing.Color.Yellow;
-            this.textBoxCurrrentProfile.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxCurrrentProfile.ForeColor = System.Drawing.Color.Black;
-            this.textBoxCurrrentProfile.Location = new System.Drawing.Point(120, 235);
-            this.textBoxCurrrentProfile.MaxLength = 32767;
-            this.textBoxCurrrentProfile.MultiLine = false;
-            this.textBoxCurrrentProfile.Name = "textBoxCurrrentProfile";
-            this.textBoxCurrrentProfile.Size = new System.Drawing.Size(392, 21);
-            this.textBoxCurrrentProfile.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxCurrrentProfile.TabIndex = 30;
-            this.textBoxCurrrentProfile.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxCurrrentProfile.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxCurrrentProfile.UseSystemPasswordChar = false;
-            // 
-            // textBoxAuthor
-            // 
-            this.textBoxAuthor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.textBoxAuthor.BaseColor = System.Drawing.Color.Transparent;
-            this.textBoxAuthor.BorderColorA = System.Drawing.Color.Black;
-            this.textBoxAuthor.BorderColorB = System.Drawing.Color.Black;
-            this.textBoxAuthor.BorderColorC = System.Drawing.Color.Black;
-            this.textBoxAuthor.BorderColorD = System.Drawing.Color.Yellow;
-            this.textBoxAuthor.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold);
-            this.textBoxAuthor.ForeColor = System.Drawing.Color.Black;
-            this.textBoxAuthor.Location = new System.Drawing.Point(216, 270);
-            this.textBoxAuthor.MaxLength = 32767;
-            this.textBoxAuthor.MultiLine = false;
-            this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(202, 21);
-            this.textBoxAuthor.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.textBoxAuthor.TabIndex = 31;
-            this.textBoxAuthor.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxAuthor.UnknownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBoxAuthor.UseSystemPasswordChar = false;
-            // 
-            // panelLine
-            // 
-            this.panelLine.BackColor = System.Drawing.Color.Khaki;
-            this.panelLine.ForeColor = System.Drawing.Color.Transparent;
-            this.panelLine.Location = new System.Drawing.Point(5, 215);
-            this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(592, 11);
-            this.panelLine.TabIndex = 32;
-            // 
             // ProfileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -523,6 +523,7 @@
             this.ClientSize = new System.Drawing.Size(669, 835);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(669, 835);
             this.MinimumSize = new System.Drawing.Size(669, 835);
             this.Name = "ProfileManager";

@@ -680,7 +680,7 @@ namespace AutoSplitterCore
                 }
             }
 
-            foreach (var profileLink in saveModule.generalAS.profileLinks)
+            foreach (var profileLink in saveModule.generalAS.ProfileLinks)
             {
                 string getProfileLink = $"{profileLink.profileHCM} - {profileLink.profileASC}";
                 listBoxLinkProfile.Items.Add(getProfileLink);
@@ -693,8 +693,18 @@ namespace AutoSplitterCore
             if (saveModule.generalAS.HitMode == HitMode.Way) skyComboBoxHitMode.SelectedIndex = 0;
             else skyComboBoxHitMode.SelectedIndex = 1;
 
+            //AutoHit
             checkBoxHitCeleste.Checked = saveModule.generalAS.AutoHitCeleste;
             checkBoxHitHollow.Checked = saveModule.generalAS.AutoHitHollow;
+
+            //WebSockets
+            textBoxUrl.Text = saveModule.generalAS.WebSocketSettings.Url;
+
+            SetWebSocketConfig(skyTextBoxWSMHit, metroCheckBoxWSHit, saveModule.generalAS.WebSocketSettings.Hit);
+            SetWebSocketConfig(skyTextBoxWSMSplit, metroCheckBoxWSSplit, saveModule.generalAS.WebSocketSettings.Split);
+            SetWebSocketConfig(skyTextBoxWSMStart, metroCheckBoxWSStart, saveModule.generalAS.WebSocketSettings.Start);
+            SetWebSocketConfig(skyTextBoxWSMReset, metroCheckBoxWSReset, saveModule.generalAS.WebSocketSettings.Reset);
+
             #endregion
 
             #region Timming
@@ -905,6 +915,12 @@ namespace AutoSplitterCore
 
             RefreshForm();
             isInitializing = false;
+        }
+
+        void SetWebSocketConfig(SkyTextBox messageBox, MetroCheckBox checkBox, WebSocketMessageConfig config)
+        {
+            messageBox.Text = config.Message;
+            checkBox.Checked = config.Enabled;
         }
 
         private void Refresh_Btn(object sender, EventArgs e)
@@ -4022,6 +4038,85 @@ namespace AutoSplitterCore
             }
 
             comboBox.DropDownWidth = maxWidth + 20;
+        }
+
+        private void CheckBoxWS_CheckedChanged(object sender)
+        {
+            if (sender is MetroCheckBox checkBox)
+            {
+                var ws = saveModule.generalAS.WebSocketSettings;
+
+                switch (checkBox.Name)
+                {
+                    case "metroCheckBoxWSHit":
+                        ws.Hit.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSSplit":
+                        ws.Split.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSStart":
+                        ws.Start.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSReset":
+                        ws.Reset.Enabled = checkBox.Checked;
+                        break;
+                }
+            }
+        }
+
+        private void textBoxWS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is SkyTextBox textBox)
+            {
+                var ws = saveModule.generalAS.WebSocketSettings;
+
+                switch (textBox.Name)
+                {
+                    case "textBoxUrl":
+                        ws.Url = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMHit":
+                        ws.Hit.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMSplit":
+                        ws.Split.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMStart":
+                        ws.Start.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMReset":
+                        ws.Reset.Message = textBox.Text;
+                        break;
+                }
+            }
+        }
+
+        private void textBoxUrl_TextChanged(object sender, EventArgs e) =>
+             btnSetUrl.Visible = textBoxUrl.Text != saveModule.generalAS.WebSocketSettings.Url;
+
+        private void btnSetUrl_Click(object sender, EventArgs e)
+        {
+            string currentUrl = saveModule.generalAS.WebSocketSettings.Url;
+            try
+            {
+                saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
+                WebSockets.Instance.ReConnect();
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    textBoxUrl.Text = currentUrl;
+                    saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WebSockets.Instance.ReConnect();
+                }
+                catch (Exception ex2)
+                {
+                    MessageBox.Show(ex2.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }    
+            finally { btnSetUrl.Visible = false; }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ASLForm));
             this.poisonTabControl = new ReaLTaiizor.Controls.PoisonTabControl();
             this.tabPageASLConfig = new ReaLTaiizor.Controls.PoisonTabPage();
             this.btnGetASL = new ReaLTaiizor.Controls.Button();
@@ -309,6 +310,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 719);
             this.Controls.Add(this.poisonTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(978, 719);
             this.MinimizeBox = false;

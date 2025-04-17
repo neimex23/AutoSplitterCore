@@ -83,7 +83,11 @@ namespace AutoSplitterCore
         public bool ResetProfile = false;
         public StyleMode StyleMode = StyleMode.Default;
 
-        public List<ProfileLink> profileLinks = new List<ProfileLink>();
+        //ProfileLink Settings
+        public List<ProfileLink> ProfileLinks = new List<ProfileLink>();
+
+        //WebSockets Settings
+        public WebSocketSettings WebSocketSettings = new WebSocketSettings();
 
         //AutoHitter Settings
         public HitMode HitMode = HitMode.Way;
@@ -98,6 +102,38 @@ namespace AutoSplitterCore
         public bool ASLIgt = false;
         //XML Node of ASL
     }
+
+    /// <summary>
+    /// Class Contains WebSocketMessagges of AutoSplitterCore
+    /// </summary>
+    [Serializable]
+    public class WebSocketMessageConfig
+    {
+        public bool Enabled { get; set; }
+        public string Message { get; set; }
+
+        public WebSocketMessageConfig() { }
+        public WebSocketMessageConfig(bool enabled = false, string message = "")
+        {
+            Enabled = enabled;
+            Message = message;
+        }
+    }
+
+    /// <summary>
+    /// Class Contains WebSocket Settings of AutoSplitterCore
+    /// </summary>
+    [Serializable]
+    public class WebSocketSettings
+    {
+        public string Url { get; set; } = "http://localhost:55090/ws/";
+
+        public WebSocketMessageConfig Split { get; set; } = new WebSocketMessageConfig(false, "SplitASC");
+        public WebSocketMessageConfig Hit { get; set; } = new WebSocketMessageConfig(false, "HitASC");
+        public WebSocketMessageConfig Start { get; set; } = new WebSocketMessageConfig(false, "StartASC");
+        public WebSocketMessageConfig Reset { get; set; } = new WebSocketMessageConfig(false, "ResetASC");
+    }
+
 
     /// <summary>
     /// Represent a ProfileLink
@@ -430,15 +466,15 @@ namespace AutoSplitterCore
 
         public void AddProfileLink(string hcmProfile, string ascProfile)
         {
-            generalAS.profileLinks.Add(new ProfileLink(hcmProfile, ascProfile));
+            generalAS.ProfileLinks.Add(new ProfileLink(hcmProfile, ascProfile));
         }
 
         public void RemoveProfileLink(int index)
         {
-            generalAS.profileLinks.RemoveAt(index);
+            generalAS.ProfileLinks.RemoveAt(index);
         }
 
-        public bool ProfileLinkReady() => generalAS.profileLinks.Count > 0;
+        public bool ProfileLinkReady() => generalAS.ProfileLinks.Count > 0;
 
 
         #endregion
