@@ -160,12 +160,6 @@ namespace AutoSplitterCore
             return _StatusDs2 ? Ds2.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
 
-        public bool CheckFlag(uint id)
-        {
-            if (!_StatusDs2) GetDs2StatusProcess(0);
-            return _StatusDs2 && Ds2.ReadEventFlag(id);
-        }
-
         public bool Ds2IsLoading()
         {
             if (!_StatusDs2) GetDs2StatusProcess(0);
@@ -203,27 +197,31 @@ namespace AutoSplitterCore
                 Thread.Sleep(200);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    var position = Ds2.GetPosition();
-                    bool menu = position.X == 0.00 && position.Y == 0.00 && position.Z == 0.00;
-
-                    if (!dataDs2.gameTimer)
+                    try
                     {
-                        if (menu)
-                            _runStarted = false;
+                        var position = Ds2.GetPosition();
+                        bool menu = position.X == 0.00 && position.Y == 0.00 && position.Z == 0.00;
+
+                        if (!dataDs2.gameTimer)
+                        {
+                            if (menu)
+                                _runStarted = false;
+                            else
+                                _runStarted = true;
+                        }
                         else
-                            _runStarted = true;
-                    }
-                    else
-                    {
-                        if (!menu && Ds2.IsLoading())
-                            _runStarted = false;
+                        {
+                            if (!menu && Ds2.IsLoading())
+                                _runStarted = false;
 
-                        if (menu && !Ds2.IsLoading())
-                            _runStarted = false;
+                            if (menu && !Ds2.IsLoading())
+                                _runStarted = false;
 
-                        if (!menu && !Ds2.IsLoading())
-                            _runStarted = true;
+                            if (!menu && !Ds2.IsLoading())
+                                _runStarted = true;
+                        }
                     }
+                    catch (Exception ex) { DebugLog.LogMessage($"DS2 CheckStart Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -239,35 +237,42 @@ namespace AutoSplitterCore
                 Thread.Sleep(200);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if ((listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0))
+                    try
                     {
-                        if (Ds2.IsLoading())
+                        if ((listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingLvl.Count > 0))
                         {
-                            foreach (var boss in listPendingB)
+                            if (Ds2.IsLoading())
                             {
-                                var b = dataDs2.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* BOSS -> {dataDs2.bossToSplit[b].Title}");
-                                dataDs2.bossToSplit[b].IsSplited = true;
-                            }
+                                foreach (var boss in listPendingB)
+                                {
+                                    var b = dataDs2.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* BOSS -> {dataDs2.bossToSplit[b].Title}");
+                                    dataDs2.bossToSplit[b].IsSplited = true;
+                                }
 
-                            foreach (var position in listPendingP)
-                            {
-                                var p = dataDs2.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {dataDs2.positionsToSplit[p].Title} - {dataDs2.positionsToSplit[p].vector.ToString()}");
-                                dataDs2.positionsToSplit[p].IsSplited = true;
-                            }
+                                foreach (var position in listPendingP)
+                                {
+                                    var p = dataDs2.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {dataDs2.positionsToSplit[p].Title} - {dataDs2.positionsToSplit[p].vector.ToString()}");
+                                    dataDs2.positionsToSplit[p].IsSplited = true;
+                                }
 
-                            foreach (var lvl in listPendingLvl)
-                            {
-                                var l = dataDs2.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* LEVEL -> {dataDs2.lvlToSplit[l].Attribute} - {dataDs2.lvlToSplit[l].Value}");
-                                dataDs2.lvlToSplit[l].IsSplited = true;
-                            }
+                                foreach (var lvl in listPendingLvl)
+                                {
+                                    var l = dataDs2.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 *After Login* LEVEL -> {dataDs2.lvlToSplit[l].Attribute} - {dataDs2.lvlToSplit[l].Value}");
+                                    dataDs2.lvlToSplit[l].IsSplited = true;
+                                }
 
-                            listPendingB.Clear();
-                            listPendingP.Clear();
-                            listPendingLvl.Clear();
+                                listPendingB.Clear();
+                                listPendingP.Clear();
+                                listPendingLvl.Clear();
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"DS2 CheckLoad Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -281,24 +286,31 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataDs2.GetBossToSplit()) BossToSplit = dataDs2.GetBossToSplit();
-                    foreach (var b in BossToSplit)
+                    try
                     {
-                        if (!b.IsSplited && Ds2.GetBossKillCount(b.Id) > 0)
+                        if (BossToSplit != dataDs2.GetBossToSplit()) BossToSplit = dataDs2.GetBossToSplit();
+                        foreach (var b in BossToSplit)
                         {
-                            if (b.Mode == "Loading game after")
+                            if (!b.IsSplited && Ds2.GetBossKillCount(b.Id) > 0)
                             {
-                                if (!listPendingB.Contains(b))
+                                if (b.Mode == "Loading game after")
                                 {
-                                    listPendingB.Add(b);
+                                    if (!listPendingB.Contains(b))
+                                    {
+                                        listPendingB.Add(b);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 BOSS -> {b.Title}");
+                                    b.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 BOSS -> {b.Title}");
-                                b.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"DS2 BossToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -312,24 +324,31 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (LvlToSplit != dataDs2.GetLvlToSplit()) LvlToSplit = dataDs2.GetLvlToSplit();
-                    foreach (var lvl in LvlToSplit)
+                    try
                     {
-                        if (!lvl.IsSplited && Ds2.GetAttribute(lvl.Attribute) >= lvl.Value)
+                        if (LvlToSplit != dataDs2.GetLvlToSplit()) LvlToSplit = dataDs2.GetLvlToSplit();
+                        foreach (var lvl in LvlToSplit)
                         {
-                            if (lvl.Mode == "Loading game after")
+                            if (!lvl.IsSplited && Ds2.GetAttribute(lvl.Attribute) >= lvl.Value)
                             {
-                                if (!listPendingLvl.Contains(lvl))
+                                if (lvl.Mode == "Loading game after")
                                 {
-                                    listPendingLvl.Add(lvl);
+                                    if (!listPendingLvl.Contains(lvl))
+                                    {
+                                        listPendingLvl.Add(lvl);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 LEVEL -> {lvl.Attribute} - {lvl.Value}");
+                                    lvl.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: DS2 LEVEL -> {lvl.Attribute} - {lvl.Value}");
-                                lvl.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"DS2 LvlToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -343,32 +362,39 @@ namespace AutoSplitterCore
                 Thread.Sleep(100);
                 if (_StatusDs2 && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataDs2.GetPositionsToSplit()) PositionsToSplit = dataDs2.GetPositionsToSplit();
-                    foreach (var p in PositionsToSplit)
+                    try
                     {
-                        if (!p.IsSplited)
+                        if (PositionsToSplit != dataDs2.GetPositionsToSplit()) PositionsToSplit = dataDs2.GetPositionsToSplit();
+                        foreach (var p in PositionsToSplit)
                         {
-                            var currentlyPosition = Ds2.GetPosition();
-                            var rangeX = ((currentlyPosition.X - p.vector.X) <= dataDs2.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataDs2.positionMargin);
-                            var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataDs2.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataDs2.positionMargin);
-                            var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataDs2.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataDs2.positionMargin);
-                            if (rangeX && rangeY && rangeZ)
+                            if (!p.IsSplited)
                             {
-                                if (p.Mode == "Loading game after")
+                                var currentlyPosition = Ds2.GetPosition();
+                                var rangeX = ((currentlyPosition.X - p.vector.X) <= dataDs2.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataDs2.positionMargin);
+                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataDs2.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataDs2.positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataDs2.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataDs2.positionMargin);
+                                if (rangeX && rangeY && rangeZ)
                                 {
-
-                                    if (!listPendingP.Contains(p))
+                                    if (p.Mode == "Loading game after")
                                     {
-                                        listPendingP.Add(p);
+
+                                        if (!listPendingP.Contains(p))
+                                        {
+                                            listPendingP.Add(p);
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {p.Title} - {p.vector.ToString()}");
-                                    p.IsSplited = splitterControl.GetSplitStatus();
+                                    else
+                                    {
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: DS2 POSITION -> {p.Title} - {p.vector.ToString()}");
+                                        p.IsSplited = splitterControl.GetSplitStatus();
+                                    }
                                 }
                             }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"DS2 PositionToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }

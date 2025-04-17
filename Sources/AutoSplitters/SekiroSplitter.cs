@@ -415,13 +415,18 @@ namespace AutoSplitterCore
         public int GetTimeInGame()
         {
             if (!_StatusSekiro) GetSekiroStatusProcess(0);
-            return _StatusSekiro ? sekiro.GetInGameTimeMilliseconds() : -1;
-        }
-
-        public bool CheckFlag(uint id)
-        {
-            if (!_StatusSekiro) GetSekiroStatusProcess(0);
-            return _StatusSekiro && sekiro.ReadEventFlag(id);
+            if (_StatusSekiro)
+            {
+                try
+                {
+                    return sekiro.GetInGameTimeMilliseconds();
+                }
+                catch
+                {
+                    return -1;
+                }
+            }
+            return -1;
         }
         #endregion
         #region Procedure
@@ -484,59 +489,66 @@ namespace AutoSplitterCore
                 Thread.Sleep(200);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count > 0))
+                    try
                     {
-                        if (!sekiro.IsPlayerLoaded())
+                        if ((listPendingI.Count > 0 || listPendingB.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0 || listPendingMb.Count > 0))
                         {
-                            foreach (var idol in listPendingI)
+                            if (!sekiro.IsPlayerLoaded())
                             {
-                                var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* IDOL -> {dataSekiro.idolsTosplit[i].Title}");
-                                dataSekiro.idolsTosplit[i].IsSplited = true;
+                                foreach (var idol in listPendingI)
+                                {
+                                    var i = dataSekiro.idolsTosplit.FindIndex(fidol => fidol.Id == idol.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* IDOL -> {dataSekiro.idolsTosplit[i].Title}");
+                                    dataSekiro.idolsTosplit[i].IsSplited = true;
+                                }
+
+                                foreach (var boss in listPendingB)
+                                {
+                                    var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* BOSS -> {dataSekiro.bossToSplit[b].Title}");
+                                    dataSekiro.bossToSplit[b].IsSplited = true;
+
+                                }
+
+                                foreach (var position in listPendingP)
+                                {
+                                    var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* POSITION -> {dataSekiro.positionsToSplit[p].Title} - {dataSekiro.positionsToSplit[p].vector.ToString()}");
+                                    dataSekiro.positionsToSplit[p].IsSplited = true;
+                                }
+
+                                foreach (var cf in listPendingCf)
+                                {
+                                    var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* CUSTOM_FLAG -> {dataSekiro.flagToSplit[c].Title} - {dataSekiro.flagToSplit[c].Id}");
+                                    dataSekiro.flagToSplit[c].IsSplited = true;
+                                }
+
+                                foreach (var mb in listPendingMb)
+                                {
+                                    var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* MINIBOSS -> {dataSekiro.miniBossToSplit[mbo].Title}");
+                                    dataSekiro.miniBossToSplit[mbo].IsSplited = true;
+                                }
+
+                                foreach (var lvl in listPendingLevel)
+                                {
+                                    var l = dataSekiro.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* LEVEL -> {dataSekiro.lvlToSplit[l].Attribute} - {dataSekiro.lvlToSplit[l].Value}");
+                                    dataSekiro.lvlToSplit[l].IsSplited = true;
+                                }
+
+                                listPendingB.Clear();
+                                listPendingI.Clear();
+                                listPendingP.Clear();
+                                listPendingCf.Clear();
+                                listPendingLevel.Clear();
                             }
-
-                            foreach (var boss in listPendingB)
-                            {
-                                var b = dataSekiro.bossToSplit.FindIndex(fboss => fboss.Id == boss.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* BOSS -> {dataSekiro.bossToSplit[b].Title}");
-                                dataSekiro.bossToSplit[b].IsSplited = true;
-
-                            }
-
-                            foreach (var position in listPendingP)
-                            {
-                                var p = dataSekiro.positionsToSplit.FindIndex(fposition => fposition.vector == position.vector);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* POSITION -> {dataSekiro.positionsToSplit[p].Title} - {dataSekiro.positionsToSplit[p].vector.ToString()}");
-                                dataSekiro.positionsToSplit[p].IsSplited = true;
-                            }
-
-                            foreach (var cf in listPendingCf)
-                            {
-                                var c = dataSekiro.flagToSplit.FindIndex(icf => icf.Id == cf.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* CUSTOM_FLAG -> {dataSekiro.flagToSplit[c].Title} - {dataSekiro.flagToSplit[c].Id}");
-                                dataSekiro.flagToSplit[c].IsSplited = true;
-                            }
-
-                            foreach (var mb in listPendingMb)
-                            {
-                                var mbo = dataSekiro.miniBossToSplit.FindIndex(fmb => fmb.Title == mb.Title);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* MINIBOSS -> {dataSekiro.miniBossToSplit[mbo].Title}");
-                                dataSekiro.miniBossToSplit[mbo].IsSplited = true;
-                            }
-
-                            foreach (var lvl in listPendingLevel)
-                            {
-                                var l = dataSekiro.lvlToSplit.FindIndex(Ilvl => Ilvl.Attribute == lvl.Attribute && Ilvl.Value == lvl.Value);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO *After Login* LEVEL -> {dataSekiro.lvlToSplit[l].Attribute} - {dataSekiro.lvlToSplit[l].Value}");
-                                dataSekiro.lvlToSplit[l].IsSplited = true;
-                            }
-
-                            listPendingB.Clear();
-                            listPendingI.Clear();
-                            listPendingP.Clear();
-                            listPendingCf.Clear();
-                            listPendingLevel.Clear();
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"Sekiro CheckLoad Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -550,25 +562,29 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataSekiro.GetBossToSplit()) BossToSplit = dataSekiro.GetBossToSplit();
-                    foreach (var b in BossToSplit)
+                    try
                     {
-                        if (!b.IsSplited && sekiro.ReadEventFlag(b.Id))
+                        if (BossToSplit != dataSekiro.GetBossToSplit()) BossToSplit = dataSekiro.GetBossToSplit();
+                        foreach (var b in BossToSplit)
                         {
-                            if (b.Mode == "Loading game after")
+                            if (!b.IsSplited && sekiro.ReadEventFlag(b.Id))
                             {
-                                if (!listPendingB.Contains(b))
+                                if (b.Mode == "Loading game after")
                                 {
-                                    listPendingB.Add(b);
+                                    if (!listPendingB.Contains(b))
+                                    {
+                                        listPendingB.Add(b);
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO BOSS -> {b.Title}");
-                                b.IsSplited = splitterControl.GetSplitStatus();
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO BOSS -> {b.Title}");
+                                    b.IsSplited = splitterControl.GetSplitStatus();
+                                }
                             }
                         }
                     }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro BossSplit Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -581,35 +597,14 @@ namespace AutoSplitterCore
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (MiniBossToSplit != dataSekiro.GetMiniBossToSplit()) MiniBossToSplit = dataSekiro.GetMiniBossToSplit();
-                    foreach (var mb in MiniBossToSplit)
+                    try
                     {
-                        if (!mb.IsSplited)
+                        if (MiniBossToSplit != dataSekiro.GetMiniBossToSplit()) MiniBossToSplit = dataSekiro.GetMiniBossToSplit();
+                        foreach (var mb in MiniBossToSplit)
                         {
-                            if (mb.kindSplit == DefinitionsSekiro.KindSplit.ID && sekiro.ReadEventFlag(mb.Id))
+                            if (!mb.IsSplited)
                             {
-                                if (mb.Mode == "Loading game after")
-                                {
-                                    if (!listPendingMb.Contains(mb))
-                                    {
-                                        listPendingMb.Add(mb);
-                                    }
-                                }
-                                else
-                                {
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS -> {mb.Title}");
-                                    mb.IsSplited = splitterControl.GetSplitStatus();
-                                }
-                            }
-
-                            if (mb.kindSplit == DefinitionsSekiro.KindSplit.Position)
-                            {
-                                double positionMargin = 2.5;
-                                var currentlyPosition = sekiro.GetPlayerPosition();
-                                var rangeX = ((currentlyPosition.X - mb.vector.X) <= positionMargin) && ((currentlyPosition.X - mb.vector.X) >= -positionMargin);
-                                var rangeY = ((currentlyPosition.Y - mb.vector.Y) <= positionMargin) && ((currentlyPosition.Y - mb.vector.Y) >= -positionMargin);
-                                var rangeZ = ((currentlyPosition.Z - mb.vector.Z) <= positionMargin) && ((currentlyPosition.Z - mb.vector.Z) >= -positionMargin);
-                                if (rangeX && rangeY && rangeZ)
+                                if (mb.kindSplit == DefinitionsSekiro.KindSplit.ID && sekiro.ReadEventFlag(mb.Id))
                                 {
                                     if (mb.Mode == "Loading game after")
                                     {
@@ -620,13 +615,38 @@ namespace AutoSplitterCore
                                     }
                                     else
                                     {
-                                        splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS POSITION -> {mb.Title} - {mb.vector}");
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS -> {mb.Title}");
                                         mb.IsSplited = splitterControl.GetSplitStatus();
+                                    }
+                                }
+
+                                if (mb.kindSplit == DefinitionsSekiro.KindSplit.Position)
+                                {
+                                    double positionMargin = 2.5;
+                                    var currentlyPosition = sekiro.GetPlayerPosition();
+                                    var rangeX = ((currentlyPosition.X - mb.vector.X) <= positionMargin) && ((currentlyPosition.X - mb.vector.X) >= -positionMargin);
+                                    var rangeY = ((currentlyPosition.Y - mb.vector.Y) <= positionMargin) && ((currentlyPosition.Y - mb.vector.Y) >= -positionMargin);
+                                    var rangeZ = ((currentlyPosition.Z - mb.vector.Z) <= positionMargin) && ((currentlyPosition.Z - mb.vector.Z) >= -positionMargin);
+                                    if (rangeX && rangeY && rangeZ)
+                                    {
+                                        if (mb.Mode == "Loading game after")
+                                        {
+                                            if (!listPendingMb.Contains(mb))
+                                            {
+                                                listPendingMb.Add(mb);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MINIBOSS POSITION -> {mb.Title} - {mb.vector}");
+                                            mb.IsSplited = splitterControl.GetSplitStatus();
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MiniBossSplit Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -671,49 +691,53 @@ namespace AutoSplitterCore
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (dataSekiro.mortalJourneyRun && index < MortalJourneyData.Count)
+                    try
                     {
-                        p = MortalJourneyData[index];
-                        if (PendingMortal.Count == 0)
+                        if (dataSekiro.mortalJourneyRun && index < MortalJourneyData.Count)
                         {
-                            if (!p.IsSplited)
+                            p = MortalJourneyData[index];
+                            if (PendingMortal.Count == 0)
                             {
-                                int positionMargin = 10;
-                                var currentlyPosition = sekiro.GetPlayerPosition();
-                                var rangeX = ((currentlyPosition.X - p.vector.X) <= positionMargin) && ((currentlyPosition.X - p.vector.X) >= -positionMargin);
-                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -positionMargin);
-                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -positionMargin);
-                                if (rangeX && rangeY && rangeZ)
+                                if (!p.IsSplited)
                                 {
-                                    if (!PendingMortal.Contains(p))
+                                    int positionMargin = 10;
+                                    var currentlyPosition = sekiro.GetPlayerPosition();
+                                    var rangeX = ((currentlyPosition.X - p.vector.X) <= positionMargin) && ((currentlyPosition.X - p.vector.X) >= -positionMargin);
+                                    var rangeY = ((currentlyPosition.Y - p.vector.Y) <= positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -positionMargin);
+                                    var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -positionMargin);
+                                    if (rangeX && rangeY && rangeZ)
                                     {
-                                        PendingMortal.Add(p);
+                                        if (!PendingMortal.Contains(p))
+                                        {
+                                            PendingMortal.Add(p);
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    index++;
                                 }
                             }
                             else
                             {
-                                index++;
+                                if (!sekiro.IsPlayerLoaded())
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MORTAL JOURNEY -> {p.vector}");
+                                    if (splitterControl.GetSplitStatus())
+                                    {
+                                        p.IsSplited = true;
+                                        PendingMortal.Clear();
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            if (!sekiro.IsPlayerLoaded())
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MORTAL JOURNEY -> {p.vector}");
-                                if (splitterControl.GetSplitStatus())
-                                {
-                                    p.IsSplited = true;
-                                    PendingMortal.Clear();
-                                }
-                            }
+                            index = 0;
+                            NotSplited(ref MortalJourneyData);
                         }
                     }
-                    else
-                    {
-                        index = 0;
-                        NotSplited(ref MortalJourneyData);
-                    }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MortalJourney Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -726,25 +750,29 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (IdolsToSplit != dataSekiro.GetidolsTosplit()) IdolsToSplit = dataSekiro.GetidolsTosplit();
-                    foreach (var i in IdolsToSplit)
+                    try
                     {
-                        if (!i.IsSplited && sekiro.ReadEventFlag(i.Id))
+                        if (IdolsToSplit != dataSekiro.GetidolsTosplit()) IdolsToSplit = dataSekiro.GetidolsTosplit();
+                        foreach (var i in IdolsToSplit)
                         {
-                            if (i.Mode == "Loading game after")
+                            if (!i.IsSplited && sekiro.ReadEventFlag(i.Id))
                             {
-                                if (!listPendingI.Contains(i))
+                                if (i.Mode == "Loading game after")
                                 {
-                                    listPendingI.Add(i);
+                                    if (!listPendingI.Contains(i))
+                                    {
+                                        listPendingI.Add(i);
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO IDOL -> {i.Title}");
-                                i.IsSplited = splitterControl.GetSplitStatus();
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO IDOL -> {i.Title}");
+                                    i.IsSplited = splitterControl.GetSplitStatus();
+                                }
                             }
                         }
                     }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro IdolSplit Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -757,32 +785,35 @@ namespace AutoSplitterCore
                 Thread.Sleep(100);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionsToSplit != dataSekiro.GetPositionsToSplit()) PositionsToSplit = dataSekiro.GetPositionsToSplit();
-                    foreach (var p in PositionsToSplit)
+                    try
                     {
-                        if (!p.IsSplited)
+                        if (PositionsToSplit != dataSekiro.GetPositionsToSplit()) PositionsToSplit = dataSekiro.GetPositionsToSplit();
+                        foreach (var p in PositionsToSplit)
                         {
-                            var currentlyPosition = sekiro.GetPlayerPosition();
-                            var rangeX = ((currentlyPosition.X - p.vector.X) <= dataSekiro.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataSekiro.positionMargin);
-                            var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataSekiro.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataSekiro.positionMargin);
-                            var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataSekiro.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataSekiro.positionMargin);
-                            if (rangeX && rangeY && rangeZ)
+                            if (!p.IsSplited)
                             {
-                                if (p.Mode == "Loading game after")
+                                var currentlyPosition = sekiro.GetPlayerPosition();
+                                var rangeX = ((currentlyPosition.X - p.vector.X) <= dataSekiro.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataSekiro.positionMargin);
+                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataSekiro.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataSekiro.positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataSekiro.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataSekiro.positionMargin);
+                                if (rangeX && rangeY && rangeZ)
                                 {
-                                    if (!listPendingP.Contains(p))
+                                    if (p.Mode == "Loading game after")
                                     {
-                                        listPendingP.Add(p);
+                                        if (!listPendingP.Contains(p))
+                                        {
+                                            listPendingP.Add(p);
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO POSITION -> {p.Title} - {p.vector.ToString()}");
-                                    p.IsSplited = splitterControl.GetSplitStatus();
+                                    else
+                                    {
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO POSITION -> {p.Title} - {p.vector.ToString()}");
+                                        p.IsSplited = splitterControl.GetSplitStatus();
+                                    }
                                 }
                             }
                         }
-                    }
+                    } catch (Exception ex) { DebugLog.LogMessage($"Sekiro PositionSplit Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -795,25 +826,28 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (LvlToSplit != dataSekiro.GetLvlToSplit()) LvlToSplit = dataSekiro.GetLvlToSplit();
-                    foreach (var lvl in LvlToSplit)
+                    try
                     {
-                        if (!lvl.IsSplited && sekiro.GetAttribute(lvl.Attribute) >= lvl.Value)
+                        if (LvlToSplit != dataSekiro.GetLvlToSplit()) LvlToSplit = dataSekiro.GetLvlToSplit();
+                        foreach (var lvl in LvlToSplit)
                         {
-                            if (lvl.Mode == "Loading game after")
+                            if (!lvl.IsSplited && sekiro.GetAttribute(lvl.Attribute) >= lvl.Value)
                             {
-                                if (!listPendingLevel.Contains(lvl))
+                                if (lvl.Mode == "Loading game after")
                                 {
-                                    listPendingLevel.Add(lvl);
+                                    if (!listPendingLevel.Contains(lvl))
+                                    {
+                                        listPendingLevel.Add(lvl);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO LEVEL -> {lvl.Attribute} - {lvl.Value}");
+                                    lvl.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO LEVEL -> {lvl.Attribute} - {lvl.Value}");
-                                lvl.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
-                    }
+                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro LevelSplit Thread Ex: {ex.Message}"); }
                 }
             }
         }
@@ -826,26 +860,30 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusSekiro && !_PracticeMode && !_ShowSettings)
                 {
-                    if (FlagToSplit != dataSekiro.GetFlagToSplit()) FlagToSplit = dataSekiro.GetFlagToSplit();
-                    foreach (var cf in FlagToSplit)
+                    try
                     {
-                        if (!cf.IsSplited && sekiro.ReadEventFlag(cf.Id))
+                        if (FlagToSplit != dataSekiro.GetFlagToSplit()) FlagToSplit = dataSekiro.GetFlagToSplit();
+                        foreach (var cf in FlagToSplit)
                         {
-                            if (cf.Mode == "Loading game after")
+                            if (!cf.IsSplited && sekiro.ReadEventFlag(cf.Id))
                             {
-                                if (!listPendingCf.Contains(cf))
+                                if (cf.Mode == "Loading game after")
                                 {
-                                    listPendingCf.Add(cf);
+                                    if (!listPendingCf.Contains(cf))
+                                    {
+                                        listPendingCf.Add(cf);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
+                                    cf.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
-                                cf.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
-                    }
+                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro CustomFlagToSplit Thread Ex: {ex.Message}"); }
                 }
+                    
             }
         }
         #endregion

@@ -23,6 +23,7 @@
 using SoulMemory.EldenRing;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -183,13 +184,18 @@ namespace AutoSplitterCore
         public int GetTimeInGame()
         {
             if (!_StatusElden) GetEldenStatusProcess(0);
-            return _StatusElden ? elden.GetInGameTimeMilliseconds() : -1;
-        }
-
-        public bool CheckFlag(uint id)
-        {
-            if (!_StatusElden) GetEldenStatusProcess(0);
-            return _StatusElden && elden.ReadEventFlag(id);
+            if (_StatusElden)
+            {
+                try
+                {
+                    return elden.GetInGameTimeMilliseconds();
+                }
+                catch
+                {
+                    return -1;
+                }
+            }
+            return -1;
         }
         #endregion
         #region Procedure
@@ -248,43 +254,50 @@ namespace AutoSplitterCore
                 Thread.Sleep(200);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (listPendingB.Count > 0 || listPendingG.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0)
+                    try
                     {
-                        if (!elden.IsPlayerLoaded())
+                        if (listPendingB.Count > 0 || listPendingG.Count > 0 || listPendingP.Count > 0 || listPendingCf.Count > 0)
                         {
-                            foreach (var boss in listPendingB)
+                            if (!elden.IsPlayerLoaded())
                             {
-                                var b = dataElden.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* BOSS -> {dataElden.bossToSplit[b].Title}");
-                                dataElden.bossToSplit[b].IsSplited = true;
-                            }
+                                foreach (var boss in listPendingB)
+                                {
+                                    var b = dataElden.bossToSplit.FindIndex(iboss => iboss.Id == boss.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* BOSS -> {dataElden.bossToSplit[b].Title}");
+                                    dataElden.bossToSplit[b].IsSplited = true;
+                                }
 
-                            foreach (var grace in listPendingG)
-                            {
-                                var g = dataElden.graceToSplit.FindIndex(igrace => igrace.Id == grace.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* GRACE -> {dataElden.graceToSplit[g].Title}");
-                                dataElden.graceToSplit[g].IsSplited = true;
-                            }
+                                foreach (var grace in listPendingG)
+                                {
+                                    var g = dataElden.graceToSplit.FindIndex(igrace => igrace.Id == grace.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* GRACE -> {dataElden.graceToSplit[g].Title}");
+                                    dataElden.graceToSplit[g].IsSplited = true;
+                                }
 
-                            foreach (var position in listPendingP)
-                            {
-                                var p = dataElden.positionToSplit.FindIndex(iposition => iposition.vector == position.vector);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* POSITION -> {dataElden.positionToSplit[p].Title} - {dataElden.positionToSplit[p].vector.ToString()}");
-                                dataElden.positionToSplit[p].IsSplited = true;
-                            }
+                                foreach (var position in listPendingP)
+                                {
+                                    var p = dataElden.positionToSplit.FindIndex(iposition => iposition.vector == position.vector);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* POSITION -> {dataElden.positionToSplit[p].Title} - {dataElden.positionToSplit[p].vector.ToString()}");
+                                    dataElden.positionToSplit[p].IsSplited = true;
+                                }
 
-                            foreach (var cf in listPendingCf)
-                            {
-                                var c = dataElden.flagsToSplit.FindIndex(iflag => iflag.Id == cf.Id);
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* CUSTOM_FLAGS -> {dataElden.flagsToSplit[c].Title} - {dataElden.flagsToSplit[c].Id}");
-                                dataElden.flagsToSplit[c].IsSplited = true;
-                            }
+                                foreach (var cf in listPendingCf)
+                                {
+                                    var c = dataElden.flagsToSplit.FindIndex(iflag => iflag.Id == cf.Id);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* CUSTOM_FLAGS -> {dataElden.flagsToSplit[c].Title} - {dataElden.flagsToSplit[c].Id}");
+                                    dataElden.flagsToSplit[c].IsSplited = true;
+                                }
 
-                            listPendingB.Clear();
-                            listPendingG.Clear();
-                            listPendingP.Clear();
-                            listPendingCf.Clear();
+                                listPendingB.Clear();
+                                listPendingG.Clear();
+                                listPendingP.Clear();
+                                listPendingCf.Clear();
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"ELDEN CheckLoad Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -298,24 +311,31 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (BossToSplit != dataElden.GetBossToSplit()) BossToSplit = dataElden.GetBossToSplit();
-                    foreach (var b in BossToSplit)
+                    try
                     {
-                        if (!b.IsSplited && elden.ReadEventFlag(b.Id))
+                        if (BossToSplit != dataElden.GetBossToSplit()) BossToSplit = dataElden.GetBossToSplit();
+                        foreach (var b in BossToSplit)
                         {
-                            if (b.Mode == "Loading game after")
+                            if (!b.IsSplited && elden.ReadEventFlag(b.Id))
                             {
-                                if (!listPendingB.Contains(b))
+                                if (b.Mode == "Loading game after")
                                 {
-                                    listPendingB.Add(b);
+                                    if (!listPendingB.Contains(b))
+                                    {
+                                        listPendingB.Add(b);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING BOSS -> {b.Title}");
+                                    b.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING BOSS -> {b.Title}");
-                                b.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"ELDEN BossToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -329,24 +349,31 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (GraceToSplit != dataElden.GetGraceToSplit()) GraceToSplit = dataElden.GetGraceToSplit();
-                    foreach (var i in GraceToSplit)
+                    try
                     {
-                        if (!i.IsSplited && elden.ReadEventFlag(i.Id))
+                        if (GraceToSplit != dataElden.GetGraceToSplit()) GraceToSplit = dataElden.GetGraceToSplit();
+                        foreach (var i in GraceToSplit)
                         {
-                            if (i.Mode == "Loading game after")
+                            if (!i.IsSplited && elden.ReadEventFlag(i.Id))
                             {
-                                if (!listPendingG.Contains(i))
+                                if (i.Mode == "Loading game after")
                                 {
-                                    listPendingG.Add(i);
+                                    if (!listPendingG.Contains(i))
+                                    {
+                                        listPendingG.Add(i);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING GRACE -> {i.Title}");
+                                    i.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING GRACE -> {i.Title}");
-                                i.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"ELDEN GraceToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -360,25 +387,32 @@ namespace AutoSplitterCore
                 Thread.Sleep(1000);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (FlagsToSplit != dataElden.GetFlagsToSplit()) FlagsToSplit = dataElden.GetFlagsToSplit();
-                    foreach (var cf in FlagsToSplit)
+                    try
                     {
-
-                        if (!cf.IsSplited && elden.ReadEventFlag(cf.Id))
+                        if (FlagsToSplit != dataElden.GetFlagsToSplit()) FlagsToSplit = dataElden.GetFlagsToSplit();
+                        foreach (var cf in FlagsToSplit)
                         {
-                            if (cf.Mode == "Loading game after")
+
+                            if (!cf.IsSplited && elden.ReadEventFlag(cf.Id))
                             {
-                                if (!listPendingCf.Contains(cf))
+                                if (cf.Mode == "Loading game after")
                                 {
-                                    listPendingCf.Add(cf);
+                                    if (!listPendingCf.Contains(cf))
+                                    {
+                                        listPendingCf.Add(cf);
+                                    }
+                                }
+                                else
+                                {
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
+                                    cf.IsSplited = splitterControl.GetSplitStatus();
                                 }
                             }
-                            else
-                            {
-                                splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING CUSTOM_FLAG -> {cf.Title} - {cf.Id}");
-                                cf.IsSplited = splitterControl.GetSplitStatus();
-                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"ELDEN FlagsToSplit Thread Ex: {ex.Message}");
                     }
                 }
             }
@@ -392,36 +426,42 @@ namespace AutoSplitterCore
                 Thread.Sleep(100);
                 if (_StatusElden && !_PracticeMode && !_ShowSettings)
                 {
-                    if (PositionToSplit != dataElden.GetPositionToSplit()) PositionToSplit = dataElden.GetPositionToSplit();
-                    foreach (var p in PositionToSplit)
+                    try
                     {
-                        if (!p.IsSplited)
+                        if (PositionToSplit != dataElden.GetPositionToSplit()) PositionToSplit = dataElden.GetPositionToSplit();
+                        foreach (var p in PositionToSplit)
                         {
-                            var currentlyPosition = elden.GetPosition();
-                            var rangeX = ((currentlyPosition.X - p.vector.X) <= dataElden.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataElden.positionMargin);
-                            var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataElden.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataElden.positionMargin);
-                            var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataElden.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataElden.positionMargin);
-                            if (rangeX && rangeY && rangeZ)
+                            if (!p.IsSplited)
                             {
-                                if (p.Mode == "Loading game after")
+                                var currentlyPosition = elden.GetPosition();
+                                var rangeX = ((currentlyPosition.X - p.vector.X) <= dataElden.positionMargin) && ((currentlyPosition.X - p.vector.X) >= -dataElden.positionMargin);
+                                var rangeY = ((currentlyPosition.Y - p.vector.Y) <= dataElden.positionMargin) && ((currentlyPosition.Y - p.vector.Y) >= -dataElden.positionMargin);
+                                var rangeZ = ((currentlyPosition.Z - p.vector.Z) <= dataElden.positionMargin) && ((currentlyPosition.Z - p.vector.Z) >= -dataElden.positionMargin);
+                                if (rangeX && rangeY && rangeZ)
                                 {
-                                    if (!listPendingP.Contains(p))
+                                    if (p.Mode == "Loading game after")
                                     {
-                                        listPendingP.Add(p);
+                                        if (!listPendingP.Contains(p))
+                                        {
+                                            listPendingP.Add(p);
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING POSITION -> {p.Title} - {p.vector.ToString()}");
-                                    p.IsSplited = splitterControl.GetSplitStatus();
+                                    else
+                                    {
+                                        splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING POSITION -> {p.Title} - {p.vector.ToString()}");
+                                        p.IsSplited = splitterControl.GetSplitStatus();
+                                    }
                                 }
                             }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"ELDEN PositionToSplit Thread Ex: {ex.Message}");
+                    }
                 }
             }
         }
-
 
     }
     #endregion

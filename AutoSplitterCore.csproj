@@ -29,7 +29,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <OutputType>Library</OutputType>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -118,6 +118,7 @@
     <Compile Include="Sources\DataSplitters\DTElden.cs" />
     <Compile Include="Sources\DataSplitters\DTHollow.cs" />
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
+    <Compile Include="Sources\ProgramModule\CertificateInstaller.cs" />
     <Compile Include="Sources\RemoteConnections\NamedPipeClient.cs" />
     <Compile Include="Sources\RemoteConnections\NamedPipeClientIGT.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">
@@ -195,6 +196,9 @@
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ASC_Cert.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

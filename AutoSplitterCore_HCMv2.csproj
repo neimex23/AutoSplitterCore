@@ -134,6 +134,7 @@
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
+    <Compile Include="Sources\ProgramModule\CertificateInstaller.cs" />
     <Compile Include="Sources\ProgramModule\Debug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +189,9 @@
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="appsettings.json" />
+    <None Include="ASC_Cert.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -207,7 +211,6 @@
   <ItemGroup>
     <Content Include="AutoSplitterSetupIcon.ico" />
     <None Include="Images\Check.png" />
-    <Content Include="Sources\ProgramModule\AutoSplitterSetupIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Google.Api.CommonProtos">
