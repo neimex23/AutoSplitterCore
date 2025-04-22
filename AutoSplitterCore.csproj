@@ -118,7 +118,6 @@
     <Compile Include="Sources\DataSplitters\DTElden.cs" />
     <Compile Include="Sources\DataSplitters\DTHollow.cs" />
     <Compile Include="Sources\DataSplitters\DTSekiro.cs" />
-    <Compile Include="Sources\ProgramModule\CertificateInstaller.cs" />
     <Compile Include="Sources\RemoteConnections\NamedPipeClient.cs" />
     <Compile Include="Sources\RemoteConnections\NamedPipeClientIGT.cs" />
     <Compile Include="Sources\ProfileManager\GoogleAuth.cs">

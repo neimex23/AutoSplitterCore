@@ -134,7 +134,6 @@
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\ProgramModule\AutoSplitterMainModule.cs" />
-    <Compile Include="Sources\ProgramModule\CertificateInstaller.cs" />
     <Compile Include="Sources\ProgramModule\Debug.cs">
       <SubType>Form</SubType>
     </Compile>

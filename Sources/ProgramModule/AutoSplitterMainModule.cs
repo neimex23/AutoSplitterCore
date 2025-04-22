@@ -134,9 +134,6 @@ namespace AutoSplitterCore
             splitterControl.SetInterface(interfaceASC);
             splitterControl.SetWebSocket(webSockets);
             splitterControl.SetSaveModule(saveModule);
-
-            CertificateInstaller.EnsureCertificateTrusted(); //For avoid Antivirus IDP.Generic for NamedPiped/WebSockets Services i made a certificated to Sign DLL
-
         }
 
         public static void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
