@@ -167,7 +167,7 @@ export const BetaDownload = () => {
           <h2 className="text-white text-4xl font-bold text-center">
             Download ASC 3.0 Open Beta
           </h2>
-          <h3 className="text-white font-bold text-center">Beta version: 1</h3>
+          <h3 className="text-white font-bold text-center">Beta version: 2</h3>
           <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-5xl w-full">
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg flex-1 text-center">
               <h3 className="text-white text-2xl font-semibold mb-2">HCMv1</h3>
@@ -175,7 +175,7 @@ export const BetaDownload = () => {
                 Try the new ASC version using the classic HitCounterManager.
               </p>
               <a
-                href="https://www.mediafire.com/file/frx99siyfdli8lx/ASCv3.0-HCMv1_Beta1.zip/file"
+                href="https://www.mediafire.com/file/u0ky6w2zsj59j7s/ASCv3.0-HCMv1_Beta2.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-white font-bold py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
@@ -191,7 +191,7 @@ export const BetaDownload = () => {
                 UI.
               </p>
               <a
-                href="https://www.mediafire.com/file/bwokvmkwjmm1251/ASCv3.0-HCMv2_Beta1.zip/file"
+                href="https://www.mediafire.com/file/mjkyrc91vwe88ol/ASCv3.0-HCMv2_Beta2.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-white font-bold m-1 py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
@@ -227,6 +227,10 @@ export const BetaDownload = () => {
               </code>{" "}
               — for both HCMv1 and HCMv2 — are fully compatible with the current
               beta version.
+            </p>
+            <p className="mt-6">
+              To Update new beta version just remplace your folder with new
+              files
             </p>
           </div>
         </section>
