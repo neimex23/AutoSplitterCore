@@ -354,7 +354,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage("Error to load Configurations: " + ex.Message);
+                DebugLog.LogMessage("Error to load Configurations: " + ex.Message,ex);
             }
 
             //Case Old Savefile or New file;

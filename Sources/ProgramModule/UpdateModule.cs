@@ -74,7 +74,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Exception produced on Authorization JSON on UpdateModule: {ex.Message}");
+                DebugLog.LogMessage($"Exception produced on Authorization JSON on UpdateModule: {ex.Message}", ex);
             }
         }
 
@@ -146,7 +146,7 @@ namespace AutoSplitterCore
                     cloudSoulsVer = SoulsMemoryRelease[0].ToString() + ".0";
                 }
             }
-            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message); }
+            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message,ex); }
             ;
 
             //Debug Propouses

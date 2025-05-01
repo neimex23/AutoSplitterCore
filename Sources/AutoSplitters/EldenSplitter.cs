@@ -196,7 +196,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Elden GetTimeInGame Ex: {ex.Message}");
+                DebugLog.LogMessage($"Elden GetTimeInGame Ex: {ex.Message}",ex);
                 return -1;
             }
         }
@@ -300,7 +300,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"ELDEN CheckLoad Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"ELDEN CheckLoad Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -338,7 +338,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"ELDEN BossToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"ELDEN BossToSplit Thread Ex: {ex.Message}",ex);
                     }
                 }
             }
@@ -376,7 +376,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"ELDEN GraceToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"ELDEN GraceToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -415,7 +415,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"ELDEN FlagsToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"ELDEN FlagsToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -460,7 +460,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"ELDEN PositionToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"ELDEN PositionToSplit Thread Ex: {ex.Message}",ex);
                     }
                 }
             }

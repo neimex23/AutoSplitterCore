@@ -552,7 +552,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"Sekiro CheckLoad Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"Sekiro CheckLoad Thread Ex: {ex.Message}",ex);
                     }
                 }
             }
@@ -588,7 +588,7 @@ namespace AutoSplitterCore
                             }
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro BossSplit Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro BossSplit Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -650,7 +650,7 @@ namespace AutoSplitterCore
                             }
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MiniBossSplit Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MiniBossSplit Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -741,7 +741,7 @@ namespace AutoSplitterCore
                             NotSplited(ref MortalJourneyData);
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MortalJourney Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro MortalJourney Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -776,7 +776,7 @@ namespace AutoSplitterCore
                             }
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro IdolSplit Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"Sekiro IdolSplit Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -817,7 +817,7 @@ namespace AutoSplitterCore
                                 }
                             }
                         }
-                    } catch (Exception ex) { DebugLog.LogMessage($"Sekiro PositionSplit Thread Ex: {ex.Message}"); }
+                    } catch (Exception ex) { DebugLog.LogMessage($"Sekiro PositionSplit Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -851,7 +851,7 @@ namespace AutoSplitterCore
                                 }
                             }
                         }
-                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro LevelSplit Thread Ex: {ex.Message}"); }
+                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro LevelSplit Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -885,7 +885,7 @@ namespace AutoSplitterCore
                                 }
                             }
                         }
-                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro CustomFlagToSplit Thread Ex: {ex.Message}"); }
+                    }catch (Exception ex) { DebugLog.LogMessage($"Sekiro CustomFlagToSplit Thread Ex: {ex.Message}",ex); }
                 }
                     
             }

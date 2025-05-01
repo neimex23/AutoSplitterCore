@@ -322,7 +322,19 @@ namespace AutoSplitterCore
     public class LogEntry
     {
         public DateTime Timestamp { get; set; }
+
+        public Exception Exception { get; set; }
+
         public string Message { get; set; }
+
+        public override string ToString()
+        {
+            if (Exception != null)
+            {
+                return $"{Timestamp:yyyy-MM-dd HH:mm:ss} - [ERROR] {Exception.GetType().Name}: {Message} // {Exception.StackTrace}";
+            }
+            return $"{Timestamp:yyyy-MM-dd HH:mm:ss} - {Message}";
+        }
     }
 
     public static class DebugLog
@@ -336,19 +348,20 @@ namespace AutoSplitterCore
             _logger = logger;
         }
 
-        public static void LogMessage(string message)
+        public static void LogMessage(string message, Exception exception = null)
         {
             _logger?.LogMessage(message);
 
             var entry = new LogEntry
             {
                 Timestamp = DateTime.Now,
-                Message = message
+                Message = message,
+                Exception = exception
             };
 
             if (logEntries.Count == 0)
             {
-                var separator = $"\n==================== NEW SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
+                var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
                 File.AppendAllText(LogFilePath, separator);
             }
 

@@ -255,7 +255,7 @@ namespace AutoSplitterCore
                 }
                 catch (Exception ex)
                 {
-                    DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}");
+                    DebugLog.LogMessage($"Error en CheckDeaths: {ex.Message}",ex);
                     Thread.Sleep(3000);
                 }
             }

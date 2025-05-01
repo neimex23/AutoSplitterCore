@@ -125,7 +125,7 @@ namespace AutoSplitterCore
                 }
                 catch (Exception ex)
                 {
-                    DebugLog.LogMessage($"Error Produced on FillCbxGameName: {ex.Message}");
+                    DebugLog.LogMessage($"Error Produced on FillCbxGameName: {ex.Message}",ex);
                 }
             });
         }

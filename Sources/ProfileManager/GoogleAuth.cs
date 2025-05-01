@@ -990,7 +990,7 @@ namespace AutoSplitterCore
             catch (Exception ex)
             {
                 string Message = $"Error on Incrusted Resource IAMFirebase GoogleAuth: {ex.Message}";
-                DebugLog.LogMessage(Message);
+                DebugLog.LogMessage(Message, ex);
                 MessageBox.Show(Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }

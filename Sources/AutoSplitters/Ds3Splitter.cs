@@ -224,7 +224,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"DS3 GetTimeInGame Ex: {ex.Message}");
+                DebugLog.LogMessage($"DS3 GetTimeInGame Ex: {ex.Message}", ex);
                 return -1;
             }
         }
@@ -344,7 +344,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 CheckLoad Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 CheckLoad Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -382,7 +382,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 BossToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 BossToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -421,7 +421,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 BonfireToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 BonfireToSplit Thread Ex: {ex.Message}",ex);
                     }
                 }
             }
@@ -459,7 +459,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 LvlToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 LvlToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -498,7 +498,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 CustomFlagToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 CustomFlagToSplit Thread Ex: {ex.Message}",ex);
                     }
                 }
             }
@@ -543,7 +543,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS3 PositionToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS3 PositionToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }

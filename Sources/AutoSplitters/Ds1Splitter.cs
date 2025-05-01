@@ -239,7 +239,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"DS1 GetTimeInGame Ex: {ex.Message}");
+                DebugLog.LogMessage($"DS1 GetTimeInGame Ex: {ex.Message}", ex);
                 return -1;
             }
         }
@@ -284,7 +284,7 @@ namespace AutoSplitterCore
             while (dataDs1.enableSplitting)
             {
                 Thread.Sleep(1000);
-                if (_StatusDs1) try { inventory = Ds1.GetInventory(); } catch (Exception ex) { DebugLog.LogMessage($"DS1 InventorySee Thread Ex: {ex.Message}"); }
+                if (_StatusDs1) try { inventory = Ds1.GetInventory(); } catch (Exception ex) { DebugLog.LogMessage($"DS1 InventorySee Thread Ex: {ex.Message}",ex); }
             }
         }
 
@@ -350,7 +350,7 @@ namespace AutoSplitterCore
                             }
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"DS1 CheckLoad Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"DS1 CheckLoad Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -387,7 +387,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS1 BossToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS1 BossToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -426,7 +426,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS1 BonfireToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS1 BonfireToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -464,7 +464,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS1 LvlToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS1 LvlToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -509,7 +509,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS1 PositionToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS1 PositionToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }

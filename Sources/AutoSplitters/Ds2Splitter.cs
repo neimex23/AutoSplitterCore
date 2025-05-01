@@ -221,7 +221,7 @@ namespace AutoSplitterCore
                                 _runStarted = true;
                         }
                     }
-                    catch (Exception ex) { DebugLog.LogMessage($"DS2 CheckStart Thread Ex: {ex.Message}"); }
+                    catch (Exception ex) { DebugLog.LogMessage($"DS2 CheckStart Thread Ex: {ex.Message}", ex); }
                 }
             }
         }
@@ -272,7 +272,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS2 CheckLoad Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS2 CheckLoad Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -310,7 +310,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS2 BossToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS2 BossToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -348,7 +348,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS2 LvlToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS2 LvlToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }
@@ -394,7 +394,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        DebugLog.LogMessage($"DS2 PositionToSplit Thread Ex: {ex.Message}");
+                        DebugLog.LogMessage($"DS2 PositionToSplit Thread Ex: {ex.Message}", ex);
                     }
                 }
             }

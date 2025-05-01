@@ -57,7 +57,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error in CheckingHitHollow: {ex.Message}");
+                DebugLog.LogMessage($"Error in CheckingHitHollow: {ex.Message}",ex);
             }
         }
         #endregion
@@ -90,7 +90,7 @@ namespace AutoSplitterCore
                     if (CelesteSplitter.GetIntance().IsInGame())
                     {
                         int currentDeaths = CelesteSplitter.GetIntance().GetDeaths();
-                        DebugLog.LogMessage($"Deaths: {currentDeaths} - LastDeath {lastDeaths}");
+                        //DebugLog.LogMessage($"Deaths: {currentDeaths} - LastDeath {lastDeaths}");
 
                         if (lastDeaths == -1)
                         {
@@ -112,7 +112,7 @@ namespace AutoSplitterCore
             }
             catch (Exception ex)
             {
-                DebugLog.LogMessage($"Error in CheckingHIT Celeste: {ex.Message}");
+                DebugLog.LogMessage($"Error in CheckingHIT Celeste: {ex.Message}", ex);
             }
         }
 
