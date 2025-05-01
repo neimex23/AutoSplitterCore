@@ -169,12 +169,20 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshDs2());
-            Task.Run(() => CheckLoad());
-            Task.Run(() => CheckStart());
-            Task.Run(() => BossToSplit());
-            Task.Run(() => PositionToSplit());
-            Task.Run(() => LvlToSplit());
+            var actions = new Action[]
+            {
+                () => RefreshDs2(),
+                () => CheckLoad(),
+                () => CheckStart(),
+                () => BossToSplit(),
+                () => PositionToSplit(),
+                () => LvlToSplit()
+            };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()

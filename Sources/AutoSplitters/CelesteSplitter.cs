@@ -160,10 +160,18 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshCeleste());
-            Task.Run(() => CheckInfoPlayer());
-            Task.Run(() => ChapterToSplit());
-            Task.Run(() => CheckDeaths());
+            var actions = new Action[]
+            {
+                () => RefreshCeleste(),
+                () => CheckInfoPlayer(),
+                () => ChapterToSplit(),
+                () => CheckDeaths()
+            };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()   

@@ -436,15 +436,23 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshSekiro());
-            Task.Run(() => CheckLoad());
-            Task.Run(() => BossSplit());
-            Task.Run(() => IdolSplit());
-            Task.Run(() => PositionSplit());
-            Task.Run(() => CustomFlagToSplit());
-            Task.Run(() => MortalJourney());
-            Task.Run(() => MiniBossSplit());
-            Task.Run(() => LevelSplit());
+            var actions = new Action[]
+            {
+                () => RefreshSekiro(),
+                () => CheckLoad(),
+                () => BossSplit(),
+                () => IdolSplit(),
+                () => PositionSplit(),
+                () => CustomFlagToSplit(),
+                () => MortalJourney(),
+                () => MiniBossSplit(),
+                () => LevelSplit()
+            };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()   

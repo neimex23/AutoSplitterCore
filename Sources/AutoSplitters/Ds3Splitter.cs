@@ -238,13 +238,21 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshDs3());
-            Task.Run(() => CheckLoad());
-            Task.Run(() => BossToSplit());
-            Task.Run(() => BonfireToSplit());
-            Task.Run(() => LvlToSplit());
-            Task.Run(() => CustomFlagToSplit());
-            Task.Run(() => PositionToSplit());
+            var actions = new Action[]
+            {
+                () => RefreshDs3(),
+                () => CheckLoad(),
+                () => BossToSplit(),
+                () => BonfireToSplit(),
+                () => LvlToSplit(),
+                () => CustomFlagToSplit(),
+                () => PositionToSplit()
+            };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()   

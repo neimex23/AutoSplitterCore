@@ -242,15 +242,23 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshHollow());
-            Task.Run(() => RefreshPosition());
-            Task.Run(() => CheckStart());
-            Task.Run(() => BossToSplit());
-            Task.Run(() => MiniBossToSplit());
-            Task.Run(() => PantheonToSplit());
-            Task.Run(() => CharmToSplit());
-            Task.Run(() => SkillsToSplit());
-            Task.Run(() => PositionToSplit());
+            var actions = new Action[]
+             {
+                () => RefreshHollow(),
+                () => RefreshPosition(),
+                () => CheckStart(),
+                () => BossToSplit(),
+                () => MiniBossToSplit(),
+                () => PantheonToSplit(),
+                () => CharmToSplit(),
+                () => SkillsToSplit(),
+                () => PositionToSplit()
+             };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()   

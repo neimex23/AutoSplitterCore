@@ -204,12 +204,21 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshElden());
-            Task.Run(() => CheckLoad());
-            Task.Run(() => BossToSplit());
-            Task.Run(() => GraceToSplit());
-            Task.Run(() => PositionToSplit());
-            Task.Run(() => FlagsToSplit());
+            var actions = new Action[]
+            {
+                () => RefreshElden(),
+                () => CheckLoad(),
+                () => BossToSplit(),
+                () => GraceToSplit(),
+                () => PositionToSplit(),
+                () => FlagsToSplit()
+            };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
+
         }
         #endregion
         #region CheckFlag Init()   

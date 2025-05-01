@@ -133,8 +133,16 @@ namespace AutoSplitterCore
         #region Procedure
         public void LoadAutoSplitterProcedure()
         {
-            Task.Run(() => RefreshCuphead());
-            Task.Run(() => ElementToSplit());
+            var actions = new Action[]
+                {
+                    () => RefreshCuphead(),
+                    () => ElementToSplit()
+                };
+
+            foreach (var action in actions)
+            {
+                Task.Factory.StartNew(action, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Current);
+            }
         }
         #endregion
         #region CheckFlag Init()
