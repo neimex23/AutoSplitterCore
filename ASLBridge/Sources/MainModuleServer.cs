@@ -24,6 +24,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,7 +37,6 @@ namespace ASLBridge
         private static event EventHandler OpenForm;
 
         public static void OpenWithBrowser(Uri uri) => Process.Start(new ProcessStartInfo("cmd", $"/c start {uri.OriginalString.Replace("&", "^&")}") { CreateNoWindow = true, UseShellExecute = true });
-
 
 
         private static bool serverRunning = true;
@@ -74,30 +74,33 @@ namespace ASLBridge
                         using (var reader = new StreamReader(pipeServer))
                         using (_writer = new StreamWriter(pipeServer) { AutoFlush = true })
                         {
-                            string line;
-                            while ((line = reader.ReadLine()) != null)
+                            while (serverRunning && pipeServer.IsConnected)
                             {
-                                Console.WriteLine($"[PIPE] Comando recibido: {line}");
-                                string response = HandleCommand(line);
-
-                                if (response != null)
+                                var readTask = reader.ReadLineAsync();
+                                if (readTask.Wait(TimeSpan.FromSeconds(5)))
                                 {
-                                    _writer.WriteLine(response);
-                                    Console.WriteLine($"[PIPE] Comando Enviado: {response}");
+                                    var line = readTask.Result;
+                                    if (line == null)
+                                    {
+                                        Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
+                                        HandleCommand("exit");
+                                        break;
+                                    }
+
+                                    Console.WriteLine($"[PIPE] Comando recibido: {line}");
+                                    var response = HandleCommand(line);
+                                    if (response != null)
+                                    {
+                                        _writer.WriteLine(response);
+                                        Console.WriteLine($"[PIPE] Comando Enviado: {response}");
+                                    }
                                 }
-
-
-                                if (line.Trim().ToLower() == "exit")
+                                else if (!pipeServer.IsConnected)
                                 {
-                                    serverRunning = false;
+                                    Console.WriteLine("[PIPE] Cliente desconectado (timeout). Cerrando servidor...");
+                                    HandleCommand("exit");
                                     break;
                                 }
-                            }
-
-                            if (line == null)
-                            {
-                                Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
-                                HandleCommand("exit");
                             }
                         }
                     }
@@ -185,7 +188,7 @@ namespace ASLBridge
                 case "exit":
                     SaveModule.SaveASLSettings();
                     serverRunning = false;
-                    _writer.Dispose();
+                    _writer?.Dispose();
                     ASLFormServer.GetIntance().CloseForm();
                     Application.Exit();
                     return null;
@@ -196,6 +199,13 @@ namespace ASLBridge
 
         private static void ShowForm(object sender, EventArgs e) => ASLFormServer.GetIntance().ShowForm();
 
+        public static void InternalExitCommand()
+        {
+            SaveModule.SaveASLSettings();
+            serverRunning = false;
+            _writer?.Dispose();
+            Application.Exit();
+        }
 
     }
 }

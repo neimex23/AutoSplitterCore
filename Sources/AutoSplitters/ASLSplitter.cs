@@ -87,7 +87,9 @@ namespace AutoSplitterCore
             }
         }
 
-        ~ASLSplitter()
+        ~ASLSplitter() => Dispose(); 
+
+        public void Dispose() 
         {
             if (HCMv2)
             {

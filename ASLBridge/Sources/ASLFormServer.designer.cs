@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ASLFormServer));
             this.poisonTabControl = new ReaLTaiizor.Controls.PoisonTabControl();
             this.tabPageASLConfig = new ReaLTaiizor.Controls.PoisonTabPage();
@@ -46,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbxGameName = new System.Windows.Forms.ComboBox();
             this.lostBorderPanelASLConfig = new ReaLTaiizor.Controls.LostBorderPanel();
+            this.notifyIconASLService = new System.Windows.Forms.NotifyIcon(this.components);
             this.poisonTabControl.SuspendLayout();
             this.tabPageASLConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -305,6 +307,12 @@
             this.lostBorderPanelASLConfig.Size = new System.Drawing.Size(477, 513);
             this.lostBorderPanelASLConfig.TabIndex = 4;
             // 
+            // notifyIconASLService
+            // 
+            this.notifyIconASLService.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconASLService.Icon")));
+            this.notifyIconASLService.Text = "ASLServices";
+            this.notifyIconASLService.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconASLService_MouseDoubleClick);
+            // 
             // ASLFormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,5 +361,6 @@
         private System.Windows.Forms.ComboBox cbxGameName;
         private ReaLTaiizor.Controls.LostBorderPanel lostBorderPanelASLConfig;
         private ReaLTaiizor.Controls.Button btnGetASL;
+        private System.Windows.Forms.NotifyIcon notifyIconASLService;
     }
 }

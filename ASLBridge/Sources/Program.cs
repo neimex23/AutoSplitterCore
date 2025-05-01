@@ -32,11 +32,13 @@ namespace ASLBridge
         [STAThread]
         static void Main(string[] args)
         {
+#if !DEBUG
             if (!args.Contains("--from-client"))
             {
                 MessageBox.Show("This program is not intended to be run directly. Please run the HCM + ASC application instead.", "ASLBridge", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Environment.Exit(0);
             }
+#endif
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

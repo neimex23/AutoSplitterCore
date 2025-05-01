@@ -43,17 +43,37 @@ namespace ASLBridge
         private ASLFormServer()
         {
             InitializeComponent();
+
+            var contextMenu = new ContextMenuStrip();
+            var exitItem = new ToolStripMenuItem("Close ASLBridge");
+            var openASLBridge = new ToolStripMenuItem("Open ASLBridge");
+            exitItem.Click += (s, e) =>
+            {
+                notifyIconASLService.Visible = false;
+                notifyIconASLService.Dispose();
+                MainModuleServer.InternalExitCommand();
+            };
+            openASLBridge.Click += (s, e) =>
+            {
+                ShowForm();
+            };
+
+            contextMenu.Items.Add(openASLBridge);
+            contextMenu.Items.Add(exitItem);
+            notifyIconASLService.ContextMenuStrip = contextMenu;
         }
 
         public void ShowForm() => this.InvokeIfRequired(() =>
         {
             RefreshAslSettings();
+            notifyIconASLService.Visible = false;
             this.Show();
         });
 
         public void HideForm() => this.InvokeIfRequired(() =>
         {
             this.Hide();
+            notifyIconASLService.Visible = true;
         });
 
         public void CloseForm() => this.InvokeIfRequired(() =>
@@ -247,6 +267,11 @@ namespace ASLBridge
         }
 
         private void btnGetASL_Click(object sender, EventArgs e) => MainModuleServer.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki/English#asl-scripts"));
+
+        private void notifyIconASLService_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ShowForm();
+        }
     }
     internal static class FormControl
     {

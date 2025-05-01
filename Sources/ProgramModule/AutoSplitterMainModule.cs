@@ -73,6 +73,25 @@ namespace AutoSplitterCore
             SetShowSettings(false);
         }
 
+        public AutoSplitterMainModule()
+        {
+            DebugLog.Initialize();
+
+            AppDomain.CurrentDomain.ProcessExit += (sender, e) =>
+            {
+                aslSplitter.Dispose();
+                DebugLog.Close();
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                if (e.ExceptionObject is Exception ex)
+                {
+                    DebugLog.LogMessage($"Unhandled exception {ex.Message}", ex);
+                }
+            };      
+        }
+
         private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open
 
         public void RegisterHitCounterManagerInterface(IAutoSplitterCoreInterface interfaceASC)

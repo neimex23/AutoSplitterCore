@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace AutoSplitterCore
             InitializeComponent();
             this.mainModule = mainModule;
 
-            DebugLog.Initialize(this);
+            DebugLog.SetLogger(this);
             DebugLog.LogMessage("Log System Started successfully");
 
             ListenerASL.Initialize();
@@ -71,7 +72,7 @@ namespace AutoSplitterCore
 
             foreach (var resourceName in assembly.GetManifestResourceNames())
             {
-                DebugLog.LogMessage($"Recursos incrustados en el ensamblado: {resourceName}");
+                DebugLog.LogMessage($"Resources embedded in the assembly: {resourceName}");
             }
         }
 
@@ -340,12 +341,43 @@ namespace AutoSplitterCore
     {
         private static Debug _logger;
         public static List<LogEntry> logEntries = new List<LogEntry>();
-        private static readonly string LogFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "asc_log.txt");
+        private static readonly string LogDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
+        private static readonly string LogFilePath = Path.Combine(LogDirectory, "asc_log.txt");
+        private const long MaxLogFileSizeBytes = 5 * 1024 * 1024; // 5 MB
+        private static StreamWriter _streamWriter;
 
-        public static void Initialize(Debug logger)
+        public static void Initialize()
+        {
+            try
+            {
+                if (!Directory.Exists(LogDirectory))
+                {
+                    Directory.CreateDirectory(LogDirectory);
+                }
+
+                if (File.Exists(LogFilePath))
+                {
+                    var fileInfo = new FileInfo(LogFilePath);
+                    if (fileInfo.Length > MaxLogFileSizeBytes)
+                    {
+                        File.Delete(LogFilePath);
+                    }
+                }
+
+                _streamWriter = new StreamWriter(LogFilePath, append: true) { AutoFlush = true };
+                var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
+                _streamWriter.WriteLine(separator);
+            }
+            catch
+            {
+            }
+        }
+
+        public static void SetLogger(Debug logger)
         {
             _logger = logger;
         }
+
 
         public static void LogMessage(string message, Exception exception = null)
         {
@@ -360,26 +392,34 @@ namespace AutoSplitterCore
                     Exception = exception
                 };
 
-                if (logEntries.Count == 0)
-                {
-                    var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
-                    File.AppendAllText(LogFilePath, separator);
-                }
-
                 logEntries.Add(entry);
                 WriteToFile(entry.ToString());
-            }           
+            }
         }
 
         private static void WriteToFile(string message)
         {
             try
             {
-                File.AppendAllText(LogFilePath, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}{Environment.NewLine}");
+                _streamWriter?.WriteLine(message);
+            }
+            catch
+            {
+                // Ignora errores de escritura para no interrumpir el programa
+            }
+        }
+
+        public static void Close()
+        {
+            try
+            {
+                _streamWriter?.Close();
+                _streamWriter = null;
             }
             catch
             {
             }
         }
     }
+
 }
