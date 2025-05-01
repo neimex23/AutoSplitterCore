@@ -56,19 +56,17 @@ If You want know how i made Secrets read my investigation: https://www.notion.so
 
 ## Compilation Notes
 
-The project **AutoSplitterCore.csproj**, which operates with **HCMv1**, must be compiled with **GOOGLE APIs 1.68**.  
-If API version **1.69** is set, the project must be recompiled to ensure compatibility.
+The project AutoSplitterCore.csproj, which operates with HCMv1, must be compiled with GOOGLE APIs 1.68.
+If API version 1.69 is set, the project must be recompiled to ensure compatibility.
 
-### Steps to Compile:
-1. Ensure you have API 1.68 installed.
-2. Open the project in your preferred IDE.
-3. Verify that `appsettings.json` is properly configured.
-4. Build the project.
+To compile the installer using the PrepareReleaseAutoSplitter.bat script, you must have Advanced Installer Enterprise Edition installed.
+Without the Enterprise version, the script will skip the installer build step.
 
-If switching to API 1.69:
-- Update the API reference.
-- Try Executing ¨Dotnet Build ./AutoSplitterCore.csproject¨
-- Recompile the project to reflect changes.
+## Additional Recommendations
+Make sure 7z.exe (7-Zip) is installed and available in C:\Program Files\7-Zip or adjust the script path accordingly.
+Avoid running post-build scripts directly from Visual Studio if they reference relative paths — they work best with absolute paths, as configured in the batch scripts.
+
+Use the -NoPause parameter when running PowerShell scripts from automated build systems to avoid build hangs.
 
 ---
 

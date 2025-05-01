@@ -211,19 +211,22 @@ namespace AutoSplitterCore
         #region Checking
         public int GetTimeInGame()
         {
-            if (!_StatusDs3) GetDs3StatusProcess(0);
-            if (_StatusDs3)
+            if (!_StatusDs3)
+                GetDs3StatusProcess(0);
+
+            if (!_StatusDs3)
+                return -1;
+
+            try
             {
-                try
-                {
-                    return Ds3.GetInGameTimeMilliseconds();
-                }
-                catch
-                {
-                    return -1;
-                }
+                int time = Ds3.GetInGameTimeMilliseconds();
+                return time >= 0 ? time : -1;
             }
-            return -1;
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"DS3 GetTimeInGame Ex: {ex.Message}");
+                return -1;
+            }
         }
 
         public Vector3f GetCurrentPosition()

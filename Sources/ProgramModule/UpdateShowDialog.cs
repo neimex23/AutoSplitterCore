@@ -100,8 +100,8 @@ namespace AutoSplitterCore
                     switch (method)
                     {
                         case 1:
-                            url += $"Installer_v{ver}.msi";
-                            await webClient.DownloadFileTaskAsync(new Uri(url), "UpdateASCInstaller.msi");
+                            url += $"Installer_v{ver}.exe";
+                            await webClient.DownloadFileTaskAsync(new Uri(url), "UpdateASCInstaller.exe");
                             break;
                         case 2:
                             url += $"Portable_v{ver}.zip";

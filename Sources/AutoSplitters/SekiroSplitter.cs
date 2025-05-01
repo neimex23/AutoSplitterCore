@@ -414,20 +414,24 @@ namespace AutoSplitterCore
 
         public int GetTimeInGame()
         {
-            if (!_StatusSekiro) GetSekiroStatusProcess(0);
-            if (_StatusSekiro)
+            if (!_StatusSekiro)
+                GetSekiroStatusProcess(0);
+
+            if (!_StatusSekiro)
+                return -1;
+
+            try
             {
-                try
-                {
-                    return sekiro.GetInGameTimeMilliseconds();
-                }
-                catch
-                {
-                    return -1;
-                }
+                int time = sekiro.GetInGameTimeMilliseconds();
+                return time >= 0 ? time : -1;
             }
-            return -1;
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"Sekiro GetTimeInGame Ex: {ex.Message}");
+                return -1;
+            }
         }
+
         #endregion
         #region Procedure
         public void LoadAutoSplitterProcedure()

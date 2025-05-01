@@ -223,21 +223,25 @@ namespace AutoSplitterCore
             if (!_StatusDs1) GetDs1StatusProcess(0);
             return _StatusDs1 ? Ds1.GetPosition() : new Vector3f() { X = 0, Y = 0, Z = 0 };
         }
+
         public int GetTimeInGame()
         {
-            if (!_StatusDs1) GetDs1StatusProcess(0);
-            if (_StatusDs1)
+            if (!_StatusDs1)
+                GetDs1StatusProcess(0);
+
+            if (!_StatusDs1)
+                return -1;
+
+            try
             {
-                try
-                {
-                    return Ds1.GetInGameTimeMilliseconds();
-                }
-                catch
-                {
-                    return -1;
-                }
+                int time = Ds1.GetInGameTimeMilliseconds();
+                return time >= 0 ? time : -1;
             }
-            return -1;
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"DS1 GetTimeInGame Ex: {ex.Message}");
+                return -1;
+            }
         }
         #endregion
         #region Procedure

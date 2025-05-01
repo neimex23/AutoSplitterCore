@@ -38,6 +38,9 @@
   <PropertyGroup>
     <ApplicationIcon>AutoSplitterSetupIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HitCounterManager.PCL, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -188,9 +191,6 @@
       <DependentUpon>AutoSplitter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="appsettings.json" />
-    <None Include="ASC_Cert.cer">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -273,9 +273,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if "$(ConfigurationName)" == "Release" (
-    echo ========= Cleaning up .pdb files for Release =========
-    del /q "$(TargetDir)*.pdb"
-    echo .pdb files deleted.
+    call "$(ProjectDir)PrepareReleaseAutoSplitter.bat"
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>

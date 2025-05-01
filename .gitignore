@@ -46,3 +46,5 @@ nuget.config
 
 # Carpetas finales del proyecto
 FinalFiles/
+AutoSplitterCoreSetup-cache/
+AutoSplitterCoreSetup-SetupFiles/

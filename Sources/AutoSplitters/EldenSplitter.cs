@@ -183,19 +183,22 @@ namespace AutoSplitterCore
 
         public int GetTimeInGame()
         {
-            if (!_StatusElden) GetEldenStatusProcess(0);
-            if (_StatusElden)
+            if (!_StatusElden)
+                GetEldenStatusProcess(0);
+
+            if (!_StatusElden)
+                return -1;
+
+            try
             {
-                try
-                {
-                    return elden.GetInGameTimeMilliseconds();
-                }
-                catch
-                {
-                    return -1;
-                }
+                int time = elden.GetInGameTimeMilliseconds();
+                return time >= 0 ? time : -1;
             }
-            return -1;
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"Elden GetTimeInGame Ex: {ex.Message}");
+                return -1;
+            }
         }
         #endregion
         #region Procedure

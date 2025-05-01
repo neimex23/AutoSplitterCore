@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="22.2" version="22.2" PreviousModules="professional" Modules="enterprise" RootPath="." Language="en" Id="{739583AF-52BA-480E-AD95-9CDBD7B60582}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AutorunComponent;GameUxComponent;SilverlightSlnComponent;SharePointSlnComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_UPGRADE" Value="No"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="[|ProductName] for HitCounterManager." ValueLocId="*"/>
+    <ROW Property="ARPCONTACT" Value="Discord: neimex23"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="https://neimex23.github.io/AutoSplitterCore/"/>
+    <ROW Property="AiEmbeddedUI" Value="1" MultiBuildValue="DefaultBuild:"/>
+    <ROW Property="AiLicenseAgreementLink" Value="https://neimex23.github.io/AutoSplitterCore/ThirdPartyLicense"/>
+    <ROW Property="AiWinUI" Value="1"/>
+    <ROW Property="AppLogo" Value="applogo.png" MultiBuildValue="DefaultBuild:AutoSplitterSetupIcon.ico" Type="1" MsiKey="AppLogo"/>
+    <ROW Property="INSTALLLEVEL" Value="3" ValueLocId="-"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="Manufacturer" Value="Neimex23"/>
+    <ROW Property="ProductCode" Value="1033:{AAB010C4-1776-48CD-9ABB-F98AA833E14D} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="AutoSplitterCore"/>
+    <ROW Property="ProductVersion" Value="3.0.0.0" Options="32"/>
+    <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:ReallySuppress"/>
+    <ROW Property="SELECTED_VERSION" Value="HCMv1" Type="4"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{DE1C63EC-C91D-42BF-8B4B-67A8A797C88A}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT60" MultiBuildValue="DefaultBuild:Windows Vista/Server 2008" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT60Display" MultiBuildValue="DefaultBuild:Windows Vista/Server 2008" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:32-bit Windows versions" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="AutoSplitterCorePortableV2_Dir" Directory_Parent="FinalFiles_Dir" DefaultDir="AUTOSP~2|AutoSplitterCorePortableV2"/>
+    <ROW Directory="AutoSplitterCorePortable_Dir" Directory_Parent="FinalFiles_Dir" DefaultDir="AUTOSP~1|AutoSplitterCorePortable"/>
+    <ROW Directory="AutoSplitterProfiles_1_Dir" Directory_Parent="ReleaseHCMv2_Dir" DefaultDir="AUTOSP~1|AutoSplitterProfiles"/>
+    <ROW Directory="AutoSplitterProfiles_2_Dir" Directory_Parent="AutoSplitterCorePortable_Dir" DefaultDir="AUTOSP~1|AutoSplitterProfiles"/>
+    <ROW Directory="AutoSplitterProfiles_3_Dir" Directory_Parent="AutoSplitterCorePortableV2_Dir" DefaultDir="AUTOSP~1|AutoSplitterProfiles"/>
+    <ROW Directory="AutoSplitterProfiles_Dir" Directory_Parent="Release_Dir" DefaultDir="AUTOSP~1|AutoSplitterProfiles"/>
+    <ROW Directory="FinalFiles_Dir" Directory_Parent="ReleaseHCMv2_Dir" DefaultDir="FINALF~1|FinalFiles"/>
+    <ROW Directory="ProfilesForHCM_1_Dir" Directory_Parent="AutoSplitterProfiles_1_Dir" DefaultDir="PROFIL~1|ProfilesForHCM"/>
+    <ROW Directory="ProfilesForHCM_Dir" Directory_Parent="AutoSplitterProfiles_Dir" DefaultDir="PROFIL~1|ProfilesForHCM"/>
+    <ROW Directory="ReleaseHCMv2_Dir" Directory_Parent="APPDIR" DefaultDir=".:RELEAS~1|ReleaseHCMv2"/>
+    <ROW Directory="Release_Dir" Directory_Parent="APPDIR" DefaultDir=".:Release"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SideBySideGuidComponent">
+    <ROW Component="AI_ExePath" Value="{C2BC5A56-3FD3-4E61-A523-502BB3150BCC}"/>
+    <ROW Component="APPDIR" Value="{BEB6B74D-3492-4C97-9870-F71462364F58}"/>
+    <ROW Component="ASLBridge.exe" Value="{D5F0D953-D9FB-4B9A-A9E3-9EA2E76E712C}"/>
+    <ROW Component="ASLBridge.exe.config" Value="{9B1A114E-764C-41D5-AE88-3654014BAC8E}"/>
+    <ROW Component="AutoSplitterCore.dll" Value="{21F52215-99F9-4B08-AEEE-AC4E9DC0A0B1}"/>
+    <ROW Component="AutoSplitterCore.dll.config" Value="{468F5FEF-2640-480D-A740-19008BBD03B9}"/>
+    <ROW Component="AutoSplitterCore.dll_1" Value="{3E6D8405-3386-4C16-ACE6-82AE3FCB70A1}"/>
+    <ROW Component="Google.Api.CommonProtos.dll" Value="{C2AA9355-3C54-431C-8031-133D6DF1EEAC}"/>
+    <ROW Component="Google.Api.CommonProtos.dll_1" Value="{2420A344-B52D-4A5E-8E84-F133D724943B}"/>
+    <ROW Component="Google.Api.Gax.Grpc.dll" Value="{5B495CCF-F12B-40A4-9C6A-E3CA3ADA2490}"/>
+    <ROW Component="Google.Api.Gax.Grpc.dll_1" Value="{D10B1C6E-B7C6-44EA-A5C8-FD206274B938}"/>
+    <ROW Component="Google.Api.Gax.dll" Value="{F2ABBF96-5430-4EDB-9558-6216E67AC576}"/>
+    <ROW Component="Google.Api.Gax.dll_1" Value="{847E0216-AE85-4EB7-942E-A99986CE0DB9}"/>
+    <ROW Component="Google.Apis.Auth.dll" Value="{7B82D2E8-9772-4BB0-8B48-4913191D1B1A}"/>
+    <ROW Component="Google.Apis.Auth.dll_1" Value="{BB82E8C8-70E8-4AD0-AC23-917F731B7F4C}"/>
+    <ROW Component="Google.Apis.Core.dll" Value="{7FF14EC0-BF54-47BF-AB25-6AE4F7F724EE}"/>
+    <ROW Component="Google.Apis.Core.dll_1" Value="{F96E7551-0B6C-42B6-BEB6-9B7DA3829214}"/>
+    <ROW Component="Google.Apis.Drive.v3.dll" Value="{8B857653-ADD6-4180-8837-5FA75F356DFF}"/>
+    <ROW Component="Google.Apis.Drive.v3.dll_1" Value="{3DFB927D-BC13-4E01-8EBF-650968853D9A}"/>
+    <ROW Component="Google.Apis.Oauth2.v2.dll" Value="{D489E5AF-F149-4AE5-AEFE-8824E567BBAD}"/>
+    <ROW Component="Google.Apis.Oauth2.v2.dll_1" Value="{4982B1C7-5D4E-45FE-B000-07A61B0234B7}"/>
+    <ROW Component="Google.Apis.dll" Value="{1C808631-647F-4F25-9FCA-F62C88D48F35}"/>
+    <ROW Component="Google.Apis.dll_1" Value="{D4E652CF-BC89-4BC0-89EB-F4C0E622F146}"/>
+    <ROW Component="Google.Cloud.Firestore.V1.dll" Value="{419530AE-33D6-4A8B-B7AD-F0EB03ECA514}"/>
+    <ROW Component="Google.Cloud.Firestore.V1.dll_1" Value="{052009EA-90DD-4464-B9AD-52B0003BC46C}"/>
+    <ROW Component="Google.Cloud.Firestore.dll" Value="{F939F214-2CA8-4001-8F9D-87285FE632B5}"/>
+    <ROW Component="Google.Cloud.Firestore.dll_1" Value="{F427F0BC-A335-406E-B381-40AE126E049C}"/>
+    <ROW Component="Google.Cloud.Location.dll" Value="{DBE4CFAD-5EE4-4B32-B8B6-D1E7DD6FC442}"/>
+    <ROW Component="Google.Cloud.Location.dll_1" Value="{7F301622-04EC-4707-B448-D343EBE73A2A}"/>
+    <ROW Component="Google.LongRunning.dll" Value="{E392722F-D21A-4DBB-BEE9-57EFA8A96591}"/>
+    <ROW Component="Google.LongRunning.dll_1" Value="{CEEF6B87-A4A6-46B8-BF78-107F7120BE7D}"/>
+    <ROW Component="Google.Protobuf.dll" Value="{F199B1E3-58FC-4D9B-918C-F67D6B92124B}"/>
+    <ROW Component="Google.Protobuf.dll_1" Value="{5E6A38EC-0804-4084-A360-0286568F24FE}"/>
+    <ROW Component="Grpc.Auth.dll" Value="{824FDEFF-0618-4F21-92D7-2909EEDBE957}"/>
+    <ROW Component="Grpc.Auth.dll_1" Value="{522C56E8-E45F-447D-9590-762F46AF05A7}"/>
+    <ROW Component="Grpc.Core.Api.dll" Value="{63A84057-15E2-415E-8CAE-4E03E8CD45EF}"/>
+    <ROW Component="Grpc.Core.Api.dll_1" Value="{6BC4DE35-18CE-44A8-8154-D3788A3E10E7}"/>
+    <ROW Component="Grpc.Core.dll" Value="{5104B62D-6551-45ED-A5DE-011E264D2FA8}"/>
+    <ROW Component="Grpc.Core.dll_1" Value="{1B579850-589B-4097-A051-768D4F35B827}"/>
+    <ROW Component="Grpc.Net.Client.dll" Value="{EC3A8407-A9B4-4317-8B6B-2C36BD4BA2AE}"/>
+    <ROW Component="Grpc.Net.Client.dll_1" Value="{D7D8BD24-5A6F-456A-A721-825953562E71}"/>
+    <ROW Component="Grpc.Net.Common.dll" Value="{7DF3D839-5323-4900-B8CE-3C3E0475DFB9}"/>
+    <ROW Component="Grpc.Net.Common.dll_1" Value="{248EEE65-27DD-4900-BD52-80331F19A69D}"/>
+    <ROW Component="HitCounterManager.PCL.dll" Value="{7A509C73-1861-4306-B933-4C3AF606005F}"/>
+    <ROW Component="HitCounterManager.dll" Value="{17B6DEED-38F2-4558-B81E-959DE15C3410}"/>
+    <ROW Component="Irony.dll" Value="{77212AAB-9F79-4534-8DA6-05F347039F1C}"/>
+    <ROW Component="Irony.dll_1" Value="{B7BA3482-AAEE-427D-9ED2-49225C7D60D3}"/>
+    <ROW Component="LiveSplit.Celeste.dll" Value="{0B3ABB57-F809-4A78-A0B8-9CD4743E43FD}"/>
+    <ROW Component="LiveSplit.Celeste.dll_1" Value="{A7F233C6-2119-4160-8DB9-6056128BE2C2}"/>
+    <ROW Component="LiveSplit.Core.dll" Value="{D2A9A0EA-BFE3-486C-8298-6DF76B5AFE9A}"/>
+    <ROW Component="LiveSplit.Core.dll_1" Value="{2EE50F06-15BF-4D7E-B1C4-76176C65166C}"/>
+    <ROW Component="LiveSplit.Cuphead.dll" Value="{EAC8E3CA-E856-4AE5-A82D-394BEA9D73B8}"/>
+    <ROW Component="LiveSplit.Cuphead.dll_1" Value="{2DCCFDDB-587A-469C-BE47-95B20EB27CE9}"/>
+    <ROW Component="LiveSplit.Dishonored.dll" Value="{0571D02F-EC01-4F6D-9495-12FFA5DDC68E}"/>
+    <ROW Component="LiveSplit.Dishonored.dll_1" Value="{9BEA73A9-230F-4C8F-BAED-D3C8C7C91BC4}"/>
+    <ROW Component="LiveSplit.HollowKnight.dll" Value="{E6C3B58A-5CE7-4719-B11C-2154C9A37D30}"/>
+    <ROW Component="LiveSplit.HollowKnight.dll_1" Value="{5A4BDAED-14A3-4406-9061-94B2456BD298}"/>
+    <ROW Component="LiveSplit.ScriptableAutoSplit.dll" Value="{B38CD5F9-A8F3-49FA-8CF3-9901A92B5726}"/>
+    <ROW Component="LiveSplit.ScriptableAutoSplit.dll_1" Value="{2D75D790-808B-4F30-8346-4786AB5E273D}"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" Value="{9FD026C0-6A78-40B4-8188-0FFEECB74CBF}"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll_1" Value="{E0779632-10E5-4995-91D1-11E587BBD8CF}"/>
+    <ROW Component="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll" Value="{2D221DBE-254F-4419-866D-0219849600F9}"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="{AD3E4FB8-7C01-406F-ABE6-02138C802B09}"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstr_1_actions.dll" Value="{9D42127B-953A-4E4B-8205-E165FA4B0858}"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" Value="{D4E59AB2-E29F-4C6E-BA29-9EB987F2DDB2}"/>
+    <ROW Component="MimeTypesMap.dll" Value="{7B27E164-CC70-46D2-9C6A-62FA03C54E77}"/>
+    <ROW Component="MimeTypesMap.dll_1" Value="{0BC5DD5B-BE53-44DA-89CF-6F09866D0E97}"/>
+    <ROW Component="Newtonsoft.Json.dll" Value="{EE6FB99B-A123-4A0B-87DF-2BB5A43F243F}"/>
+    <ROW Component="Newtonsoft.Json.dll_1" Value="{BA391D22-E17B-4718-8962-C5777CB96316}"/>
+    <ROW Component="ProductInformation" Value="{632E1AB9-15D2-4CDE-AD2D-99D9C61D7131}"/>
+    <ROW Component="ReaLTaiizor.dll" Value="{63B484BC-5D05-4BE5-87D5-BFCAD15A80F1}"/>
+    <ROW Component="ReaLTaiizor.dll_1" Value="{E413768C-D3DE-4C58-B90A-F4FC060AC591}"/>
+    <ROW Component="SoulMemory.dll" Value="{09B37B31-7A52-4FA9-AD01-98A0D162F3EF}"/>
+    <ROW Component="SoulMemory.dll_1" Value="{24B6848A-2193-4E0B-8832-2DF0D63D7486}"/>
+    <ROW Component="SpeedrunComSharp.dll" Value="{4C6E09A7-5988-4D78-B0BF-E277764F6DE5}"/>
+    <ROW Component="SpeedrunComSharp.dll_1" Value="{27656ADB-001C-4771-AFBD-3C9A1BE70223}"/>
+    <ROW Component="System.Buffers.dll" Value="{46CE161D-36F3-45D0-9687-6AFB00A3378B}"/>
+    <ROW Component="System.Buffers.dll_1" Value="{EC3F0C9E-C849-4E3A-A280-27452EE9C401}"/>
+    <ROW Component="System.CodeDom.dll" Value="{710236D1-7CCD-42B0-8877-53813BFB1809}"/>
+    <ROW Component="System.CodeDom.dll_1" Value="{C1AED858-03CE-4787-8C57-783996A05EAD}"/>
+    <ROW Component="System.Collections.Immutable.dll" Value="{F7910277-7358-4359-AE41-9CF226CE8884}"/>
+    <ROW Component="System.Collections.Immutable.dll_1" Value="{42BAC05A-96A1-43E3-99E6-B0CB97CA58A3}"/>
+    <ROW Component="System.Diagnostics.DiagnosticSourc_1_e.dll" Value="{38B4BB41-09F8-4034-BB3C-6F719AA75247}"/>
+    <ROW Component="System.Diagnostics.DiagnosticSource.dll" Value="{D53830E0-BBA6-447B-9628-8B40E1247226}"/>
+    <ROW Component="System.Linq.Async.dll" Value="{5A9DD142-E521-4F36-B916-C39F23C1FC6E}"/>
+    <ROW Component="System.Linq.Async.dll_1" Value="{09361B6B-AAE0-44F5-B53B-ECF63BD7F174}"/>
+    <ROW Component="System.Memory.dll" Value="{0C6E7F9E-8556-41BE-ACDD-391F2B86C892}"/>
+    <ROW Component="System.Memory.dll_1" Value="{18A47270-A2FD-401F-95C6-9B4841152BAF}"/>
+    <ROW Component="System.Net.Http.WinHttpHandler.dll" Value="{9511B7A2-48D9-4933-B2E4-8DA8D62BA894}"/>
+    <ROW Component="System.Net.Http.WinHttpHandler.dll_1" Value="{6FC654A1-D6E1-41AE-B414-578168793A5A}"/>
+    <ROW Component="System.Numerics.Vectors.dll" Value="{58E7EE15-D379-4475-8C9A-756E0F2FF81B}"/>
+    <ROW Component="System.Numerics.Vectors.dll_1" Value="{E5125667-6DAF-450B-89AA-0BAF1055D90E}"/>
+    <ROW Component="System.Runtime.CompilerServices.Un_1_safe.dll" Value="{5C66FB41-45F5-4BA8-A113-C316ECC2CC10}"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" Value="{95A27A46-2AC7-42BD-9C6E-95D919323A80}"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll" Value="{C2B180B3-BBBC-4A2E-B23C-2369F79C7E58}"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll_1" Value="{86CCB4C8-6A41-4033-AC8C-3DEBF55057A2}"/>
+    <ROW Component="System.ValueTuple.dll" Value="{2435C324-1306-4E9C-B5AF-1D7BB9BD6646}"/>
+    <ROW Component="System.ValueTuple.dll_1" Value="{C684EB44-899E-4B08-B380-F53EA87162B8}"/>
+    <ROW Component="grpc_csharp_ext.x64.dll" Value="{090FDFE6-2FD7-4933-BFFE-0FAD1DB83F0C}"/>
+    <ROW Component="grpc_csharp_ext.x64.dll_1" Value="{AE06C153-6C5C-43BA-B0C8-14C6D140C48D}"/>
+    <ROW Component="grpc_csharp_ext.x86.dll" Value="{82BD3F9C-976C-45F9-A60D-9274E46705B1}"/>
+    <ROW Component="grpc_csharp_ext.x86.dll_1" Value="{FC7B65A0-3875-4B1F-86B8-A89FA9F7AA8E}"/>
+    <ROW Component="soulmods_x64.dll" Value="{73C72BC0-12F5-4BAE-A2E5-A6D60C9F580A}"/>
+    <ROW Component="soulmods_x64.dll_1" Value="{BEE1BB86-C102-4085-A769-C73F069094E5}"/>
+    <ROW Component="soulmods_x86.dll" Value="{E42ADA10-AA11-4E0B-BA34-94316F45B8A1}"/>
+    <ROW Component="soulmods_x86.dll_1" Value="{9710125C-389A-4F11-B982-0D01E841FF8A}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{8501D726-F4F6-419F-BE3B-1AE292E6A9AA}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{794FAFD8-C182-410D-BCEE-057ABD64A12A}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="ASLBridge.exe" ComponentId="{84AA8CF3-E6E7-44B5-A338-A65C41D32C43}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="ASLBridge.exe"/>
+    <ROW Component="ASLBridge.exe.config" ComponentId="{D60EF6C7-A69A-46FD-95C9-B784027FB6FC}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="ASLBridge.exe.config" Type="0"/>
+    <ROW Component="AutoSplitterCore.dll" ComponentId="{013BAF64-DECB-4791-B7F6-6CEA52DFA76D}" Directory_="Release_Dir" Attributes="256" KeyPath="AutoSplitterCore.dll"/>
+    <ROW Component="AutoSplitterCore.dll.config" ComponentId="{19FAE2D6-26E4-4696-900E-F6DEB8DB56CF}" Directory_="Release_Dir" Attributes="0" KeyPath="AutoSplitterCore.dll.config" Type="0"/>
+    <ROW Component="AutoSplitterCore.dll_1" ComponentId="{7256A090-768F-41D8-8BF8-98E25E16D90F}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="AutoSplitterCore.dll_1"/>
+    <ROW Component="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" ComponentId="{FBED2516-27A8-4560-BC05-85E944F59B15}" Directory_="FinalFiles_Dir" Attributes="0" KeyPath="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" Type="0"/>
+    <ROW Component="AutoSplitterProfiles" ComponentId="{573189FB-76CB-4CCB-BB00-D0D9E9BDC5E7}" Directory_="AutoSplitterProfiles_2_Dir" Attributes="0"/>
+    <ROW Component="AutoSplitterProfiles_1" ComponentId="{D5941ACE-576B-4CDE-B9B8-96E9A86AEEE0}" Directory_="AutoSplitterProfiles_3_Dir" Attributes="0"/>
+    <ROW Component="DarkSouls1AnyAllBosses.xml" ComponentId="{C4A585B8-5272-465D-8182-EA2A3C557C58}" Directory_="AutoSplitterProfiles_Dir" Attributes="0" KeyPath="DarkSouls1AnyAllBosses.xml" Type="0"/>
+    <ROW Component="Ds3Bender.xml" ComponentId="{82F58FC4-A7D3-4DBC-88E0-4044D5D2EB1C}" Directory_="ProfilesForHCM_Dir" Attributes="0" KeyPath="Ds3Bender.xml" Type="0"/>
+    <ROW Component="Google.Api.CommonProtos.dll" ComponentId="{02D94C3B-FC8C-41C0-8DD8-D7E6265D55B9}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Api.CommonProtos.dll"/>
+    <ROW Component="Google.Api.CommonProtos.dll_1" ComponentId="{44E1AD7E-EB4A-40CD-B576-188DEA3F37FD}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Api.CommonProtos.dll_1"/>
+    <ROW Component="Google.Api.Gax.Grpc.dll" ComponentId="{6F9D0A99-4022-4C05-BAA5-3A798A0F294A}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Api.Gax.Grpc.dll"/>
+    <ROW Component="Google.Api.Gax.Grpc.dll_1" ComponentId="{801A485A-10F6-46D3-9A67-553A3D9BD828}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Api.Gax.Grpc.dll_1"/>
+    <ROW Component="Google.Api.Gax.dll" ComponentId="{F087BDD3-8F7E-42D2-91C1-33D221FBCC42}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Api.Gax.dll"/>
+    <ROW Component="Google.Api.Gax.dll_1" ComponentId="{B39DA398-8D5B-4529-B076-3901F0FD01C0}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Api.Gax.dll_1"/>
+    <ROW Component="Google.Apis.Auth.dll" ComponentId="{95FCEEA5-E203-414E-BAB3-5CE6B1C30A0A}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Apis.Auth.dll"/>
+    <ROW Component="Google.Apis.Auth.dll_1" ComponentId="{16448E01-2BF1-4E6E-970B-6FE8E5AAB09F}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Apis.Auth.dll_1"/>
+    <ROW Component="Google.Apis.Core.dll" ComponentId="{FFDAF1FC-C72C-4B44-AED2-3E0C7E2A899C}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Apis.Core.dll"/>
+    <ROW Component="Google.Apis.Core.dll_1" ComponentId="{EA20B973-CC4B-4CE0-88A3-FEEEF68DB051}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Apis.Core.dll_1"/>
+    <ROW Component="Google.Apis.Drive.v3.dll" ComponentId="{7779C310-6286-4EBB-9E77-D4524F45A913}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Apis.Drive.v3.dll"/>
+    <ROW Component="Google.Apis.Drive.v3.dll_1" ComponentId="{14BE2821-2715-4063-9418-B228B03EA6CB}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Apis.Drive.v3.dll_1"/>
+    <ROW Component="Google.Apis.Oauth2.v2.dll" ComponentId="{1C2E5D9D-2F14-4038-B196-B349A158F40A}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Apis.Oauth2.v2.dll"/>
+    <ROW Component="Google.Apis.Oauth2.v2.dll_1" ComponentId="{C505A1CE-5399-402C-9AE5-68F6F0E8AC1E}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Apis.Oauth2.v2.dll_1"/>
+    <ROW Component="Google.Apis.dll" ComponentId="{7475273C-90BA-42AA-A532-565284E26E9C}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Apis.dll"/>
+    <ROW Component="Google.Apis.dll_1" ComponentId="{438BBB2C-400E-454B-9F6F-F270BC92402C}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Apis.dll_1"/>
+    <ROW Component="Google.Cloud.Firestore.V1.dll" ComponentId="{878594A1-2F4F-41A6-9FFC-D35D8DB6A250}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Cloud.Firestore.V1.dll"/>
+    <ROW Component="Google.Cloud.Firestore.V1.dll_1" ComponentId="{A13A4E57-3FAB-4E0A-A2F4-270A3CC01950}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Cloud.Firestore.V1.dll_1"/>
+    <ROW Component="Google.Cloud.Firestore.dll" ComponentId="{101AA894-5F6E-44EC-BF69-7FE8B3A90AFE}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Cloud.Firestore.dll"/>
+    <ROW Component="Google.Cloud.Firestore.dll_1" ComponentId="{96B7D498-C970-458D-AA65-6DA512C1324B}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Cloud.Firestore.dll_1"/>
+    <ROW Component="Google.Cloud.Location.dll" ComponentId="{39FADA8A-6B06-46E7-B6BE-7B69D70924D9}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Cloud.Location.dll"/>
+    <ROW Component="Google.Cloud.Location.dll_1" ComponentId="{425E1961-FCBC-45BE-91CD-0294BDE41980}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Cloud.Location.dll_1"/>
+    <ROW Component="Google.LongRunning.dll" ComponentId="{192A1035-29FF-4CF7-B0A3-FE02E1DA0C5E}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.LongRunning.dll"/>
+    <ROW Component="Google.LongRunning.dll_1" ComponentId="{12898732-FBC4-4237-A9E9-73EA1BD784AD}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.LongRunning.dll_1"/>
+    <ROW Component="Google.Protobuf.dll" ComponentId="{15D03C2C-C785-4DF8-A3C8-15DAA95E69D0}" Directory_="Release_Dir" Attributes="0" KeyPath="Google.Protobuf.dll"/>
+    <ROW Component="Google.Protobuf.dll_1" ComponentId="{A7D4E873-AA68-4496-A50B-5DF3948426CC}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Google.Protobuf.dll_1"/>
+    <ROW Component="Grpc.Auth.dll" ComponentId="{B1F3DF30-9B21-4D41-87A1-0397811E45EB}" Directory_="Release_Dir" Attributes="0" KeyPath="Grpc.Auth.dll"/>
+    <ROW Component="Grpc.Auth.dll_1" ComponentId="{52D52704-AF58-4A95-ABE3-F3DE0E704866}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Grpc.Auth.dll_1"/>
+    <ROW Component="Grpc.Core.Api.dll" ComponentId="{A06212CE-0447-413B-98E5-29035E28879B}" Directory_="Release_Dir" Attributes="0" KeyPath="Grpc.Core.Api.dll"/>
+    <ROW Component="Grpc.Core.Api.dll_1" ComponentId="{6D7B6ED9-02E6-4CD7-9120-C45573E039EB}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Grpc.Core.Api.dll_1"/>
+    <ROW Component="Grpc.Core.dll" ComponentId="{2264ED67-7270-4679-93EA-DE1BFEAF823C}" Directory_="Release_Dir" Attributes="0" KeyPath="Grpc.Core.dll"/>
+    <ROW Component="Grpc.Core.dll_1" ComponentId="{D5E4258D-F715-49A9-B350-5E7C6BC76523}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Grpc.Core.dll_1"/>
+    <ROW Component="Grpc.Net.Client.dll" ComponentId="{E45EED5E-75BC-4E2F-8233-9B7EA9761504}" Directory_="Release_Dir" Attributes="0" KeyPath="Grpc.Net.Client.dll"/>
+    <ROW Component="Grpc.Net.Client.dll_1" ComponentId="{B4850702-99BD-4568-AF7F-4E8BD3B8DB75}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Grpc.Net.Client.dll_1"/>
+    <ROW Component="Grpc.Net.Common.dll" ComponentId="{FBE9FC5F-7CC3-484F-9FCF-031A36E01469}" Directory_="Release_Dir" Attributes="0" KeyPath="Grpc.Net.Common.dll"/>
+    <ROW Component="Grpc.Net.Common.dll_1" ComponentId="{F2C663D8-AA1F-42F8-B325-96DAEFED882D}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Grpc.Net.Common.dll_1"/>
+    <ROW Component="HitCounterManager.PCL.dll" ComponentId="{C25B5CD8-4CE1-4501-A83E-5F6CE6B6EF3A}" Directory_="ReleaseHCMv2_Dir" Attributes="16" KeyPath="HitCounterManager.PCL.dll"/>
+    <ROW Component="HitCounterManager.dll" ComponentId="{69155FDF-77DC-415A-84D6-8CA6F7D6F1F6}" Directory_="Release_Dir" Attributes="0" KeyPath="HitCounterManager.dll"/>
+    <ROW Component="Irony.dll" ComponentId="{0F206384-FBA2-4032-A476-00429F639B55}" Directory_="Release_Dir" Attributes="0" KeyPath="Irony.dll"/>
+    <ROW Component="Irony.dll_1" ComponentId="{56107308-85D2-43B9-878E-FB5910173744}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Irony.dll_1"/>
+    <ROW Component="LiveSplit.Celeste.dll" ComponentId="{CF08B497-1393-482E-A972-FC001B9BD742}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.Celeste.dll"/>
+    <ROW Component="LiveSplit.Celeste.dll_1" ComponentId="{1FE2FCB3-26DF-4AAD-B38F-4029F7E5A661}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.Celeste.dll_1"/>
+    <ROW Component="LiveSplit.Core.dll" ComponentId="{57CD67A5-B626-4114-A484-D6CBF7381F06}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.Core.dll"/>
+    <ROW Component="LiveSplit.Core.dll_1" ComponentId="{46A2CEB7-2F1E-41F6-B763-A56300AE81F5}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.Core.dll_1"/>
+    <ROW Component="LiveSplit.Cuphead.dll" ComponentId="{783B3916-9D73-46B2-88F4-D3B2D724F2B0}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.Cuphead.dll"/>
+    <ROW Component="LiveSplit.Cuphead.dll_1" ComponentId="{43D55D52-7F46-4887-AE60-5ACEEDADC73A}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.Cuphead.dll_1"/>
+    <ROW Component="LiveSplit.Dishonored.dll" ComponentId="{3DC26160-F52F-4E79-8305-BCE834C03AE6}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.Dishonored.dll"/>
+    <ROW Component="LiveSplit.Dishonored.dll_1" ComponentId="{205B7A6C-D96B-4566-A6E3-ACEEEB887022}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.Dishonored.dll_1"/>
+    <ROW Component="LiveSplit.HollowKnight.dll" ComponentId="{FFD084B9-3E72-4B07-AF7F-DBAE5B7E12C3}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.HollowKnight.dll"/>
+    <ROW Component="LiveSplit.HollowKnight.dll_1" ComponentId="{07E8F717-B357-4008-B13A-EA77A5383F36}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.HollowKnight.dll_1"/>
+    <ROW Component="LiveSplit.ScriptableAutoSplit.dll" ComponentId="{C2EA693D-9D40-46BD-ABC7-8FF2B93D3174}" Directory_="Release_Dir" Attributes="0" KeyPath="LiveSplit.ScriptableAutoSplit.dll"/>
+    <ROW Component="LiveSplit.ScriptableAutoSplit.dll_1" ComponentId="{E5206A00-D5A7-4665-8DAA-7603B0A81965}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="LiveSplit.ScriptableAutoSplit.dll_1"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{C67D01BD-A43C-4C88-B282-41899FEE1B62}" Directory_="Release_Dir" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll_1" ComponentId="{0A818756-DA58-4DE0-9DBC-DEF927300D82}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll_1"/>
+    <ROW Component="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll" ComponentId="{982A74FE-AE23-4C74-8D89-4AA602846568}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{ED54DBF8-6773-4137-970A-E3598DD1F06B}" Directory_="Release_Dir" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstr_1_actions.dll" ComponentId="{0EC92778-D2B9-4210-9057-56375FF5A287}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstr_1_actions.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{016CE32F-466E-48AA-98EE-3C40113715BF}" Directory_="Release_Dir" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Component="MimeTypesMap.dll" ComponentId="{E3142AC5-0127-4C29-828A-AA9D4519E293}" Directory_="Release_Dir" Attributes="0" KeyPath="MimeTypesMap.dll"/>
+    <ROW Component="MimeTypesMap.dll_1" ComponentId="{333DF543-C8D7-4576-94E6-B56461D1694A}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="MimeTypesMap.dll_1"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{F4BBC1AF-071D-4E1A-BDC7-B6EC46A22492}" Directory_="Release_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Newtonsoft.Json.dll_1" ComponentId="{D0D65B9D-BD2C-4E6E-A824-F93098CD2746}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_1"/>
+    <ROW Component="ProductInformation" ComponentId="{863B8D14-9897-4957-AA89-373C9326B19F}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
+    <ROW Component="ReaLTaiizor.dll" ComponentId="{3D498CD7-FDEF-4879-9962-09BE92FFF508}" Directory_="Release_Dir" Attributes="0" KeyPath="ReaLTaiizor.dll"/>
+    <ROW Component="ReaLTaiizor.dll_1" ComponentId="{78CF5281-9B55-429B-A86F-A8B5D8BAB88D}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="ReaLTaiizor.dll_1"/>
+    <ROW Component="RenameTO_HitCounterManagerSave.txt" ComponentId="{6BC622C0-5BC0-42EF-ACBD-5FE49B9C5447}" Directory_="ProfilesForHCM_1_Dir" Attributes="0" KeyPath="RenameTO_HitCounterManagerSave.txt_1" Type="0"/>
+    <ROW Component="SekiroISAB.xml" ComponentId="{7F4A3494-3273-4A1E-9582-2D2718742DD0}" Directory_="AutoSplitterProfiles_1_Dir" Attributes="0" KeyPath="SekiroISAB.xml_1" Type="0"/>
+    <ROW Component="SoulMemory.dll" ComponentId="{E4246582-9E35-447C-BCB1-DA4667BF8DAE}" Directory_="Release_Dir" Attributes="256" KeyPath="SoulMemory.dll"/>
+    <ROW Component="SoulMemory.dll_1" ComponentId="{745B1D7D-7DFB-458E-944E-ECC833596DA9}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="SoulMemory.dll_1"/>
+    <ROW Component="SpeedrunComSharp.dll" ComponentId="{66B6B830-E28E-49CB-9527-EDB19C9408EE}" Directory_="Release_Dir" Attributes="0" KeyPath="SpeedrunComSharp.dll"/>
+    <ROW Component="SpeedrunComSharp.dll_1" ComponentId="{F40E283B-4D68-4CD2-8402-BAC09B930BDB}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="SpeedrunComSharp.dll_1"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{D545FC77-FCC7-46D6-AC6D-3ED3B29EDAFB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Buffers.dll_1" ComponentId="{D53B0977-C6D9-49B5-8ED7-9E3613DEACFC}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Buffers.dll_1"/>
+    <ROW Component="System.CodeDom.dll" ComponentId="{053BF7E6-23EC-45D8-BFAF-AD0DDF8C655C}" Directory_="Release_Dir" Attributes="0" KeyPath="System.CodeDom.dll"/>
+    <ROW Component="System.CodeDom.dll_1" ComponentId="{B710C740-EAE0-4F49-8B08-964B030F31E8}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.CodeDom.dll_1"/>
+    <ROW Component="System.Collections.Immutable.dll" ComponentId="{7696D062-8030-4412-A31E-4252F3B3363E}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Collections.Immutable.dll"/>
+    <ROW Component="System.Collections.Immutable.dll_1" ComponentId="{3FE40830-FC78-4E7E-A1FD-A5E6447C35CE}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Collections.Immutable.dll_1"/>
+    <ROW Component="System.Diagnostics.DiagnosticSourc_1_e.dll" ComponentId="{7F3C3A0E-8A21-456B-BF0A-1AD387FE3BD6}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Diagnostics.DiagnosticSourc_1_e.dll"/>
+    <ROW Component="System.Diagnostics.DiagnosticSource.dll" ComponentId="{0FB24C25-4140-45D8-9740-ADEE9DC4DE3E}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Component="System.Linq.Async.dll" ComponentId="{15FBCEA9-C21A-4DD5-BDEF-D969243C56FB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Linq.Async.dll"/>
+    <ROW Component="System.Linq.Async.dll_1" ComponentId="{E12155B9-FD2D-4A31-AC09-A8A4F5FBC2A2}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Linq.Async.dll_1"/>
+    <ROW Component="System.Memory.dll" ComponentId="{F6FDB7FA-2CCA-4804-94AF-4A61B24B9265}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Memory.dll_1" ComponentId="{38548821-3DCF-406A-99C9-03CB5D29F673}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Memory.dll_1"/>
+    <ROW Component="System.Net.Http.WinHttpHandler.dll" ComponentId="{DBE0CDD8-99A8-43E5-A15A-867C0C95F838}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Net.Http.WinHttpHandler.dll"/>
+    <ROW Component="System.Net.Http.WinHttpHandler.dll_1" ComponentId="{8A8BBBB1-55D3-4AF8-A872-431233F36045}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Net.Http.WinHttpHandler.dll_1"/>
+    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{BDEC9677-3B56-46F1-B382-242CE34FF08C}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll_1" ComponentId="{0BD71459-F470-4D07-ACCB-6695965E9147}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Numerics.Vectors.dll_1"/>
+    <ROW Component="System.Runtime.CompilerServices.Un_1_safe.dll" ComponentId="{4CFD9633-7113-4E37-BA0E-32809007F02D}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Un_1_safe.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{18C7A392-843F-45AD-A271-5DB632C9ECDD}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{1A1DA262-F92B-4E31-BA0E-E30C4786ABFB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll_1" ComponentId="{FB0B8077-941A-4DB4-BA29-9D724544A948}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll_1"/>
+    <ROW Component="System.ValueTuple.dll" ComponentId="{60B4399F-E98C-4C38-A0A3-A748B1D432AB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.ValueTuple.dll"/>
+    <ROW Component="System.ValueTuple.dll_1" ComponentId="{10A60BCD-C5C6-42FB-A132-F123EA2B7D1B}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.ValueTuple.dll_1"/>
+    <ROW Component="grpc_csharp_ext.x64.dll" ComponentId="{9D7AF5FB-16CE-4330-9E04-B79BD3C8B992}" Directory_="Release_Dir" Attributes="256" KeyPath="grpc_csharp_ext.x64.dll"/>
+    <ROW Component="grpc_csharp_ext.x64.dll_1" ComponentId="{DC23E146-2CBA-4135-B1ED-99A390526501}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="grpc_csharp_ext.x64.dll_1"/>
+    <ROW Component="grpc_csharp_ext.x86.dll" ComponentId="{D2149051-B3C5-4C71-9396-175A96A6E618}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="grpc_csharp_ext.x86.dll"/>
+    <ROW Component="grpc_csharp_ext.x86.dll_1" ComponentId="{134A6DC0-6BA0-4CC4-8268-8E77D42B1755}" Directory_="Release_Dir" Attributes="0" KeyPath="grpc_csharp_ext.x86.dll_1"/>
+    <ROW Component="soulmods_x64.dll" ComponentId="{A74A9185-8571-4D7A-8C91-AC6D975C3967}" Directory_="Release_Dir" Attributes="256" KeyPath="soulmods_x64.dll"/>
+    <ROW Component="soulmods_x64.dll_1" ComponentId="{7979310A-2A9A-4F7C-A4F1-B8D542875BCB}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="soulmods_x64.dll_1"/>
+    <ROW Component="soulmods_x86.dll" ComponentId="{1E464250-7744-4A43-A962-3121471207A3}" Directory_="Release_Dir" Attributes="0" KeyPath="soulmods_x86.dll"/>
+    <ROW Component="soulmods_x86.dll_1" ComponentId="{1D999F68-D5C3-4BD7-9562-D27513B55EC6}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="soulmods_x86.dll_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="HCMv1" Title="HCMv1" Description="Install ASC for Clasic HitCounterManager" Display="4" Level="4" Directory_="APPDIR" Attributes="4"/>
+    <ROW Feature="HCMv2" Title="HCMv2" Description="Install ASC for HitCounterManager v2" Display="6" Level="4" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="0" Level="0" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="HCMv1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AutoSplitterCore.dll" Component_="AutoSplitterCore.dll" FileName="AUTOSP~1.DLL|AutoSplitterCore.dll" Attributes="0" SourcePath="bin\Release\AutoSplitterCore.dll" SelfReg="false"/>
+    <ROW File="AutoSplitterCore.dll.config" Component_="AutoSplitterCore.dll.config" FileName="AUTOSP~1.CON|AutoSplitterCore.dll.config" Attributes="0" SourcePath="bin\Release\AutoSplitterCore.dll.config" SelfReg="false"/>
+    <ROW File="Google.Api.CommonProtos.dll" Component_="Google.Api.CommonProtos.dll" FileName="GOOGLE~1.DLL|Google.Api.CommonProtos.dll" Attributes="0" SourcePath="bin\Release\Google.Api.CommonProtos.dll" SelfReg="false"/>
+    <ROW File="Google.Api.Gax.dll" Component_="Google.Api.Gax.dll" FileName="GOOGLE~2.DLL|Google.Api.Gax.dll" Attributes="0" SourcePath="bin\Release\Google.Api.Gax.dll" SelfReg="false"/>
+    <ROW File="Google.Api.Gax.Grpc.dll" Component_="Google.Api.Gax.Grpc.dll" FileName="GOOGLE~3.DLL|Google.Api.Gax.Grpc.dll" Attributes="0" SourcePath="bin\Release\Google.Api.Gax.Grpc.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Auth.dll" Component_="Google.Apis.Auth.dll" FileName="GOOGLE~4.DLL|Google.Apis.Auth.dll" Attributes="0" SourcePath="bin\Release\Google.Apis.Auth.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Core.dll" Component_="Google.Apis.Core.dll" FileName="GOOGLE~5.DLL|Google.Apis.Core.dll" Attributes="0" SourcePath="bin\Release\Google.Apis.Core.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.dll" Component_="Google.Apis.dll" FileName="GOOGLE~6.DLL|Google.Apis.dll" Attributes="0" SourcePath="bin\Release\Google.Apis.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Drive.v3.dll" Component_="Google.Apis.Drive.v3.dll" FileName="GOOGLE~7.DLL|Google.Apis.Drive.v3.dll" Attributes="0" SourcePath="bin\Release\Google.Apis.Drive.v3.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Oauth2.v2.dll" Component_="Google.Apis.Oauth2.v2.dll" FileName="GOOGLE~8.DLL|Google.Apis.Oauth2.v2.dll" Attributes="0" SourcePath="bin\Release\Google.Apis.Oauth2.v2.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Firestore.dll" Component_="Google.Cloud.Firestore.dll" FileName="GOOGLE~9.DLL|Google.Cloud.Firestore.dll" Attributes="0" SourcePath="bin\Release\Google.Cloud.Firestore.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Firestore.V1.dll" Component_="Google.Cloud.Firestore.V1.dll" FileName="GOOGL~10.DLL|Google.Cloud.Firestore.V1.dll" Attributes="0" SourcePath="bin\Release\Google.Cloud.Firestore.V1.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Location.dll" Component_="Google.Cloud.Location.dll" FileName="GOOGL~11.DLL|Google.Cloud.Location.dll" Attributes="0" SourcePath="bin\Release\Google.Cloud.Location.dll" SelfReg="false"/>
+    <ROW File="Google.LongRunning.dll" Component_="Google.LongRunning.dll" FileName="GOOGL~12.DLL|Google.LongRunning.dll" Attributes="0" SourcePath="bin\Release\Google.LongRunning.dll" SelfReg="false"/>
+    <ROW File="Google.Protobuf.dll" Component_="Google.Protobuf.dll" FileName="GOOGL~13.DLL|Google.Protobuf.dll" Attributes="0" SourcePath="bin\Release\Google.Protobuf.dll" SelfReg="false"/>
+    <ROW File="Grpc.Auth.dll" Component_="Grpc.Auth.dll" FileName="GRPCAU~1.DLL|Grpc.Auth.dll" Attributes="0" SourcePath="bin\Release\Grpc.Auth.dll" SelfReg="false"/>
+    <ROW File="Grpc.Core.Api.dll" Component_="Grpc.Core.Api.dll" FileName="GRPCCO~1.DLL|Grpc.Core.Api.dll" Attributes="0" SourcePath="bin\Release\Grpc.Core.Api.dll" SelfReg="false"/>
+    <ROW File="Grpc.Core.dll" Component_="Grpc.Core.dll" FileName="GRPCCO~2.DLL|Grpc.Core.dll" Attributes="0" SourcePath="bin\Release\Grpc.Core.dll" SelfReg="false"/>
+    <ROW File="Grpc.Net.Client.dll" Component_="Grpc.Net.Client.dll" FileName="GRPCNE~1.DLL|Grpc.Net.Client.dll" Attributes="0" SourcePath="bin\Release\Grpc.Net.Client.dll" SelfReg="false"/>
+    <ROW File="Grpc.Net.Common.dll" Component_="Grpc.Net.Common.dll" FileName="GRPCNE~2.DLL|Grpc.Net.Common.dll" Attributes="0" SourcePath="bin\Release\Grpc.Net.Common.dll" SelfReg="false"/>
+    <ROW File="grpc_csharp_ext.x64.dll" Component_="grpc_csharp_ext.x64.dll" FileName="GRPC_C~1.DLL|grpc_csharp_ext.x64.dll" Attributes="0" SourcePath="bin\Release\grpc_csharp_ext.x64.dll" SelfReg="false"/>
+    <ROW File="HitCounterManager.dll" Component_="HitCounterManager.dll" FileName="HITCOU~1.DLL|HitCounterManager.dll" Attributes="0" SourcePath="bin\Release\HitCounterManager.dll" SelfReg="false"/>
+    <ROW File="Irony.dll" Component_="Irony.dll" FileName="Irony.dll" Attributes="0" SourcePath="bin\Release\Irony.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Celeste.dll" Component_="LiveSplit.Celeste.dll" FileName="LIVESP~1.DLL|LiveSplit.Celeste.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.Celeste.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Core.dll" Component_="LiveSplit.Core.dll" FileName="LIVESP~2.DLL|LiveSplit.Core.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.Core.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Cuphead.dll" Component_="LiveSplit.Cuphead.dll" FileName="LIVESP~3.DLL|LiveSplit.Cuphead.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.Cuphead.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Dishonored.dll" Component_="LiveSplit.Dishonored.dll" FileName="LIVESP~4.DLL|LiveSplit.Dishonored.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.Dishonored.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.HollowKnight.dll" Component_="LiveSplit.HollowKnight.dll" FileName="LIVESP~5.DLL|LiveSplit.HollowKnight.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.HollowKnight.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.ScriptableAutoSplit.dll" Component_="LiveSplit.ScriptableAutoSplit.dll" FileName="LIVESP~6.DLL|LiveSplit.ScriptableAutoSplit.dll" Attributes="0" SourcePath="bin\Release\LiveSplit.ScriptableAutoSplit.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~1.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="bin\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll" FileName="MICROS~2.DLL|Microsoft.Extensions.DependencyInjection.Abstractions.dll" Attributes="0" SourcePath="bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Microsoft.Extensions.Logging.Abstractions.dll" FileName="MICROS~3.DLL|Microsoft.Extensions.Logging.Abstractions.dll" Attributes="0" SourcePath="bin\Release\Microsoft.Extensions.Logging.Abstractions.dll" SelfReg="false"/>
+    <ROW File="MimeTypesMap.dll" Component_="MimeTypesMap.dll" FileName="MIMETY~1.DLL|MimeTypesMap.dll" Attributes="0" SourcePath="bin\Release\MimeTypesMap.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="bin\Release\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="ReaLTaiizor.dll" Component_="ReaLTaiizor.dll" FileName="REALTA~1.DLL|ReaLTaiizor.dll" Attributes="0" SourcePath="bin\Release\ReaLTaiizor.dll" SelfReg="false"/>
+    <ROW File="SoulMemory.dll" Component_="SoulMemory.dll" FileName="SOULME~1.DLL|SoulMemory.dll" Attributes="0" SourcePath="bin\Release\SoulMemory.dll" SelfReg="false"/>
+    <ROW File="soulmods_x64.dll" Component_="soulmods_x64.dll" FileName="SOULMO~1.DLL|soulmods_x64.dll" Attributes="0" SourcePath="bin\Release\soulmods_x64.dll" SelfReg="false"/>
+    <ROW File="soulmods_x86.dll" Component_="soulmods_x86.dll" FileName="SOULMO~2.DLL|soulmods_x86.dll" Attributes="0" SourcePath="bin\Release\soulmods_x86.dll" SelfReg="false"/>
+    <ROW File="SpeedrunComSharp.dll" Component_="SpeedrunComSharp.dll" FileName="SPEEDR~1.DLL|SpeedrunComSharp.dll" Attributes="0" SourcePath="bin\Release\SpeedrunComSharp.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="bin\Release\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.CodeDom.dll" Component_="System.CodeDom.dll" FileName="SYSTEM~2.DLL|System.CodeDom.dll" Attributes="0" SourcePath="bin\Release\System.CodeDom.dll" SelfReg="false"/>
+    <ROW File="System.Collections.Immutable.dll" Component_="System.Collections.Immutable.dll" FileName="SYSTEM~3.DLL|System.Collections.Immutable.dll" Attributes="0" SourcePath="bin\Release\System.Collections.Immutable.dll" SelfReg="false"/>
+    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="System.Diagnostics.DiagnosticSource.dll" FileName="SYSTEM~4.DLL|System.Diagnostics.DiagnosticSource.dll" Attributes="0" SourcePath="bin\Release\System.Diagnostics.DiagnosticSource.dll" SelfReg="false"/>
+    <ROW File="System.Linq.Async.dll" Component_="System.Linq.Async.dll" FileName="SYSTEM~5.DLL|System.Linq.Async.dll" Attributes="0" SourcePath="bin\Release\System.Linq.Async.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~6.DLL|System.Memory.dll" Attributes="0" SourcePath="bin\Release\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Net.Http.WinHttpHandler.dll" Component_="System.Net.Http.WinHttpHandler.dll" FileName="SYSTEM~7.DLL|System.Net.Http.WinHttpHandler.dll" Attributes="0" SourcePath="bin\Release\System.Net.Http.WinHttpHandler.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~8.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="bin\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~9.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="bin\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTE~10.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="bin\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTE~11.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="bin\Release\System.ValueTuple.dll" SelfReg="false"/>
+    <ROW File="UpdateScriptASC.bat" Component_="AutoSplitterCore.dll.config" FileName="UPDATE~1.BAT|UpdateScriptASC.bat" Attributes="0" SourcePath="bin\Release\UpdateScriptASC.bat" SelfReg="false"/>
+    <ROW File="ASLBridge.exe" Component_="ASLBridge.exe" FileName="ASLBRI~1.EXE|ASLBridge.exe" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASLBridge.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="ASLBridge.exe.config" Component_="ASLBridge.exe.config" FileName="ASLBRI~1.CON|ASLBridge.exe.config" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASLBridge.exe.config" SelfReg="false"/>
+    <ROW File="AutoSplitterCore.dll_1" Component_="AutoSplitterCore.dll_1" FileName="AUTOSP~1.DLL|AutoSplitterCore.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\AutoSplitterCore.dll" SelfReg="false"/>
+    <ROW File="AutoSplitterCore.dll.config_1" Component_="ASLBridge.exe.config" FileName="AUTOSP~1.CON|AutoSplitterCore.dll.config" Attributes="0" SourcePath="bin\ReleaseHCMv2\AutoSplitterCore.dll.config" SelfReg="false"/>
+    <ROW File="Google.Api.CommonProtos.dll_1" Component_="Google.Api.CommonProtos.dll_1" FileName="GOOGLE~1.DLL|Google.Api.CommonProtos.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Api.CommonProtos.dll" SelfReg="false"/>
+    <ROW File="Google.Api.Gax.dll_1" Component_="Google.Api.Gax.dll_1" FileName="GOOGLE~2.DLL|Google.Api.Gax.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Api.Gax.dll" SelfReg="false"/>
+    <ROW File="Google.Api.Gax.Grpc.dll_1" Component_="Google.Api.Gax.Grpc.dll_1" FileName="GOOGLE~3.DLL|Google.Api.Gax.Grpc.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Api.Gax.Grpc.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Auth.dll_1" Component_="Google.Apis.Auth.dll_1" FileName="GOOGLE~4.DLL|Google.Apis.Auth.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Apis.Auth.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Core.dll_1" Component_="Google.Apis.Core.dll_1" FileName="GOOGLE~5.DLL|Google.Apis.Core.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Apis.Core.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.dll_1" Component_="Google.Apis.dll_1" FileName="GOOGLE~6.DLL|Google.Apis.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Apis.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Drive.v3.dll_1" Component_="Google.Apis.Drive.v3.dll_1" FileName="GOOGLE~7.DLL|Google.Apis.Drive.v3.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Apis.Drive.v3.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Oauth2.v2.dll_1" Component_="Google.Apis.Oauth2.v2.dll_1" FileName="GOOGLE~8.DLL|Google.Apis.Oauth2.v2.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Apis.Oauth2.v2.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Firestore.dll_1" Component_="Google.Cloud.Firestore.dll_1" FileName="GOOGLE~9.DLL|Google.Cloud.Firestore.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Cloud.Firestore.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Firestore.V1.dll_1" Component_="Google.Cloud.Firestore.V1.dll_1" FileName="GOOGL~10.DLL|Google.Cloud.Firestore.V1.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Cloud.Firestore.V1.dll" SelfReg="false"/>
+    <ROW File="Google.Cloud.Location.dll_1" Component_="Google.Cloud.Location.dll_1" FileName="GOOGL~11.DLL|Google.Cloud.Location.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Cloud.Location.dll" SelfReg="false"/>
+    <ROW File="Google.LongRunning.dll_1" Component_="Google.LongRunning.dll_1" FileName="GOOGL~12.DLL|Google.LongRunning.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.LongRunning.dll" SelfReg="false"/>
+    <ROW File="Google.Protobuf.dll_1" Component_="Google.Protobuf.dll_1" FileName="GOOGL~13.DLL|Google.Protobuf.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Google.Protobuf.dll" SelfReg="false"/>
+    <ROW File="Grpc.Auth.dll_1" Component_="Grpc.Auth.dll_1" FileName="GRPCAU~1.DLL|Grpc.Auth.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Auth.dll" SelfReg="false"/>
+    <ROW File="Grpc.Core.Api.dll_1" Component_="Grpc.Core.Api.dll_1" FileName="GRPCCO~1.DLL|Grpc.Core.Api.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Core.Api.dll" SelfReg="false"/>
+    <ROW File="Grpc.Core.dll_1" Component_="Grpc.Core.dll_1" FileName="GRPCCO~2.DLL|Grpc.Core.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Core.dll" SelfReg="false"/>
+    <ROW File="Grpc.Net.Client.dll_1" Component_="Grpc.Net.Client.dll_1" FileName="GRPCNE~1.DLL|Grpc.Net.Client.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Net.Client.dll" SelfReg="false"/>
+    <ROW File="Grpc.Net.Common.dll_1" Component_="Grpc.Net.Common.dll_1" FileName="GRPCNE~2.DLL|Grpc.Net.Common.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Net.Common.dll" SelfReg="false"/>
+    <ROW File="grpc_csharp_ext.x64.dll_1" Component_="grpc_csharp_ext.x64.dll_1" FileName="GRPC_C~1.DLL|grpc_csharp_ext.x64.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\grpc_csharp_ext.x64.dll" SelfReg="false"/>
+    <ROW File="grpc_csharp_ext.x86.dll" Component_="grpc_csharp_ext.x86.dll" FileName="GRPC_C~2.DLL|grpc_csharp_ext.x86.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\grpc_csharp_ext.x86.dll" SelfReg="false"/>
+    <ROW File="HitCounterManager.PCL.dll" Component_="HitCounterManager.PCL.dll" FileName="HITCOU~1.DLL|HitCounterManager.PCL.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\HitCounterManager.PCL.dll" SelfReg="false"/>
+    <ROW File="Irony.dll_1" Component_="Irony.dll_1" FileName="Irony.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Irony.dll" SelfReg="false"/>
+    <ROW File="libgrpc_csharp_ext.x64.dylib" Component_="ASLBridge.exe.config" FileName="LIBGRP~1.DYL|libgrpc_csharp_ext.x64.dylib" Attributes="0" SourcePath="bin\ReleaseHCMv2\libgrpc_csharp_ext.x64.dylib" SelfReg="false"/>
+    <ROW File="libgrpc_csharp_ext.x64.so" Component_="ASLBridge.exe.config" FileName="LIBGRP~1.SO|libgrpc_csharp_ext.x64.so" Attributes="0" SourcePath="bin\ReleaseHCMv2\libgrpc_csharp_ext.x64.so" SelfReg="false"/>
+    <ROW File="LiveSplit.Celeste.dll_1" Component_="LiveSplit.Celeste.dll_1" FileName="LIVESP~1.DLL|LiveSplit.Celeste.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Celeste.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Core.dll_1" Component_="LiveSplit.Core.dll_1" FileName="LIVESP~2.DLL|LiveSplit.Core.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Core.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Cuphead.dll_1" Component_="LiveSplit.Cuphead.dll_1" FileName="LIVESP~3.DLL|LiveSplit.Cuphead.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Cuphead.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.Dishonored.dll_1" Component_="LiveSplit.Dishonored.dll_1" FileName="LIVESP~4.DLL|LiveSplit.Dishonored.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Dishonored.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.HollowKnight.dll_1" Component_="LiveSplit.HollowKnight.dll_1" FileName="LIVESP~5.DLL|LiveSplit.HollowKnight.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.HollowKnight.dll" SelfReg="false"/>
+    <ROW File="LiveSplit.ScriptableAutoSplit.dll_1" Component_="LiveSplit.ScriptableAutoSplit.dll_1" FileName="LIVESP~6.DLL|LiveSplit.ScriptableAutoSplit.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.ScriptableAutoSplit.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll_1" Component_="Microsoft.Bcl.AsyncInterfaces.dll_1" FileName="MICROS~1.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll" Component_="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll" FileName="MICROS~2.DLL|Microsoft.Extensions.DependencyInjection.Abstractions.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Microsoft.Extensions.DependencyInjection.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstr_1_actions.dll" Component_="Microsoft.Extensions.Logging.Abstr_1_actions.dll" FileName="MICROS~3.DLL|Microsoft.Extensions.Logging.Abstractions.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Microsoft.Extensions.Logging.Abstractions.dll" SelfReg="false"/>
+    <ROW File="MimeTypesMap.dll_1" Component_="MimeTypesMap.dll_1" FileName="MIMETY~1.DLL|MimeTypesMap.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\MimeTypesMap.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll_1" Component_="Newtonsoft.Json.dll_1" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="ReaLTaiizor.dll_1" Component_="ReaLTaiizor.dll_1" FileName="REALTA~1.DLL|ReaLTaiizor.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\ReaLTaiizor.dll" SelfReg="false"/>
+    <ROW File="SoulMemory.dll_1" Component_="SoulMemory.dll_1" FileName="SOULME~1.DLL|SoulMemory.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\SoulMemory.dll" SelfReg="false"/>
+    <ROW File="soulmods_x64.dll_1" Component_="soulmods_x64.dll_1" FileName="SOULMO~1.DLL|soulmods_x64.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\soulmods_x64.dll" SelfReg="false"/>
+    <ROW File="soulmods_x86.dll_1" Component_="soulmods_x86.dll_1" FileName="SOULMO~2.DLL|soulmods_x86.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\soulmods_x86.dll" SelfReg="false"/>
+    <ROW File="SpeedrunComSharp.dll_1" Component_="SpeedrunComSharp.dll_1" FileName="SPEEDR~1.DLL|SpeedrunComSharp.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\SpeedrunComSharp.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll_1" Component_="System.Buffers.dll_1" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.CodeDom.dll_1" Component_="System.CodeDom.dll_1" FileName="SYSTEM~2.DLL|System.CodeDom.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.CodeDom.dll" SelfReg="false"/>
+    <ROW File="System.Collections.Immutable.dll_1" Component_="System.Collections.Immutable.dll_1" FileName="SYSTEM~3.DLL|System.Collections.Immutable.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Collections.Immutable.dll" SelfReg="false"/>
+    <ROW File="System.Diagnostics.DiagnosticSourc_1_e.dll" Component_="System.Diagnostics.DiagnosticSourc_1_e.dll" FileName="SYSTEM~4.DLL|System.Diagnostics.DiagnosticSource.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Diagnostics.DiagnosticSource.dll" SelfReg="false"/>
+    <ROW File="System.Linq.Async.dll_1" Component_="System.Linq.Async.dll_1" FileName="SYSTEM~5.DLL|System.Linq.Async.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Linq.Async.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll_1" Component_="System.Memory.dll_1" FileName="SYSTEM~6.DLL|System.Memory.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Net.Http.WinHttpHandler.dll_1" Component_="System.Net.Http.WinHttpHandler.dll_1" FileName="SYSTEM~7.DLL|System.Net.Http.WinHttpHandler.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Net.Http.WinHttpHandler.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll_1" Component_="System.Numerics.Vectors.dll_1" FileName="SYSTEM~8.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Un_1_safe.dll" Component_="System.Runtime.CompilerServices.Un_1_safe.dll" FileName="SYSTEM~9.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll_1" Component_="System.Threading.Tasks.Extensions.dll_1" FileName="SYSTE~10.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.ValueTuple.dll_1" Component_="System.ValueTuple.dll_1" FileName="SYSTE~11.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.ValueTuple.dll" SelfReg="false"/>
+    <ROW File="UpdateScriptASC.bat_1" Component_="ASLBridge.exe.config" FileName="UPDATE~1.BAT|UpdateScriptASC.bat" Attributes="0" SourcePath="bin\ReleaseHCMv2\UpdateScriptASC.bat" SelfReg="false"/>
+    <ROW File="grpc_csharp_ext.x86.dll_1" Component_="grpc_csharp_ext.x86.dll_1" FileName="GRPC_C~2.DLL|grpc_csharp_ext.x86.dll" Attributes="0" SourcePath="bin\Release\grpc_csharp_ext.x86.dll" SelfReg="false"/>
+    <ROW File="libgrpc_csharp_ext.x64.dylib_1" Component_="AutoSplitterCore.dll.config" FileName="LIBGRP~1.DYL|libgrpc_csharp_ext.x64.dylib" Attributes="0" SourcePath="bin\Release\libgrpc_csharp_ext.x64.dylib" SelfReg="false"/>
+    <ROW File="libgrpc_csharp_ext.x64.so_1" Component_="AutoSplitterCore.dll.config" FileName="LIBGRP~1.SO|libgrpc_csharp_ext.x64.so" Attributes="0" SourcePath="bin\Release\libgrpc_csharp_ext.x64.so" SelfReg="false"/>
+    <ROW File="DarkSouls1AnyAllBosses.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="DARKSO~1.XML|DarkSouls1 Any% AllBosses.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls1 Any% AllBosses.xml" SelfReg="false"/>
+    <ROW File="DarkSouls2AnyAllBosses.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="DARKSO~2.XML|DarkSouls2 Any% AllBosses.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls2 Any% AllBosses.xml" SelfReg="false"/>
+    <ROW File="DarkSouls3AnyAllBossesVanillaAllBossesDLC.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="DARKSO~3.XML|DarkSouls3 Any% AllBossesVanilla AllBossesDLC.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls3 Any% AllBossesVanilla AllBossesDLC.xml" SelfReg="false"/>
+    <ROW File="EldenRingAnyAllRemembrances.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="ELDENR~1.XML|EldenRing Any% AllRemembrances.xml" Attributes="0" SourcePath="AutoSplitterProfiles\EldenRing Any% AllRemembrances.xml" SelfReg="false"/>
+    <ROW File="HollowKnightAny.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="HOLLOW~1.XML|HollowKnight Any%.xml" Attributes="0" SourcePath="AutoSplitterProfiles\HollowKnight Any%.xml" SelfReg="false"/>
+    <ROW File="Ds3Bender.xml" Component_="Ds3Bender.xml" FileName="DS3-BE~1.XML|Ds3-Bender.xml" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\Ds3-Bender.xml" SelfReg="false"/>
+    <ROW File="HollowNeimex.xml" Component_="Ds3Bender.xml" FileName="HOLLOW~1.XML|Hollow-Neimex.xml" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\Hollow-Neimex.xml" SelfReg="false"/>
+    <ROW File="RenameTO_HitCounterManagerSave.txt" Component_="Ds3Bender.xml" FileName="RENAME~1.TXT|RenameTO_HitCounterManagerSave.txt" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\RenameTO_HitCounterManagerSave.txt" SelfReg="false"/>
+    <ROW File="SekiroISAB.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="SEKIRO~1.XML|SekiroIS-AB.xml" Attributes="0" SourcePath="AutoSplitterProfiles\SekiroIS-AB.xml" SelfReg="false"/>
+    <ROW File="SekiroShura.xml" Component_="DarkSouls1AnyAllBosses.xml" FileName="SEKIRO~2.XML|SekiroShura.xml" Attributes="0" SourcePath="AutoSplitterProfiles\SekiroShura.xml" SelfReg="false"/>
+    <ROW File="SekiroISAB.xml_1" Component_="SekiroISAB.xml" FileName="SEKIRO~1.XML|SekiroIS-AB.xml" Attributes="0" SourcePath="AutoSplitterProfiles\SekiroIS-AB.xml" SelfReg="false"/>
+    <ROW File="EldenRingAnyAllRemembrances.xml_1" Component_="SekiroISAB.xml" FileName="ELDENR~1.XML|EldenRing Any% AllRemembrances.xml" Attributes="0" SourcePath="AutoSplitterProfiles\EldenRing Any% AllRemembrances.xml" SelfReg="false"/>
+    <ROW File="DarkSouls1AnyAllBosses.xml_1" Component_="SekiroISAB.xml" FileName="DARKSO~1.XML|DarkSouls1 Any% AllBosses.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls1 Any% AllBosses.xml" SelfReg="false"/>
+    <ROW File="DarkSouls2AnyAllBosses.xml_1" Component_="SekiroISAB.xml" FileName="DARKSO~2.XML|DarkSouls2 Any% AllBosses.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls2 Any% AllBosses.xml" SelfReg="false"/>
+    <ROW File="DarkSouls3AnyAllBossesVanillaAllBo_1_ssesDLC.xml" Component_="SekiroISAB.xml" FileName="DARKSO~3.XML|DarkSouls3 Any% AllBossesVanilla AllBossesDLC.xml" Attributes="0" SourcePath="AutoSplitterProfiles\DarkSouls3 Any% AllBossesVanilla AllBossesDLC.xml" SelfReg="false"/>
+    <ROW File="HollowKnightAny.xml_1" Component_="SekiroISAB.xml" FileName="HOLLOW~1.XML|HollowKnight Any%.xml" Attributes="0" SourcePath="AutoSplitterProfiles\HollowKnight Any%.xml" SelfReg="false"/>
+    <ROW File="SekiroShura.xml_1" Component_="SekiroISAB.xml" FileName="SEKIRO~2.XML|SekiroShura.xml" Attributes="0" SourcePath="AutoSplitterProfiles\SekiroShura.xml" SelfReg="false"/>
+    <ROW File="RenameTO_HitCounterManagerSave.txt_1" Component_="RenameTO_HitCounterManagerSave.txt" FileName="RENAME~1.TXT|RenameTO_HitCounterManagerSave.txt" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\RenameTO_HitCounterManagerSave.txt" SelfReg="false"/>
+    <ROW File="Ds3Bender.xml_1" Component_="RenameTO_HitCounterManagerSave.txt" FileName="DS3-BE~1.XML|Ds3-Bender.xml" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\Ds3-Bender.xml" SelfReg="false"/>
+    <ROW File="HollowNeimex.xml_1" Component_="RenameTO_HitCounterManagerSave.txt" FileName="HOLLOW~1.XML|Hollow-Neimex.xml" Attributes="0" SourcePath="AutoSplitterProfiles\ProfilesForHCM\Hollow-Neimex.xml" SelfReg="false"/>
+    <ROW File="ASC_Cert.cer" Component_="AutoSplitterCore.dll.config" FileName="ASC_Cert.cer" Attributes="0" SourcePath="bin\Release\ASC_Cert.cer" SelfReg="false"/>
+    <ROW File="ASC_Cert.cer_1" Component_="ASLBridge.exe.config" FileName="ASC_Cert.cer" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASC_Cert.cer" SelfReg="false"/>
+    <ROW File="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" Component_="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" FileName="AUTOSP~1.ZIP|AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" Attributes="0" SourcePath="bin\ReleaseHCMv2\FinalFiles\AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" SelfReg="false"/>
+    <ROW File="AutoSplitterCore_Portable_v3.x.0.zip" Component_="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip" FileName="AUTOSP~2.ZIP|AutoSplitterCore_Portable_v3.x.0.zip" Attributes="0" SourcePath="bin\ReleaseHCMv2\FinalFiles\AutoSplitterCore_Portable_v3.x.0.zip" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="249"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="252"/>
+    <ROW Action="AI_AppSearchEx" Condition="AI_BOOTSTRAPPER" Sequence="251"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="bin\AutoSplitterCoreInstaller" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="AutoSplitterSetupIcon.ico" SummInfoMetadata="Page Count:450" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="AutoSplitterCore_Installer_v3.x.0" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DynamicPropertyComponent">
+    <ROW Property="ProductVersion" Type="2" SourcePath="AutoSplitterCore.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\FolderDlg.aip"/>
+    <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\InstallDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\ProgressPrereqDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;serene\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;serene\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;serene\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="AutoSplitterSetupIcon.ico" SourcePath="Images\AutoSplitterSetupIcon.ico"/>
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiConditionComponent">
+    <ROW Feature_="HCMv2" Level="1" Condition="SELECTED_VERSION=&quot;HCMv2&quot;"/>
+    <ROW Feature_="HCMv1" Level="1" Condition="SELECTED_VERSION=&quot;HCMv1&quot;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="AdminBrowseDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="AdminBrowseDlg#Bitmap"/>
+    <ROW Dialog_="AdminInstallPointDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="AdminInstallPointDlg#Bitmap"/>
+    <ROW Dialog_="AdminWelcomeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="AdminWelcomeDlg#Bitmap"/>
+    <ROW Dialog_="BrowseDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="BrowseDlg#Bitmap"/>
+    <ROW Dialog_="CustomizeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="CustomizeDlg#Bitmap"/>
+    <ROW Dialog_="DiskCostDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="DiskCostDlg#Bitmap"/>
+    <ROW Dialog_="ExitDialog" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="300" MsiKey="ExitDialog#Bitmap"/>
+    <ROW Dialog_="FatalError" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="FatalError#Bitmap"/>
+    <ROW Dialog_="FilesInUse" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="FilesInUse#Bitmap"/>
+    <ROW Dialog_="FolderDlg" Control="FolderDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="FolderDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="FolderDlg#Bitmap"/>
+    <ROW Dialog_="InstallDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="InstallDlg#Bitmap"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="300" MsiKey="MaintenanceTypeDlg#Bitmap"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="300" MsiKey="MaintenanceWelcomeDlg#Bitmap"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="MsiRMFilesInUse#Bitmap"/>
+    <ROW Dialog_="OutOfDiskDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="OutOfDiskDlg#Bitmap"/>
+    <ROW Dialog_="OutOfRbDiskDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="OutOfRbDiskDlg#Bitmap"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="PatchWelcomeDlg#Bitmap"/>
+    <ROW Dialog_="PrepareDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="PrepareDlg#Bitmap"/>
+    <ROW Dialog_="PreparePrereqDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="PreparePrereqDlg#Bitmap"/>
+    <ROW Dialog_="PrerequisitesDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="PrerequisitesDlg#Bitmap"/>
+    <ROW Dialog_="ProgressDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="400" MsiKey="ProgressDlg#Bitmap"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="ProgressPrereqDlg#Bitmap"/>
+    <ROW Dialog_="ResumeDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="ResumeDlg#Bitmap"/>
+    <ROW Dialog_="SelectVersion" Control="SelectVersionDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="SelectVersion" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100"/>
+    <ROW Dialog_="SelectVersion" Control="Next" Type="PushButton" X="449" Y="290" Width="56" Height="20" Attributes="3" Text="[ButtonText_Next]" Order="200" TextLocId="-" Options="1"/>
+    <ROW Dialog_="SelectVersion" Control="Cancel" Type="PushButton" X="1" Y="1" Width="1" Height="1" Attributes="3" Text="[ButtonText_Cancel]" Order="300" TextLocId="-" Options="1"/>
+    <ROW Dialog_="SelectVersion" Control="Back" Type="PushButton" X="15" Y="290" Width="56" Height="20" Attributes="3" Text="[ButtonText_Back]" Order="400" TextLocId="-" Options="1"/>
+    <ROW Dialog_="SelectVersion" Control="ProductNameTitle" Type="Text" X="193" Y="95" Width="312" Height="94" Attributes="196611" Text="[ProductName]" TextStyle="AppNameSegoeUI28" Order="500" TextLocId="-"/>
+    <ROW Dialog_="SelectVersion" Control="CompanyText" Type="Text" X="193" Y="75" Width="312" Height="27" Attributes="196611" Text="[Manufacturer]" TextStyle="TitleFontSegoe" Order="600" TextLocId="-"/>
+    <ROW Dialog_="SelectVersion" Control="ProductLogo" Type="Bitmap" X="120" Y="75" Width="65" Height="69" Attributes="1" Text="[AppLogo]" Order="700"/>
+    <ROW Dialog_="SelectVersion" Control="SELECTED_VERSION" Type="RadioButtonGroup" X="128" Y="180" Width="285" Height="56" Attributes="3" Property="SELECTED_VERSION" Text="RadioButtonGroup" TextStyle="CfTitleFont" Order="800"/>
+    <ROW Dialog_="SelectVersion" Control="Text_1" Type="Text" X="135" Y="242" Width="137" Height="24" Attributes="65539" Property="TEXT_1_PROP" Text="Using the classic HitCounterManager." Order="900"/>
+    <ROW Dialog_="SelectVersion" Control="Text_2" Type="Text" X="270" Y="244" Width="135" Height="30" Attributes="65539" Property="TEXT_2_PROP" Text="Using with the redesigned HitCounterManager UI" Order="1000"/>
+    <ROW Dialog_="SelectVersion" Control="Text_3" Type="Text" X="193" Y="144" Width="175" Height="30" Attributes="65539" Property="TEXT_3_PROP" Text="Installation for:" TextStyle="TitleFontSegoe" Order="1100"/>
+    <ROW Dialog_="UserExit" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="200" MsiKey="UserExit#Bitmap"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="VerifyReadyDlg#Bitmap"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="VerifyRemoveDlg#Bitmap"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="Bitmap" Type="Bitmap" X="1" Y="1" Width="520" Height="320" Attributes="1" Text="[BannerBitmap]" Order="100" MsiKey="WelcomePrereqDlg#Bitmap"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="NewDialog" Argument="SelectVersion" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="201"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="SelectVersion" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="SelectVersion" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Cancel" Event="SpawnDialog" Argument="CancelDlg" Condition="1" Ordering="100"/>
+    <ROW Dialog_="SelectVersion" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="SelectVersion" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="SelectVersion" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="4" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="SelectVersionDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="SelectVersionDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_PATCH" Ordering="2" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="SelectVersionDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="SelectVersionDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_PATCH AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="5" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="4" Options="2"/>
+    <ROW Dialog_="SelectVersion" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="3" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="AutoSplitterProfiles_2_Dir" Component_="AutoSplitterProfiles" ManualDelete="false"/>
+    <ROW Directory_="AutoSplitterProfiles_3_Dir" Component_="AutoSplitterProfiles_1" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[PersonalFolder]HitCounterManager\"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDialogComponent">
+    <ROW Dialog="SelectVersion" HCentering="50" VCentering="50" Width="520" Height="320" Attributes="3" Title="[ProductName] [Setup]" Control_Default="Next" Control_Cancel="Cancel"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="HCMv1" Component_="System.Buffers.dll"/>
+    <ROW Feature_="HCMv1" Component_="AutoSplitterCore.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Apis.Core.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Api.Gax.Grpc.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Feature_="HCMv1" Component_="AutoSplitterCore.dll.config"/>
+    <ROW Feature_="HCMv1" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Api.CommonProtos.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Linq.Async.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Api.Gax.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Apis.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.ScriptableAutoSplit.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Apis.Auth.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Apis.Drive.v3.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.Celeste.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Apis.Oauth2.v2.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Cloud.Firestore.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Cloud.Firestore.V1.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.HollowKnight.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Cloud.Location.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.LongRunning.dll"/>
+    <ROW Feature_="HCMv1" Component_="Grpc.Auth.dll"/>
+    <ROW Feature_="HCMv1" Component_="Google.Protobuf.dll"/>
+    <ROW Feature_="HCMv1" Component_="Grpc.Core.Api.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Memory.dll"/>
+    <ROW Feature_="HCMv1" Component_="Grpc.Core.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.ValueTuple.dll"/>
+    <ROW Feature_="HCMv1" Component_="MimeTypesMap.dll"/>
+    <ROW Feature_="HCMv1" Component_="Grpc.Net.Client.dll"/>
+    <ROW Feature_="HCMv1" Component_="Grpc.Net.Common.dll"/>
+    <ROW Feature_="HCMv1" Component_="grpc_csharp_ext.x64.dll"/>
+    <ROW Feature_="HCMv1" Component_="HitCounterManager.dll"/>
+    <ROW Feature_="HCMv1" Component_="Irony.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.Core.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.Cuphead.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Feature_="HCMv1" Component_="LiveSplit.Dishonored.dll"/>
+    <ROW Feature_="HCMv1" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Feature_="HCMv1" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Feature_="HCMv1" Component_="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Feature_="HCMv1" Component_="ReaLTaiizor.dll"/>
+    <ROW Feature_="HCMv1" Component_="SoulMemory.dll"/>
+    <ROW Feature_="HCMv1" Component_="soulmods_x64.dll"/>
+    <ROW Feature_="HCMv1" Component_="soulmods_x86.dll"/>
+    <ROW Feature_="HCMv1" Component_="SpeedrunComSharp.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.CodeDom.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Collections.Immutable.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Net.Http.WinHttpHandler.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Numerics.Vectors.dll"/>
+    <ROW Feature_="HCMv1" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="HCMv2" Component_="Google.Apis.Auth.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="soulmods_x86.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="ASLBridge.exe"/>
+    <ROW Feature_="HCMv2" Component_="grpc_csharp_ext.x64.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="ASLBridge.exe.config"/>
+    <ROW Feature_="HCMv2" Component_="Google.Protobuf.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="AutoSplitterCore.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Net.Http.WinHttpHandler.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.ScriptableAutoSplit.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.Core.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Api.CommonProtos.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Grpc.Auth.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Api.Gax.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Api.Gax.Grpc.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Apis.Core.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Apis.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Apis.Drive.v3.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Apis.Oauth2.v2.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Grpc.Net.Common.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Cloud.Firestore.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Google.Cloud.Firestore.V1.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Runtime.CompilerServices.Un_1_safe.dll"/>
+    <ROW Feature_="HCMv2" Component_="Google.Cloud.Location.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Microsoft.Extensions.Logging.Abstr_1_actions.dll"/>
+    <ROW Feature_="HCMv2" Component_="Google.LongRunning.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Grpc.Core.Api.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Grpc.Core.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll"/>
+    <ROW Feature_="HCMv2" Component_="Grpc.Net.Client.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="grpc_csharp_ext.x86.dll"/>
+    <ROW Feature_="HCMv2" Component_="HitCounterManager.PCL.dll"/>
+    <ROW Feature_="HCMv2" Component_="Irony.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.Celeste.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.Cuphead.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Diagnostics.DiagnosticSourc_1_e.dll"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.Dishonored.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="LiveSplit.HollowKnight.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Memory.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="MimeTypesMap.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Microsoft.Bcl.AsyncInterfaces.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Newtonsoft.Json.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="ReaLTaiizor.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="SoulMemory.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="soulmods_x64.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="SpeedrunComSharp.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Buffers.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.CodeDom.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Collections.Immutable.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Linq.Async.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Numerics.Vectors.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.Threading.Tasks.Extensions.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="System.ValueTuple.dll_1"/>
+    <ROW Feature_="HCMv1" Component_="grpc_csharp_ext.x86.dll_1"/>
+    <ROW Feature_="HCMv1" Component_="AI_ExePath"/>
+    <ROW Feature_="HCMv1" Component_="DarkSouls1AnyAllBosses.xml"/>
+    <ROW Feature_="HCMv1" Component_="Ds3Bender.xml"/>
+    <ROW Feature_="HCMv1" Component_="SekiroISAB.xml"/>
+    <ROW Feature_="HCMv1" Component_="RenameTO_HitCounterManagerSave.txt"/>
+    <ROW Feature_="HCMv2" Component_="AutoSplitterProfiles"/>
+    <ROW Feature_="HCMv2" Component_="AutoSplitterProfiles_1"/>
+    <ROW Feature_="HCMv2" Component_="AutoSplitterCore_Portable_HCMv2_v3.x.0.zip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR VersionNT64 )" Description="[ProductName] cannot be installed on [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 600)" Description="[ProductName] cannot be installed on [WindowsTypeNT60Display]." DescriptionLocId="AI.LaunchCondition.NoNT60" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRadioButtonComponent">
+    <ROW Property="SELECTED_VERSION" Order="1" Value="HCMv1" X="17" Y="8" Width="98" Height="45" Text="HCMv1" TextStyle="TitleFontSegoe"/>
+    <ROW Property="SELECTED_VERSION" Order="2" Value="HCMv2" X="152" Y="7" Width="110" Height="45" Text="HCMv2" TextStyle="TitleFontSegoe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="serene"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="769" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="FD4C18E18B37480DB80035616CB85098" DisplayName=".NET Framework 4.8.1" SetupFileUrl="C:\Users\Neimex23\Documents\Advanced Installer\Projects\AutoSplitterCore 2\Prerequisites\.NET Framework 4.8.1\ndp481-x86-x64-allos-enu.exe" Location="0" ExactSize="0" WinNTVersions="Windows 7 x86, Windows 8 x86, Windows 8.1 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1607 x86, Windows 10 version 1703 x86, Windows 10 version 1709 x86, Windows 10 version 1803 x86, Windows 10 version 1809 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86" WinNT64Versions="Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1607 x64, Windows Server 2016 x64, Windows 10 version 1703 x64, Windows 10 version 1709 x64, Windows 10 version 1803 x64, Windows 10 version 1809 x64, Windows Server 2019 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64" Operator="1" NoUiComLine="/q /norestart" Options="xk" TargetName=".NET Framework 4.8.1\ndp481-x86-x64-allos-enu.exe"/>
+    <ATTRIBUTE name="PrereqsOrder" value="FD4C18E18B37480DB80035616CB85098"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="FD4C18E18B37480DB80035616CB85098Sys" Prereq="FD4C18E18B37480DB80035616CB85098" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G533319" Order="1" Property="PreReqSearch_FD4C18E18B37480DB80035"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="Release_Dir" SourcePath="bin\Release" Feature="HCMv1" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="ReleaseHCMv2_Dir" SourcePath="bin\ReleaseHCMv2" Feature="HCMv2" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="AutoSplitterProfiles_Dir" SourcePath="AutoSplitterProfiles" Feature="HCMv1" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="ProfilesForHCM_Dir" SourcePath="AutoSplitterProfiles\ProfilesForHCM" Feature="HCMv1" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
+    <ROW Directory_="AutoSplitterProfiles_1_Dir" SourcePath="AutoSplitterProfiles" Feature="HCMv1" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+    <ROW Directory_="ProfilesForHCM_1_Dir" SourcePath="AutoSplitterProfiles\ProfilesForHCM" Feature="HCMv1" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+  </COMPONENT>
+</DOCUMENT>

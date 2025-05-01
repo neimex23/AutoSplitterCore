@@ -195,9 +195,6 @@
     <EmbeddedResource Include="Sources\ProgramModule\Debug.resx">
       <DependentUpon>Debug.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ASC_Cert.cer">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -279,10 +276,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Release" (
-    echo ========= Cleaning up .pdb files for Release =========
-    del /q "$(TargetDir)*.pdb"
-    echo .pdb files deleted.
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

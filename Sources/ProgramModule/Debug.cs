@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Numerics;
 using System.Reflection;
 using System.Windows.Forms;
@@ -327,6 +328,8 @@ namespace AutoSplitterCore
     public static class DebugLog
     {
         private static Debug _logger;
+        public static List<LogEntry> logEntries = new List<LogEntry>();
+        private static readonly string LogFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "asc_log.txt");
 
         public static void Initialize(Debug logger)
         {
@@ -336,6 +339,32 @@ namespace AutoSplitterCore
         public static void LogMessage(string message)
         {
             _logger?.LogMessage(message);
+
+            var entry = new LogEntry
+            {
+                Timestamp = DateTime.Now,
+                Message = message
+            };
+
+            if (logEntries.Count == 0)
+            {
+                var separator = $"\n==================== NEW SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
+                File.AppendAllText(LogFilePath, separator);
+            }
+
+            logEntries.Add(entry);
+            WriteToFile(entry.ToString());
+        }
+
+        private static void WriteToFile(string message)
+        {
+            try
+            {
+                File.AppendAllText(LogFilePath, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}{Environment.NewLine}");
+            }
+            catch
+            {
+            }
         }
     }
 }

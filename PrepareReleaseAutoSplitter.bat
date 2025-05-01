@@ -2,7 +2,7 @@
 
 REM MIT License
 
-REM Copyright(c) 2022 Ezequiel Medina - Neimex23
+REM Copyright(c) 2022-2025 Ezequiel Medina - Neimex23
 REM Based on "PrepareRelease.bat" by Peter Kirmeier
 
 REM Permission Is hereby granted, free Of charge, to any person obtaining a copy
@@ -23,50 +23,79 @@ REM LIABILITY, WHETHER In AN ACTION Of CONTRACT, TORT Or OTHERWISE, ARISING FROM
 REM OUT OF Or IN CONNECTION WITH THE SOFTWARE Or THE USE Or OTHER DEALINGS IN THE
 REM SOFTWARE.
 
-echo PrepareReleaseAutoSplitter.bat START ===========
+echo ====================== PrepareReleaseAutoSplitter.bat START ======================
 
-REM To run this script you need to have 7zip installed at the default path
-REM or you have to update the path:
+REM =========== Configuration ===========
+setlocal
+set SEVENZIP_PATH="C:\Program Files\7-Zip\7z.exe"
+set SCRIPT_DIR=%~dp0
+set PR_FINAL=%SCRIPT_DIR%FinalFiles
 
-set PATH=%PATH%;C:\Program Files\7-Zip
-set PR_FINAL=FinalFiles
-if not exist %PR_FINAL% mkdir %PR_FINAL%
+REM AdvancedInstaller Path
+set AI_COM_FILE=C:\Program Files (x86)\Caphyon\Advanced Installer 22.2\bin\x86\advinst.exe 
+set AI_COM_PATH="%AI_COM_FILE%"
+set AI_PROJECT=%SCRIPT_DIR%AutoSplitterCoreSetup.aip
 
-echo Packing Portable AutoSplitterCore Release:
-set PR_BASE=bin\Release
+REM =========== Create output folder ===========
+if not exist "%PR_FINAL%" mkdir "%PR_FINAL%"
+
+REM =========== Delete PDBs ===========
+echo Deleting .pdb files from bin\Release and bin\ReleaseHCMv2...
+del /q "%SCRIPT_DIR%bin\Release\*.pdb" 2>nul
+del /q "%SCRIPT_DIR%bin\ReleaseHCMv2\*.pdb" 2>nul
+
+REM =========== Sign DLLs ===========
+echo Signing DLLs...
+powershell.exe -ExecutionPolicy Bypass -File "%~dp0SignAutoSplitterCore.ps1" -NoPause
+
+REM =========== Build Installer ===========
+if exist "%AI_COM_FILE%" (
+    echo Building AutoSplitterCore installer...
+    %AI_COM_PATH% /build "%AI_PROJECT%"
+) else (
+    echo WARNING: Advanced Installer not found or not Enterprise version. Skipping installer build.
+)
+
+REM =========== Package Portable Version (HCMv1) ===========
+echo Packaging portable version (HCMv1)...
+set PR_BASE=%SCRIPT_DIR%bin\Release
 set PR_TARGET=%PR_FINAL%\AutoSplitterCorePortable
 set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_v3.x.0.zip
-rmdir /S /Q %PR_TARGET% 2>nul
-mkdir %PR_TARGET%
-del %PR_OUTPUT% 2>nul
-xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y
 
-echo Copying PreProfiles
-mkdir %PR_TARGET%\AutoSplitterProfiles
-mkdir %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
-copy AutoSplitterProfiles %PR_TARGET%\AutoSplitterProfiles
-copy AutoSplitterProfiles\ProfilesForHCM %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
+rmdir /S /Q "%PR_TARGET%" 2>nul
+mkdir "%PR_TARGET%"
+xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y >nul
 
-7z a %PR_OUTPUT% .\%PR_TARGET%\*
+REM Copy profiles
+mkdir "%PR_TARGET%\AutoSplitterProfiles"
+xcopy "%SCRIPT_DIR%AutoSplitterProfiles\*.*" "%PR_TARGET%\AutoSplitterProfiles\" /E /I /Y >nul
+xcopy "%SCRIPT_DIR%AutoSplitterProfiles\ProfilesForHCM\*.*" "%PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM\" /E /I /Y >nul
 
-echo Packing Portable AutoSplitterCoreV2 Release:
-set PR_BASE=bin\ReleaseHCMv2
+REM Create ZIP
+%SEVENZIP_PATH% a "%PR_OUTPUT%" "%PR_TARGET%\*" >nul
+
+REM =========== Package Portable Version (HCMv2) ===========
+echo Packaging portable version (HCMv2)...
+set PR_BASE=%SCRIPT_DIR%bin\ReleaseHCMv2
 set PR_TARGET=%PR_FINAL%\AutoSplitterCorePortableV2
 set PR_OUTPUT=%PR_FINAL%\AutoSplitterCore_Portable_HCMv2_v3.x.0.zip
-rmdir /S /Q %PR_TARGET% 2>nul
-mkdir %PR_TARGET%
-del %PR_OUTPUT% 2>nul
-xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y
 
-echo Copying PreProfiles
-mkdir %PR_TARGET%\AutoSplitterProfiles
-mkdir %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
-copy AutoSplitterProfiles %PR_TARGET%\AutoSplitterProfiles
-copy AutoSplitterProfiles\ProfilesForHCM %PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM
+rmdir /S /Q "%PR_TARGET%" 2>nul
+mkdir "%PR_TARGET%"
+xcopy "%PR_BASE%\*" "%PR_TARGET%" /E /I /Y >nul
 
-7z a %PR_OUTPUT% .\%PR_TARGET%\*
+REM Copy profiles
+mkdir "%PR_TARGET%\AutoSplitterProfiles"
+xcopy "%SCRIPT_DIR%AutoSplitterProfiles\*.*" "%PR_TARGET%\AutoSplitterProfiles\" /E /I /Y >nul
+xcopy "%SCRIPT_DIR%AutoSplitterProfiles\ProfilesForHCM\*.*" "%PR_TARGET%\AutoSplitterProfiles\ProfilesForHCM\" /E /I /Y >nul
 
-echo Copying AutoSplitterCore Installer Release:
-copy bin\AutoSplitterCoreInstaller\AutoSplitterCore_Installer_v3.x.0.msi %PR_FINAL%
+REM Create ZIP
+%SEVENZIP_PATH% a "%PR_OUTPUT%" "%PR_TARGET%\*" >nul
 
-echo PrepareReleaseAutoSplitter.bat END ===========
+REM =========== Copy Final Installer ===========
+echo Copying compiled installer...
+copy "%SCRIPT_DIR%bin\AutoSplitterCoreInstaller\AutoSplitterCore_Installer_v3.x.0.exe" "%PR_FINAL%\" >nul
+
+echo Done. DLLs signed, installer built, and portable packages created.
+echo ====================== PrepareReleaseAutoSplitter.bat END ========================
+endlocal
