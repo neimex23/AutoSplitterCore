@@ -81,6 +81,7 @@ namespace AutoSplitterCore
         public bool PracticeMode = false;
         public bool AutoResetSplit = false;
         public bool ResetProfile = false;
+        public bool LogFile = true;
         public StyleMode StyleMode = StyleMode.Default;
 
         //ProfileLink Settings

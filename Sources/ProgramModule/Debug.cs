@@ -29,7 +29,6 @@ namespace AutoSplitterCore
             mainModule.RegisterHitCounterManagerInterface(new AutoSplitterCoreInterface(new HitCounterManager.Form1()));
 #endif
 
-
             var updateTimer = new System.Windows.Forms.Timer { Interval = 100 };
             updateTimer.Tick += (sender, args) => CheckInfo();
             updateTimer.Start();
@@ -352,21 +351,24 @@ namespace AutoSplitterCore
         {
             _logger?.LogMessage(message);
 
-            var entry = new LogEntry
+            if (AutoSplitterMainModule.saveModule.generalAS.LogFile)
             {
-                Timestamp = DateTime.Now,
-                Message = message,
-                Exception = exception
-            };
+                var entry = new LogEntry
+                {
+                    Timestamp = DateTime.Now,
+                    Message = message,
+                    Exception = exception
+                };
 
-            if (logEntries.Count == 0)
-            {
-                var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
-                File.AppendAllText(LogFilePath, separator);
-            }
+                if (logEntries.Count == 0)
+                {
+                    var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
+                    File.AppendAllText(LogFilePath, separator);
+                }
 
-            logEntries.Add(entry);
-            WriteToFile(entry.ToString());
+                logEntries.Add(entry);
+                WriteToFile(entry.ToString());
+            }           
         }
 
         private static void WriteToFile(string message)

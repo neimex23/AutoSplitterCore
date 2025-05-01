@@ -654,6 +654,7 @@ namespace AutoSplitterCore
 
             #region GeneralSettings
             checkBoxResetSplitNg.Checked = saveModule.generalAS.AutoResetSplit;
+            checkBoxLogActive.Checked = saveModule.generalAS.LogFile;
             skyComboBoxOverrideStyleMode.SelectedItem = saveModule.generalAS.StyleMode.ToString();
 
             #region ProfileLink
@@ -1026,28 +1027,14 @@ namespace AutoSplitterCore
         #region Config UI
         private void btnClose_Click(object sender, EventArgs e) => Close();
 
-        private void cbCheckUpdatesOnStartup_CheckedChanged(object sender)
-        {
-            updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
-        }
-
-        private void btnGoToDownloadPage_Click(object sender, EventArgs e)
-        {
-            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/releases/latest"));
-        }
-
-        private void btnCheckVersion_Click(object sender, EventArgs e)
-        {
-            updateModule.CheckUpdates(true);
-            LabelVersion.Text = updateModule.currentVer;
-            labelCloudVer.Text = updateModule.cloudVer;
-        }
-
-        private void checkBoxResetSplitNg_CheckedChanged(object sender, EventArgs e)
-        {
-            saveModule.generalAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
-        }
         #region General
+
+        //General
+        private void checkBoxResetSplitNg_CheckedChanged(object sender, EventArgs e) => saveModule.generalAS.AutoResetSplit = checkBoxResetSplitNg.Checked;
+
+        private void checkBoxLogActive_CheckedChanged(object sender, EventArgs e) => saveModule.generalAS.LogFile = checkBoxLogActive.Checked;
+
+        //Override StyleMode
         private void skyComboBoxOverrideStyleMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isInitializing) return;
@@ -1067,6 +1054,29 @@ namespace AutoSplitterCore
                     TabControlGeneral.SelectTab(tabGeneral);
                 }
             }
+        }
+
+        //ProfileLink
+        private void metroCheckBoxResetProfile_CheckedChanged(object sender) => saveModule.generalAS.ResetProfile = metroCheckBoxResetProfile.Checked;
+
+        private void ProfileLink_DropDown(object sender, EventArgs e)
+        {
+            SkyComboBox comboBox = sender as SkyComboBox;
+
+            int maxWidth = comboBox.Width;
+            using (Graphics g = comboBox.CreateGraphics())
+            {
+                foreach (var item in comboBox.Items)
+                {
+                    int itemWidth = (int)g.MeasureString(item.ToString(), comboBox.Font).Width;
+                    if (itemWidth > maxWidth)
+                    {
+                        maxWidth = itemWidth;
+                    }
+                }
+            }
+
+            comboBox.DropDownWidth = maxWidth + 20;
         }
 
         private void listBoxLinkProfile_DoubleClick(object sender, EventArgs e)
@@ -1106,8 +1116,6 @@ namespace AutoSplitterCore
                 MessageBox.Show("You must select HCM and ASC Profile to link", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void metroCheckBoxResetProfile_CheckedChanged(object sender) => saveModule.generalAS.ResetProfile = metroCheckBoxResetProfile.Checked;
         #endregion
         #region TimmingConfg
         private void comboBoxTGame_SelectedIndexChanged(object sender, EventArgs e)
@@ -1339,10 +1347,110 @@ namespace AutoSplitterCore
                 hitterControl.StopHollow();
             }
         }
+
+        private void linkLabelEverest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://everestapi.github.io/"));
+
+        private void linkLabelDeathCounter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://gamebanana.com/mods/577187"));
         #endregion
+        #region WebSockets
+        private void CheckBoxWS_CheckedChanged(object sender)
+        {
+            if (sender is MetroCheckBox checkBox)
+            {
+                var ws = saveModule.generalAS.WebSocketSettings;
+
+                switch (checkBox.Name)
+                {
+                    case "metroCheckBoxWSHit":
+                        ws.Hit.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSSplit":
+                        ws.Split.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSStart":
+                        ws.Start.Enabled = checkBox.Checked;
+                        break;
+                    case "metroCheckBoxWSReset":
+                        ws.Reset.Enabled = checkBox.Checked;
+                        break;
+                }
+            }
+        }
+
+        private void textBoxWS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is SkyTextBox textBox)
+            {
+                var ws = saveModule.generalAS.WebSocketSettings;
+
+                switch (textBox.Name)
+                {
+                    case "textBoxUrl":
+                        ws.Url = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMHit":
+                        ws.Hit.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMSplit":
+                        ws.Split.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMStart":
+                        ws.Start.Message = textBox.Text;
+                        break;
+                    case "skyTextBoxWSMReset":
+                        ws.Reset.Message = textBox.Text;
+                        break;
+                }
+            }
+        }
+
+        private void textBoxUrl_TextChanged(object sender, EventArgs e) =>
+             btnSetUrl.Visible = textBoxUrl.Text != saveModule.generalAS.WebSocketSettings.Url;
+
+        private void btnSetUrl_Click(object sender, EventArgs e)
+        {
+            string currentUrl = saveModule.generalAS.WebSocketSettings.Url;
+            try
+            {
+                saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
+                WebSockets.Instance.ReConnect();
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    textBoxUrl.Text = currentUrl;
+                    saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WebSockets.Instance.ReConnect();
+                }
+                catch (Exception ex2)
+                {
+                    MessageBox.Show(ex2.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            finally { btnSetUrl.Visible = false; }
+        }
+        #endregion
+        #region MainDashboard
         private void btnHowSetup_Click(object sender, EventArgs e)
         {
             AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/wiki"));
+        }
+
+        private void btnGoToDownloadPage_Click(object sender, EventArgs e)
+        {
+            AutoSplitterMainModule.OpenWithBrowser(new Uri("https://github.com/neimex23/AutoSplitterCore/releases/latest"));
+        }
+        private void cbCheckUpdatesOnStartup_CheckedChanged(object sender) => updateModule.CheckUpdatesOnStartup = cbCheckUpdatesOnStartup.Checked;
+
+
+        //Buttons Dashboard
+        private void btnCheckVersion_Click(object sender, EventArgs e)
+        {
+            updateModule.CheckUpdates(true);
+            LabelVersion.Text = updateModule.currentVer;
+            labelCloudVer.Text = updateModule.cloudVer;
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -1450,6 +1558,24 @@ namespace AutoSplitterCore
             TabControlGeneral.SelectTab(tabGeneral);
         }
 
+        private void btnASL_Click(object sender, EventArgs e)
+        {
+#if HCMv2 
+            ASLSplitter.GetInstance().OpenForm();
+            return;
+#endif
+
+            var form = new ASLForm(saveModule);
+            Point parentLocation = this.Location;
+
+            int newX = parentLocation.X + this.Width - 20;
+            int newY = parentLocation.Y;
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(newX, newY);
+            form.ShowDialog();
+        }
+
         private void btnProfile_Click(object sender, EventArgs e)
         {
             var form = new ProfileManager(saveModule, darkModeHCM);
@@ -1470,6 +1596,8 @@ namespace AutoSplitterCore
 
 
         #endregion
+        #endregion
+
         #region SekiroUI
         private void toSplitSelectSekiro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3997,126 +4125,5 @@ namespace AutoSplitterCore
             }
         }
         #endregion
-
-        private void btnASL_Click(object sender, EventArgs e)
-        {
-#if HCMv2 
-            ASLSplitter.GetInstance().OpenForm();
-            return;
-#endif
-
-            var form = new ASLForm(saveModule);
-            Point parentLocation = this.Location;
-
-            int newX = parentLocation.X + this.Width - 20;
-            int newY = parentLocation.Y;
-
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(newX, newY);
-            form.ShowDialog();
-        }
-
-        private void linkLabelEverest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://everestapi.github.io/"));
-
-        private void linkLabelDeathCounter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://gamebanana.com/mods/577187"));
-
-        private void skyComboBox_DropDown(object sender, EventArgs e)
-        {
-            SkyComboBox comboBox = sender as SkyComboBox;
-
-            int maxWidth = comboBox.Width;
-            using (Graphics g = comboBox.CreateGraphics())
-            {
-                foreach (var item in comboBox.Items)
-                {
-                    int itemWidth = (int)g.MeasureString(item.ToString(), comboBox.Font).Width;
-                    if (itemWidth > maxWidth)
-                    {
-                        maxWidth = itemWidth;
-                    }
-                }
-            }
-
-            comboBox.DropDownWidth = maxWidth + 20;
-        }
-
-        private void CheckBoxWS_CheckedChanged(object sender)
-        {
-            if (sender is MetroCheckBox checkBox)
-            {
-                var ws = saveModule.generalAS.WebSocketSettings;
-
-                switch (checkBox.Name)
-                {
-                    case "metroCheckBoxWSHit":
-                        ws.Hit.Enabled = checkBox.Checked;
-                        break;
-                    case "metroCheckBoxWSSplit":
-                        ws.Split.Enabled = checkBox.Checked;
-                        break;
-                    case "metroCheckBoxWSStart":
-                        ws.Start.Enabled = checkBox.Checked;
-                        break;
-                    case "metroCheckBoxWSReset":
-                        ws.Reset.Enabled = checkBox.Checked;
-                        break;
-                }
-            }
-        }
-
-        private void textBoxWS_CheckedChanged(object sender, EventArgs e)
-        {
-            if (sender is SkyTextBox textBox)
-            {
-                var ws = saveModule.generalAS.WebSocketSettings;
-
-                switch (textBox.Name)
-                {
-                    case "textBoxUrl":
-                        ws.Url = textBox.Text;
-                        break;
-                    case "skyTextBoxWSMHit":
-                        ws.Hit.Message = textBox.Text;
-                        break;
-                    case "skyTextBoxWSMSplit":
-                        ws.Split.Message = textBox.Text;
-                        break;
-                    case "skyTextBoxWSMStart":
-                        ws.Start.Message = textBox.Text;
-                        break;
-                    case "skyTextBoxWSMReset":
-                        ws.Reset.Message = textBox.Text;
-                        break;
-                }
-            }
-        }
-
-        private void textBoxUrl_TextChanged(object sender, EventArgs e) =>
-             btnSetUrl.Visible = textBoxUrl.Text != saveModule.generalAS.WebSocketSettings.Url;
-
-        private void btnSetUrl_Click(object sender, EventArgs e)
-        {
-            string currentUrl = saveModule.generalAS.WebSocketSettings.Url;
-            try
-            {
-                saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
-                WebSockets.Instance.ReConnect();
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    textBoxUrl.Text = currentUrl;
-                    saveModule.generalAS.WebSocketSettings.Url = textBoxUrl.Text;
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    WebSockets.Instance.ReConnect();
-                }
-                catch (Exception ex2)
-                {
-                    MessageBox.Show(ex2.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }    
-            finally { btnSetUrl.Visible = false; }
-        }
     }
 }

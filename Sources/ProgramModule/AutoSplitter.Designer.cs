@@ -76,7 +76,7 @@ namespace AutoSplitterCore
             this.label6 = new System.Windows.Forms.Label();
             this.skyComboBoxOverrideStyleMode = new ReaLTaiizor.Controls.SkyComboBox();
             this.groupBox2 = new ReaLTaiizor.Controls.GroupBox();
-            this.label94 = new System.Windows.Forms.Label();
+            this.checkBoxLogActive = new System.Windows.Forms.CheckBox();
             this.checkBoxResetSplitNg = new System.Windows.Forms.CheckBox();
             this.tabPageTimming = new System.Windows.Forms.TabPage();
             this.lostBorderPanel1 = new ReaLTaiizor.Controls.LostBorderPanel();
@@ -1604,7 +1604,7 @@ namespace AutoSplitterCore
             this.skyComboBoxAscProfile.TabIndex = 32;
             this.skyComboBoxAscProfile.TriangleColorA = System.Drawing.Color.Black;
             this.skyComboBoxAscProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyComboBoxAscProfile.DropDown += new System.EventHandler(this.skyComboBox_DropDown);
+            this.skyComboBoxAscProfile.DropDown += new System.EventHandler(this.ProfileLink_DropDown);
             // 
             // label93
             // 
@@ -1660,7 +1660,7 @@ namespace AutoSplitterCore
             this.skyComboBoxHcmProfile.TabIndex = 29;
             this.skyComboBoxHcmProfile.TriangleColorA = System.Drawing.Color.Black;
             this.skyComboBoxHcmProfile.TriangleColorB = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(137)))));
-            this.skyComboBoxHcmProfile.DropDown += new System.EventHandler(this.skyComboBox_DropDown);
+            this.skyComboBoxHcmProfile.DropDown += new System.EventHandler(this.ProfileLink_DropDown);
             // 
             // listBoxLinkProfile
             // 
@@ -1752,7 +1752,7 @@ namespace AutoSplitterCore
             this.groupBox2.BaseColor = System.Drawing.Color.Transparent;
             this.groupBox2.BorderColorG = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(161)))));
             this.groupBox2.BorderColorH = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(180)))), ((int)(((byte)(186)))));
-            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.checkBoxLogActive);
             this.groupBox2.Controls.Add(this.checkBoxResetSplitNg);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -1761,27 +1761,30 @@ namespace AutoSplitterCore
             this.groupBox2.MinimumSize = new System.Drawing.Size(136, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(216, 91);
+            this.groupBox2.Size = new System.Drawing.Size(216, 94);
             this.groupBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "General";
             // 
-            // label94
+            // checkBoxLogActive
             // 
-            this.label94.AutoSize = true;
-            this.label94.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label94.Location = new System.Drawing.Point(6, 51);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(151, 28);
-            this.label94.TabIndex = 18;
-            this.label94.Text = "              Not Compatible:\r\n                Dishonored";
+            this.checkBoxLogActive.AutoSize = true;
+            this.checkBoxLogActive.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxLogActive.Location = new System.Drawing.Point(50, 60);
+            this.checkBoxLogActive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxLogActive.Name = "checkBoxLogActive";
+            this.checkBoxLogActive.Size = new System.Drawing.Size(105, 18);
+            this.checkBoxLogActive.TabIndex = 19;
+            this.checkBoxLogActive.Text = "Active Log File";
+            this.checkBoxLogActive.UseVisualStyleBackColor = true;
+            this.checkBoxLogActive.CheckedChanged += new System.EventHandler(this.checkBoxLogActive_CheckedChanged);
             // 
             // checkBoxResetSplitNg
             // 
             this.checkBoxResetSplitNg.AutoSize = true;
             this.checkBoxResetSplitNg.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(29, 30);
+            this.checkBoxResetSplitNg.Location = new System.Drawing.Point(27, 34);
             this.checkBoxResetSplitNg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxResetSplitNg.Name = "checkBoxResetSplitNg";
             this.checkBoxResetSplitNg.Size = new System.Drawing.Size(166, 18);
@@ -14704,7 +14707,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.CheckBox checkBoxResetSplitNg;
         private ReaLTaiizor.Controls.GroupBox groupBox2;
-        private System.Windows.Forms.Label label94;
         private ReaLTaiizor.Controls.GroupBox groupBoxOtherS;
         private System.Windows.Forms.CheckBox checkBoxDLCBossER;
         private System.Windows.Forms.ComboBox comboBoxBossER_DLC;
@@ -15063,5 +15065,6 @@ namespace AutoSplitterCore
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.PictureBox btnSetUrl;
         internal System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBoxLogActive;
     }
 }
