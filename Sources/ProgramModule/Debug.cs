@@ -365,7 +365,11 @@ namespace AutoSplitterCore
                 }
 
                 _streamWriter = new StreamWriter(LogFilePath, append: true) { AutoFlush = true };
-                var separator = $"\n==================== NEW ASC SESSION [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
+                string hcmVersion = "HCMv1";
+#if HCMv2
+                hcmVersion = "HCMv2";
+#endif
+                var separator = $"\n==================== NEW ASC SESSION {hcmVersion} [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ====================\n";
                 _streamWriter.WriteLine(separator);
             }
             catch
@@ -382,6 +386,7 @@ namespace AutoSplitterCore
         public static void LogMessage(string message, Exception exception = null)
         {
             _logger?.LogMessage(message);
+            Console.WriteLine(message);
 
             if (AutoSplitterMainModule.saveModule.generalAS.LogFile)
             {

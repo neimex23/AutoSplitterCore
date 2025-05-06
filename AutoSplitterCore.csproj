@@ -254,6 +254,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>
+    <PackageReference Include="ReactiveUI.WinForms">
+      <Version>20.2.45</Version>
+    </PackageReference>
     <PackageReference Include="ReaLTaiizor">
       <Version>3.8.1.2</Version>
     </PackageReference>

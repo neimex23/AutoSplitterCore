@@ -81,6 +81,7 @@
     <Compile Include="Sources\ASLFormServer.designer.cs">
       <DependentUpon>ASLFormServer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\Debug.cs" />
     <Compile Include="Sources\MainModuleServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\ASLSplitterServer.cs" />

@@ -134,13 +134,13 @@ namespace AutoSplitterCore
                     );
 
 
-                    Console.WriteLine("Authentication completed for ´user´ machine: " + machineName);
+                    DebugLog.LogMessage("Authentication completed for ´user´ machine: " + machineName);
                     CreateService();
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error on Authentification process: " + e.Message);
+                DebugLog.LogMessage("Error on Authentification process: " + e.Message);
             }
             Cursor = Cursors.Default;
         }
@@ -235,12 +235,12 @@ namespace AutoSplitterCore
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine("Error making the request: " + e.Message);
+                DebugLog.LogMessage("Error making the request: " + e.Message);
                 throw;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Unexpected error: " + ex.Message);
+                DebugLog.LogMessage("Unexpected error: " + ex.Message);
                 throw;
             }
         }
@@ -615,13 +615,13 @@ namespace AutoSplitterCore
                         switch (progress.Status)
                         {
                             case DownloadStatus.Downloading:
-                                Console.WriteLine($"Downloading: {progress.BytesDownloaded} bytes...");
+                                DebugLog.LogMessage($"Downloading: {progress.BytesDownloaded} bytes...");
                                 break;
                             case DownloadStatus.Completed:
-                                Console.WriteLine("Download completed.");
+                                DebugLog.LogMessage("Download completed.");
                                 break;
                             case DownloadStatus.Failed:
-                                Console.WriteLine("Download failed.");
+                                DebugLog.LogMessage("Download failed.");
                                 break;
                         }
                     };
@@ -636,17 +636,17 @@ namespace AutoSplitterCore
                             stream.CopyTo(fileStream);
                             fileStream.Close();
                         }
-                        Console.WriteLine($"File saved to {destinationPath}");
+                        DebugLog.LogMessage($"File saved to {destinationPath}");
                     }
                     else
                     {
-                        Console.WriteLine("Stream is empty. No data was downloaded.");
+                        DebugLog.LogMessage("Stream is empty. No data was downloaded.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error downloading file: {ex.Message}");
+                DebugLog.LogMessage($"Error downloading file: {ex.Message}");
             }
         }
 
@@ -811,7 +811,7 @@ namespace AutoSplitterCore
                             splitterControl.AddSplit(split);
                         }
                     }
-                    else Console.WriteLine("Debug Mode on Install Profile HCM: InterfaceHCM not Setted");
+                    else DebugLog.LogMessage("Debug Mode on Install Profile HCM: InterfaceHCM not Setted");
                 }
 
                 File.Delete(tempFilePath);
@@ -1015,11 +1015,11 @@ namespace AutoSplitterCore
                 string projectId = JsonConvert.DeserializeObject<dynamic>(jsonCredentials)["project_id"];
                 _firestoreBaseUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents";
 
-                Console.WriteLine("Firestore REST API Client Initialized.");
+                DebugLog.LogMessage("Firestore REST API Client Initialized.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error initializing Firestore: {ex.Message}");
+                DebugLog.LogMessage($"Error initializing Firestore: {ex.Message}");
                 throw;
             }
         }
@@ -1072,7 +1072,7 @@ namespace AutoSplitterCore
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Error querying Firestore: {await response.Content.ReadAsStringAsync()}");
+                    DebugLog.LogMessage($"Error querying Firestore: {await response.Content.ReadAsStringAsync()}");
                     return false;
                 }
 

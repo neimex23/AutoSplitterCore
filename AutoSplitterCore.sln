@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASLBridge", "ASLBridge\ASLBridge.csproj", "{7F05285E-E796-4578-A9D0-94299D972640}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2BA042A6-39C1-4081-BFC3-FBBF2F4BF46E} = {2BA042A6-39C1-4081-BFC3-FBBF2F4BF46E}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSplitterCore", "AutoSplitterCore.csproj", "{2BA042A6-39C1-4081-BFC3-FBBF2F4BF46E}"
 EndProject

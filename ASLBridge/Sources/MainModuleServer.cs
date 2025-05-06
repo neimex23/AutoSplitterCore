@@ -53,128 +53,185 @@ namespace ASLBridge
 
 
 
-            Console.WriteLine("NamedPipe server started: pipe name = ASLBridge");
+            DebugLog.LogMessage("NamedPipe server started: pipe name = ASLBridge");
 
         }
 
         private static StreamWriter _writer;
-        private static void StartNamedPipeServer()
+        private static async Task StartNamedPipeServer()
         {
             while (serverRunning)
             {
                 using (var pipeServer = new NamedPipeServerStream("ASLBridge", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous))
                 {
-                    try
+                    DebugLog.LogMessage("[PIPE] Waiting Connection");
+                    await pipeServer.WaitForConnectionAsync();
+
+                    DebugLog.LogMessage("[PIPE] Client Connected");
+
+                    using (var reader = new StreamReader(pipeServer))
+                    using (_writer = new StreamWriter(pipeServer) { AutoFlush = true })
                     {
-                        Console.WriteLine("[PIPE] Esperando conexión...");
-                        pipeServer.WaitForConnection();
-
-                        Console.WriteLine("[PIPE] Cliente conectado");
-
-                        using (var reader = new StreamReader(pipeServer))
-                        using (_writer = new StreamWriter(pipeServer) { AutoFlush = true })
+                        while (serverRunning && pipeServer.IsConnected)
                         {
-                            while (serverRunning && pipeServer.IsConnected)
+                            try
                             {
-                                var readTask = reader.ReadLineAsync();
-                                if (readTask.Wait(TimeSpan.FromSeconds(5)))
+                                var line = await reader.ReadLineAsync();
+                                if (line == null)
                                 {
-                                    var line = readTask.Result;
-                                    if (line == null)
-                                    {
-                                        Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
-                                        HandleCommand("exit");
-                                        break;
-                                    }
-
-                                    Console.WriteLine($"[PIPE] Comando recibido: {line}");
-                                    var response = HandleCommand(line);
-                                    if (response != null)
-                                    {
-                                        _writer.WriteLine(response);
-                                        Console.WriteLine($"[PIPE] Comando Enviado: {response}");
-                                    }
-                                }
-                                else if (!pipeServer.IsConnected)
-                                {
-                                    Console.WriteLine("[PIPE] Cliente desconectado (timeout). Cerrando servidor...");
-                                    HandleCommand("exit");
+                                    DebugLog.LogMessage("[PIPE] Client disconnected.");
                                     break;
                                 }
+
+                                DebugLog.LogMessage($"[PIPE] Command received: {line}");
+                                var response = HandleCommand(line);
+                                if (response != null)
+                                {
+                                    await SendResponseAsync(response);
+                                }
+                            }
+                            catch (IOException ex)
+                            {
+                                DebugLog.LogMessage($"[PIPE] IOException: {ex.Message}");
+                                break;
+                            }
+                            catch (Exception ex)
+                            {
+                                DebugLog.LogMessage($"[PIPE] General Exception: {ex.Message}");
+                                break;
                             }
                         }
                     }
-                    catch (IOException ex)
-                    {
-                        Console.WriteLine($"[PIPE] Desconexión inesperada del cliente: {ex.Message}");
-                        HandleCommand("exit");
-                    }
+                }
+            }
+        }
+
+        private static async Task SendResponseAsync(string message)
+        {
+            if (_writer != null)
+            {
+                await _writeLock.WaitAsync();
+                try
+                {
+                    await _writer.WriteLineAsync(message);
+                    DebugLog.LogMessage($"[PIPE] Message sent: {message}");
+                }
+                catch (IOException ex)
+                {
+                    DebugLog.LogMessage($"[PIPE] Send Error: {ex.Message}");
+                }
+                finally
+                {
+                    _writeLock.Release();
                 }
             }
         }
 
         private static StreamWriter _writerIgt;
-        private static void StartNamedPipeServerIGT()
+        private static SemaphoreSlim _writeLock = new SemaphoreSlim(1, 1);
+        private static async Task StartNamedPipeServerIGT()
         {
             while (serverRunning)
             {
                 using (var pipeServer = new NamedPipeServerStream("ASLBridge_IGT", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous))
                 {
-                    try
+                    DebugLog.LogMessage("[PIPEIGT] Waiting Connection");
+                    await pipeServer.WaitForConnectionAsync();
+
+                    DebugLog.LogMessage("[PIPEIGT] Client Connected");
+
+                    using (var reader = new StreamReader(pipeServer))
+                    using (_writerIgt = new StreamWriter(pipeServer) { AutoFlush = true })
                     {
-                        pipeServer.WaitForConnection();
-
-                        using (var reader = new StreamReader(pipeServer))
-                        using (_writerIgt = new StreamWriter(pipeServer) { AutoFlush = true })
+                        while (serverRunning && pipeServer.IsConnected)
                         {
-                            string line;
-                            while ((line = reader.ReadLine()) != null)
+                            try
                             {
-                                string response = HandleCommand(line);
+                                var line = await reader.ReadLineAsync();
+                                if (line == null)
+                                {
+                                    DebugLog.LogMessage("[PIPEIGT] Client disconnected.");
+                                    break;
+                                }
 
+                                DebugLog.LogMessage($"[PIPEIGT] Command received: {line}");
+                                var response = HandleCommand(line);
                                 if (response != null)
                                 {
-                                    _writerIgt.WriteLine(response);
+                                    await SendResponseIgtAsync(response);
                                 }
                             }
-
-                            if (line == null)
+                            catch (IOException ex)
                             {
-                                Console.WriteLine("[PIPE] Cliente se desconectó. Cerrando servidor...");
-                                HandleCommand("exit");
+                                DebugLog.LogMessage($"[PIPEIGT] IOException: {ex.Message}");
+                                break;
+                            }
+                            catch (Exception ex)
+                            {
+                                DebugLog.LogMessage($"[PIPEIGT] General Exception: {ex.Message}");
+                                break;
                             }
                         }
                     }
-                    catch (IOException ex)
-                    {
-                        Console.WriteLine($"[PIPE] Desconexión inesperada del cliente: {ex.Message}");
-                        HandleCommand("exit");
-                    }
                 }
             }
         }
 
-        public static void BroadcastEvent(string eventMessage)
+        private static SemaphoreSlim _writeLockIgt = new SemaphoreSlim(1, 1);
+
+        private static async Task SendResponseIgtAsync(string message)
         {
-            Console.WriteLine($"[PIPE-EVENT] {eventMessage}");
-            if (_writer != null)
+            if (_writerIgt != null)
             {
+                await _writeLockIgt.WaitAsync();
                 try
                 {
-                    _writer.WriteLine(eventMessage);
+                    await _writerIgt.WriteLineAsync(message);
+                    DebugLog.LogMessage($"[PIPEIGT] Message sent: {message}");
                 }
                 catch (IOException ex)
                 {
-                    Console.WriteLine($"[PIPE] Error al enviar evento: {ex.Message}");
+                    DebugLog.LogMessage($"[PIPEIGT] Send Error: {ex.Message}");
+                }
+                finally
+                {
+                    _writeLockIgt.Release();
                 }
             }
         }
+
+
+        public static async Task BroadcastEvent(string eventMessage)
+        {
+            DebugLog.LogMessage($"[PIPE-EVENT] {eventMessage}");
+            if (_writer != null)
+            {
+                await _writeLock.WaitAsync();
+                try
+                {
+                    await _writer.WriteLineAsync(eventMessage);
+                }
+                catch (IOException ex)
+                {
+                    DebugLog.LogMessage($"[PIPE] Error to send Event: {ex.Message}");
+                }
+                finally
+                {
+                    _writeLock.Release();
+                }
+            }
+        }
+
 
 
         private static string HandleCommand(string command)
         {
             switch (command.ToLower())
             {
+                case "ping":
+                    return "pong";
+                case "alive":
+                    return string.Empty;
                 case "enableigt":
                     ASLFormServer.GetIntance().SetIgt(true);
                     return "Igt Enabled";
@@ -189,6 +246,7 @@ namespace ASLBridge
                     SaveModule.SaveASLSettings();
                     serverRunning = false;
                     _writer?.Dispose();
+                    DebugLog.Close();
                     ASLFormServer.GetIntance().CloseForm();
                     Application.Exit();
                     return null;
@@ -204,6 +262,7 @@ namespace ASLBridge
             SaveModule.SaveASLSettings();
             serverRunning = false;
             _writer?.Dispose();
+            DebugLog.Close();
             Application.Exit();
         }
 

@@ -39,7 +39,7 @@ namespace ASLBridge
 
         public override void WriteLine(string message) => RegisterLog(message);
 
-        private void RegisterLog(string message) => Console.WriteLine($"Trace ASL: {message}");
+        private void RegisterLog(string message) => DebugLog.LogMessage($"Trace ASL: {message}");
 
         public static void Initialize()
         {
@@ -153,7 +153,11 @@ namespace ASLBridge
         #region Checking
         public bool GetStatusGame() => asl.Script != null ? asl.Script.ProccessAtached() : false;
 
-        public long GetIngameTime() => (long?)state?.CurrentTime.GameTime?.TotalMilliseconds ?? -1;
+        public long GetIngameTime()
+        {
+            var time = (long?)state?.CurrentTime.GameTime?.TotalMilliseconds;
+            return time != null && time >= 0 ? (long)time : -1;
+        }
         #endregion
 
         private void ASCOnSplit(object sender, EventArgs e) => ASCOnSplitHandler?.Invoke(this, e);

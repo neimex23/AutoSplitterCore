@@ -22,11 +22,13 @@
 //SOFTWARE.
 
 using HitCounterManager;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -89,7 +91,12 @@ namespace AutoSplitterCore
                 {
                     DebugLog.LogMessage($"Unhandled exception {ex.Message}", ex);
                 }
-            };      
+            };
+
+            RxApp.DefaultExceptionHandler = Observer.Create<Exception>(ex =>
+            {
+                DebugLog.LogMessage($"[RxApp.WinForms] Global Rx Exception: {ex}");
+            });
         }
 
         private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open
@@ -157,7 +164,7 @@ namespace AutoSplitterCore
 
         public static void SaveAutoSplitterSettings() => saveModule.SaveAutoSplitterSettings();
 
-        #endregion
+#endregion
         #region SplitterManagement
         public static bool GetPracticeMode() => saveModule._PracticeMode;
 

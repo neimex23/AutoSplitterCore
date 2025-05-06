@@ -39,6 +39,8 @@ namespace AutoSplitterCore
 {
     public class ListenerASL : TraceListener
     {
+        private static bool Initialized = false;
+
         public override void Write(string message) => RegisterLog(message);
 
         public override void WriteLine(string message) => RegisterLog(message);
@@ -47,11 +49,13 @@ namespace AutoSplitterCore
 
         public static void Initialize()
         {
+            if (ListenerASL.Initialized) return;
             var listener = new ListenerASL();
             listener.Filter = new EventTypeFilter(SourceLevels.All);
             Trace.Listeners.Add(listener);
 
             Log.Info("Started Successfully");
+            ListenerASL.Initialized = true;
         }
     }
 
@@ -84,6 +88,10 @@ namespace AutoSplitterCore
                 state = GeneratorState();
                 asl = new ASLComponent(state);
                 _timer.Tick += ASCHandlerSetters;
+
+#if !DEBUG
+                ListenerASL.Initialize();
+#endif
             }
         }
 
@@ -111,7 +119,7 @@ namespace AutoSplitterCore
         private NamedPipeClient _client;
         private NamedPipeClientIGT _clientIgt;
 
-        public async Task InitializePipeClient()
+        public async Task<bool> InitializePipeClient()
         {
             var exeName = "ASLBridge";
             if (!Process.GetProcessesByName(exeName).Any())
@@ -123,23 +131,46 @@ namespace AutoSplitterCore
                     FileName = path,
                     Arguments = "--from-client",
                     UseShellExecute = false,
+                    WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
                     CreateNoWindow = true,
                     WindowStyle = ProcessWindowStyle.Hidden
                 });
-
-                DebugLog.LogMessage("ASLBridge iniciado.");
-                await Task.Delay(2000);
             }
 
             _client = new NamedPipeClient();
             _clientIgt = new NamedPipeClientIGT();
-            await _client.ConnectAsync();
-            await _clientIgt.ConnectAsync();
 
-            _client.OnSplit += (s, e) => ASCOnSplit(s, e);
-            _client.OnStart += (s, e) => ASCOnStart(s, e);
-            _client.OnReset += (s, e) => ASCOnReset(s, e);
+            int maxRetrys = 5;
+            int actualRetry = 0;
+            int intervaleMS = 1000;
+
+            while (actualRetry < maxRetrys)
+            {
+                try
+                {
+                    await _client.ConnectAsync();
+                    await _clientIgt.ConnectAsync();
+
+                    await _client.SendCommand("ping");
+                    DebugLog.LogMessage("Connection to ASLBridge successful.");
+
+                    _client.OnSplit += (s, e) => ASCOnSplit(s, e);
+                    _client.OnStart += (s, e) => ASCOnStart(s, e);
+                    _client.OnReset += (s, e) => ASCOnReset(s, e);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    DebugLog.LogMessage($"Try {actualRetry + 1}: Could not connect to Pipe. Waiting for retry... {ex.Message}");
+                    actualRetry++;
+                    await Task.Delay(intervaleMS);
+                }
+            }
+
+            DebugLog.LogMessage("Could not connect to Pipe after several attempts");
+            return false;
         }
+
 
 
         private LiveSplitState GeneratorState()
@@ -201,7 +232,7 @@ namespace AutoSplitterCore
             }
         }
 
-        #endregion
+#endregion
         #region Control Management
         public void setData(XmlNode node)
         {
@@ -280,7 +311,8 @@ namespace AutoSplitterCore
         {
             if (!HCMv2)
             {
-                return (long?)state?.CurrentTime.GameTime?.TotalMilliseconds ?? -1;
+                var time = (long?)state?.CurrentTime.GameTime?.TotalMilliseconds;
+                return time != null && time >= 0 ? (long)time : -1;
             }
             else
             {

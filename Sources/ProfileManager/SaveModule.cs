@@ -127,7 +127,7 @@ namespace AutoSplitterCore
     [Serializable]
     public class WebSocketSettings
     {
-        public string Url { get; set; } = "http://localhost:55090/ws/";
+        public string Url { get; set; } = "http://localhost:65090/ws/";
 
         public WebSocketMessageConfig Split { get; set; } = new WebSocketMessageConfig(false, "SplitASC");
         public WebSocketMessageConfig Hit { get; set; } = new WebSocketMessageConfig(false, "HitASC");

@@ -78,6 +78,8 @@ namespace AutoSplitterCore
         {
             if (_pipe == null || !_pipe.IsConnected) return null;
 
+            DebugLog.LogMessage($"[PIPE] Sending command: {command}");
+
             await _writer.WriteLineAsync(command);
 
             if (waitForResponse)

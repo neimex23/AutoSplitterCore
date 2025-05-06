@@ -1258,7 +1258,7 @@ namespace AutoSplitterCore
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error in ItemToSplit: {ex.Message}");
+                        DebugLog.LogMessage($"Error in ItemToSplit: {ex.Message}");
                     }
                 }
             }

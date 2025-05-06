@@ -42,6 +42,7 @@ namespace ASLBridge
 
         private ASLFormServer()
         {
+            DebugLog.Initialize();
             InitializeComponent();
 
             var contextMenu = new ContextMenuStrip();
@@ -181,7 +182,7 @@ namespace ASLBridge
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error Produced on FillCbxGameName: {ex.Message}");
+                    DebugLog.LogMessage($"Error Produced on FillCbxGameName: {ex.Message}");
                 }
             });
         }
@@ -249,7 +250,7 @@ namespace ASLBridge
                 }
                 catch (Exception ex2)
                 {
-                    Console.WriteLine("Error Download ASLFile: " + ex2.Message);
+                    DebugLog.LogMessage("Error Download ASLFile: " + ex2.Message);
                 }
                 finally
                 {
@@ -259,7 +260,7 @@ namespace ASLBridge
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("Failed to delete temp file: " + fullPath2);
+                        DebugLog.LogMessage("Failed to delete temp file: " + fullPath2);
                     }
                     MessageBox.Show($"ASL File Download Successfully\nSaved on: {fullPath}", "Download Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

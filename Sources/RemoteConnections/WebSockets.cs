@@ -70,7 +70,7 @@ namespace AutoSplitterCore
                 _listener.Start();
                 _cts = new CancellationTokenSource();
                 IsRunning = true;
-                DebugLog.LogMessage("WebSocket server started...");
+                DebugLog.LogMessage($"WebSocket server started on {saveModule.generalAS.WebSocketSettings.Url}");
 
                 _listeningTask = Task.Run(async () =>
                 {

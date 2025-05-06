@@ -73,14 +73,14 @@ namespace ASLBridge
                     }
                     else
                     {
-                        Console.WriteLine($"Warning: {nodeName}.getData(doc) is null.");
+                        DebugLog.LogMessage($"Warning: {nodeName}.getData(doc) is null.");
                     }
                     doc.DocumentElement.AppendChild(newNode);
                     doc.Save(filePath);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error processing XML for {nodeName}: {ex.Message}");
+                    DebugLog.LogMessage($"Error processing XML for {nodeName}: {ex.Message}");
                 }
             }
         }
@@ -109,7 +109,7 @@ namespace ASLBridge
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading XML Node for {nodeName}: {ex.Message}\n{ex.StackTrace}");
+                DebugLog.LogMessage($"Error loading XML Node for {nodeName}: {ex.Message}\n{ex.StackTrace}");
                 setDataAction(null);
             }
         }
