@@ -171,8 +171,6 @@ namespace AutoSplitterCore
             return false;
         }
 
-
-
         private LiveSplitState GeneratorState()
         {
             Form liveSplitForm = new Form
@@ -256,8 +254,31 @@ namespace AutoSplitterCore
 
         public async Task OpenForm()
         {
-            await _client.SendCommand("openform");
+            if (HCMv2 && _client != null)
+                if (_client.PipeOnline)
+                {
+                    await _client.SendCommand("openform");
+                }
+                else
+                {
+                    MessageBox.Show("Internal Communication with Piped ASL Bridge is disconnected");
+                }
         }
+
+        public async Task SaveASLBridgeSettings()
+        {
+            if (HCMv2 && _client != null)
+                if (_client.PipeOnline)
+                    await _client.SendCommand("save");
+        }
+
+        public async Task LoadASLBridgeSettings()
+        {
+            if (HCMv2 && _client != null)
+                if (_client.PipeOnline)
+                    await _client.SendCommand("load");
+        }
+
 
         #endregion
         #region Checking

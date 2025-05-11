@@ -154,7 +154,6 @@ namespace ASLBridge
                                     break;
                                 }
 
-                                DebugLog.LogMessage($"[PIPEIGT] Command received: {line}");
                                 var response = HandleCommand(line);
                                 if (response != null)
                                 {
@@ -187,7 +186,6 @@ namespace ASLBridge
                 try
                 {
                     await _writerIgt.WriteLineAsync(message);
-                    DebugLog.LogMessage($"[PIPEIGT] Message sent: {message}");
                 }
                 catch (IOException ex)
                 {
@@ -242,8 +240,13 @@ namespace ASLBridge
                 case "openform":
                     OpenForm?.Invoke(null, EventArgs.Empty);
                     return "Opened Form";
-                case "exit":
+                case "load":
+                    SaveModule.LoadASLSettings();
+                    return "ASLSettings Loaded Successfully";
+                case "save":
                     SaveModule.SaveASLSettings();
+                    return "ASLSettings Saved Successfully";
+                case "exit":
                     serverRunning = false;
                     _writer?.Dispose();
                     DebugLog.Close();
@@ -259,7 +262,6 @@ namespace ASLBridge
 
         public static void InternalExitCommand()
         {
-            SaveModule.SaveASLSettings();
             serverRunning = false;
             _writer?.Dispose();
             DebugLog.Close();

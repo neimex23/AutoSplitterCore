@@ -104,7 +104,6 @@ namespace ASLBridge
 
         private void ASLForm_Load(object sender, EventArgs e)
         {
-            saveModuleServer.LoadASLSettings();
             MainModuleServer.LoadProcess();
 
             labelInfoASL.Text = "Start: Triggered when the Start Trigger produces an HCM Timer activation.\r\nSplit: Triggered when the SplitFlag Trigger generates an HCM Split.\r\nReset: Triggered when the Reset Trigger initiates an HCM Restart Run.";

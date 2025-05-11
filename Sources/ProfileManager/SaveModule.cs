@@ -255,9 +255,12 @@ namespace AutoSplitterCore
             formatter = new XmlSerializer(typeof(GeneralAutoSplitter));
             formatter.Serialize(myStream, generalAS);
             myStream.Close();
+            
 
 #if !HCMv2 //ASLBridge Setted your custom SaveModule for Save and Load XMLData
             SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
+#else
+            aslSplitter.SaveASLBridgeSettings();
 #endif
         }
 
@@ -380,9 +383,11 @@ namespace AutoSplitterCore
             celesteSplitter.SetDataCeleste(dataCeleste);
             cupSplitter.SetDataCuphead(dataCuphead);
             dishonoredSplitter.SetDataDishonored(dataDishonored);
-
+            
 #if !HCMv2
             LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
+#else
+            aslSplitter.LoadASLBridgeSettings();
 #endif
         }
 
@@ -480,5 +485,5 @@ namespace AutoSplitterCore
 
         #endregion
     }
-    #endregion
+#endregion
 }
