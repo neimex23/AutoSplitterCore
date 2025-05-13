@@ -257,11 +257,10 @@ namespace AutoSplitterCore
             myStream.Close();
             
 
-#if !HCMv2 //ASLBridge Setted your custom SaveModule for Save and Load XMLData
-            SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
-#else
-            aslSplitter.SaveASLBridgeSettings();
-#endif
+            if (aslSplitter.HCMv2) //ASLBridge Setted your custom SaveModule for Save and Load XMLData
+                aslSplitter.SaveASLBridgeSettings();
+            else
+                SaveXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.getData);
         }
 
         void SaveXmlData(string filePath, string nodeName, Func<XmlDocument, XmlNode> getDataFunc)
@@ -384,11 +383,8 @@ namespace AutoSplitterCore
             cupSplitter.SetDataCuphead(dataCuphead);
             dishonoredSplitter.SetDataDishonored(dataDishonored);
             
-#if !HCMv2
-            LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
-#else
-            aslSplitter.LoadASLBridgeSettings();
-#endif
+            if (!aslSplitter.HCMv2)
+                LoadXmlData("SaveGeneralAutoSplitter.xml", "DataASL", aslSplitter.setData);
         }
 
         void LoadXmlData(string filePath, string nodeName, Action<XmlNode> setDataAction)

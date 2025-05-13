@@ -1560,10 +1560,11 @@ namespace AutoSplitterCore
 
         private void btnASL_Click(object sender, EventArgs e)
         {
-#if HCMv2 
-            ASLSplitter.GetInstance().OpenForm();
-            return;
-#endif
+            if (ASLSplitter.GetInstance().HCMv2)
+            {
+                ASLSplitter.GetInstance().OpenForm();
+                return;
+            }
 
             var form = new ASLForm(saveModule);
             Point parentLocation = this.Location;

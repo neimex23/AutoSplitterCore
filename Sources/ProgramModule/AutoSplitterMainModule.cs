@@ -29,7 +29,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reactive;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSplitterCore
@@ -491,38 +490,44 @@ namespace AutoSplitterCore
             if (!autoTimer && !anyGameTime) return;
 
             bool gameIsRunning = GameOn();
-            long inGameTime = -1;
+            long inGameTime;
 
-            if (gameIsRunning)
+            try
             {
-                try
+                inGameTime = gameIsRunning ? igtModule.ReturnCurrentIGT() : -1;
+            }
+            catch
+            {
+                inGameTime = -1;
+            }
+
+            if (autoTimer)
+            {
+                bool validIGT = inGameTime > 0;
+                bool finalSplit = splitterControl.CurrentFinalSplit();
+                bool timerRunning = splitterControl.GetTimerRunning();
+
+                if (anyGameTime)
                 {
-                    inGameTime = igtModule.ReturnCurrentIGT();
+                    bool timeAdvanced = validIGT && _lastTime != inGameTime;
+
+                    if (timeAdvanced && !finalSplit && gameIsRunning && !timerRunning)
+                        TryStartTimer();
+
+                    if ((!timeAdvanced || finalSplit || !gameIsRunning) && timerRunning)
+                        TryStopTimer();
+
+                    if (validIGT)
+                        _lastTime = inGameTime;
                 }
-                catch (Exception) { inGameTime = -1; }
-            }
+                else
+                {
+                    if (validIGT && !timerRunning && !finalSplit && gameIsRunning)
+                        TryStartTimer();
 
-            //AutoTimerReset Checking
-            if (autoTimer && anyGameTime)
-            {
-                bool timeAdvanced = inGameTime > 0 && _lastTime != inGameTime;
-                bool shouldStart = timeAdvanced && !splitterControl.CurrentFinalSplit() && gameIsRunning;
-                bool shouldStop = (!timeAdvanced || splitterControl.CurrentFinalSplit() || !gameIsRunning);
-
-                if (shouldStart) TryStartTimer();
-                if (shouldStop) TryStopTimer();
-
-                if (inGameTime > 0)
-                    _lastTime = inGameTime;
-            }
-
-            if (autoTimer && !anyGameTime)
-            {
-                if (inGameTime > 0 && !splitterControl.GetTimerRunning() && !splitterControl.CurrentFinalSplit() && gameIsRunning)
-                    splitterControl.StartStopTimer(true);
-
-                if ((inGameTime <= 0 || splitterControl.CurrentFinalSplit() || !gameIsRunning) && splitterControl.GetTimerRunning())
-                    splitterControl.StartStopTimer(false);
+                    if ((!validIGT || finalSplit || !gameIsRunning) && timerRunning)
+                        TryStopTimer();
+                }
             }
         }
 
@@ -532,8 +537,8 @@ namespace AutoSplitterCore
             {
                 if (webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Start.Enabled)
                     webSockets.BroadcastAsync(saveModule.generalAS.WebSocketSettings.Start.Message);
+
                 splitterControl.StartStopTimer(true);
-                splitterControl.UpdateDuration();
             }
         }
 
@@ -542,7 +547,6 @@ namespace AutoSplitterCore
             if (splitterControl.GetTimerRunning())
             {
                 splitterControl.StartStopTimer(false);
-                splitterControl.UpdateDuration();
             }
         }
 

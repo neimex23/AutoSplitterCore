@@ -38,17 +38,23 @@ namespace AutoSplitterCore
             {
                 while (!_cts.Token.IsCancellationRequested)
                 {
-                    try
+                    if (ASLSplitter.GetInstance().IGTEnable)
                     {
-                        await _writer.WriteLineAsync("igt");
-                        var response = await _reader.ReadLineAsync();
+                        try
+                        {
+                            await _writer.WriteLineAsync("igt");
+                            var response = await _reader.ReadLineAsync();
 
-                        if (long.TryParse(response, out var parsed))
-                            _lastIgt = parsed;
+                            if (long.TryParse(response, out var parsed))
+                                _lastIgt = parsed;
+                        }
+                        catch { _lastIgt = -1; }
+                    }else
+                    {
+                        _lastIgt = -1;
                     }
-                    catch { _lastIgt = -1; }
 
-                    await Task.Delay(1000); 
+                    await Task.Delay(100);
                 }
             });
         }

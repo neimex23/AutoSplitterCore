@@ -22,6 +22,7 @@
 
 using System;
 using System.IO;
+using System.Threading;
 using System.Xml;
 
 namespace ASLBridge
@@ -87,31 +88,47 @@ namespace ASLBridge
 
         void LoadXmlData(string filePath, string nodeName, Action<XmlNode> setDataAction)
         {
-            try
+            int maxRetries = 5;
+            int retryDelayMs = 1000;
+
+            for (int attempt = 1; attempt <= maxRetries; attempt++)
             {
-                string savePath = Path.GetFullPath(filePath);
-                XmlDocument doc = new XmlDocument();
-                doc.Load(savePath);
+                try
+                {
+                    string savePath = Path.GetFullPath(filePath);
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(savePath);
 
-                XmlNode dataNode = doc.DocumentElement?.SelectSingleNode($"//{nodeName}");
+                    XmlNode dataNode = doc.DocumentElement?.SelectSingleNode($"//{nodeName}");
 
-                if (dataNode == null)
-                    throw new Exception($"Node {nodeName} does not exist.");
+                    if (dataNode == null)
+                        throw new Exception($"Node {nodeName} does not exist.");
 
-                if (!dataNode.HasChildNodes)
-                    throw new Exception($"Node {nodeName} is empty.");
+                    if (!dataNode.HasChildNodes)
+                        throw new Exception($"Node {nodeName} is empty.");
 
-                setDataAction(dataNode.FirstChild);
+                    setDataAction(dataNode.FirstChild);
+                    return;
+                }
+                catch (FileNotFoundException)
+                {
+                    setDataAction(null);
+                    return;
+                }
+                catch (IOException) when (attempt < maxRetries)
+                {
+                    Thread.Sleep(retryDelayMs);
+                }
+                catch (Exception ex)
+                {
+                    DebugLog.LogMessage($"Error loading XML Node for {nodeName}: {ex.Message}\n{ex.StackTrace}");
+                    setDataAction(null);
+                    return;
+                }
             }
-            catch (FileNotFoundException)
-            {
-                setDataAction(null);
-            }
-            catch (Exception ex)
-            {
-                DebugLog.LogMessage($"Error loading XML Node for {nodeName}: {ex.Message}\n{ex.StackTrace}");
-                setDataAction(null);
-            }
+
+            DebugLog.LogMessage($"Failed to load XML Node for {nodeName} after {maxRetries} attempts.");
+            setDataAction(null);
         }
     }
 }

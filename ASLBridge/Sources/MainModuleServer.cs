@@ -42,9 +42,9 @@ namespace ASLBridge
         private static bool serverRunning = true;
         public static void LoadProcess()
         {
-            Splitter.ASCOnSplitHandler += (s, e) => BroadcastEvent("event:split");
-            Splitter.ASCOnStartHandler += (s, e) => BroadcastEvent("event:start");
-            Splitter.ASCOnResetHandler += (s, e) => BroadcastEvent("event:reset");
+            Splitter.ASCOnSplitHandler += (s, e) => Task.Run(() => BroadcastEvent("event:split"));
+            Splitter.ASCOnStartHandler += (s, e) => Task.Run(() => BroadcastEvent("event:start"));
+            Splitter.ASCOnResetHandler += (s, e) => Task.Run(() => BroadcastEvent("event:reset"));
 
             OpenForm += new EventHandler(ShowForm);
 
@@ -186,8 +186,13 @@ namespace ASLBridge
                 try
                 {
                     await _writerIgt.WriteLineAsync(message);
+                    //DebugLog.LogMessage($"[PIPEIGT]: {message}");
                 }
                 catch (IOException ex)
+                {
+                    DebugLog.LogMessage($"[PIPEIGT] IOException: {ex.Message}");
+                }
+                catch (Exception ex)
                 {
                     DebugLog.LogMessage($"[PIPEIGT] Send Error: {ex.Message}");
                 }
@@ -211,7 +216,7 @@ namespace ASLBridge
                 }
                 catch (IOException ex)
                 {
-                    DebugLog.LogMessage($"[PIPE] Error to send Event: {ex.Message}");
+                    DebugLog.LogMessage($"[PIPE-EVENT] Error to send Event: {ex.Message}");
                 }
                 finally
                 {
@@ -240,9 +245,6 @@ namespace ASLBridge
                 case "openform":
                     OpenForm?.Invoke(null, EventArgs.Empty);
                     return "Opened Form";
-                case "load":
-                    SaveModule.LoadASLSettings();
-                    return "ASLSettings Loaded Successfully";
                 case "save":
                     SaveModule.SaveASLSettings();
                     return "ASLSettings Saved Successfully";

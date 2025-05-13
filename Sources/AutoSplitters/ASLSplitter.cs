@@ -63,7 +63,8 @@ namespace AutoSplitterCore
     {
         public bool PracticeMode { get; set; } = false;
 
-        private bool HCMv2 = false;
+        //Force true to Debug on ASLBridge (Use Start Seccuence to build and Start ASC and ASLBridge)
+        public bool HCMv2 { get; set; } = false;
 
         public LiveSplitState state = null;
         public ASLComponent asl;
@@ -265,20 +266,12 @@ namespace AutoSplitterCore
                 }
         }
 
-        public async Task SaveASLBridgeSettings()
+        public async Task SaveASLBridgeSettings() //Load Process on ASLBridge
         {
             if (HCMv2 && _client != null)
                 if (_client.PipeOnline)
                     await _client.SendCommand("save");
         }
-
-        public async Task LoadASLBridgeSettings()
-        {
-            if (HCMv2 && _client != null)
-                if (_client.PipeOnline)
-                    await _client.SendCommand("load");
-        }
-
 
         #endregion
         #region Checking
@@ -295,7 +288,7 @@ namespace AutoSplitterCore
                 _igtEnable = value;
 
 
-                if (!HCMv2 && !setedBridge && value)
+                if (HCMv2 && !setedBridge && value)
                 {
                     _ = EnableAslBridgeIGT();
                 }

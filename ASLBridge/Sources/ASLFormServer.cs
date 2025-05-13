@@ -35,7 +35,6 @@ namespace ASLBridge
     public partial class ASLFormServer : ReaLTaiizor.Forms.MaterialForm
     {
         ASLSplitterServer aslSplitter = ASLSplitterServer.GetInstance();
-        SaveModuleServer saveModuleServer = SaveModuleServer.GetIntance();
 
         private static readonly ASLFormServer instance = new ASLFormServer();
         public static ASLFormServer GetIntance() => instance;
@@ -104,6 +103,7 @@ namespace ASLBridge
 
         private void ASLForm_Load(object sender, EventArgs e)
         {
+            SaveModuleServer.GetIntance().LoadASLSettings();
             MainModuleServer.LoadProcess();
 
             labelInfoASL.Text = "Start: Triggered when the Start Trigger produces an HCM Timer activation.\r\nSplit: Triggered when the SplitFlag Trigger generates an HCM Split.\r\nReset: Triggered when the Reset Trigger initiates an HCM Restart Run.";
@@ -145,9 +145,9 @@ namespace ASLBridge
             if (suppressIGTEvent) return;
 
             if (metroCheckBoxIGT.Checked)
-                MainModuleServer.BroadcastEvent("event:enableigt");
+                Task.Run(() => MainModuleServer.BroadcastEvent("event:enableigt"));
             else
-                MainModuleServer.BroadcastEvent("event:disableigt");
+                Task.Run(() => MainModuleServer.BroadcastEvent("event:disableigt"));
         }
 
         private string[] gameNames;
