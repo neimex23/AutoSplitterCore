@@ -167,7 +167,7 @@ export const BetaDownload = () => {
           <h2 className="text-white text-4xl font-bold text-center">
             Download ASC 3.0 Open Beta
           </h2>
-          <h3 className="text-white font-bold text-center">Beta version: 3</h3>
+          <h3 className="text-white font-bold text-center">Beta version: 4</h3>
           <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-5xl w-full">
             <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg flex-1 text-center">
               <h3 className="text-white text-2xl font-semibold mb-2">HCMv1</h3>
@@ -175,7 +175,7 @@ export const BetaDownload = () => {
                 Try the new ASC version using the classic HitCounterManager.
               </p>
               <a
-                href="https://www.mediafire.com/file/m6lmx6j2uohpnj8/ASCv3.0-HCMv1_Beta3.zip/file"
+                href="https://www.mediafire.com/file/9lhea0r7qdadfo5/ASCv3.0-HCMv1_Beta4.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-white font-bold py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
@@ -191,7 +191,7 @@ export const BetaDownload = () => {
                 UI.
               </p>
               <a
-                href="https://www.mediafire.com/file/yo5lrcg3t5g78ar/ASCv3.0-HCMv2_Beta3.zip/file"
+                href="https://www.mediafire.com/file/u3umvfd5amhrap9/ASCv3.0-HCMv2_Beta4.zip/file"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-white font-bold m-1 py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
