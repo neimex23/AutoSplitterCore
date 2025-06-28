@@ -12,7 +12,6 @@ out/
 
 # Archivos de publicación y paquetes
 publish/
-*.nupkg
 
 # Configuraciones y dependencias
 appsettings.json
@@ -29,7 +28,6 @@ cachePDB/
 
 # Dependencias de NuGet
 packages/
-*.nupkg
 project.lock.json
 project.assets.json
 nuget.config
