@@ -76,7 +76,6 @@ if "%1"=="1" (
 )
 
 :RunApp
-@echo on
 echo ========= Starting Application =========
 if exist "HitCounterManager.exe" (
     powershell -Command "Start-Process 'HitCounterManager.exe' -Verb RunAs"

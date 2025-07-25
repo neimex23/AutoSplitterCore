@@ -150,6 +150,7 @@ namespace AutoSplitterCore
                 }
                 else
                 {
+                    btnActivate.Enabled = false;
                     lblDescription.Text += "\n(NOT a ASL Script - Contact ASC Developer to develop this dll if community demand)";
                 }
 
@@ -157,6 +158,7 @@ namespace AutoSplitterCore
             else
             {
                 lblDescription.Text = "There is no Auto Splitter available for this game.";
+                btnActivate.Enabled = false;
             }
             btnWebsite.Enabled = splitter != null && splitter.Website != null;
         }
