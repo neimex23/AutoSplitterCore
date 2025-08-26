@@ -1,5 +1,5 @@
 import { image } from "framer-motion/client";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const games = [
   {
@@ -31,7 +31,7 @@ const games = [
       "Obtain an Item",
     ],
     image:
-      "https://www.dreadxp.com/wp-content/uploads/2022/09/ss_c34cdf130b9ac71c99196007d1e78c05305652b9.1920x1080.jpg",
+      "https://m.media-amazon.com/images/I/81HFdlL5MIL._UF1000,1000_QL80_.jpg",
   },
   {
     title: "Dark Souls 2",
@@ -98,19 +98,38 @@ const games = [
 export const AutoSplitterFlags = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animation, setAnimation] = useState("");
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  const hasData = games && games.length > 0;
+  const game = hasData ? games[currentIndex] : null;
+
+  // Preload next & prev
+  useEffect(() => {
+    if (!hasData) return;
+    const next = (currentIndex + 1) % games.length;
+    const prev = (currentIndex - 1 + games.length) % games.length;
+    [next, prev].forEach((idx) => {
+      const i = new Image();
+      i.src = games[idx].image;
+    });
+  }, [currentIndex, games, hasData]);
 
   const changeCard = (direction) => {
+    if (!hasData) return;
+
     setAnimation(
       direction === "next"
         ? "translate-x-10 opacity-0"
         : "-translate-x-10 opacity-0"
     );
+
     setTimeout(() => {
-      setCurrentIndex((prevIndex) =>
+      setCurrentIndex((prev) =>
         direction === "next"
-          ? (prevIndex + 1) % games.length
-          : (prevIndex - 1 + games.length) % games.length
+          ? (prev + 1) % games.length
+          : (prev - 1 + games.length) % games.length
       );
+      setImgLoaded(false);
       setAnimation("opacity-0");
       setTimeout(() => setAnimation("opacity-100 translate-x-0"), 50);
     }, 200);
@@ -120,47 +139,67 @@ export const AutoSplitterFlags = () => {
     <div className="w-full flex flex-col justify-center items-center bg-black p-5">
       <h2 className="text-3xl font-bold text-red-500">AutoSplitter Flags</h2>
 
-      {/* Card Container */}
       <div className="relative w-full max-w-md mt-4">
-        <div
-          key={games[currentIndex].title}
-          className={`w-full min-h-[250px] flex flex-col justify-center bg-black dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center transition-all duration-700 transform ${animation}`}
-          style={{
-            backgroundImage: `url(${games[currentIndex].image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            backdropFilter: "blur(10px)",
-          }}>
-          <h2 className="text-xl font-bold text-yellow-600">
-            {games[currentIndex].title}
-          </h2>
-          <p className="text-sm text-green-200 underline">
-            {games[currentIndex].description}
-          </p>
-          <ul className="mt-2 text-sm text-white">
-            {games[currentIndex].flags.map((flag, i) => (
-              <li key={i} className="list-disc ml-4">
-                {flag}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {!hasData && (
+          <div className="w-full min-h-[300px] rounded-xl bg-gray-900 text-white grid place-items-center">
+            <p>No data available.</p>
+          </div>
+        )}
 
-        {/* Nav Buttons */}
-        <div className="flex justify-between mt-2">
-          <button
-            onClick={() => changeCard("prev")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-            ◀ Prev
-          </button>
-          <button
-            onClick={() => changeCard("next")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-            Next ▶
-          </button>
-        </div>
+        {hasData && (
+          <div
+            key={game.title}
+            className={`relative w-full rounded-xl shadow-lg overflow-hidden transition-all duration-800 transform ${animation}`}
+          >
+            <div className="relative w-full aspect-[3/2]">
+              {/* Imagen de fondo */}
+              <img
+                src={game.image}
+                alt={game.title}
+                loading="lazy"
+                decoding="async"
+                fetchPriority={currentIndex === 0 ? "high" : "low"}
+                onLoad={() => setImgLoaded(true)}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  imgLoaded ? "opacity-100" : "opacity-0"
+                }`}
+              />
+
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center text-white">
+                <h3 className="text-2xl font-bold text-yellow-400 drop-shadow">
+                  {game.title}
+                </h3>
+                <p className="text-sm text-green-200 underline mt-1">
+                  {game.description}
+                </p>
+
+                <ul className="mt-3 text-sm space-y-1 overflow-auto text-left list-disc px-6 w-full max-w-[80%]">
+                  {game.flags?.map((flag, i) => (
+                    <li key={i}>{flag}</li>
+                  ))}
+                </ul>
+              </div>       
+            </div>
+          </div>
+        )}     
+      </div>
+      <div className="flex gap-4 m-3">
+        <button
+          onClick={() => changeCard("prev")}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+          disabled={!hasData}
+        >
+          ◀ Prev
+        </button>
+        <button
+          onClick={() => changeCard("next")}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+          disabled={!hasData}
+        >
+          Next ▶
+        </button>
       </div>
     </div>
   );
