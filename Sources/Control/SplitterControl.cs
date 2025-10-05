@@ -201,6 +201,22 @@ namespace AutoSplitterCore
         /// </summary>
         /// <returns>True if the timer is running, False if it is stopped.</returns>
         bool GetTimerRunning();
+
+        // --------------------------------------------------------------------------------
+        // Beta Controls
+        // --------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Returns whether the current version is a beta version. Hardcoded to true for this code
+        /// </summary>
+        /// <returns> True Everytime</returns>
+        bool GetBetaVersion();
+
+        /// <summary>
+        /// Gets the current beta version number.
+        /// </summary>
+        /// returns>Current beta version number.</returns>
+        int BetaVersionNumber { get; }
     }
 
 
@@ -331,6 +347,13 @@ namespace AutoSplitterCore
         public void NewProfile(string profileTitle) => InvokeOnMainThread(() => interfaceHCM.ProfileNew(profileTitle));
         public void AddSplit(string splitTitle) => InvokeOnMainThread(() => interfaceHCM.SplitAppendNew(splitTitle));
         #endregion
+
+
+        //Beta Control
+        //hardcoded for Update Checker
+        public bool GetBetaVersion() => true;
+
+        public int BetaVersionNumber => 5;
 
         private static readonly SynchronizationContext syncContext = SynchronizationContext.Current ?? new WindowsFormsSynchronizationContext();
 

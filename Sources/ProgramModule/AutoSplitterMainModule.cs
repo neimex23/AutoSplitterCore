@@ -114,7 +114,6 @@ namespace AutoSplitterCore
 
             WebSockets.saveModule = saveModule;
             webSockets = WebSockets.Instance;
-            webSockets.StartAsync();
 
             if (interfaceASC != null)
             {

@@ -653,6 +653,7 @@ namespace AutoSplitterCore
             #endregion
 
             #region GeneralSettings
+            metroCheckBoxActiveWS.Checked = saveModule.generalAS.EnableWebSocket;
             checkBoxResetSplitNg.Checked = saveModule.generalAS.AutoResetSplit;
             checkBoxLogActive.Checked = saveModule.generalAS.LogFile;
             skyComboBoxOverrideStyleMode.SelectedItem = saveModule.generalAS.StyleMode.ToString();
@@ -1353,6 +1354,25 @@ namespace AutoSplitterCore
         private void linkLabelDeathCounter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => AutoSplitterMainModule.OpenWithBrowser(new Uri("https://gamebanana.com/mods/577187"));
         #endregion
         #region WebSockets
+        private void metroCheckBoxActiveWS_CheckedChanged(object sender)
+        {
+            saveModule.generalAS.EnableWebSocket = metroCheckBoxActiveWS.Checked;
+            if (metroCheckBoxActiveWS.Checked)
+            {
+                if (!WebSockets.Instance.IsRunning)
+                {
+                    _ = WebSockets.Instance.StartAsync();
+                }
+            }
+            else
+            {
+                if (WebSockets.Instance.IsRunning)
+                {
+                    WebSockets.Instance.Stop();
+                }
+            }
+        }
+
         private void CheckBoxWS_CheckedChanged(object sender)
         {
             if (sender is MetroCheckBox checkBox)

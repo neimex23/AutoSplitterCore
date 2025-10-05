@@ -88,6 +88,7 @@ namespace AutoSplitterCore
         public List<ProfileLink> ProfileLinks = new List<ProfileLink>();
 
         //WebSockets Settings
+        public bool EnableWebSocket = false;
         public WebSocketSettings WebSocketSettings = new WebSocketSettings();
 
         //AutoHitter Settings

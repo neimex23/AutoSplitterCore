@@ -56,14 +56,16 @@ namespace AutoSplitterCore
         public async void ReConnect()
         {
             Stop();
-            CreateListener(saveModule.generalAS.WebSocketSettings.Url);
             await StartAsync();
         }
 
         public async Task StartAsync()
         {
-            if (_listener == null || IsRunning)
-                return;
+            if (IsRunning || !saveModule.generalAS.EnableWebSocket) return;
+
+            if (_listener == null)
+                CreateListener(saveModule.generalAS.WebSocketSettings.Url);
+
 
             try
             {

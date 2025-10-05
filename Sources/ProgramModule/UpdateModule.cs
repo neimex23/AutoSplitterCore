@@ -22,6 +22,7 @@
 //SOFTWARE.
 
 using Newtonsoft.Json.Linq;
+using SoulMemory;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -105,8 +106,12 @@ namespace AutoSplitterCore
                         Releases.Add(Version.Parse(ver));
                     }
                 }
-                cloudVer = Releases[0].ToString() + ".0";
-                cloudVerNotDot = Releases[0].ToString();
+                if (Releases.Count > 0)
+                {
+                    cloudVer = Releases[0].ToString() + ".0";
+                    cloudVerNotDot = Releases[0].ToString();
+                }
+
                 if (!SplitterControl.GetControl().GetDebug())
                 {
                     dll = Assembly.LoadFrom("AutoSplitterCore.dll");
@@ -123,20 +128,36 @@ namespace AutoSplitterCore
                 //SoulsMemory GetVersions
                 client.Headers.Clear();
                 SoulsMemoryRelease.Clear();
-                SoulDll = Assembly.LoadFrom("SoulMemory.dll");
-                currentSoulsVer = SoulDll.GetName().Version.ToString();
-                client.Headers.Add("User-Agent", "SoulSplitter/" + SoulDll.ToString());
+
+                // Load local soul DLL if present
+                try
+                {
+                    SoulDll = Assembly.LoadFrom("SoulMemory.dll");
+                    currentSoulsVer = SoulDll.GetName().Version.ToString();
+                }
+                catch (Exception ex)
+                {
+                    SoulDll = null;
+                    currentSoulsVer = null;
+                    DebugLog.LogMessage($"Could not load SoulMemory.dll: {ex.Message}", ex);
+                }
+
+                client.Headers.Add("User-Agent", "SoulSplitter/" + (SoulDll != null ? SoulDll.ToString() : "unknown"));
                 client.Headers.Add("Accept", "application/vnd.github.v3.text+json");
                 AddAuthorization();
+
                 response = client.DownloadString("https://api.github.com/repos/FrankvdStam/SoulSplitter/releases");
                 auxReleases = response.FromJson<List<Dictionary<string, object>>>();
                 foreach (var aux in auxReleases)
                 {
                     if (aux.TryGetValue("tag_name", out var tagValue) && tagValue is string ver)
                     {
-                        Version.TryParse(ver, out Version outVer);
-                        if (outVer != null)
+                        // Normalize possible leading 'v' and try parse to Version.
+                        if (ver.StartsWith("v") || ver.StartsWith("V")) ver = ver.Substring(1);
+                        if (Version.TryParse(ver, out Version outVer))
+                        {
                             SoulsMemoryRelease.Add(outVer);
+                        }
                     }
                 }
 
@@ -146,8 +167,8 @@ namespace AutoSplitterCore
                     cloudSoulsVer = SoulsMemoryRelease[0].ToString() + ".0";
                 }
             }
-            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message,ex); }
-            ;
+            catch (Exception ex) { DebugLog.LogMessage("Error on UpdateModule: " + ex.Message, ex); }
+    ;
 
             //Debug Propouses
             //new UpdateShowDialog().ShowDialog();
@@ -162,16 +183,104 @@ namespace AutoSplitterCore
                     aux.ShowDialog();
                 }
 
-                if (SoulsMemoryRelease.Count > 0 && SoulDll != null && cloudSoulsVer != SoulDll.GetName().Version.ToString())
+                if (SoulsMemoryRelease.Count > 0 && SoulDll != null)
                 {
-                    update = true;
-                    Form aux2 = new UpdateShowDialogSouls();
-                    aux2.ShowDialog();
+                    try
+                    {
+                        Version cloudSoulVersion = SoulsMemoryRelease[0];
+                        Version localSoulVersion = SoulDll.GetName().Version;
+
+                        if (cloudSoulVersion.Major == localSoulVersion.Major && cloudSoulVersion > localSoulVersion)
+                        {
+                            update = true;
+                            Form aux2 = new UpdateShowDialogSouls();
+                            aux2.ShowDialog();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"Error comparing SoulSplitter versions: {ex.Message}", ex);
+                    }
                 }
+
+                client.Headers.Clear();
+                CheckBetaVersion();
 
                 if (!update && ForceUpdate) MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
+
+        /// <summary>
+        /// Check for a newer beta version published in a Pastebin raw URL.
+        /// </summary>
+        public void CheckBetaVersion()
+        {
+            string pastebinUrl = "https://pastebin.com/raw/bEVSnDz0";
+            string openBetaUrl = "https://neimex23.github.io/AutoSplitterCore/#/OpenBeta";
+
+            try
+            {
+                int localBeta = 0;
+                try
+                {
+                    localBeta = SplitterControl.GetControl().BetaVersionNumber;
+                }
+                catch (Exception exLocal)
+                {
+                    DebugLog.LogMessage($"Could not get local beta version: {exLocal.Message}", exLocal);
+                    return;
+                }
+                if (localBeta <= 0) return;
+
+                using (WebClient wc = new WebClient())
+                {
+                    wc.Headers.Add("User-Agent", "AutoSplitterCore-BetaCheck/" + Application.ProductVersion.ToString());
+
+                    string raw = wc.DownloadString(pastebinUrl);
+                    if (string.IsNullOrWhiteSpace(raw)) return;
+
+                    raw = raw.Trim();
+
+                    if (int.TryParse(raw, out int remoteBeta))
+                    {
+                        if (remoteBeta > localBeta)
+                        {
+                            var result = MessageBox.Show(
+                                "A new Beta Version is available, please consider updating to the latest version. Click OK to open the Open Beta page or Cancel to ignore.",
+                                "New Beta Version",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Information);
+
+                            if (result == DialogResult.OK)
+                            {
+                                try
+                                {
+                                    AutoSplitterMainModule.OpenWithBrowser(new Uri(openBetaUrl));
+                                }
+                                catch (Exception exOpen)
+                                {
+                                    DebugLog.LogMessage($"Could not open browser for Open Beta URL: {exOpen.Message}", exOpen);
+                                    MessageBox.Show("Failed to open the Open Beta page. Please visit: " + openBetaUrl, "Open Beta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DebugLog.LogMessage($"Beta check: unable to parse remote beta integer from pastebin content: '{raw}'");
+                    }
+                }
+            }
+            catch (WebException wex)
+            {
+                DebugLog.LogMessage($"Network error during Beta version check: {wex.Message}", wex);
+            }
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage($"Unexpected error during Beta version check: {ex.Message}", ex);
+            }
+        }
+
     }
 }

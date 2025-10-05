@@ -63,7 +63,7 @@ namespace AutoSplitterCore.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Start: Triggered when the Start Trigger produces an HCM Timer activation.
         ///Split: Triggered when the SplitFlag Trigger generates an HCM Split.
-        ///Reset: Triggered when the Reset Trigger initiates an HCM Restart Run..
+        ///Reset: Triggered when the Reset Trigger initiates an HCM Restart Run.
         /// </summary>
         public static string ASLInfo {
             get {
@@ -134,7 +134,7 @@ namespace AutoSplitterCore.Properties {
         ///Sword Saint Isshin
         ///Inner Genichiro
         ///Inner Father
-        ///Inner Isshin.
+        ///Inner Isshin .
         /// </summary>
         public static string MortalJourney {
             get {
@@ -154,7 +154,8 @@ namespace AutoSplitterCore.Properties {
         ///      * Update Check
         ///      * AutoResetSplits,
         ///      * Visual Style
-        ///      * Custom Profile Path, [resto de la cadena truncado]&quot;;.
+        ///      * Custom Profile Path,
+        ///      * Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         public static string ProfileWarning {
             get {
@@ -169,7 +170,7 @@ namespace AutoSplitterCore.Properties {
         ///[-] Why Keep Soul Memory Updated?
         ///   Bug Prevention: Outdated versions can cause unexpected issues.
         ///   Optimized Performance: New updates often include performance improvements.
-        ///   Compatibility: Ensures smooth integration with the la [resto de la cadena truncado]&quot;;.
+        ///   Compatibility: Ensures smooth integration with the latest v [resto de la cadena truncado]&quot;;.
         /// </summary>
         public static string SoulsMemoryNotice {
             get {
