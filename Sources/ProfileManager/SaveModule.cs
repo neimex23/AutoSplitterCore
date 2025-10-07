@@ -23,6 +23,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -324,6 +325,9 @@ namespace AutoSplitterCore
             DTCeleste dataCeleste = null;
             DTCuphead dataCuphead = null;
             DTDishonored dataDishonored = null;
+
+            //Compatibilizations with old versions
+            if (File.Exists("HitCounterManagerSaveAutoSplitter.xml")) File.Move("HitCounterManagerSaveAutoSplitter.xml", "SaveDataAutoSplitter.xml");
 
             try
             {

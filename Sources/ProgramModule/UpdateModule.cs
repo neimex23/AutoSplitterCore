@@ -203,84 +203,9 @@ namespace AutoSplitterCore
                     }
                 }
 
-                client.Headers.Clear();
-                CheckBetaVersion();
-
                 if (!update && ForceUpdate) MessageBox.Show("You have the latest Version", "Last Version", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
-
-        /// <summary>
-        /// Check for a newer beta version published in a Pastebin raw URL.
-        /// </summary>
-        public void CheckBetaVersion()
-        {
-            string pastebinUrl = "https://pastebin.com/raw/bEVSnDz0";
-            string openBetaUrl = "https://neimex23.github.io/AutoSplitterCore/#/OpenBeta";
-
-            try
-            {
-                int localBeta = 0;
-                try
-                {
-                    localBeta = SplitterControl.GetControl().BetaVersionNumber;
-                }
-                catch (Exception exLocal)
-                {
-                    DebugLog.LogMessage($"Could not get local beta version: {exLocal.Message}", exLocal);
-                    return;
-                }
-                if (localBeta <= 0) return;
-
-                using (WebClient wc = new WebClient())
-                {
-                    wc.Headers.Add("User-Agent", "AutoSplitterCore-BetaCheck/" + Application.ProductVersion.ToString());
-
-                    string raw = wc.DownloadString(pastebinUrl);
-                    if (string.IsNullOrWhiteSpace(raw)) return;
-
-                    raw = raw.Trim();
-
-                    if (int.TryParse(raw, out int remoteBeta))
-                    {
-                        if (remoteBeta > localBeta)
-                        {
-                            var result = MessageBox.Show(
-                                "A new Beta Version is available, please consider updating to the latest version. Click OK to open the Open Beta page or Cancel to ignore.",
-                                "New Beta Version",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information);
-
-                            if (result == DialogResult.OK)
-                            {
-                                try
-                                {
-                                    AutoSplitterMainModule.OpenWithBrowser(new Uri(openBetaUrl));
-                                }
-                                catch (Exception exOpen)
-                                {
-                                    DebugLog.LogMessage($"Could not open browser for Open Beta URL: {exOpen.Message}", exOpen);
-                                    MessageBox.Show("Failed to open the Open Beta page. Please visit: " + openBetaUrl, "Open Beta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        DebugLog.LogMessage($"Beta check: unable to parse remote beta integer from pastebin content: '{raw}'");
-                    }
-                }
-            }
-            catch (WebException wex)
-            {
-                DebugLog.LogMessage($"Network error during Beta version check: {wex.Message}", wex);
-            }
-            catch (Exception ex)
-            {
-                DebugLog.LogMessage($"Unexpected error during Beta version check: {ex.Message}", ex);
-            }
-        }
-
     }
 }
