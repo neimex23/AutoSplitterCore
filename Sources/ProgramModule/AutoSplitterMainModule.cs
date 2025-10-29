@@ -123,8 +123,6 @@ namespace AutoSplitterCore
                     interfaceASC.GameList.Add(game);
                 }
 
-                interfaceASC.ActiveGameIndex = GetSplitterEnable();
-
                 interfaceASC.SetActiveGameIndexMethod = (splitter) =>
                 {
                     //Disable all games
@@ -132,6 +130,9 @@ namespace AutoSplitterCore
                     //Ask Selected index
                     EnableSplitting(splitter);
                 };
+
+                interfaceASC.ActiveGameIndex = GetSplitterEnable();
+
                 interfaceASC.PracticeMode = GetPracticeMode();
                 interfaceASC.SetPracticeModeMethod = SetPracticeMode;
 

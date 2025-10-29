@@ -85,13 +85,23 @@ namespace AutoSplitterCore
                 InitializePipeClient();
             else
             {
-                Task.Run(() => _ = CompositeGameList.Instance.GetGameNames(false)); //Initialice ASL Games Titles
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        _ = CompositeGameList.Instance.GetGameNames(false);
+                    }
+                    catch (Exception ex)
+                    {
+                        DebugLog.LogMessage($"Error Initializing ASL Games Titles: {ex.Message}");
+                    }
+                }); //Initialice ASL Games Titles
                 state = GeneratorState();
                 asl = new ASLComponent(state);
                 _timer.Tick += ASCHandlerSetters;
 
 #if !DEBUG
-                ListenerASL.Initialize();
+                try { ListenerASL.Initialize();} catch (Exception ex) { DebugLog.LogMessage($"Error Initializing ASL Listener: {ex.Message}"); }
 #endif
             }
         }
