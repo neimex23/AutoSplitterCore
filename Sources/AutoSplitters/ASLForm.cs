@@ -141,27 +141,41 @@ namespace AutoSplitterCore
 
         protected void RefreshAutoSplittingUI()
         {
-            if (splitter != null)
+            lblDescription.Text = string.Empty;
+            btnActivate.Enabled = false;
+            btnWebsite.Enabled = false;
+
+            if (splitter == null)
             {
-                if (splitter.Type == AutoSplitterType.Script)
+                lblDescription.Text = "There is no Auto Splitter available for this game.";
+                return;
+            }
+
+            string description = splitter.Description ?? "(No description available)";
+
+            if (splitter.Type == AutoSplitterType.Script)
+            {
+                bool isASLHelper = splitter.URLs != null &&
+                                   splitter.URLs.Any(url => url?.IndexOf("ASLHelper", StringComparison.OrdinalIgnoreCase) >= 0);
+
+                if (isASLHelper)
                 {
-                    lblDescription.Text = splitter.Description + $"\nFile: {splitter.FileName}";
-                    btnActivate.Enabled = true;
+                    lblDescription.Text = $"{description}\n(This is an ASL Helper Script. ASC does not support these scripts. Please use another compatible one.)";
                 }
                 else
                 {
-                    btnActivate.Enabled = false;
-                    lblDescription.Text += "\n(NOT a ASL Script - Contact ASC Developer to develop this dll if community demand)";
+                    lblDescription.Text = $"{description}\nFile: {splitter.FileName ?? "Unknown"}";
+                    btnActivate.Enabled = true;
                 }
-
             }
             else
             {
-                lblDescription.Text = "There is no Auto Splitter available for this game.";
-                btnActivate.Enabled = false;
+                lblDescription.Text = $"{description}\n(Not an ASL Script - Contact the ASC developer if community support is requested for this DLL.)";
             }
-            btnWebsite.Enabled = splitter != null && splitter.Website != null;
+
+            btnWebsite.Enabled = !string.IsNullOrWhiteSpace(splitter.Website);
         }
+
 
 
         private void btnWebsite_Click(object sender, EventArgs e)
