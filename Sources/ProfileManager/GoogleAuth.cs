@@ -74,7 +74,8 @@ namespace AutoSplitterCore
 
         private void GoogleAuth_Load(object sender, EventArgs e)
         {
-            textBoxWarning.Text = Properties.Resources.ProfileWarning;
+            textBoxWarning.Multiline = true;
+            textBoxWarning.Text = Properties.Resources.ProfileWarning.Replace("\n", Environment.NewLine);
             checkedListBoxGames.Items.Clear();
             foreach (var games in GameConstruction.GameList)
             {

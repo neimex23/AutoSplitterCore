@@ -47,7 +47,8 @@ namespace AutoSplitterCore
             {
                 this.Icon = new System.Drawing.Icon(stream);
             }
-            TextBoxWarning.Text = Properties.Resources.SoulsMemoryNotice;
+            TextBoxWarning.Multiline = true;
+            TextBoxWarning.Text = Properties.Resources.SoulsMemoryNotice.Replace("\n", Environment.NewLine);
             LabelVersion.Text = updateModule.currentSoulsVer;
             labelCloudVer.Text = updateModule.cloudSoulsVer;
             groupBoxUpdating.Hide();

@@ -267,9 +267,9 @@ namespace AutoSplitterCore
             }
             #endregion
             #region Loading Texts
-            var ASCReadme = System.Text.Encoding.UTF8.GetString(Properties.Resources.AUTOSPLITTERREADME);
-            var ThirdPartyLicence = System.Text.Encoding.UTF8.GetString(Properties.Resources.THIRDPARTYLICENSEREADME);
-            var MortalJourney = Properties.Resources.MortalJourney;
+            var ASCReadme = System.Text.Encoding.UTF8.GetString(Properties.Resources.AUTOSPLITTERREADME).Replace("\n", Environment.NewLine); ;
+            var ThirdPartyLicence = System.Text.Encoding.UTF8.GetString(Properties.Resources.THIRDPARTYLICENSEREADME).Replace("\n", Environment.NewLine); ;
+            var MortalJourney = Properties.Resources.MortalJourney.Replace("\n", Environment.NewLine); ;
             textBoxManual.Text = ASCReadme;
             textBoxLicenses.Text = ThirdPartyLicence;
             hopeTextBoxMortal.Text = MortalJourney;

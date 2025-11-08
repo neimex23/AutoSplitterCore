@@ -164,6 +164,8 @@ namespace AutoSplitterCore
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label108 = new System.Windows.Forms.Label();
             this.groupBoxConfigWS = new ReaLTaiizor.Controls.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.metroCheckBoxActiveWS = new ReaLTaiizor.Controls.MetroCheckBox();
             this.btnSetUrl = new System.Windows.Forms.PictureBox();
             this.label107 = new System.Windows.Forms.Label();
             this.skyTextBoxWSMReset = new ReaLTaiizor.Controls.SkyTextBox();
@@ -650,8 +652,6 @@ namespace AutoSplitterCore
             this.materialCheckBox10 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox11 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox12 = new ReaLTaiizor.Controls.MaterialCheckBox();
-            this.metroCheckBoxActiveWS = new ReaLTaiizor.Controls.MetroCheckBox();
-            this.label94 = new System.Windows.Forms.Label();
             this.TabControlGeneral.SuspendLayout();
             this.tabConfig.SuspendLayout();
             this.groupBoxOtherS.SuspendLayout();
@@ -806,8 +806,8 @@ namespace AutoSplitterCore
             // TabControlGeneral
             // 
             this.TabControlGeneral.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabGeneral);
+            this.TabControlGeneral.Controls.Add(this.tabConfig);
             this.TabControlGeneral.Controls.Add(this.tabLicense);
             this.TabControlGeneral.Controls.Add(this.tabInfo);
             this.TabControlGeneral.Controls.Add(this.tabSekiro);
@@ -822,7 +822,7 @@ namespace AutoSplitterCore
             this.TabControlGeneral.ItemSize = new System.Drawing.Size(70, 40);
             this.TabControlGeneral.Location = new System.Drawing.Point(3, 4);
             this.TabControlGeneral.Name = "TabControlGeneral";
-            this.TabControlGeneral.SelectedIndex = 1;
+            this.TabControlGeneral.SelectedIndex = 4;
             this.TabControlGeneral.Size = new System.Drawing.Size(617, 400);
             this.TabControlGeneral.TabIndex = 0;
             this.TabControlGeneral.UseSelectable = true;
@@ -3218,6 +3218,40 @@ namespace AutoSplitterCore
             this.groupBoxConfigWS.TabIndex = 31;
             this.groupBoxConfigWS.Text = "Config";
             // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.ForeColor = System.Drawing.Color.Red;
+            this.label94.Location = new System.Drawing.Point(31, 30);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(49, 14);
+            this.label94.TabIndex = 46;
+            this.label94.Text = "ACTIVE";
+            // 
+            // metroCheckBoxActiveWS
+            // 
+            this.metroCheckBoxActiveWS.BackColor = System.Drawing.Color.Transparent;
+            this.metroCheckBoxActiveWS.BackgroundColor = System.Drawing.Color.White;
+            this.metroCheckBoxActiveWS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.metroCheckBoxActiveWS.Checked = false;
+            this.metroCheckBoxActiveWS.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroCheckBoxActiveWS.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Unchecked;
+            this.metroCheckBoxActiveWS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBoxActiveWS.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.metroCheckBoxActiveWS.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroCheckBoxActiveWS.IsDerivedStyle = true;
+            this.metroCheckBoxActiveWS.Location = new System.Drawing.Point(11, 30);
+            this.metroCheckBoxActiveWS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroCheckBoxActiveWS.Name = "metroCheckBoxActiveWS";
+            this.metroCheckBoxActiveWS.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
+            this.metroCheckBoxActiveWS.Size = new System.Drawing.Size(20, 16);
+            this.metroCheckBoxActiveWS.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroCheckBoxActiveWS.StyleManager = null;
+            this.metroCheckBoxActiveWS.TabIndex = 45;
+            this.metroCheckBoxActiveWS.ThemeAuthor = "Taiizor";
+            this.metroCheckBoxActiveWS.ThemeName = "MetroLight";
+            this.metroCheckBoxActiveWS.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.metroCheckBoxActiveWS_CheckedChanged);
+            // 
             // btnSetUrl
             // 
             this.btnSetUrl.Image = ((System.Drawing.Image)(resources.GetObject("btnSetUrl.Image")));
@@ -3573,11 +3607,11 @@ namespace AutoSplitterCore
             // tabSekiro
             // 
             this.tabSekiro.BackColor = System.Drawing.Color.White;
+            this.tabSekiro.Controls.Add(this.panelMinibossSekiro);
             this.tabSekiro.Controls.Add(this.panelCfSekiro);
             this.tabSekiro.Controls.Add(this.panelMortalJourney);
             this.tabSekiro.Controls.Add(this.panelBossS);
             this.tabSekiro.Controls.Add(this.panelIdolsS);
-            this.tabSekiro.Controls.Add(this.panelMinibossSekiro);
             this.tabSekiro.Controls.Add(this.panelPositionS);
             this.tabSekiro.Controls.Add(this.panelLevelSekiro);
             this.tabSekiro.Controls.Add(this.toSplitSelectSekiro);
@@ -5576,7 +5610,7 @@ namespace AutoSplitterCore
             this.textBoxDescriptionMiniBoss.Name = "textBoxDescriptionMiniBoss";
             this.textBoxDescriptionMiniBoss.ReadOnly = true;
             this.textBoxDescriptionMiniBoss.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescriptionMiniBoss.Size = new System.Drawing.Size(303, 58);
+            this.textBoxDescriptionMiniBoss.Size = new System.Drawing.Size(299, 58);
             this.textBoxDescriptionMiniBoss.TabIndex = 21;
             this.textBoxDescriptionMiniBoss.TabStop = false;
             // 
@@ -14198,40 +14232,6 @@ namespace AutoSplitterCore
             this.materialCheckBox12.Text = "materialCheckBox12";
             this.materialCheckBox12.UseAccentColor = true;
             this.materialCheckBox12.UseVisualStyleBackColor = true;
-            // 
-            // metroCheckBoxActiveWS
-            // 
-            this.metroCheckBoxActiveWS.BackColor = System.Drawing.Color.Transparent;
-            this.metroCheckBoxActiveWS.BackgroundColor = System.Drawing.Color.White;
-            this.metroCheckBoxActiveWS.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.metroCheckBoxActiveWS.Checked = false;
-            this.metroCheckBoxActiveWS.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroCheckBoxActiveWS.CheckState = ReaLTaiizor.Enum.Metro.CheckState.Unchecked;
-            this.metroCheckBoxActiveWS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroCheckBoxActiveWS.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.metroCheckBoxActiveWS.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroCheckBoxActiveWS.IsDerivedStyle = true;
-            this.metroCheckBoxActiveWS.Location = new System.Drawing.Point(11, 30);
-            this.metroCheckBoxActiveWS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.metroCheckBoxActiveWS.Name = "metroCheckBoxActiveWS";
-            this.metroCheckBoxActiveWS.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Shape;
-            this.metroCheckBoxActiveWS.Size = new System.Drawing.Size(20, 16);
-            this.metroCheckBoxActiveWS.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            this.metroCheckBoxActiveWS.StyleManager = null;
-            this.metroCheckBoxActiveWS.TabIndex = 45;
-            this.metroCheckBoxActiveWS.ThemeAuthor = "Taiizor";
-            this.metroCheckBoxActiveWS.ThemeName = "MetroLight";
-            this.metroCheckBoxActiveWS.CheckedChanged += new ReaLTaiizor.Controls.MetroCheckBox.CheckedChangedEventHandler(this.metroCheckBoxActiveWS_CheckedChanged);
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.ForeColor = System.Drawing.Color.Red;
-            this.label94.Location = new System.Drawing.Point(31, 30);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(49, 14);
-            this.label94.TabIndex = 46;
-            this.label94.Text = "ACTIVE";
             // 
             // AutoSplitter
             // 

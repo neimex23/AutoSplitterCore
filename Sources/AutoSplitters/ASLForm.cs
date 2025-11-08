@@ -45,7 +45,7 @@ namespace AutoSplitterCore
 
         private void ASLForm_Load(object sender, EventArgs e)
         {
-            labelInfoASL.Text = Properties.Resources.ASLInfo;
+            labelInfoASL.Text = Properties.Resources.ASLInfo.Replace("\n", Environment.NewLine); ;
             using (var stream = new System.IO.MemoryStream(Properties.Resources.AutoSplitterSetup))
             {
                 this.Icon = new System.Drawing.Icon(stream);
