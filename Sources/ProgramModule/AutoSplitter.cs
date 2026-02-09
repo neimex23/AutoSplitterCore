@@ -915,11 +915,15 @@ namespace AutoSplitterCore
             labelCloudVer.Text = updateModule.cloudVer;
             #endregion
 
+            #region LastSplit
+            RefreshLastSplit();
+            #endregion
+
             RefreshForm();
             isInitializing = false;
         }
 
-        void SetWebSocketConfig(SkyTextBox messageBox, MetroCheckBox checkBox, WebSocketMessageConfig config)
+        private void SetWebSocketConfig(SkyTextBox messageBox, MetroCheckBox checkBox, WebSocketMessageConfig config)
         {
             messageBox.Text = config.Message;
             checkBox.Checked = config.Enabled;
@@ -930,6 +934,53 @@ namespace AutoSplitterCore
             checkStatusGames();
         }
 
+        #region Last Split
+        private void RefreshLastSplit()
+        {
+            var Flags = ProfileManager.BuildFlatFlagsList(saveModule);
+            listBoxCurrentsSplits.Items.Clear();
+
+            if (Flags.Count > 0)
+            {
+                foreach (var insert in Flags)
+                {
+                    listBoxCurrentsSplits.Items.Add(insert);
+                }
+
+                skyTextBoxCurrentLastSplit.Text = saveModule.generalAS.LastSplit;
+            }
+
+            checkBoxLastSplit.Checked = saveModule.generalAS.StopOnLastSplitASC || ASLSplitter.GetInstance().HCMv2;
+        }
+
+        private void btnRefreshList_Click(object sender, EventArgs e) => RefreshLastSplit();
+
+        private void checkBoxLastSplit_CheckedChanged(object sender, EventArgs e)
+        {
+            bool checkd = checkBoxLastSplit.Checked;
+            saveModule.generalAS.StopOnLastSplitASC = checkd;
+
+            if (!checkd)
+                ClearLastSplit();
+        }
+
+        private void ClearLastSplit()
+        {
+            saveModule.generalAS.LastSplit = string.Empty;
+            skyTextBoxCurrentLastSplit.Text = string.Empty;
+        }
+
+        private void btnSelectLastSplit_Click(object sender, EventArgs e)
+        {
+            int indexSelected = listBoxCurrentsSplits.SelectedIndex;
+            if (indexSelected != -1)
+            {
+                string textSelected = listBoxCurrentsSplits.Items[indexSelected].ToString();
+                saveModule.generalAS.LastSplit = textSelected;
+                skyTextBoxCurrentLastSplit.Text = textSelected;
+            }
+        }
+        #endregion
         #region checkStatusGames
         public void checkStatusGames()
         {
@@ -4145,6 +4196,10 @@ namespace AutoSplitterCore
                     break;
             }
         }
+
+
         #endregion
+
+
     }
 }

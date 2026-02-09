@@ -21,6 +21,7 @@
 //SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -602,6 +603,62 @@ namespace AutoSplitterCore
 
             return Summary;
         }
+
+        public static List<string> BuildFlatFlagsList(SaveModule saveModule)
+        {
+            var result = new List<string>();
+
+            // ===================== Sekiro =====================
+            result.AddRange(saveModule.dataAS.DataSekiro.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataSekiro.miniBossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataSekiro.idolsTosplit.Select(i => i.Title));
+            result.AddRange(saveModule.dataAS.DataSekiro.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+            result.AddRange(saveModule.dataAS.DataSekiro.flagToSplit.Select(f => f.Id.ToString()));
+
+            // ===================== Dark Souls 1 =====================
+            result.AddRange(saveModule.dataAS.DataDs1.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataDs1.bonfireToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataDs1.itemToSplit.Select(i => i.Title));
+            result.AddRange(saveModule.dataAS.DataDs1.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+
+            // ===================== Dark Souls 2 =====================
+            result.AddRange(saveModule.dataAS.DataDs2.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataDs2.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+
+            // ===================== Dark Souls 3 =====================
+            result.AddRange(saveModule.dataAS.DataDs3.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataDs3.bonfireToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataDs3.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+            result.AddRange(saveModule.dataAS.DataDs3.flagToSplit.Select(f => f.Id.ToString()));
+
+            // ===================== Elden Ring =====================
+            result.AddRange(saveModule.dataAS.DataElden.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataElden.graceToSplit.Select(g => g.Title));
+            result.AddRange(saveModule.dataAS.DataElden.flagsToSplit.Select(f => f.Id.ToString()));
+
+            // ===================== Hollow Knight =====================
+            result.AddRange(saveModule.dataAS.DataHollow.bossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataHollow.miniBossToSplit.Select(b => b.Title));
+            result.AddRange(saveModule.dataAS.DataHollow.skillsToSplit.Select(s => s.Title));
+            result.AddRange(saveModule.dataAS.DataHollow.charmToSplit.Select(c => c.Title));
+            result.AddRange(saveModule.dataAS.DataHollow.phanteonToSplit.Select(p => p.Title));
+
+            // ===================== Celeste =====================
+            result.AddRange(saveModule.dataAS.DataCeleste.chapterToSplit.Select(c => c.Title));
+
+            // ===================== Cuphead =====================
+            result.AddRange(saveModule.dataAS.DataCuphead.elementToSplit.Select(e => e.Title));
+
+            // ===================== Dishonored =====================
+            result.AddRange(
+                saveModule.dataAS.DataDishonored.DishonoredOptions
+                    .Where(o => o.Enable)
+                    .Select(o => o.Option)
+            );
+
+            return result;
+        }
+
 
         private static string GenerateXmlNodeSummary(XmlNode node, int indentLevel = 0)
         {

@@ -259,6 +259,8 @@ namespace AutoSplitterCore
 
                 if (enableChecking)
                 {
+                    ASCLastSplit = saveModule.generalAS.StopOnLastSplitASC && saveModule.generalAS.LastSplit != string.Empty && debugLog.Contains(saveModule.generalAS.LastSplit);
+
                     if (!debugMode) InvokeOnMainThread(() => interfaceHCM.ProfileSplitGo(1));
                     if (webSockets != null && webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Split.Enabled)
                     {
@@ -299,7 +301,19 @@ namespace AutoSplitterCore
 
         public void UpdateDuration() => InvokeOnMainThread(() => interfaceHCM.UpdateDuration());
         public void ProfileReset() => InvokeOnMainThread(() => interfaceHCM.ProfileReset());
-        public bool CurrentFinalSplit() => interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
+        public bool CurrentFinalSplit()
+        {
+            if (saveModule.generalAS.StopOnLastSplitASC || ASLSplitter.GetInstance().HCMv2)
+            {
+                return ASCLastSplit;
+            }
+            else
+            {
+               return interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
+            }       
+        }
+
+        private bool ASCLastSplit = false;
 
         public bool GetTimerRunning() => interfaceHCM.TimerRunning;
 

@@ -85,6 +85,10 @@ namespace AutoSplitterCore
         public bool LogFile = true;
         public StyleMode StyleMode = StyleMode.Default;
 
+        //ASC LastSplit
+        public bool StopOnLastSplitASC = false;
+        public string LastSplit = string.Empty;
+
         //ProfileLink Settings
         public List<ProfileLink> ProfileLinks = new List<ProfileLink>();
 

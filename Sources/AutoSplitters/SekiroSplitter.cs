@@ -734,7 +734,7 @@ namespace AutoSplitterCore
                             {
                                 if (!sekiro.IsPlayerLoaded())
                                 {
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MORTAL JOURNEY -> {p.vector}");
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: SEKIRO MORTAL JOURNEY -> {p.Title} - {p.vector.ToString()}");
                                     if (splitterControl.GetSplitStatus())
                                     {
                                         p.IsSplited = true;
