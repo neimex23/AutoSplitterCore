@@ -129,7 +129,7 @@ namespace AutoSplitterCore
         {
             DefinitionsElden.PositionER cPosition = new DefinitionsElden.PositionER()
             { vector = vector, Mode = mode, Title = title };
-            dataElden.positionToSplit.Add(cPosition);
+            dataElden.positionsToSplit.Add(cPosition);
         }
 
         public void AddCustomFlag(uint id, string mode, string title)
@@ -152,8 +152,8 @@ namespace AutoSplitterCore
 
         public void RemovePosition(int position)
         {
-            listPendingP.RemoveAll(iposition => iposition.vector == dataElden.positionToSplit[position].vector);
-            dataElden.positionToSplit.RemoveAt(position);
+            listPendingP.RemoveAll(iposition => iposition.vector == dataElden.positionsToSplit[position].vector);
+            dataElden.positionsToSplit.RemoveAt(position);
         }
 
         public void RemoveCustomFlag(int position)
@@ -170,7 +170,7 @@ namespace AutoSplitterCore
             dataElden.positionMargin = 3;
             dataElden.bossToSplit.Clear();
             dataElden.graceToSplit.Clear();
-            dataElden.positionToSplit.Clear();
+            dataElden.positionsToSplit.Clear();
             dataElden.flagsToSplit.Clear();
         }
         #endregion
@@ -288,9 +288,9 @@ namespace AutoSplitterCore
 
                                 foreach (var position in listPendingP)
                                 {
-                                    var p = dataElden.positionToSplit.FindIndex(iposition => iposition.vector == position.vector);
-                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* POSITION -> {dataElden.positionToSplit[p].Title} - {dataElden.positionToSplit[p].vector.ToString()}");
-                                    dataElden.positionToSplit[p].IsSplited = true;
+                                    var p = dataElden.positionsToSplit.FindIndex(iposition => iposition.vector == position.vector);
+                                    splitterControl.SplitCheck($"SplitFlags is produced by: ELDEN RING *After Login* POSITION -> {dataElden.positionsToSplit[p].Title} - {dataElden.positionsToSplit[p].vector.ToString()}");
+                                    dataElden.positionsToSplit[p].IsSplited = true;
                                 }
 
                                 foreach (var cf in listPendingCf)

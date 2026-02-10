@@ -201,6 +201,11 @@ namespace AutoSplitterCore
         /// </summary>
         /// <returns>True if the timer is running, False if it is stopped.</returns>
         bool GetTimerRunning();
+
+        /// <summary>
+        /// Get or set the status of the last split in ASC. This is used when StopOnLastSplitASC is enabled to determine if the final split was reached.
+        /// </summary> <returns>True if the last split was reached, False otherwise.</returns>
+        bool ASCLastSplit { get; set; }
     }
 
 
@@ -211,6 +216,11 @@ namespace AutoSplitterCore
 
         private SplitterControl()
         {
+        }
+
+        public SplitterControl(bool aSCLastSplit)
+        {
+            ASCLastSplit = aSCLastSplit;
         }
 
         public static ISplitterControl GetControl() => instance.Value;
@@ -301,19 +311,25 @@ namespace AutoSplitterCore
 
         public void UpdateDuration() => InvokeOnMainThread(() => interfaceHCM.UpdateDuration());
         public void ProfileReset() => InvokeOnMainThread(() => interfaceHCM.ProfileReset());
-        public bool CurrentFinalSplit()
-        {
-            if (saveModule.generalAS.StopOnLastSplitASC || ASLSplitter.GetInstance().HCMv2)
+        public bool CurrentFinalSplit() => saveModule.generalAS.StopOnLastSplitASC ? ASCLastSplit : interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
+
+        public bool ASCLastSplit { get
             {
-                return ASCLastSplit;
+                lock (splitLock)
+                {
+                    return _ASCLastSplit;
+                }
             }
-            else
+            set
             {
-               return interfaceHCM.ActiveSplit == interfaceHCM.SplitCount;
-            }       
+                lock (splitLock)
+                {
+                    _ASCLastSplit = value;
+                }
+            }
         }
 
-        private bool ASCLastSplit = false;
+        private bool _ASCLastSplit = false;
 
         public bool GetTimerRunning() => interfaceHCM.TimerRunning;
 

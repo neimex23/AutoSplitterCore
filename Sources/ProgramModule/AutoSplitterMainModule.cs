@@ -280,6 +280,7 @@ namespace AutoSplitterCore
             hollowSplitter.ResetSplited();
             celesteSplitter.ResetSplited();
             cupSplitter.ResetSplited();
+            SplitterControl.GetControl().ASCLastSplit = false;
 
             if (webSockets.HasConnections && saveModule.generalAS.WebSocketSettings.Reset.Enabled)
             {

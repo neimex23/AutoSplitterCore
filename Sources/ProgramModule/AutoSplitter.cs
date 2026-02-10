@@ -937,7 +937,7 @@ namespace AutoSplitterCore
         #region Last Split
         private void RefreshLastSplit()
         {
-            var Flags = ProfileManager.BuildFlatFlagsList(saveModule);
+            var Flags = ProfileManager.BuildFlatFlagsList();
             listBoxCurrentsSplits.Items.Clear();
 
             if (Flags.Count > 0)
@@ -950,7 +950,7 @@ namespace AutoSplitterCore
                 skyTextBoxCurrentLastSplit.Text = saveModule.generalAS.LastSplit;
             }
 
-            checkBoxLastSplit.Checked = saveModule.generalAS.StopOnLastSplitASC || ASLSplitter.GetInstance().HCMv2;
+            checkBoxLastSplit.Checked = saveModule.generalAS.StopOnLastSplitASC;
         }
 
         private void btnRefreshList_Click(object sender, EventArgs e) => RefreshLastSplit();
@@ -980,6 +980,9 @@ namespace AutoSplitterCore
                 skyTextBoxCurrentLastSplit.Text = textSelected;
             }
         }
+
+        private void btnReset_Click(object sender, EventArgs e) => checkBoxLastSplit.Checked = false;
+
         #endregion
         #region checkStatusGames
         public void checkStatusGames()
@@ -4198,8 +4201,8 @@ namespace AutoSplitterCore
         }
 
 
-        #endregion
 
+        #endregion
 
     }
 }

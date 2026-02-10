@@ -747,7 +747,7 @@ namespace AutoSplitterCore
         //Flags to Split
         public List<DefinitionsElden.BossER> bossToSplit = new List<DefinitionsElden.BossER>();
         public List<DefinitionsElden.GraceER> graceToSplit = new List<DefinitionsElden.GraceER>();
-        public List<DefinitionsElden.PositionER> positionToSplit = new List<DefinitionsElden.PositionER>();
+        public List<DefinitionsElden.PositionER> positionsToSplit = new List<DefinitionsElden.PositionER>();
         public List<DefinitionsElden.CustomFlagER> flagsToSplit = new List<DefinitionsElden.CustomFlagER>();
 
 
@@ -755,7 +755,7 @@ namespace AutoSplitterCore
 
         public List<DefinitionsElden.GraceER> GetGraceToSplit() => this.graceToSplit;
 
-        public List<DefinitionsElden.PositionER> GetPositionToSplit() => this.positionToSplit;
+        public List<DefinitionsElden.PositionER> GetPositionToSplit() => this.positionsToSplit;
 
         public List<DefinitionsElden.CustomFlagER> GetFlagsToSplit() => this.flagsToSplit;
     }

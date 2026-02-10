@@ -20,6 +20,8 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
+using DynamicData;
+using SoulMemory.Sekiro;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -450,7 +452,7 @@ namespace AutoSplitterCore
 
             Summary += "Positions: " + Line;
             Summary += Space + "Size: " + saveModule.dataAS.DataElden.positionMargin + Line;
-            if (saveModule.dataAS.DataElden.positionToSplit.Count > 0)
+            if (saveModule.dataAS.DataElden.positionsToSplit.Count > 0)
             {
                 foreach (var sb in saveModule.dataAS.DataDs2.positionsToSplit)
                 {
@@ -604,57 +606,131 @@ namespace AutoSplitterCore
             return Summary;
         }
 
-        public static List<string> BuildFlatFlagsList(SaveModule saveModule)
+        public static List<string> BuildFlatFlagsList()
         {
             var result = new List<string>();
 
             // ===================== Sekiro =====================
-            result.AddRange(saveModule.dataAS.DataSekiro.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataSekiro.miniBossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataSekiro.idolsTosplit.Select(i => i.Title));
-            result.AddRange(saveModule.dataAS.DataSekiro.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
-            result.AddRange(saveModule.dataAS.DataSekiro.flagToSplit.Select(f => f.Id.ToString()));
+            DTSekiro DataSekiro = SekiroSplitter.GetIntance().GetDataSekiro();
+            if (DataSekiro != null)
+            {
+                result.AddRange(DataSekiro.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataSekiro.miniBossToSplit.Select(b => b.Title));
+                result.AddRange(DataSekiro.idolsTosplit.Select(i => i.Title));
+                result.AddRange(DataSekiro.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+                result.AddRange(DataSekiro.flagToSplit.Select(f => f.Id.ToString()));
 
+                result.AddRange(
+                    DataSekiro.positionsToSplit
+                        .Select(p => $"{p.Title} - {p.vector}")
+                );
+            }
             // ===================== Dark Souls 1 =====================
-            result.AddRange(saveModule.dataAS.DataDs1.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataDs1.bonfireToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataDs1.itemToSplit.Select(i => i.Title));
-            result.AddRange(saveModule.dataAS.DataDs1.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
 
+            DTDs1 DataDs1 = Ds1Splitter.GetIntance().GetDataDs1();
+
+            if (DataDs1 != null)
+            {
+                result.AddRange(DataDs1.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataDs1.bonfireToSplit.Select(b => b.Title));
+                result.AddRange(DataDs1.itemToSplit.Select(i => i.Title));
+                result.AddRange(DataDs1.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+
+                result.AddRange(
+                    DataDs1.positionsToSplit
+                        .Select(p => $"{p.Title} - {p.vector}")
+                );
+            }
             // ===================== Dark Souls 2 =====================
-            result.AddRange(saveModule.dataAS.DataDs2.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataDs2.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+
+            DTDs2 DataDs2 = Ds2Splitter.GetIntance().GetDataDs2();
+
+            if (DataDs2 != null)
+            {
+                result.AddRange(DataDs2.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataDs2.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+
+                result.AddRange(
+                        DataDs2.positionsToSplit
+                            .Select(p => $"{p.Title} - {p.vector}")
+                );
+            }
 
             // ===================== Dark Souls 3 =====================
-            result.AddRange(saveModule.dataAS.DataDs3.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataDs3.bonfireToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataDs3.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
-            result.AddRange(saveModule.dataAS.DataDs3.flagToSplit.Select(f => f.Id.ToString()));
+
+            DTDs3 DataDs3 = Ds3Splitter.GetIntance().GetDataDs3();
+
+            if (DataDs3 != null)
+            {
+                result.AddRange(DataDs3.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataDs3.bonfireToSplit.Select(b => b.Title));
+                result.AddRange(DataDs3.lvlToSplit.Select(a => $"{a.Attribute}: {a.Value}"));
+                result.AddRange(DataDs3.flagToSplit.Select(f => f.Id.ToString()));
+
+                result.AddRange(
+                       DataDs3.positionsToSplit
+                           .Select(p => $"{p.Title} - {p.vector}")
+                );
+            }
 
             // ===================== Elden Ring =====================
-            result.AddRange(saveModule.dataAS.DataElden.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataElden.graceToSplit.Select(g => g.Title));
-            result.AddRange(saveModule.dataAS.DataElden.flagsToSplit.Select(f => f.Id.ToString()));
 
+            DTElden DataElden = EldenSplitter.GetIntance().GetDataElden();
+
+            if (DataElden != null)
+            {
+                result.AddRange(DataElden.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataElden.graceToSplit.Select(g => g.Title));
+                result.AddRange(DataElden.flagsToSplit.Select(f => f.Id.ToString()));
+
+                result.AddRange(
+                      DataElden.positionsToSplit
+                          .Select(p => $"{p.Title} - {p.vector}")
+                );
+            }
             // ===================== Hollow Knight =====================
-            result.AddRange(saveModule.dataAS.DataHollow.bossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataHollow.miniBossToSplit.Select(b => b.Title));
-            result.AddRange(saveModule.dataAS.DataHollow.skillsToSplit.Select(s => s.Title));
-            result.AddRange(saveModule.dataAS.DataHollow.charmToSplit.Select(c => c.Title));
-            result.AddRange(saveModule.dataAS.DataHollow.phanteonToSplit.Select(p => p.Title));
+
+            DTHollow DataHollow = HollowSplitter.GetIntance().GetDataHollow();
+
+            if (DataHollow != null)
+            {
+                result.AddRange(DataHollow.bossToSplit.Select(b => b.Title));
+                result.AddRange(DataHollow.miniBossToSplit.Select(b => b.Title));
+                result.AddRange(DataHollow.skillsToSplit.Select(s => s.Title));
+                result.AddRange(DataHollow.charmToSplit.Select(c => c.Title));
+                result.AddRange(DataHollow.phanteonToSplit.Select(p => p.Title));
+
+                result.AddRange(
+                      DataHollow.positionToSplit
+                          .Select(p => $"{p.Title} - {p.position}")
+                );
+            }
 
             // ===================== Celeste =====================
-            result.AddRange(saveModule.dataAS.DataCeleste.chapterToSplit.Select(c => c.Title));
+
+            DTCeleste DataCeleste = CelesteSplitter.GetIntance().GetDataCeleste();
+
+            if (DataCeleste != null)
+            {
+                result.AddRange(DataCeleste.chapterToSplit.Select(c => c.Title));
+            }
 
             // ===================== Cuphead =====================
-            result.AddRange(saveModule.dataAS.DataCuphead.elementToSplit.Select(e => e.Title));
+
+            DTCuphead DataCuphead = CupheadSplitter.GetIntance().GetDataCuphead();
+
+            if (DataCuphead != null)
+                result.AddRange(DataCuphead.elementToSplit.Select(e => e.Title));
 
             // ===================== Dishonored =====================
-            result.AddRange(
-                saveModule.dataAS.DataDishonored.DishonoredOptions
-                    .Where(o => o.Enable)
-                    .Select(o => o.Option)
-            );
+
+            DTDishonored DataDishonored = DishonoredSplitter.GetIntance().GetDataDishonored();
+            if (DataDishonored != null)
+                result.AddRange(
+                    DataDishonored.DishonoredOptions
+                        .Where(o => o.Enable)
+                        .Select(o => o.Option)
+                );
 
             return result;
         }
