@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2025 Ezequiel Medina
+//Copyright (c) 2022-2026 Ezequiel Medina
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -960,7 +960,7 @@ namespace AutoSplitterCore
                         <span class=""opacity-50"">|</span>
                       <a href=""https://neimex23.github.io/AutoSplitterCore/"" target=""_blank"" rel=""noopener noreferrer"" class=""hover:underline"">Home Page</a>
                     </div>
-                    <p class=""text-xs md:text-sm opacity-75"">© 2025 AutoSplitterCore. Open Source Project.</p>
+                    <p class=""text-xs md:text-sm opacity-75"">© 2026 AutoSplitterCore. Open Source Project.</p>
                   </div>
                 </footer>
               </body>

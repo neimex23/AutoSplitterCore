@@ -1,6 +1,6 @@
 ﻿//MIT License
 
-//Copyright (c) 2022-2025 Ezequiel Medina
+//Copyright (c) 2022-2026 Ezequiel Medina
 //Copyright (c) 2024 Peter Kirmeier (Update new HCM interface)
 
 //Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,6 +23,7 @@
 
 using HitCounterManager;
 using ReactiveUI;
+using ReactiveUI.Builder;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -84,18 +85,13 @@ namespace AutoSplitterCore
                 DebugLog.Close();
             };
 
-            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
-            {
-                if (e.ExceptionObject is Exception ex)
-                {
-                    DebugLog.LogMessage($"Unhandled exception {ex.Message}", ex);
-                }
-            };
+            Application.ThreadException += (sender, args) =>
+                 DebugLog.LogMessage($"[WinForms] Thread Exception: {args.Exception}");
 
-            RxApp.DefaultExceptionHandler = Observer.Create<Exception>(ex =>
-            {
-                DebugLog.LogMessage($"[RxApp.WinForms] Global Rx Exception: {ex}");
-            });
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+                DebugLog.LogMessage($"[AppDomain] Unhandled Exception: {args.ExceptionObject}");
+
+            RxApp.DefaultExceptionHandler = Observer.Create<Exception>(ex => { DebugLog.LogMessage($"[RxApp.WinForms] Global Rx Exception: {ex}"); });
         }
 
         private void SetShowDialogClose(object sender, EventArgs e) => SetShowSettings(false); //For debugmode can interact with interface when config is open

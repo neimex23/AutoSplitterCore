@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HCM.AutoSplitterCore")]
-[assembly: AssemblyCopyright("Copyright © Ezequiel Medina - Neimex23 - 2022-2025")]
+[assembly: AssemblyCopyright("Copyright © Ezequiel Medina - Neimex23 - 2022-2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
