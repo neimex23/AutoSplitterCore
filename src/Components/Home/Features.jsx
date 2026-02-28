@@ -15,13 +15,14 @@ export const Features = () => {
               </li>
               <li>Auto-start timer when the game run starts.</li>
               <li>
-                Support for In-Game Time or Real-Time values in OBS layouts.
+                Support for In-Game Time or Real-Time values.
               </li>
               <li>Save settings with a compatible XML file.</li>
               <li>
                 Upload and Download Profile Configurations in Cloud Profile.
               </li>
               <li>Links Profiles HCM with ASC.</li>
+              <li>WebSockets: Connect your application with ASC</li>
             </ul>
           </div>
         </div>
@@ -58,6 +59,16 @@ export const Features = () => {
           <blockquote className="mt-4 border-l-4 border-yellow-500 pl-4 italic text-yellow-300">
             Ensure MSI is installed before updating to a new version.
           </blockquote>
+          <div className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl p-2">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/_6mmyZMfQ1M"
+              title="AutoSplitterCore Preview"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
 
         {/* Issues or Bugs */}

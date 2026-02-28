@@ -10,23 +10,23 @@ const features = [
   },
   {
     img: "2.png",
-    text: "Upload and share your profiles with the community.",
+    text: "Upload, share and manage your profiles with the community.",
   },
   {
     img: "3.png",
-    text: "New HitCounter: Automatically tracks hits in Celeste and Hollow Knight.",
+    text: "HitCounter: Automatically tracks hits in Celeste and Hollow Knight.",
   },
   {
     img: "4.png",
-    text: "Multi-select mode to select flags more easily",
+    text: "Intuitive Selections Flags",
   },
   {
     img: "5.png",
-    text: "ASL Script support: Run community autosplitters directly in ASC.",
+    text: "ASL Script support: Run community livesplit autosplitters directly in ASC.",
   },
 ];
 
-export const BetaDownload = () => {
+export const Download = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showScrollButton, setShowScrollButton] = useState(true);
   const afterHeaderRef = useRef(null);
@@ -87,7 +87,7 @@ export const BetaDownload = () => {
     <>
       <FireParticles />
       <div className="bg-black">
-        <Header h2Valor={"Open Beta 3.0"} />
+        <Header h2Valor={"Download AutoSplitterCore"} />
         <div ref={afterHeaderRef} className="w-full h-1" />
         {showScrollButton && (
           <div className="fixed top-4 right-4 z-50">
@@ -160,80 +160,27 @@ export const BetaDownload = () => {
         </AnimatePresence>
 
         {/* Download Section */}
-        <section
-          id="downloads"
-          ref={downloadRef}
-          className="w-full py-16 px-4 flex flex-col items-center gap-12">
-          <h2 className="text-white text-4xl font-bold text-center">
-            Download ASC 3.0 Open Beta
-          </h2>
-          <h3 className="text-white font-bold text-center">Beta version: 4</h3>
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-5xl w-full">
-            <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg flex-1 text-center">
-              <h3 className="text-white text-2xl font-semibold mb-2">HCMv1</h3>
-              <p className="text-white/80 mb-4 m-4">
-                Try the new ASC version using the classic HitCounterManager.
-              </p>
-              <a
-                href="https://www.mediafire.com/file/9lhea0r7qdadfo5/ASCv3.0-HCMv1_Beta4.zip/file"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-white font-bold py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
-                Download HCMv1
-              </a>
-            </div>
-            <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg flex-1 text-center">
-              <h3 className="text-white text-2xl font-semibold mb-2 m-2">
-                HCMv2
-              </h3>
-              <p className="text-white/80 mb-4">
-                Try the new ASC version with the redesigned HitCounterManager
-                UI.
-              </p>
-              <a
-                href="https://www.mediafire.com/file/u3umvfd5amhrap9/ASCv3.0-HCMv2_Beta4.zip/file"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-white font-bold m-1 py-2 px-4 rounded-lg transition bg-black border border-white shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.8)]">
-                Download HCMv2
-              </a>
-            </div>
-          </div>
-        </section>
+      <section
+        id="downloads"
+        ref={downloadRef}
+        className="w-full py-24 px-6 flex items-center justify-center">
 
-        <section
-          id="migration"
-          className="w-full py-16 px-4 flex flex-col items-center gap-8">
-          <h2 className="text-white text-4xl font-bold text-center">
-            Migration from ASC 1.14 and earlier
+        <div className="max-w-4xl w-full bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-2xl p-12 text-center space-y-10">
+
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-wide">
+            Download AutoSplitterCore
           </h2>
-          <div className="max-w-4xl text-white/90 text-lg text-center bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-lg">
-            <p className="mb-4">
-              You can migrate your data from ASC 1.14 or earlier by renaming the
-              file:
-            </p>
-            <code className="bg-black/60 text-yellow-300 p-2 rounded block my-2">
-              HitCounterManagerSaveAutoSplitter.xml
-            </code>
-            <p className="mb-4">to:</p>
-            <code className="bg-black/60 text-yellow-300 p-2 rounded block my-2">
-              SaveDataAutoSplitter.xml
-            </code>
-            <p className="mt-6">
-              Additionally, all stylesheets, splits, and configuration data
-              stored in
-              <code className="text-white px-2">
-                HitCounterManagerSave.xml
-              </code>{" "}
-              — for both HCMv1 and HCMv2 — are fully compatible with the current
-              beta version.
-            </p>
-            <p className="mt-6">
-              To Update new beta version just remplace your folder with new
-              files
-            </p>
-          </div>
-        </section>
+
+          <a
+            href="https://github.com/neimex23/AutoSplitterCore/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-white font-bold text-xl px-12 py-5 rounded-2xl transition-all duration-300 bg-black border border-white shadow-[0_0_20px_rgba(255,255,255,0.5)] hover:shadow-[0_0_35px_rgba(255,255,255,0.9)] hover:scale-110 active:scale-95">
+            Go to GitHub Releases
+          </a>
+
+        </div>
+      </section>
       </div>
     </>
   );

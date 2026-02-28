@@ -24,18 +24,12 @@ export const Home = () => {
             alt="AutoSplitterCore"
           />
         </div>
-
-        <a
-          href="https://github.com/neimex23/AutoSplitterCore/releases/latest"
-          target="_blank"
-          className="max-w-[280px] bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:bg-blue-700 flex justify-center block mx-auto">
-          Download Stable
-        </a>
-
+        
         <button
-          className="max-w-[280px] bg-amber-500 text-white m-2 px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.8)] hover:bg-amber-600 flex justify-center block mx-auto"
-          onClick={() => navigate("OpenBeta")}>
-          Download Beta
+          className="max-w-[280px] bg-amber-500 text-white my-6 px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(251,191,36,0.9)] hover:scale-105 hover:bg-amber-600 flex justify-center mx-auto"
+          onClick={() => navigate("Download")}
+        >
+          Download Stable
         </button>
 
         <AutoSplitterFlags />

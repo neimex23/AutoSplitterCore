@@ -84,7 +84,7 @@ const games = [
       "Weepers",
     ],
     image:
-      "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/07/dishonored-2-1981503.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/205100/header.jpg?t=1750785977",
   },
   {
     title: "ASL Scripting",
@@ -136,7 +136,7 @@ export const AutoSplitterFlags = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center bg-black p-5">
+    <div className="w-full flex flex-col justify-center items-center bg-black p-2">
       <h2 className="text-3xl font-bold text-red-500">AutoSplitter Flags</h2>
 
       <div className="relative w-full max-w-md mt-4">
