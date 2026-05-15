@@ -32,6 +32,105 @@ namespace AutoSplitterCore
 {
     public enum StyleMode { Default, Light, Dark };
     public enum HitMode { Way, Boss };
+
+    /// <summary>
+    /// Resolves the profile XML folder: creates it when missing, falls back when the configured path is not accessible.
+    /// </summary>
+    public static class ProfileSavePathHelper
+    {
+        public static string GetDefaultProfilesDirectoryNextToExe()
+        {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory ?? string.Empty;
+            return Path.GetFullPath(Path.Combine(baseDir, "AutoSplitterProfiles"));
+        }
+
+        static string GetLocalAppDataFallbackProfilesDirectory()
+        {
+            return Path.GetFullPath(Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "AutoSplitterCore",
+                "AutoSplitterProfiles"));
+        }
+
+        static void AddUniqueFullPath(List<string> list, string path)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return;
+            string normalized;
+            try { normalized = Path.GetFullPath(path.Trim()); }
+            catch { return; }
+            foreach (var existing in list)
+            {
+                if (string.Equals(existing, normalized, StringComparison.OrdinalIgnoreCase))
+                    return;
+            }
+            list.Add(normalized);
+        }
+
+        public static bool TryPrepareProfilesDirectory(string path, out string normalized, out Exception error)
+        {
+            normalized = null;
+            error = null;
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                error = new ArgumentException("Profile path is empty.");
+                return false;
+            }
+            try
+            {
+                normalized = Path.GetFullPath(path.Trim());
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return false;
+            }
+            try
+            {
+                if (!Directory.Exists(normalized))
+                    Directory.CreateDirectory(normalized);
+                _ = Directory.GetFiles(normalized);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Returns a profile directory that exists and is readable. Updates and persists settings when a fallback path is used.
+        /// </summary>
+        public static string ResolveProfilesDirectoryOrFallback(GeneralAutoSplitter general, SaveModule saveModule)
+        {
+            string initial = general.saveProfilePath;
+
+            var attempts = new List<string>();
+            AddUniqueFullPath(attempts, string.IsNullOrWhiteSpace(initial) ? GetDefaultProfilesDirectoryNextToExe() : initial);
+            AddUniqueFullPath(attempts, GetDefaultProfilesDirectoryNextToExe());
+            AddUniqueFullPath(attempts, GetLocalAppDataFallbackProfilesDirectory());
+
+            foreach (string candidate in attempts)
+            {
+                if (!TryPrepareProfilesDirectory(candidate, out string ok, out _))
+                    continue;
+
+                if (!string.Equals(initial, ok, StringComparison.OrdinalIgnoreCase))
+                {
+                    general.saveProfilePath = ok;
+                    saveModule?.SaveAutoSplitterSettings();
+                }
+                return ok;
+            }
+
+            string emergency = GetLocalAppDataFallbackProfilesDirectory();
+            try { Directory.CreateDirectory(emergency); } catch { }
+            general.saveProfilePath = emergency;
+            saveModule?.SaveAutoSplitterSettings();
+            return emergency;
+        }
+    }
+
     /// <summary>
     /// Classes Contains All Settings of AutoSplitterCore
     /// </summary>
@@ -77,7 +176,7 @@ namespace AutoSplitterCore
     public class GeneralAutoSplitter
     {
         //Settings
-        public string saveProfilePath = Path.GetFullPath("./AutoSplitterProfiles");
+        public string saveProfilePath = ProfileSavePathHelper.GetDefaultProfilesDirectoryNextToExe();
         public bool CheckUpdatesOnStartup = true;
         public bool PracticeMode = false;
         public bool AutoResetSplit = false;
@@ -379,6 +478,8 @@ namespace AutoSplitterCore
             if (dataCeleste == null) { dataCeleste = new DTCeleste(); }
             if (dataCuphead == null) { dataCuphead = new DTCuphead(); }
             if (dataDishonored == null) { dataDishonored = new DTDishonored(); }
+
+            generalAS.saveProfilePath = ProfileSavePathHelper.ResolveProfilesDirectoryOrFallback(generalAS, this);
 
             _PracticeMode = generalAS.PracticeMode;
             updateModule.CheckUpdatesOnStartup = generalAS.CheckUpdatesOnStartup;

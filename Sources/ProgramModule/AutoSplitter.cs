@@ -668,18 +668,20 @@ namespace AutoSplitterCore
             }
 
             var savepath = saveModule.generalAS.saveProfilePath;
-            if (!Directory.Exists(savepath))
+            try
             {
-                Directory.CreateDirectory(savepath);
-            }
-
-            foreach (string file in Directory.GetFiles(savepath))
-            {
-                var auxfile = file.Remove(0, savepath.Length + 1);
-                if (auxfile.Contains("xml"))
+                foreach (string file in Directory.GetFiles(savepath))
                 {
-                    skyComboBoxAscProfile.Items.Add(auxfile);
+                    var auxfile = file.Remove(0, savepath.Length + 1);
+                    if (auxfile.Contains("xml"))
+                    {
+                        skyComboBoxAscProfile.Items.Add(auxfile);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                // Folder is validated at settings load; leave profile list empty on unexpected IO errors.
             }
 
             foreach (var profileLink in saveModule.generalAS.ProfileLinks)

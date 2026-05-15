@@ -50,12 +50,7 @@ namespace AutoSplitterCore
             btnSetAuthor.Hide();
             btnSetDescription.Hide();
 
-            savePath = saveModule.generalAS.saveProfilePath;
-
-            if (!Directory.Exists(savePath))
-            {
-                Directory.CreateDirectory(savePath);
-            }
+            savePath = ProfileSavePathHelper.ResolveProfilesDirectoryOrFallback(saveModule.generalAS, saveModule);
 
             RefreshForm();
         }
@@ -76,13 +71,20 @@ namespace AutoSplitterCore
             prevIndex = comboBoxProfiles.SelectedIndex;
 
             comboBoxProfiles.Items.Clear();
-            foreach (string file in Directory.GetFiles(savePath))
+            try
             {
-                var auxfile = file.Remove(0, savePath.Length + 1);
-                if (auxfile.Contains("xml"))
+                foreach (string file in Directory.GetFiles(savePath))
                 {
-                    comboBoxProfiles.Items.Add(auxfile);
+                    var auxfile = file.Remove(0, savePath.Length + 1);
+                    if (auxfile.Contains("xml"))
+                    {
+                        comboBoxProfiles.Items.Add(auxfile);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot read the profile folder: " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             comboBoxProfiles.Refresh();
             if (comboBoxProfiles.Items.Count > 0 && prevIndex < 0)
@@ -934,24 +936,58 @@ namespace AutoSplitterCore
 
         private void btnBrowser_Click(object sender, EventArgs e)
         {
-            try
+            string previousPath = savePath;
+            string previousPersisted = saveModule.generalAS.saveProfilePath;
+
+            using (var browser = new FolderBrowserDialog())
             {
-                Stream stream = new FileStream(savePath, FileMode.OpenOrCreate);
-                var Browser = new FolderBrowserDialog();
-                DialogResult result = Browser.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(Browser.SelectedPath))
+                try
                 {
-                    using (StreamWriter writer = new StreamWriter(stream, Encoding.UTF8))
+                    if (!string.IsNullOrWhiteSpace(previousPath))
                     {
-                        writer.Write(Browser.SelectedPath);
+                        string init = Directory.Exists(previousPath)
+                            ? previousPath
+                            : Path.GetDirectoryName(previousPath.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+                        if (!string.IsNullOrEmpty(init) && Directory.Exists(init))
+                            browser.SelectedPath = init;
                     }
-                    savePath = Browser.SelectedPath;
+                }
+                catch { /* ignore invalid browse root */ }
+
+                if (browser.ShowDialog() != DialogResult.OK || string.IsNullOrWhiteSpace(browser.SelectedPath))
+                    return;
+
+                if (!ProfileSavePathHelper.TryPrepareProfilesDirectory(browser.SelectedPath, out string newPath, out Exception ex))
+                {
+                    MessageBox.Show(
+                        "Cannot use that folder (access denied or not available). The previous save path was kept.\n\n" + ex.Message,
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    savePath = previousPath;
+                    saveModule.generalAS.saveProfilePath = previousPersisted;
+                    textBoxSavePath.Text = savePath;
+                    RefreshForm();
+                    return;
+                }
+
+                savePath = newPath;
+                textBoxSavePath.Text = savePath;
+                saveModule.generalAS.saveProfilePath = newPath;
+                try
+                {
+                    saveModule.SaveAutoSplitterSettings();
+                }
+                catch (Exception saveEx)
+                {
+                    MessageBox.Show("Could not save settings: " + saveEx.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    savePath = previousPath;
+                    saveModule.generalAS.saveProfilePath = previousPersisted;
                     textBoxSavePath.Text = savePath;
                 }
-                stream.Close();
+
                 RefreshForm();
             }
-            catch (Exception ex) { MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnSetProfile_Click(object sender, EventArgs e)
