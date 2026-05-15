@@ -23,7 +23,6 @@
 
 using HitCounterManager;
 using ReactiveUI;
-using ReactiveUI.Builder;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

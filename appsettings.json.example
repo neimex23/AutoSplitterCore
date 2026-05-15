@@ -1,0 +1,36 @@
+{
+  "ApiSettings": {
+    "GetGoogleCredentials_ApiGateWay": "https://TU-API-GATEWAY.amazonaws.com/TU-RUTA/GetGoogleDriveCredentials"
+  },
+  "IAMJson": {
+    "Google": {
+      "type": "service_account",
+      "project_id": "TU-PROJECT-ID-GOOGLE-CLOUD",
+      "private_key_id": "TU-PRIVATE-KEY-ID",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nPEGA_AQUI_LA_CLAVE_PRIVADA_EN_UNA_SOLA_LINEA_CON_ESCAPES_N\n-----END PRIVATE KEY-----\n",
+      "client_email": "tu-cuenta-de-servicio@TU-PROJECT-ID.iam.gserviceaccount.com",
+      "client_id": "TU-CLIENT-ID-NUMERICO",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tu-cuenta-de-servicio%40TU-PROJECT-ID.iam.gserviceaccount.com",
+      "universe_domain": "googleapis.com"
+    },
+    "FireBase": {
+      "type": "service_account",
+      "project_id": "TU-PROJECT-ID-FIREBASE",
+      "private_key_id": "TU-PRIVATE-KEY-ID",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nPEGA_AQUI_LA_CLAVE_PRIVADA_EN_UNA_SOLA_LINEA_CON_ESCAPES_N\n-----END PRIVATE KEY-----\n",
+      "client_email": "firebase-adminsdk-xxxxx@TU-PROJECT-ID.iam.gserviceaccount.com",
+      "client_id": "TU-CLIENT-ID-NUMERICO",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xxxxx%40TU-PROJECT-ID.iam.gserviceaccount.com",
+      "universe_domain": "googleapis.com"
+    }
+  },
+  "GitHubApi": {
+    "PublicRepoToken": "token ghp_TU_PERSONAL_ACCESS_TOKEN_AQUI"
+  }
+}

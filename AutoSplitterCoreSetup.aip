@@ -12,6 +12,7 @@
     <ROW Property="ARPCONTACT" Value="Discord: neimex23"/>
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="AutoSplitterSetupIcon.exe" Type="8"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://neimex23.github.io/AutoSplitterCore/"/>
     <ROW Property="AiEmbeddedUI" Value="1" MultiBuildValue="DefaultBuild:"/>
     <ROW Property="AiLicenseAgreementLink" Value="https://neimex23.github.io/AutoSplitterCore/ThirdPartyLicense"/>
@@ -246,6 +247,12 @@
     <ROW Component="SoulMemory.dll_1" ComponentId="{745B1D7D-7DFB-458E-944E-ECC833596DA9}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="SoulMemory.dll_1"/>
     <ROW Component="SpeedrunComSharp.dll" ComponentId="{66B6B830-E28E-49CB-9527-EDB19C9408EE}" Directory_="Release_Dir" Attributes="0" KeyPath="SpeedrunComSharp.dll"/>
     <ROW Component="SpeedrunComSharp.dll_1" ComponentId="{F40E283B-4D68-4CD2-8402-BAC09B930BDB}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="SpeedrunComSharp.dll_1"/>
+    <ROW Component="Splat.Builder.dll" ComponentId="{E7DD91EC-B740-48E8-A112-46962B8DDCC6}" Directory_="Release_Dir" Attributes="0" KeyPath="Splat.Builder.dll"/>
+    <ROW Component="Splat.Builder.dll_1" ComponentId="{1D9D19EB-DF73-4D8A-A393-DA33B388A084}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Splat.Builder.dll_1"/>
+    <ROW Component="Splat.Core.dll" ComponentId="{8009C9D6-0571-45C8-9899-3D36B3014174}" Directory_="Release_Dir" Attributes="0" KeyPath="Splat.Core.dll"/>
+    <ROW Component="Splat.Core.dll_1" ComponentId="{F661CDC4-0EE5-4B28-8AE5-A4058C025063}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Splat.Core.dll_1"/>
+    <ROW Component="Splat.Logging.dll" ComponentId="{71F9BCAB-C9F9-4750-901A-C60EC4F96A8D}" Directory_="Release_Dir" Attributes="0" KeyPath="Splat.Logging.dll"/>
+    <ROW Component="Splat.Logging.dll_1" ComponentId="{72821106-9B0D-4C26-B35A-137CFD2F6FB7}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Splat.Logging.dll_1"/>
     <ROW Component="Splat.dll" ComponentId="{82BE787E-DD6B-42F0-8167-373A910CDFED}" Directory_="Release_Dir" Attributes="0" KeyPath="Splat.dll"/>
     <ROW Component="Splat.dll_1" ComponentId="{420F0F8F-8133-4227-BFBD-B29CC6D36525}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="Splat.dll_1"/>
     <ROW Component="System.Buffers.dll" ComponentId="{D545FC77-FCC7-46D6-AC6D-3ED3B29EDAFB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Buffers.dll"/>
@@ -278,11 +285,8 @@
     <ROW Component="System.Text.Json.dll_1" ComponentId="{EC62330A-3452-4626-89DF-9DC3542774A0}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Text.Json.dll_1"/>
     <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{1A1DA262-F92B-4E31-BA0E-E30C4786ABFB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
     <ROW Component="System.Threading.Tasks.Extensions.dll_1" ComponentId="{FB0B8077-941A-4DB4-BA29-9D724544A948}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll_1"/>
-    <ROW Component="System.ValueTuple.dll" ComponentId="{60B4399F-E98C-4C38-A0A3-A748B1D432AB}" Directory_="Release_Dir" Attributes="0" KeyPath="System.ValueTuple.dll"/>
-    <ROW Component="System.ValueTuple.dll_1" ComponentId="{10A60BCD-C5C6-42FB-A132-F123EA2B7D1B}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="System.ValueTuple.dll_1"/>
     <ROW Component="grpc_csharp_ext.x64.dll" ComponentId="{9D7AF5FB-16CE-4330-9E04-B79BD3C8B992}" Directory_="Release_Dir" Attributes="256" KeyPath="grpc_csharp_ext.x64.dll"/>
     <ROW Component="grpc_csharp_ext.x64.dll_1" ComponentId="{DC23E146-2CBA-4135-B1ED-99A390526501}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="grpc_csharp_ext.x64.dll_1"/>
-    <ROW Component="grpc_csharp_ext.x86.dll" ComponentId="{D2149051-B3C5-4C71-9396-175A96A6E618}" Directory_="ReleaseHCMv2_Dir" Attributes="0" KeyPath="grpc_csharp_ext.x86.dll"/>
     <ROW Component="grpc_csharp_ext.x86.dll_1" ComponentId="{134A6DC0-6BA0-4CC4-8268-8E77D42B1755}" Directory_="Release_Dir" Attributes="0" KeyPath="grpc_csharp_ext.x86.dll_1"/>
     <ROW Component="soulmods_x64.dll" ComponentId="{A74A9185-8571-4D7A-8C91-AC6D975C3967}" Directory_="Release_Dir" Attributes="256" KeyPath="soulmods_x64.dll"/>
     <ROW Component="soulmods_x64.dll_1" ComponentId="{7979310A-2A9A-4F7C-A4F1-B8D542875BCB}" Directory_="ReleaseHCMv2_Dir" Attributes="256" KeyPath="soulmods_x64.dll_1"/>
@@ -345,7 +349,6 @@
     <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~8.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="bin\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
     <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~9.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="bin\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
     <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTE~10.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="bin\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
-    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTE~11.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="bin\Release\System.ValueTuple.dll" SelfReg="false"/>
     <ROW File="UpdateScriptASC.bat" Component_="AutoSplitterCore.dll.config" FileName="UPDATE~1.BAT|UpdateScriptASC.bat" Attributes="0" SourcePath="bin\Release\UpdateScriptASC.bat" SelfReg="false"/>
     <ROW File="ASLBridge.exe" Component_="ASLBridge.exe" FileName="ASLBRI~1.EXE|ASLBridge.exe" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASLBridge.exe" SelfReg="false" DigSign="true"/>
     <ROW File="ASLBridge.exe.config" Component_="ASLBridge.exe.config" FileName="ASLBRI~1.CON|ASLBridge.exe.config" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASLBridge.exe.config" SelfReg="false"/>
@@ -370,11 +373,8 @@
     <ROW File="Grpc.Net.Client.dll_1" Component_="Grpc.Net.Client.dll_1" FileName="GRPCNE~1.DLL|Grpc.Net.Client.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Net.Client.dll" SelfReg="false"/>
     <ROW File="Grpc.Net.Common.dll_1" Component_="Grpc.Net.Common.dll_1" FileName="GRPCNE~2.DLL|Grpc.Net.Common.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Grpc.Net.Common.dll" SelfReg="false"/>
     <ROW File="grpc_csharp_ext.x64.dll_1" Component_="grpc_csharp_ext.x64.dll_1" FileName="GRPC_C~1.DLL|grpc_csharp_ext.x64.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\grpc_csharp_ext.x64.dll" SelfReg="false"/>
-    <ROW File="grpc_csharp_ext.x86.dll" Component_="grpc_csharp_ext.x86.dll" FileName="GRPC_C~2.DLL|grpc_csharp_ext.x86.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\grpc_csharp_ext.x86.dll" SelfReg="false"/>
     <ROW File="HitCounterManager.PCL.dll" Component_="HitCounterManager.PCL.dll" FileName="HITCOU~1.DLL|HitCounterManager.PCL.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\HitCounterManager.PCL.dll" SelfReg="false"/>
     <ROW File="Irony.dll_1" Component_="Irony.dll_1" FileName="Irony.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Irony.dll" SelfReg="false"/>
-    <ROW File="libgrpc_csharp_ext.x64.dylib" Component_="ASLBridge.exe.config" FileName="LIBGRP~1.DYL|libgrpc_csharp_ext.x64.dylib" Attributes="0" SourcePath="bin\ReleaseHCMv2\libgrpc_csharp_ext.x64.dylib" SelfReg="false"/>
-    <ROW File="libgrpc_csharp_ext.x64.so" Component_="ASLBridge.exe.config" FileName="LIBGRP~1.SO|libgrpc_csharp_ext.x64.so" Attributes="0" SourcePath="bin\ReleaseHCMv2\libgrpc_csharp_ext.x64.so" SelfReg="false"/>
     <ROW File="LiveSplit.Celeste.dll_1" Component_="LiveSplit.Celeste.dll_1" FileName="LIVESP~1.DLL|LiveSplit.Celeste.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Celeste.dll" SelfReg="false"/>
     <ROW File="LiveSplit.Core.dll_1" Component_="LiveSplit.Core.dll_1" FileName="LIVESP~2.DLL|LiveSplit.Core.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Core.dll" SelfReg="false"/>
     <ROW File="LiveSplit.Cuphead.dll_1" Component_="LiveSplit.Cuphead.dll_1" FileName="LIVESP~3.DLL|LiveSplit.Cuphead.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\LiveSplit.Cuphead.dll" SelfReg="false"/>
@@ -401,7 +401,6 @@
     <ROW File="System.Numerics.Vectors.dll_1" Component_="System.Numerics.Vectors.dll_1" FileName="SYSTEM~8.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Numerics.Vectors.dll" SelfReg="false"/>
     <ROW File="System.Runtime.CompilerServices.Un_1_safe.dll" Component_="System.Runtime.CompilerServices.Un_1_safe.dll" FileName="SYSTEM~9.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
     <ROW File="System.Threading.Tasks.Extensions.dll_1" Component_="System.Threading.Tasks.Extensions.dll_1" FileName="SYSTE~10.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
-    <ROW File="System.ValueTuple.dll_1" Component_="System.ValueTuple.dll_1" FileName="SYSTE~11.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.ValueTuple.dll" SelfReg="false"/>
     <ROW File="UpdateScriptASC.bat_1" Component_="ASLBridge.exe.config" FileName="UPDATE~1.BAT|UpdateScriptASC.bat" Attributes="0" SourcePath="bin\ReleaseHCMv2\UpdateScriptASC.bat" SelfReg="false"/>
     <ROW File="grpc_csharp_ext.x86.dll_1" Component_="grpc_csharp_ext.x86.dll_1" FileName="GRPC_C~2.DLL|grpc_csharp_ext.x86.dll" Attributes="0" SourcePath="bin\Release\grpc_csharp_ext.x86.dll" SelfReg="false"/>
     <ROW File="libgrpc_csharp_ext.x64.dylib_1" Component_="AutoSplitterCore.dll.config" FileName="LIBGRP~1.DYL|libgrpc_csharp_ext.x64.dylib" Attributes="0" SourcePath="bin\Release\libgrpc_csharp_ext.x64.dylib" SelfReg="false"/>
@@ -444,6 +443,14 @@
     <ROW File="System.Reactive.dll_1" Component_="System.Reactive.dll_1" FileName="SYSTE~14.DLL|System.Reactive.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Reactive.dll" SelfReg="false"/>
     <ROW File="System.Text.Encodings.Web.dll_1" Component_="System.Text.Encodings.Web.dll_1" FileName="SYSTE~15.DLL|System.Text.Encodings.Web.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Text.Encodings.Web.dll" SelfReg="false"/>
     <ROW File="System.Text.Json.dll_1" Component_="System.Text.Json.dll_1" FileName="SYSTE~16.DLL|System.Text.Json.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\System.Text.Json.dll" SelfReg="false"/>
+    <ROW File="ASC_Cert.cer" Component_="AutoSplitterCore.dll.config" FileName="ASC_Cert.cer" Attributes="0" SourcePath="bin\Release\ASC_Cert.cer" SelfReg="false"/>
+    <ROW File="Splat.Builder.dll" Component_="Splat.Builder.dll" FileName="SPLATB~1.DLL|Splat.Builder.dll" Attributes="0" SourcePath="bin\Release\Splat.Builder.dll" SelfReg="false"/>
+    <ROW File="Splat.Core.dll" Component_="Splat.Core.dll" FileName="SPLATC~1.DLL|Splat.Core.dll" Attributes="0" SourcePath="bin\Release\Splat.Core.dll" SelfReg="false"/>
+    <ROW File="Splat.Logging.dll" Component_="Splat.Logging.dll" FileName="SPLATL~1.DLL|Splat.Logging.dll" Attributes="0" SourcePath="bin\Release\Splat.Logging.dll" SelfReg="false"/>
+    <ROW File="ASC_Cert.cer_1" Component_="ASLBridge.exe.config" FileName="ASC_Cert.cer" Attributes="0" SourcePath="bin\ReleaseHCMv2\ASC_Cert.cer" SelfReg="false"/>
+    <ROW File="Splat.Builder.dll_1" Component_="Splat.Builder.dll_1" FileName="SPLATB~1.DLL|Splat.Builder.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Splat.Builder.dll" SelfReg="false"/>
+    <ROW File="Splat.Core.dll_1" Component_="Splat.Core.dll_1" FileName="SPLATC~1.DLL|Splat.Core.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Splat.Core.dll" SelfReg="false"/>
+    <ROW File="Splat.Logging.dll_1" Component_="Splat.Logging.dll_1" FileName="SPLATL~1.DLL|Splat.Logging.dll" Attributes="0" SourcePath="bin\ReleaseHCMv2\Splat.Logging.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -690,7 +697,6 @@
     <ROW Feature_="HCMv1" Component_="Grpc.Core.Api.dll"/>
     <ROW Feature_="HCMv1" Component_="System.Memory.dll"/>
     <ROW Feature_="HCMv1" Component_="Grpc.Core.dll"/>
-    <ROW Feature_="HCMv1" Component_="System.ValueTuple.dll"/>
     <ROW Feature_="HCMv1" Component_="MimeTypesMap.dll"/>
     <ROW Feature_="HCMv1" Component_="Grpc.Net.Client.dll"/>
     <ROW Feature_="HCMv1" Component_="Grpc.Net.Common.dll"/>
@@ -743,7 +749,6 @@
     <ROW Feature_="HCMv2" Component_="Grpc.Core.dll_1"/>
     <ROW Feature_="HCMv2" Component_="Microsoft.Extensions.DependencyInj_1_ection.Abstractions.dll"/>
     <ROW Feature_="HCMv2" Component_="Grpc.Net.Client.dll_1"/>
-    <ROW Feature_="HCMv2" Component_="grpc_csharp_ext.x86.dll"/>
     <ROW Feature_="HCMv2" Component_="HitCounterManager.PCL.dll"/>
     <ROW Feature_="HCMv2" Component_="Irony.dll_1"/>
     <ROW Feature_="HCMv2" Component_="LiveSplit.Celeste.dll_1"/>
@@ -765,7 +770,6 @@
     <ROW Feature_="HCMv2" Component_="System.Linq.Async.dll_1"/>
     <ROW Feature_="HCMv2" Component_="System.Numerics.Vectors.dll_1"/>
     <ROW Feature_="HCMv2" Component_="System.Threading.Tasks.Extensions.dll_1"/>
-    <ROW Feature_="HCMv2" Component_="System.ValueTuple.dll_1"/>
     <ROW Feature_="HCMv1" Component_="grpc_csharp_ext.x86.dll_1"/>
     <ROW Feature_="HCMv1" Component_="AI_ExePath"/>
     <ROW Feature_="HCMv1" Component_="DarkSouls1AnyAllBosses.xml"/>
@@ -790,6 +794,15 @@
     <ROW Feature_="HCMv2" Component_="System.Reactive.dll_1"/>
     <ROW Feature_="HCMv2" Component_="System.Text.Encodings.Web.dll_1"/>
     <ROW Feature_="HCMv2" Component_="System.Text.Json.dll_1"/>
+    <ROW Feature_="HCMv1" Component_="Splat.Builder.dll"/>
+    <ROW Feature_="HCMv1" Component_="Splat.Core.dll"/>
+    <ROW Feature_="HCMv1" Component_="Splat.Logging.dll"/>
+    <ROW Feature_="HCMv2" Component_="Splat.Builder.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Splat.Core.dll_1"/>
+    <ROW Feature_="HCMv2" Component_="Splat.Logging.dll_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="AutoSplitterSetupIcon.exe" SourcePath="AutoSplitterSetupIcon.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -869,7 +882,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="FD4C18E18B37480DB80035616CB85098" DisplayName=".NET Framework 4.8.1" SetupFileUrl="https://go.microsoft.com/fwlink/?linkid=2203305" Location="1" ExactSize="0" WinNTVersions="Windows 7 x86, Windows 8 x86, Windows 8.1 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1607 x86, Windows 10 version 1703 x86, Windows 10 version 1709 x86, Windows 10 version 1803 x86, Windows 10 version 1809 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86" WinNT64Versions="Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1607 x64, Windows Server 2016 x64, Windows 10 version 1703 x64, Windows 10 version 1709 x64, Windows 10 version 1803 x64, Windows 10 version 1809 x64, Windows Server 2019 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy"/>
+    <ROW PrereqKey="FD4C18E18B37480DB80035616CB85098" DisplayName=".NET Framework 4.8.1" SetupFileUrl="https://go.microsoft.com/fwlink/?linkid=2203305" Location="1" ExactSize="0" WinNTVersions="Windows 7 x86, Windows 8 x86, Windows 8.1 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1607 x86, Windows 10 version 1703 x86, Windows 10 version 1709 x86, Windows 10 version 1803 x86, Windows 10 version 1809 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86" WinNT64Versions="Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1607 x64, Windows Server 2016 x64, Windows 10 version 1703 x64, Windows 10 version 1709 x64, Windows 10 version 1803 x64, Windows 10 version 1809 x64, Windows Server 2019 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.8.1"/>
     <ATTRIBUTE name="PrereqsOrder" value="FD4C18E18B37480DB80035616CB85098"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
