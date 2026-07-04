@@ -17,10 +17,10 @@ if %1 equ 1 (
     TIMEOUT 3
     rem
     echo  ========= Stage 2: Updating AutoSpliterCore_Installer  =========
-    start /wait UpdateASCInstaller.msi
+    start /wait UpdateASCInstaller.exe
     rem
     echo ========= Stage 3: Cleaning =========
-    del .\UpdateASCInstaller.msi
+    del .\UpdateASCInstaller.exe
     echo All junk items were removed
     echo ===========================================  
 	
