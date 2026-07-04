@@ -18,9 +18,21 @@ $exportPath = Join-Path $scriptRoot "ASC_Cert.cer"
 
 Write-Host "Looking for existing certificate '$subject'..."
 
-# Search for existing cert
-$cert = Get-ChildItem -Path "Cert:\CurrentUser\My" | Where-Object { $_.Subject -eq $subject } | Select-Object -First 1
+# Search for existing cert (must be currently valid: not expired and already active)
+$now = Get-Date
+$cert = Get-ChildItem -Path "Cert:\CurrentUser\My" |
+    Where-Object { $_.Subject -eq $subject -and $_.NotAfter -gt $now -and $_.NotBefore -le $now } |
+    Sort-Object NotAfter -Descending |
+    Select-Object -First 1
 $certJustCreated = $false
+
+# Remove any expired certs with the same subject so they don't linger in the store
+Get-ChildItem -Path "Cert:\CurrentUser\My" |
+    Where-Object { $_.Subject -eq $subject -and $_.NotAfter -le $now } |
+    ForEach-Object {
+        Write-Host "Removing expired certificate (Thumbprint: $($_.Thumbprint), expired: $($_.NotAfter))..."
+        Remove-Item -Path $_.PSPath -Force
+    }
 
 if ($cert -ne $null) {
     Write-Host "Existing certificate found with Thumbprint: $($cert.Thumbprint)"
@@ -35,6 +47,7 @@ if ($cert -ne $null) {
         -KeyAlgorithm RSA `
         -KeyLength 2048 `
         -CertStoreLocation "Cert:\CurrentUser\My" `
+        -NotAfter (Get-Date).AddYears(10) `
         -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3") # EKU: Code Signing
 
     if ($cert -eq $null) {

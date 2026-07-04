@@ -146,6 +146,8 @@ namespace AutoSplitterCore
             Cursor = Cursors.Default;
         }
 
+        /* LEGACY: URL of the AWS API Gateway used to fetch OAuth credentials.
+           No longer used since credentials are read directly from appsettings.json (GoogleOAuthCredentials).
         //Dev should create a appsettings.json on root source code and using "Incrusting resource method" with url of AWS_ApiGateWay with name GetGoogleCredentials_ApiGateWay = api.url
         // For more info read my investigation: https://www.notion.so/Manejo-de-Secretos-c781ca2f65c449f4b9a6aa82fef3ab0a?pvs=4 (web on Spanish language)
         public static string GetAPIUrl()
@@ -169,6 +171,7 @@ namespace AutoSplitterCore
                 return string.Empty;
             }
         }
+        */
 
         public static string GetIAMGoogleKey()
         {
@@ -192,6 +195,30 @@ namespace AutoSplitterCore
             }
         }
 
+        // OAuth client credentials are now read directly from the embedded appsettings.json
+        // (section "GoogleOAuthCredentials"). AWS Secrets Manager / API Gateway is no longer used.
+        public Task<string> GetGoogleCredentials()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                using (Stream stream = assembly.GetManifestResourceStream("AutoSplitterCore.appsettings.json"))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string jsonContent = reader.ReadToEnd();
+                    var jsonObject = JObject.Parse(jsonContent);
+                    return Task.FromResult(jsonObject["GoogleOAuthCredentials"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugLog.LogMessage("Error reading GoogleOAuthCredentials from appsettings.json: " + ex.Message);
+                throw;
+            }
+        }
+
+        /* LEGACY: OAuth credentials fetched from AWS API Gateway / Secrets Manager.
+           Kept for reference in case a rollback to AWS is needed.
         public async Task<string> GetGoogleCredentials()
         {
             // API Gateway URL
@@ -245,6 +272,7 @@ namespace AutoSplitterCore
                 throw;
             }
         }
+        */
 
 
         private static readonly HttpClient client = new HttpClient();
@@ -651,48 +679,56 @@ namespace AutoSplitterCore
             }
         }
 
-        private void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewFilesASC.SelectedItems.Count > 0)
+            if (listViewFilesASC.SelectedItems.Count == 0) return;
+
+            var selectedItem = listViewFilesASC.SelectedItems[0];
+            var fileId = selectedItem.SubItems[5].Text;
+            var fileName = selectedItem.Text;
+
+            if (!fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
             {
-                Cursor = Cursors.WaitCursor;
-                var selectedItem = listViewFilesASC.SelectedItems[0];
-                var fileId = selectedItem.SubItems[5].Text;
-                var fileName = selectedItem.Text;
+                MessageBox.Show("The Selected Filed not is a XML Format.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-                if (!fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("The Selected Filed not is a XML Format.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+            Cursor = Cursors.WaitCursor;
+            bool isAsc = radioButtonDAsc.Checked;
+            string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName);
 
-                try
+            try
+            {
+                // The download + deserialization must run off the UI thread. DownloadFile blocks on
+                // Google Drive's async media download; doing that synchronously on the WinForms UI
+                // thread deadlocks (sync-over-async under the UI SynchronizationContext), which shows
+                // up as the summary "loading forever" with a frozen wait cursor.
+                string summary = await Task.Run(() =>
                 {
-                    string tempFilePath = Path.Combine(Path.GetFullPath("./AutoSplitterProfiles"), "tmp_" + fileName); ;
                     DownloadFile(fileId, tempFilePath);
 
-                    if (radioButtonDAsc.Checked)
+                    if (isAsc)
                     {
                         var configuration = DeserializeXmlFile(tempFilePath, typeof(DataAutoSplitter)) as DataAutoSplitter;
-                        SaveModule saveModuleLocal = new SaveModule
-                        {
-                            dataAS = configuration,
-                        };
-
-                        TextBoxSummary.Text = ProfileManager.BuildSummary(saveModuleLocal);
+                        var saveModuleLocal = new SaveModule { dataAS = configuration };
+                        return ProfileManager.BuildSummary(saveModuleLocal);
                     }
                     else
                     {
                         var profileHCm = DeserializeXmlFile(tempFilePath, typeof(ProfileHCM)) as ProfileHCM;
-                        TextBoxSummary.Text = ProfileManager.BuildSummaryProfile(profileHCm);
+                        return ProfileManager.BuildSummaryProfile(profileHCm);
                     }
+                });
 
-                    File.Delete(tempFilePath);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error to process file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                TextBoxSummary.Text = summary;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error to process file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                try { if (File.Exists(tempFilePath)) File.Delete(tempFilePath); } catch { }
                 Cursor = Cursors.Default;
             }
         }
@@ -896,14 +932,18 @@ namespace AutoSplitterCore
                     byte[] responseBytes = Encoding.UTF8.GetBytes(responseHtml);
 
                     context.Response.StatusCode = 200;
-                    context.Response.ContentType = "text/html";
+                    context.Response.ContentType = "text/html; charset=utf-8";
+                    context.Response.KeepAlive = false;
                     context.Response.ContentLength64 = responseBytes.Length;
 
-                    using (var output = context.Response.OutputStream)
-                    {
-                        await output.WriteAsync(responseBytes, 0, responseBytes.Length);
-                        await output.FlushAsync();
-                    }
+                    await context.Response.OutputStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+                    await context.Response.OutputStream.FlushAsync();
+
+                    // Fully send and close the response BEFORE the listener is stopped in the finally
+                    // block. HttpListener.Stop() aborts ongoing requests, so if we return without
+                    // ensuring the response reached the browser, the page (custom HTML) never renders
+                    // even though the auth code was already captured.
+                    context.Response.Close();
 
                     return authorizationCodeResponse;
                 }
